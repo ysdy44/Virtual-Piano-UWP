@@ -145,6 +145,8 @@
     <Compile Include="MidiProgramFactory.cs" />
     <Compile Include="NoteExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structs\Chords.cs" />
+    <Compile Include="Structs\NoteSize.cs" />
     <EmbeddedResource Include="Properties\Virtual_Piano.Notes.rd.xml" />
   </ItemGroup>
   <ItemGroup>
