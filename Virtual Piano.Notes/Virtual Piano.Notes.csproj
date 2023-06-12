@@ -132,6 +132,14 @@
     <Compile Include="Enums3\MidiProgram.cs" />
     <Compile Include="Enums3\MidiProgramCategory.cs" />
     <Compile Include="Enums3\MidiProgramGroup.cs" />
+    <Compile Include="Interfaces\IChordButton.cs" />
+    <Compile Include="Interfaces\IChordPanel.cs" />
+    <Compile Include="Interfaces\IClickButton.cs" />
+    <Compile Include="Interfaces\IDrumButton.cs" />
+    <Compile Include="Interfaces\IDrumPanel.cs" />
+    <Compile Include="Interfaces\IKeyDictionary.cs" />
+    <Compile Include="Interfaces\INoteButton.cs" />
+    <Compile Include="Interfaces\INotePanel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Virtual_Piano.Notes.rd.xml" />
   </ItemGroup>
