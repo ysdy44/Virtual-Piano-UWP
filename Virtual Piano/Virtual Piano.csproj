@@ -122,6 +122,8 @@
     <Compile Include="Controls\ProgramCarousel.xaml.cs">
       <DependentUpon>ProgramCarousel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainPage.Click.cs" />
+    <Compile Include="MainPage.UI.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
