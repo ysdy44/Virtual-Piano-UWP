@@ -1,0 +1,61 @@
+﻿<Canvas
+    x:Class="Virtual_Piano.Notes.Controls.ChordPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:Virtual_Piano.Notes.Controls"
+    mc:Ignorable="d"
+    d:DesignWidth="400"
+    d:DesignHeight="400"
+    Margin="2"
+    >
+
+  <FrameworkElement.Resources>
+    <!--Brush-->
+    <SolidColorBrush x:Key="Number2Brush" Color="#48000000"/>
+    <SolidColorBrush x:Key="Number3Brush" Color="#30000000"/>
+    <SolidColorBrush x:Key="Number4Brush" Color="#20000000"/>
+    <SolidColorBrush x:Key="Number5Brush" Color="#10000000"/>
+    <SolidColorBrush x:Key="Number6Brush" Color="#00000000"/>
+    <!--Style-->
+    <Style TargetType="local:ChordButton">
+      <Setter Property="AllowFocusOnInteraction" Value="True"/>
+      <Setter Property="UseSystemFocusVisuals" Value="True"/>
+      <Setter Property="IsTabStop" Value="True"/>
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="local:ChordButton">
+            <Border x:Name="RootGrid" CornerRadius="4" Background="{TemplateBinding Background}">
+
+              <!--VisualState-->
+              <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+
+                  <VisualState x:Name="Normal"/>
+
+                  <VisualState x:Name="Pressed">
+                    <VisualState.Setters>
+                      <Setter Target="RootGrid.Background" Value="White" />
+                    </VisualState.Setters>
+                  </VisualState>
+
+                </VisualStateGroup>
+              </VisualStateManager.VisualStateGroups>
+
+              <ContentPresenter
+                  Content="{TemplateBinding Tag}"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Foreground="Black"
+                  FontWeight="Bold"
+                  FontSize="16"
+                                />
+            </Border>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+  </FrameworkElement.Resources>
+
+</Canvas>

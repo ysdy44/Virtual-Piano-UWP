@@ -120,6 +120,20 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controls\ChordButton.cs" />
+    <Compile Include="Controls\ChordPanel.xaml.cs">
+      <DependentUpon>ChordPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ClickButton.cs" />
+    <Compile Include="Controls\ContactButton.cs" />
+    <Compile Include="Controls\DrumButton.cs" />
+    <Compile Include="Controls\DrumPanel.xaml.cs">
+      <DependentUpon>DrumPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NoteButton.cs" />
+    <Compile Include="Controls\NotePanel.xaml.cs">
+      <DependentUpon>NotePanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Enums1\Chord.cs" />
     <Compile Include="Enums1\Octave.cs" />
     <Compile Include="Enums1\Tone.cs" />
@@ -157,7 +171,20 @@
       <Version>6.2.14</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Page Include="Controls\ChordPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\DrumPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\NotePanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
