@@ -127,6 +127,11 @@
     <Compile Include="Enums2\KeyboardType.cs" />
     <Compile Include="Enums2\KeyLabel.cs" />
     <Compile Include="Enums2\Note.cs" />
+    <Compile Include="Enums3\MidiPercussionNote.cs" />
+    <Compile Include="Enums3\MidiPercussionNoteCategory.cs" />
+    <Compile Include="Enums3\MidiProgram.cs" />
+    <Compile Include="Enums3\MidiProgramCategory.cs" />
+    <Compile Include="Enums3\MidiProgramGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Virtual_Piano.Notes.rd.xml" />
   </ItemGroup>
