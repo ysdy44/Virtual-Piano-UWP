@@ -4,11 +4,210 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Virtual_Piano.Controls"
+    xmlns:elements="using:Virtual_Piano.Elements"
+    xmlns:notecontrols="using:Virtual_Piano.Notes.Controls"
     mc:Ignorable="d"
     Background="Black"
     >
 
     <Grid>
+
+        <!--Extension-->
+        <elements:ApplicationTitleBarExtension x:Name="ApplicationView" TitleBarColor="{ThemeResource SystemChromeLowColor}"/>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <!--Title-->
+            <TextBlock Grid.Row="1" IsHitTestVisible="False" Margin="30,6" Foreground="White" FontSize="80" FontFamily="Kunstler Script" HorizontalAlignment="Right" VerticalAlignment="Top">
+                Virtual Piano
+            </TextBlock>
+
+            <!--Head-->
+            <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+
+                <!--Player-->
+                <Border CornerRadius="2" Height="30" BorderThickness="1" BorderBrush="SkyBlue" Background="Black" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <elements:DSTimer x:Name="DSTimer" Margin="12,0"/>
+                </Border>
+            </Grid>
+
+            <!--Head-->
+            <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"  Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+                <ListView
+                    SelectedIndex="1"
+                    SelectionMode="Single"
+             
+                    ScrollViewer.ZoomMode="Disabled"
+                  
+                    ScrollViewer.HorizontalScrollMode="Enabled"
+                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                    ScrollViewer.IsHorizontalScrollChainingEnabled="True"
+            
+                    ScrollViewer.VerticalScrollMode="Disabled"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                    ScrollViewer.IsVerticalScrollChainingEnabled="False"
+                    >
+
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ListViewItem x:Name="ListViewItem0">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Width="24" Height="24" Symbol="Volume"/>
+                            <TextBlock Margin="4,0" VerticalAlignment="Center">
+                                Instrument
+                            </TextBlock>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem x:Name="ListViewItem1">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Width="24" Height="24" Symbol="Keyboard"/>
+                            <TextBlock Margin="4,0" VerticalAlignment="Center">
+                                Piano
+                            </TextBlock>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem x:Name="ListViewItem2">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Width="24" Height="24" Symbol="OneBar"/>
+                            <TextBlock Margin="4,0" VerticalAlignment="Center">
+                                Chord
+                            </TextBlock>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem x:Name="ListViewItem3">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Width="24" Height="24" Symbol="ViewAll"/>
+                            <TextBlock Margin="4,0" VerticalAlignment="Center">
+                                Drum
+                            </TextBlock>
+                        </StackPanel>
+                    </ListViewItem>
+
+                </ListView>
+            </Border>
+
+            <!--Foot-->
+            <controls:ProgramCarousel 
+                Grid.Row="3" 
+                MaxWidth="600" 
+                Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
+                Command="{x:Bind Command}"
+                />
+
+            <!--Foot-->
+            <elements:ScrollViewer2
+                Grid.Row="3" 
+                Padding="0,40,0,0" 
+                VerticalContentAlignment="Top" 
+                Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" 
+                Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
+                >
+                <notecontrols:NotePanel
+                    x:Name="NotePanel"
+                    Label="CDE"
+                    ItemWidth="28"
+                    WhiteHeight="240" 
+                    BlackHeight="159" 
+                    Command="{x:Bind Command}"
+                    />
+            </elements:ScrollViewer2>
+
+            <!--Foot-->
+            <Grid 
+                Grid.Row="3" 
+                ColumnSpacing="3" 
+                Margin="4,6" 
+                MaxWidth="900" 
+                Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}"
+                >
+                <FrameworkElement.Resources>
+                    <!--Style-->
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="8"/>
+                        <Setter Property="Background" Value="#FCFCFC"/>
+                    </Style>
+                </FrameworkElement.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Button>
+                    <SymbolIcon Symbol="More"/>
+                </Button>
+                <Button Grid.Column="1">
+                    <SymbolIcon Symbol="More"/>
+                </Button>
+                <Button Grid.Column="2">
+                    <SymbolIcon Symbol="More"/>
+                </Button>
+                <Button Grid.Column="3">
+                    <SymbolIcon Symbol="More"/>
+                </Button>
+                <Button Grid.Column="4">
+                    <SymbolIcon Symbol="More"/>
+                </Button>
+                <Button Grid.Column="5">
+                    <SymbolIcon Symbol="More"/>
+                </Button>
+                <Button Grid.Column="6">
+                    <SymbolIcon Symbol="More"/>
+                </Button>
+                <Border Grid.Row="1">
+                    <notecontrols:ChordPanel Chord="C" Command="{x:Bind Command}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="1">
+                    <notecontrols:ChordPanel Chord="Dm" Command="{x:Bind Command}"/>
+                </Border>
+                <Border Grid.Column="2" Grid.Row="1">
+                    <notecontrols:ChordPanel Chord="Em" Command="{x:Bind Command}"/>
+                </Border>
+                <Border Grid.Column="3" Grid.Row="1">
+                    <notecontrols:ChordPanel Chord="F" Command="{x:Bind Command}"/>
+                </Border>
+                <Border Grid.Column="4" Grid.Row="1">
+                    <notecontrols:ChordPanel Chord="G" Command="{x:Bind Command}"/>
+                </Border>
+                <Border Grid.Column="5" Grid.Row="1">
+                    <notecontrols:ChordPanel Chord="Am" Command="{x:Bind Command}"/>
+                </Border>
+                <Border Grid.Column="6" Grid.Row="1">
+                    <notecontrols:ChordPanel Chord="Bdim" Command="{x:Bind Command}"/>
+                </Border>
+            </Grid>
+
+            <!--Foot-->
+            <notecontrols:DrumPanel 
+                x:Name="DrumPanel"
+                Grid.Row="3" 
+                MaxWidth="900" 
+                Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}"
+                Command="{x:Bind Command}"
+                />
+
+        </Grid>
 
     </Grid>
 </Page>
