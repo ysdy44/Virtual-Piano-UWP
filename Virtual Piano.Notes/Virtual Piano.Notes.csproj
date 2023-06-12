@@ -124,6 +124,9 @@
     <Compile Include="Enums1\Octave.cs" />
     <Compile Include="Enums1\Tone.cs" />
     <Compile Include="Enums1\ToneType.cs" />
+    <Compile Include="Enums2\KeyboardType.cs" />
+    <Compile Include="Enums2\KeyLabel.cs" />
+    <Compile Include="Enums2\Note.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Virtual_Piano.Notes.rd.xml" />
   </ItemGroup>
