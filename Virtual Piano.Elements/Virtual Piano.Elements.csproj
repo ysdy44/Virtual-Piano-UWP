@@ -124,6 +124,11 @@
     <Compile Include="Carousel.xaml.cs">
       <DependentUpon>Carousel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DS\DSNumber.cs" />
+    <Compile Include="DS\DSTimer.xaml.cs">
+      <DependentUpon>DSTimer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DS\DSType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Virtual_Piano.Elements.rd.xml" />
   </ItemGroup>
@@ -134,6 +139,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Carousel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DS\DSTimer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
