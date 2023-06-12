@@ -1,0 +1,55 @@
+﻿<UserControl
+    x:Class="Virtual_Piano.Elements.ScrollViewer2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="400"
+    d:DesignHeight="400"
+    HorizontalContentAlignment="Right"
+    VerticalContentAlignment="Bottom"
+    >
+
+    <FrameworkElement.Resources>
+        <!--Storyboard-->
+        <Storyboard x:Name="XStoryboard">
+            <DoubleAnimation x:Name="XAnimation" Duration="0:0:0.4" Storyboard.TargetProperty="X" Storyboard.TargetName="TranslateTransform" >
+                <DoubleAnimation.EasingFunction>
+                    <CircleEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        <Storyboard x:Name="YStoryboard">
+            <DoubleAnimation x:Name="YAnimation" Duration="0:0:0.4" Storyboard.TargetProperty="Y" Storyboard.TargetName="TranslateTransform" >
+                <DoubleAnimation.EasingFunction>
+                    <CircleEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+    </FrameworkElement.Resources>
+
+    <Grid Background="Transparent">
+        <ContentPresenter x:Name="ContentPresenter" Margin="{x:Bind Padding, Mode=OneWay}">
+            <UIElement.RenderTransform>
+                <TranslateTransform x:Name="TranslateTransform"/>
+            </UIElement.RenderTransform>
+        </ContentPresenter>
+        <Canvas 
+            Height="40"
+            VerticalAlignment="{x:Bind VerticalContentAlignment, Mode=OneWay}" 
+            Background="{x:Bind Background, Mode=OneWay}"
+            Visibility="{x:Bind XThumb.Visibility, Mode=OneWay}"            
+            >
+            <Thumb x:Name="XThumb" Height="40"/>
+        </Canvas>
+        <Canvas 
+            Width="40" 
+            HorizontalAlignment="{x:Bind HorizontalContentAlignment, Mode=OneWay}" 
+            Background="{x:Bind Background, Mode=OneWay}"
+            Visibility="{x:Bind YThumb.Visibility, Mode=OneWay}"
+            >
+            <Thumb x:Name="YThumb" Width="40"/>
+        </Canvas>
+    </Grid>
+</UserControl>
