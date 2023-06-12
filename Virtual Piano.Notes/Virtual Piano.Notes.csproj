@@ -140,6 +140,10 @@
     <Compile Include="Interfaces\IKeyDictionary.cs" />
     <Compile Include="Interfaces\INoteButton.cs" />
     <Compile Include="Interfaces\INotePanel.cs" />
+    <Compile Include="MidiExtensions.cs" />
+    <Compile Include="MidiPercussionNoteFactory.cs" />
+    <Compile Include="MidiProgramFactory.cs" />
+    <Compile Include="NoteExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Virtual_Piano.Notes.rd.xml" />
   </ItemGroup>
