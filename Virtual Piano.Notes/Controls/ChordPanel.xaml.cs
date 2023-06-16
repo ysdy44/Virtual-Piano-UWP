@@ -9,6 +9,16 @@ namespace Virtual_Piano.Notes.Controls
 {
     public sealed partial class ChordPanel : Canvas, IChordPanel
     {
+        public static readonly Octave Octave = Octave.Number6;
+        public static readonly Octave[] Octaves = new Octave[]
+        {
+            Octave.Number6,
+            Octave.Number5,
+            Octave.Number4,
+            Octave.Number3,
+            Octave.Number2,
+        };
+
         //@Command
         public ICommand Command { get; set; }
         public Chord Chord
@@ -46,10 +56,12 @@ namespace Virtual_Piano.Notes.Controls
                 if (e.NewSize.Height != e.PreviousSize.Height)
                 {
                     const double spacing = 2;
-                    double length = e.NewSize.Height  - spacing * (Chords.Octaves.Length) +spacing;
-                    double height = length / Chords.Octaves.Length;
+                    int count = base.Children.Count;
 
-                    for (int i = 0; i < Chords.Octaves.Length; i++)
+                    double length = e.NewSize.Height - spacing * count + spacing;
+                    double height = length / count;
+
+                    for (int i = 0; i < count; i++)
                     {
                         IChordButton item = base.Children[i] as IChordButton;
                         item.Y = i * (height + spacing);
@@ -58,11 +70,11 @@ namespace Virtual_Piano.Notes.Controls
                 }
             };
 
-            foreach (Octave item in Chords.Octaves)
+            foreach (Octave item in ChordPanel.Octaves)
             {
                 base.Children.Add(new ChordButton
                 {
-                    Tag = item == Chords.Octave ? (object)this.Chord : null,
+                    Tag = item == ChordPanel.Octave ? (object)this.Chord : null,
                     Background = this.Resources[$"{item}Brush"] as SolidColorBrush,
                     CommandParameter = item
                 });
