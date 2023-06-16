@@ -2,23 +2,23 @@
 {
     public enum Tone
     {
-        Do, // C
-        DoT, // C#
+        C, // Do
+        Csharp,
 
-        Re, // D
-        ReT, // D#
+        D, // Re
+        Dsharp,
 
-        Mi, // E
+        E, // Mi
 
-        Fa, // F
-        FaT, // F#
+        F, // Fa
+        Fsharp,
 
-        Sol, // G
-        SolT, // G#
+        G, // Sol
+        Gsharp,
 
-        La, // A
-        LaT, // A#
+        A, // La
+        Asharp,
 
-        Si, // B
+        B // Si
     }
 }

@@ -22,11 +22,11 @@
         {
             switch (item)
             {
-                case Tone.DoT:
-                case Tone.ReT:
-                case Tone.FaT:
-                case Tone.SolT:
-                case Tone.LaT:
+                case Tone.Csharp:
+                case Tone.Dsharp:
+                case Tone.Fsharp:
+                case Tone.Gsharp:
+                case Tone.Asharp:
                     return ToneType.Black;
                 default:
                     return ToneType.White;
@@ -36,18 +36,18 @@
         {
             switch (item)
             {
-                case Tone.Do:
-                case Tone.DoT: return 0;
-                case Tone.Re:
-                case Tone.ReT: return 1;
-                case Tone.Mi: return 2;
-                case Tone.Fa:
-                case Tone.FaT: return 3;
-                case Tone.Sol:
-                case Tone.SolT: return 4;
-                case Tone.La:
-                case Tone.LaT: return 5;
-                case Tone.Si: return 6;
+                case Tone.C:
+                case Tone.Csharp: return 0;
+                case Tone.D:
+                case Tone.Dsharp: return 1;
+                case Tone.E: return 2;
+                case Tone.F:
+                case Tone.Fsharp: return 3;
+                case Tone.G:
+                case Tone.Gsharp: return 4;
+                case Tone.A:
+                case Tone.Asharp: return 5;
+                case Tone.B: return 6;
                 default: return 0;
             }
         }
@@ -55,18 +55,37 @@
         {
             switch (item)
             {
-                case Tone.Do: return "C";
-                case Tone.DoT: return "C#";
-                case Tone.Re: return "D";
-                case Tone.ReT: return "D#";
-                case Tone.Mi: return "E";
-                case Tone.Fa: return "F";
-                case Tone.FaT: return "F#";
-                case Tone.Sol: return "G";
-                case Tone.SolT: return "G#";
-                case Tone.La: return "A";
-                case Tone.LaT: return "A#";
-                case Tone.Si: return "B";
+                case Tone.C: return "C";
+                case Tone.Csharp: return "C#";
+                case Tone.D: return "D";
+                case Tone.Dsharp: return "D#";
+                case Tone.E: return "E";
+                case Tone.F: return "F";
+                case Tone.Fsharp: return "F#";
+                case Tone.G: return "G";
+                case Tone.Gsharp: return "G#";
+                case Tone.A: return "A";
+                case Tone.Asharp: return "A#";
+                case Tone.B: return "B";
+                default: return null;
+            }
+        }
+        public static string ToDoReMi(this Tone item)
+        {
+            switch (item)
+            {
+                case Tone.C: return "Do";
+                case Tone.Csharp: return "Do#";
+                case Tone.D: return "Re";
+                case Tone.Dsharp: return "Re#";
+                case Tone.E: return "Mi";
+                case Tone.F: return "Fa";
+                case Tone.Fsharp: return "Fa#";
+                case Tone.G: return "Sol";
+                case Tone.Gsharp: return "Sol#";
+                case Tone.A: return "La";
+                case Tone.Asharp: return "La#";
+                case Tone.B: return "Si";
                 default: return null;
             }
         }
@@ -78,26 +97,26 @@
             {
                 case Chord.C:
                 case Chord.Cm:
-                    return Tone.Do;
+                    return Tone.C;
                 case Chord.D:
                 case Chord.Dm:
-                    return Tone.Re;
+                    return Tone.D;
                 case Chord.E:
                 case Chord.Em:
-                    return Tone.Mi;
+                    return Tone.E;
                 case Chord.F:
                 case Chord.Fm:
-                    return Tone.Fa;
+                    return Tone.F;
                 case Chord.G:
                 case Chord.Gm:
-                    return Tone.Sol;
+                    return Tone.G;
                 case Chord.A:
                 case Chord.Am:
-                    return Tone.La;
+                    return Tone.A;
                 case Chord.B:
                 case Chord.Bm:
                 case Chord.Bdim:
-                    return Tone.Si;
+                    return Tone.B;
                 default:
                     return default;
             }
