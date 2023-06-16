@@ -9,11 +9,16 @@ namespace Virtual_Piano.Notes.Controls
 {
     public sealed partial class ChordPanel : Canvas, IChordPanel
     {
-        public static readonly Octave Octave = Octave.Number6;
+        public static readonly Octave Octave = Octave.Number8;
         public static readonly Octave[] Octaves = new Octave[]
         {
+            Octave.Number8,
+            Octave.Number7,
             Octave.Number6,
+
+            // C
             Octave.Number5,
+
             Octave.Number4,
             Octave.Number3,
             Octave.Number2,

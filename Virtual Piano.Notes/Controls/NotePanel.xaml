@@ -8,14 +8,20 @@
     d:DesignWidth="400"
     d:DesignHeight="400"
     >
-    
+
     <FrameworkElement.Resources>
         <!--Brush-->
+        <SolidColorBrush x:Key="Number0Brush" Color="#323C80"/>
+        <SolidColorBrush x:Key="Number1Brush" Color="#683280"/>
         <SolidColorBrush x:Key="Number2Brush" Color="#FF2E2E"/>
         <SolidColorBrush x:Key="Number3Brush" Color="#FF9348"/>
         <SolidColorBrush x:Key="Number4Brush" Color="#FAE100"/>
         <SolidColorBrush x:Key="Number5Brush" Color="#56FF56"/>
         <SolidColorBrush x:Key="Number6Brush" Color="#11FFF7"/>
+        <SolidColorBrush x:Key="Number7Brush" Color="#6477FF"/>
+        <SolidColorBrush x:Key="Number8Brush" Color="#CF64FF"/>
+        <SolidColorBrush x:Key="Number9Brush" Color="#FFCBCB"/>
+        <SolidColorBrush x:Key="Number10Brush" Color="#FFE4D1"/>
         <!--Style-->
         <Style x:Key="WhiteStyle" TargetType="Control">
             <Setter Property="AllowFocusOnInteraction" Value="True"/>

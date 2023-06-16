@@ -25,12 +25,13 @@ namespace Virtual_Piano.Notes.Controls
 
                 //       if (base.IsLoaded is false) return;
 
-                base.Width = this.NoteSize.Width;
+                int count = 0;
                 foreach (INoteButton item in base.Children.Cast<INoteButton>())
                 {
                     switch (item.Type)
                     {
                         case ToneType.White:
+                            count++;
                             item.X = item.TabIndex * this.NoteSize.WhiteWidth;
                             item.Width = this.NoteSize.WhiteWidth;
                             break;
@@ -42,6 +43,7 @@ namespace Virtual_Piano.Notes.Controls
                             break;
                     }
                 }
+                base.Width = (count - 1) * this.NoteSize.WhiteWidth;
             }
         }
 
@@ -96,12 +98,11 @@ namespace Virtual_Piano.Notes.Controls
             }
         }
 
-        public INoteButton this[Note item] => base.Children[(int)item - 1] as INoteButton;
+        public INoteButton this[Note item] => base.Children[(int)item] as INoteButton;
 
         public NotePanel()
         {
             this.InitializeComponent();
-            base.Width = this.NoteSize.Width;
             base.SizeChanged += (s, e) =>
             {
                 if (e.NewSize == Size.Empty) return;
@@ -125,47 +126,49 @@ namespace Virtual_Piano.Notes.Controls
                 }
             };
 
-            foreach (Octave octave in System.Enum.GetValues(typeof(Octave)).Cast<Octave>())
+            int count = 0;
+            foreach (Note note in System.Enum.GetValues(typeof(Note)).Cast<Note>())
             {
+                Octave octave = note.ToOctave();
                 Brush brush = this.Resources[$"{octave}Brush"] as SolidColorBrush;
                 int index = (int)octave * NoteExtensions.WhiteCount;
 
-                foreach (Tone tone in System.Enum.GetValues(typeof(Tone)).Cast<Tone>())
+                Tone tone = note.ToTone();
+                switch (tone.ToType())
                 {
-                    switch (tone.ToType())
-                    {
-                        case ToneType.White:
-                            int white = index + tone.ToIndex();
-                            base.Children.Add(new NoteButton
-                            {
-                                Tag = this.Label == KeyLabel.Off ? null : this.Label == KeyLabel.DoReMi ? tone.ToString() : octave.ToCDE(tone),
-                                TabIndex = white,
-                                Foreground = brush,
-                                Type = ToneType.White,
-                                CommandParameter = octave.ToNote(tone),
-                                Style = this.Resources[$"{ToneType.White}Style"] as Style,
-                                Width = this.NoteSize.WhiteWidth,
-                            });
-                            break;
-                        case ToneType.Black:
-                            int black = index + 2 + tone.ToIndex();
-                            base.Children.Add(new NoteButton
-                            {
-                                Tag = this.Label == KeyLabel.Off ? null : this.Label == KeyLabel.DoReMi ? tone.ToString() : octave.ToCDE(tone),
-                                TabIndex = black,
-                                Foreground = brush,
-                                CommandParameter = octave.ToNote(tone),
-                                Type = ToneType.Black,
-                                Style = this.Resources[$"{ToneType.Black}Style"] as Style,
-                                X = black * this.NoteSize.WhiteWidth - this.NoteSize.BlackWidthHalf,
-                                Width = this.NoteSize.BlackWidth,
-                            });
-                            break;
-                        default:
-                            break;
-                    }
+                    case ToneType.White:
+                        count++;
+                        int white = index + tone.ToIndex();
+                        base.Children.Add(new NoteButton
+                        {
+                            Tag = this.Label == KeyLabel.Off ? null : this.Label == KeyLabel.DoReMi ? tone.ToString() : octave.ToCDE(tone),
+                            TabIndex = white,
+                            Foreground = brush,
+                            Type = ToneType.White,
+                            CommandParameter = note,
+                            Style = this.Resources[$"{ToneType.White}Style"] as Style,
+                            Width = this.NoteSize.WhiteWidth,
+                        });
+                        break;
+                    case ToneType.Black:
+                        int black = index + 2 + tone.ToIndex();
+                        base.Children.Add(new NoteButton
+                        {
+                            Tag = this.Label == KeyLabel.Off ? null : this.Label == KeyLabel.DoReMi ? tone.ToString() : octave.ToCDE(tone),
+                            TabIndex = black,
+                            Foreground = brush,
+                            CommandParameter = note,
+                            Type = ToneType.Black,
+                            Style = this.Resources[$"{ToneType.Black}Style"] as Style,
+                            X = black * this.NoteSize.WhiteWidth - this.NoteSize.BlackWidthHalf,
+                            Width = this.NoteSize.BlackWidth,
+                        });
+                        break;
+                    default:
+                        break;
                 }
             }
+            base.Width = (count - 1) * this.NoteSize.WhiteWidth;
         }
 
         public void OnClick(Note note) => this.Command?.Execute(note); // Command

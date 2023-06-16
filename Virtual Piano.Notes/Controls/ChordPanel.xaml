@@ -13,11 +13,16 @@
 
   <FrameworkElement.Resources>
     <!--Brush-->
-    <SolidColorBrush x:Key="Number2Brush" Color="#48000000"/>
+    <SolidColorBrush x:Key="Number0Brush" Color="#48000000"/>
+    <SolidColorBrush x:Key="Number1Brush" Color="#40000000"/>
+    <SolidColorBrush x:Key="Number2Brush" Color="#38000000"/>
     <SolidColorBrush x:Key="Number3Brush" Color="#30000000"/>
-    <SolidColorBrush x:Key="Number4Brush" Color="#20000000"/>
-    <SolidColorBrush x:Key="Number5Brush" Color="#10000000"/>
-    <SolidColorBrush x:Key="Number6Brush" Color="#00000000"/>
+    <SolidColorBrush x:Key="Number4Brush" Color="#28000000"/>
+    <SolidColorBrush x:Key="Number5Brush" Color="#20000000"/>
+    <SolidColorBrush x:Key="Number6Brush" Color="#18000000"/>
+    <SolidColorBrush x:Key="Number7Brush" Color="#10000000"/>
+    <SolidColorBrush x:Key="Number8Brush" Color="#08000000"/>
+    <SolidColorBrush x:Key="Number9Brush" Color="#00000000"/>
     <!--Style-->
     <Style TargetType="local:ChordButton">
       <Setter Property="AllowFocusOnInteraction" Value="True"/>
