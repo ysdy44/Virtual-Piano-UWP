@@ -12,12 +12,12 @@ namespace Virtual_Piano.Notes
 
         public static void NoteOff(this IMidiOutPort synthesizer, Note note)
         {
-            byte n = (byte)(note + 36);
+            byte n = (byte)note;
             synthesizer?.SendMessage(new MidiNoteOffMessage(0, n, 127));
         }
         public static void NoteOn(this IMidiOutPort synthesizer, Note note)
         {
-            byte n = (byte)(note + 36);
+            byte n = (byte)note;
             synthesizer?.SendMessage(new MidiNoteOnMessage(0, n, 127));
         }
 

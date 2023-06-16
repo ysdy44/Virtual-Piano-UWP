@@ -24,12 +24,12 @@ namespace Virtual_Piano
             }
             else if (parameter is MidiProgram item1)
             {
-                this.Synthesizer.NoteOff(Note.Do3);
+                this.Synthesizer.NoteOff(Note.C5);
                 this.Synthesizer.ProgramChange(item1);
 
-                this.Synthesizer.NoteOn(Note.Do3);
+                this.Synthesizer.NoteOn(Note.C5);
                 await Task.Delay(2000);
-                this.Synthesizer.NoteOff(Note.Do3);
+                this.Synthesizer.NoteOff(Note.C5);
             }
             else if (parameter is MidiPercussionNote item2)
             {

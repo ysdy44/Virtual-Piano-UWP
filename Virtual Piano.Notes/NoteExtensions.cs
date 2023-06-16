@@ -12,7 +12,7 @@
         // 1
         public static Note ToNote(this Octave octave, Tone tone)
         {
-            return (Note)(1 + 12 * (int)octave + (int)tone);
+            return (Note)(12 * (int)octave + (int)tone);
         }
         public static string ToCDE(this Octave octave, Tone tone)
         {
@@ -139,11 +139,11 @@
         }
         public static Tone ToTone(this Note item)
         {
-            return (Tone)(((int)item - 1) % 12);
+            return (Tone)(((int)item) % 12);
         }
         public static Octave ToOctave(this Note item)
         {
-            return (Octave)(((int)item - 1) / 12);
+            return (Octave)(((int)item) / 12);
         }
     }
 }
