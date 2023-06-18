@@ -120,20 +120,6 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Controls\ChordButton.cs" />
-    <Compile Include="Controls\ChordPanel.xaml.cs">
-      <DependentUpon>ChordPanel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ClickButton.cs" />
-    <Compile Include="Controls\ContactButton.cs" />
-    <Compile Include="Controls\DrumButton.cs" />
-    <Compile Include="Controls\DrumPanel.xaml.cs">
-      <DependentUpon>DrumPanel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\NoteButton.cs" />
-    <Compile Include="Controls\NotePanel.xaml.cs">
-      <DependentUpon>NotePanel.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Enums1\Chord.cs" />
     <Compile Include="Enums1\Octave.cs" />
     <Compile Include="Enums1\Tone.cs" />
@@ -146,14 +132,7 @@
     <Compile Include="Enums3\MidiProgram.cs" />
     <Compile Include="Enums3\MidiProgramCategory.cs" />
     <Compile Include="Enums3\MidiProgramGroup.cs" />
-    <Compile Include="Interfaces\IChordButton.cs" />
-    <Compile Include="Interfaces\IChordPanel.cs" />
-    <Compile Include="Interfaces\IClickButton.cs" />
-    <Compile Include="Interfaces\IDrumButton.cs" />
-    <Compile Include="Interfaces\IDrumPanel.cs" />
     <Compile Include="Interfaces\IKeyDictionary.cs" />
-    <Compile Include="Interfaces\INoteButton.cs" />
-    <Compile Include="Interfaces\INotePanel.cs" />
     <Compile Include="MidiExtensions.cs" />
     <Compile Include="MidiPercussionNoteFactory.cs" />
     <Compile Include="MidiProgramFactory.cs" />
@@ -162,28 +141,12 @@
     <Compile Include="Keys\KeyQWERTDictionary.cs" />
     <Compile Include="NoteExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Structs\Chords.cs" />
-    <Compile Include="Structs\NoteSize.cs" />
     <EmbeddedResource Include="Properties\Virtual_Piano.Notes.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Controls\ChordPanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\DrumPanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\NotePanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
