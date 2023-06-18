@@ -6,12 +6,11 @@ namespace Virtual_Piano
     {
         public void Clear(int item)
         {
-            this.DrumPanel[item].Clear();
-
+            this.DrumPanel.Clear(item);
         }
         public void Add(int item)
         {
-            this.DrumPanel[item].Add();
+            this.DrumPanel.Add(item);
         }
 
         public void Clear(Note item)
@@ -25,11 +24,11 @@ namespace Virtual_Piano
 
         public void Clear(MidiPercussionNote item)
         {
-            this.DrumPanel[item].Clear();
+            this.DrumPanel.Clear(item);
         }
         public void Add(MidiPercussionNote item)
         {
-            this.DrumPanel[item].Add();
+            this.DrumPanel.Add(item);
         }
     }
 }

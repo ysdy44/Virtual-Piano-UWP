@@ -1,16 +1,41 @@
 ﻿<Canvas
     x:Class="Virtual_Piano.Notes.Controls.DrumPanel"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:d="http://schemas.microsoft.com/expression/ble    nd/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="using:Virtual_Piano.Notes.Controls"
     mc:Ignorable="d"
     d:DesignWidth="400"
     d:DesignHeight="400"
+    Background="Black"
+    Margin="1"
     >
 
     <FrameworkElement.Resources>
+        <!--Color-->
+        <Color x:Key="Hue0">#FF0000</Color>
+        <Color x:Key="Hue30">#FF7200</Color>
+        <Color x:Key="Hue60">#FFE900</Color>
+        <Color x:Key="Hue90">#9DFF00</Color>
+        <Color x:Key="Hue120">#2AFF00</Color>
+        <Color x:Key="Hue150">#00FF4C</Color>
+        <Color x:Key="Hue180">#00FFC3</Color>
+        <Color x:Key="Hue210">#00C7FF</Color>
+        <Color x:Key="Hue240">#0050FF</Color>
+        <Color x:Key="Hue270">#2600FF</Color>
+        <Color x:Key="Hue300">#9800FF</Color>
+        <Color x:Key="Hue330">#FF00EE</Color>
+        <Color x:Key="Hue360">#FF0077</Color>
+        <!--Brush-->
+        <SolidColorBrush x:Key="Drum" Color="{StaticResource Hue30}"/>
+        <SolidColorBrush x:Key="Hat" Color="{StaticResource Hue210}"/>
+        <SolidColorBrush x:Key="Cymbal" Color="{StaticResource Hue330}"/>
+        <SolidColorBrush x:Key="Tom" Color="{StaticResource Hue150}"/>
+        <SolidColorBrush x:Key="African" Color="{StaticResource Hue90}"/>
+        <SolidColorBrush x:Key="Latin" Color="{StaticResource Hue120}"/>
+        <SolidColorBrush x:Key="Special" Color="{StaticResource Hue300}"/>
+        <SolidColorBrush x:Key="Synth" Color="{StaticResource Hue240}"/>
         <!--Style-->
         <Style TargetType="local:DrumButton">
             <Setter Property="AllowFocusOnInteraction" Value="True"/>
@@ -19,14 +44,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="local:DrumButton">
-                        <Grid 
-                            x:Name="RootGrid" 
-                            Margin="2,1"
-                            CornerRadius="4"
-                            BorderThickness="0,1,0,0"
-                            BorderBrush="#B4B0A7"
-                            Background="#B4B0A7"
-                            >
+                        <Grid x:Name="RootGrid" Margin="2" Background="Transparent">
 
                             <!--VisualState-->
                             <VisualStateManager.VisualStateGroups>
@@ -35,19 +53,11 @@
                                     <VisualState x:Name="Normal"/>
 
                                     <VisualState x:Name="Pressed">
-                                        <VisualState.Setters>
-                                            <Setter Target="ContentPresenter.Foreground">
-                                                <Setter.Value>
-                                                    <SolidColorBrush Color="DodgerBlue"/>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </VisualState.Setters>
                                         <VisualState.Storyboard>
                                             <Storyboard>
-                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="AccentRectangle" Storyboard.TargetProperty="Opacity">
-                                                    <LinearDoubleKeyFrame KeyTime="0:0:0" Value="0" />
-                                                    <LinearDoubleKeyFrame KeyTime="0:0:0.2" Value="1" />
-                                                    <LinearDoubleKeyFrame KeyTime="0:0:0.5" Value="0" />
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Mask" Storyboard.TargetProperty="Opacity">
+                                                    <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="1" />
+                                                    <DiscreteDoubleKeyFrame KeyTime="0:0:0.2" Value="0" />
                                                 </DoubleAnimationUsingKeyFrames>
                                             </Storyboard>
                                         </VisualState.Storyboard>
@@ -56,62 +66,52 @@
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
 
-                            <Rectangle>
-                                <Rectangle.Fill>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                        <GradientStop Color="#8872716D" Offset="0"/>
-                                        <GradientStop Color="#0072716D" Offset="0.3"/>
-                                        <GradientStop Color="#0072716D" Offset="0.7"/>
-                                        <GradientStop Color="#8872716D" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Rectangle.Fill>
+                            <local:DrumMask x:Name="Mask" IsHitTestVisible="False" Opacity="0" Foreground="{TemplateBinding Foreground}"/>
+
+                            <Rectangle IsHitTestVisible="False" RadiusX="4" RadiusY="4" StrokeThickness="1" Stroke="Black" >
+                                <Shape.Fill>
+                                    <AcrylicBrush
+                                        TintOpacity="0.2" 
+                                        TintColor="#404040" 
+                                        FallbackColor="#181818" 
+                                        BackgroundSource="Backdrop" 
+                                        />
+                                </Shape.Fill>
                             </Rectangle>
 
-                            <Rectangle>
-                                <Rectangle.Fill>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                        <GradientStop Color="#8872716D" Offset="0"/>
-                                        <GradientStop Color="#0072716D" Offset="0.3"/>
-                                        <GradientStop Color="#0072716D" Offset="0.7"/>
-                                        <GradientStop Color="#8872716D" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Rectangle.Fill>
-                            </Rectangle>
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                <Border 
+                                    Margin="0,6,0,0"
+                                    IsHitTestVisible="False"
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center" 
+                                    Height="22"
+                                    CornerRadius="10" 
+                                    Background="{TemplateBinding Foreground}"
+                                    >
+                                    <ContentControl
+                                        Margin="8,2"
+                                        Content="{TemplateBinding TabIndex}" 
+                                        HorizontalAlignment="Center" 
+                                        VerticalAlignment="Bottom" 
+                                        Foreground="Black"
+                                        FontFamily="Agency FB"  
+                                        FontWeight="Bold"
+                                        FontSize="16"
+                                        />
+                                </Border>
+                                <ContentPresenter
+                                    x:Name="ContentPresenter"
+                                    IsHitTestVisible="False"
+                                    Content="{TemplateBinding Tag}"
+                                    Margin="8,2"
+                                    HorizontalAlignment="Center"
+                                    Foreground="#99FFFFFF"
+                                    FontSize="12"
+                                    FontWeight="Normal"
+                                    />
+                            </StackPanel>
 
-                            <Rectangle>
-                                <Rectangle.Fill>
-                                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                                        <GradientStop Color="#8872716D" Offset="0"/>
-                                        <GradientStop Color="#0072716D" Offset="0.3"/>
-                                        <GradientStop Color="#0072716D" Offset="0.7"/>
-                                        <GradientStop Color="#8872716D" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Rectangle.Fill>
-                            </Rectangle>
-
-                            <Rectangle>
-                                <Rectangle.Fill>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Color="#5572716D" Offset="0"/>
-                                        <GradientStop Color="#0072716D" Offset="0.2"/>
-                                        <GradientStop Color="#0072716D" Offset="0.8"/>
-                                        <GradientStop Color="#5572716D" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Rectangle.Fill>
-                            </Rectangle>
-
-                            <Rectangle x:Name="AccentRectangle" Opacity="0" Fill="Gold"/>
-
-                            <ContentPresenter
-                                x:Name="ContentPresenter"
-                                Content="{TemplateBinding Tag}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                TextWrapping="WrapWholeWords"
-                                Foreground="#434341"
-                                FontWeight="Bold"
-                                FontSize="16"
-                                />
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
