@@ -62,5 +62,74 @@
   <!--Separator 1-->
   <!--Separator 2-->
   <!--Separator 3-->
+  <data name='Drum' xml:space='preserve'> <value>架子鼓</value> </data>
+  <data name='Hat' xml:space='preserve'> <value>镲</value> </data>
+  <data name='Cymbal' xml:space='preserve'> <value>钹</value> </data>
+  <data name='Tom' xml:space='preserve'> <value>鼓</value> </data>
+  <data name='African' xml:space='preserve'> <value>非洲的</value> </data>
+  <data name='Latin' xml:space='preserve'> <value>拉丁的</value> </data>
+  <data name='Special' xml:space='preserve'> <value>其它</value> </data>
+  <data name='Synth' xml:space='preserve'> <value>声音效果</value> </data>
   <!--Separator 4-->
+  <data name='HighQ' xml:space='preserve'> <value>High Q</value> </data>
+  <data name='Slap' xml:space='preserve'> <value>Slap</value> </data>
+  <data name='ScratchPush' xml:space='preserve'> <value>Push</value> </data>
+  <data name='ScratchPull' xml:space='preserve'> <value>pull</value> </data>
+  <data name='Sticks' xml:space='preserve'> <value>小鼓鼓边</value> </data>
+  <data name='SquareClick' xml:space='preserve'> <value>Square</value> </data>
+  <data name='MetronomeClick' xml:space='preserve'> <value>Metro</value> </data>
+  <data name='MetronomeBell' xml:space='preserve'> <value>Metro bell</value> </data>
+  <data name='AcousticBassDrum' xml:space='preserve'> <value>大鼓 2</value> </data>
+  <data name='BassDrum1' xml:space='preserve'> <value>大鼓 1</value> </data>
+  <data name='SideStickRimShot' xml:space='preserve'> <value>小鼓鼓边</value> </data>
+  <data name='AcousticSnareDrum' xml:space='preserve'> <value>小鼓 1</value> </data>
+  <data name='HandClap' xml:space='preserve'> <value>拍手</value> </data>
+  <data name='ElectricSnareDrum' xml:space='preserve'> <value>小鼓 2</value> </data>
+  <data name='LowFloorTom' xml:space='preserve'> <value>低音鼓 6</value> </data>
+  <data name='ClosedHiHat' xml:space='preserve'> <value>闭合开合钹</value> </data>
+  <data name='HighFloorTom' xml:space='preserve'> <value>低音鼓 5</value> </data>
+  <data name='PedalHiHat' xml:space='preserve'> <value>脚踏开合钹</value> </data>
+  <data name='LowTom' xml:space='preserve'> <value>中音鼓 4</value> </data>
+  <data name='OpenHiHat' xml:space='preserve'> <value>开放开合钹</value> </data>
+  <data name='LowLowMidTom' xml:space='preserve'> <value>中音鼓 3</value> </data>
+  <data name='HighMidTom' xml:space='preserve'> <value>高音鼓 2</value> </data>
+  <data name='CrashCymbal1' xml:space='preserve'> <value>强音钹 1</value> </data>
+  <data name='HighTom' xml:space='preserve'> <value>高音鼓 1</value> </data>
+  <data name='RideCymbal1' xml:space='preserve'> <value>打点钹 1</value> </data>
+  <data name='ChinaCymbal' xml:space='preserve'> <value>钹</value> </data>
+  <data name='RideBell' xml:space='preserve'> <value>响铃</value> </data>
+  <data name='Tambourine' xml:space='preserve'> <value>铃鼓</value> </data>
+  <data name='SplashCymbal' xml:space='preserve'> <value>小钹铜钹</value> </data>
+  <data name='Cowbell' xml:space='preserve'> <value>牛铃</value> </data>
+  <data name='CrashCymbal2' xml:space='preserve'> <value>强音钹 2</value> </data>
+  <data name='VibratoSlap' xml:space='preserve'> <value>噪音器</value> </data>
+  <data name='RideCymbal2' xml:space='preserve'> <value>打点钹 2</value> </data>
+  <data name='HighBongo' xml:space='preserve'> <value>高音邦加鼓</value> </data>
+  <data name='LowBongo' xml:space='preserve'> <value>低音邦加鼓</value> </data>
+  <data name='MuteHighConga' xml:space='preserve'> <value>闷音高音康加鼓</value> </data>
+  <data name='HighConga' xml:space='preserve'> <value>开放高音康加鼓</value> </data>
+  <data name='LowConga' xml:space='preserve'> <value>低音康加鼓</value> </data>
+  <data name='HighTimbale' xml:space='preserve'> <value>高音天巴雷鼓</value> </data>
+  <data name='LowTimbale' xml:space='preserve'> <value>低音天巴雷鼓</value> </data>
+  <data name='HighAgogo' xml:space='preserve'> <value>高音阿哥哥</value> </data>
+  <data name='LowAgogo' xml:space='preserve'> <value>低音阿哥哥</value> </data>
+  <data name='Cabasa' xml:space='preserve'> <value>卡巴沙（串珠）</value> </data>
+  <data name='Maracas' xml:space='preserve'> <value>沙槌</value> </data>
+  <data name='ShortHighWhistle' xml:space='preserve'> <value>短口哨</value> </data>
+  <data name='LongLowWhistle' xml:space='preserve'> <value>长口哨</value> </data>
+  <data name='ShortHighGuiro' xml:space='preserve'> <value>短刮壶</value> </data>
+  <data name='LongLowGuiro' xml:space='preserve'> <value>长刮壶</value> </data>
+  <data name='Claves' xml:space='preserve'> <value>梆子</value> </data>
+  <data name='HighWoodblock' xml:space='preserve'> <value>高音木鱼</value> </data>
+  <data name='LowWoodblock' xml:space='preserve'> <value>低音木鱼</value> </data>
+  <data name='MuteCuica' xml:space='preserve'> <value>弱音美洲拉鼓声</value> </data>
+  <data name='OpenCuica' xml:space='preserve'> <value>开击美洲拉鼓声</value> </data>
+  <data name='MuteTriangle' xml:space='preserve'> <value>闷音三角铁</value> </data>
+  <data name='OpenTriangle' xml:space='preserve'> <value>开放三角铁</value> </data>
+  <data name='Shaker' xml:space='preserve'> <value>振动器</value> </data>
+  <data name='SleighBells' xml:space='preserve'> <value>丁当响铃</value> </data>
+  <data name='BellTree' xml:space='preserve'> <value>音树</value> </data>
+  <data name='Castanets' xml:space='preserve'> <value>响板</value> </data>
+  <data name='MuteSurdo' xml:space='preserve'> <value>闷音surdo</value> </data>
+  <data name='OpenSurdo' xml:space='preserve'> <value>开音surdo</value> </data>
  </root>

@@ -62,5 +62,74 @@
   <!--Separator 1-->
   <!--Separator 2-->
   <!--Separator 3-->
+  <data name='Drum' xml:space='preserve'> <value>Schlagzeug</value> </data>
+  <data name='Hat' xml:space='preserve'> <value>Hi-Hat</value> </data>
+  <data name='Cymbal' xml:space='preserve'> <value>Zymbal</value> </data>
+  <data name='Tom' xml:space='preserve'> <value>Toms</value> </data>
+  <data name='African' xml:space='preserve'> <value>Afrikanisch</value> </data>
+  <data name='Latin' xml:space='preserve'> <value>Lateinamerikanisch</value> </data>
+  <data name='Special' xml:space='preserve'> <value>Andere</value> </data>
+  <data name='Synth' xml:space='preserve'> <value>Toneffekte</value> </data>
   <!--Separator 4-->
+  <data name='HighQ' xml:space='preserve'> <value>High Q</value> </data>
+  <data name='Slap' xml:space='preserve'> <value>Schlag</value> </data>
+  <data name='ScratchPush' xml:space='preserve'> <value>Push</value> </data>
+  <data name='ScratchPull' xml:space='preserve'> <value>Pull</value> </data>
+  <data name='Sticks' xml:space='preserve'> <value>Stick</value> </data>
+  <data name='SquareClick' xml:space='preserve'> <value>Square</value> </data>
+  <data name='MetronomeClick' xml:space='preserve'> <value>U-Bahn</value> </data>
+  <data name='MetronomeBell' xml:space='preserve'> <value>U-Bahn-Glocke</value> </data>
+  <data name='AcousticBassDrum' xml:space='preserve'> <value>Basstrommel 2</value> </data>
+  <data name='BassDrum1' xml:space='preserve'> <value>Basstrommel 1</value> </data>
+  <data name='SideStickRimShot' xml:space='preserve'> <value>Stick</value> </data>
+  <data name='AcousticSnareDrum' xml:space='preserve'> <value>Kleine Trommel</value> </data>
+  <data name='HandClap' xml:space='preserve'> <value>Klatscher</value> </data>
+  <data name='ElectricSnareDrum' xml:space='preserve'> <value>Kleine Trommel 2</value> </data>
+  <data name='LowFloorTom' xml:space='preserve'> <value>Tom 6</value> </data>
+  <data name='ClosedHiHat' xml:space='preserve'> <value>Geschlossenes Hi-Hat</value> </data>
+  <data name='HighFloorTom' xml:space='preserve'> <value>Tom 5</value> </data>
+  <data name='PedalHiHat' xml:space='preserve'> <value>Pedal Hi-Hat</value> </data>
+  <data name='LowTom' xml:space='preserve'> <value>Tom 4</value> </data>
+  <data name='OpenHiHat' xml:space='preserve'> <value>Offenes Hi-Hat</value> </data>
+  <data name='LowLowMidTom' xml:space='preserve'> <value>Tom 3</value> </data>
+  <data name='HighMidTom' xml:space='preserve'> <value>Tom 2</value> </data>
+  <data name='CrashCymbal1' xml:space='preserve'> <value>Krachen</value> </data>
+  <data name='HighTom' xml:space='preserve'> <value>Tom 1</value> </data>
+  <data name='RideCymbal1' xml:space='preserve'> <value>Ride</value> </data>
+  <data name='ChinaCymbal' xml:space='preserve'> <value>Chinesisch</value> </data>
+  <data name='RideBell' xml:space='preserve'> <value>Ride bell</value> </data>
+  <data name='Tambourine' xml:space='preserve'> <value>Tamburin</value> </data>
+  <data name='SplashCymbal' xml:space='preserve'> <value>Spritzer</value> </data>
+  <data name='Cowbell' xml:space='preserve'> <value>Kuhglocke</value> </data>
+  <data name='CrashCymbal2' xml:space='preserve'> <value>Krachen 2</value> </data>
+  <data name='VibratoSlap' xml:space='preserve'> <value>Vibraslap</value> </data>
+  <data name='RideCymbal2' xml:space='preserve'> <value>Ride 2</value> </data>
+  <data name='HighBongo' xml:space='preserve'> <value>Hohes Bongo</value> </data>
+  <data name='LowBongo' xml:space='preserve'> <value>Tiefes Bongo</value> </data>
+  <data name='MuteHighConga' xml:space='preserve'> <value>Gedämpfte hohe Conga</value> </data>
+  <data name='HighConga' xml:space='preserve'> <value>Offene hohe Conga</value> </data>
+  <data name='LowConga' xml:space='preserve'> <value>Tiefe Conga</value> </data>
+  <data name='HighTimbale' xml:space='preserve'> <value>Hohes Timbales</value> </data>
+  <data name='LowTimbale' xml:space='preserve'> <value>Tiefes Timbales</value> </data>
+  <data name='HighAgogo' xml:space='preserve'> <value>Hoher Agogô</value> </data>
+  <data name='LowAgogo' xml:space='preserve'> <value>Tiefer Agogô</value> </data>
+  <data name='Cabasa' xml:space='preserve'> <value>Cabasa</value> </data>
+  <data name='Maracas' xml:space='preserve'> <value>Rumba-Rasseln</value> </data>
+  <data name='ShortHighWhistle' xml:space='preserve'> <value>Kurzer Pfiff</value> </data>
+  <data name='LongLowWhistle' xml:space='preserve'> <value>Langer Pfiff</value> </data>
+  <data name='ShortHighGuiro' xml:space='preserve'> <value>Kurzer Güiro</value> </data>
+  <data name='LongLowGuiro' xml:space='preserve'> <value>Langer Güiro</value> </data>
+  <data name='Claves' xml:space='preserve'> <value>Klangstäbe</value> </data>
+  <data name='HighWoodblock' xml:space='preserve'> <value>Hoher Holzblock</value> </data>
+  <data name='LowWoodblock' xml:space='preserve'> <value>Tiefer Holzblock</value> </data>
+  <data name='MuteCuica' xml:space='preserve'> <value>Gedämpfte Cuíca</value> </data>
+  <data name='OpenCuica' xml:space='preserve'> <value>Offene Cuíca</value> </data>
+  <data name='MuteTriangle' xml:space='preserve'> <value>Gedämpfte Triangel</value> </data>
+  <data name='OpenTriangle' xml:space='preserve'> <value>Offene Triangel</value> </data>
+  <data name='Shaker' xml:space='preserve'> <value>Shaker</value> </data>
+  <data name='SleighBells' xml:space='preserve'> <value>Jingle Bell</value> </data>
+  <data name='BellTree' xml:space='preserve'> <value>Glockenbaum</value> </data>
+  <data name='Castanets' xml:space='preserve'> <value>Kastagnetten</value> </data>
+  <data name='MuteSurdo' xml:space='preserve'> <value>Gedämpfte Surdo</value> </data>
+  <data name='OpenSurdo' xml:space='preserve'> <value>Offene Surdo</value> </data>
  </root>
