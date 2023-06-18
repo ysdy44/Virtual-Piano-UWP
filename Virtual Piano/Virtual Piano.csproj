@@ -119,6 +119,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\DrumGridView.cs" />
+    <Compile Include="Controls\DrumGroupGridView.cs" />
+    <Compile Include="Controls\DrumPanel.cs" />
     <Compile Include="Controls\ProgramCarousel.xaml.cs">
       <DependentUpon>ProgramCarousel.xaml</DependentUpon>
     </Compile>
