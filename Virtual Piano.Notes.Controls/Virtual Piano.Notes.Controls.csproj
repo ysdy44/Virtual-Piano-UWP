@@ -127,6 +127,12 @@
     <Compile Include="ClickButton.cs" />
     <Compile Include="ContactButton.cs" />
     <Compile Include="DrumButton.cs" />
+    <Compile Include="DrumGridView.xaml.cs">
+      <DependentUpon>DrumGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DrumGroupGridView.xaml.cs">
+      <DependentUpon>DrumGroupGridView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DrumMask.xaml.cs">
       <DependentUpon>DrumMask.xaml</DependentUpon>
     </Compile>
@@ -171,6 +177,14 @@
     <Page Include="ChordPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DrumGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DrumGroupGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DrumMask.xaml">
       <SubType>Designer</SubType>
