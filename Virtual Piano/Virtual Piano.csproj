@@ -222,6 +222,10 @@
       <Project>{13D38CDF-15B0-4127-B039-CFF47406C450}</Project>
       <Name>Virtual Piano.Elements</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Virtual Piano.Notes.Controls\Virtual Piano.Notes.Controls.csproj">
+      <Project>{e17bfd86-0726-4c0a-aafe-5b5dead05956}</Project>
+      <Name>Virtual Piano.Notes.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Virtual Piano.Notes\Virtual Piano.Notes.csproj">
       <Project>{7F632B4A-9FA1-4842-942F-49274BBDBE61}</Project>
       <Name>Virtual Piano.Notes</Name>
