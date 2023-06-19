@@ -32,13 +32,14 @@ namespace Virtual_Piano.Notes.Controls
             }
         }
 
-        private readonly IList<MidiPercussionNote> ItemSource = System.Enum.GetValues(typeof(MidiPercussionNote)).Cast<MidiPercussionNote>().ToList();
+        private readonly IList<MidiPercussionNote> ItemSource;
 
         //@Construct
-        public DrumGridView()
+        public DrumGridView(bool isCategory)
         {
             this.InitializeComponent();
-
+            this.ItemSource = new List<MidiPercussionNote>(isCategory ? this.GetCategoryItemSource() : this.GetItemSource());
+            
             foreach (MidiPercussionNote item in this.ItemSource)
             {
                 base.Children.Add(new DrumButton
@@ -48,6 +49,25 @@ namespace Virtual_Piano.Notes.Controls
                     Foreground = base.Resources[$"{this.GetCategory(item)}"] as Brush,
                     Tag = $"{this.GetString(item)}"
                 });
+            }
+        }
+
+        private IEnumerable<MidiPercussionNote> GetItemSource()
+        {
+            foreach (MidiPercussionNote item in System.Enum.GetValues(typeof(MidiPercussionNote)).Cast<MidiPercussionNote>())
+            {
+                yield return item;
+            }
+        }
+
+        private IEnumerable<MidiPercussionNote> GetCategoryItemSource()
+        {
+            foreach (var item2 in MidiPercussionNoteFactory.Instance)
+            {
+                foreach (var item3 in item2.Value)
+                {
+                    yield return item3;
+                }
             }
         }
 
