@@ -36,8 +36,8 @@ namespace Virtual_Piano.Notes.Controls
         private readonly IList<MidiPercussionNote> ItemSource = new List<MidiPercussionNote>
         {
              MidiPercussionNote.OpenHiHat, MidiPercussionNote.RideCymbal1, MidiPercussionNote.Shaker, MidiPercussionNote.CrashCymbal1,
-             MidiPercussionNote.ClosedHiHat, MidiPercussionNote.LowTom, MidiPercussionNote.LowLowMidTom, MidiPercussionNote.HighTom,
-             MidiPercussionNote.Cowbell, MidiPercussionNote.HandClap, MidiPercussionNote.AcousticSnareDrum, MidiPercussionNote.AcousticBassDrum,
+             MidiPercussionNote.ClosedHiHat, MidiPercussionNote.LowTom, MidiPercussionNote.LowMidTom, MidiPercussionNote.HighTom,
+             MidiPercussionNote.Cowbell, MidiPercussionNote.HandClap, MidiPercussionNote.AcousticSnare, MidiPercussionNote.AcousticBassDrum,
         };
 
         //@Construct
