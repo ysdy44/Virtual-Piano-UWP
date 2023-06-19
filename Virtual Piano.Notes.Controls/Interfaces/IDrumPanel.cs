@@ -4,6 +4,7 @@ namespace Virtual_Piano.Notes.Controls
 {
     public interface IDrumPanel
     {
+        IDrumButton this[MidiPercussionNote note] { get; }
         MidiPercussionNote this[int index] { get; set; }
 
         ICommand Command { get; set; }

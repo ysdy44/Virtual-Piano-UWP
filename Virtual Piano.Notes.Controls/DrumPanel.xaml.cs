@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.Generic;
+using System.Windows.Input;
 using Windows.Foundation;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -9,6 +10,10 @@ namespace Virtual_Piano.Notes.Controls
     {
         //@Command
         public ICommand Command { get; set; }
+
+        public IDrumButton this[MidiPercussionNote note] =>
+            this.ItemSource.Contains(note) ? 
+            base.Children[this.ItemSource.IndexOf(note)] as IDrumButton : null;
 
         public MidiPercussionNote this[int index]
         {
@@ -28,7 +33,7 @@ namespace Virtual_Piano.Notes.Controls
             }
         }
 
-        private readonly MidiPercussionNote[] ItemSource = new MidiPercussionNote[]
+        private readonly IList<MidiPercussionNote> ItemSource = new List<MidiPercussionNote>
         {
              MidiPercussionNote.OpenHiHat, MidiPercussionNote.RideCymbal1, MidiPercussionNote.Shaker, MidiPercussionNote.CrashCymbal1,
              MidiPercussionNote.ClosedHiHat, MidiPercussionNote.LowTom, MidiPercussionNote.LowLowMidTom, MidiPercussionNote.HighTom,
@@ -114,29 +119,19 @@ namespace Virtual_Piano.Notes.Controls
 
         public void Clear(MidiPercussionNote note)
         {
-            for (int i = 0; i < this.ItemSource.Length; i++)
+            int i = this.ItemSource.IndexOf(note);
+            if (base.Children[i] is IDrumButton item)
             {
-                if (this.ItemSource[i] == note)
-                {
-                    if (base.Children[i] is IDrumButton item)
-                    {
-                        item.Clear();
-                    }
-                }
+                item.Clear();
             }
         }
 
         public void Add(MidiPercussionNote note)
         {
-            for (int i = 0; i < this.ItemSource.Length; i++)
+            int i = this.ItemSource.IndexOf(note);
+            if (base.Children[i] is IDrumButton item)
             {
-                if (this.ItemSource[i] == note)
-                {
-                    if (base.Children[i] is IDrumButton item)
-                    {
-                        item.Add();
-                    }
-                }
+                item.Add();
             }
         }
     }

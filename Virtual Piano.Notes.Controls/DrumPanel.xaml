@@ -1,7 +1,7 @@
 ﻿<Canvas
     x:Class="Virtual_Piano.Notes.Controls.DrumPanel"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:d="http://schemas.microsoft.com/expression/ble    nd/2008"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="using:Virtual_Piano.Notes.Controls"
@@ -9,7 +9,7 @@
     d:DesignWidth="400"
     d:DesignHeight="400"
     Background="Black"
-    Margin="1"
+    Margin="2"
     >
 
     <FrameworkElement.Resources>
@@ -68,7 +68,7 @@
 
                             <local:DrumMask x:Name="Mask" IsHitTestVisible="False" Opacity="0" Foreground="{TemplateBinding Foreground}"/>
 
-                            <Rectangle IsHitTestVisible="False" RadiusX="4" RadiusY="4" StrokeThickness="1" Stroke="Black" >
+                            <Rectangle IsHitTestVisible="False" RadiusX="4" RadiusY="4">
                                 <Shape.Fill>
                                     <AcrylicBrush
                                         TintOpacity="0.2" 
