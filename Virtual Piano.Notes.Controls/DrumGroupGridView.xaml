@@ -4,67 +4,40 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     d:DesignWidth="400"
     d:DesignHeight="400"
+    Margin="4,4,0,4"
     >
 
-    <Grid Margin="4" ColumnSpacing="4">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="220"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+    <ListView
+        x:Name="ListView"
+        CornerRadius="4"
+        SelectionMode="Multiple"
+        IsMultiSelectCheckBoxEnabled="False"
+        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+        ScrollViewer.VerticalScrollBarVisibility="Hidden"
+        >
 
-        <ListView
-            x:Name="ListView"
-            SelectionMode="Multiple"
-            ItemsSource="{x:Bind ItemsSource}"
-            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
-            >
+        <ItemsControl.ItemContainerStyle>
+            <Style TargetType="ListViewItem">
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="Background" Value="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" />
+            </Style>
+        </ItemsControl.ItemContainerStyle>
 
-            <ItemsControl.ItemContainerTransitions>
-                <TransitionCollection>
+        <ItemsControl.ItemContainerTransitions>
+            <TransitionCollection>
 
-                </TransitionCollection>
-            </ItemsControl.ItemContainerTransitions>
-            
-        </ListView>
+            </TransitionCollection>
+        </ItemsControl.ItemContainerTransitions>
 
-        <GridView
-            x:Name="GridView"
-            Grid.Column="1"
-            SelectionMode="None"
-            IsItemClickEnabled="True"
-            ItemsSource="{x:Bind ObservableCollection}"
-            >
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel/>
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
 
-            <ItemsControl.ItemContainerStyle>
-                <Style TargetType="GridViewItem">
-                    <Setter Property="MinHeight" Value="50"/>
-                    <Setter Property="MaxHeight" Value="50"/>
-                    <Setter Property="Height" Value="50"/>
-                    <Setter Property="Margin" Value="2"/>
-                    <Setter Property="Padding" Value="20,2"/>
-                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                    <Setter Property="VerticalContentAlignment" Value="Center"/>
-                    <Setter Property="Background" Value="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" />
-                </Style>
-            </ItemsControl.ItemContainerStyle>
+    </ListView>
 
-            <ItemsControl.ItemContainerTransitions>
-                <TransitionCollection>
-
-                </TransitionCollection>
-            </ItemsControl.ItemContainerTransitions>
-
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <controls:WrapPanel/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-
-        </GridView>
-
-    </Grid>
 </UserControl>

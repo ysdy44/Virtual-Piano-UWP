@@ -1,64 +1,45 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows.Input;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace Virtual_Piano.Notes.Controls
 {
     public partial class DrumGroupGridView : UserControl
     {
-        //@Command
-        public ICommand Command { get; set; }
+        public IDrumPanel DrumPanel { get; set; }
 
-        public DrumItemCategory[] ItemsSource { get; }
-        public IList<MidiPercussionNoteCategory> Collection { get; } = new List<MidiPercussionNoteCategory>();
-
-        public IDictionary<MidiPercussionNoteCategory, DrumItem[]> Dictionary { get; } = new Dictionary<MidiPercussionNoteCategory, DrumItem[]>();
-        public IList<DrumItem> ObservableCollection { get; } = new ObservableCollection<DrumItem>();
+        private readonly IDictionary<MidiPercussionNoteCategory, bool> Dictionary = MidiPercussionNoteFactory.Instance.ToDictionary(c => c.Key, d => true);
 
         public DrumGroupGridView()
         {
             this.InitializeComponent();
-            this.ItemsSource = MidiPercussionNoteFactory.Instance.Select(c => new DrumItemCategory
+            this.ListView.ItemsSource = MidiPercussionNoteFactory.Instance.Select(c => new DrumItemCategory
             {
                 Category = c.Key,
                 Text = this.GetString(c.Key),
             }).ToArray();
-
-            foreach (var item in MidiPercussionNoteFactory.Instance)
-            {
-                this.Dictionary[item.Key] = item.Value.Select(c => new DrumItem
-                {
-                    Note = c,
-                    Text = this.GetString(c),
-                }).ToArray();
-            }
-
+            this.ListView.SelectAll();
             this.ListView.SelectionChanged += (s, e) =>
             {
                 foreach (DrumItemCategory item in e.RemovedItems)
                 {
-                    this.Collection.Remove(item.Category);
-                    foreach (var item2 in this.Dictionary[item.Category])
+                    this.Dictionary[item.Category] = false;
+                    if (this.DrumPanel is null) continue;
+                    foreach (MidiPercussionNote item2 in MidiPercussionNoteFactory.Instance[item.Category])
                     {
-                        this.ObservableCollection.Remove(item2);
+                        this.DrumPanel[item2].Visibility = Visibility.Collapsed;
                     }
                 }
+
                 foreach (DrumItemCategory item in e.AddedItems)
                 {
-                    this.Collection.Add(item.Category);
-                    foreach (var item2 in this.Dictionary[item.Category])
+                    this.Dictionary[item.Category] = true;
+                    if (this.DrumPanel is null) continue;
+                    foreach (MidiPercussionNote item2 in MidiPercussionNoteFactory.Instance[item.Category])
                     {
-                        this.ObservableCollection.Add(item2);
+                        this.DrumPanel[item2].Visibility = Visibility.Visible;
                     }
-                }
-            };
-            this.GridView.ItemClick += (s, e) =>
-            {
-                if (e.ClickedItem is DrumItem item)
-                {
-                    this.Command?.Execute(item.Note); // Command
                 }
             };
         }

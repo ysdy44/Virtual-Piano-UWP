@@ -259,17 +259,24 @@
                     Command="{x:Bind Command}"
                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem31.IsSelected), Mode=OneWay}"
                     />
-                <controls:DrumGridView
-                    Grid.Row="1"
-                    Command="{x:Bind Command}"
-                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem32.IsSelected), Mode=OneWay}"
-                    >
-                </controls:DrumGridView>
-                <controls:DrumGroupGridView 
+                <ScrollViewer Grid.Row="1" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem32.IsSelected), Mode=OneWay}">
+                    <controls:DrumGridView Command="{x:Bind Command}"/>
+                </ScrollViewer>
+                <SplitView
                     Grid.Row="1" 
-                    Command="{x:Bind Command}"
+                    IsPaneOpen="True" 
+                    DisplayMode="Inline"
+                    OpenPaneLength="120"
+                    PaneBackground="{x:Null}"
                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem33.IsSelected), Mode=OneWay}"
-                    />
+                    >
+                    <SplitView.Pane>
+                        <controls:DrumGroupGridView DrumPanel="{x:Bind DrumGridView}"/>
+                    </SplitView.Pane>
+                    <ScrollViewer>
+                        <controls:DrumCategoryGridView x:Name="DrumGridView" Command="{x:Bind Command}"/>
+                    </ScrollViewer>
+                </SplitView>
 
             </Grid>
 
