@@ -81,33 +81,33 @@
   <data name='MetronomeBell' xml:space='preserve'> <value>メトロノームの拍子ベル</value> </data>
   <data name='AcousticBassDrum' xml:space='preserve'> <value>バスドラム 2</value> </data>
   <data name='BassDrum1' xml:space='preserve'> <value>バスドラム 1</value> </data>
-  <data name='SideStickRimShot' xml:space='preserve'> <value>スティック</value> </data>
-  <data name='AcousticSnareDrum' xml:space='preserve'> <value>スネア</value> </data>
+  <data name='SideStick' xml:space='preserve'> <value>スティック</value> </data>
+  <data name='AcousticSnare' xml:space='preserve'> <value>スネア</value> </data>
   <data name='HandClap' xml:space='preserve'> <value>手拍子</value> </data>
-  <data name='ElectricSnareDrum' xml:space='preserve'> <value>スネア 2</value> </data>
+  <data name='ElectricSnare' xml:space='preserve'> <value>スネア 2</value> </data>
   <data name='LowFloorTom' xml:space='preserve'> <value>トムトム 6</value> </data>
   <data name='ClosedHiHat' xml:space='preserve'> <value>クローズドハイハット</value> </data>
   <data name='HighFloorTom' xml:space='preserve'> <value>トムトム 5</value> </data>
   <data name='PedalHiHat' xml:space='preserve'> <value>ペダルハイハット</value> </data>
   <data name='LowTom' xml:space='preserve'> <value>トムトム 4</value> </data>
   <data name='OpenHiHat' xml:space='preserve'> <value>オープンハイハット</value> </data>
-  <data name='LowLowMidTom' xml:space='preserve'> <value>トムトム 3</value> </data>
-  <data name='HighMidTom' xml:space='preserve'> <value>トムトム 2</value> </data>
+  <data name='LowMidTom' xml:space='preserve'> <value>トムトム 3</value> </data>
+  <data name='HiMidTom' xml:space='preserve'> <value>トムトム 2</value> </data>
   <data name='CrashCymbal1' xml:space='preserve'> <value>クラッシュシンバル</value> </data>
   <data name='HighTom' xml:space='preserve'> <value>トムトム 1</value> </data>
   <data name='RideCymbal1' xml:space='preserve'> <value>ライドシンバル</value> </data>
-  <data name='ChinaCymbal' xml:space='preserve'> <value>チャイニーズシンバル</value> </data>
+  <data name='ChineseCymbal' xml:space='preserve'> <value>チャイニーズシンバル</value> </data>
   <data name='RideBell' xml:space='preserve'> <value>ライドベル</value> </data>
   <data name='Tambourine' xml:space='preserve'> <value>タンバリン</value> </data>
   <data name='SplashCymbal' xml:space='preserve'> <value>スプラッシュシンバル</value> </data>
   <data name='Cowbell' xml:space='preserve'> <value>カウベル</value> </data>
   <data name='CrashCymbal2' xml:space='preserve'> <value>クラッシュシンバル 2</value> </data>
-  <data name='VibratoSlap' xml:space='preserve'> <value>ヴィブラスラップ</value> </data>
+  <data name='Vibraslap' xml:space='preserve'> <value>ヴィブラスラップ</value> </data>
   <data name='RideCymbal2' xml:space='preserve'> <value>ライドシンバル 2</value> </data>
-  <data name='HighBongo' xml:space='preserve'> <value>ハイボンゴ</value> </data>
+  <data name='HiBongo' xml:space='preserve'> <value>ハイボンゴ</value> </data>
   <data name='LowBongo' xml:space='preserve'> <value>ローボンゴ</value> </data>
-  <data name='MuteHighConga' xml:space='preserve'> <value>ミュートハイコンガ</value> </data>
-  <data name='HighConga' xml:space='preserve'> <value>オープンハイコンガ</value> </data>
+  <data name='MuteHiConga' xml:space='preserve'> <value>ミュートハイコンガ</value> </data>
+  <data name='OpenHiConga' xml:space='preserve'> <value>オープンハイコンガ</value> </data>
   <data name='LowConga' xml:space='preserve'> <value>ローコンガ</value> </data>
   <data name='HighTimbale' xml:space='preserve'> <value>ハイティンバレス</value> </data>
   <data name='LowTimbale' xml:space='preserve'> <value>ローティンバレス</value> </data>
@@ -115,13 +115,13 @@
   <data name='LowAgogo' xml:space='preserve'> <value>ローアゴゴ</value> </data>
   <data name='Cabasa' xml:space='preserve'> <value>カバサ</value> </data>
   <data name='Maracas' xml:space='preserve'> <value>マラカス</value> </data>
-  <data name='ShortHighWhistle' xml:space='preserve'> <value>ショートホイッスル</value> </data>
-  <data name='LongLowWhistle' xml:space='preserve'> <value>ロングホイッスル</value> </data>
-  <data name='ShortHighGuiro' xml:space='preserve'> <value>ショートギロ</value> </data>
-  <data name='LongLowGuiro' xml:space='preserve'> <value>ロングギロ</value> </data>
+  <data name='ShortWhistle' xml:space='preserve'> <value>ショートホイッスル</value> </data>
+  <data name='LongWhistle' xml:space='preserve'> <value>ロングホイッスル</value> </data>
+  <data name='ShortGuiro' xml:space='preserve'> <value>ショートギロ</value> </data>
+  <data name='LongGuiro' xml:space='preserve'> <value>ロングギロ</value> </data>
   <data name='Claves' xml:space='preserve'> <value>クラベス</value> </data>
-  <data name='HighWoodblock' xml:space='preserve'> <value>ハイウッドブロック</value> </data>
-  <data name='LowWoodblock' xml:space='preserve'> <value>ローウッドブロック</value> </data>
+  <data name='HiWoodBlock' xml:space='preserve'> <value>ハイウッドブロック</value> </data>
+  <data name='LowWoodBlock' xml:space='preserve'> <value>ローウッドブロック</value> </data>
   <data name='MuteCuica' xml:space='preserve'> <value>ミュートクイーカ</value> </data>
   <data name='OpenCuica' xml:space='preserve'> <value>オープンクイーカ</value> </data>
   <data name='MuteTriangle' xml:space='preserve'> <value>ミュートトライアングル</value> </data>
