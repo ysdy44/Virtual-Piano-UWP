@@ -2,15 +2,13 @@
 {
     public enum MidiPercussionNoteCategory : byte
     {
-        Cymbal,
-        Hat,
-
         Drum,
+        Hat,
+        Cymbal,
         Tom,
-
-        Ethnic,
-
-        Synth,
+        African,
+        Latin,
         Special,
+        Synth,
     }
 }
