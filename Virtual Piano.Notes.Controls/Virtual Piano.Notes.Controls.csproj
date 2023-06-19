@@ -146,14 +146,14 @@
     <Compile Include="Interfaces\IDrumPanel.cs" />
     <Compile Include="Interfaces\INoteButton.cs" />
     <Compile Include="Interfaces\INotePanel.cs" />
+    <Compile Include="Models\DrumItem.cs" />
+    <Compile Include="Models\DrumItemCategory.cs" />
     <Compile Include="NoteButton.cs" />
     <Compile Include="NotePanel.xaml.cs">
       <DependentUpon>NotePanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structs\Chords.cs" />
-    <Compile Include="Structs\DrumItem.cs" />
-    <Compile Include="Structs\DrumItemCategory.cs" />
     <Compile Include="Structs\DrumLayout.cs" />
     <Compile Include="Structs\NoteSize.cs" />
     <EmbeddedResource Include="Properties\Virtual_Piano.Notes.Controls.rd.xml" />
@@ -198,6 +198,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\Enums3\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

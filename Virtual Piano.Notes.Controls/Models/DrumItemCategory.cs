@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Notes.Controls
 {
-    public struct DrumItemCategory
+    public class DrumItemCategory
     {
         public MidiPercussionNoteCategory Category;
         public string Text;

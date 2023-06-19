@@ -7,7 +7,7 @@
 
         protected override void OnClick()
         {
-            if (base.Parent is DrumPanel item)
+            if (base.Parent is IDrumPanel item)
             {
                 item.OnClick(this.CommandParameter);
             }
