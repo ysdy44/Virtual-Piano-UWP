@@ -139,6 +139,7 @@
     <Compile Include="DrumPanel.xaml.cs">
       <DependentUpon>DrumPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Enums\NoteDirection.cs" />
     <Compile Include="Interfaces\IChordButton.cs" />
     <Compile Include="Interfaces\IChordPanel.cs" />
     <Compile Include="Interfaces\IClickButton.cs" />
@@ -149,8 +150,12 @@
     <Compile Include="Models\DrumItem.cs" />
     <Compile Include="Models\DrumItemCategory.cs" />
     <Compile Include="NoteButton.cs" />
-    <Compile Include="NotePanel.xaml.cs">
-      <DependentUpon>NotePanel.xaml</DependentUpon>
+    <Compile Include="NotePanel.cs" />
+    <Compile Include="NotePanel.Initialize.cs" />
+    <Compile Include="NotePanel.ItemSize.cs" />
+    <Compile Include="NotePanel.Resize.cs" />
+    <Compile Include="NoteTopPanel.xaml.cs">
+      <DependentUpon>NoteTopPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structs\Chords.cs" />
@@ -194,14 +199,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="NotePanel.xaml">
+    <Page Include="NoteTopPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\Enums3\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
