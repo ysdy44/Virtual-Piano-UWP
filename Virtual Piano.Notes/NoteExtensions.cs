@@ -1,26 +1,24 @@
-﻿namespace Virtual_Piano.Notes
+﻿using Ex = Virtual_Piano.Notes.NoteExtensions;
+
+namespace Virtual_Piano.Notes
 {
-    public static class NoteExtensions
+    public static partial class NoteExtensions
     {
-        public const int OctaveCount = 5;
+        public const int OctaveCount = 11;
+
         public const int ToneCount = BlackCount + WhiteCount;
         public const int WhiteCount = 7;
         public const int BlackCount = 5;
 
-        public const int Instrument = 8;
+        public const int NoteCount = 128;
+        public const int NoteWhiteCount = 75;
+        public const int NoteBlackCount = NoteCount - NoteWhiteCount;
 
-        // 1
-        public static Note ToNote(this Octave octave, Tone tone)
+        public static Tone ToTone(this Note note) => (Tone)((int)note % 12);
+        public static Octave ToOctave(this Note note) => (Octave)((int)note / 12);
+        public static ToneType ToType(this Tone tone)
         {
-            return (Note)(12 * (int)octave + (int)tone);
-        }
-        public static string ToCDE(this Octave octave, Tone tone)
-        {
-            return $"{tone.ToCDE()}{(int)octave + 2}";
-        }
-        public static ToneType ToType(this Tone item)
-        {
-            switch (item)
+            switch (tone)
             {
                 case Tone.Csharp:
                 case Tone.Dsharp:
@@ -32,6 +30,32 @@
                     return ToneType.White;
             }
         }
+        public static ToneType ToType(this Note note)
+        {
+            switch ((int)note % 12)
+            {
+                case 1:
+                case 3:
+                case 6:
+                case 8:
+                case 10:
+                    return ToneType.Black;
+                default:
+                    return ToneType.White;
+            }
+        }
+        public static string ToLabel(this Note note, KeyLabel label)
+        {
+            switch (label)
+            {
+                case KeyLabel.Off: return null;
+                case KeyLabel.Conly: return note.ToTone() == Tone.C ? note.ToCDE() : null;
+                case KeyLabel.CDE: return note.ToCDE();
+                case KeyLabel.DoReMi: return note.ToTone().ToDoReMi();
+                default: return null;
+            }
+        }
+
         public static int ToIndex(this Tone item)
         {
             switch (item)
@@ -88,6 +112,20 @@
                 case Tone.B: return "Si";
                 default: return null;
             }
+        }
+        public static string ToCDE(this Octave octave, Tone tone)
+        {
+            return $"{tone.ToCDE()}{(int)octave + 1}";
+        }
+        public static string ToCDE(this Note note)
+        {
+            int i = (int)note;
+            Tone tone = (Tone)(i % 12);
+            return $"{tone.ToCDE()}{i / 12 + 1}";
+        }
+        public static Note ToNote(this Octave octave, Tone tone)
+        {
+            return (Note)(12 * (int)octave + (int)tone);
         }
 
 
@@ -148,21 +186,6 @@
                 default:
                     return 7;
             }
-        }
-
-
-        // 2
-        public static string ToCDE(this Note item)
-        {
-            return item.ToOctave().ToCDE(item.ToTone());
-        }
-        public static Tone ToTone(this Note item)
-        {
-            return (Tone)(((int)item) % 12);
-        }
-        public static Octave ToOctave(this Note item)
-        {
-            return (Octave)(((int)item) / 12);
         }
     }
 }

@@ -3,6 +3,7 @@
     public enum KeyLabel
     {
         Off,
+        Conly,
         CDE,
         DoReMi,
     }
