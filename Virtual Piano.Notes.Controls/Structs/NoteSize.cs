@@ -1,23 +1,21 @@
 ﻿namespace Virtual_Piano.Notes.Controls
 {
-    public struct NoteSize
+    public readonly struct NoteSize
     {
-        public int Width;
-        public int ItemWidth;
+        public readonly int ItemSize;
 
-        public int WhiteWidth;
-        public int BlackWidth;
-        public int BlackWidthHalf;
+        public readonly int WhiteSize;
+        public readonly int BlackSize;
+        public readonly int BlackSizeHalf;
 
         public NoteSize(int value)
         {
-            this.Width = value * NoteExtensions.ToneCount * NoteExtensions.OctaveCount;
-            this.ItemWidth = value;
+            this.ItemSize = value;
 
-            this.WhiteWidth = value * NoteExtensions.ToneCount / NoteExtensions.WhiteCount;
-            this.BlackWidth = WhiteWidth * NoteExtensions.BlackCount / NoteExtensions.WhiteCount;
-            this.BlackWidthHalf = BlackWidth << 1;
-            this.BlackWidthHalf--;
+            this.WhiteSize = value * NoteExtensions.ToneCount / NoteExtensions.WhiteCount;
+            this.BlackSize = WhiteSize * NoteExtensions.BlackCount / NoteExtensions.WhiteCount;
+            this.BlackSizeHalf = BlackSize << 1;
+            this.BlackSizeHalf--;
         }
     }
 }

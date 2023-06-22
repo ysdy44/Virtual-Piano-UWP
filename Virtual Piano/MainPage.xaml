@@ -119,9 +119,9 @@
                 <notecontrols:NotePanel
                     x:Name="NotePanel"
                     Label="CDE"
-                    ItemWidth="28"
-                    WhiteHeight="240" 
-                    BlackHeight="159" 
+                    ItemSize="28"
+                    WhiteSize="240" 
+                    BlackSize="159" 
                     Command="{x:Bind Command}"
                     />
             </elements:ScrollViewer2>

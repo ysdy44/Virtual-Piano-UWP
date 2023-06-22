@@ -11,16 +11,16 @@ namespace Virtual_Piano.Notes.Controls
     {
         //@Command
         public ICommand Command { get; set; }
-        public double WhiteHeight { get => base.MaxHeight; set => base.MaxHeight = value; }
-        public double BlackHeight { get => base.MinHeight; set => base.MinHeight = value; }
+        public double WhiteSize { get => base.MaxHeight; set => base.MaxHeight = value; }
+        public double BlackSize { get => base.MinHeight; set => base.MinHeight = value; }
 
         private NoteSize NoteSize = new NoteSize(28);
-        public int ItemWidth
+        public int ItemSize
         {
-            get => this.NoteSize.ItemWidth;
+            get => this.NoteSize.ItemSize;
             set
             {
-                if (this.NoteSize.ItemWidth == value) return;
+                if (this.NoteSize.ItemSize == value) return;
                 this.NoteSize = new NoteSize(value);
 
                 //       if (base.IsLoaded is false) return;
@@ -32,18 +32,18 @@ namespace Virtual_Piano.Notes.Controls
                     {
                         case ToneType.White:
                             count++;
-                            item.X = item.TabIndex * this.NoteSize.WhiteWidth;
-                            item.Width = this.NoteSize.WhiteWidth;
+                            item.X = item.TabIndex * this.NoteSize.WhiteSize;
+                            item.Width = this.NoteSize.WhiteSize;
                             break;
                         case ToneType.Black:
-                            item.X = item.TabIndex * this.NoteSize.WhiteWidth - this.NoteSize.BlackWidthHalf;
-                            item.Width = this.NoteSize.BlackWidth;
+                            item.X = item.TabIndex * this.NoteSize.WhiteSize - this.NoteSize.BlackSizeHalf;
+                            item.Width = this.NoteSize.BlackSize;
                             break;
                         default:
                             break;
                     }
                 }
-                base.Width = (count - 1) * this.NoteSize.WhiteWidth;
+                base.Width = (count - 1) * this.NoteSize.WhiteSize;
             }
         }
 
@@ -86,10 +86,10 @@ namespace Virtual_Piano.Notes.Controls
                     switch (item.Type)
                     {
                         case ToneType.White:
-                            item.X = item.TabIndex * this.NoteSize.WhiteWidth;
+                            item.X = item.TabIndex * this.NoteSize.WhiteSize;
                             break;
                         case ToneType.Black:
-                            item.X = item.TabIndex * this.NoteSize.WhiteWidth - this.NoteSize.BlackWidthHalf;
+                            item.X = item.TabIndex * this.NoteSize.WhiteSize - this.NoteSize.BlackSizeHalf;
                             break;
                         default:
                             break;
@@ -109,7 +109,7 @@ namespace Virtual_Piano.Notes.Controls
                 if (e.NewSize == e.PreviousSize) return;
                 if (e.NewSize.Height == e.PreviousSize.Height) return;
 
-                double height = e.NewSize.Height * this.BlackHeight / this.WhiteHeight;
+                double height = e.NewSize.Height * this.BlackSize / this.WhiteSize;
                 foreach (INoteButton item in base.Children.Cast<INoteButton>())
                 {
                     switch (item.Type)
@@ -147,7 +147,7 @@ namespace Virtual_Piano.Notes.Controls
                             Type = ToneType.White,
                             CommandParameter = note,
                             Style = this.Resources[$"{ToneType.White}Style"] as Style,
-                            Width = this.NoteSize.WhiteWidth,
+                            Width = this.NoteSize.WhiteSize,
                         });
                         break;
                     case ToneType.Black:
@@ -160,17 +160,49 @@ namespace Virtual_Piano.Notes.Controls
                             CommandParameter = note,
                             Type = ToneType.Black,
                             Style = this.Resources[$"{ToneType.Black}Style"] as Style,
-                            X = black * this.NoteSize.WhiteWidth - this.NoteSize.BlackWidthHalf,
-                            Width = this.NoteSize.BlackWidth,
+                            X = black * this.NoteSize.WhiteSize - this.NoteSize.BlackSizeHalf,
+                            Width = this.NoteSize.BlackSize,
                         });
                         break;
                     default:
                         break;
                 }
             }
-            base.Width = (count - 1) * this.NoteSize.WhiteWidth;
+            base.Width = (count - 1) * this.NoteSize.WhiteSize;
         }
 
         public void OnClick(Note note) => this.Command?.Execute(note); // Command
+
+        public void Clear(int index)
+        {
+            if (base.Children[index] is INoteButton item)
+            {
+                item.Clear();
+            }
+        }
+        public void Add(int index)
+        {
+            if (base.Children[index] is INoteButton item)
+            {
+                item.Add();
+            }
+        }
+
+        public void Clear(Note note)
+        {
+            int i = (int)note;
+            if (base.Children[i] is INoteButton item)
+            {
+                item.Clear();
+            }
+        }
+        public void Add(Note note)
+        {
+            int i = (int)note;
+            if (base.Children[i] is INoteButton item)
+            {
+                item.Add();
+            }
+        }
     }
 }
