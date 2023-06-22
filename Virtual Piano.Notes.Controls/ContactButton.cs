@@ -7,7 +7,7 @@ namespace Virtual_Piano.Notes.Controls
 {
     [TemplateVisualState(Name = Normal)]
     [TemplateVisualState(Name = Pressed)]
-    public abstract class ContactButton : Control
+    public abstract class ContactButton : ContentControl
     {
         const string Normal = "Normal";
         const string Pressed = "Pressed";

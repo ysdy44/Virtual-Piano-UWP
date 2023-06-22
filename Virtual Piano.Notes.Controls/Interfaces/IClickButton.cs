@@ -6,7 +6,7 @@ namespace Virtual_Piano.Notes.Controls
 {
     public interface IClickButton
     {
-        object Tag { get; set; }
+        object Content { get; set; }
         int TabIndex { get; set; }
         Visibility Visibility { get; set; }
         Brush Foreground { get; set; }

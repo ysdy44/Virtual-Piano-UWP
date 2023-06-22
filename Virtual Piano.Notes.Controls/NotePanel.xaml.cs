@@ -63,19 +63,19 @@ namespace Virtual_Piano.Notes.Controls
                     case KeyLabel.Off:
                         foreach (INoteButton item in base.Children.Cast<INoteButton>())
                         {
-                            item.Tag = null;
+                            item.Content = null;
                         }
                         break;
                     case KeyLabel.CDE:
                         foreach (INoteButton item in base.Children.Cast<INoteButton>())
                         {
-                            item.Tag = item.CommandParameter.ToCDE();
+                            item.Content = item.CommandParameter.ToCDE();
                         }
                         break;
                     case KeyLabel.DoReMi:
                         foreach (INoteButton item in base.Children.Cast<INoteButton>())
                         {
-                            item.Tag = item.CommandParameter.ToTone().ToString();
+                            item.Content = item.CommandParameter.ToTone().ToString();
                         }
                         break;
                     default:
@@ -141,7 +141,7 @@ namespace Virtual_Piano.Notes.Controls
                         int white = index + tone.ToIndex();
                         base.Children.Add(new NoteButton
                         {
-                            Tag = this.Label == KeyLabel.Off ? null : this.Label == KeyLabel.DoReMi ? tone.ToString() : octave.ToCDE(tone),
+                            Content = this.Label == KeyLabel.Off ? null : this.Label == KeyLabel.DoReMi ? tone.ToString() : octave.ToCDE(tone),
                             TabIndex = white,
                             Foreground = brush,
                             Type = ToneType.White,
@@ -154,7 +154,7 @@ namespace Virtual_Piano.Notes.Controls
                         int black = index + 2 + tone.ToIndex();
                         base.Children.Add(new NoteButton
                         {
-                            Tag = this.Label == KeyLabel.Off ? null : this.Label == KeyLabel.DoReMi ? tone.ToString() : octave.ToCDE(tone),
+                            Content = this.Label == KeyLabel.Off ? null : this.Label == KeyLabel.DoReMi ? tone.ToString() : octave.ToCDE(tone),
                             TabIndex = black,
                             Foreground = brush,
                             CommandParameter = note,

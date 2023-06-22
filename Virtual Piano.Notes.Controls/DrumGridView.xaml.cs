@@ -27,7 +27,7 @@ namespace Virtual_Piano.Notes.Controls
                     item.CommandParameter = value;
                     item.TabIndex = (byte)value;
                     item.Foreground = base.Resources[$"{this.GetCategory(value)}"] as Brush;
-                    item.Tag = this.GetString(value);
+                    item.Content = this.GetString(value);
                 }
             }
         }
@@ -47,7 +47,7 @@ namespace Virtual_Piano.Notes.Controls
                     CommandParameter = item,
                     TabIndex = (byte)item,
                     Foreground = base.Resources[$"{this.GetCategory(item)}"] as Brush,
-                    Tag = $"{this.GetString(item)}"
+                    Content = $"{this.GetString(item)}"
                 });
             }
         }

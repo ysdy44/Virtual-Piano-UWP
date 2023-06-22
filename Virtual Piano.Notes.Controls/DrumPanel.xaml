@@ -103,7 +103,7 @@
                                 <ContentPresenter
                                     x:Name="ContentPresenter"
                                     IsHitTestVisible="False"
-                                    Content="{TemplateBinding Tag}"
+                                    Content="{TemplateBinding Content}"
                                     Margin="8,2"
                                     HorizontalAlignment="Center"
                                     Foreground="#99FFFFFF"

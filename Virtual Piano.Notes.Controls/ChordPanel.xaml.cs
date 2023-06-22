@@ -34,7 +34,7 @@ namespace Virtual_Piano.Notes.Controls
                 this.Chords = new Chords(value);
                 if (base.Children.FirstOrDefault() is ChordButton chordButton)
                 {
-                    chordButton.Tag = value;
+                    chordButton.Content = value;
                 }
             }
         }
@@ -79,7 +79,7 @@ namespace Virtual_Piano.Notes.Controls
             {
                 base.Children.Add(new ChordButton
                 {
-                    Tag = item == ChordPanel.Octave ? (object)this.Chord : null,
+                    Content = item == ChordPanel.Octave ? (object)this.Chord : null,
                     Background = this.Resources[$"{item}Brush"] as SolidColorBrush,
                     CommandParameter = item
                 });

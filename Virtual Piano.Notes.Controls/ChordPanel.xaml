@@ -49,13 +49,13 @@
               </VisualStateManager.VisualStateGroups>
 
               <ContentPresenter
-                  Content="{TemplateBinding Tag}"
+                  Content="{TemplateBinding Content}"
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center"
                   Foreground="Black"
                   FontWeight="Bold"
                   FontSize="16"
-                                />
+                  />
             </Border>
           </ControlTemplate>
         </Setter.Value>

@@ -75,7 +75,7 @@
                             <ContentPresenter
                                 x:Name="ContentPresenter"
                                 IsHitTestVisible="False"
-                                Content="{TemplateBinding Tag}"
+                                Content="{TemplateBinding Content}"
                                 Margin="16,2"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"

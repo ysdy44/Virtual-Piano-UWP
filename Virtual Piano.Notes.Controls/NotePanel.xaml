@@ -23,13 +23,13 @@
         <SolidColorBrush x:Key="Number9Brush" Color="#FFCBCB"/>
         <SolidColorBrush x:Key="Number10Brush" Color="#FFE4D1"/>
         <!--Style-->
-        <Style x:Key="WhiteStyle" TargetType="Control">
+        <Style x:Key="WhiteStyle" TargetType="ContentControl">
             <Setter Property="AllowFocusOnInteraction" Value="True"/>
             <Setter Property="UseSystemFocusVisuals" Value="True"/>
             <Setter Property="IsTabStop" Value="True"/>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="Control">
+                    <ControlTemplate TargetType="ContentControl">
                         <Border x:Name="RootGrid" Margin="1,2,1,0" CornerRadius="0,0,5,5" BorderThickness="0,0,0,1" BorderBrush="Gray" Background="White">
 
                             <!--VisualState-->
@@ -58,7 +58,7 @@
                             <ContentPresenter 
                                 Margin="0,8" 
                                 Padding="1,0"
-                                Content="{TemplateBinding Tag}" 
+                                Content="{TemplateBinding Content}" 
                                 HorizontalAlignment="Center" 
                                 VerticalAlignment="Bottom" 
                                 Foreground="Black"
@@ -73,14 +73,14 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="BlackStyle" TargetType="Control">
+        <Style x:Key="BlackStyle" TargetType="ContentControl">
             <Setter Property="Canvas.ZIndex" Value="1"/>
             <Setter Property="AllowFocusOnInteraction" Value="True"/>
             <Setter Property="UseSystemFocusVisuals" Value="True"/>
             <Setter Property="IsTabStop" Value="True"/>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="Control">
+                    <ControlTemplate TargetType="ContentControl">
                         <Border x:Name="RootGrid" CornerRadius="0,0,4,4" BorderThickness="2,0,2,4" BorderBrush="Black">
                             <Border.Background>
                                 <LinearGradientBrush EndPoint="0,1">
@@ -107,7 +107,7 @@
 
                             <ContentPresenter 
                                 Margin="0,4" 
-                                Content="{TemplateBinding Tag}" 
+                                Content="{TemplateBinding Content}" 
                                 HorizontalAlignment="Center" 
                                 VerticalAlignment="Bottom" 
                                 Foreground="White"
