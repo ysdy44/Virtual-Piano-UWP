@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Windows.System;
 
 namespace Virtual_Piano.Notes
@@ -13,37 +12,40 @@ namespace Virtual_Piano.Notes
         public KeyDictionary(ToneType type)
         {
             int index = 0;
-            foreach (Octave octave in System.Enum.GetValues(typeof(Octave)).Cast<Octave>())
+
+            int min = (int)Note.C3;
+            int max = (int)Note.C8;
+
+            for (int i = min; i <= max; i++)
             {
-                foreach (Tone tone in System.Enum.GetValues(typeof(Tone)).Cast<Tone>())
+                Note note = (Note)i;
+                Tone tone = note.ToTone();
+
+                switch (tone.ToType())
                 {
-                    Note note = octave.ToNote(tone);
-                    switch (tone.ToType())
-                    {
-                        case ToneType.White:
-                            switch (type)
-                            {
-                                case ToneType.White:
-                                    base[CreateKey(index)] = note;
-                                    break;
-                                default:
-                                    break;
-                            }
-                            index++;
-                            break;
-                        case ToneType.Black:
-                            switch (type)
-                            {
-                                case ToneType.Black:
-                                    base[CreateKey(index - 1)] = note;
-                                    break;
-                                default:
-                                    break;
-                            }
-                            break;
-                        default:
-                            break;
-                    }
+                    case ToneType.White:
+                        switch (type)
+                        {
+                            case ToneType.White:
+                                base[CreateKey(index)] = note;
+                                break;
+                            default:
+                                break;
+                        }
+                        index++;
+                        break;
+                    case ToneType.Black:
+                        switch (type)
+                        {
+                            case ToneType.Black:
+                                base[CreateKey(index - 1)] = note;
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
                 }
             }
         }

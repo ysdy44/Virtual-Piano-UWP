@@ -24,9 +24,13 @@ namespace Virtual_Piano.Notes
             {
                 return (VirtualKey)(index + N1);
             }
-            else if (index >= N19 && index < N19AZ)
+            else if (index == N19)
             {
-                return (VirtualKey)(index - N19 + A);
+                return VirtualKey.Number0;
+            }
+            else if (index > N19 && index < N19AZ)
+            {
+                return (VirtualKey)(index - N19 - 1 + A);
             }
             else
             {
