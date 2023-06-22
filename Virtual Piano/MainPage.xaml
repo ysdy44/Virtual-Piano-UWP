@@ -116,7 +116,7 @@
                 Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" 
                 Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
                 >
-                <notecontrols:NotePanel
+                <notecontrols:NoteTopPanel
                     x:Name="NotePanel"
                     Label="CDE"
                     ItemSize="28"
