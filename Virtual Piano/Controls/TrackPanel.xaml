@@ -1,0 +1,83 @@
+﻿<UserControl
+    x:Class="Virtual_Piano.Controls.TrackPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Virtual_Piano.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="400"
+    d:DesignHeight="400"
+    >
+
+    <Grid x:Name="RootGrid" Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+        <UIElement.Clip>
+            <RectangleGeometry x:Name="RectangleGeometry">
+                <!--Rect-->
+            </RectangleGeometry>
+        </UIElement.Clip>
+                
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Rectangle x:Name="Rectangle" Grid.Column="1" Fill="Transparent">
+            <UIElement.ManipulationMode>
+                TranslateX, TranslateY
+            </UIElement.ManipulationMode>
+        </Rectangle>
+
+        <local:BackgroundCanvas x:Name="BackgroundCanvas" Grid.Column="1" IsHitTestVisible="False">
+            <UIElement.RenderTransform>
+                <TranslateTransform x:Name="YTransform" />
+            </UIElement.RenderTransform>
+            <FrameworkElement.Resources>
+                <!--Style-->
+                <Style TargetType="Rectangle">
+                    <Setter Property="IsHitTestVisible" Value="False" />
+                    <Setter Property="Height" Value="21" />
+                    <Setter Property="Fill" Value="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" />
+                </Style>
+            </FrameworkElement.Resources>
+        </local:BackgroundCanvas>
+
+        <local:LineCanvas Grid.Column="1" IsHitTestVisible="False">
+            <UIElement.RenderTransform>
+                <TranslateTransform x:Name="XTransform" />
+            </UIElement.RenderTransform>
+            <FrameworkElement.Resources>
+                <!--Style-->
+                <Style TargetType="Line">
+                    <Setter Property="IsHitTestVisible" Value="False" />
+                    <Setter Property="StrokeThickness" Value="1" />
+                    <Setter Property="Stroke" Value="{ThemeResource SystemControlBackgroundAltHighBrush}" />
+                </Style>
+            </FrameworkElement.Resources>
+        </local:LineCanvas>
+
+        <local:ItemCanvas x:Name="Canvas" Grid.Column="1">
+            <UIElement.RenderTransform>
+                <TranslateTransform x:Name="TranslateTransform2" />
+            </UIElement.RenderTransform>
+            <FrameworkElement.Resources>
+                <Style TargetType="Rectangle">
+                    <Setter Property="Fill" Value="SkyBlue" />
+                    <Setter Property="ManipulationMode">
+                        <Setter.Value>
+                            TranslateX, TranslateY
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </FrameworkElement.Resources>
+        </local:ItemCanvas>
+
+        <Border x:Name="ChildBorder" BorderThickness="1,0" BorderBrush="Black" Background="Black">
+            <UIElement.RenderTransform>
+                <TranslateTransform x:Name="YTransform2" />
+            </UIElement.RenderTransform>
+            <!--Child-->
+        </Border>
+
+    </Grid>
+</UserControl>

@@ -100,6 +100,25 @@
                 </ListView>
             </Border>
 
+            <!--Body-->
+            <SplitView
+                Grid.Row="1"
+                IsPaneOpen="False" 
+                DisplayMode="Inline"
+                OpenPaneLength="200"
+                PaneBackground="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
+                >
+                <controls:TrackPanel>
+                    <notecontrols:NoteLeftPanel
+                        Label="CDE"  
+                        ItemSize="21"
+                        WhiteSize="100" 
+                        BlackSize="60" 
+                        Command="{x:Bind Command}"
+                        />
+                </controls:TrackPanel>
+            </SplitView>
+
             <!--Foot-->
             <controls:InstrumentCarousel 
                 Grid.Row="3" 
