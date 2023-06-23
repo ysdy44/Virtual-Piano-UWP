@@ -6,21 +6,34 @@ using Windows.UI.Xaml.Controls;
 
 namespace Virtual_Piano.Controls
 {
+    public class InstrumentCarousel : Notes.Controls.InstrumentCarousel
+    {
+        public override string GetString(MidiProgram note)
+        {
+            return App.Resource.GetString(note.ToString());
+        }
+        public override string GetString(MidiProgramGroup group)
+        {
+            return App.Resource.GetString(group.ToString());
+        }
+    }
+}
+
+namespace Virtual_Piano.Notes.Controls
+{
     internal readonly struct Instrument
     {
         internal readonly byte Index;
-        readonly string Zh;
-        readonly string En;
-        public override string ToString() => this.En;
-        internal Instrument(byte index, string s)
+        readonly string Text;
+        public override string ToString() => this.Text;
+        internal Instrument(byte index, string text)
         {
             this.Index = index;
-            this.Zh = MidiProgramFactory.Chinese[s];
-            this.En = MidiProgramFactory.English[s];
+            this.Text = text;
         }
     }
 
-    public sealed partial class ProgramCarousel : UserControl
+    public partial class InstrumentCarousel : UserControl
     {
 
         //@Command
@@ -74,7 +87,7 @@ namespace Virtual_Piano.Controls
         }
 
         //@Construct
-        public ProgramCarousel()
+        public InstrumentCarousel()
         {
             this.InitializeComponent();
             base.SizeChanged += (s, e) =>
@@ -86,7 +99,7 @@ namespace Virtual_Piano.Controls
             };
 
             this.Instrument0 = MidiProgramFactory.Instance.Select(c =>
-            new Instrument((byte)c.Key, c.Key.ToString())).ToArray();
+            new Instrument((byte)c.Key, this.GetString(c.Key))).ToArray();
             this.Carousel0.Reset(this.Instrument0);
             this.Carousel0.ItemClick += (s, e) =>
             {
@@ -104,7 +117,7 @@ namespace Virtual_Piano.Controls
 
             this.Instrument1 = MidiProgramFactory.Instance.Select(c =>
             c.Value.Select(d =>
-            new Instrument((byte)d.Key, d.Key.ToString())).ToArray()).ToArray();
+            new Instrument((byte)d.Key, this.GetString(d.Key))).ToArray()).ToArray();
             this.Carousel1.Reset(this.Instrument1.First());
             this.Carousel1.ItemClick += (s, e) =>
             {
@@ -121,7 +134,7 @@ namespace Virtual_Piano.Controls
             this.Instrument2 = MidiProgramFactory.Instance.Select(c =>
             c.Value.Select(d =>
             d.Value.Select(e =>
-            new Instrument((byte)e, e.ToString())).ToArray()).ToArray()).ToArray();
+            new Instrument((byte)e, this.GetString(e))).ToArray()).ToArray()).ToArray();
             this.Carousel2.Reset(this.Instrument2.First().First());
             this.Carousel2.ItemClick += (s, e) =>
             {
@@ -131,6 +144,19 @@ namespace Virtual_Piano.Controls
                 MidiProgram program = (MidiProgram)this.Instrument2[c][d][e].Index;
                 this.Command?.Execute(program); // Command
             };
+        }
+
+        public virtual string GetString(MidiProgram program)
+        {
+            return program.ToString();
+        }
+        public virtual string GetString(MidiProgramGroup group)
+        {
+            return group.ToString();
+        }
+        public virtual string GetString(MidiProgramCategory category)
+        {
+            return category.ToString();
         }
     }
 }

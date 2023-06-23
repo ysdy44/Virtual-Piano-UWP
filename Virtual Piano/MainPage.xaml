@@ -101,7 +101,7 @@
             </Border>
 
             <!--Foot-->
-            <controls:ProgramCarousel 
+            <controls:InstrumentCarousel 
                 Grid.Row="3" 
                 Height="220"
                 MaxWidth="600" 
