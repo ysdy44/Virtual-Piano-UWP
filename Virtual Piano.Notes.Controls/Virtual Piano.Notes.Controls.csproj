@@ -147,9 +147,13 @@
     <Compile Include="Interfaces\IDrumPanel.cs" />
     <Compile Include="Interfaces\INoteButton.cs" />
     <Compile Include="Interfaces\INotePanel.cs" />
+    <Compile Include="Interfaces\INoteScrollViewer.cs" />
     <Compile Include="Models\DrumItem.cs" />
     <Compile Include="Models\DrumItemCategory.cs" />
     <Compile Include="NoteButton.cs" />
+    <Compile Include="NoteHorizontalScrollViewer.xaml.cs">
+      <DependentUpon>NoteHorizontalScrollViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NoteLeftPanel.xaml.cs">
       <DependentUpon>NoteLeftPanel.xaml</DependentUpon>
     </Compile>
@@ -199,6 +203,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DrumPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NoteHorizontalScrollViewer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

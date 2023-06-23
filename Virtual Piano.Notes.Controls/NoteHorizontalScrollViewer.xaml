@@ -1,0 +1,221 @@
+﻿<UserControl
+    x:Class="Virtual_Piano.Notes.Controls.NoteHorizontalScrollViewer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="400"
+    d:DesignHeight="400"
+    HorizontalAlignment="Stretch" 
+    VerticalAlignment="Top"
+    Height="40" 
+    >
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Name="RootGrid" Grid.Column="1" Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+            <Grid IsHitTestVisible="False">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" BorderThickness="0" BorderBrush="#323C80">
+                    <TextBlock 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        FontFamily="Agency FB"  
+                        FontWeight="Bold"
+                        FontSize="18"
+                        >
+                        1
+                    </TextBlock>
+                </Border>
+                <Border Grid.Column="1" BorderThickness="0" BorderBrush="#683280">
+                    <TextBlock 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        FontFamily="Agency FB"  
+                        FontWeight="Bold"
+                        FontSize="18"
+                        >
+                        2
+                    </TextBlock>
+                </Border>
+                <Border Grid.Column="2" BorderThickness="0" BorderBrush="#FF2E2E">
+                    <TextBlock 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        FontFamily="Agency FB"  
+                        FontWeight="Bold"
+                        FontSize="18"
+                        >
+                        3
+                    </TextBlock>
+                </Border>
+                <Border Grid.Column="3" BorderThickness="0" BorderBrush="#FF9348">
+                    <TextBlock 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        FontFamily="Agency FB"  
+                        FontWeight="Bold"
+                        FontSize="18"
+                        >
+                        4
+                    </TextBlock>
+                </Border>
+                <Border Grid.Column="4" BorderThickness="0" BorderBrush="#FAE100">
+                    <TextBlock 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        FontFamily="Agency FB"  
+                        FontWeight="Bold"
+                        FontSize="18"
+                        >
+                        5
+                    </TextBlock>
+                </Border>
+                <Border Grid.Column="5" BorderThickness="0" BorderBrush="#56FF56">
+                    <TextBlock 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        FontFamily="Agency FB"  
+                        FontWeight="Bold"
+                        FontSize="18"
+                        >
+                        6
+                    </TextBlock>
+                </Border>
+                <Border Grid.Column="6" BorderThickness="0" BorderBrush="#11FFF7">
+                    <TextBlock 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        FontFamily="Agency FB"  
+                        FontWeight="Bold"
+                        FontSize="18"
+                        >
+                        7
+                    </TextBlock>
+                </Border>
+                <Border Grid.Column="7" BorderThickness="0" BorderBrush="#6477FF">
+                    <TextBlock 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        FontFamily="Agency FB"  
+                        FontWeight="Bold"
+                        FontSize="18"
+                        >
+                        8
+                    </TextBlock>
+                </Border>
+                <Border Grid.Column="8" BorderThickness="0" BorderBrush="#CF64FF">
+                    <TextBlock 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        FontFamily="Agency FB"  
+                        FontWeight="Bold"
+                        FontSize="18"
+                        >
+                        9
+                    </TextBlock>
+                </Border>
+                <Border Grid.Column="9" BorderThickness="0" BorderBrush="#FFCBCB">
+                    <TextBlock 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        FontFamily="Agency FB"  
+                        FontWeight="Bold"
+                        FontSize="18"
+                        >
+                        10
+                    </TextBlock>
+                </Border>
+                <Border Grid.Column="10" BorderThickness="0" BorderBrush="#FFE4D1">
+                    <TextBlock 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        FontFamily="Agency FB"  
+                        FontWeight="Bold"
+                        FontSize="18"
+                        >
+                        11
+                    </TextBlock>
+                </Border>
+
+            </Grid>
+        
+            <Canvas Grid.Column="2" Height="34" IsHitTestVisible="False">
+                <Rectangle
+                    x:Name="Rectangle"
+                    RadiusX="4" 
+                    RadiusY="4"
+                    Height="34" 
+                    StrokeThickness="2" 
+                    Stroke="{ThemeResource SystemColorControlAccentBrush}"
+                    Fill="Transparent"
+                    />
+            </Canvas>
+        
+            <Thumb x:Name="Thumb">
+                <Thumb.Template>
+                    <ControlTemplate>
+                        <Border Background="Transparent"/>
+                    </ControlTemplate>
+                </Thumb.Template>
+            </Thumb>
+        </Grid>
+
+        <Border HorizontalAlignment="Right" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+            <RepeatButton
+                x:Name="PreviousButton"
+                Margin="4,0"
+                Width="40"
+                Height="40"
+                Padding="0"
+                Style="{StaticResource TextBlockButtonStyle}"
+                >
+                <SymbolIcon Symbol="Previous"/>
+            </RepeatButton>
+        </Border>
+
+        <Border Grid.Column="2" HorizontalAlignment="Left" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+            <RepeatButton
+                x:Name="NextButton"
+                Margin="4,0"
+                Width="40"
+                Height="40"
+                Padding="0"
+                Style="{StaticResource TextBlockButtonStyle}"
+                >
+                <SymbolIcon Symbol="Next"/>
+            </RepeatButton>
+        </Border>
+
+    </Grid>
+</UserControl>
