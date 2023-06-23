@@ -17,16 +17,16 @@ namespace Virtual_Piano.Notes
             {
                 [MidiProgramCategory.Keyboard] = new Dictionary<MidiProgramGroup, IEnumerable<MidiProgram>> 
                 {
-                    [MidiProgramGroup.Pianos] = new MidiProgram[]
+                    [MidiProgramGroup.Piano] = new MidiProgram[]
                     {
-                        MidiProgram.AcousticGrandPiano,
-                        MidiProgram.BrightAcousticPiano,
-                        MidiProgram.ElectricGrandPiano,
-                        MidiProgram.HonkyTonkPiano,
-                        MidiProgram.RhodesPiano,
-                        MidiProgram.ChorusedPiano,
+                        MidiProgram.AcousticGrand,
+                        MidiProgram.BrightAcoustic,
+                        MidiProgram.ElectricGrand,
+                        MidiProgram.HonkyTonk,
+                        MidiProgram.ElectricPiano1,
+                        MidiProgram.ElectricPiano2,
                         MidiProgram.Harpsichord,
-                        MidiProgram.Clavinet,
+                        MidiProgram.Clav,
                     },
                     [MidiProgramGroup.ChromaticPercussion] = new MidiProgram[]
                     {
@@ -39,24 +39,24 @@ namespace Virtual_Piano.Notes
                         MidiProgram.TubularBells, 
                         MidiProgram.Dulcimer, 
                     },
-                    [MidiProgramGroup.Organs] = new MidiProgram[] 
+                    [MidiProgramGroup.Organ] = new MidiProgram[] 
                     {
-                        MidiProgram.HammondOrgan, 
+                        MidiProgram.DrawbarOrgan, 
                         MidiProgram.PercussiveOrgan, 
                         MidiProgram.RockOrgan, 
                         MidiProgram.ChurchOrgan, 
                         MidiProgram.ReedOrgan, 
-                        MidiProgram.Accordion, 
+                        MidiProgram.Accoridan, 
                         MidiProgram.Harmonica, 
-                        MidiProgram.TangoAccordion, 
+                        MidiProgram.TangoAccordian, 
                     },
                 },
 
 
 
-                [MidiProgramCategory.Strings] = new Dictionary<MidiProgramGroup, IEnumerable<MidiProgram>> 
+                [MidiProgramCategory.SoloStrings] = new Dictionary<MidiProgramGroup, IEnumerable<MidiProgram>> 
                 {
-                    [MidiProgramGroup.Guitars] = new MidiProgram[] 
+                    [MidiProgramGroup.Guitar] = new MidiProgram[] 
                     {
                         MidiProgram.AcousticGuitarNylon, 
                         MidiProgram.AcousticGuitarSteel, 
@@ -67,7 +67,7 @@ namespace Virtual_Piano.Notes
                         MidiProgram.DistortionGuitar, 
                         MidiProgram.GuitarHarmonics, 
                     },
-                    [MidiProgramGroup.Basses] = new MidiProgram[] 
+                    [MidiProgramGroup.Bass] = new MidiProgram[] 
                     {
                         MidiProgram.AcousticBass, 
                         MidiProgram.ElectricBassFinger, 
@@ -78,7 +78,7 @@ namespace Virtual_Piano.Notes
                         MidiProgram.SynthBass1, 
                         MidiProgram.SynthBass2, 
                     },
-                    [MidiProgramGroup.SoloStrings] = new MidiProgram[] 
+                    [MidiProgramGroup.Strings] = new MidiProgram[] 
                     {
                         MidiProgram.Violin, 
                         MidiProgram.Viola, 
@@ -87,10 +87,10 @@ namespace Virtual_Piano.Notes
 
                         MidiProgram.TremoloStrings, 
                         MidiProgram.PizzicatoStrings, 
-                        MidiProgram.OrchestralHarp, 
+                        MidiProgram.OrchestralStrings, 
                         MidiProgram.Timpani, 
                     },
-                    [MidiProgramGroup.Ensembles] = new MidiProgram[] 
+                    [MidiProgramGroup.Ensemble] = new MidiProgram[] 
                     {
                         MidiProgram.StringEnsemble1, 
                         MidiProgram.StringEnsemble2, 
@@ -114,29 +114,29 @@ namespace Virtual_Piano.Notes
                         MidiProgram.Tuba, 
                         MidiProgram.MutedTrumpet, 
                         MidiProgram.FrenchHorn, 
-                        MidiProgram.BrassSectionDry, 
+                        MidiProgram.BrassSection, 
                         MidiProgram.SynthBrass1, 
                         MidiProgram.SynthBrass2, 
                     },
-                    [MidiProgramGroup.Reeds] = new MidiProgram[] 
+                    [MidiProgramGroup.Reed] = new MidiProgram[] 
                     {
                         MidiProgram.SopranoSax, 
                         MidiProgram.AltoSax, 
-                        MidiProgram.TenorSaxTenor, 
+                        MidiProgram.TenorSax, 
                         MidiProgram.BaritoneSax, 
                         MidiProgram.Oboe, 
                         MidiProgram.EnglishHorn, 
                         MidiProgram.Bassoon, 
                         MidiProgram.Clarinet, 
                     },
-                    [MidiProgramGroup.Pipes] = new MidiProgram[] 
+                    [MidiProgramGroup.Pipe] = new MidiProgram[] 
                     {
                         MidiProgram.Piccolo, 
                         MidiProgram.Flute, 
                         MidiProgram.Recorder, 
                         MidiProgram.PanFlute, 
-                        MidiProgram.BottleBlow, 
-                        MidiProgram.Shakuhachi, 
+                        MidiProgram.BlownBottle, 
+                        MidiProgram.Skakuhachi, 
                         MidiProgram.Whistle, 
                         MidiProgram.Ocarina, 
                     },
@@ -146,18 +146,18 @@ namespace Virtual_Piano.Notes
 
                 [MidiProgramCategory.Synth] = new Dictionary<MidiProgramGroup, IEnumerable<MidiProgram>> 
                 {
-                    [MidiProgramGroup.SynthLeads] = new MidiProgram[] 
+                    [MidiProgramGroup.SynthLead] = new MidiProgram[] 
                     {
                         MidiProgram.Lead1Square, 
                         MidiProgram.Lead2Sawtooth, 
-                        MidiProgram.Lead3Calliopelead, 
-                        MidiProgram.Lead4Chifflead, 
+                        MidiProgram.Lead3Calliope, 
+                        MidiProgram.Lead4Chiff, 
                         MidiProgram.Lead5Charang, 
                         MidiProgram.Lead6Voice, 
                         MidiProgram.Lead7Fifths, 
-                        MidiProgram.Lead8bassLead, 
+                        MidiProgram.Lead8BassLead, 
                     },
-                    [MidiProgramGroup.SynthPads] = new MidiProgram[] 
+                    [MidiProgramGroup.SynthPad] = new MidiProgram[] 
                     {
                         MidiProgram.Pad1Newage, 
                         MidiProgram.Pad2Warm, 
@@ -166,7 +166,7 @@ namespace Virtual_Piano.Notes
                         MidiProgram.Pad5Bowed, 
                         MidiProgram.Pad6Metallic, 
                         MidiProgram.Pad7Halo, 
-                        MidiProgram.Pad8sweep, 
+                        MidiProgram.Pad8Sweep, 
                     },
                     [MidiProgramGroup.SynthEffects] = new MidiProgram[] 
                     {
@@ -200,11 +200,11 @@ namespace Virtual_Piano.Notes
                     {
                         MidiProgram.TinkleBell, 
                         MidiProgram.Agogo, 
-                        MidiProgram.SteelDrum, 
+                        MidiProgram.SteelDrums, 
                         MidiProgram.Woodblock, 
                         MidiProgram.TaikoDrum, 
                         MidiProgram.MelodicTom, 
-                        MidiProgram.SynthDrums, 
+                        MidiProgram.SynthDrum, 
                         MidiProgram.ReverseCymbal, 
                     },
                     [MidiProgramGroup.SoundEffects] = new MidiProgram[]
@@ -226,28 +226,28 @@ namespace Virtual_Piano.Notes
         public static IReadOnlyDictionary<string, string> English = new Dictionary<string, string>
         {
             [MidiProgramCategory.Keyboard.ToString()] = "Keyboard",
-            [MidiProgramCategory.Strings.ToString()] = "Strings",
+            [MidiProgramCategory.SoloStrings.ToString()] = "Strings",
             [MidiProgramCategory.Wind.ToString()] = "Wind",
             [MidiProgramCategory.Synth.ToString()] = "Synth",
             [MidiProgramCategory.Special.ToString()] = "Special",
 
 
 
-            [MidiProgramGroup.Pianos.ToString()] = "Pianos",
+            [MidiProgramGroup.Piano.ToString()] = "Pianos",
             [MidiProgramGroup.ChromaticPercussion.ToString()] = "Chromatic Percussion",
-            [MidiProgramGroup.Organs.ToString()] = "Organs",
+            [MidiProgramGroup.Organ.ToString()] = "Organs",
 
-            [MidiProgramGroup.Guitars.ToString()] = "Guitars",
-            [MidiProgramGroup.Basses.ToString()] = "Basses",
-            [MidiProgramGroup.SoloStrings.ToString()] = "Solo Strings",
-            [MidiProgramGroup.Ensembles.ToString()] = "Ensembles",
+            [MidiProgramGroup.Guitar.ToString()] = "Guitars",
+            [MidiProgramGroup.Bass.ToString()] = "Basses",
+            [MidiProgramGroup.Strings.ToString()] = "Solo Strings",
+            [MidiProgramGroup.Ensemble.ToString()] = "Ensembles",
 
             [MidiProgramGroup.Brass.ToString()] = "Brass",
-            [MidiProgramGroup.Reeds.ToString()] = "Reeds",
-            [MidiProgramGroup.Pipes.ToString()] = "Pipes",
+            [MidiProgramGroup.Reed.ToString()] = "Reeds",
+            [MidiProgramGroup.Pipe.ToString()] = "Pipes",
 
-            [MidiProgramGroup.SynthLeads.ToString()] = "Synth Leads",
-            [MidiProgramGroup.SynthPads.ToString()] = "Synth Pads",
+            [MidiProgramGroup.SynthLead.ToString()] = "Synth Leads",
+            [MidiProgramGroup.SynthPad.ToString()] = "Synth Pads",
             [MidiProgramGroup.SynthEffects.ToString()] = "Synth Effects",
 
             [MidiProgramGroup.Ethnic.ToString()] = "Ethnic",
@@ -256,14 +256,14 @@ namespace Virtual_Piano.Notes
 
 
 
-            [MidiProgram.AcousticGrandPiano.ToString()] = "Acoustic Grand Piano",
-            [MidiProgram.BrightAcousticPiano.ToString()] = "Bright Acoustic Piano",
-            [MidiProgram.ElectricGrandPiano.ToString()] = "Electric Grand Piano",
-            [MidiProgram.HonkyTonkPiano.ToString()] = "Honky Tonk Piano",
-            [MidiProgram.RhodesPiano.ToString()] = "Rhodes Piano",
-            [MidiProgram.ChorusedPiano.ToString()] = "Chorused Piano",
+            [MidiProgram.AcousticGrand.ToString()] = "Acoustic Grand Piano",
+            [MidiProgram.BrightAcoustic.ToString()] = "Bright Acoustic Piano",
+            [MidiProgram.ElectricGrand.ToString()] = "Electric Grand Piano",
+            [MidiProgram.HonkyTonk.ToString()] = "Honky Tonk Piano",
+            [MidiProgram.ElectricPiano1.ToString()] = "Rhodes Piano",
+            [MidiProgram.ElectricPiano2.ToString()] = "Chorused Piano",
             [MidiProgram.Harpsichord.ToString()] = "Harpsichord",
-            [MidiProgram.Clavinet.ToString()] = "Clavinet",
+            [MidiProgram.Clav.ToString()] = "Clavinet",
 
             [MidiProgram.Celesta.ToString()] = "Celesta",
             [MidiProgram.Glockenspiel.ToString()] = "Glockenspiel",
@@ -274,14 +274,14 @@ namespace Virtual_Piano.Notes
             [MidiProgram.TubularBells.ToString()] = "Tubular Bells",
             [MidiProgram.Dulcimer.ToString()] = "Dulcimer",
 
-            [MidiProgram.HammondOrgan.ToString()] = "Hammond Organ",
+            [MidiProgram.DrawbarOrgan.ToString()] = "Hammond Organ",
             [MidiProgram.PercussiveOrgan.ToString()] = "Percussive Organ",
             [MidiProgram.RockOrgan.ToString()] = "Rock Organ",
             [MidiProgram.ChurchOrgan.ToString()] = "Church Organ",
             [MidiProgram.ReedOrgan.ToString()] = "Reed Organ",
-            [MidiProgram.Accordion.ToString()] = "Accordion",
+            [MidiProgram.Accoridan.ToString()] = "Accordion",
             [MidiProgram.Harmonica.ToString()] = "Harmonica",
-            [MidiProgram.TangoAccordion.ToString()] = "Tango Accordion",
+            [MidiProgram.TangoAccordian.ToString()] = "Tango Accordion",
 
             [MidiProgram.AcousticGuitarNylon.ToString()] = "Acoustic Guitar(nylon)",
             [MidiProgram.AcousticGuitarSteel.ToString()] = "Acoustic Guitar(steel)",
@@ -307,7 +307,7 @@ namespace Virtual_Piano.Notes
             [MidiProgram.Contrabass.ToString()] = "Contrabass",
             [MidiProgram.TremoloStrings.ToString()] = "Tremolo Strings",
             [MidiProgram.PizzicatoStrings.ToString()] = "Pizzicato Strings",
-            [MidiProgram.OrchestralHarp.ToString()] = "Orchestral Harp",
+            [MidiProgram.OrchestralStrings.ToString()] = "Orchestral Harp",
             [MidiProgram.Timpani.ToString()] = "Timpani",
 
             [MidiProgram.StringEnsemble1.ToString()] = "String Ensemble1",
@@ -324,13 +324,13 @@ namespace Virtual_Piano.Notes
             [MidiProgram.Tuba.ToString()] = "Tuba",
             [MidiProgram.MutedTrumpet.ToString()] = "Muted Trumpet",
             [MidiProgram.FrenchHorn.ToString()] = "French Horn",
-            [MidiProgram.BrassSectionDry.ToString()] = "Brass Section Dry",
+            [MidiProgram.BrassSection.ToString()] = "Brass Section Dry",
             [MidiProgram.SynthBrass1.ToString()] = "Synth Brass1",
             [MidiProgram.SynthBrass2.ToString()] = "Synth Brass2",
 
             [MidiProgram.SopranoSax.ToString()] = "Soprano Sax",
             [MidiProgram.AltoSax.ToString()] = "Alto Sax",
-            [MidiProgram.TenorSaxTenor.ToString()] = "Tenor Sax(Tenor)",
+            [MidiProgram.TenorSax.ToString()] = "Tenor Sax(Tenor)",
             [MidiProgram.BaritoneSax.ToString()] = "Baritone Sax",
             [MidiProgram.Oboe.ToString()] = "Oboe",
             [MidiProgram.EnglishHorn.ToString()] = "English Horn",
@@ -341,19 +341,19 @@ namespace Virtual_Piano.Notes
             [MidiProgram.Flute.ToString()] = "Flute",
             [MidiProgram.Recorder.ToString()] = "Recorder",
             [MidiProgram.PanFlute.ToString()] = "Pan Flute",
-            [MidiProgram.BottleBlow.ToString()] = "Bottle Blow",
-            [MidiProgram.Shakuhachi.ToString()] = "Shakuhachi",
+            [MidiProgram.BlownBottle.ToString()] = "Bottle Blow",
+            [MidiProgram.Skakuhachi.ToString()] = "Shakuhachi",
             [MidiProgram.Whistle.ToString()] = "Whistle",
             [MidiProgram.Ocarina.ToString()] = "Ocarina",
 
             [MidiProgram.Lead1Square.ToString()] = "Lead 1 square",
             [MidiProgram.Lead2Sawtooth.ToString()] = "Lead 2 sawtooth",
-            [MidiProgram.Lead3Calliopelead.ToString()] = "Lead 3 calliope lead",
-            [MidiProgram.Lead4Chifflead.ToString()] = "Lead 4 chiff lead",
+            [MidiProgram.Lead3Calliope.ToString()] = "Lead 3 calliope lead",
+            [MidiProgram.Lead4Chiff.ToString()] = "Lead 4 chiff lead",
             [MidiProgram.Lead5Charang.ToString()] = "Lead 5 charang",
             [MidiProgram.Lead6Voice.ToString()] = "Lead 6 voice",
             [MidiProgram.Lead7Fifths.ToString()] = "Lead 7 fifths",
-            [MidiProgram.Lead8bassLead.ToString()] = "Lead 8 bass + lead",
+            [MidiProgram.Lead8BassLead.ToString()] = "Lead 8 bass + lead",
 
             [MidiProgram.Pad1Newage.ToString()] = "Pad 1 new age",
             [MidiProgram.Pad2Warm.ToString()] = "Pad 2 warm",
@@ -362,7 +362,7 @@ namespace Virtual_Piano.Notes
             [MidiProgram.Pad5Bowed.ToString()] = "Pad 5 bowed",
             [MidiProgram.Pad6Metallic.ToString()] = "Pad 6 metallic",
             [MidiProgram.Pad7Halo.ToString()] = "Pad 7 halo",
-            [MidiProgram.Pad8sweep.ToString()] = "Pad 8 sweep",
+            [MidiProgram.Pad8Sweep.ToString()] = "Pad 8 sweep",
 
             [MidiProgram.FX1Rain.ToString()] = "FX 1 rain",
             [MidiProgram.FX2Soundtrack.ToString()] = "FX 2 soundtrack",
@@ -384,11 +384,11 @@ namespace Virtual_Piano.Notes
 
             [MidiProgram.TinkleBell.ToString()] = "Tinkle Bell",
             [MidiProgram.Agogo.ToString()] = "Agogo",
-            [MidiProgram.SteelDrum.ToString()] = "Steel Drum",
+            [MidiProgram.SteelDrums.ToString()] = "Steel Drum",
             [MidiProgram.Woodblock.ToString()] = "Woodblock",
             [MidiProgram.TaikoDrum.ToString()] = "Taiko Drum",
             [MidiProgram.MelodicTom.ToString()] = "Melodic Tom",
-            [MidiProgram.SynthDrums.ToString()] = "Synth Drums",
+            [MidiProgram.SynthDrum.ToString()] = "Synth Drums",
             [MidiProgram.ReverseCymbal.ToString()] = "Reverse Cymbal",
 
             [MidiProgram.GuitarFretNoise.ToString()] = "Guitar Fret Noise",
@@ -404,28 +404,28 @@ namespace Virtual_Piano.Notes
         public static IReadOnlyDictionary<string, string> Chinese = new Dictionary<string, string>
         {
             [MidiProgramCategory.Keyboard.ToString()] = "键盘",
-            [MidiProgramCategory.Strings.ToString()] = "弦乐",
+            [MidiProgramCategory.SoloStrings.ToString()] = "弦乐",
             [MidiProgramCategory.Wind.ToString()] = "管乐",
             [MidiProgramCategory.Synth.ToString()] = "合成",
             [MidiProgramCategory.Special.ToString()] = "特殊",
 
 
 
-            [MidiProgramGroup.Pianos.ToString()] = "钢琴",
+            [MidiProgramGroup.Piano.ToString()] = "钢琴",
             [MidiProgramGroup.ChromaticPercussion.ToString()] = "半音打击乐器",
-            [MidiProgramGroup.Organs.ToString()] = "风琴",
+            [MidiProgramGroup.Organ.ToString()] = "风琴",
 
-            [MidiProgramGroup.Guitars.ToString()] = "吉他",
-            [MidiProgramGroup.Basses.ToString()] = "贝司",
-            [MidiProgramGroup.SoloStrings.ToString()] = "弦乐独奏",
-            [MidiProgramGroup.Ensembles.ToString()] = "合唱合奏",
+            [MidiProgramGroup.Guitar.ToString()] = "吉他",
+            [MidiProgramGroup.Bass.ToString()] = "贝司",
+            [MidiProgramGroup.Strings.ToString()] = "弦乐独奏",
+            [MidiProgramGroup.Ensemble.ToString()] = "合唱合奏",
 
             [MidiProgramGroup.Brass.ToString()] = "铜管乐器",
-            [MidiProgramGroup.Reeds.ToString()] = "哨片乐器",
-            [MidiProgramGroup.Pipes.ToString()] = "吹管乐器",
+            [MidiProgramGroup.Reed.ToString()] = "哨片乐器",
+            [MidiProgramGroup.Pipe.ToString()] = "吹管乐器",
 
-            [MidiProgramGroup.SynthLeads.ToString()] = "合成主音",
-            [MidiProgramGroup.SynthPads.ToString()] = "合成柔音",
+            [MidiProgramGroup.SynthLead.ToString()] = "合成主音",
+            [MidiProgramGroup.SynthPad.ToString()] = "合成柔音",
             [MidiProgramGroup.SynthEffects.ToString()] = "合成特效",
 
             [MidiProgramGroup.Ethnic.ToString()] = "民族乐器",
@@ -434,14 +434,14 @@ namespace Virtual_Piano.Notes
 
 
 
-            [MidiProgram.AcousticGrandPiano.ToString()] = "大钢琴(壮丽的)",
-            [MidiProgram.BrightAcousticPiano.ToString()] = "亮音大钢琴(明亮的)",
-            [MidiProgram.ElectricGrandPiano.ToString()] = "电子钢琴(壮丽的)",
-            [MidiProgram.HonkyTonkPiano.ToString()] = "酒吧钢琴",
-            [MidiProgram.RhodesPiano.ToString()] = "练习音钢琴",
-            [MidiProgram.ChorusedPiano.ToString()] = "合唱加钢琴",
+            [MidiProgram.AcousticGrand.ToString()] = "大钢琴(壮丽的)",
+            [MidiProgram.BrightAcoustic.ToString()] = "亮音大钢琴(明亮的)",
+            [MidiProgram.ElectricGrand.ToString()] = "电子钢琴(壮丽的)",
+            [MidiProgram.HonkyTonk.ToString()] = "酒吧钢琴",
+            [MidiProgram.ElectricPiano1.ToString()] = "练习音钢琴",
+            [MidiProgram.ElectricPiano2.ToString()] = "合唱加钢琴",
             [MidiProgram.Harpsichord.ToString()] = "拨弦古钢琴",
-            [MidiProgram.Clavinet.ToString()] = "击弦古钢琴",
+            [MidiProgram.Clav.ToString()] = "击弦古钢琴",
 
             [MidiProgram.Celesta.ToString()] = "钢片琴",
             [MidiProgram.Glockenspiel.ToString()] = "钟琴",
@@ -452,14 +452,14 @@ namespace Virtual_Piano.Notes
             [MidiProgram.TubularBells.ToString()] = "管钟",
             [MidiProgram.Dulcimer.ToString()] = "扬琴",
 
-            [MidiProgram.HammondOrgan.ToString()] = "击杆风琴(管风琴)",
+            [MidiProgram.DrawbarOrgan.ToString()] = "击杆风琴(管风琴)",
             [MidiProgram.PercussiveOrgan.ToString()] = "打击型风琴(敲击管风琴)",
             [MidiProgram.RockOrgan.ToString()] = "摇滚风琴(摇滚管风琴)",
             [MidiProgram.ChurchOrgan.ToString()] = "教堂管风琴",
             [MidiProgram.ReedOrgan.ToString()] = "簧风琴",
-            [MidiProgram.Accordion.ToString()] = "手风琴",
+            [MidiProgram.Accoridan.ToString()] = "手风琴",
             [MidiProgram.Harmonica.ToString()] = "口琴",
-            [MidiProgram.TangoAccordion.ToString()] = "探戈手风琴",
+            [MidiProgram.TangoAccordian.ToString()] = "探戈手风琴",
 
             [MidiProgram.AcousticGuitarNylon.ToString()] = "大厅尼龙弦吉他",
             [MidiProgram.AcousticGuitarSteel.ToString()] = "大厅钢弦吉他",
@@ -485,7 +485,7 @@ namespace Virtual_Piano.Notes
             [MidiProgram.Contrabass.ToString()] = "低音提琴",
             [MidiProgram.TremoloStrings.ToString()] = "弦乐震音(散弓)",
             [MidiProgram.PizzicatoStrings.ToString()] = "弦乐拨奏",
-            [MidiProgram.OrchestralHarp.ToString()] = "竖琴",
+            [MidiProgram.OrchestralStrings.ToString()] = "竖琴",
             [MidiProgram.Timpani.ToString()] = "定音鼓",
 
             [MidiProgram.StringEnsemble1.ToString()] = "弦乐合奏1",
@@ -502,13 +502,13 @@ namespace Virtual_Piano.Notes
             [MidiProgram.Tuba.ToString()] = "大号(低音号)",
             [MidiProgram.MutedTrumpet.ToString()] = "弱音小号(弱音器)",
             [MidiProgram.FrenchHorn.ToString()] = "圆号(法国)",
-            [MidiProgram.BrassSectionDry.ToString()] = "铜管组(铜管合奏)",
+            [MidiProgram.BrassSection.ToString()] = "铜管组(铜管合奏)",
             [MidiProgram.SynthBrass1.ToString()] = "合成铜管1",
             [MidiProgram.SynthBrass2.ToString()] = "合成铜管2",
 
             [MidiProgram.SopranoSax.ToString()] = "高音萨克斯风",
             [MidiProgram.AltoSax.ToString()] = "中音萨克斯风",
-            [MidiProgram.TenorSaxTenor.ToString()] = "次中音萨克斯风",
+            [MidiProgram.TenorSax.ToString()] = "次中音萨克斯风",
             [MidiProgram.BaritoneSax.ToString()] = "上低音萨克斯风",
             [MidiProgram.Oboe.ToString()] = "双簧管",
             [MidiProgram.EnglishHorn.ToString()] = "英国管",
@@ -519,19 +519,19 @@ namespace Virtual_Piano.Notes
             [MidiProgram.Flute.ToString()] = "长笛",
             [MidiProgram.Recorder.ToString()] = "竖笛(合成笛(回忆的))",
             [MidiProgram.PanFlute.ToString()] = "排笛(排萧)",
-            [MidiProgram.BottleBlow.ToString()] = "吹瓶口",
-            [MidiProgram.Shakuhachi.ToString()] = "尺八(日本笛)",
+            [MidiProgram.BlownBottle.ToString()] = "吹瓶口",
+            [MidiProgram.Skakuhachi.ToString()] = "尺八(日本笛)",
             [MidiProgram.Whistle.ToString()] = "口哨",
             [MidiProgram.Ocarina.ToString()] = "洋埙",
 
             [MidiProgram.Lead1Square.ToString()] = "合成主音1(方波, 适度)",
             [MidiProgram.Lead2Sawtooth.ToString()] = "合成主音2(锯齿波)",
-            [MidiProgram.Lead3Calliopelead.ToString()] = "合成主音3(汽笛风琴)",
-            [MidiProgram.Lead4Chifflead.ToString()] = "合成主音4(吹管, 莺歌)",
+            [MidiProgram.Lead3Calliope.ToString()] = "合成主音3(汽笛风琴)",
+            [MidiProgram.Lead4Chiff.ToString()] = "合成主音4(吹管, 莺歌)",
             [MidiProgram.Lead5Charang.ToString()] = "合成主音5(吉他, 精灵)",
             [MidiProgram.Lead6Voice.ToString()] = "合成主音6(人声, 歌唱)",
             [MidiProgram.Lead7Fifths.ToString()] = "合成主音7(五度音)",
-            [MidiProgram.Lead8bassLead.ToString()] = "合成主音8(低音加主音, 贝司)",
+            [MidiProgram.Lead8BassLead.ToString()] = "合成主音8(低音加主音, 贝司)",
 
             [MidiProgram.Pad1Newage.ToString()] = "合成柔音1(新时代, 歌唱)",
             [MidiProgram.Pad2Warm.ToString()] = "合成柔音(暖音, 温情)",
@@ -540,7 +540,7 @@ namespace Virtual_Piano.Notes
             [MidiProgram.Pad5Bowed.ToString()] = "合成柔音5(弓弦, 温和)",
             [MidiProgram.Pad6Metallic.ToString()] = "合成柔音6(金属, 光泽)",
             [MidiProgram.Pad7Halo.ToString()] = "合成柔音7(光环, 多彩)",
-            [MidiProgram.Pad8sweep.ToString()] = "合成柔音8(扫弦, 平静)",
+            [MidiProgram.Pad8Sweep.ToString()] = "合成柔音8(扫弦, 平静)",
 
             [MidiProgram.FX1Rain.ToString()] = "合成特效1(雨点)",
             [MidiProgram.FX2Soundtrack.ToString()] = "合成特效2(音轨, 多音素)",
@@ -562,11 +562,11 @@ namespace Virtual_Piano.Notes
 
             [MidiProgram.TinkleBell.ToString()] = "铃铛(编钟)",
             [MidiProgram.Agogo.ToString()] = "拉丁打铃(铁皮角)",
-            [MidiProgram.SteelDrum.ToString()] = "钢鼓",
+            [MidiProgram.SteelDrums.ToString()] = "钢鼓",
             [MidiProgram.Woodblock.ToString()] = "木块(木鱼)",
             [MidiProgram.TaikoDrum.ToString()] = "太鼓",
             [MidiProgram.MelodicTom.ToString()] = "嗵鼓(排鼓)",
-            [MidiProgram.SynthDrums.ToString()] = "合成鼓(电子鼓)",
+            [MidiProgram.SynthDrum.ToString()] = "合成鼓(电子鼓)",
             [MidiProgram.ReverseCymbal.ToString()] = "镲波形反转(钹(轮击))",
 
             [MidiProgram.GuitarFretNoise.ToString()] = "磨弦声(滑弦声)",

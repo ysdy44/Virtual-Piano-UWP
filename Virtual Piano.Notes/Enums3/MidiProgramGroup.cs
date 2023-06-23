@@ -2,21 +2,21 @@
 {
     public enum MidiProgramGroup : byte
     {
-        Pianos = 0,
+        Piano = 0,
         ChromaticPercussion = 1,
-        Organs = 2,
+        Organ = 2,
 
-        Guitars = 3,
-        Basses = 4,
-        SoloStrings = 5,
-        Ensembles = 6,
+        Guitar = 3,
+        Bass = 4,
+        Strings = 5,
+        Ensemble = 6,
 
         Brass = 7,
-        Reeds = 8,
-        Pipes = 9,
+        Reed = 8,
+        Pipe = 9,
 
-        SynthLeads = 10,
-        SynthPads = 11,
+        SynthLead = 10,
+        SynthPad = 11,
         SynthEffects = 12,
 
         Ethnic = 13,
