@@ -140,6 +140,9 @@
       <DependentUpon>DrumPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Enums\NoteDirection.cs" />
+    <Compile Include="InstrumentCarousel.xaml.cs">
+      <DependentUpon>InstrumentCarousel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IChordButton.cs" />
     <Compile Include="Interfaces\IChordPanel.cs" />
     <Compile Include="Interfaces\IClickButton.cs" />
@@ -205,6 +208,10 @@
     <Page Include="DrumPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InstrumentCarousel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="NoteHorizontalScrollViewer.xaml">
       <Generator>MSBuild:Compile</Generator>
