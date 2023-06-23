@@ -132,4 +132,150 @@
   <data name='Castanets' xml:space='preserve'> <value>Nacchere</value> </data>
   <data name='MuteSurdo' xml:space='preserve'> <value>Surdo chiuso</value> </data>
   <data name='OpenSurdo' xml:space='preserve'> <value>Surdo aperto</value> </data>
+  <!--Separator 5-->
+  <data name='Piano' xml:space='preserve'> <value>Piano</value> </data>
+  <data name='ChromaticPercussion' xml:space='preserve'> <value>Percussioni Cromatiche</value> </data>
+  <data name='Organ' xml:space='preserve'> <value>Organo</value> </data>
+  <data name='Guitar' xml:space='preserve'> <value>Chitarra</value> </data>
+  <data name='Bass' xml:space='preserve'> <value>Basso</value> </data>
+  <data name='Strings' xml:space='preserve'> <value>Corde</value> </data>
+  <data name='Ensemble' xml:space='preserve'> <value>Ensemble</value> </data>
+  <data name='SynthLead' xml:space='preserve'> <value>Ottone</value> </data>
+  <data name='SynthPad' xml:space='preserve'> <value>Ancia</value> </data>
+  <data name='SynthEffects' xml:space='preserve'> <value>Flauto</value> </data>
+  <data name='Brass' xml:space='preserve'> <value>Voce principale - Synth Lead</value> </data>
+  <data name='Reed' xml:space='preserve'> <value>Voce accompagnamento -Synth Pad</value> </data>
+  <data name='Pipe' xml:space='preserve'> <value>Effetti Synth</value> </data>
+  <data name='Ethnic' xml:space='preserve'> <value>Etnica</value> </data>
+  <data name='Percussive' xml:space='preserve'> <value>Percussivo</value> </data>
+  <data name='SoundEffects' xml:space='preserve'> <value>Effetti Sonori</value> </data>
+  <!--Separator 6-->
+  <data name='AcousticGrand' xml:space='preserve'> <value>Pianoforte acustico</value> </data>
+  <data name='BrightAcoustic' xml:space='preserve'> <value>Pianoforte a coda</value> </data>
+  <data name='ElectricGrand' xml:space='preserve'> <value>Pianoforte elettrico</value> </data>
+  <data name='HonkyTonk' xml:space='preserve'> <value>Piano Honky-Tonk</value> </data>
+  <data name='ElectricPiano1' xml:space='preserve'> <value>Piano Elettrico 1</value> </data>
+  <data name='ElectricPiano2' xml:space='preserve'> <value>Piano Elettrico 2</value> </data>
+  <data name='Harpsichord' xml:space='preserve'> <value>Clavicembalo</value> </data>
+  <data name='Clav' xml:space='preserve'> <value>Clavinet</value> </data>
+  <data name='Celesta' xml:space='preserve'> <value>Celesta</value> </data>
+  <data name='Glockenspiel' xml:space='preserve'> <value>Glockenspiel</value> </data>
+  <data name='MusicBox' xml:space='preserve'> <value>Music Box</value> </data>
+  <data name='Vibraphone' xml:space='preserve'> <value>Vibrafono</value> </data>
+  <data name='Marimba' xml:space='preserve'> <value>Marimba</value> </data>
+  <data name='Xylophone' xml:space='preserve'> <value>Xilofono</value> </data>
+  <data name='TubularBells' xml:space='preserve'> <value>Campane Tubolari</value> </data>
+  <data name='Dulcimer' xml:space='preserve'> <value>Dulcimer</value> </data>
+  <data name='DrawbarOrgan' xml:space='preserve'> <value>Organo a canne</value> </data>
+  <data name='PercussiveOrgan' xml:space='preserve'> <value>Organo a percussione</value> </data>
+  <data name='RockOrgan' xml:space='preserve'> <value>Organo Rock</value> </data>
+  <data name='ChurchOrgan' xml:space='preserve'> <value>Organo</value> </data>
+  <data name='ReedOrgan' xml:space='preserve'> <value>Organo ad ance</value> </data>
+  <data name='Accoridan' xml:space='preserve'> <value>Organetto Diatonico</value> </data>
+  <data name='Harmonica' xml:space='preserve'> <value>Armonica a bocca</value> </data>
+  <data name='TangoAccordian' xml:space='preserve'> <value>Fisarmonica</value> </data>
+  <data name='AcousticGuitarNylon' xml:space='preserve'> <value>Chitarra Classica</value> </data>
+  <data name='AcousticGuitarSteel' xml:space='preserve'> <value>Chitarra Acustica</value> </data>
+  <data name='ElectricGuitarJazz' xml:space='preserve'> <value>Chitarra Jazz</value> </data>
+  <data name='ElectricGuitarClean' xml:space='preserve'> <value>Chitarra Elettrica Pulita</value> </data>
+  <data name='ElectricGuitarMuted' xml:space='preserve'> <value>Chitarra Elettrica Muta</value> </data>
+  <data name='OverdrivenGuitar' xml:space='preserve'> <value>Chitarra Overdrive</value> </data>
+  <data name='DistortionGuitar' xml:space='preserve'> <value>Chitarra Elettrica Distorta</value> </data>
+  <data name='GuitarHarmonics' xml:space='preserve'> <value>Armoniche Chitarra</value> </data>
+  <data name='AcousticBass' xml:space='preserve'> <value>Basso Acustico</value> </data>
+  <data name='ElectricBassFinger' xml:space='preserve'> <value>Basso a dita</value> </data>
+  <data name='ElectricBassPick' xml:space='preserve'> <value>Basso con plettro</value> </data>
+  <data name='FretlessBass' xml:space='preserve'> <value>Basso Fretless</value> </data>
+  <data name='SlapBass1' xml:space='preserve'> <value>Basso Slap 1</value> </data>
+  <data name='SlapBass2' xml:space='preserve'> <value>Basso Slap 2</value> </data>
+  <data name='SynthBass1' xml:space='preserve'> <value>Basso Synth 1</value> </data>
+  <data name='SynthBass2' xml:space='preserve'> <value>Basso Synth 2</value> </data>
+  <data name='Violin' xml:space='preserve'> <value>Violino</value> </data>
+  <data name='Viola' xml:space='preserve'> <value>Viola</value> </data>
+  <data name='Cello' xml:space='preserve'> <value>Violoncello</value> </data>
+  <data name='Contrabass' xml:space='preserve'> <value>Contrabasso</value> </data>
+  <data name='TremoloStrings' xml:space='preserve'> <value>Corde tremolanti</value> </data>
+  <data name='PizzicatoStrings' xml:space='preserve'> <value>Corde pizzicate</value> </data>
+  <data name='OrchestralStrings' xml:space='preserve'> <value>Arpa orchestrale</value> </data>
+  <data name='Timpani' xml:space='preserve'> <value>Timpani</value> </data>
+  <data name='StringEnsemble1' xml:space='preserve'> <value>String Ensemble 1</value> </data>
+  <data name='StringEnsemble2' xml:space='preserve'> <value>String Ensemble 2</value> </data>
+  <data name='SynthStrings1' xml:space='preserve'> <value>Synth Strings 1</value> </data>
+  <data name='SynthStrings2' xml:space='preserve'> <value>Synth Strings 2</value> </data>
+  <data name='ChoirAahs' xml:space='preserve'> <value>Coro (ahh)</value> </data>
+  <data name='VoiceOohs' xml:space='preserve'> <value>Coro (ooh)</value> </data>
+  <data name='SynthVoice' xml:space='preserve'> <value>Synth Voice</value> </data>
+  <data name='OrchestraHit' xml:space='preserve'> <value>Orchestral Hit</value> </data>
+  <data name='Trumpet' xml:space='preserve'> <value>Tromba</value> </data>
+  <data name='Trombone' xml:space='preserve'> <value>Trombone</value> </data>
+  <data name='Tuba' xml:space='preserve'> <value>Tuba</value> </data>
+  <data name='MutedTrumpet' xml:space='preserve'> <value>Tromba Muta</value> </data>
+  <data name='FrenchHorn' xml:space='preserve'> <value>Corno Francese</value> </data>
+  <data name='BrassSection' xml:space='preserve'> <value>Sezione Ottoni</value> </data>
+  <data name='SynthBrass1' xml:space='preserve'> <value>Synth Brass 1</value> </data>
+  <data name='SynthBrass2' xml:space='preserve'> <value>Synth Brass 2</value> </data>
+  <data name='SopranoSax' xml:space='preserve'> <value>Sassofono Soprano</value> </data>
+  <data name='AltoSax' xml:space='preserve'> <value>Sassofono Alto</value> </data>
+  <data name='TenorSax' xml:space='preserve'> <value>Sassofono Tenore</value> </data>
+  <data name='BaritoneSax' xml:space='preserve'> <value>Sassofono Baritono</value> </data>
+  <data name='Oboe' xml:space='preserve'> <value>Oboe</value> </data>
+  <data name='EnglishHorn' xml:space='preserve'> <value>Corno Inglese</value> </data>
+  <data name='Bassoon' xml:space='preserve'> <value>Fagotto</value> </data>
+  <data name='Clarinet' xml:space='preserve'> <value>Clarinetto</value> </data>
+  <data name='Piccolo' xml:space='preserve'> <value>Piccolo</value> </data>
+  <data name='Flute' xml:space='preserve'> <value>Flauto</value> </data>
+  <data name='Recorder' xml:space='preserve'> <value>Recorder</value> </data>
+  <data name='PanFlute' xml:space='preserve'> <value>Flauto di Pan</value> </data>
+  <data name='BlownBottle' xml:space='preserve'> <value>Blown Bottle</value> </data>
+  <data name='Skakuhachi' xml:space='preserve'> <value>Shakuhachi</value> </data>
+  <data name='Whistle' xml:space='preserve'> <value>Fischietto</value> </data>
+  <data name='Ocarina' xml:space='preserve'> <value>Ocarina</value> </data>
+  <data name='Lead1Square' xml:space='preserve'> <value>Onda Quadra</value> </data>
+  <data name='Lead2Sawtooth' xml:space='preserve'> <value>Sawtooth wave</value> </data>
+  <data name='Lead3Calliope' xml:space='preserve'> <value>Caliope</value> </data>
+  <data name='Lead4Chiff' xml:space='preserve'> <value>Chiff</value> </data>
+  <data name='Lead5Charang' xml:space='preserve'> <value>Charang</value> </data>
+  <data name='Lead6Voice' xml:space='preserve'> <value>Synth Voice 2</value> </data>
+  <data name='Lead7Fifths' xml:space='preserve'> <value>Fifths</value> </data>
+  <data name='Lead8BassLead' xml:space='preserve'> <value>Bass and Lead</value> </data>
+  <data name='Pad1Newage' xml:space='preserve'> <value>New Age</value> </data>
+  <data name='Pad2Warm' xml:space='preserve'> <value>Warm</value> </data>
+  <data name='Pad3Polysynth' xml:space='preserve'> <value>Polysynth</value> </data>
+  <data name='Pad4Choir' xml:space='preserve'> <value>Coro</value> </data>
+  <data name='Pad5Bowed' xml:space='preserve'> <value>Bowed</value> </data>
+  <data name='Pad6Metallic' xml:space='preserve'> <value>Metallico</value> </data>
+  <data name='Pad7Halo' xml:space='preserve'> <value>Halo</value> </data>
+  <data name='Pad8Sweep' xml:space='preserve'> <value>Sweep</value> </data>
+  <data name='FX1Rain' xml:space='preserve'> <value>Pioggia</value> </data>
+  <data name='FX2Soundtrack' xml:space='preserve'> <value>&amp;Tracce</value> </data>
+  <data name='FX3Crystal' xml:space='preserve'> <value>Cristallo</value> </data>
+  <data name='FX4Atmosphere' xml:space='preserve'> <value>Atmosfera</value> </data>
+  <data name='FX5Brightness' xml:space='preserve'> <value>Luminosità</value> </data>
+  <data name='FX6Goblins' xml:space='preserve'> <value>Goblins</value> </data>
+  <data name='FX7Echoes' xml:space='preserve'> <value>Gocce</value> </data>
+  <data name='FX8Scifi' xml:space='preserve'> <value>Star Theme</value> </data>
+  <data name='Sitar' xml:space='preserve'> <value>Sitar</value> </data>
+  <data name='Banjo' xml:space='preserve'> <value>Banjo</value> </data>
+  <data name='Shamisen' xml:space='preserve'> <value>Shamisen</value> </data>
+  <data name='Koto' xml:space='preserve'> <value>Koto</value> </data>
+  <data name='Kalimba' xml:space='preserve'> <value>Kalimba</value> </data>
+  <data name='Bagpipe' xml:space='preserve'> <value>Bagpipe</value> </data>
+  <data name='Fiddle' xml:space='preserve'> <value>Fiddle</value> </data>
+  <data name='Shanai' xml:space='preserve'> <value>Shanai</value> </data>
+  <data name='TinkleBell' xml:space='preserve'> <value>Tinkle Bell</value> </data>
+  <data name='Agogo' xml:space='preserve'> <value>Agogo</value> </data>
+  <data name='SteelDrums' xml:space='preserve'> <value>Steel Drums</value> </data>
+  <data name='Woodblock' xml:space='preserve'> <value>Wood-block</value> </data>
+  <data name='TaikoDrum' xml:space='preserve'> <value>Taiko Drum</value> </data>
+  <data name='MelodicTom' xml:space='preserve'> <value>Melodic Drum</value> </data>
+  <data name='SynthDrum' xml:space='preserve'> <value>Synth Drum</value> </data>
+  <data name='ReverseCymbal' xml:space='preserve'> <value>Cimbalo inverso</value> </data>
+  <data name='GuitarFretNoise' xml:space='preserve'> <value>Guitar Fret Noise</value> </data>
+  <data name='BreathNoise' xml:space='preserve'> <value>Breath Noise</value> </data>
+  <data name='Seashore' xml:space='preserve'> <value>Seashore</value> </data>
+  <data name='BirdTweet' xml:space='preserve'> <value>Cinguettio</value> </data>
+  <data name='TelephoneRing' xml:space='preserve'> <value>Squillo Telefonico</value> </data>
+  <data name='Helicopter' xml:space='preserve'> <value>Elicottero</value> </data>
+  <data name='Applause' xml:space='preserve'> <value>Applauso</value> </data>
+  <data name='Gunshot' xml:space='preserve'> <value>Sparo</value> </data>
  </root>

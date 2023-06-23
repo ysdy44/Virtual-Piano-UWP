@@ -132,4 +132,150 @@
   <data name='Castanets' xml:space='preserve'> <value>カスタネット</value> </data>
   <data name='MuteSurdo' xml:space='preserve'> <value>ミュートスルド</value> </data>
   <data name='OpenSurdo' xml:space='preserve'> <value>オープンスルド</value> </data>
+  <!--Separator 5-->
+  <data name='Piano' xml:space='preserve'> <value>ピアノ</value> </data>
+  <data name='ChromaticPercussion' xml:space='preserve'> <value>音階付き打楽器</value> </data>
+  <data name='Organ' xml:space='preserve'> <value>オルガン</value> </data>
+  <data name='Guitar' xml:space='preserve'> <value>ギター</value> </data>
+  <data name='Bass' xml:space='preserve'> <value>ベース</value> </data>
+  <data name='Strings' xml:space='preserve'> <value>弦楽器</value> </data>
+  <data name='Ensemble' xml:space='preserve'> <value>Ensemble</value> </data>
+  <data name='SynthLead' xml:space='preserve'> <value>金管楽器</value> </data>
+  <data name='SynthPad' xml:space='preserve'> <value>木管楽器</value> </data>
+  <data name='SynthEffects' xml:space='preserve'> <value>笛</value> </data>
+  <data name='Brass' xml:space='preserve'> <value>シンセリード</value> </data>
+  <data name='Reed' xml:space='preserve'> <value>シンセパッド</value> </data>
+  <data name='Pipe' xml:space='preserve'> <value>Synth Effects</value> </data>
+  <data name='Ethnic' xml:space='preserve'> <value>民族楽器</value> </data>
+  <data name='Percussive' xml:space='preserve'> <value>打楽器</value> </data>
+  <data name='SoundEffects' xml:space='preserve'> <value>効果音</value> </data>
+  <!--Separator 6-->
+  <data name='AcousticGrand' xml:space='preserve'> <value>グランドピアノ</value> </data>
+  <data name='BrightAcoustic' xml:space='preserve'> <value>アップライトピアノ</value> </data>
+  <data name='ElectricGrand' xml:space='preserve'> <value>電気グランドピアノ</value> </data>
+  <data name='HonkyTonk' xml:space='preserve'> <value>ホンキートンクピアノ</value> </data>
+  <data name='ElectricPiano1' xml:space='preserve'> <value>電気ピアノ 1</value> </data>
+  <data name='ElectricPiano2' xml:space='preserve'> <value>電気ピアノ 2</value> </data>
+  <data name='Harpsichord' xml:space='preserve'> <value>ハープシコード（チェンバロ）</value> </data>
+  <data name='Clav' xml:space='preserve'> <value>クラビネット</value> </data>
+  <data name='Celesta' xml:space='preserve'> <value>チェレスタ</value> </data>
+  <data name='Glockenspiel' xml:space='preserve'> <value>グロッケンシュピール</value> </data>
+  <data name='MusicBox' xml:space='preserve'> <value>オルゴール</value> </data>
+  <data name='Vibraphone' xml:space='preserve'> <value>ビブラフォン</value> </data>
+  <data name='Marimba' xml:space='preserve'> <value>マリンバ</value> </data>
+  <data name='Xylophone' xml:space='preserve'> <value>シロフォン</value> </data>
+  <data name='TubularBells' xml:space='preserve'> <value>チューブラーベル</value> </data>
+  <data name='Dulcimer' xml:space='preserve'> <value>ダルシマー</value> </data>
+  <data name='DrawbarOrgan' xml:space='preserve'> <value>ドローバーオルガン</value> </data>
+  <data name='PercussiveOrgan' xml:space='preserve'> <value>パーカッシブオルガン</value> </data>
+  <data name='RockOrgan' xml:space='preserve'> <value>ロックオルガン</value> </data>
+  <data name='ChurchOrgan' xml:space='preserve'> <value>パイプオルガン</value> </data>
+  <data name='ReedOrgan' xml:space='preserve'> <value>リードオルガン</value> </data>
+  <data name='Accoridan' xml:space='preserve'> <value>アコーディオン</value> </data>
+  <data name='Harmonica' xml:space='preserve'> <value>ハーモニカ</value> </data>
+  <data name='TangoAccordian' xml:space='preserve'> <value>タンゴアコーディオン</value> </data>
+  <data name='AcousticGuitarNylon' xml:space='preserve'> <value>ナイロン弦ギター</value> </data>
+  <data name='AcousticGuitarSteel' xml:space='preserve'> <value>スチール弦ギター</value> </data>
+  <data name='ElectricGuitarJazz' xml:space='preserve'> <value>エレキギター（ジャズ）</value> </data>
+  <data name='ElectricGuitarClean' xml:space='preserve'> <value>エレキギター（クリーン）</value> </data>
+  <data name='ElectricGuitarMuted' xml:space='preserve'> <value>エレキギター（ミュート）</value> </data>
+  <data name='OverdrivenGuitar' xml:space='preserve'> <value>オーバードライブギター</value> </data>
+  <data name='DistortionGuitar' xml:space='preserve'> <value>ディストーションギター</value> </data>
+  <data name='GuitarHarmonics' xml:space='preserve'> <value>ギターハーモニクス</value> </data>
+  <data name='AcousticBass' xml:space='preserve'> <value>アコースティックベース</value> </data>
+  <data name='ElectricBassFinger' xml:space='preserve'> <value>フィンガーベース</value> </data>
+  <data name='ElectricBassPick' xml:space='preserve'> <value>ピックベース</value> </data>
+  <data name='FretlessBass' xml:space='preserve'> <value>フレットレスベース</value> </data>
+  <data name='SlapBass1' xml:space='preserve'> <value>スラップベース 1</value> </data>
+  <data name='SlapBass2' xml:space='preserve'> <value>スラップベース 2</value> </data>
+  <data name='SynthBass1' xml:space='preserve'> <value>シンセベース 1</value> </data>
+  <data name='SynthBass2' xml:space='preserve'> <value>シンセベース 2</value> </data>
+  <data name='Violin' xml:space='preserve'> <value>バイオリン</value> </data>
+  <data name='Viola' xml:space='preserve'> <value>ビオラ</value> </data>
+  <data name='Cello' xml:space='preserve'> <value>チェロ</value> </data>
+  <data name='Contrabass' xml:space='preserve'> <value>コントラバス</value> </data>
+  <data name='TremoloStrings' xml:space='preserve'> <value>トレモロ</value> </data>
+  <data name='PizzicatoStrings' xml:space='preserve'> <value>ピッチカート</value> </data>
+  <data name='OrchestralStrings' xml:space='preserve'> <value>ハープ</value> </data>
+  <data name='Timpani' xml:space='preserve'> <value>ティンパニ</value> </data>
+  <data name='StringEnsemble1' xml:space='preserve'> <value>String Ensemble 1</value> </data>
+  <data name='StringEnsemble2' xml:space='preserve'> <value>String Ensemble 2</value> </data>
+  <data name='SynthStrings1' xml:space='preserve'> <value>Synth Strings 1</value> </data>
+  <data name='SynthStrings2' xml:space='preserve'> <value>Synth Strings 2</value> </data>
+  <data name='ChoirAahs' xml:space='preserve'> <value>合唱（アー）</value> </data>
+  <data name='VoiceOohs' xml:space='preserve'> <value>人声（オー）</value> </data>
+  <data name='SynthVoice' xml:space='preserve'> <value>合成音声</value> </data>
+  <data name='OrchestraHit' xml:space='preserve'> <value>オーケストラヒット</value> </data>
+  <data name='Trumpet' xml:space='preserve'> <value>トランペット</value> </data>
+  <data name='Trombone' xml:space='preserve'> <value>トロンボーン</value> </data>
+  <data name='Tuba' xml:space='preserve'> <value>チューバ</value> </data>
+  <data name='MutedTrumpet' xml:space='preserve'> <value>ミュートトランペット</value> </data>
+  <data name='FrenchHorn' xml:space='preserve'> <value>フレンチホルン</value> </data>
+  <data name='BrassSection' xml:space='preserve'> <value>Brass Section</value> </data>
+  <data name='SynthBrass1' xml:space='preserve'> <value>シンセブラス 1</value> </data>
+  <data name='SynthBrass2' xml:space='preserve'> <value>シンセブラス 2</value> </data>
+  <data name='SopranoSax' xml:space='preserve'> <value>ソプラノサックス</value> </data>
+  <data name='AltoSax' xml:space='preserve'> <value>アルトサックス</value> </data>
+  <data name='TenorSax' xml:space='preserve'> <value>テナーサックス</value> </data>
+  <data name='BaritoneSax' xml:space='preserve'> <value>バリトンサックス</value> </data>
+  <data name='Oboe' xml:space='preserve'> <value>オーボエ</value> </data>
+  <data name='EnglishHorn' xml:space='preserve'> <value>イングリッシュホルン</value> </data>
+  <data name='Bassoon' xml:space='preserve'> <value>ファゴット</value> </data>
+  <data name='Clarinet' xml:space='preserve'> <value>クラリネット</value> </data>
+  <data name='Piccolo' xml:space='preserve'> <value>ピッコロ</value> </data>
+  <data name='Flute' xml:space='preserve'> <value>フルート</value> </data>
+  <data name='Recorder' xml:space='preserve'> <value>リコーダー</value> </data>
+  <data name='PanFlute' xml:space='preserve'> <value>パンフルート</value> </data>
+  <data name='BlownBottle' xml:space='preserve'> <value>瓶に息を吹き込む音</value> </data>
+  <data name='Skakuhachi' xml:space='preserve'> <value>尺八</value> </data>
+  <data name='Whistle' xml:space='preserve'> <value>口笛</value> </data>
+  <data name='Ocarina' xml:space='preserve'> <value>オカリナ</value> </data>
+  <data name='Lead1Square' xml:space='preserve'> <value>矩形波</value> </data>
+  <data name='Lead2Sawtooth' xml:space='preserve'> <value>鋸歯状波（ノコギリ波）</value> </data>
+  <data name='Lead3Calliope' xml:space='preserve'> <value>カリオペ（蒸気オルガン）</value> </data>
+  <data name='Lead4Chiff' xml:space='preserve'> <value>チフ</value> </data>
+  <data name='Lead5Charang' xml:space='preserve'> <value>チャランゴ</value> </data>
+  <data name='Lead6Voice' xml:space='preserve'> <value>合成音声 2</value> </data>
+  <data name='Lead7Fifths' xml:space='preserve'> <value>5度</value> </data>
+  <data name='Lead8BassLead' xml:space='preserve'> <value>ベース+リード</value> </data>
+  <data name='Pad1Newage' xml:space='preserve'> <value>ニューエイジ</value> </data>
+  <data name='Pad2Warm' xml:space='preserve'> <value>ウォーム</value> </data>
+  <data name='Pad3Polysynth' xml:space='preserve'> <value>ポリシンセ</value> </data>
+  <data name='Pad4Choir' xml:space='preserve'> <value>合唱</value> </data>
+  <data name='Pad5Bowed' xml:space='preserve'> <value>擦弦楽器</value> </data>
+  <data name='Pad6Metallic' xml:space='preserve'> <value>メタリック</value> </data>
+  <data name='Pad7Halo' xml:space='preserve'> <value>ハロー</value> </data>
+  <data name='Pad8Sweep' xml:space='preserve'> <value>スウィープ</value> </data>
+  <data name='FX1Rain' xml:space='preserve'> <value>雨</value> </data>
+  <data name='FX2Soundtrack' xml:space='preserve'> <value>&amp;トラック</value> </data>
+  <data name='FX3Crystal' xml:space='preserve'> <value>クリスタル</value> </data>
+  <data name='FX4Atmosphere' xml:space='preserve'> <value>アトモスフィア</value> </data>
+  <data name='FX5Brightness' xml:space='preserve'> <value>ブライトネス</value> </data>
+  <data name='FX6Goblins' xml:space='preserve'> <value>ゴブリン</value> </data>
+  <data name='FX7Echoes' xml:space='preserve'> <value>エコー</value> </data>
+  <data name='FX8Scifi' xml:space='preserve'> <value>SF</value> </data>
+  <data name='Sitar' xml:space='preserve'> <value>シタール</value> </data>
+  <data name='Banjo' xml:space='preserve'> <value>バンジョー</value> </data>
+  <data name='Shamisen' xml:space='preserve'> <value>三味線</value> </data>
+  <data name='Koto' xml:space='preserve'> <value>琴</value> </data>
+  <data name='Kalimba' xml:space='preserve'> <value>カリンバ</value> </data>
+  <data name='Bagpipe' xml:space='preserve'> <value>バグパイプ</value> </data>
+  <data name='Fiddle' xml:space='preserve'> <value>フィドル</value> </data>
+  <data name='Shanai' xml:space='preserve'> <value>シャナイ</value> </data>
+  <data name='TinkleBell' xml:space='preserve'> <value>鈴</value> </data>
+  <data name='Agogo' xml:space='preserve'> <value>アゴゴ</value> </data>
+  <data name='SteelDrums' xml:space='preserve'> <value>スチールドラム</value> </data>
+  <data name='Woodblock' xml:space='preserve'> <value>ウッドブロック</value> </data>
+  <data name='TaikoDrum' xml:space='preserve'> <value>太鼓</value> </data>
+  <data name='MelodicTom' xml:space='preserve'> <value>メロディックタム</value> </data>
+  <data name='SynthDrum' xml:space='preserve'> <value>シンセドラム</value> </data>
+  <data name='ReverseCymbal' xml:space='preserve'> <value>リバースシンバル</value> </data>
+  <data name='GuitarFretNoise' xml:space='preserve'> <value>ギターフレットノイズ</value> </data>
+  <data name='BreathNoise' xml:space='preserve'> <value>ブレスノイズ</value> </data>
+  <data name='Seashore' xml:space='preserve'> <value>海岸</value> </data>
+  <data name='BirdTweet' xml:space='preserve'> <value>鳥のさえずり</value> </data>
+  <data name='TelephoneRing' xml:space='preserve'> <value>電話のベル</value> </data>
+  <data name='Helicopter' xml:space='preserve'> <value>ヘリコプター</value> </data>
+  <data name='Applause' xml:space='preserve'> <value>拍手</value> </data>
+  <data name='Gunshot' xml:space='preserve'> <value>銃声</value> </data>
  </root>
