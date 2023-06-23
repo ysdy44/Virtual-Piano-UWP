@@ -19,9 +19,9 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="44"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="44"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <!--Title-->
@@ -103,34 +103,55 @@
             <!--Foot-->
             <controls:ProgramCarousel 
                 Grid.Row="3" 
+                Height="220"
                 MaxWidth="600" 
                 Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
                 Command="{x:Bind Command}"
                 />
 
             <!--Foot-->
-            <elements:ScrollViewer2
+            <Grid
                 Grid.Row="3" 
-                Padding="0,40,0,0" 
-                VerticalContentAlignment="Top" 
-                Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" 
+                Height="280"
                 Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
+                Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" 
                 >
-                <notecontrols:NoteTopPanel
-                    x:Name="NotePanel"
-                    Label="CDE"
-                    ItemSize="28"
-                    WhiteSize="240" 
-                    BlackSize="159" 
-                    Command="{x:Bind Command}"
-                    />
-            </elements:ScrollViewer2>
+                <ScrollViewer
+                    x:Name="NoteScrollViewer"
+                    ZoomMode="Disabled"
+                    
+                    HorizontalScrollMode="Enabled"
+                    HorizontalScrollBarVisibility="Hidden"
+                    IsHorizontalScrollChainingEnabled="True"
+                  
+                    VerticalScrollMode="Disabled"
+                    VerticalScrollBarVisibility="Disabled"
+                    IsVerticalScrollChainingEnabled="False"
+                    >
+                    <notecontrols:NoteTopPanel
+                        x:Name="NotePanel"
+                        Label="CDE"
+                        ItemSize="28"
+                        WhiteSize="400" 
+                        BlackSize="250" 
+                        Background="Transparent"
+                        Command="{x:Bind Command}"
+                        >
+                        <!--Disable the ScrollViewer-->
+                        <UIElement.ManipulationMode>
+                            TranslateX
+                        </UIElement.ManipulationMode>
+                    </notecontrols:NoteTopPanel>
+                </ScrollViewer>
+                <notecontrols:NoteHorizontalScrollViewer ItemSize="28" ScrollViewer="{x:Bind NoteScrollViewer}"/>
+            </Grid>
 
             <!--Foot-->
             <Grid 
                 Grid.Row="3" 
                 ColumnSpacing="3" 
                 Margin="4,6" 
+                Height="240"
                 MaxWidth="900" 
                 Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}"
                 >
@@ -199,7 +220,7 @@
             </Grid>
 
             <!--Foot-->
-            <Grid Grid.Row="3" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
+            <Grid Grid.Row="3" Height="280" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="*"/>
