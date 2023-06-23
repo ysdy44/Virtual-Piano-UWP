@@ -133,10 +133,14 @@
                 Grid.Row="3" 
                 Height="280"
                 Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
-                Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" 
                 >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
                 <ScrollViewer
                     x:Name="NoteScrollViewer"
+                    Grid.Row="1"
                     ZoomMode="Disabled"
                     
                     HorizontalScrollMode="Enabled"
@@ -151,9 +155,8 @@
                         x:Name="NotePanel"
                         Label="CDE"
                         ItemSize="28"
-                        WhiteSize="400" 
-                        BlackSize="250" 
-                        Background="Transparent"
+                        WhiteSize="250" 
+                        BlackSize="150" 
                         Command="{x:Bind Command}"
                         >
                         <!--Disable the ScrollViewer-->
