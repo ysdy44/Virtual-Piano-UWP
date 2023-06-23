@@ -13,6 +13,7 @@
     AllowFocusOnInteraction="True"
     UseSystemFocusVisuals="True"
     IsTabStop="True"
+    Margin="2"
     >
 
     <FrameworkElement.Resources>
@@ -26,9 +27,8 @@
         </Storyboard>
     </FrameworkElement.Resources>
 
-    <Border Background="{x:Bind Background, Mode=OneWay}">
+    <Border CornerRadius="4" Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
         <Canvas Height="40" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-            <TextBlock x:Name="TextBlock"/>
             <ItemsControl
                 x:Name="ItemsControl"
                 AllowFocusOnInteraction="False"
@@ -50,7 +50,6 @@
                 IsHitTestVisible="False"
                 RadiusX="4" 
                 RadiusY="4"
-                Canvas.Left="4"
                 Height="40"
                 StrokeThickness="2" 
                 Stroke="{x:Bind BorderBrush, Mode=OneWay}"

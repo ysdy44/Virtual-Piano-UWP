@@ -27,7 +27,7 @@ namespace Virtual_Piano.Elements
                 if (e.NewSize == e.PreviousSize) return;
 
                 double w = e.NewSize.Width;
-                this.Rectangle.Width = w - 8;
+                this.Rectangle.Width = w;
                 this.ItemsControl.Width = w;
             };
 
@@ -43,7 +43,6 @@ namespace Virtual_Piano.Elements
                 if (this.Y < 40 - this.Count * 40) this.Y = 40 - this.Count * 40;
                 Canvas.SetTop(this.ItemsControl, this.Y);
 
-                TextBlock.Text = Y.ToString();
                 if (e.IsInertial is false) return;
                 this.Index = (int)System.Math.Round(-this.Y / 40, MidpointRounding.AwayFromZero);
 
@@ -64,8 +63,6 @@ namespace Virtual_Piano.Elements
                 if (this.SelectedIndex == this.Index) return;
                 this.SelectedIndex = this.Index;
                 this.ItemClick?.Invoke(this, this.SelectedIndex); // Delegate
-
-                TextBlock.Text = SelectedIndex.ToString();
             };
 
             // Key
@@ -96,8 +93,6 @@ namespace Virtual_Piano.Elements
                         if (this.SelectedIndex == this.Index) break;
                         this.SelectedIndex = this.Index;
                         this.ItemClick?.Invoke(this, this.SelectedIndex); // Delegate
-
-                        TextBlock.Text = SelectedIndex.ToString();
                         break;
                     default:
                         break;
@@ -123,8 +118,6 @@ namespace Virtual_Piano.Elements
                 if (this.SelectedIndex == this.Index) return;
                 this.SelectedIndex = this.Index;
                 this.ItemClick?.Invoke(this, this.SelectedIndex); // Delegate
-
-                TextBlock.Text = SelectedIndex.ToString();
             };
 
             // Pointer
@@ -145,8 +138,6 @@ namespace Virtual_Piano.Elements
                 if (this.SelectedIndex == this.Index) return;
                 this.SelectedIndex = this.Index;
                 this.ItemClick?.Invoke(this, this.SelectedIndex); // Delegate
-
-                TextBlock.Text = SelectedIndex.ToString();
             };
         }
 
