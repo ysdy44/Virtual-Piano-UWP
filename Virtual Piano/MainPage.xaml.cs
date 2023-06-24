@@ -16,6 +16,7 @@ namespace Virtual_Piano
         private double CanvasConverter(double value) => value - 100 + 32;
         private Visibility BooleanToVisibilityConverter(bool value) => value ? Visibility.Visible : Visibility.Collapsed;
         private Visibility ReverseBooleanToVisibilityConverter(bool value) => value ? Visibility.Collapsed : Visibility.Visible;
+        private Visibility BooleanNullableToVisibilityConverter(bool? value) => value is true ? Visibility.Collapsed : Visibility.Visible;
 
         MidiSynthesizer Synthesizer;
         readonly IKeyDictionary WhiteKeys = new KeyQWERTDictionary(ToneType.White);

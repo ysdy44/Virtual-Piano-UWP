@@ -7,7 +7,11 @@
     xmlns:controls="using:Virtual_Piano.Notes.Controls"
     mc:Ignorable="d"
     d:DesignWidth="400"
-    d:DesignHeight="400"
+    d:DesignHeight="400"         
+    Label="CDE"  
+    ItemSize="21"
+    WhiteSize="100" 
+    BlackSize="60" 
     >
 
     <FrameworkElement.Resources>

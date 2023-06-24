@@ -60,7 +60,7 @@ namespace Virtual_Piano.Notes.Controls
 
                 if (e.NewSize.Height != e.PreviousSize.Height)
                 {
-                    const double spacing = 2;
+                    const double spacing = 1;
                     int count = base.Children.Count;
 
                     double length = e.NewSize.Height - spacing * count + spacing;
@@ -80,7 +80,7 @@ namespace Virtual_Piano.Notes.Controls
                 base.Children.Add(new ChordButton
                 {
                     Content = item == ChordPanel.Octave ? (object)this.Chord : null,
-                    Background = this.Resources[$"{item}Brush"] as SolidColorBrush,
+                    Background = this.Resources[$"{item}"] as SolidColorBrush,
                     CommandParameter = item
                 });
             }

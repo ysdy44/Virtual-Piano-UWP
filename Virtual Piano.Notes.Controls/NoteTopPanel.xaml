@@ -8,6 +8,10 @@
     mc:Ignorable="d"
     d:DesignWidth="400"
     d:DesignHeight="400"
+    Label="CDE"
+    ItemSize="28"
+    WhiteSize="250" 
+    BlackSize="150" 
     >
 
     <FrameworkElement.Resources>

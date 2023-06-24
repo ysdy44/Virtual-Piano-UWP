@@ -11,56 +11,56 @@
     Margin="2"
     >
 
-  <FrameworkElement.Resources>
-    <!--Brush-->
-    <SolidColorBrush x:Key="Number0Brush" Color="#48000000"/>
-    <SolidColorBrush x:Key="Number1Brush" Color="#40000000"/>
-    <SolidColorBrush x:Key="Number2Brush" Color="#38000000"/>
-    <SolidColorBrush x:Key="Number3Brush" Color="#30000000"/>
-    <SolidColorBrush x:Key="Number4Brush" Color="#28000000"/>
-    <SolidColorBrush x:Key="Number5Brush" Color="#20000000"/>
-    <SolidColorBrush x:Key="Number6Brush" Color="#18000000"/>
-    <SolidColorBrush x:Key="Number7Brush" Color="#10000000"/>
-    <SolidColorBrush x:Key="Number8Brush" Color="#08000000"/>
-    <SolidColorBrush x:Key="Number9Brush" Color="#00000000"/>
-    <!--Style-->
-    <Style TargetType="local:ChordButton">
-      <Setter Property="AllowFocusOnInteraction" Value="True"/>
-      <Setter Property="UseSystemFocusVisuals" Value="True"/>
-      <Setter Property="IsTabStop" Value="True"/>
-      <Setter Property="Template">
-        <Setter.Value>
-          <ControlTemplate TargetType="local:ChordButton">
-            <Border x:Name="RootGrid" CornerRadius="4" Background="{TemplateBinding Background}">
+    <FrameworkElement.Resources>
+        <!--Brush-->
+        <SolidColorBrush x:Key="Number0" Color="#48000000"/>
+        <SolidColorBrush x:Key="Number1" Color="#40000000"/>
+        <SolidColorBrush x:Key="Number2" Color="#38000000"/>
+        <SolidColorBrush x:Key="Number3" Color="#30000000"/>
+        <SolidColorBrush x:Key="Number4" Color="#28000000"/>
+        <SolidColorBrush x:Key="Number5" Color="#20000000"/>
+        <SolidColorBrush x:Key="Number6" Color="#18000000"/>
+        <SolidColorBrush x:Key="Number7" Color="#10000000"/>
+        <SolidColorBrush x:Key="Number8" Color="#08000000"/>
+        <SolidColorBrush x:Key="Number9" Color="#00000000"/>
+        <!--Style-->
+        <Style TargetType="local:ChordButton">
+            <Setter Property="AllowFocusOnInteraction" Value="True"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True"/>
+            <Setter Property="IsTabStop" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="local:ChordButton">
+                        <Border x:Name="RootGrid" CornerRadius="4" Background="{TemplateBinding Background}">
 
-              <!--VisualState-->
-              <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="CommonStates">
+                            <!--VisualState-->
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
 
-                  <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="Normal"/>
 
-                  <VisualState x:Name="Pressed">
-                    <VisualState.Setters>
-                      <Setter Target="RootGrid.Background" Value="White" />
-                    </VisualState.Setters>
-                  </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <VisualState.Setters>
+                                            <Setter Target="RootGrid.Background" Value="White" />
+                                        </VisualState.Setters>
+                                    </VisualState>
 
-                </VisualStateGroup>
-              </VisualStateManager.VisualStateGroups>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
 
-              <ContentPresenter
-                  Content="{TemplateBinding Content}"
-                  HorizontalAlignment="Center"
-                  VerticalAlignment="Center"
-                  Foreground="Black"
-                  FontWeight="Bold"
-                  FontSize="16"
-                  />
-            </Border>
-          </ControlTemplate>
-        </Setter.Value>
-      </Setter>
-    </Style>
-  </FrameworkElement.Resources>
+                            <ContentPresenter
+                                Content="{TemplateBinding Content}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Foreground="Black"
+                                FontWeight="Bold"
+                                FontSize="16"
+                                />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </FrameworkElement.Resources>
 
 </Canvas>

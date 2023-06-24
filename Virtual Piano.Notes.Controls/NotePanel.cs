@@ -17,8 +17,8 @@ namespace Virtual_Piano.Notes.Controls
             {
                 switch (this.Direction)
                 {
-                    case NoteDirection.Left: case NoteDirection.Right: return base.MaxWidth;
-                    case NoteDirection.Top: case NoteDirection.Bottom: return base.MaxHeight;
+                    case NoteDirection.Left: case NoteDirection.Right: return System.Math.Max(base.MinWidth, base.MaxWidth);
+                    case NoteDirection.Top: case NoteDirection.Bottom: return System.Math.Max(base.MinHeight, base.MaxHeight);
                     default: return 0;
                 }
             }
