@@ -1,4 +1,5 @@
-﻿using Virtual_Piano.Notes;
+﻿using System.Linq;
+using Virtual_Piano.Notes;
 using Windows.Foundation;
 using Windows.System;
 using Windows.UI.Input;
@@ -32,8 +33,11 @@ namespace Virtual_Piano.Controls
         {
             for (int i = 0; i < 24; i++)
             {
-                var rect = new Rectangle();
-                Canvas.SetTop(rect, i * 2 * 21);
+                Rectangle rect = new Rectangle
+                {
+                    Height = TrackPanel.Spacing,
+                };
+                Canvas.SetTop(rect, i * 2 * TrackPanel.Spacing);
                 base.Children.Add(rect);
             }
 
@@ -44,7 +48,7 @@ namespace Virtual_Piano.Controls
 
                 if (e.NewSize.Width != e.PreviousSize.Width)
                 {
-                    foreach (FrameworkElement item in base.Children)
+                    foreach (FrameworkElement item in base.Children.Cast<FrameworkElement>())
                     {
                         item.Width = e.NewSize.Width;
                     }
@@ -59,13 +63,26 @@ namespace Virtual_Piano.Controls
         {
             for (int i = 0; i < 16; i++)
             {
-                double x = i * 100;
+                double x = i * TrackPanel.Step;
                 base.Children.Add(new Line
                 {
                     Y1 = 0,
                     X1 = x,
                     X2 = x,
+                    StrokeThickness = 2
                 });
+
+                for (int j = 0; j < TrackPanel.StepCount; j++)
+                {
+                    double x2 = x + j * TrackPanel.StepSpacing;
+                    base.Children.Add(new Line
+                    {
+                        Y1 = 0,
+                        X1 = x2,
+                        X2 = x2,
+                        StrokeThickness = 1
+                    });
+                }
             }
             base.SizeChanged += (s, e) =>
             {
@@ -74,7 +91,7 @@ namespace Virtual_Piano.Controls
 
                 if (e.NewSize.Height != e.PreviousSize.Height)
                 {
-                    foreach (Line item in base.Children)
+                    foreach (Line item in base.Children.Cast<Line>())
                     {
                         item.Y2 = e.NewSize.Height;
                     }
@@ -89,24 +106,13 @@ namespace Virtual_Piano.Controls
         {
             for (int i = 0; i < 16; i++)
             {
-                double x = i * 100;
+                double x = i * TrackPanel.Step;
                 base.Children.Add(new Line
                 {
                     Y1 = 0,
                     X1 = x,
                     X2 = x,
                 });
-
-                for (int j = 0; j < 5; j++)
-                {
-                    double x2 = x + j * 20;
-                    base.Children.Add(new Line
-                    {
-                        Y1 = 10,
-                        X1 = x2,
-                        X2 = x2,
-                    });
-                }
             }
             base.SizeChanged += (s, e) =>
             {
@@ -147,7 +153,7 @@ namespace Virtual_Piano.Controls
         {
             for (int i = 0; i < 16; i++)
             {
-                double x = i * 100;
+                double x = i * TrackPanel.Step;
 
                 TextBlock item = new TextBlock
                 {
@@ -168,7 +174,7 @@ namespace Virtual_Piano.Controls
         public ItemCanvas()
         {
             base.Width =
-            base.Height = NoteExtensions.NoteCount * 21;
+            base.Height = NoteExtensions.NoteCount * TrackPanel.Spacing;
             base.ManipulationStarted += (s, e) =>
             {
                 this.Source = e.OriginalSource as UIElement;
@@ -187,7 +193,7 @@ namespace Virtual_Piano.Controls
                 // Y
                 double y = this.Y + e.Delta.Translation.Y;
                 this.Y = System.Math.Max(0, y);
-                int i = ((int)this.Y + 4) / 21 * 21;
+                int i = ((int)this.Y + 4) / TrackPanel.Spacing * TrackPanel.Spacing;
                 Canvas.SetTop(this.Source, i);
             };
             base.ManipulationCompleted += (s, e) =>
@@ -199,6 +205,13 @@ namespace Virtual_Piano.Controls
     [ContentProperty(Name = nameof(Pane))]
     public sealed partial class TrackPanel : UserControl
     {
+        //@Const
+        public const int Scaling = 4;
+        public const int Spacing = 21;
+        public const int Step = 120;
+        public const int StepCount = 4;
+        public const int StepSpacing = Step / StepCount;
+        
         double X;
         double Y;
         public double Position { get; private set; }
@@ -216,7 +229,7 @@ namespace Virtual_Piano.Controls
         public TrackPanel()
         {
             this.InitializeComponent();
-            this.Canvas.SizeChanged += (s, e) =>
+            this.CenterGrid.SizeChanged += (s, e) =>
             {
                 if (e.NewSize == Size.Empty) return;
                 if (e.NewSize == e.PreviousSize) return;
@@ -232,18 +245,23 @@ namespace Virtual_Piano.Controls
 
             this.ScrollViewer.ViewChanging += (s, e) =>
             {
-                var y = e.FinalView.VerticalOffset;
-                var x = e.FinalView.HorizontalOffset;
+                double y = e.FinalView.VerticalOffset;
+                double x = e.FinalView.HorizontalOffset;
 
-                this.YTransform.Y = -y % (21 + 21);
+                this.YTransform.Y = -y % (TrackPanel.Spacing + TrackPanel.Spacing);
                 this.YTransform2.Y = -y;
 
                 this.XTransform.X =
                 this.XTransform2.X =
-                this.XTransform3.X = -x % 100;
+                this.XTransform3.X = -x % TrackPanel.Step;
 
-                this.TextCanvas.Offset = ((int)x) / 100;
-                this.ChangePosition(this.Position, x);
+                this.TextCanvas.Offset = ((int)x) / TrackPanel.Step;
+
+                this.X = this.Position - x;
+                // UI
+                this.Storyboard.Stop(); // Storyboard
+                Canvas.SetLeft(this.Line, this.X);
+                Canvas.SetLeft(this.Polygon, this.X);
             };
             this.ScrollViewer.PointerWheelChanged += (s, e) =>
             {
@@ -264,7 +282,35 @@ namespace Virtual_Piano.Controls
                 }
             };
 
-            this.HorizontalOffset = -21 * 64;
+            this.LeftGrid.PointerWheelChanged += (s, e) =>
+            {
+                PointerPoint pp = e.GetCurrentPoint(this);
+                int delta = pp.Properties.MouseWheelDelta;
+                if (delta == 0) return;
+                else if (delta > 0) this.VerticalOffset -= TrackPanel.Spacing;
+                else this.VerticalOffset += TrackPanel.Spacing;
+            };
+
+            this.Thumb.DragStarted += (s, e) =>
+            {
+                this.X = e.HorizontalOffset;
+                // UI
+                Canvas.SetLeft(this.Line, this.X);
+                Canvas.SetLeft(this.Polygon, this.X);
+            };
+            this.Thumb.DragDelta += (s, e) =>
+            {
+                this.X += e.HorizontalChange;
+                // UI
+                Canvas.SetLeft(this.Line, this.X);
+                Canvas.SetLeft(this.Polygon, this.X);
+            };
+            this.Thumb.DragCompleted += (s, e) =>
+            {
+                this.Position = this.X + this.HorizontalOffset;
+            };
+
+            this.HorizontalOffset = -TrackPanel.Spacing * NoteExtensions.NoteCount / 2;
         }
 
         public void ChangePosition(double value) => this.ChangePosition(value, this.HorizontalOffset);
@@ -272,11 +318,22 @@ namespace Virtual_Piano.Controls
         {
             this.Position = value;
 
-            double x = value - horizontalOffset;
-            if (x < this.ViewportWidth)
-                Canvas.SetLeft(this.Line, x);
+            this.X = this.Position - horizontalOffset;
+            if (this.X < 0)
+            {
+                this.HorizontalOffset = this.Position;
+            }
+            else if (this.X > this.ViewportWidth)
+            {
+                this.HorizontalOffset = this.Position;
+            }
             else
-                this.HorizontalOffset = horizontalOffset + this.ViewportWidth;
+            {
+                // UI
+                this.LineAnimation.To = this.X;
+                this.PolygonAnimation.To = this.X;
+                this.Storyboard.Begin(); // Storyboard
+            }
         }
     }
 }
