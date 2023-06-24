@@ -10,74 +10,112 @@
     d:DesignHeight="400"
     >
 
-    <Grid x:Name="RootGrid" Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-        <UIElement.Clip>
-            <RectangleGeometry x:Name="RectangleGeometry">
-                <!--Rect-->
-            </RectangleGeometry>
-        </UIElement.Clip>
-                
+    <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="75"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <Rectangle x:Name="Rectangle" Grid.Column="1" Fill="Transparent">
-            <UIElement.ManipulationMode>
-                TranslateX, TranslateY
-            </UIElement.ManipulationMode>
-        </Rectangle>
+        <!--Center-->
+        <local:CropGrid Grid.Column="1" Grid.Row="1">
+            <local:BackgroundCanvas x:Name="BackgroundCanvas" IsHitTestVisible="False">
+                <UIElement.RenderTransform>
+                    <TranslateTransform x:Name="YTransform" />
+                </UIElement.RenderTransform>
+                <FrameworkElement.Resources>
+                    <!--Style-->
+                    <Style TargetType="Rectangle">
+                        <Setter Property="IsHitTestVisible" Value="False" />
+                        <Setter Property="Height" Value="21" />
+                        <Setter Property="Fill" Value="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" />
+                    </Style>
+                </FrameworkElement.Resources>
+            </local:BackgroundCanvas>
 
-        <local:BackgroundCanvas x:Name="BackgroundCanvas" Grid.Column="1" IsHitTestVisible="False">
-            <UIElement.RenderTransform>
-                <TranslateTransform x:Name="YTransform" />
-            </UIElement.RenderTransform>
-            <FrameworkElement.Resources>
-                <!--Style-->
-                <Style TargetType="Rectangle">
-                    <Setter Property="IsHitTestVisible" Value="False" />
-                    <Setter Property="Height" Value="21" />
-                    <Setter Property="Fill" Value="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" />
-                </Style>
-            </FrameworkElement.Resources>
-        </local:BackgroundCanvas>
+            <local:LineCanvas>
+                <UIElement.RenderTransform>
+                    <TranslateTransform x:Name="XTransform" />
+                </UIElement.RenderTransform>
+                <FrameworkElement.Resources>
+                    <!--Style-->
+                    <Style TargetType="Line">
+                        <Setter Property="IsHitTestVisible" Value="False" />
+                        <Setter Property="StrokeThickness" Value="1" />
+                        <Setter Property="Stroke" Value="{ThemeResource SystemControlBackgroundAltHighBrush}" />
+                    </Style>
+                </FrameworkElement.Resources>
+            </local:LineCanvas>
 
-        <local:LineCanvas Grid.Column="1" IsHitTestVisible="False">
-            <UIElement.RenderTransform>
-                <TranslateTransform x:Name="XTransform" />
-            </UIElement.RenderTransform>
-            <FrameworkElement.Resources>
-                <!--Style-->
-                <Style TargetType="Line">
-                    <Setter Property="IsHitTestVisible" Value="False" />
-                    <Setter Property="StrokeThickness" Value="1" />
-                    <Setter Property="Stroke" Value="{ThemeResource SystemControlBackgroundAltHighBrush}" />
-                </Style>
-            </FrameworkElement.Resources>
-        </local:LineCanvas>
+            <ScrollViewer
+                x:Name="ScrollViewer"       
+                Grid.Column="1"
+                Grid.Row="1"
+                IsScrollInertiaEnabled="false"
+                
+                HorizontalScrollMode="Enabled"
+                HorizontalScrollBarVisibility="Visible"
+                IsHorizontalScrollChainingEnabled="True"
+                
+                VerticalScrollBarVisibility="Visible"
+                >
+                <local:ItemCanvas x:Name="ItemCanvas">
+                    <FrameworkElement.Resources>
+                        <Style TargetType="Rectangle">
+                            <Setter Property="Fill" Value="SkyBlue" />
+                            <Setter Property="ManipulationMode">
+                                <Setter.Value>
+                                    TranslateX, TranslateY
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </FrameworkElement.Resources>
+                </local:ItemCanvas>
+            </ScrollViewer>
 
-        <local:ItemCanvas x:Name="Canvas" Grid.Column="1">
-            <UIElement.RenderTransform>
-                <TranslateTransform x:Name="TranslateTransform2" />
-            </UIElement.RenderTransform>
-            <FrameworkElement.Resources>
-                <Style TargetType="Rectangle">
-                    <Setter Property="Fill" Value="SkyBlue" />
-                    <Setter Property="ManipulationMode">
-                        <Setter.Value>
-                            TranslateX, TranslateY
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </FrameworkElement.Resources>
-        </local:ItemCanvas>
+            <Canvas x:Name="Canvas">
+                <Line x:Name="Line" StrokeThickness="2" Stroke="Red"/>
+            </Canvas>
+        </local:CropGrid>
 
-        <Border x:Name="ChildBorder" BorderThickness="1,0" BorderBrush="Black" Background="Black">
-            <UIElement.RenderTransform>
-                <TranslateTransform x:Name="YTransform2" />
-            </UIElement.RenderTransform>
-            <!--Child-->
-        </Border>
+        <!--Left-->
+        <local:CropGrid Grid.Row="1">
+            <Border x:Name="PaneBorder" BorderThickness="1,0" BorderBrush="Black" Background="Black">
+                <UIElement.RenderTransform>
+                    <TranslateTransform x:Name="YTransform2" />
+                </UIElement.RenderTransform>
+                <!--Child-->
+            </Border>
+        </local:CropGrid>
+
+        <!--Top-->
+        <local:CropGrid Grid.Column="1" IsHitTestVisible="False">
+            <local:PointCanvas>
+                <FrameworkElement.Resources>
+                    <Style TargetType="Line">
+                        <Setter Property="StrokeThickness" Value="1" />
+                        <Setter Property="Stroke" Value="SkyBlue" />
+                    </Style>
+                </FrameworkElement.Resources>
+                <UIElement.RenderTransform>
+                    <TranslateTransform x:Name="XTransform2" />
+                </UIElement.RenderTransform>
+            </local:PointCanvas>
+            <local:TextCanvas x:Name="TextCanvas" Offset="0">
+                <FrameworkElement.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="SkyBlue" />
+                        <Setter Property="Margin" Value="4,0" />
+                    </Style>
+                </FrameworkElement.Resources>
+                <UIElement.RenderTransform>
+                    <TranslateTransform x:Name="XTransform3" />
+                </UIElement.RenderTransform>
+            </local:TextCanvas>
+        </local:CropGrid>
 
     </Grid>
 </UserControl>
