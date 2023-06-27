@@ -8,7 +8,7 @@
     xmlns:elements="using:Virtual_Piano.Elements"
     xmlns:notecontrols="using:Virtual_Piano.Notes.Controls"
     mc:Ignorable="d"
-    Background="Black"
+    Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
     >
 
     <Grid>
@@ -19,15 +19,17 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="44"/>
+                <RowDefinition Height="2"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="44"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <!--Title-->
+            <!--Title
             <TextBlock Grid.Row="1" IsHitTestVisible="False" Margin="30,6" Foreground="White" FontSize="80" FontFamily="Kunstler Script" HorizontalAlignment="Right" VerticalAlignment="Top">
                 Virtual Piano
             </TextBlock>
+            -->
 
             <!--Head-->
             <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
@@ -38,8 +40,36 @@
                 </Border>
             </Grid>
 
+            <!--ProgressBar-->
+            <ProgressBar 
+                x:Name="ProgressBar" 
+                Grid.Row="1"
+                Height="2" 
+                Value="0"
+                Background="Black"
+                Foreground="SkyBlue"
+                />
+            
+            <!--Body-->
+            <SplitView
+                Grid.Row="2"
+                IsPaneOpen="False" 
+                DisplayMode="Inline"
+                OpenPaneLength="200"
+                >
+                <controls:TrackPanel>
+                    <notecontrols:NoteLeftPanel
+                        Label="CDE"  
+                        ItemSize="21"
+                        WhiteSize="100" 
+                        BlackSize="60" 
+                        Command="{x:Bind Command}"
+                        />
+                </controls:TrackPanel>
+            </SplitView>
+
             <!--Head-->
-            <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"  Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+            <Border Grid.Row="3" BorderThickness="0,1,0,0" BorderBrush="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"  Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
                 <ListView
                     SelectedIndex="1"
                     SelectionMode="Single"
@@ -65,35 +95,35 @@
                         <Button Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
                             <Button.Flyout>
                                 <MenuFlyout Placement="Bottom">
-                               
+
                                     <MenuFlyoutItem Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}">
                                         <MenuFlyoutItem.Icon>
                                             <SymbolIcon Symbol="Volume"/>
                                         </MenuFlyoutItem.Icon>
                                         Instrument
                                     </MenuFlyoutItem>
-                                    
+
                                     <MenuFlyoutItem Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}">
                                         <MenuFlyoutItem.Icon>
                                             <SymbolIcon Symbol="Keyboard"/>
                                         </MenuFlyoutItem.Icon>
                                         Piano
                                     </MenuFlyoutItem>
-                                    
+
                                     <MenuFlyoutItem Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}">
                                         <MenuFlyoutItem.Icon>
                                             <SymbolIcon Symbol="OneBar"/>
                                         </MenuFlyoutItem.Icon>
                                         Chord
                                     </MenuFlyoutItem>
-                                    
+
                                     <MenuFlyoutItem Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
                                         <MenuFlyoutItem.Icon>
                                             <SymbolIcon Symbol="ViewAll"/>
                                         </MenuFlyoutItem.Icon>
                                         Drum
                                     </MenuFlyoutItem>
-                                    
+
                                 </MenuFlyout>
                             </Button.Flyout>
                             <SymbolIcon Symbol="More"/>
@@ -145,27 +175,8 @@
                 </ListView>
             </Border>
 
-            <!--Body-->
-            <SplitView
-                Grid.Row="1"
-                IsPaneOpen="False" 
-                DisplayMode="Inline"
-                OpenPaneLength="200"
-                PaneBackground="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
-                >
-                <controls:TrackPanel>
-                    <notecontrols:NoteLeftPanel
-                        Label="CDE"  
-                        ItemSize="21"
-                        WhiteSize="100" 
-                        BlackSize="60" 
-                        Command="{x:Bind Command}"
-                        />
-                </controls:TrackPanel>
-            </SplitView>
-
             <!--Foot-->
-            <Grid Grid.Row="3" Height="280" Visibility="{x:Bind BooleanNullableToVisibilityConverter(DockButton.IsChecked), Mode=OneWay}">
+            <Grid Grid.Row="4" Height="240" Background="Black" Visibility="{x:Bind BooleanNullableToVisibilityConverter(DockButton.IsChecked), Mode=OneWay}">
 
                 <!--Instrument-->
                 <controls:InstrumentCarousel Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}" Command="{x:Bind Command}"/>
