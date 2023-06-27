@@ -69,7 +69,6 @@ namespace Virtual_Piano.Controls
                     Y1 = 0,
                     X1 = x,
                     X2 = x,
-                    StrokeThickness = 2
                 });
 
                 for (int j = 0; j < TrackPanel.StepCount; j++)
@@ -80,7 +79,6 @@ namespace Virtual_Piano.Controls
                         Y1 = 0,
                         X1 = x2,
                         X2 = x2,
-                        StrokeThickness = 1
                     });
                 }
             }
@@ -113,6 +111,28 @@ namespace Virtual_Piano.Controls
                     X1 = x,
                     X2 = x,
                 });
+
+                for (int j = 0; j < TrackPanel.StepCount; j++)
+                {
+                    double x2 = x + j * TrackPanel.StepSpacing;
+                    base.Children.Add(new Line
+                    {
+                        Y1 = 9,
+                        X1 = x2,
+                        X2 = x2,
+                    });
+
+                    for (int k = 0; k < TrackPanel.StepCount; k++)
+                    {
+                        double x3 = x2 + k * TrackPanel.StepSpacing2;
+                        base.Children.Add(new Line
+                        {
+                            Y1 = 9 + 4,
+                            X1 = x3,
+                            X2 = x3,
+                        });
+                    }
+                }
             }
             base.SizeChanged += (s, e) =>
             {
@@ -173,8 +193,8 @@ namespace Virtual_Piano.Controls
 
         public ItemCanvas()
         {
-            base.Width =
-            base.Height = NoteExtensions.NoteCount * TrackPanel.Spacing;
+            base.Width = TrackPanel.ExtentHeight;
+            base.Height = TrackPanel.ExtentHeight;
             base.ManipulationStarted += (s, e) =>
             {
                 this.Source = e.OriginalSource as UIElement;
@@ -208,20 +228,30 @@ namespace Virtual_Piano.Controls
         //@Const
         public const int Scaling = 4;
         public const int Spacing = 21;
+
         public const int Step = 120;
         public const int StepCount = 4;
+
         public const int StepSpacing = Step / StepCount;
-        
+        public const int StepSpacing2 = StepSpacing / StepCount;
+
+        // Timeline
         double X;
         double Y;
         public double Position { get; private set; }
+
+        // Container
         public double ViewportWidth { get; private set; }
         public double ViewportHeight { get; private set; }
 
+        public const int ExtentHeight = NoteExtensions.NoteCount * TrackPanel.Spacing;
+
+        // Content
         public double HorizontalOffset { get => this.ScrollViewer.HorizontalOffset; set => this.ScrollViewer.ChangeView(value, null, null, true); }
         public double VerticalOffset { get => this.ScrollViewer.VerticalOffset; set => this.ScrollViewer.ChangeView(null, value, null, true); }
         public Point Offset { get => new Point(this.ScrollViewer.HorizontalOffset, this.ScrollViewer.VerticalOffset); set => this.ScrollViewer.ChangeView(value.X, value.Y, null, true); }
 
+        // UI
         public UIElementCollection Children => this.ItemCanvas.Children;
         public UIElement Pane { get => this.PaneBorder.Child; set => this.PaneBorder.Child = value; }
         public double Length { get => this.ItemCanvas.Width; set => this.ItemCanvas.Width = value; }
