@@ -29,8 +29,16 @@
         </Grid.RowDefinitions>
 
         <!--Center-->
-        <local:CropGrid x:Name="CenterGrid" Grid.Column="1" Grid.Row="1" Background="Gainsboro">
-            <local:BackgroundCanvas x:Name="BackgroundCanvas" IsHitTestVisible="False">
+        <local:CropGrid x:Name="CenterGrid" Grid.Column="1" Grid.Row="1">
+            <Thumb x:Name="Thumb">
+                <Control.Template>
+                    <ControlTemplate>
+                        <Border Background="Gainsboro"/>
+                    </ControlTemplate>
+                </Control.Template>
+            </Thumb>
+
+            <local:BackgroundCanvas IsHitTestVisible="False">
                 <UIElement.RenderTransform>
                     <TranslateTransform x:Name="YTransform" />
                 </UIElement.RenderTransform>
@@ -57,33 +65,23 @@
                 </FrameworkElement.Resources>
             </local:LineCanvas>
 
-            <ScrollViewer
-                x:Name="ScrollViewer"       
-                Grid.Column="1"
-                Grid.Row="1"
-                IsScrollInertiaEnabled="false"
-                
-                HorizontalScrollMode="Enabled"
-                HorizontalScrollBarVisibility="Visible"
-                IsHorizontalScrollChainingEnabled="True"
-                
-                VerticalScrollBarVisibility="Visible"
-                >
-                <local:ItemCanvas x:Name="ItemCanvas">
-                    <FrameworkElement.Resources>
-                        <Style TargetType="Rectangle">
-                            <Setter Property="Fill" Value="#B4DE4B" />
-                            <Setter Property="Stroke" Value="#708B2F" />
-                            <Setter Property="StrokeThickness" Value="1" />
-                            <Setter Property="ManipulationMode">
-                                <Setter.Value>
-                                    TranslateX, TranslateY
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </FrameworkElement.Resources>
-                </local:ItemCanvas>
-            </ScrollViewer>
+            <local:ItemCanvas x:Name="ItemCanvas">
+                <UIElement.RenderTransform>
+                    <TranslateTransform x:Name="TranslateTransform" />
+                </UIElement.RenderTransform>
+                <FrameworkElement.Resources>
+                    <Style TargetType="Rectangle">
+                        <Setter Property="Fill" Value="#B4DE4B" />
+                        <Setter Property="Stroke" Value="#708B2F" />
+                        <Setter Property="StrokeThickness" Value="1" />
+                        <Setter Property="ManipulationMode">
+                            <Setter.Value>
+                                TranslateX, TranslateY
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </FrameworkElement.Resources>
+            </local:ItemCanvas>
 
             <Canvas>
                 <Line x:Name="Line" IsHitTestVisible="False" StrokeThickness="2" Stroke="Red"/>
@@ -126,7 +124,7 @@
                 </UIElement.RenderTransform>
             </local:TextCanvas>
 
-            <Thumb x:Name="Thumb">
+            <Thumb x:Name="TimelineThumb">
                 <Control.Template>
                     <ControlTemplate>
                         <Border Background="Transparent"/>

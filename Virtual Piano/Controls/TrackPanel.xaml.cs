@@ -236,64 +236,68 @@ namespace Virtual_Piano.Controls
         public const int StepSpacing2 = StepSpacing / StepCount;
 
         // Timeline
-        double X;
-        double Y;
-        public double Position { get; private set; }
+        public int Time { get; private set; }
+        private double Position;
+        private double Timeline;
 
         // Container
         public double ViewportWidth { get; private set; }
         public double ViewportHeight { get; private set; }
 
+        public double ExtentWidth { get; private set; } = TrackPanel.ExtentHeight;
         public const int ExtentHeight = NoteExtensions.NoteCount * TrackPanel.Spacing;
 
         // Content
-        public double HorizontalOffset { get => this.ScrollViewer.HorizontalOffset; set => this.ScrollViewer.ChangeView(value, null, null, true); }
-        public double VerticalOffset { get => this.ScrollViewer.VerticalOffset; set => this.ScrollViewer.ChangeView(null, value, null, true); }
-        public Point Offset { get => new Point(this.ScrollViewer.HorizontalOffset, this.ScrollViewer.VerticalOffset); set => this.ScrollViewer.ChangeView(value.X, value.Y, null, true); }
+        public double ScrollableWidth { get; private set; }
+        public double ScrollableHeight { get; private set; }
+
+        private double horizontalOffset = 0;
+        public double HorizontalOffset
+        {
+            get => this.horizontalOffset;
+            set
+            {
+                if (this.ScrollableWidth >= 0) return;
+                value = System.Math.Clamp(value, this.ScrollableWidth, 0);
+
+                if (this.horizontalOffset == value) return;
+                this.horizontalOffset = value;
+
+                this.TextCanvas.Offset = ((int)-this.horizontalOffset) / TrackPanel.Step;
+
+                this.TranslateTransform.X = this.horizontalOffset;
+                this.XTransform.X =
+                this.XTransform2.X =
+                this.XTransform3.X = this.horizontalOffset % TrackPanel.Step;
+            }
+        }
+
+        private double verticalOffset = 0;
+        public double VerticalOffset
+        {
+            get => this.verticalOffset;
+            set
+            {
+                if (this.ScrollableHeight >= 0) return;
+                value = System.Math.Clamp(value, this.ScrollableHeight, 0);
+
+                if (this.verticalOffset == value) return;
+                this.verticalOffset = value;
+
+                this.TranslateTransform.Y = value;
+                this.YTransform.Y = value % (TrackPanel.Spacing + TrackPanel.Spacing);
+                this.YTransform2.Y = value;
+            }
+        }
 
         // UI
         public UIElementCollection Children => this.ItemCanvas.Children;
         public UIElement Pane { get => this.PaneBorder.Child; set => this.PaneBorder.Child = value; }
-        public double Length { get => this.ItemCanvas.Width; set => this.ItemCanvas.Width = value; }
 
         public TrackPanel()
         {
             this.InitializeComponent();
-            this.CenterGrid.SizeChanged += (s, e) =>
-            {
-                if (e.NewSize == Size.Empty) return;
-                if (e.NewSize == e.PreviousSize) return;
-
-                this.ViewportWidth = e.NewSize.Width;
-                this.ViewportHeight = e.NewSize.Height;
-
-                if (e.NewSize.Height != e.PreviousSize.Height)
-                {
-                    this.Line.Y2 = e.NewSize.Height;
-                }
-            };
-
-            this.ScrollViewer.ViewChanging += (s, e) =>
-            {
-                double y = e.FinalView.VerticalOffset;
-                double x = e.FinalView.HorizontalOffset;
-
-                this.YTransform.Y = -y % (TrackPanel.Spacing + TrackPanel.Spacing);
-                this.YTransform2.Y = -y;
-
-                this.XTransform.X =
-                this.XTransform2.X =
-                this.XTransform3.X = -x % TrackPanel.Step;
-
-                this.TextCanvas.Offset = ((int)x) / TrackPanel.Step;
-
-                this.X = this.Position - x;
-                // UI
-                this.Storyboard.Stop(); // Storyboard
-                Canvas.SetLeft(this.Line, this.X);
-                Canvas.SetLeft(this.Polygon, this.X);
-            };
-            this.ScrollViewer.PointerWheelChanged += (s, e) =>
+            base.PointerWheelChanged += (s, e) =>
             {
                 PointerPoint pp = e.GetCurrentPoint(this);
                 int delta = pp.Properties.MouseWheelDelta;
@@ -302,68 +306,131 @@ namespace Virtual_Piano.Controls
                 switch (e.KeyModifiers)
                 {
                     case VirtualKeyModifiers.Control:
-                        double offset = this.ScrollViewer.HorizontalOffset;
-                        offset -= delta;
-                        offset -= delta;
-                        this.ScrollViewer.ChangeView(offset, null, null);
+                    case VirtualKeyModifiers.Menu:
+                    case VirtualKeyModifiers.Shift:
+                    case VirtualKeyModifiers.Windows:
+                        this.HorizontalOffset += delta;
+                        this.UpdateTimeline();
                         break;
                     default:
+                        if (pp.Properties.IsHorizontalMouseWheel)
+                        {
+                            this.HorizontalOffset -= delta;
+                            this.UpdateTimeline();
+                        }
+                        else
+                            this.VerticalOffset += delta / 2;
                         break;
                 }
             };
 
-            this.LeftGrid.PointerWheelChanged += (s, e) =>
+            this.Thumb.SizeChanged += (s, e) =>
             {
-                PointerPoint pp = e.GetCurrentPoint(this);
-                int delta = pp.Properties.MouseWheelDelta;
-                if (delta == 0) return;
-                else if (delta > 0) this.VerticalOffset -= TrackPanel.Spacing;
-                else this.VerticalOffset += TrackPanel.Spacing;
+                if (e.NewSize == Size.Empty) return;
+                if (e.NewSize == e.PreviousSize) return;
+
+                this.ViewportWidth = e.NewSize.Width;
+                this.ViewportHeight = e.NewSize.Height;
+
+                if (e.NewSize.Width != e.PreviousSize.Width)
+                {
+                    this.ScrollableWidth = e.NewSize.Width - this.ExtentWidth;
+                }
+
+                if (e.NewSize.Height != e.PreviousSize.Height)
+                {
+                    this.Line.Y2 = e.NewSize.Height;
+                    this.ScrollableHeight = e.NewSize.Height - TrackPanel.ExtentHeight;
+                }
             };
 
             this.Thumb.DragStarted += (s, e) =>
             {
-                this.X = e.HorizontalOffset;
-                // UI
-                Canvas.SetLeft(this.Line, this.X);
-                Canvas.SetLeft(this.Polygon, this.X);
             };
             this.Thumb.DragDelta += (s, e) =>
             {
-                this.X += e.HorizontalChange;
-                // UI
-                Canvas.SetLeft(this.Line, this.X);
-                Canvas.SetLeft(this.Polygon, this.X);
+                this.HorizontalOffset += e.HorizontalChange;
+                this.UpdateTimeline();
+                this.VerticalOffset += e.VerticalChange;
             };
             this.Thumb.DragCompleted += (s, e) =>
             {
-                this.Position = this.X + this.HorizontalOffset;
             };
 
-            this.HorizontalOffset = -TrackPanel.Spacing * NoteExtensions.NoteCount / 2;
+            this.TimelineThumb.DragStarted += (s, e) =>
+            {
+                // this.Click(OptionType.Pause);
+                this.Timeline = e.HorizontalOffset;
+
+                // UI
+                Canvas.SetLeft(this.Line, this.Timeline);
+                Canvas.SetLeft(this.Polygon, this.Timeline);
+            };
+            this.TimelineThumb.DragDelta += (s, e) =>
+            {
+                this.Timeline += e.HorizontalChange;
+
+                // UI
+                Canvas.SetLeft(this.Line, this.Timeline);
+                Canvas.SetLeft(this.Polygon, this.Timeline);
+            };
+            this.TimelineThumb.DragCompleted += (s, e) =>
+            {
+                // this.Click(OptionType.Play);
+                this.Position = this.Timeline - this.HorizontalOffset;
+                this.Time = (int)(this.Position * TrackPanel.Scaling);
+            };
         }
 
-        public void ChangePosition(double value) => this.ChangePosition(value, this.HorizontalOffset);
-        public void ChangePosition(double value, double horizontalOffset)
+        public void ChangeDuration(double time)
         {
-            this.Position = value;
+            this.ExtentWidth = time / TrackPanel.Scaling;
+            this.ScrollableWidth = this.Thumb.ActualWidth - this.ExtentWidth;
+        }
 
-            this.X = this.Position - horizontalOffset;
-            if (this.X < 0)
+        public void ChangePosition(double time)
+        {
+            this.Time = (int)time;
+            this.Position = this.Time / TrackPanel.Scaling;
+            this.Timeline = this.Position + this.HorizontalOffset;
+
+            if (this.Timeline < 0)
             {
-                this.HorizontalOffset = this.Position;
+                this.HorizontalOffset = -this.Timeline;
+                this.Timeline = 0;
+
+                // UI
+                this.Storyboard.Stop(); // Storyboard
+                Canvas.SetLeft(this.Line, 0);
+                Canvas.SetLeft(this.Polygon, 0);
             }
-            else if (this.X > this.ViewportWidth)
+            else if (this.Timeline > this.ViewportWidth)
             {
-                this.HorizontalOffset = this.Position;
+                this.HorizontalOffset = -this.Time / TrackPanel.Scaling;
+                this.Timeline = 0;
+
+                // UI
+                this.Storyboard.Stop(); // Storyboard
+                Canvas.SetLeft(this.Line, 0);
+                Canvas.SetLeft(this.Polygon, 0);
             }
             else
             {
                 // UI
-                this.LineAnimation.To = this.X;
-                this.PolygonAnimation.To = this.X;
+                this.LineAnimation.To = this.Timeline;
+                this.PolygonAnimation.To = this.Timeline;
                 this.Storyboard.Begin(); // Storyboard
             }
+        }
+
+        private void UpdateTimeline()
+        {
+            this.Timeline = this.Position + this.HorizontalOffset;
+
+            // UI
+            this.Storyboard.Stop(); // Storyboard
+            Canvas.SetLeft(this.Line, this.Timeline);
+            Canvas.SetLeft(this.Polygon, this.Timeline);
         }
     }
 }
