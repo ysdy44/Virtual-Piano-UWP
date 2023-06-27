@@ -32,13 +32,173 @@
             -->
 
             <!--Head-->
-            <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+            <ScrollViewer 
+                HorizontalScrollMode="Enabled"
+                HorizontalScrollBarVisibility="Hidden"
+                IsHorizontalScrollChainingEnabled="True"
+                
+                VerticalScrollBarVisibility="Disabled"
+                >
+                <FrameworkElement.Resources>
+                    <!--Style-->
+                    <Style TargetType="Button" BasedOn="{StaticResource TextBlockButtonStyle}">
+                        <Setter Property="MinWidth" Value="44" />
+                        <Setter Property="Height" Value="36" />
+                        <Setter Property="Foreground" Value="SkyBlue" />
+                        <Setter Property="FontSize" Value="10" />
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="Padding" Value="2" />
+                    </Style>
+                    <Style TargetType="ListView">
+                        <Setter Property="Width" Value="Auto" />
+                        <Setter Property="Height" Value="36" />
+                        <Setter Property="CornerRadius" Value="2" />
+                        <Setter Property="Background" Value="Black" />
+                    </Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Width" Value="Auto" />
+                        <Setter Property="Height" Value="36" />
+                        <Setter Property="CornerRadius" Value="2" />
+                        <Setter Property="Background" Value="Black" />
+                    </Style>
+                </FrameworkElement.Resources>
+                <StackPanel Margin="16,0" Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
 
-                <!--Player-->
-                <Border CornerRadius="2" Height="30" BorderThickness="1" BorderBrush="SkyBlue" Background="Black" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <elements:DSTimer x:Name="DSTimer" Margin="12,0"/>
-                </Border>
-            </Grid>
+                    <ListView
+                        SelectedIndex="0"
+                        SelectionMode="Single"
+                 
+                        ScrollViewer.ZoomMode="Disabled"
+                      
+                        ScrollViewer.HorizontalScrollMode="Enabled"
+                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                        ScrollViewer.IsHorizontalScrollChainingEnabled="True"
+                 
+                        ScrollViewer.VerticalScrollMode="Disabled"
+                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                        ScrollViewer.IsVerticalScrollChainingEnabled="False"
+                        >
+
+                        <ItemsControl.ItemContainerTransitions>
+                            <TransitionCollection>
+
+                            </TransitionCollection>
+                        </ItemsControl.ItemContainerTransitions>
+
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+
+                        <ItemsControl.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="MinWidth" Value="54" />
+                                <Setter Property="MaxWidth" Value="54" />
+                                <Setter Property="Width" Value="54" />
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="VerticalContentAlignment" Value="Center" />
+                            </Style>
+                        </ItemsControl.ItemContainerStyle>
+
+                        <ListViewItem>
+                            <ToolTipService.ToolTip>
+                                <ToolTip>
+                                    Select
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
+                            <PathIcon>
+                                <PathIcon.Data>
+                                    M16,15L0,0L0,23L6,16L16,15ZM12.947,13.965L5.335,14.726L1.333,19.396C1.333,19.396 1.333,3.078 1.333,3.078L12.947,13.965Z
+                                </PathIcon.Data>
+                            </PathIcon>
+                        </ListViewItem>
+
+                        <ListViewItem>
+                            <ToolTipService.ToolTip>
+                                <ToolTip>
+                                    Edit
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
+                            <PathIcon>
+                                <PathIcon.Data>
+                                    M0.883,0.005L5.733,1.036L18.814,14.118C20.102,15.406 20.102,17.497 18.814,18.785C17.526,20.072 15.435,20.072 14.147,18.785C14.081,18.719 14.019,18.651 13.96,18.581L1.074,5.695L0.005,0.824L0.883,0.005ZM14.571,17.088L15.208,17.724C15.91,18.426 17.051,18.426 17.753,17.724C18.456,17.021 18.456,15.881 17.753,15.178L5.379,2.804L5.36,2.823L2.046,2.036L2.833,5.35L13.511,16.027L16.056,13.481L17.117,14.542L14.571,17.088Z
+                                </PathIcon.Data>
+                            </PathIcon>
+                        </ListViewItem>
+
+                        <ListViewItem>
+                            <ToolTipService.ToolTip>
+                                <ToolTip>
+                                    Delete
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
+                            <PathIcon>
+                                <PathIcon.Data>
+                                    M12.871,23L1.771,11.9L0,6.842L6.842,0L21.691,14.849L13.54,23L12.871,23ZM11.202,6.246L19.805,14.849C19.805,14.849 13.206,21.449 13.206,21.449L4.603,12.846L11.202,6.246ZM10.142,5.185L3.542,11.785L2.929,11.172C2.929,11.172 1.535,7.192 1.535,7.192C1.535,7.192 6.842,1.886 6.842,1.886L10.142,5.185Z
+                                </PathIcon.Data>
+                            </PathIcon>
+                        </ListViewItem>
+
+                    </ListView>
+
+                    <Border>
+                        <StackPanel Padding="8,0" Orientation="Horizontal">
+                            <Button>
+                                <ToolTipService.ToolTip>
+                                    <ToolTip>
+                                        Pause
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
+                                <SymbolIcon Symbol="Pause"/>
+                            </Button>
+                            <Button>
+                                <ToolTipService.ToolTip>
+                                    <ToolTip>
+                                        Play
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
+                                <SymbolIcon Symbol="Play"/>
+                            </Button>
+                            <Button>
+                                <ToolTipService.ToolTip>
+                                    <ToolTip>
+                                        Stop
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
+                                <SymbolIcon Symbol="Stop"/>
+                            </Button>
+                        </StackPanel>
+                    </Border>
+
+                    <Border>
+                        <StackPanel Padding="16,0" Orientation="Horizontal" Spacing="16">
+
+                            <elements:DSTimer x:Name="DSTimer" Time="00:00:00.000"/>
+
+                            <Button>
+                                <TextBlock>
+                                    <Run></Run>
+                                    <Run FontSize="14">127</Run><Run FontSize="14">.</Run><Run>00</Run>
+                                    <LineBreak/>
+                                    <Run>Tempo</Run>
+                                </TextBlock>
+                            </Button>
+
+                            <Button>
+                                <TextBlock>
+                                    <Run></Run>
+                                    <Run FontSize="14">4</Run><Run FontSize="14">/</Run><Run FontSize="14">4</Run>
+                                    <LineBreak/>
+                                    <Run>Signature</Run>
+                                </TextBlock>
+                            </Button>
+
+                        </StackPanel>
+                    </Border>
+
+                </StackPanel>
+            </ScrollViewer>
 
             <!--ProgressBar-->
             <ProgressBar 
