@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Virtual_Piano.Notes;
 using Windows.Devices.Midi;
@@ -21,6 +22,7 @@ namespace Virtual_Piano
         MidiSynthesizer Synthesizer;
         readonly IKeyDictionary WhiteKeys = new KeyQWERTDictionary(ToneType.White);
         readonly IKeyDictionary BlackKeys = new KeyQWERTDictionary(ToneType.Black);
+        readonly ObservableCollection<ContentControl> ItemsSource = new ObservableCollection<ContentControl>();
 
         ~MainPage()
         {

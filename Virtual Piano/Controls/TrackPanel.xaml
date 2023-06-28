@@ -65,22 +65,40 @@
                 </FrameworkElement.Resources>
             </local:LineCanvas>
 
-            <local:ItemCanvas x:Name="ItemCanvas">
+            <local:ItemCanvas x:Name="ItemsControl">
                 <UIElement.RenderTransform>
                     <TranslateTransform x:Name="TranslateTransform" />
                 </UIElement.RenderTransform>
-                <FrameworkElement.Resources>
-                    <Style TargetType="Rectangle">
-                        <Setter Property="Fill" Value="#B4DE4B" />
-                        <Setter Property="Stroke" Value="#708B2F" />
-                        <Setter Property="StrokeThickness" Value="1" />
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentControl">
+                        <Setter Property="Foreground" Value="Black" />
+                        <Setter Property="Background" Value="#B4DE4B" />
+                        <Setter Property="BorderBrush" Value="#708B2F" />
+                        <Setter Property="BorderThickness" Value="1" />
                         <Setter Property="ManipulationMode">
                             <Setter.Value>
                                 TranslateX, TranslateY
                             </Setter.Value>
                         </Setter>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ContentControl">
+                                    <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                        <ContentPresenter Margin="{TemplateBinding Padding}"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
                     </Style>
-                </FrameworkElement.Resources>
+                </ItemsControl.ItemContainerStyle>
+                <!--Children-->
             </local:ItemCanvas>
 
             <Canvas>

@@ -185,7 +185,7 @@ namespace Virtual_Piano.Controls
         }
     }
 
-    public sealed class ItemCanvas : Canvas
+    public sealed class ItemCanvas : ItemsControl
     {
         double X;
         double Y;
@@ -291,7 +291,7 @@ namespace Virtual_Piano.Controls
         }
 
         // UI
-        public UIElementCollection Children => this.ItemCanvas.Children;
+        public object ItemsSource { get => this.ItemsControl.ItemsSource; set => this.ItemsControl.ItemsSource = value; }
         public UIElement Pane { get => this.PaneBorder.Child; set => this.PaneBorder.Child = value; }
 
         public TrackPanel()

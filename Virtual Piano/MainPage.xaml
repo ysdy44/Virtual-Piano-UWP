@@ -11,10 +11,12 @@
     Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
     >
 
-    <Grid>
-
-        <!--Extension-->
+    <!--Extension-->
+    <FrameworkElement.Tag>
         <elements:ApplicationTitleBarExtension x:Name="ApplicationView" TitleBarColor="{ThemeResource SystemChromeLowColor}"/>
+    </FrameworkElement.Tag>
+
+    <Grid>
 
         <Grid>
             <Grid.RowDefinitions>
@@ -217,14 +219,8 @@
                 DisplayMode="Inline"
                 OpenPaneLength="200"
                 >
-                <controls:TrackPanel>
-                    <notecontrols:NoteLeftPanel
-                        Label="CDE"  
-                        ItemSize="21"
-                        WhiteSize="100" 
-                        BlackSize="60" 
-                        Command="{x:Bind Command}"
-                        />
+                <controls:TrackPanel x:Name="TrackPanel" ItemsSource="{x:Bind ItemsSource}">
+                    <notecontrols:NoteLeftPanel x:Name="NotePanel2" Command="{x:Bind Command}"/>
                 </controls:TrackPanel>
             </SplitView>
 
