@@ -124,6 +124,7 @@
     <Compile Include="Carousel.xaml.cs">
       <DependentUpon>Carousel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CompositionExtensions.cs" />
     <Compile Include="DS\DSNumber.cs" />
     <Compile Include="DS\DSTimer.xaml.cs">
       <DependentUpon>DSTimer.xaml</DependentUpon>
