@@ -1,18 +1,25 @@
 ﻿using System.Linq;
+using Virtual_Piano.Elements;
 using Virtual_Piano.Notes;
 using Windows.Foundation;
 using Windows.System;
 using Windows.UI.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Shapes;
 
 namespace Virtual_Piano.Controls
 {
     [ContentProperty(Name = nameof(Pane))]
-    public sealed partial class TrackPanel : Canvas
+    public sealed partial class TrackPanel : UserControl
     {
+        //@Delegate
+        public event DragStartedEventHandler TimelineDragStarted { remove => this.TimelineThumb.DragStarted -= value; add => this.TimelineThumb.DragStarted += value; }
+        public event DragDeltaEventHandler TimelineDragDelta { remove => this.TimelineThumb.DragDelta -= value; add => this.TimelineThumb.DragDelta += value; }
+        public event DragCompletedEventHandler TimelineDragCompleted { remove => this.TimelineThumb.DragCompleted -= value; add => this.TimelineThumb.DragCompleted += value; }
+
         //@Const
         public const int Scaling = 4;
         public const int Spacing = 21;
@@ -23,121 +30,31 @@ namespace Virtual_Piano.Controls
         public const int StepSpacing = Step / StepCount;
         public const int StepSpacing2 = StepSpacing / StepCount;
 
-        public double Left => 75;
-        public double Top => 18;
+        public int Left => 75;
+        public int Top => 18;
 
         // Container
-        private double viewportWidth;
-        public double ViewportWidth
-        {
-            get => this.viewportWidth;
-            private set
-            {
-                if (this.viewportWidth == value) return;
-                this.viewportWidth = value;
+        public int ViewportWidth { get; private set; }
+        public int ViewportHeight { get; private set; }
 
-                // Top
-                this.PointCanvas.Width = value;
-                this.TextCanvas.Width = value;
+        public int ExtentWidth { get; private set; } = NoteExtensions.NoteCount * TrackPanel.Spacing;
+        public int ExtentWidthLeft => this.ExtentWidth + this.Left;
 
-                // Center
-                this.ScrollableWidth = value - this.ExtentWidth;
-
-                this.Thumb.Width = value;
-
-                this.BackgroundCanvas.Width = value;
-                foreach (FrameworkElement item in this.BackgroundCanvas.Children.Cast<FrameworkElement>())
-                {
-                    item.Width = value;
-                }
-
-                this.LineCanvas.Width = value + TrackPanel.Step;
-            }
-        }
-
-        private double viewportHeight;
-        public double ViewportHeight
-        {
-            get => this.viewportHeight;
-            private set
-            {
-                if (this.viewportHeight == value) return;
-                this.viewportHeight = value;
-
-                // Left
-                this.PaneBorder.Height = value;
-
-                // Center
-                this.ScrollableHeight = value - this.ExtentHeight;
-
-                this.Thumb.Height = value;
-                this.BackgroundCanvas.Height = value + TrackPanel.StepSpacing + TrackPanel.StepSpacing;
-
-                this.LineCanvas.Height = value;
-                foreach (Line item in this.LineCanvas.Children.Cast<Line>())
-                {
-                    item.Y2 = value;
-                }
-
-                this.Line.Y2 = value;
-            }
-        }
-
-        public double ExtentWidth { get => this.ItemsControl.Width; private set => this.ItemsControl.Width = value; }
-        public double ExtentHeight => NoteExtensions.NoteCount * TrackPanel.Spacing;
+        public int ExtentHeight => NoteExtensions.NoteCount * TrackPanel.Spacing;
+        public int ExtentHeightTop => this.ExtentHeight + this.Top;
 
         // Content
-        public double ScrollableWidth { get; private set; }
-        public double ScrollableHeight { get; private set; }
+        public int HorizontalOffset { get; private set; }
+        public int VerticalOffset { get; private set; }
 
-        private double horizontalOffset = 0;
-        public double HorizontalOffset
+        private int index;
+        public int Index
         {
-            get => this.horizontalOffset;
+            get => this.index;
             set
             {
-                if (this.ScrollableWidth >= 0) return;
-                value = System.Math.Clamp(value, this.ScrollableWidth, 0);
-
-                if (this.horizontalOffset == value) return;
-                this.horizontalOffset = value;
-
-                this.Offset = ((int)-value) / TrackPanel.Step;
-
-                Canvas.SetLeft(this.ItemsControl, value + this.Left);
-                double h = value % TrackPanel.Step + this.Left;
-                Canvas.SetLeft(this.LineCanvas, h);
-                Canvas.SetLeft(this.PointCanvas, h);
-                Canvas.SetLeft(this.TextCanvas, h);
-            }
-        }
-
-        private double verticalOffset = 0;
-        public double VerticalOffset
-        {
-            get => this.verticalOffset;
-            set
-            {
-                if (this.ScrollableHeight >= 0) return;
-                value = System.Math.Clamp(value, this.ScrollableHeight, 0);
-
-                if (this.verticalOffset == value) return;
-                this.verticalOffset = value;
-
-                Canvas.SetTop(this.ItemsControl, value + this.Top);
-                Canvas.SetTop(this.BackgroundCanvas, value % (TrackPanel.Spacing + TrackPanel.Spacing) + this.Top);
-                Canvas.SetTop(this.PaneBorder, value + this.Top);
-            }
-        }
-
-        private int offset;
-        public int Offset
-        {
-            get => this.offset;
-            set
-            {
-                if (this.offset == value) return;
-                this.offset = value;
+                if (this.index == value) return;
+                this.index = value;
 
                 for (int i = 0; i < this.TextCanvas.Children.Count; i++)
                 {
@@ -153,35 +70,63 @@ namespace Virtual_Piano.Controls
 
         // Timeline
         public int Time { get; private set; }
-        private double Position;
-        private double Timeline;
-
-        double X;
-        double Y;
-        UIElement Source;
+        private int Position;
+        private int Timeline;
 
         public TrackPanel()
         {
             this.InitializeComponent();
 
+            // Composition
+            var m = this.ScrollViewer.GetManipulation();
+            var ex = m.ExpressionX();
+            var ey = m.ExpressionY();
+            var sx = m.ExpressionX(TrackPanel.Step, this.Left);
+
+            this.Polygon.GetVisual().OffsetY(ey);
+            this.TimelineThumb.GetVisual().Offset(ex, ey);
+
+            this.PaneBorder.GetVisual().Offset(ex, this.Top);
+
+            this.LineCanvas.GetVisual().Offset(sx, ey);
+            this.BackgroundCanvas.GetVisual().Offset(ex, this.Top);
+
+            this.TextCanvas.GetVisual().Offset(sx, ey);
+            this.PointCanvas.GetVisual().Offset(sx, ey);
+
             // BackgroundCanvas
-            for (int i = 0; i < 24; i++)
+            this.BackgroundCanvas.Height = this.ExtentHeightTop;
+            foreach (Note item in System.Enum.GetValues(typeof(Note)).Cast<Note>())
             {
-                Rectangle rect = new Rectangle
+                switch (item.ToType())
                 {
-                    Height = TrackPanel.Spacing,
-                };
-                Canvas.SetTop(rect, i * 2 * TrackPanel.Spacing);
-                this.BackgroundCanvas.Children.Add(rect);
+                    case ToneType.White:
+                        break;
+                    case ToneType.Black:
+                        Rectangle rect = new Rectangle
+                        {
+                            Height = TrackPanel.Spacing
+                        };
+
+                        var i = NoteExtensions.NoteCount - (byte)item - 1;
+                        var y = i * TrackPanel.Spacing;
+
+                        Canvas.SetTop(rect, y);
+                        this.BackgroundCanvas.Children.Add(rect);
+                        break;
+                    default:
+                        break;
+                }
             }
 
             // LineCanvas
+            this.LineCanvas.Width = 16 * TrackPanel.Step;
             for (int i = 0; i < 16; i++)
             {
                 double x = i * TrackPanel.Step;
                 this.LineCanvas.Children.Add(new Line
                 {
-                    Y1 = 0,
+                    Y1 = this.Top,
                     X1 = x,
                     X2 = x,
                     //Y2 = ?
@@ -192,7 +137,7 @@ namespace Virtual_Piano.Controls
                     double x2 = x + j * TrackPanel.StepSpacing;
                     this.LineCanvas.Children.Add(new Line
                     {
-                        Y1 = 0,
+                        Y1 = this.Top,
                         X1 = x2,
                         X2 = x2,
                         //Y2 = ?
@@ -201,6 +146,7 @@ namespace Virtual_Piano.Controls
             }
 
             // PointCanvas
+            this.PointCanvas.Width = 16 * TrackPanel.Step;
             for (int i = 0; i < 16; i++)
             {
                 double x = i * TrackPanel.Step;
@@ -253,9 +199,20 @@ namespace Virtual_Piano.Controls
                 if (e.NewSize == Size.Empty) return;
                 if (e.NewSize == e.PreviousSize) return;
 
-                this.RectangleGeometry.Rect = new Rect(0, 0, e.NewSize.Width, e.NewSize.Height);
-                this.ViewportWidth = e.NewSize.Width - this.Left;
-                this.ViewportHeight = e.NewSize.Height - this.Top;
+                this.ViewportWidth = (int)e.NewSize.Width;
+                this.ViewportHeight = (int)e.NewSize.Height;
+
+                this.LineCanvas.Height = e.NewSize.Height;
+                foreach (Line item in this.LineCanvas.Children.Cast<Line>())
+                {
+                    item.Y2 = e.NewSize.Height;
+                }
+
+                this.BackgroundCanvas.Width = e.NewSize.Width;
+                foreach (FrameworkElement item in this.BackgroundCanvas.Children.Cast<FrameworkElement>())
+                {
+                    item.Width = e.NewSize.Width;
+                }
 
                 // Timeline
                 this.TimelineThumb.Width = e.NewSize.Width;
@@ -264,142 +221,72 @@ namespace Virtual_Piano.Controls
             base.PointerWheelChanged += (s, e) =>
             {
                 PointerPoint pp = e.GetCurrentPoint(this);
+                if (pp.Properties.IsHorizontalMouseWheel) return;
+
                 int delta = pp.Properties.MouseWheelDelta;
                 if (delta == 0) return;
 
                 switch (e.KeyModifiers)
                 {
                     case VirtualKeyModifiers.Control:
-                    case VirtualKeyModifiers.Menu:
-                    case VirtualKeyModifiers.Shift:
-                    case VirtualKeyModifiers.Windows:
-                        this.HorizontalOffset += delta;
-                        this.UpdateTimeline();
+                        double offset = this.HorizontalOffset - delta;
+                        this.ScrollViewer.ChangeView(offset, null, null);
                         break;
                     default:
-                        if (pp.Properties.IsHorizontalMouseWheel)
-                        {
-                            this.HorizontalOffset -= delta;
-                            this.UpdateTimeline();
-                        }
-                        else
-                            this.VerticalOffset += delta / 2;
                         break;
                 }
             };
 
-            this.ItemsControl.ManipulationStarted += (s, e) =>
+            this.ScrollViewer.ViewChanging += (s, e) =>
             {
-                this.Source = e.OriginalSource as UIElement;
-                if (this.Source is null) return;
-
-                this.X = Canvas.GetLeft(this.Source);
-                this.Y = Canvas.GetTop(this.Source);
-            };
-            this.ItemsControl.ManipulationDelta += (s, e) =>
-            {
-                // X
-                double x = this.X + e.Delta.Translation.X;
-                this.X = System.Math.Max(0, x);
-                Canvas.SetLeft(this.Source, this.X);
-
-                // Y
-                double y = this.Y + e.Delta.Translation.Y;
-                this.Y = System.Math.Max(0, y);
-                int i = ((int)this.Y + 4) / TrackPanel.Spacing * TrackPanel.Spacing;
-                Canvas.SetTop(this.Source, i);
-            };
-            this.ItemsControl.ManipulationCompleted += (s, e) =>
-            {
-            };
-
-            this.Thumb.DragStarted += (s, e) =>
-            {
-            };
-            this.Thumb.DragDelta += (s, e) =>
-            {
-                this.HorizontalOffset += e.HorizontalChange;
-                this.UpdateTimeline();
-                this.VerticalOffset += e.VerticalChange;
-            };
-            this.Thumb.DragCompleted += (s, e) =>
-            {
-            };
-
-            this.TimelineThumb.DragStarted += (s, e) =>
-            {
-                // this.Click(OptionType.Pause);
-                this.Timeline = e.HorizontalOffset;
-
-                // UI
-                Canvas.SetLeft(this.Line, this.Timeline);
-                Canvas.SetLeft(this.Polygon, this.Timeline);
-            };
-            this.TimelineThumb.DragDelta += (s, e) =>
-            {
-                this.Timeline += e.HorizontalChange;
-
-                // UI
-                Canvas.SetLeft(this.Line, this.Timeline);
-                Canvas.SetLeft(this.Polygon, this.Timeline);
-            };
-            this.TimelineThumb.DragCompleted += (s, e) =>
-            {
-                // this.Click(OptionType.Play);
-                this.Position = this.Timeline - this.Left - this.HorizontalOffset;
-                this.Time = (int)(this.Position * TrackPanel.Scaling);
+                this.HorizontalOffset = (int)e.FinalView.HorizontalOffset;
+                this.VerticalOffset = (int)e.FinalView.VerticalOffset;
+                this.Index = this.HorizontalOffset / TrackPanel.Step;
             };
         }
 
         public void ChangeDuration(double time)
         {
-            this.ExtentWidth = time / TrackPanel.Scaling;
-            this.ScrollableWidth = this.Thumb.ActualWidth - this.ExtentWidth;
+            this.ExtentWidth = (int)(time / TrackPanel.Scaling);
+            this.ItemsControl.Width = this.ExtentWidth;
+            this.Canvas.Width = this.ExtentWidthLeft;
         }
 
         public void ChangePosition(double time)
         {
-            this.Time = (int)time;
+            this.Time = System.Math.Max(0, (int)time);
             this.Position = this.Time / TrackPanel.Scaling;
-            this.Timeline = this.Position + this.HorizontalOffset;
+            this.Timeline = this.Position - this.HorizontalOffset + this.Left;
 
-            if (this.Timeline < 0)
+            // UI
+            this.Line.X1 = this.Timeline;
+            this.Line.X2 = this.Timeline;
+            this.Polygon.X1 = this.Timeline;
+            this.Polygon.X2 = this.Timeline;
+
+            if (this.Timeline < this.HorizontalOffset + this.Left)
             {
-                this.HorizontalOffset = -this.Timeline;
-                this.Timeline = 0;
-
-                // UI
-                this.Storyboard.Stop(); // Storyboard
-                Canvas.SetLeft(this.Line, this.Left);
-                Canvas.SetLeft(this.Polygon, this.Left);
+                this.ScrollViewer.ChangeView(this.Position / 2, null, null, true);
             }
-            else if (this.Timeline > this.ViewportWidth)
+            else if (this.Timeline >= this.HorizontalOffset + this.ViewportWidth)
             {
-                this.HorizontalOffset = -this.Time / TrackPanel.Scaling;
-                this.Timeline = 0;
-
-                // UI
-                this.Storyboard.Stop(); // Storyboard
-                Canvas.SetLeft(this.Line, this.Left);
-                Canvas.SetLeft(this.Polygon, this.Left);
-            }
-            else
-            {
-                // UI
-                this.LineAnimation.To = this.Timeline + this.Left;
-                this.PolygonAnimation.To = this.Timeline + this.Left;
-                this.Storyboard.Begin(); // Storyboard
+                this.ScrollViewer.ChangeView(this.Position / 2, null, null, true);
             }
         }
 
-        private void UpdateTimeline()
+        public int UpdateTimeline(int time)
         {
-            this.Timeline = this.Position + this.HorizontalOffset;
+            this.Timeline = System.Math.Max(this.Left, time);
+            this.Position = this.Timeline + this.HorizontalOffset - this.Left;
+            this.Time = this.Position * TrackPanel.Scaling;
 
             // UI
-            this.Storyboard.Stop(); // Storyboard
-            Canvas.SetLeft(this.Line, this.Timeline + this.Left);
-            Canvas.SetLeft(this.Polygon, this.Timeline + this.Left);
+            this.Line.X1 = this.Timeline;
+            this.Line.X2 = this.Timeline;
+            this.Polygon.X1 = this.Timeline;
+            this.Polygon.X2 = this.Timeline;
+
+            return this.Time;
         }
     }
 }
