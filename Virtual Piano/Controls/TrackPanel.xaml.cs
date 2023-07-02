@@ -16,9 +16,9 @@ namespace Virtual_Piano.Controls
     public sealed partial class TrackPanel : UserControl
     {
         //@Delegate
-        public event DragStartedEventHandler TimelineDragStarted { remove => this.TimelineThumb.DragStarted -= value; add => this.TimelineThumb.DragStarted += value; }
-        public event DragDeltaEventHandler TimelineDragDelta { remove => this.TimelineThumb.DragDelta -= value; add => this.TimelineThumb.DragDelta += value; }
-        public event DragCompletedEventHandler TimelineDragCompleted { remove => this.TimelineThumb.DragCompleted -= value; add => this.TimelineThumb.DragCompleted += value; }
+        public event DragStartedEventHandler DragStarted { remove => this.TimelineThumb.DragStarted -= value; add => this.TimelineThumb.DragStarted += value; }
+        public event DragDeltaEventHandler DragDelta { remove => this.TimelineThumb.DragDelta -= value; add => this.TimelineThumb.DragDelta += value; }
+        public event DragCompletedEventHandler DragCompleted { remove => this.TimelineThumb.DragCompleted -= value; add => this.TimelineThumb.DragCompleted += value; }
 
         //@Const
         public const int Scaling = 4;
@@ -32,16 +32,17 @@ namespace Virtual_Piano.Controls
 
         public int Left => 75;
         public int Top => 18;
+        private Thickness ExtentMargin => new Thickness(this.Left, this.Top, 0, 0);
 
         // Container
         public int ViewportWidth { get; private set; }
         public int ViewportHeight { get; private set; }
 
         public int ExtentWidth { get; private set; } = NoteExtensions.NoteCount * TrackPanel.Spacing;
-        public int ExtentWidthLeft => this.ExtentWidth + this.Left;
+        private int ExtentWidthLeft => this.ExtentWidth + this.Left;
 
         public int ExtentHeight => NoteExtensions.NoteCount * TrackPanel.Spacing;
-        public int ExtentHeightTop => this.ExtentHeight + this.Top;
+        private int ExtentHeightTop => this.ExtentHeight + this.Top;
 
         // Content
         public int HorizontalOffset { get; private set; }
@@ -67,6 +68,7 @@ namespace Virtual_Piano.Controls
         // UI
         public object ItemsSource { get => this.ItemsControl.ItemsSource; set => this.ItemsControl.ItemsSource = value; }
         public UIElement Pane { get => this.PaneBorder.Child; set => this.PaneBorder.Child = value; }
+        public UIElement Head { get => this.HeadBorder.Child; set => this.HeadBorder.Child = value; }
 
         // Timeline
         public int Time { get; private set; }
@@ -80,19 +82,23 @@ namespace Virtual_Piano.Controls
             // Composition
             var m = this.ScrollViewer.GetManipulation();
             var ex = m.ExpressionX();
+            var ex2 = m.ExpressionX(-this.Left);
             var ey = m.ExpressionY();
-            var sx = m.ExpressionX(TrackPanel.Step, this.Left);
+            var ey2 = m.ExpressionY(-this.Top);
+            var sx = m.ExpressionX(TrackPanel.Step, 0);
 
-            this.Polygon.GetVisual().OffsetY(ey);
-            this.TimelineThumb.GetVisual().Offset(ex, ey);
+            this.Polygon.GetVisual().OffsetY(ey2);
+            this.Line.GetVisual().OffsetY(ey);
+            this.TimelineThumb.GetVisual().Offset(ex, ey2);
 
-            this.PaneBorder.GetVisual().Offset(ex, this.Top);
+            this.PaneBorder.GetVisual().OffsetX(ex2);
+            this.HeadBorder.GetVisual().Offset(ex2, ey2);
 
             this.LineCanvas.GetVisual().Offset(sx, ey);
-            this.BackgroundCanvas.GetVisual().Offset(ex, this.Top);
+            this.BackgroundCanvas.GetVisual().OffsetX(ex);
 
-            this.TextCanvas.GetVisual().Offset(sx, ey);
-            this.PointCanvas.GetVisual().Offset(sx, ey);
+            this.TextCanvas.GetVisual().Offset(sx, ey2);
+            this.PointCanvas.GetVisual().Offset(sx, ey2);
 
             // BackgroundCanvas
             this.BackgroundCanvas.Height = this.ExtentHeightTop;
@@ -126,7 +132,7 @@ namespace Virtual_Piano.Controls
                 double x = i * TrackPanel.Step;
                 this.LineCanvas.Children.Add(new Line
                 {
-                    Y1 = this.Top,
+                    Y1 = 0,
                     X1 = x,
                     X2 = x,
                     //Y2 = ?
@@ -137,7 +143,7 @@ namespace Virtual_Piano.Controls
                     double x2 = x + j * TrackPanel.StepSpacing;
                     this.LineCanvas.Children.Add(new Line
                     {
-                        Y1 = this.Top,
+                        Y1 = 0,
                         X1 = x2,
                         X2 = x2,
                         //Y2 = ?
@@ -199,23 +205,26 @@ namespace Virtual_Piano.Controls
                 if (e.NewSize == Size.Empty) return;
                 if (e.NewSize == e.PreviousSize) return;
 
-                this.ViewportWidth = (int)e.NewSize.Width;
-                this.ViewportHeight = (int)e.NewSize.Height;
+                var w = (int)e.NewSize.Width - this.Left;
+                var h = (int)e.NewSize.Height - this.Top;
 
-                this.LineCanvas.Height = e.NewSize.Height;
+                this.ViewportWidth = w;
+                this.ViewportHeight = h;
+
+                this.Line.Y2 = h;
+                this.LineCanvas.Height = h;
                 foreach (Line item in this.LineCanvas.Children.Cast<Line>())
                 {
-                    item.Y2 = e.NewSize.Height;
+                    item.Y2 = h;
                 }
 
-                this.BackgroundCanvas.Width = e.NewSize.Width;
+                this.BackgroundCanvas.Width = w;
                 foreach (FrameworkElement item in this.BackgroundCanvas.Children.Cast<FrameworkElement>())
                 {
-                    item.Width = e.NewSize.Width;
+                    item.Width = w;
                 }
 
-                // Timeline
-                this.TimelineThumb.Width = e.NewSize.Width;
+                this.TimelineThumb.Width = w;
             };
 
             base.PointerWheelChanged += (s, e) =>
@@ -245,16 +254,16 @@ namespace Virtual_Piano.Controls
             };
         }
 
-        public void ChangeDuration(double time)
+        public void ChangeDuration(int time)
         {
-            this.ExtentWidth = (int)(time / TrackPanel.Scaling);
+            this.ExtentWidth = time / TrackPanel.Scaling;
             this.ItemsControl.Width = this.ExtentWidth;
             this.Canvas.Width = this.ExtentWidthLeft;
         }
 
-        public void ChangePosition(double time)
+        public void ChangePosition(int time)
         {
-            this.Time = System.Math.Max(0, (int)time);
+            this.Time = System.Math.Max(0, time);
             this.Position = this.Time / TrackPanel.Scaling;
             this.Timeline = this.Position - this.HorizontalOffset + this.Left;
 
@@ -276,8 +285,8 @@ namespace Virtual_Piano.Controls
 
         public int UpdateTimeline(int time)
         {
-            this.Timeline = System.Math.Max(this.Left, time);
-            this.Position = this.Timeline + this.HorizontalOffset - this.Left;
+            this.Timeline = System.Math.Max(0, time);
+            this.Position = this.Timeline + this.HorizontalOffset;
             this.Time = this.Position * TrackPanel.Scaling;
 
             // UI

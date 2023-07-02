@@ -21,10 +21,8 @@
         VerticalScrollMode="Enabled"
         VerticalScrollBarVisibility="Visible"
         IsVerticalScrollChainingEnabled="True"
-   
-        Background="Black"
-        >
-        <Canvas x:Name="Canvas" Width="{x:Bind ExtentWidthLeft}" Height="{x:Bind ExtentHeightTop}">
+         >
+        <Canvas x:Name="Canvas" Margin="{x:Bind ExtentMargin}" Width="{x:Bind ExtentWidth}" Height="{x:Bind ExtentHeight}">
 
             
             <!--Center-->
@@ -84,7 +82,7 @@
             </ItemsControl>
 
             <!--Timerline-->
-            <Line x:Name="Line" IsHitTestVisible="False" X1="{x:Bind Left}" Y1="{x:Bind Top}" X2="{x:Bind Left}" Y2="{x:Bind ExtentHeightTop}" StrokeThickness="2" Stroke="Red"/>
+            <Line x:Name="Line" IsHitTestVisible="False"  StrokeThickness="2" Stroke="Red"/>
 
             <!--Left-->
             <Border x:Name="PaneBorder" Width="{x:Bind Left}" Height="{x:Bind ExtentHeight}" BorderThickness="1,0" BorderBrush="Black" Background="Black">
@@ -98,7 +96,7 @@
                 </UIElement.ManipulationMode>
                 <Control.Template>
                     <ControlTemplate>
-                        <Border Background="Black"/>
+                        <Rectangle Fill="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"/>
                     </ControlTemplate>
                 </Control.Template>
             </Thumb>
@@ -125,8 +123,12 @@
                 <!--Children-->
             </Canvas>
 
+            <Border x:Name="HeadBorder" Width="{x:Bind Left}" Height="{x:Bind Top}" Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+                <!--Child-->
+            </Border>
+
             <!--Timerline-->
-            <Line x:Name="Polygon" IsHitTestVisible="False" X1="{x:Bind Left}" Y1="0" X2="{x:Bind Left}" Y2="{x:Bind Top}" StrokeThickness="8" Stroke="Red" StrokeStartLineCap="Flat" StrokeEndLineCap="Triangle"/>
+            <Line x:Name="Polygon" IsHitTestVisible="False" Y1="0" Y2="{x:Bind Top}" StrokeThickness="8" Stroke="Red" StrokeStartLineCap="Flat" StrokeEndLineCap="Triangle"/>
 
         </Canvas>
     </ScrollViewer>
