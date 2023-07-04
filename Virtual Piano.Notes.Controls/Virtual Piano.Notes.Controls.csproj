@@ -171,6 +171,9 @@
     <Compile Include="Structs\Chords.cs" />
     <Compile Include="Structs\DrumLayout.cs" />
     <Compile Include="Structs\NoteSize.cs" />
+    <Compile Include="TrackNotePanel.xaml.cs">
+      <DependentUpon>TrackNotePanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VelocityGauge.xaml.cs">
       <DependentUpon>VelocityGauge.xaml</DependentUpon>
     </Compile>
@@ -231,6 +234,10 @@
     <Page Include="NoteTopPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TrackNotePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VelocityGauge.xaml">
       <Generator>MSBuild:Compile</Generator>

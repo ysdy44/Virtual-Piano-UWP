@@ -123,9 +123,6 @@
     <Compile Include="Controls\DrumGroupGridView.cs" />
     <Compile Include="Controls\DrumPanel.cs" />
     <Compile Include="Controls\InstrumentCarousel.cs" />
-    <Compile Include="Controls\TrackPanel.xaml.cs">
-      <DependentUpon>TrackPanel.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainPage.Click.cs" />
     <Compile Include="MainPage.UI.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -202,10 +199,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Controls\TrackPanel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

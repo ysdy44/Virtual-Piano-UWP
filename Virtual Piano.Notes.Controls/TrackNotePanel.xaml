@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="Virtual_Piano.Controls.TrackPanel"
+    x:Class="Virtual_Piano.Notes.Controls.TrackNotePanel"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -24,7 +24,7 @@
          >
         <Canvas x:Name="Canvas" Margin="{x:Bind ExtentMargin}" Width="{x:Bind ExtentWidth}" Height="{x:Bind ExtentHeight}">
 
-            
+
             <!--Center-->
             <Canvas x:Name="BackgroundCanvas" IsHitTestVisible="False" Background="Gainsboro">
                 <FrameworkElement.Resources>

@@ -10,25 +10,29 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Shapes;
 
-namespace Virtual_Piano.Controls
+namespace Virtual_Piano.Notes.Controls
 {
-    [ContentProperty(Name = nameof(Pane))]
-    public sealed partial class TrackPanel : UserControl
+    public class MessageCollection
     {
-        //@Delegate
-        public event DragStartedEventHandler DragStarted { remove => this.TimelineThumb.DragStarted -= value; add => this.TimelineThumb.DragStarted += value; }
-        public event DragDeltaEventHandler DragDelta { remove => this.TimelineThumb.DragDelta -= value; add => this.TimelineThumb.DragDelta += value; }
-        public event DragCompletedEventHandler DragCompleted { remove => this.TimelineThumb.DragCompleted -= value; add => this.TimelineThumb.DragCompleted += value; }
-
         //@Const
         public const int Scaling = 4;
         public const int Spacing = 21;
+        public const int SpacingHalf = Spacing / 2;
 
         public const int Step = 120;
         public const int StepCount = 4;
 
         public const int StepSpacing = Step / StepCount;
         public const int StepSpacing2 = StepSpacing / StepCount;
+    }
+
+    [ContentProperty(Name = nameof(Pane))]
+    public sealed partial class TrackNotePanel : UserControl
+    {
+        //@Delegate
+        public event DragStartedEventHandler DragStarted { remove => this.TimelineThumb.DragStarted -= value; add => this.TimelineThumb.DragStarted += value; }
+        public event DragDeltaEventHandler DragDelta { remove => this.TimelineThumb.DragDelta -= value; add => this.TimelineThumb.DragDelta += value; }
+        public event DragCompletedEventHandler DragCompleted { remove => this.TimelineThumb.DragCompleted -= value; add => this.TimelineThumb.DragCompleted += value; }
 
         public int Left => 75;
         public int Top => 18;
@@ -38,10 +42,10 @@ namespace Virtual_Piano.Controls
         public int ViewportWidth { get; private set; }
         public int ViewportHeight { get; private set; }
 
-        public int ExtentWidth { get; private set; } = NoteExtensions.NoteCount * TrackPanel.Spacing;
+        public int ExtentWidth { get; private set; } = NoteExtensions.NoteCount * MessageCollection.Spacing;
         private int ExtentWidthLeft => this.ExtentWidth + this.Left;
 
-        public int ExtentHeight => NoteExtensions.NoteCount * TrackPanel.Spacing;
+        public int ExtentHeight => NoteExtensions.NoteCount * MessageCollection.Spacing;
         private int ExtentHeightTop => this.ExtentHeight + this.Top;
 
         // Content
@@ -75,7 +79,7 @@ namespace Virtual_Piano.Controls
         private int Position;
         private int Timeline;
 
-        public TrackPanel()
+        public TrackNotePanel()
         {
             this.InitializeComponent();
 
@@ -85,7 +89,7 @@ namespace Virtual_Piano.Controls
             var ex2 = m.ExpressionX(-this.Left);
             var ey = m.ExpressionY();
             var ey2 = m.ExpressionY(-this.Top);
-            var sx = m.ExpressionX(TrackPanel.Step, 0);
+            var sx = m.ExpressionX(MessageCollection.Step, 0);
 
             this.Polygon.GetVisual().OffsetY(ey2);
             this.Line.GetVisual().OffsetY(ey);
@@ -111,11 +115,11 @@ namespace Virtual_Piano.Controls
                     case ToneType.Black:
                         Rectangle rect = new Rectangle
                         {
-                            Height = TrackPanel.Spacing
+                            Height = MessageCollection.Spacing
                         };
 
                         var i = NoteExtensions.NoteCount - (byte)item - 1;
-                        var y = i * TrackPanel.Spacing;
+                        var y = i * MessageCollection.Spacing;
 
                         Canvas.SetTop(rect, y);
                         this.BackgroundCanvas.Children.Add(rect);
@@ -126,10 +130,10 @@ namespace Virtual_Piano.Controls
             }
 
             // LineCanvas
-            this.LineCanvas.Width = 16 * TrackPanel.Step;
+            this.LineCanvas.Width = 16 * MessageCollection.Step;
             for (int i = 0; i < 16; i++)
             {
-                double x = i * TrackPanel.Step;
+                double x = i * MessageCollection.Step;
                 this.LineCanvas.Children.Add(new Line
                 {
                     Y1 = 0,
@@ -138,9 +142,9 @@ namespace Virtual_Piano.Controls
                     //Y2 = ?
                 });
 
-                for (int j = 0; j < TrackPanel.StepCount; j++)
+                for (int j = 0; j < MessageCollection.StepCount; j++)
                 {
-                    double x2 = x + j * TrackPanel.StepSpacing;
+                    double x2 = x + j * MessageCollection.StepSpacing;
                     this.LineCanvas.Children.Add(new Line
                     {
                         Y1 = 0,
@@ -152,10 +156,10 @@ namespace Virtual_Piano.Controls
             }
 
             // PointCanvas
-            this.PointCanvas.Width = 16 * TrackPanel.Step;
+            this.PointCanvas.Width = 16 * MessageCollection.Step;
             for (int i = 0; i < 16; i++)
             {
-                double x = i * TrackPanel.Step;
+                double x = i * MessageCollection.Step;
                 this.PointCanvas.Children.Add(new Line
                 {
                     Y1 = 0,
@@ -164,9 +168,9 @@ namespace Virtual_Piano.Controls
                     Y2 = this.Top
                 });
 
-                for (int j = 0; j < TrackPanel.StepCount; j++)
+                for (int j = 0; j < MessageCollection.StepCount; j++)
                 {
-                    double x2 = x + j * TrackPanel.StepSpacing;
+                    double x2 = x + j * MessageCollection.StepSpacing;
                     this.PointCanvas.Children.Add(new Line
                     {
                         Y1 = 9,
@@ -175,9 +179,9 @@ namespace Virtual_Piano.Controls
                         Y2 = this.Top
                     });
 
-                    for (int k = 0; k < TrackPanel.StepCount; k++)
+                    for (int k = 0; k < MessageCollection.StepCount; k++)
                     {
-                        double x3 = x2 + k * TrackPanel.StepSpacing2;
+                        double x3 = x2 + k * MessageCollection.StepSpacing2;
                         this.PointCanvas.Children.Add(new Line
                         {
                             Y1 = 9 + 4,
@@ -196,7 +200,7 @@ namespace Virtual_Piano.Controls
                 {
                     Text = $"{i}"
                 };
-                Canvas.SetLeft(item, i * TrackPanel.Step);
+                Canvas.SetLeft(item, i * MessageCollection.Step);
                 this.TextCanvas.Children.Add(item);
             }
 
@@ -250,13 +254,13 @@ namespace Virtual_Piano.Controls
             {
                 this.HorizontalOffset = (int)e.FinalView.HorizontalOffset;
                 this.VerticalOffset = (int)e.FinalView.VerticalOffset;
-                this.Index = this.HorizontalOffset / TrackPanel.Step;
+                this.Index = this.HorizontalOffset / MessageCollection.Step;
             };
         }
 
         public void ChangeDuration(int time)
         {
-            this.ExtentWidth = time / TrackPanel.Scaling;
+            this.ExtentWidth = time / MessageCollection.Scaling;
             this.ItemsControl.Width = this.ExtentWidth;
             this.Canvas.Width = this.ExtentWidthLeft;
         }
@@ -264,7 +268,7 @@ namespace Virtual_Piano.Controls
         public void ChangePosition(int time)
         {
             this.Time = System.Math.Max(0, time);
-            this.Position = this.Time / TrackPanel.Scaling;
+            this.Position = this.Time / MessageCollection.Scaling;
             this.Timeline = this.Position - this.HorizontalOffset + this.Left;
 
             // UI
@@ -287,7 +291,7 @@ namespace Virtual_Piano.Controls
         {
             this.Timeline = System.Math.Max(0, time);
             this.Position = this.Timeline + this.HorizontalOffset;
-            this.Time = this.Position * TrackPanel.Scaling;
+            this.Time = this.Position * MessageCollection.Scaling;
 
             // UI
             this.Line.X1 = this.Timeline;

@@ -219,9 +219,9 @@
                 DisplayMode="Inline"
                 OpenPaneLength="200"
                 >
-                <controls:TrackPanel x:Name="TrackPanel" ItemsSource="{x:Bind ItemsSource}">
+                <notecontrols:TrackNotePanel x:Name="TrackPanel" ItemsSource="{x:Bind ItemsSource}">
                     <notecontrols:NoteLeftPanel x:Name="NotePanel2" Command="{x:Bind Command}"/>
-                </controls:TrackPanel>
+                </notecontrols:TrackNotePanel>
             </SplitView>
 
             <!--Head-->
@@ -243,12 +243,22 @@
 
                     <ListView.Header>
                         <ToggleButton x:Name="DockButton" Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
+                            <ToolTipService.ToolTip>
+                                <ToolTip>
+                                    Dock
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
                             <SymbolIcon Symbol="DockBottom"/>
                         </ToggleButton>
                     </ListView.Header>
 
                     <ListView.Footer>
                         <Button Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
+                            <ToolTipService.ToolTip>
+                                <ToolTip>
+                                    More
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
                             <Button.Flyout>
                                 <MenuFlyout Placement="Bottom">
 
@@ -456,7 +466,7 @@
                             </ItemsControl.ItemsPanel>
 
                             <ListViewItem x:Name="ListViewItem31">
-                                Default
+                                Pads
                             </ListViewItem>
 
                             <ListViewItem x:Name="ListViewItem32">
