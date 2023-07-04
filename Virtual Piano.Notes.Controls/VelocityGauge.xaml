@@ -1,4 +1,4 @@
-﻿<UserControl
+﻿<local:VelocityGaugeBase
     x:Class="Virtual_Piano.Notes.Controls.VelocityGauge"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -12,47 +12,51 @@
     Height="44"
     >
 
-    <FrameworkElement.Resources>
-        <!--Style-->
-        <Style TargetType="Line">
-            <Setter Property="IsHitTestVisible" Value="False" />
-            <Setter Property="StrokeThickness" Value="6" />
-            <Setter Property="Stroke" Value="#323232" />
-        </Style>
-    </FrameworkElement.Resources>
+    <Thumb x:Name="Thumb" IsTabStop="True" UseSystemFocusVisuals="True" Width="44" Height="44">
+        <Control.Template>
+            <ControlTemplate TargetType="Thumb">
+                <ContentPresenter Content="{TemplateBinding Tag}" Background="Transparent"/>
+            </ControlTemplate>
+        </Control.Template>
 
-    <Canvas Width="44" Height="44" Background="Transparent">
-       
-        <Ellipse Width="44" Height="44" Fill="#181818" />
-        <Canvas x:Name="Canvas" Canvas.Left="2" Canvas.Top="2" Width="40" Height="40" />
+        <Control.Tag>
+            <Canvas IsHitTestVisible="False" Width="44" Height="44">
+                <Ellipse Width="44" Height="44" Fill="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" />
 
-        <Line x:Name="Line" Stroke="SkyBlue" X2="22" Y2="22" StrokeThickness="4" />
-        <Ellipse Canvas.Left="10" Canvas.Top="10" Width="24" Height="24" Fill="#181818" />
+                <Canvas x:Name="Canvas" Canvas.Left="2" Canvas.Top="2" Width="40" Height="40">
+                    <FrameworkElement.Resources>
+                        <!--Style-->
+                        <Style TargetType="Line">
+                            <Setter Property="IsHitTestVisible" Value="False" />
+                            <Setter Property="StrokeThickness" Value="6" />
+                            <Setter Property="Stroke" Value="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" />
+                        </Style>
+                    </FrameworkElement.Resources>
+                    <!--Chilren-->
+                </Canvas>
 
-        <Border Width="44" Height="44" >
-            <TextBlock 
-                x:Name="TextBlock" 
-                FontFamily="Agency FB" 
-                FontWeight="Bold"
-                FontSize="16" 
-                Foreground="SkyBlue"
-                HorizontalAlignment="Center" 
-                VerticalAlignment="Center"
-                >
-                <!--Text-->
-            </TextBlock>
-        </Border>
+                <Line x:Name="Line" StrokeThickness="4" Stroke="{ThemeResource SystemColorControlAccentBrush}" X2="22" Y2="22">
+                    <!--X1-->
+                    <!--Y1-->
+                </Line>
 
-        <Thumb x:Name="Thumb" Width="44" Height="44">
-            <UIElement.ManipulationMode>
-                None
-            </UIElement.ManipulationMode>
-            <Control.Template>
-                <ControlTemplate>
-                    <Border Background="Transparent"/>
-                </ControlTemplate>
-            </Control.Template>
-        </Thumb>
-        
-    </Canvas>
-</UserControl>
+                <Ellipse Canvas.Left="10" Canvas.Top="10" Width="24" Height="24" Fill="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" />
+                <Border Width="44" Height="44" >
+                    <TextBlock 
+                        x:Name="TextBlock" 
+                        FontFamily="Agency FB" 
+                        FontWeight="Bold"
+                        FontSize="16" 
+                        Foreground="{ThemeResource SystemColorControlAccentBrush}"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        >
+                       <!--Text-->
+                    </TextBlock>
+                </Border>
+
+            </Canvas>
+        </Control.Tag>
+    </Thumb>
+
+</local:VelocityGaugeBase>
