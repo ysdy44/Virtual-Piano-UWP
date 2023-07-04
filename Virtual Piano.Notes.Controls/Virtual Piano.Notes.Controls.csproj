@@ -171,6 +171,9 @@
     <Compile Include="Structs\Chords.cs" />
     <Compile Include="Structs\DrumLayout.cs" />
     <Compile Include="Structs\NoteSize.cs" />
+    <Compile Include="VelocityGauge.xaml.cs">
+      <DependentUpon>VelocityGauge.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Virtual_Piano.Notes.Controls.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -222,6 +225,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="NoteTopPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VelocityGauge.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
