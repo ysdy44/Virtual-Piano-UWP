@@ -1,0 +1,119 @@
+﻿<UserControl
+    x:Class="Virtual_Piano.Notes.Controls.VelocityWheel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="400"
+    d:DesignHeight="400"
+    Width="60"
+    MinWidth="32"
+    >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="24"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock 
+            x:Name="TextBlock1" 
+            FontFamily="Agency FB" 
+            FontWeight="Bold"
+            FontSize="16" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center"
+            >
+           <!--Text-->
+        </TextBlock>
+
+        <Thumb x:Name="Thumb" Grid.Row="1" Width="32" IsTabStop="True" UseSystemFocusVisuals="True">
+            <UIElement.ManipulationMode>
+                None
+            </UIElement.ManipulationMode>
+
+            <Control.Template>
+                <ControlTemplate TargetType="Thumb">
+                    <ContentPresenter x:Name="ContentPresenter" Content="{TemplateBinding Tag}" Background="Transparent">
+
+                        <!--VisualState-->
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+
+                                <VisualState x:Name="PointerOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemColorControlAccentBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemColorControlAccentBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Gray" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                    </ContentPresenter>
+                </ControlTemplate>
+            </Control.Template>
+
+            <Control.Tag>
+                <Border IsHitTestVisible="False" BorderThickness="2" BorderBrush="Black">
+                    <Canvas x:Name="Canvas">
+
+                        <Panel.Background>
+                            <LinearGradientBrush EndPoint="0,1">
+                                <GradientStop Color="#282828" Offset="0"/>
+                                <GradientStop Color="#444444" Offset="0.4"/>
+                                <GradientStop Color="#282828" Offset="0.8"/>
+                                <GradientStop Color="#181818" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Panel.Background>
+
+                        <Rectangle x:Name="Rectangle">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush EndPoint="0,1">
+                                    <GradientStop Color="#323232" Offset="0"/>
+                                    <GradientStop Color="#444444" Offset="0.4"/>
+                                    <GradientStop Color="#8E8E8E" Offset="0.9"/>
+                                    <GradientStop Color="White" Offset="0.9"/>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+
+                    </Canvas>
+                </Border>
+            </Control.Tag>
+        </Thumb>
+
+        <TextBlock 
+            x:Name="TextBlock2" 
+            Grid.Row="2"
+            FontWeight="Bold"
+            TextTrimming="CharacterEllipsis"
+            FontSize="10" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center"
+            >
+           <!--Text-->
+        </TextBlock>
+
+    </Grid>
+</UserControl>
