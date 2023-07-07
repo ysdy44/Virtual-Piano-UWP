@@ -395,12 +395,12 @@
                         </ScrollViewer>
                         <Border Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
                             <StackPanel Margin="8,4" Orientation="Horizontal">
-                                <notecontrols:VelocityWheel x:Name="PitchWheel">
+                                <notecontrols:BendPitchWheel x:Name="PitchWheel" Command="{x:Bind Command}"   >
                                     Pitch
-                                </notecontrols:VelocityWheel>
-                                <notecontrols:VelocityWheel x:Name="ModulationWheel">
+                                </notecontrols:BendPitchWheel>
+                                <notecontrols:BendModulationWheel x:Name="ModulationWheel" Command="{x:Bind Command}">
                                     Modulation
-                                </notecontrols:VelocityWheel>
+                                </notecontrols:BendModulationWheel>
                             </StackPanel>
                         </Border>
                     </Grid>
