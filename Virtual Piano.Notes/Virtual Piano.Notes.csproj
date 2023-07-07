@@ -134,6 +134,7 @@
     <Compile Include="Enums3\MidiProgramCategory.cs" />
     <Compile Include="Enums3\MidiProgramGroup.cs" />
     <Compile Include="Interfaces\IKeyDictionary.cs" />
+    <Compile Include="Messages\Message.cs" />
     <Compile Include="MidiExtensions.cs" />
     <Compile Include="MidiPercussionNoteFactory.cs" />
     <Compile Include="MidiProgramFactory.cs" />
