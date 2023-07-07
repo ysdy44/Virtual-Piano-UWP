@@ -124,6 +124,7 @@
     <Compile Include="Enums1\Octave.cs" />
     <Compile Include="Enums1\Tone.cs" />
     <Compile Include="Enums1\ToneType.cs" />
+    <Compile Include="Enums2\ControlController.cs" />
     <Compile Include="Enums2\KeyboardType.cs" />
     <Compile Include="Enums2\KeyLabel.cs" />
     <Compile Include="Enums2\Note.cs" />
