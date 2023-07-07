@@ -40,6 +40,8 @@
                 IsHorizontalScrollChainingEnabled="True"
                 
                 VerticalScrollBarVisibility="Disabled"
+  
+                Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
                 >
                 <FrameworkElement.Resources>
                     <!--Style-->
@@ -51,30 +53,18 @@
                         <Setter Property="FontWeight" Value="Bold" />
                         <Setter Property="Padding" Value="2" />
                     </Style>
-                    <Style TargetType="ListView">
-                        <Setter Property="Width" Value="Auto" />
-                        <Setter Property="Height" Value="36" />
-                        <Setter Property="CornerRadius" Value="2" />
-                        <Setter Property="Background" Value="Black" />
-                    </Style>
-                    <Style TargetType="Border">
-                        <Setter Property="Width" Value="Auto" />
-                        <Setter Property="Height" Value="36" />
-                        <Setter Property="CornerRadius" Value="2" />
-                        <Setter Property="Background" Value="Black" />
-                    </Style>
                 </FrameworkElement.Resources>
                 <StackPanel Margin="16,0" Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
 
-                    <ListView
+                    <ListView                        
                         SelectedIndex="0"
                         SelectionMode="Single"
                  
                         ScrollViewer.ZoomMode="Disabled"
                       
-                        ScrollViewer.HorizontalScrollMode="Enabled"
-                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                        ScrollViewer.IsHorizontalScrollChainingEnabled="True"
+                        ScrollViewer.HorizontalScrollMode="Disabled"
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                        ScrollViewer.IsHorizontalScrollChainingEnabled="False"
                  
                         ScrollViewer.VerticalScrollMode="Disabled"
                         ScrollViewer.VerticalScrollBarVisibility="Disabled"
@@ -98,6 +88,10 @@
                                 <Setter Property="MinWidth" Value="54" />
                                 <Setter Property="MaxWidth" Value="54" />
                                 <Setter Property="Width" Value="54" />
+                                <Setter Property="MinHeight" Value="36" />
+                                <Setter Property="MaxHeight" Value="36" />
+                                <Setter Property="Height" Value="36" />
+                                <Setter Property="Background" Value="Black" />
                                 <Setter Property="HorizontalContentAlignment" Value="Center" />
                                 <Setter Property="VerticalContentAlignment" Value="Center" />
                             </Style>
@@ -144,60 +138,56 @@
 
                     </ListView>
 
-                    <Border>
-                        <StackPanel Padding="8,0" Orientation="Horizontal">
-                            <Button>
-                                <ToolTipService.ToolTip>
-                                    <ToolTip>
-                                        Pause
-                                    </ToolTip>
-                                </ToolTipService.ToolTip>
-                                <SymbolIcon Symbol="Pause"/>
-                            </Button>
-                            <Button>
-                                <ToolTipService.ToolTip>
-                                    <ToolTip>
-                                        Play
-                                    </ToolTip>
-                                </ToolTipService.ToolTip>
-                                <SymbolIcon Symbol="Play"/>
-                            </Button>
-                            <Button>
-                                <ToolTipService.ToolTip>
-                                    <ToolTip>
-                                        Stop
-                                    </ToolTip>
-                                </ToolTipService.ToolTip>
-                                <SymbolIcon Symbol="Stop"/>
-                            </Button>
-                        </StackPanel>
-                    </Border>
+                    <StackPanel Height="36" Background="Black" Padding="8,0" Orientation="Horizontal">
+                        <Button>
+                            <ToolTipService.ToolTip>
+                                <ToolTip>
+                                    Pause
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
+                            <SymbolIcon Symbol="Pause"/>
+                        </Button>
+                        <Button>
+                            <ToolTipService.ToolTip>
+                                <ToolTip>
+                                    Play
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
+                            <SymbolIcon Symbol="Play"/>
+                        </Button>
+                        <Button>
+                            <ToolTipService.ToolTip>
+                                <ToolTip>
+                                    Stop
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
+                            <SymbolIcon Symbol="Stop"/>
+                        </Button>
+                    </StackPanel>
 
-                    <Border>
-                        <StackPanel Padding="16,0" Orientation="Horizontal" Spacing="16">
+                    <StackPanel Height="36" Background="Black" Padding="16,0" Orientation="Horizontal" Spacing="16">
 
-                            <elements:DSTimer x:Name="DSTimer" Time="00:00:00.000"/>
+                        <elements:DSTimer x:Name="DSTimer" Time="00:00:00.000"/>
 
-                            <Button>
-                                <TextBlock>
-                                    <Run></Run>
-                                    <Run FontSize="14">127</Run><Run FontSize="14">.</Run><Run>00</Run>
-                                    <LineBreak/>
-                                    <Run>Tempo</Run>
-                                </TextBlock>
-                            </Button>
+                        <Button>
+                            <TextBlock>
+                                <Run></Run>
+                                <Run FontSize="14">127</Run><Run FontSize="14">.</Run><Run>00</Run>
+                                <LineBreak/>
+                                <Run>Tempo</Run>
+                            </TextBlock>
+                        </Button>
 
-                            <Button>
-                                <TextBlock>
-                                    <Run></Run>
-                                    <Run FontSize="14">4</Run><Run FontSize="14">/</Run><Run FontSize="14">4</Run>
-                                    <LineBreak/>
-                                    <Run>Signature</Run>
-                                </TextBlock>
-                            </Button>
+                        <Button>
+                            <TextBlock>
+                                <Run></Run>
+                                <Run FontSize="14">4</Run><Run FontSize="14">/</Run><Run FontSize="14">4</Run>
+                                <LineBreak/>
+                                <Run>Signature</Run>
+                            </TextBlock>
+                        </Button>
 
-                        </StackPanel>
-                    </Border>
+                    </StackPanel>
 
                 </StackPanel>
             </ScrollViewer>
@@ -211,135 +201,153 @@
                 Background="Black"
                 Foreground="SkyBlue"
                 />
-            
+
             <!--Body-->
             <SplitView
                 Grid.Row="2"
                 IsPaneOpen="False" 
                 DisplayMode="Inline"
                 OpenPaneLength="200"
+                Background="{x:Null}"
+                PaneBackground="{x:Null}"
                 >
-                <notecontrols:TrackNotePanel x:Name="TrackPanel" ItemsSource="{x:Bind ItemsSource}">
+                <notecontrols:TrackNotePanel x:Name="TrackNotePanel">
                     <notecontrols:NoteLeftPanel x:Name="NotePanel2" Command="{x:Bind Command}"/>
                 </notecontrols:TrackNotePanel>
             </SplitView>
 
             <!--Head-->
-            <Border Grid.Row="3" BorderThickness="0,1,0,0" BorderBrush="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"  Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
-                <ListView
-                    SelectedIndex="1"
-                    SelectionMode="Single"
-             
-                    ScrollViewer.ZoomMode="Disabled"
-                  
-                    ScrollViewer.HorizontalScrollMode="Enabled"
-                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                    ScrollViewer.IsHorizontalScrollChainingEnabled="True"
-            
-                    ScrollViewer.VerticalScrollMode="Disabled"
-                    ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                    ScrollViewer.IsVerticalScrollChainingEnabled="False"
-                    >
+            <ListView
+                Grid.Row="3"
+                
+                SelectedIndex="1"
+                SelectionMode="Single"
+         
+                ScrollViewer.ZoomMode="Disabled"
+              
+                ScrollViewer.HorizontalScrollMode="Enabled"
+                ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                ScrollViewer.IsHorizontalScrollChainingEnabled="True"
+        
+                ScrollViewer.VerticalScrollMode="Disabled"
+                ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                ScrollViewer.IsVerticalScrollChainingEnabled="False"
 
-                    <ListView.Header>
-                        <ToggleButton x:Name="DockButton" Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
-                            <ToolTipService.ToolTip>
-                                <ToolTip>
-                                    Dock
-                                </ToolTip>
-                            </ToolTipService.ToolTip>
-                            <SymbolIcon Symbol="DockBottom"/>
-                        </ToggleButton>
-                    </ListView.Header>
+                Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
+                >
 
-                    <ListView.Footer>
-                        <Button Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
-                            <ToolTipService.ToolTip>
-                                <ToolTip>
-                                    More
-                                </ToolTip>
-                            </ToolTipService.ToolTip>
-                            <Button.Flyout>
-                                <MenuFlyout Placement="Bottom">
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="MinWidth" Value="54" />
+                        <Setter Property="MaxWidth" Value="54" />
+                        <Setter Property="Width" Value="54" />
+                        <Setter Property="MinHeight" Value="36" />
+                        <Setter Property="MaxHeight" Value="36" />
+                        <Setter Property="Height" Value="36" />
+                        <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="VerticalContentAlignment" Value="Center" />
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
 
-                                    <MenuFlyoutItem Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}">
-                                        <MenuFlyoutItem.Icon>
-                                            <SymbolIcon Symbol="Volume"/>
-                                        </MenuFlyoutItem.Icon>
-                                        Instrument
-                                    </MenuFlyoutItem>
+                <ListView.Header>
+                    <ToggleButton x:Name="DockButton" IsChecked="True" Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
+                        <ToolTipService.ToolTip>
+                            <ToolTip>
+                                Dock
+                            </ToolTip>
+                        </ToolTipService.ToolTip>
+                        <SymbolIcon Symbol="DockBottom"/>
+                    </ToggleButton>
+                </ListView.Header>
 
-                                    <MenuFlyoutItem Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}">
-                                        <MenuFlyoutItem.Icon>
-                                            <SymbolIcon Symbol="Keyboard"/>
-                                        </MenuFlyoutItem.Icon>
-                                        Piano
-                                    </MenuFlyoutItem>
+                <ListView.Footer>
+                    <Button Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
+                        <ToolTipService.ToolTip>
+                            <ToolTip>
+                                More
+                            </ToolTip>
+                        </ToolTipService.ToolTip>
+                        <Button.Flyout>
+                            <MenuFlyout Placement="Bottom">
 
-                                    <MenuFlyoutItem Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}">
-                                        <MenuFlyoutItem.Icon>
-                                            <SymbolIcon Symbol="OneBar"/>
-                                        </MenuFlyoutItem.Icon>
-                                        Chord
-                                    </MenuFlyoutItem>
+                                <MenuFlyoutItem Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}">
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="Volume"/>
+                                    </MenuFlyoutItem.Icon>
+                                    Instrument
+                                </MenuFlyoutItem>
 
-                                    <MenuFlyoutItem Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
-                                        <MenuFlyoutItem.Icon>
-                                            <SymbolIcon Symbol="ViewAll"/>
-                                        </MenuFlyoutItem.Icon>
-                                        Drum
-                                    </MenuFlyoutItem>
+                                <MenuFlyoutItem Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}">
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="Keyboard"/>
+                                    </MenuFlyoutItem.Icon>
+                                    Piano
+                                </MenuFlyoutItem>
 
-                                </MenuFlyout>
-                            </Button.Flyout>
-                            <SymbolIcon Symbol="More"/>
-                        </Button>
-                    </ListView.Footer>
+                                <MenuFlyoutItem Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}">
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="OneBar"/>
+                                    </MenuFlyoutItem.Icon>
+                                    Chord
+                                </MenuFlyoutItem>
 
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
+                                <MenuFlyoutItem Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="ViewAll"/>
+                                    </MenuFlyoutItem.Icon>
+                                    Drum
+                                </MenuFlyoutItem>
 
-                    <ListViewItem x:Name="ListViewItem0">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Width="24" Height="24" Symbol="Volume"/>
-                            <TextBlock Margin="4,0" VerticalAlignment="Center">
-                                Instrument
-                            </TextBlock>
-                        </StackPanel>
-                    </ListViewItem>
+                            </MenuFlyout>
+                        </Button.Flyout>
+                        <SymbolIcon Symbol="More"/>
+                    </Button>
+                </ListView.Footer>
 
-                    <ListViewItem x:Name="ListViewItem1">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Width="24" Height="24" Symbol="Keyboard"/>
-                            <TextBlock Margin="4,0" VerticalAlignment="Center">
-                                Piano
-                            </TextBlock>
-                        </StackPanel>
-                    </ListViewItem>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
 
-                    <ListViewItem x:Name="ListViewItem2">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Width="24" Height="24" Symbol="OneBar"/>
-                            <TextBlock Margin="4,0" VerticalAlignment="Center">
-                                Chord
-                            </TextBlock>
-                        </StackPanel>
-                    </ListViewItem>
+                <ListViewItem x:Name="ListViewItem0">
+                    <ToolTipService.ToolTip>
+                        <ToolTip>
+                            Instrument
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <SymbolIcon Symbol="Volume"/>
+                </ListViewItem>
 
-                    <ListViewItem x:Name="ListViewItem3">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Width="24" Height="24" Symbol="ViewAll"/>
-                            <TextBlock Margin="4,0" VerticalAlignment="Center">
-                                Drum
-                            </TextBlock>
-                        </StackPanel>
-                    </ListViewItem>
+                <ListViewItem x:Name="ListViewItem1">
+                    <ToolTipService.ToolTip>
+                        <ToolTip>
+                            Keyboard
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <SymbolIcon Symbol="Keyboard"/>
+                </ListViewItem>
 
-                </ListView>
-            </Border>
+                <ListViewItem x:Name="ListViewItem2">
+                    <ToolTipService.ToolTip>
+                        <ToolTip>
+                            Chord
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <SymbolIcon Symbol="OneBar"/>
+                </ListViewItem>
+
+                <ListViewItem x:Name="ListViewItem3">
+                    <ToolTipService.ToolTip>
+                        <ToolTip>
+                            Drum
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <SymbolIcon Symbol="ViewAll"/>
+                </ListViewItem>
+
+            </ListView>
 
             <!--Foot-->
             <Grid Grid.Row="4" Height="240" Background="Black" Visibility="{x:Bind BooleanNullableToVisibilityConverter(DockButton.IsChecked), Mode=OneWay}">
@@ -348,38 +356,54 @@
                 <controls:InstrumentCarousel Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}" Command="{x:Bind Command}"/>
 
                 <!--Note-->
-                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}">
+                <Grid RowSpacing="2" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="36"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <ScrollViewer
-                         x:Name="NoteScrollViewer"
-                         Grid.Row="1"
-                         ZoomMode="Disabled"
-                         
-                         HorizontalScrollMode="Enabled"
-                         HorizontalScrollBarVisibility="Hidden"
-                         IsHorizontalScrollChainingEnabled="True"
-                       
-                         VerticalScrollMode="Disabled"
-                         VerticalScrollBarVisibility="Disabled"
-                         IsVerticalScrollChainingEnabled="False"
-                         >
-                        <notecontrols:NoteTopPanel
-                             x:Name="NotePanel"
-                             Label="CDE"
-                             ItemSize="28"
-                             WhiteSize="250" 
-                             BlackSize="150" 
-                             Command="{x:Bind Command}"
-                             >
-                            <!--Disable the ScrollViewer-->
-                            <UIElement.ManipulationMode>
-                                TranslateX
-                            </UIElement.ManipulationMode>
-                        </notecontrols:NoteTopPanel>
-                    </ScrollViewer>
+                    <Grid Grid.Row="1" ColumnSpacing="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <ScrollViewer
+                            x:Name="NoteScrollViewer"
+                            Grid.Column="1"
+                            ZoomMode="Disabled"
+                            
+                            HorizontalScrollMode="Enabled"
+                            HorizontalScrollBarVisibility="Hidden"
+                            IsHorizontalScrollChainingEnabled="True"
+                          
+                            VerticalScrollMode="Disabled"
+                            VerticalScrollBarVisibility="Disabled"
+                            IsVerticalScrollChainingEnabled="False"
+                            >
+                            <notecontrols:NoteTopPanel
+                                 x:Name="NotePanel"
+                                 Label="CDE"
+                                 ItemSize="28"
+                                 WhiteSize="250" 
+                                 BlackSize="150" 
+                                 Command="{x:Bind Command}"
+                                 >
+                                <!--Disable the ScrollViewer-->
+                                <UIElement.ManipulationMode>
+                                    TranslateX
+                                </UIElement.ManipulationMode>
+                            </notecontrols:NoteTopPanel>
+                        </ScrollViewer>
+                        <Border Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+                            <StackPanel Margin="8,4" Orientation="Horizontal">
+                                <notecontrols:VelocityWheel x:Name="PitchWheel">
+                                    Pitch
+                                </notecontrols:VelocityWheel>
+                                <notecontrols:VelocityWheel x:Name="ModulationWheel">
+                                    Modulation
+                                </notecontrols:VelocityWheel>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
                     <notecontrols:NoteHorizontalScrollViewer ItemSize="28" ScrollViewer="{x:Bind NoteScrollViewer}"/>
                 </Grid>
 
@@ -427,58 +451,61 @@
                 <!--Drum-->
                 <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="36"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Border Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-                        <ListView
-                            SelectedIndex="0"
-                            SelectionMode="Single"
-                        
-                            ScrollViewer.ZoomMode="Disabled"
-                          
-                            ScrollViewer.HorizontalScrollMode="Enabled"
-                            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                            ScrollViewer.IsHorizontalScrollChainingEnabled="True"
-                        
-                            ScrollViewer.VerticalScrollMode="Disabled"
-                            ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                            ScrollViewer.IsVerticalScrollChainingEnabled="False"
-                            >
+                    <ListView
+                        SelectedIndex="0"
+                        SelectionMode="Single"
+                    
+                        ScrollViewer.ZoomMode="Disabled"
+                      
+                        ScrollViewer.HorizontalScrollMode="Enabled"
+                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                        ScrollViewer.IsHorizontalScrollChainingEnabled="True"
+                    
+                        ScrollViewer.VerticalScrollMode="Disabled"
+                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                        ScrollViewer.IsVerticalScrollChainingEnabled="False"
+                        Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
+                        >
 
-                            <ItemsControl.ItemContainerTransitions>
-                                <TransitionCollection>
+                        <ItemsControl.ItemContainerTransitions>
+                            <TransitionCollection>
 
-                                </TransitionCollection>
-                            </ItemsControl.ItemContainerTransitions>
+                            </TransitionCollection>
+                        </ItemsControl.ItemContainerTransitions>
 
-                            <ItemsControl.ItemContainerStyle>
-                                <Style TargetType="ListViewItem">
-                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
-                                </Style>
-                            </ItemsControl.ItemContainerStyle>
+                        <ItemsControl.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Width" Value="Auto" />
+                                <Setter Property="MinHeight" Value="36" />
+                                <Setter Property="MaxHeight" Value="36" />
+                                <Setter Property="Height" Value="36" />
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="VerticalContentAlignment" Value="Center" />
+                            </Style>
+                        </ItemsControl.ItemContainerStyle>
 
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
 
-                            <ListViewItem x:Name="ListViewItem31">
-                                Pads
-                            </ListViewItem>
+                        <ListViewItem x:Name="ListViewItem31">
+                            Pads
+                        </ListViewItem>
 
-                            <ListViewItem x:Name="ListViewItem32">
-                                All
-                            </ListViewItem>
+                        <ListViewItem x:Name="ListViewItem32">
+                            All
+                        </ListViewItem>
 
-                            <ListViewItem x:Name="ListViewItem33">
-                                Category
-                            </ListViewItem>
+                        <ListViewItem x:Name="ListViewItem33">
+                            Category
+                        </ListViewItem>
 
-                        </ListView>
-                    </Border>
+                    </ListView>
                     <controls:DrumPanel 
                         x:Name="DrumPanel"
                         Grid.Row="1" 
