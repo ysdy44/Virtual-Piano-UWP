@@ -16,7 +16,11 @@ namespace Virtual_Piano
         public bool CanExecute(object parameter) => parameter != default;
         public async void Execute(object parameter)
         {
-            if (parameter is Note item0)
+            if (parameter is Message item)
+            {
+                this.Synthesizer.SendMessage(item);
+            }
+            else if (parameter is Note item0)
             {
                 this.Synthesizer.NoteOn(item0);
                 await Task.Delay(2000);
