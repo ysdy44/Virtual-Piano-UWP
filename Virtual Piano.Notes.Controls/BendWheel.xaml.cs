@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Windows.Input;
-using Windows.Devices.Midi;
 using Windows.Foundation;
 using Windows.UI.Input;
 using Windows.UI.Xaml;
@@ -9,34 +7,6 @@ using Windows.UI.Xaml.Markup;
 
 namespace Virtual_Piano.Notes.Controls
 {
-    public sealed class BendPitchWheel : BendWheel
-    {
-        public ICommand Command { get; set; }
-
-        public override void Execute(int value)
-        {
-            this.Command?.Execute(new Message
-            {
-                Type = MidiMessageType.PitchBendChange,
-                Bend = (byte)value
-            }); // Command
-        }
-    }
-
-    public sealed class BendModulationWheel : BendWheel
-    {
-        public ICommand Command { get; set; }
-
-        public override void Execute(int value)
-        {
-            this.Command?.Execute(new Message
-            {
-                Type = MidiMessageType.NoteOn,
-                Controller = ControlController.Modulation,
-                ControllerValue = (byte)value
-            }); // Command
-        }
-    }
 
     [ContentProperty(Name = nameof(Text))]
     public abstract partial class BendWheel : UserControl
