@@ -8,7 +8,7 @@ namespace Virtual_Piano.Notes.Controls
     public partial class DrumSplitView : SplitView
     {
         public IDrumPanel DrumPanel { get; set; }
-        
+
         private readonly IDictionary<MidiPercussionNoteCategory, bool> Dictionary = MidiPercussionNoteFactory.Instance.ToDictionary(c => c.Key, d => true);
 
         public DrumSplitView()

@@ -120,8 +120,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\DrumGridView.cs" />
-    <Compile Include="Controls\DrumGroupGridView.cs" />
     <Compile Include="Controls\DrumPanel.cs" />
+    <Compile Include="Controls\DrumSplitView.cs" />
     <Compile Include="Controls\InstrumentCarousel.cs" />
     <Compile Include="MainPage.Click.cs" />
     <Compile Include="MainPage.UI.cs" />

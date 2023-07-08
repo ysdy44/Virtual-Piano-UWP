@@ -135,14 +135,14 @@
     <Compile Include="DrumGridView.xaml.cs">
       <DependentUpon>DrumGridView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DrumGroupGridView.xaml.cs">
-      <DependentUpon>DrumGroupGridView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DrumMask.xaml.cs">
       <DependentUpon>DrumMask.xaml</DependentUpon>
     </Compile>
     <Compile Include="DrumPanel.xaml.cs">
       <DependentUpon>DrumPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DrumSplitView.xaml.cs">
+      <DependentUpon>DrumSplitView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Enums\NoteDirection.cs" />
     <Compile Include="InstrumentCarousel.xaml.cs">
@@ -216,10 +216,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DrumGroupGridView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="DrumMask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -227,6 +223,10 @@
     <Page Include="DrumPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DrumSplitView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="InstrumentCarousel.xaml">
       <SubType>Designer</SubType>
