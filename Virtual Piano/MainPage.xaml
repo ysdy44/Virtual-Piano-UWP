@@ -278,12 +278,18 @@
                                     Instrument
                                 </MenuFlyoutItem>
 
-                                <MenuFlyoutItem Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}">
+                                <ToggleMenuFlyoutItem x:Name="BendItem" IsChecked="True" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}">
                                     <MenuFlyoutItem.Icon>
-                                        <SymbolIcon Symbol="Keyboard"/>
+                                        <SymbolIcon Symbol="Rotate"/>
                                     </MenuFlyoutItem.Icon>
-                                    Piano
-                                </MenuFlyoutItem>
+                                    Bend
+                                </ToggleMenuFlyoutItem>
+                                <ToggleMenuFlyoutItem x:Name="BendPlacementItem" IsChecked="False" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}">
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="DockRight"/>
+                                    </MenuFlyoutItem.Icon>
+                                    Right
+                                </ToggleMenuFlyoutItem>
 
                                 <MenuFlyoutItem Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}">
                                     <MenuFlyoutItem.Icon>
@@ -356,56 +362,61 @@
                 <controls:InstrumentCarousel Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}" Command="{x:Bind Command}"/>
 
                 <!--Note-->
-                <Grid RowSpacing="2" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="36"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="1" ColumnSpacing="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <ScrollViewer
-                            x:Name="NoteScrollViewer"
-                            Grid.Column="1"
-                            ZoomMode="Disabled"
-                            
-                            HorizontalScrollMode="Enabled"
-                            HorizontalScrollBarVisibility="Hidden"
-                            IsHorizontalScrollChainingEnabled="True"
-                          
-                            VerticalScrollMode="Disabled"
-                            VerticalScrollBarVisibility="Disabled"
-                            IsVerticalScrollChainingEnabled="False"
-                            >
-                            <notecontrols:NoteTopPanel
-                                 x:Name="NotePanel"
-                                 Label="CDE"
-                                 ItemSize="28"
-                                 WhiteSize="250" 
-                                 BlackSize="150" 
-                                 Command="{x:Bind Command}"
-                                 >
-                                <!--Disable the ScrollViewer-->
-                                <UIElement.ManipulationMode>
-                                    TranslateX
-                                </UIElement.ManipulationMode>
-                            </notecontrols:NoteTopPanel>
-                        </ScrollViewer>
-                        <Border Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
-                            <StackPanel Margin="8,4" Orientation="Horizontal">
-                                <notecontrols:BendPitchWheel x:Name="PitchWheel" Command="{x:Bind Command}"   >
-                                    Pitch
-                                </notecontrols:BendPitchWheel>
-                                <notecontrols:BendModulationWheel x:Name="ModulationWheel" Command="{x:Bind Command}">
-                                    Modulation
-                                </notecontrols:BendModulationWheel>
-                            </StackPanel>
-                        </Border>
+                <SplitView
+                    DisplayMode="Inline"
+                    OpenPaneLength="136"
+                    IsPaneOpen="{x:Bind BendItem.IsChecked, Mode=OneWay}" 
+                    PanePlacement="{x:Bind BooleanToPlacementConverter(BendPlacementItem.IsChecked), Mode=OneWay}"
+                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
+                    PaneBackground="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
+                    >
+                    <Grid Margin="2,0" RowSpacing="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="36"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <notecontrols:NoteHorizontalScrollViewer ItemSize="28" ScrollViewer="{x:Bind NoteScrollViewer}"/>
+                        <Grid Grid.Row="1" >
+                            <ScrollViewer
+                                x:Name="NoteScrollViewer"
+                                Grid.Column="1"
+                                ZoomMode="Disabled"
+                                
+                                HorizontalScrollMode="Enabled"
+                                HorizontalScrollBarVisibility="Hidden"
+                                IsHorizontalScrollChainingEnabled="True"
+                              
+                                VerticalScrollMode="Disabled"
+                                VerticalScrollBarVisibility="Disabled"
+                                IsVerticalScrollChainingEnabled="False"
+                                >
+                                <notecontrols:NoteTopPanel
+                                     x:Name="NotePanel"
+                                     Label="CDE"
+                                     ItemSize="28"
+                                     WhiteSize="250" 
+                                     BlackSize="150" 
+                                     Command="{x:Bind Command}"
+                                     >
+                                    <!--Disable the ScrollViewer-->
+                                    <UIElement.ManipulationMode>
+                                        TranslateX
+                                    </UIElement.ManipulationMode>
+                                </notecontrols:NoteTopPanel>
+                            </ScrollViewer>
+                        </Grid>
                     </Grid>
-                    <notecontrols:NoteHorizontalScrollViewer ItemSize="28" ScrollViewer="{x:Bind NoteScrollViewer}"/>
-                </Grid>
+                    <SplitView.Pane>
+                        <StackPanel Margin="0,4" Orientation="Horizontal" HorizontalAlignment="Center">
+                            <notecontrols:BendPitchWheel x:Name="PitchWheel" Command="{x:Bind Command}"   >
+                                Pitch
+                            </notecontrols:BendPitchWheel>
+                            <notecontrols:BendModulationWheel x:Name="ModulationWheel" Command="{x:Bind Command}">
+                                Modulation
+                            </notecontrols:BendModulationWheel>
+                        </StackPanel>
+                    </SplitView.Pane>
+                </SplitView>
 
                 <!--Chord-->
                 <Grid ColumnSpacing="3" Margin="4" MaxWidth="900" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}">
