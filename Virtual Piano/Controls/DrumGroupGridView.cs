@@ -2,7 +2,7 @@
 
 namespace Virtual_Piano.Controls
 {
-    public class DrumGroupGridView : Notes.Controls.DrumGroupGridView
+    public class DrumSplitView : Notes.Controls.DrumSplitView
     {
         public override string GetString(MidiPercussionNote note)
         {

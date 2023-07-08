@@ -526,21 +526,15 @@
                     <ScrollViewer Grid.Row="1" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem32.IsSelected), Mode=OneWay}">
                         <controls:DrumGridView Command="{x:Bind Command}"/>
                     </ScrollViewer>
-                    <SplitView
+                    <controls:DrumSplitView
                         Grid.Row="1" 
-                        IsPaneOpen="True" 
-                        DisplayMode="Inline"
-                        OpenPaneLength="120"
-                        PaneBackground="{x:Null}"
+                        DrumPanel="{x:Bind DrumGridView}"
                         Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem33.IsSelected), Mode=OneWay}"
                         >
-                        <SplitView.Pane>
-                            <controls:DrumGroupGridView DrumPanel="{x:Bind DrumGridView}"/>
-                        </SplitView.Pane>
                         <ScrollViewer>
                             <controls:DrumCategoryGridView x:Name="DrumGridView" Command="{x:Bind Command}"/>
                         </ScrollViewer>
-                    </SplitView>
+                    </controls:DrumSplitView>
 
                 </Grid>
 
