@@ -12,7 +12,7 @@ namespace Virtual_Piano.Notes.Controls
             this.Command?.Execute(new Message
             {
                 Type = MidiMessageType.PitchBendChange,
-                Bend = (byte)value
+                Bend = (ushort)(value * 128)
             }); // Command
         }
     }
