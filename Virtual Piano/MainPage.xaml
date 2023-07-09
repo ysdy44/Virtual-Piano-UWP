@@ -14,7 +14,7 @@
 
     <!--Extension-->
     <FrameworkElement.Tag>
-        <elements:ApplicationTitleBarExtension x:Name="ApplicationView" TitleBarColor="{ThemeResource SystemChromeLowColor}"/>
+        <elements:ApplicationTitleBarExtension x:Name="ApplicationView" TitleBarColor="{ThemeResource SystemChromeMediumColor}"/>
     </FrameworkElement.Tag>
 
     <Grid>
@@ -41,7 +41,7 @@
                 IsHorizontalScrollChainingEnabled="True"
                 
                 VerticalScrollBarVisibility="Disabled"
-  
+                
                 Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
                 >
                 <FrameworkElement.Resources>
@@ -215,7 +215,7 @@
                 <!--Instrument-->
                 <SplitView.Pane>
                     <controls:InstrumentSplitView InstrumentPanel="{x:Bind InstrumentPanel}">
-                        <ScrollViewer BorderThickness="2,0" BorderBrush="Black">
+                        <ScrollViewer Background="{ThemeResource SystemControlForegroundChromeBlackMediumLowBrush}">
                             <controls:InstrumentListView x:Name="InstrumentPanel" Command="{x:Bind Command}"/>
                         </ScrollViewer>
                     </controls:InstrumentSplitView>
@@ -244,6 +244,8 @@
                 ScrollViewer.VerticalScrollBarVisibility="Disabled"
                 ScrollViewer.IsVerticalScrollChainingEnabled="False"
 
+                BorderThickness="0,1,0,0"
+                BorderBrush="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}"
                 Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
                 >
 
@@ -255,7 +257,7 @@
                         <Setter Property="MinHeight" Value="36" />
                         <Setter Property="MaxHeight" Value="36" />
                         <Setter Property="Height" Value="36" />
-                        <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" />
+                        <Setter Property="Background" Value="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" />
                         <Setter Property="HorizontalContentAlignment" Value="Center" />
                         <Setter Property="VerticalContentAlignment" Value="Center" />
                     </Style>
@@ -378,7 +380,7 @@
             </ListView>
 
             <!--Foot-->
-            <Grid Grid.Row="4" Height="240" Background="Black" Visibility="{x:Bind BooleanNullableToVisibilityConverter(DockButton.IsChecked), Mode=OneWay}">
+            <Grid Grid.Row="4" Height="240" Visibility="{x:Bind BooleanNullableToVisibilityConverter(DockButton.IsChecked), Mode=OneWay}">
 
                 <!--Note-->
                 <SplitView
@@ -387,7 +389,8 @@
                     IsPaneOpen="{x:Bind BendItem.IsChecked, Mode=OneWay}" 
                     PanePlacement="{x:Bind BooleanToPlacementConverter(BendPlacementItem.IsChecked), Mode=OneWay}"
                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
-                    PaneBackground="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
+                    PaneBackground="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
+                    Background="Black"
                     >
                     
                     <!--Keyboard-->
