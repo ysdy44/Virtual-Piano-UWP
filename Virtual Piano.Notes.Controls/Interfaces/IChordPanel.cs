@@ -8,8 +8,6 @@ namespace Virtual_Piano.Notes.Controls
 
         Chord Chord { get; set; }
 
-        IChordButton this[Octave item] { get; }
-
         void OnClick(Octave octave);
     }
 }

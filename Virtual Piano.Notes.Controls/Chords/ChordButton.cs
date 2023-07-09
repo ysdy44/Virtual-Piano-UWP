@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Notes.Controls
 {
-    public sealed class ChordButton : ClickButton, IChordButton
+    public sealed class ChordButton : ClickButton, IClickButton
     {
         //@Command
         public Octave CommandParameter { get; set; }

@@ -40,8 +40,6 @@ namespace Virtual_Piano.Notes.Controls
         }
         Chords Chords = new Chords(Chord.C);
 
-        public IChordButton this[Octave item] => base.Children[(int)item] as IChordButton;
-
         public ChordPanel()
         {
             this.InitializeComponent();
@@ -52,7 +50,7 @@ namespace Virtual_Piano.Notes.Controls
 
                 if (e.NewSize.Width != e.PreviousSize.Width)
                 {
-                    foreach (IChordButton item in base.Children.Cast<IChordButton>())
+                    foreach (IClickButton item in base.Children.Cast<IClickButton>())
                     {
                         item.Width = e.NewSize.Width;
                     }
@@ -68,7 +66,7 @@ namespace Virtual_Piano.Notes.Controls
 
                     for (int i = 0; i < count; i++)
                     {
-                        IChordButton item = base.Children[i] as IChordButton;
+                        IClickButton item = base.Children[i] as IClickButton;
                         item.Y = i * (height + spacing);
                         item.Height = height;
                     }
