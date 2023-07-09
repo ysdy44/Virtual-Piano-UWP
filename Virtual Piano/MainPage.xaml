@@ -360,6 +360,8 @@
                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
                     PaneBackground="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
                     >
+                    
+                    <!--Keyboard-->
                     <Grid Margin="2,0" RowSpacing="2">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="36"/>
@@ -396,6 +398,7 @@
                             </ScrollViewer>
                         </Grid>
                     </Grid>
+                    
                     <SplitView.Pane>
                         <StackPanel Margin="0,4" Orientation="Horizontal" HorizontalAlignment="Center">
                             <notecontrols:BendPitchWheel x:Name="PitchWheel" Command="{x:Bind Command}"   >
