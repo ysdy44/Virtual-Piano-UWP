@@ -176,6 +176,9 @@
     <Compile Include="Notes\NotePanel.Initialize.cs" />
     <Compile Include="Notes\NotePanel.ItemSize.cs" />
     <Compile Include="Notes\NotePanel.Resize.cs" />
+    <Compile Include="Notes\NoteRightPanel.xaml.cs">
+      <DependentUpon>NoteRightPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Notes\NoteTopPanel.xaml.cs">
       <DependentUpon>NoteTopPanel.xaml</DependentUpon>
     </Compile>
@@ -252,6 +255,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Notes\NoteLeftPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Notes\NoteRightPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

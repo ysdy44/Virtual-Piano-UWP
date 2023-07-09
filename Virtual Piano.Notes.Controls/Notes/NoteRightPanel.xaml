@@ -1,5 +1,5 @@
 ﻿<controls:NotePanel
-    x:Class="Virtual_Piano.Notes.Controls.NoteLeftPanel"
+    x:Class="Virtual_Piano.Notes.Controls.NoteRightPanel"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -44,7 +44,7 @@
                             <ContentPresenter 
                                 Margin="4,0" 
                                 Content="{TemplateBinding Content}" 
-                                HorizontalAlignment="Right" 
+                                HorizontalAlignment="Left" 
                                 VerticalAlignment="Center" 
                                 Foreground="Gray"
                                 FontSize="14"
@@ -62,7 +62,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ContentControl">
-                        <Border x:Name="RootGrid" CornerRadius="0,4,4,0" Background="#202020">
+                        <Border x:Name="RootGrid" CornerRadius="4,0,0,4" Background="#202020">
 
                             <!--VisualState-->
                             <VisualStateManager.VisualStateGroups>
@@ -82,7 +82,7 @@
                             <ContentPresenter 
                                 Margin="4,0" 
                                 Content="{TemplateBinding Content}" 
-                                HorizontalAlignment="Right" 
+                                HorizontalAlignment="Left" 
                                 VerticalAlignment="Center" 
                                 Foreground="LightGray"
                                 FontSize="12"
