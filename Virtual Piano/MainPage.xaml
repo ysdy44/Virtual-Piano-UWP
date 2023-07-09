@@ -7,6 +7,7 @@
     xmlns:controls="using:Virtual_Piano.Controls"
     xmlns:elements="using:Virtual_Piano.Elements"
     xmlns:notecontrols="using:Virtual_Piano.Notes.Controls"
+    xmlns:strings="using:Virtual_Piano.Strings"
     mc:Ignorable="d"
     Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
     >
@@ -280,31 +281,58 @@
                         <Button.Flyout>
                             <MenuFlyout Placement="Bottom">
 
-                                <ToggleMenuFlyoutItem x:Name="BendItem" IsChecked="True" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}">
+                                <MenuFlyoutItem
+                                    Command="{x:Bind Command}"
+                                    CommandParameter="{strings:OptionType Type=TryShowKeyboardView}"
+                                    Text="{strings:Option Type=TryShowKeyboardView}"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
+                                    >
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="Keyboard"/>
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+                                <MenuFlyoutSeparator Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"/>
+                                <ToggleMenuFlyoutItem
+                                    x:Name="BendItem" 
+                                    IsChecked="True" 
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
+                                    >
                                     <MenuFlyoutItem.Icon>
                                         <SymbolIcon Symbol="Rotate"/>
                                     </MenuFlyoutItem.Icon>
                                     Bend
                                 </ToggleMenuFlyoutItem>
-                                <ToggleMenuFlyoutItem x:Name="BendPlacementItem" IsChecked="False" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}">
+                                <ToggleMenuFlyoutItem 
+                                    x:Name="BendPlacementItem"
+                                    IsChecked="False" 
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
+                                    >
                                     <MenuFlyoutItem.Icon>
                                         <SymbolIcon Symbol="DockRight"/>
                                     </MenuFlyoutItem.Icon>
                                     Right
                                 </ToggleMenuFlyoutItem>
 
-                                <MenuFlyoutItem Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}">
+                                <MenuFlyoutItem
+                                    Command="{x:Bind Command}"
+                                    CommandParameter="{strings:OptionType Type=TryShowChordView}"
+                                    Text="{strings:Option Type=TryShowChordView}"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}"
+                                    >
                                     <MenuFlyoutItem.Icon>
                                         <SymbolIcon Symbol="OneBar"/>
                                     </MenuFlyoutItem.Icon>
-                                    Chord
                                 </MenuFlyoutItem>
 
-                                <MenuFlyoutItem Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
+                                <MenuFlyoutItem
+                                    Command="{x:Bind Command}"
+                                    CommandParameter="{strings:OptionType Type=TryShowDrumView}"
+                                    Text="{strings:Option Type=TryShowDrumView}"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}"
+                                    >
                                     <MenuFlyoutItem.Icon>
                                         <SymbolIcon Symbol="ViewAll"/>
                                     </MenuFlyoutItem.Icon>
-                                    Drum
                                 </MenuFlyoutItem>
 
                             </MenuFlyout>
