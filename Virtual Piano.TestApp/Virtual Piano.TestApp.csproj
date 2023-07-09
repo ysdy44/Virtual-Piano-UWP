@@ -128,6 +128,9 @@
     <Compile Include="MidiPercussionPage.xaml.cs">
       <DependentUpon>MidiPercussionPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MidiProgramPage.xaml.cs">
+      <DependentUpon>MidiProgramPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +162,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MidiPercussionPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MidiProgramPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
