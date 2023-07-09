@@ -26,7 +26,7 @@ namespace Virtual_Piano.Notes.Controls
                 {
                     item.CommandParameter = value;
                     item.TabIndex = (byte)value;
-                    item.Foreground = base.Resources[$"{this.GetCategory(value)}"] as Brush;
+                    item.Foreground = base.Resources[$"{this.GetKey(value)}"] as Brush;
                     item.Content = this.GetString(value);
                 }
             }
@@ -38,7 +38,7 @@ namespace Virtual_Piano.Notes.Controls
         public DrumGridView(bool isCategory)
         {
             this.InitializeComponent();
-            this.ItemsSource = new List<MidiPercussionNote>(isCategory ? this.GetCategoryItemsSource() : this.GetItemsSource());
+            this.ItemsSource = new List<MidiPercussionNote>(isCategory ? this.GetKeyItemsSource() : this.GetItemsSource());
             
             foreach (MidiPercussionNote item in this.ItemsSource)
             {
@@ -46,7 +46,7 @@ namespace Virtual_Piano.Notes.Controls
                 {
                     CommandParameter = item,
                     TabIndex = (byte)item,
-                    Foreground = base.Resources[$"{this.GetCategory(item)}"] as Brush,
+                    Foreground = base.Resources[$"{this.GetKey(item)}"] as Brush,
                     Content = $"{this.GetString(item)}"
                 });
             }
@@ -60,7 +60,7 @@ namespace Virtual_Piano.Notes.Controls
             }
         }
 
-        private IEnumerable<MidiPercussionNote> GetCategoryItemsSource()
+        private IEnumerable<MidiPercussionNote> GetKeyItemsSource()
         {
             foreach (var item2 in MidiPercussionNoteFactory.Instance)
             {
@@ -71,7 +71,7 @@ namespace Virtual_Piano.Notes.Controls
             }
         }
 
-        private MidiPercussionNoteCategory GetCategory(MidiPercussionNote item)
+        private MidiPercussionNoteCategory GetKey(MidiPercussionNote item)
         {
             foreach (var item2 in MidiPercussionNoteFactory.Instance)
             {

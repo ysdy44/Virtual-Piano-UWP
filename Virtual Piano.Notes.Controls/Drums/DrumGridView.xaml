@@ -39,7 +39,9 @@
         <SolidColorBrush x:Key="Synth" Color="{StaticResource Hue240}"/>
         <!--Style-->
         <Style TargetType="local:DrumButton">
-            <Setter Property="Height" Value="50"/>
+            <Setter Property="MinWidth" Value="80"/>
+            <Setter Property="MinHeight" Value="80"/>
+            <Setter Property="Height" Value="80"/>
 
             <Setter Property="AllowFocusOnInteraction" Value="True"/>
             <Setter Property="UseSystemFocusVisuals" Value="True"/>
