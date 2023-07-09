@@ -120,32 +120,32 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BendModulationWheel.cs" />
-    <Compile Include="BendPitchWheel.cs" />
-    <Compile Include="BendWheel.xaml.cs">
+    <Compile Include="Bends\BendModulationWheel.cs" />
+    <Compile Include="Bends\BendPitchWheel.cs" />
+    <Compile Include="Bends\BendWheel.xaml.cs">
       <DependentUpon>BendWheel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ChordButton.cs" />
-    <Compile Include="ChordPanel.xaml.cs">
+    <Compile Include="Chords\ChordButton.cs" />
+    <Compile Include="Chords\ChordPanel.xaml.cs">
       <DependentUpon>ChordPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="ClickButton.cs" />
     <Compile Include="ContactButton.cs" />
-    <Compile Include="DrumButton.cs" />
-    <Compile Include="DrumGridView.xaml.cs">
+    <Compile Include="Drums\DrumButton.cs" />
+    <Compile Include="Drums\DrumGridView.xaml.cs">
       <DependentUpon>DrumGridView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DrumMask.xaml.cs">
+    <Compile Include="Drums\DrumMask.xaml.cs">
       <DependentUpon>DrumMask.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DrumPanel.xaml.cs">
+    <Compile Include="Drums\DrumPanel.xaml.cs">
       <DependentUpon>DrumPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DrumSplitView.xaml.cs">
+    <Compile Include="Drums\DrumSplitView.xaml.cs">
       <DependentUpon>DrumSplitView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Enums\NoteDirection.cs" />
-    <Compile Include="InstrumentCarousel.xaml.cs">
+    <Compile Include="Instruments\InstrumentCarousel.xaml.cs">
       <DependentUpon>InstrumentCarousel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IChordButton.cs" />
@@ -158,32 +158,32 @@
     <Compile Include="Interfaces\INoteScrollViewer.cs" />
     <Compile Include="Models\DrumItem.cs" />
     <Compile Include="Models\DrumItemCategory.cs" />
-    <Compile Include="NoteButton.cs" />
-    <Compile Include="NoteHorizontalScrollViewer.xaml.cs">
+    <Compile Include="Notes\NoteButton.cs" />
+    <Compile Include="Notes\NoteHorizontalScrollViewer.xaml.cs">
       <DependentUpon>NoteHorizontalScrollViewer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NoteLeftPanel.xaml.cs">
+    <Compile Include="Notes\NoteLeftPanel.xaml.cs">
       <DependentUpon>NoteLeftPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NotePanel.cs" />
-    <Compile Include="NotePanel.Initialize.cs" />
-    <Compile Include="NotePanel.ItemSize.cs" />
-    <Compile Include="NotePanel.Resize.cs" />
-    <Compile Include="NoteTopPanel.xaml.cs">
+    <Compile Include="Notes\NotePanel.cs" />
+    <Compile Include="Notes\NotePanel.Initialize.cs" />
+    <Compile Include="Notes\NotePanel.ItemSize.cs" />
+    <Compile Include="Notes\NotePanel.Resize.cs" />
+    <Compile Include="Notes\NoteTopPanel.xaml.cs">
       <DependentUpon>NoteTopPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structs\Chords.cs" />
     <Compile Include="Structs\DrumLayout.cs" />
     <Compile Include="Structs\NoteSize.cs" />
-    <Compile Include="TrackNotePanel.xaml.cs">
+    <Compile Include="Tracks\TrackNotePanel.xaml.cs">
       <DependentUpon>TrackNotePanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VelocityGauge.xaml.cs">
+    <Compile Include="Velocitys\VelocityGauge.xaml.cs">
       <DependentUpon>VelocityGauge.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VelocityGaugeBase.cs" />
-    <Compile Include="VelocityRadialGauge.xaml.cs">
+    <Compile Include="Velocitys\VelocityGaugeBase.cs" />
+    <Compile Include="Velocitys\VelocityRadialGauge.xaml.cs">
       <DependentUpon>VelocityRadialGauge.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Virtual_Piano.Notes.Controls.rd.xml" />
@@ -204,60 +204,59 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="BendWheel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ChordPanel.xaml">
+    <Page Include="Bends\BendWheel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="DrumGridView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DrumMask.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DrumPanel.xaml">
+    <Page Include="Chords\ChordPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="DrumSplitView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="InstrumentCarousel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="NoteHorizontalScrollViewer.xaml">
+    <Page Include="Drums\DrumGridView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="NoteLeftPanel.xaml">
+    <Page Include="Drums\DrumMask.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="NoteTopPanel.xaml">
+    <Page Include="Drums\DrumPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TrackNotePanel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="VelocityGauge.xaml">
+    <Page Include="Drums\DrumSplitView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="VelocityRadialGauge.xaml">
+    <Page Include="Instruments\InstrumentCarousel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Notes\NoteHorizontalScrollViewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Notes\NoteLeftPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Notes\NoteTopPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tracks\TrackNotePanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Velocitys\VelocityGauge.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Velocitys\VelocityRadialGauge.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
