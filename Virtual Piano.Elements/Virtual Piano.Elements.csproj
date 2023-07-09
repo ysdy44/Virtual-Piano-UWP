@@ -125,7 +125,13 @@
       <DependentUpon>Carousel.xaml</DependentUpon>
     </Compile>
     <Compile Include="CompositionExtensions.cs" />
+    <Compile Include="DS\DSFloat.xaml.cs">
+      <DependentUpon>DSFloat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DS\DSNumber.cs" />
+    <Compile Include="DS\DSScorer.xaml.cs">
+      <DependentUpon>DSScorer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DS\DSTimer.xaml.cs">
       <DependentUpon>DSTimer.xaml</DependentUpon>
     </Compile>
@@ -149,6 +155,14 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Carousel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DS\DSFloat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DS\DSScorer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

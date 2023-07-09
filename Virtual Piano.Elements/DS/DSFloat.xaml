@@ -1,5 +1,5 @@
 ﻿<StackPanel
-    x:Class="Virtual_Piano.Elements.DSTimer"
+    x:Class="Virtual_Piano.Elements.DSFloat"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -27,17 +27,13 @@
         </Style>
     </FrameworkElement.Resources>
 
-    <local:DSNumber x:Name="MT"/>
-    <local:DSNumber x:Name="M"/>
-    <TextBlock>
-        :
-    </TextBlock>
-    <local:DSNumber x:Name="ST"/>
-    <local:DSNumber x:Name="S"/>
+    <local:DSNumber x:Name="N100"/>
+    <local:DSNumber x:Name="N10"/>
+    <local:DSNumber x:Name="N1"/>
     <TextBlock>
         .
     </TextBlock>
-    <local:DSNumber x:Name="MST"/>
-    <local:DSNumber x:Name="MS"/>
-
+    <local:DSNumber x:Name="F1"/>
+    <local:DSNumber x:Name="F10"/>
+    
 </StackPanel>

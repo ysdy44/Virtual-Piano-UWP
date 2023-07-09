@@ -40,8 +40,6 @@ namespace Virtual_Piano.Elements
         public DSTimer()
         {
             this.InitializeComponent();
-            base.Height = DSNumber.H;
-
             this.MT.Update(DSType.N0);
             this.M.Update(DSType.N0);
 
