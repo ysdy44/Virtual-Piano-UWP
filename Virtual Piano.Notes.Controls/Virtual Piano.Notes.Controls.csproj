@@ -149,6 +149,9 @@
     <Compile Include="Instruments\InstrumentCarousel.xaml.cs">
       <DependentUpon>InstrumentCarousel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Instruments\InstrumentListView.xaml.cs">
+      <DependentUpon>InstrumentListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IChordPanel.cs" />
     <Compile Include="Interfaces\IClickButton.cs" />
     <Compile Include="Interfaces\IDrumButton.cs" />
@@ -232,6 +235,10 @@
     <Page Include="Instruments\InstrumentCarousel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Instruments\InstrumentListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Notes\NoteHorizontalScrollViewer.xaml">
       <Generator>MSBuild:Compile</Generator>
