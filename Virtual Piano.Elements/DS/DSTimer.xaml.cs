@@ -24,14 +24,14 @@ namespace Virtual_Piano.Elements
             {
                 string text = $"{value:mm':'ss'.'ff}";
 
-                control.MT.Type = DSTimer.ToDS(text[000]);
-                control.M.Type = DSTimer.ToDS(text[1]);
+                control.MT.Update(text[0]);
+                control.M.Update(text[1]);
 
-                control.ST.Type = DSTimer.ToDS(text[3]);
-                control.S.Type = DSTimer.ToDS(text[4]);
+                control.ST.Update(text[3]);
+                control.S.Update(text[4]);
 
-                control.MST.Type = DSTimer.ToDS(text[6]);
-                control.MS.Type = DSTimer.ToDS(text[7]);
+                control.MST.Update(text[6]);
+                control.MS.Update(text[7]);
             }
         }));
 
@@ -40,23 +40,16 @@ namespace Virtual_Piano.Elements
         public DSTimer()
         {
             this.InitializeComponent();
-        }
+            base.Height = DSNumber.H;
 
-        private static DSType ToDS(char c)
-        {
-            switch (c)
-            {
-                case '1': return DSType.N1;
-                case '2': return DSType.N2;
-                case '3': return DSType.N3;
-                case '4': return DSType.N4;
-                case '5': return DSType.N5;
-                case '6': return DSType.N6;
-                case '7': return DSType.N7;
-                case '8': return DSType.N8;
-                case '9': return DSType.N9;
-                default: return DSType.N0;
-            }
+            this.MT.Update(DSType.N0);
+            this.M.Update(DSType.N0);
+
+            this.ST.Update(DSType.N0);
+            this.S.Update(DSType.N0);
+
+            this.MST.Update(DSType.N0);
+            this.MS.Update(DSType.N0);
         }
     }
 }
