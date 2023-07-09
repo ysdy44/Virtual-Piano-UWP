@@ -14,10 +14,14 @@ namespace Virtual_Piano
     public sealed partial class MainPage : Page, ICommand
     {
         //@Converter
+        private string DoubleToStringConverter(double value) => $"{System.Math.Clamp((int)value, 0, 127)}";
         private double CanvasConverter(double value) => value - 100 + 32;
         private Visibility BooleanToVisibilityConverter(bool value) => value ? Visibility.Visible : Visibility.Collapsed;
         private Visibility ReverseBooleanToVisibilityConverter(bool value) => value ? Visibility.Collapsed : Visibility.Visible;
         private Visibility BooleanNullableToVisibilityConverter(bool? value) => value is true ? Visibility.Collapsed : Visibility.Visible;
+        private Symbol BooleanNullableToMuteConverter(bool? value) => value is true ? Symbol.Mute : Symbol.Volume;
+        private bool BooleanNullableToBooleanConverter(bool? value) => value is true;
+        private bool ReverseBooleanNullableToBooleanConverter(bool? value) => value is true is false;
         private SplitViewPanePlacement BooleanToPlacementConverter(bool value) => value is true ? SplitViewPanePlacement.Right : SplitViewPanePlacement.Left;
 
         MidiSynthesizer Synthesizer;

@@ -206,11 +206,11 @@
             <!--Body-->
             <SplitView
                 Grid.Row="1"
-                IsPaneOpen="True" 
                 DisplayMode="Inline"
                 OpenPaneLength="280"
                 Background="{x:Null}"
                 PaneBackground="{x:Null}"
+                IsPaneOpen="{x:Bind ReverseBooleanNullableToBooleanConverter(DockLeftButton.IsChecked), Mode=OneWay}" 
                 >
                 <!--Instrument-->
                 <SplitView.Pane>
@@ -220,10 +220,77 @@
                         </ScrollViewer>
                     </controls:InstrumentSplitView>
                 </SplitView.Pane>
-                
-                <notecontrols:TrackNotePanel x:Name="TrackNotePanel">
-                    <notecontrols:NoteLeftPanel x:Name="NotePanel2" Command="{x:Bind Command}"/>
-                </notecontrols:TrackNotePanel>
+
+                <!--Bar-->
+                <Grid Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="32"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="44"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock 
+                            FontFamily="Agency FB" 
+                            FontWeight="Bold"
+                            FontSize="16" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"
+                            Text="{x:Bind DoubleToStringConverter(Slider.Value), Mode=OneWay}"
+                            />
+
+                        <Border
+                            Grid.Row="1" 
+                            Width="44"
+                            CornerRadius="6"
+                            HorizontalAlignment="Center"
+                            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
+                            >
+                            <Slider
+                                x:Name="Slider"
+                                Margin="0,12"
+                                Maximum="128"
+                                TickFrequency="8"
+                                TickPlacement="Outside"
+                                Orientation="Vertical"
+                                HorizontalAlignment="Center"
+                                IsThumbToolTipEnabled="False"
+                                />
+                        </Border>
+
+                        <Border Margin="8" Grid.Row="2" Width="44" Height="44" CornerRadius="4" Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+                            <ToggleButton x:Name="VolumeButton" IsChecked="True" Width="44" Height="44" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
+                                <ToolTipService.ToolTip>
+                                    <ToolTip>
+                                        Volume
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
+                                <SymbolIcon Symbol="{x:Bind BooleanNullableToMuteConverter(VolumeButton.IsChecked), Mode=OneWay}"/>
+                            </ToggleButton>
+                        </Border>
+
+                        <ToggleButton x:Name="DockLeftButton" Grid.Row="3" IsChecked="False" Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
+                            <ToolTipService.ToolTip>
+                                <ToolTip>
+                                    Dock
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
+                            <SymbolIcon Symbol="DockLeft"/>
+                        </ToggleButton>
+
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <notecontrols:TrackNotePanel x:Name="TrackNotePanel">
+                            <notecontrols:NoteLeftPanel x:Name="NotePanel2" Command="{x:Bind Command}"/>
+                        </notecontrols:TrackNotePanel>
+                    </Grid>
+                </Grid>
             </SplitView>
 
             <!--Head-->
@@ -264,7 +331,7 @@
                 </ItemsControl.ItemContainerStyle>
 
                 <ListView.Header>
-                    <ToggleButton x:Name="DockButton" IsChecked="True" Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
+                    <ToggleButton x:Name="DockButton" IsChecked="False" Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
                         <ToolTipService.ToolTip>
                             <ToolTip>
                                 Dock
@@ -392,7 +459,7 @@
                     PaneBackground="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
                     Background="Black"
                     >
-                    
+
                     <!--Keyboard-->
                     <Grid Margin="2,0" RowSpacing="2">
                         <Grid.RowDefinitions>
@@ -428,7 +495,7 @@
                             </notecontrols:NoteTopPanel>
                         </ScrollViewer>
                     </Grid>
-                    
+
                     <SplitView.Pane>
                         <StackPanel Margin="0,4" Orientation="Horizontal" HorizontalAlignment="Center">
                             <notecontrols:BendPitchWheel x:Name="PitchWheel" Command="{x:Bind Command}">
