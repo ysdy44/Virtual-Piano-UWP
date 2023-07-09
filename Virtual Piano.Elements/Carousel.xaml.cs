@@ -149,9 +149,9 @@ namespace Virtual_Piano.Elements
             this.Index = index;
             this.SelectedIndex = index;
         }
-        public void Reset(object itemSource, int index = 0)
+        public void Reset(object itemsSource, int index = 0)
         {
-            this.ItemsControl.ItemsSource = itemSource;
+            this.ItemsControl.ItemsSource = itemsSource;
             this.Reset(index);
         }
     }

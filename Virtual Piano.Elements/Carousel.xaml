@@ -43,7 +43,7 @@
                         <Setter Property="VerticalContentAlignment" Value="Center" />
                     </Style>
                 </ItemsControl.ItemContainerStyle>
-                <!--ItemSource-->
+                <!--ItemsSource-->
             </ItemsControl>
             <Rectangle
                 x:Name="Rectangle"

@@ -12,15 +12,15 @@ namespace Virtual_Piano.Notes.Controls
         public ICommand Command { get; set; }
 
         public IDrumButton this[MidiPercussionNote note] =>
-            base.Children[this.ItemSource.IndexOf(note)] as IDrumButton;
+            base.Children[this.ItemsSource.IndexOf(note)] as IDrumButton;
 
         public MidiPercussionNote this[int index]
         {
-            get => this.ItemSource[index];
+            get => this.ItemsSource[index];
             set
             {
-                if (this.ItemSource[index] == value) return;
-                this.ItemSource[index] = value;
+                if (this.ItemsSource[index] == value) return;
+                this.ItemsSource[index] = value;
 
                 if (base.Children[index] is IDrumButton item)
                 {
@@ -32,15 +32,15 @@ namespace Virtual_Piano.Notes.Controls
             }
         }
 
-        private readonly IList<MidiPercussionNote> ItemSource;
+        private readonly IList<MidiPercussionNote> ItemsSource;
 
         //@Construct
         public DrumGridView(bool isCategory)
         {
             this.InitializeComponent();
-            this.ItemSource = new List<MidiPercussionNote>(isCategory ? this.GetCategoryItemSource() : this.GetItemSource());
+            this.ItemsSource = new List<MidiPercussionNote>(isCategory ? this.GetCategoryItemsSource() : this.GetItemsSource());
             
-            foreach (MidiPercussionNote item in this.ItemSource)
+            foreach (MidiPercussionNote item in this.ItemsSource)
             {
                 base.Children.Add(new DrumButton
                 {
@@ -52,7 +52,7 @@ namespace Virtual_Piano.Notes.Controls
             }
         }
 
-        private IEnumerable<MidiPercussionNote> GetItemSource()
+        private IEnumerable<MidiPercussionNote> GetItemsSource()
         {
             foreach (MidiPercussionNote item in System.Enum.GetValues(typeof(MidiPercussionNote)).Cast<MidiPercussionNote>())
             {
@@ -60,7 +60,7 @@ namespace Virtual_Piano.Notes.Controls
             }
         }
 
-        private IEnumerable<MidiPercussionNote> GetCategoryItemSource()
+        private IEnumerable<MidiPercussionNote> GetCategoryItemsSource()
         {
             foreach (var item2 in MidiPercussionNoteFactory.Instance)
             {
@@ -112,7 +112,7 @@ namespace Virtual_Piano.Notes.Controls
 
         public void Clear(MidiPercussionNote note)
         {
-            int i = this.ItemSource.IndexOf(note);
+            int i = this.ItemsSource.IndexOf(note);
             if (base.Children[i] is IDrumButton item)
             {
                 item.Clear();
@@ -121,7 +121,7 @@ namespace Virtual_Piano.Notes.Controls
 
         public void Add(MidiPercussionNote note)
         {
-            int i = this.ItemSource.IndexOf(note);
+            int i = this.ItemsSource.IndexOf(note);
             if (base.Children[i] is IDrumButton item)
             {
                 item.Add();
