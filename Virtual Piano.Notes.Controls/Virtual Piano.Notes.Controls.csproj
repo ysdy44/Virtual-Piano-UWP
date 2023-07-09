@@ -148,7 +148,6 @@
     <Compile Include="Instruments\InstrumentCarousel.xaml.cs">
       <DependentUpon>InstrumentCarousel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IChordButton.cs" />
     <Compile Include="Interfaces\IChordPanel.cs" />
     <Compile Include="Interfaces\IClickButton.cs" />
     <Compile Include="Interfaces\IDrumButton.cs" />
