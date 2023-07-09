@@ -8,4 +8,168 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     >
 
+    <FrameworkElement.Resources>
+        <CollectionViewSource x:Name="Collection" IsSourceGrouped="True" Source="{x:Bind Groupings}">
+            <!--Source-->
+        </CollectionViewSource>
+    </FrameworkElement.Resources>
+
+    <SplitView x:Name="SplitView" DisplayMode="CompactInline" 
+               IsPaneOpen="{x:Bind BooleanNullableConverter(SplitButton.IsChecked), Mode=OneWay}" >
+
+
+        <!--VisualState-->
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+
+                <!--Phone-->
+                <VisualState x:Name="Phone">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SplitView.DisplayMode" Value="CompactOverlay"/>
+                        <Setter Target="SplitView.IsPaneOpen" Value="False"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!--Pad-->
+                <VisualState x:Name="Pad">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SplitView.DisplayMode" Value="CompactOverlay"/>
+                        <Setter Target="SplitView.IsPaneOpen" Value="False"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!--PC-->
+                <VisualState x:Name="PC">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SplitView.DisplayMode" Value="CompactInline"/>
+                        <Setter Target="SplitView.IsPaneOpen" Value="True"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+        <SplitView.Pane>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Height="50" Orientation="Horizontal">
+                    <ToggleButton x:Name="SplitButton" IsChecked="True" Width="50" Style="{StaticResource TextBlockButtonStyle}">
+                        <SymbolIcon Symbol="GlobalNavigationButton" />
+                    </ToggleButton>
+                    <TextBlock x:Name="TextBlock" Margin="12,0" Style="{StaticResource SubheaderTextBlockStyle}" >
+                        Pages
+                    </TextBlock>
+                </StackPanel>
+                <AutoSuggestBox x:Name="AutoSuggestBox" Grid.Row="1" Margin="12,0" BorderThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" 
+                                   Visibility="{x:Bind BooleanNullableToVisibilityConverter(SplitButton.IsChecked), Mode=OneWay}" >
+                    <!--ItemsSource-->
+                </AutoSuggestBox>
+                <SemanticZoom x:Name="SemanticZoom" Grid.Row="2" >
+                    <SemanticZoom.ZoomedInView>
+                        <ListView ItemsSource="{x:Bind Collection.View}" x:Name="ListView" IsItemClickEnabled="True" >
+                            <ListViewBase.Footer>
+                                <Image Width="50" Height="50" HorizontalAlignment="Left">
+                                    <Image.Source>
+                                        ms-appx:///Assets/SplashScreen.scale-200.png
+                                    </Image.Source>
+                                </Image>
+                            </ListViewBase.Footer>
+                            <ItemsControl.ItemContainerStyle>
+                                <Style TargetType="ListViewItem" >
+                                    <Setter Property="Height" Value="50" />
+                                </Style>
+                            </ItemsControl.ItemContainerStyle>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="x:String" >
+                                    <StackPanel Height="50" Orientation="Horizontal" >
+                                        <Border CornerRadius="18" Width="26" Height="26" Background="{ThemeResource SystemColorControlAccentBrush}" >
+                                            <TextBlock Margin="8,2,0,0" Text="{x:Bind}" CharacterSpacing="1024" FontWeight="Bold" Foreground="White" />
+                                        </Border>
+                                        <ContentControl Width="12" />
+                                        <TextBlock LineHeight="12" VerticalAlignment="Center" Style="{StaticResource SubtitleTextBlockStyle}" >
+                                            <Run Text="{x:Bind}" />
+                                            <LineBreak/>
+                                            <Run FontSize="10" Text="{x:Bind}" Foreground="{ThemeResource SystemControlBackgroundBaseMediumLowBrush}" />
+                                        </TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.GroupStyle>
+                                <GroupStyle/>
+                            </ItemsControl.GroupStyle>
+                        </ListView>
+                    </SemanticZoom.ZoomedInView>
+                    <SemanticZoom.ZoomedOutView>
+                        <GridView FontSize="122" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center" ItemsSource="{x:Bind Collection.View.CollectionGroups}" >
+                            <ItemsControl.ItemContainerStyle>
+                                <Style TargetType="GridViewItem" >
+                                    <Setter Property="FontSize" Value="22" />
+                                </Style>
+                            </ItemsControl.ItemContainerStyle>
+                        </GridView>
+                    </SemanticZoom.ZoomedOutView>
+                </SemanticZoom>
+            </Grid>
+        </SplitView.Pane>
+
+
+        <Frame x:Name="Frame" >
+            <Page>
+                <TextBlock FontSize="22" Foreground="White"
+                   TextWrapping="Wrap" MaxWidth="700"
+                   HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Run FontSize="100" Text="&#xED59;" FontFamily="Segoe MDL2 Assets"/>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <Run>
+                        Welcome to Test Application
+                    </Run>
+                    <LineBreak/>
+                    <Run FontSize="16" Foreground="{ThemeResource SystemControlBackgroundBaseMediumLowBrush}" >
+                        Click the ListView on the left to Navigate to target Page.
+                    </Run>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <Span x:Name="Span" FontSize="16">
+                        <Hyperlink x:Name="Hyperlink0">
+                            <!--Hyperlink-->
+                        </Hyperlink>
+                        <LineBreak/>
+                        <Hyperlink x:Name="Hyperlink1">
+                            <!--Hyperlink-->
+                        </Hyperlink>
+                        <LineBreak/>
+                        <Hyperlink x:Name="Hyperlink2">
+                            <!--Hyperlink-->
+                        </Hyperlink>
+                        <LineBreak/>
+                        <Hyperlink x:Name="Hyperlink3">
+                            <!--Hyperlink-->
+                        </Hyperlink>
+                        <LineBreak/>
+                        <Hyperlink x:Name="Hyperlink4">
+                            <!--Hyperlink-->
+                        </Hyperlink>
+                    </Span>
+                </TextBlock>
+            </Page>
+        </Frame>
+
+
+    </SplitView>
 </Page>
