@@ -15,8 +15,6 @@
     </FrameworkElement.Resources>
 
     <SplitView 
-        x:Name="splitView"
-        PaneBackground="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"
         IsPaneOpen="True" 
         OpenPaneLength="256" 
         CompactPaneLength="48" 

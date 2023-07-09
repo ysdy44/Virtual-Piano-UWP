@@ -125,6 +125,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MidiNotePage.xaml.cs">
+      <DependentUpon>MidiNotePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MidiPercussionPage.xaml.cs">
       <DependentUpon>MidiPercussionPage.xaml</DependentUpon>
     </Compile>
@@ -158,6 +161,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MidiNotePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
