@@ -205,12 +205,21 @@
             <!--Body-->
             <SplitView
                 Grid.Row="2"
-                IsPaneOpen="False" 
+                IsPaneOpen="True" 
                 DisplayMode="Inline"
-                OpenPaneLength="200"
+                OpenPaneLength="280"
                 Background="{x:Null}"
                 PaneBackground="{x:Null}"
                 >
+                <!--Instrument-->
+                <SplitView.Pane>
+                    <controls:InstrumentSplitView InstrumentPanel="{x:Bind InstrumentPanel}">
+                        <ScrollViewer>
+                            <controls:InstrumentListView x:Name="InstrumentPanel" Command="{x:Bind Command}"/>
+                        </ScrollViewer>
+                    </controls:InstrumentSplitView>
+                </SplitView.Pane>
+                
                 <notecontrols:TrackNotePanel x:Name="TrackNotePanel">
                     <notecontrols:NoteLeftPanel x:Name="NotePanel2" Command="{x:Bind Command}"/>
                 </notecontrols:TrackNotePanel>
@@ -220,7 +229,7 @@
             <ListView
                 Grid.Row="3"
                 
-                SelectedIndex="1"
+                SelectedIndex="0"
                 SelectionMode="Single"
          
                 ScrollViewer.ZoomMode="Disabled"
@@ -271,13 +280,6 @@
                         <Button.Flyout>
                             <MenuFlyout Placement="Bottom">
 
-                                <MenuFlyoutItem Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}">
-                                    <MenuFlyoutItem.Icon>
-                                        <SymbolIcon Symbol="Volume"/>
-                                    </MenuFlyoutItem.Icon>
-                                    Instrument
-                                </MenuFlyoutItem>
-
                                 <ToggleMenuFlyoutItem x:Name="BendItem" IsChecked="True" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}">
                                     <MenuFlyoutItem.Icon>
                                         <SymbolIcon Symbol="Rotate"/>
@@ -317,15 +319,6 @@
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
 
-                <ListViewItem x:Name="ListViewItem0">
-                    <ToolTipService.ToolTip>
-                        <ToolTip>
-                            Instrument
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                    <SymbolIcon Symbol="Volume"/>
-                </ListViewItem>
-
                 <ListViewItem x:Name="ListViewItem1">
                     <ToolTipService.ToolTip>
                         <ToolTip>
@@ -357,9 +350,6 @@
 
             <!--Foot-->
             <Grid Grid.Row="4" Height="240" Background="Black" Visibility="{x:Bind BooleanNullableToVisibilityConverter(DockButton.IsChecked), Mode=OneWay}">
-
-                <!--Instrument-->
-                <controls:InstrumentCarousel Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}" Command="{x:Bind Command}"/>
 
                 <!--Note-->
                 <SplitView
