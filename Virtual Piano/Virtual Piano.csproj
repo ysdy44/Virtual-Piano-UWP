@@ -125,6 +125,7 @@
     <Compile Include="Controls\InstrumentCarousel.cs" />
     <Compile Include="Controls\InstrumentListView.cs" />
     <Compile Include="Controls\InstrumentSplitView.cs" />
+    <Compile Include="Enums\OptionType.cs" />
     <Compile Include="MainPage.Click.cs" />
     <Compile Include="MainPage.UI.cs" />
     <Compile Include="MainPage.xaml.cs">
