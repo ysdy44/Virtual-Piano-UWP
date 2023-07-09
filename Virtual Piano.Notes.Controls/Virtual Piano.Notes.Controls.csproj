@@ -152,6 +152,9 @@
     <Compile Include="Instruments\InstrumentListView.xaml.cs">
       <DependentUpon>InstrumentListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Instruments\InstrumentSplitView.xaml.cs">
+      <DependentUpon>InstrumentSplitView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IChordPanel.cs" />
     <Compile Include="Interfaces\IClickButton.cs" />
     <Compile Include="Interfaces\IDrumButton.cs" />
@@ -160,8 +163,8 @@
     <Compile Include="Interfaces\INoteButton.cs" />
     <Compile Include="Interfaces\INotePanel.cs" />
     <Compile Include="Interfaces\INoteScrollViewer.cs" />
-    <Compile Include="Models\DrumItem.cs" />
     <Compile Include="Models\DrumItemCategory.cs" />
+    <Compile Include="Models\InstrumentItemCategory.cs" />
     <Compile Include="Notes\NoteButton.cs" />
     <Compile Include="Notes\NoteHorizontalScrollViewer.xaml.cs">
       <DependentUpon>NoteHorizontalScrollViewer.xaml</DependentUpon>
@@ -239,6 +242,10 @@
     <Page Include="Instruments\InstrumentListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Instruments\InstrumentSplitView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Notes\NoteHorizontalScrollViewer.xaml">
       <Generator>MSBuild:Compile</Generator>
