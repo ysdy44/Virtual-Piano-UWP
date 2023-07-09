@@ -10,7 +10,7 @@
 
         public DrumLayout(int width, int height)
         {
-            int n = 12 * width / height;
+            int n = height > 0 ? 12 * width / height : 1;
 
             // 1x12: n = 12 * 1 / 12 = 1 (n<2)
             // 2x6: n = 12 * 2 / 6 = 4 (n<7)

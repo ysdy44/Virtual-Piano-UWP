@@ -13,8 +13,8 @@
             this.ItemSize = value;
 
             this.WhiteSize = value * NoteExtensions.ToneCount / NoteExtensions.WhiteCount;
-            this.BlackSize = WhiteSize * NoteExtensions.BlackCount / NoteExtensions.WhiteCount;
-            this.BlackSizeHalf = BlackSize << 1;
+            this.BlackSize = this.WhiteSize * NoteExtensions.BlackCount / NoteExtensions.WhiteCount;
+            this.BlackSizeHalf = this.BlackSize << 1;
             this.BlackSizeHalf--;
         }
     }
