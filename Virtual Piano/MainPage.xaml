@@ -22,8 +22,8 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="44"/>
+                <RowDefinition Height="*" MinHeight="200"/>
                 <RowDefinition Height="2"/>
-                <RowDefinition Height="*"/>
                 <RowDefinition Height="44"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
@@ -196,7 +196,7 @@
             <!--ProgressBar-->
             <ProgressBar 
                 x:Name="ProgressBar" 
-                Grid.Row="1"
+                Grid.Row="2"
                 Height="2" 
                 Value="0"
                 Background="Black"
@@ -205,7 +205,7 @@
 
             <!--Body-->
             <SplitView
-                Grid.Row="2"
+                Grid.Row="1"
                 IsPaneOpen="True" 
                 DisplayMode="Inline"
                 OpenPaneLength="280"
@@ -215,7 +215,7 @@
                 <!--Instrument-->
                 <SplitView.Pane>
                     <controls:InstrumentSplitView InstrumentPanel="{x:Bind InstrumentPanel}">
-                        <ScrollViewer>
+                        <ScrollViewer BorderThickness="2,0" BorderBrush="Black">
                             <controls:InstrumentListView x:Name="InstrumentPanel" Command="{x:Bind Command}"/>
                         </ScrollViewer>
                     </controls:InstrumentSplitView>
@@ -229,6 +229,7 @@
             <!--Head-->
             <ListView
                 Grid.Row="3"
+                Margin="0,2,0,0"
                 
                 SelectedIndex="0"
                 SelectionMode="Single"
@@ -396,40 +397,38 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <notecontrols:NoteHorizontalScrollViewer ItemSize="28" ScrollViewer="{x:Bind NoteScrollViewer}"/>
-                        <Grid Grid.Row="1" >
-                            <ScrollViewer
-                                x:Name="NoteScrollViewer"
-                                Grid.Column="1"
-                                ZoomMode="Disabled"
-                                
-                                HorizontalScrollMode="Enabled"
-                                HorizontalScrollBarVisibility="Hidden"
-                                IsHorizontalScrollChainingEnabled="True"
-                              
-                                VerticalScrollMode="Disabled"
-                                VerticalScrollBarVisibility="Disabled"
-                                IsVerticalScrollChainingEnabled="False"
-                                >
-                                <notecontrols:NoteTopPanel
-                                     x:Name="NotePanel"
-                                     Label="CDE"
-                                     ItemSize="28"
-                                     WhiteSize="250" 
-                                     BlackSize="150" 
-                                     Command="{x:Bind Command}"
-                                     >
-                                    <!--Disable the ScrollViewer-->
-                                    <UIElement.ManipulationMode>
-                                        TranslateX
-                                    </UIElement.ManipulationMode>
-                                </notecontrols:NoteTopPanel>
-                            </ScrollViewer>
-                        </Grid>
+                        <ScrollViewer
+                            x:Name="NoteScrollViewer"
+                            Grid.Row="1"
+                            ZoomMode="Disabled"
+                            
+                            HorizontalScrollMode="Enabled"
+                            HorizontalScrollBarVisibility="Hidden"
+                            IsHorizontalScrollChainingEnabled="True"
+                          
+                            VerticalScrollMode="Disabled"
+                            VerticalScrollBarVisibility="Disabled"
+                            IsVerticalScrollChainingEnabled="False"
+                            >
+                            <notecontrols:NoteTopPanel
+                                 x:Name="NotePanel"
+                                 Label="CDE"
+                                 ItemSize="28"
+                                 WhiteSize="250" 
+                                 BlackSize="150" 
+                                 Command="{x:Bind Command}"
+                                 >
+                                <!--Disable the ScrollViewer-->
+                                <UIElement.ManipulationMode>
+                                    TranslateX
+                                </UIElement.ManipulationMode>
+                            </notecontrols:NoteTopPanel>
+                        </ScrollViewer>
                     </Grid>
                     
                     <SplitView.Pane>
                         <StackPanel Margin="0,4" Orientation="Horizontal" HorizontalAlignment="Center">
-                            <notecontrols:BendPitchWheel x:Name="PitchWheel" Command="{x:Bind Command}"   >
+                            <notecontrols:BendPitchWheel x:Name="PitchWheel" Command="{x:Bind Command}">
                                 Pitch
                             </notecontrols:BendPitchWheel>
                             <notecontrols:BendModulationWheel x:Name="ModulationWheel" Command="{x:Bind Command}">

@@ -19,7 +19,7 @@
         <Border>
             <Border>
                 <Border>
-                    
+
                     <!--Keyboard-->
                     <Grid Margin="2,0" RowSpacing="2">
                         <Grid.RowDefinitions>
@@ -27,35 +27,33 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <notecontrols:NoteHorizontalScrollViewer ItemSize="28" ScrollViewer="{x:Bind NoteScrollViewer}"/>
-                        <Grid Grid.Row="1" >
-                            <ScrollViewer
-                                x:Name="NoteScrollViewer"
-                                Grid.Column="1"
-                                ZoomMode="Disabled"
-                                
-                                HorizontalScrollMode="Enabled"
-                                HorizontalScrollBarVisibility="Hidden"
-                                IsHorizontalScrollChainingEnabled="True"
-                              
-                                VerticalScrollMode="Disabled"
-                                VerticalScrollBarVisibility="Disabled"
-                                IsVerticalScrollChainingEnabled="False"
-                                >
-                                <notecontrols:NoteTopPanel
-                                     x:Name="NotePanel"
-                                     Label="CDE"
-                                     ItemSize="28"
-                                     WhiteSize="250" 
-                                     BlackSize="150" 
-                                     Command="{x:Bind Command}"
-                                     >
-                                    <!--Disable the ScrollViewer-->
-                                    <UIElement.ManipulationMode>
-                                        TranslateX
-                                    </UIElement.ManipulationMode>
-                                </notecontrols:NoteTopPanel>
-                            </ScrollViewer>
-                        </Grid>
+                        <ScrollViewer
+                            x:Name="NoteScrollViewer"
+                            Grid.Row="1"
+                            ZoomMode="Disabled"
+                            
+                            HorizontalScrollMode="Enabled"
+                            HorizontalScrollBarVisibility="Hidden"
+                            IsHorizontalScrollChainingEnabled="True"
+                          
+                            VerticalScrollMode="Disabled"
+                            VerticalScrollBarVisibility="Disabled"
+                            IsVerticalScrollChainingEnabled="False"
+                            >
+                            <notecontrols:NoteTopPanel
+                                 x:Name="NotePanel"
+                                 Label="CDE"
+                                 ItemSize="28"
+                                 WhiteSize="250" 
+                                 BlackSize="150" 
+                                 Command="{x:Bind Command}"
+                                 >
+                                <!--Disable the ScrollViewer-->
+                                <UIElement.ManipulationMode>
+                                    TranslateX
+                                </UIElement.ManipulationMode>
+                            </notecontrols:NoteTopPanel>
+                        </ScrollViewer>
                     </Grid>
 
                 </Border>
