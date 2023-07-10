@@ -251,15 +251,18 @@
                             HorizontalAlignment="Center"
                             Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
                             >
-                            <Slider
+                            <notecontrols:VelocitySlider
                                 x:Name="Slider"
                                 Margin="0,12"
+                                Value="128"
                                 Maximum="128"
                                 TickFrequency="8"
                                 TickPlacement="Outside"
                                 Orientation="Vertical"
                                 HorizontalAlignment="Center"
                                 IsThumbToolTipEnabled="False"
+                                Controller="MainVolume"
+                                Command="{x:Bind Command}"
                                 />
                         </Border>
 

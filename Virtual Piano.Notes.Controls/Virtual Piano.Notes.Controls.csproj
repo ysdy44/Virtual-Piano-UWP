@@ -199,6 +199,7 @@
     <Compile Include="Velocitys\VelocityRadialGauge.xaml.cs">
       <DependentUpon>VelocityRadialGauge.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Velocitys\VelocitySlider.cs" />
     <EmbeddedResource Include="Properties\Virtual_Piano.Notes.Controls.rd.xml" />
   </ItemGroup>
   <ItemGroup>
