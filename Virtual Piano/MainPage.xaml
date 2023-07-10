@@ -220,12 +220,87 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
+                        <!--Head-->
+                        <ListView
+                            SelectedIndex="1"
+                            SelectionMode="Single"
+                      
+                            ScrollViewer.ZoomMode="Disabled"
+                          
+                            ScrollViewer.HorizontalScrollMode="Enabled"
+                            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                            ScrollViewer.IsHorizontalScrollChainingEnabled="True"
+                      
+                            ScrollViewer.VerticalScrollMode="Disabled"
+                            ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                            ScrollViewer.IsVerticalScrollChainingEnabled="False"
+                      
+                            Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
+                            >
+
+                            <ItemsControl.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="MinWidth" Value="54" />
+                                    <Setter Property="MaxWidth" Value="54" />
+                                    <Setter Property="Width" Value="54" />
+                                    <Setter Property="MinHeight" Value="36" />
+                                    <Setter Property="MaxHeight" Value="36" />
+                                    <Setter Property="Height" Value="36" />
+                                    <Setter Property="Background" Value="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" />
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                                </Style>
+                            </ItemsControl.ItemContainerStyle>
+
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <ListViewItem x:Name="ListViewItem41">
+                                <ToolTipService.ToolTip>
+                                    <ToolTip>
+                                        Sounds
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
+                                <SymbolIcon Symbol="AllApps"/>
+                            </ListViewItem>
+
+                            <ListViewItem x:Name="ListViewItem42">
+                                <ToolTipService.ToolTip>
+                                    <ToolTip>
+                                        Pedals
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
+                                <SymbolIcon Symbol="CalendarWeek"/>
+                            </ListViewItem>
+
+                        </ListView>
+
                         <!--Body-->
-                        <controls:InstrumentSplitView Grid.Row="1" InstrumentPanel="{x:Bind InstrumentPanel}">
+                        <controls:InstrumentSplitView Grid.Row="1" InstrumentPanel="{x:Bind InstrumentPanel}" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem41.IsSelected), Mode=OneWay}">
                             <ScrollViewer Background="{ThemeResource SystemControlForegroundChromeBlackMediumLowBrush}">
                                 <controls:InstrumentListView x:Name="InstrumentPanel" Command="{x:Bind Command}"/>
                             </ScrollViewer>
                         </controls:InstrumentSplitView>
+
+                        <Grid Grid.Row="1" Margin="4,0" ColumnSpacing="4" Background="{ThemeResource SystemControlForegroundChromeBlackMediumLowBrush}" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem42.IsSelected), Mode=OneWay}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <notecontrols:Pedal Controller="Sustain" Command="{x:Bind Command}">
+                                Sustain
+                            </notecontrols:Pedal>
+                            <notecontrols:Pedal Grid.Column="1" Controller="AllNotesOff" Command="{x:Bind Command}">
+                                SoftPedal
+                            </notecontrols:Pedal>
+                            <notecontrols:Pedal Grid.Column="2" Controller="Sostenuto" Command="{x:Bind Command}">
+                                Sostenuto
+                            </notecontrols:Pedal>
+                        </Grid>
 
                     </Grid>
                 </SplitView.Pane>

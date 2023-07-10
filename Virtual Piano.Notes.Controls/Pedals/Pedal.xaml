@@ -1,0 +1,84 @@
+﻿<local:ContactButton
+    x:Class="Virtual_Piano.Notes.Controls.Pedal"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:Virtual_Piano.Notes.Controls"
+    mc:Ignorable="d"
+    d:DesignWidth="50"
+    d:DesignHeight="200"
+    HorizontalContentAlignment="Stretch"
+    VerticalContentAlignment="Stretch"
+    MinHeight="44"
+    MinWidth="44"
+    >
+
+    <Control.Template>
+        <ControlTemplate TargetType="local:ContactButton">
+            <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+
+                <!--VisualState-->
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+
+                        <VisualState x:Name="Normal"/>
+
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Storyboard>
+                                <Storyboard>
+                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Overlay" Storyboard.TargetProperty="Visibility">
+                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </VisualState.Storyboard>
+                        </VisualState>
+
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+
+                <Rectangle 
+                    IsHitTestVisible="False"
+                    RadiusX="4" 
+                    RadiusY="4" 
+                    Margin="28,44,28,6" 
+                    Fill="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"
+                    />
+                
+                <Rectangle 
+                    x:Name="Overlay" 
+                    IsHitTestVisible="False"
+                    Visibility="Collapsed" 
+                    RadiusX="4" 
+                    RadiusY="4" 
+                    Margin="28,44,28,6" 
+                    Fill="{ThemeResource SystemColorControlAccentBrush}" 
+                    />
+                
+                <Border 
+                    IsHitTestVisible="False"
+                    Margin="4" 
+                    CornerRadius="4,4,0,0"
+                    Height="36"  
+                    VerticalAlignment="Top" 
+                    BorderThickness="0,0,0,2"
+                    BorderBrush="{ThemeResource SystemColorControlAccentBrush}"
+                    Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
+                    >
+                    <ContentPresenter
+                        x:Name="ContentPresenter"
+                        IsHitTestVisible="False"
+                        Content="{TemplateBinding Content}"
+                        Margin="4,2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        FontSize="12"
+                        FontWeight="Normal"
+                        />
+                </Border>
+            </Grid>
+
+        </ControlTemplate>
+    </Control.Template>
+</local:ContactButton>

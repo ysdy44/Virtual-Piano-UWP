@@ -185,6 +185,9 @@
     <Compile Include="Notes\NoteTopPanel.xaml.cs">
       <DependentUpon>NoteTopPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pedals\Pedal.xaml.cs">
+      <DependentUpon>Pedal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structs\Chords.cs" />
     <Compile Include="Structs\DrumLayout.cs" />
@@ -271,6 +274,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Notes\NoteTopPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pedals\Pedal.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
