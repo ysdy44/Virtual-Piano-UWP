@@ -27,6 +27,7 @@
         <SolidColorBrush x:Key="ListViewItemForegroundPointerOver" Color="SkyBlue" />
         <SolidColorBrush x:Key="ListViewItemForegroundSelected" Color="Black" />
 
+        <!--Button-->
         <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
         <SolidColorBrush x:Key="ButtonForeground" Color="SkyBlue" />
         <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="SkyBlue" />
@@ -38,6 +39,24 @@
         <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="SkyBlue" />
 
         <Thickness x:Key="ButtonBorderThemeThickness">1</Thickness>
+
+        <!--Slider-->
+        <SolidColorBrush x:Key="SliderThumbBackground" Color="{StaticResource SystemChromeHighColor}" />
+        <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="{StaticResource SystemChromeHighColor}" />
+        <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="{StaticResource SystemChromeHighColor}" />
+        <SolidColorBrush x:Key="SliderThumbBackgroundDisabled" Color="{StaticResource SystemChromeHighColor}" />
+
+        <SolidColorBrush x:Key="SliderTrackFill" Color="{StaticResource SystemChromeDisabledHighColor}" />
+        <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="{StaticResource SystemChromeDisabledHighColor}" />
+        <SolidColorBrush x:Key="SliderTrackFillPressed" Color="{StaticResource SystemChromeDisabledHighColor}" />
+        <SolidColorBrush x:Key="SliderTrackFillDisabled" Color="{StaticResource SystemChromeDisabledHighColor}" />
+
+        <SolidColorBrush x:Key="SliderTrackValueFill" Color="{StaticResource SystemChromeHighColor}" />
+        <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="{StaticResource SystemChromeHighColor}" />
+        <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="{StaticResource SystemChromeHighColor}" />
+        <SolidColorBrush x:Key="SliderTrackValueFillDisabled" Color="{StaticResource SystemChromeHighColor}" />
+
+        <x:Double x:Key="SliderTrackThemeHeight">14</x:Double>
 
     </Application.Resources>
 </Application>

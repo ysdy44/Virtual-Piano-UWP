@@ -214,11 +214,20 @@
                 >
                 <!--Instrument-->
                 <SplitView.Pane>
-                    <controls:InstrumentSplitView InstrumentPanel="{x:Bind InstrumentPanel}">
-                        <ScrollViewer Background="{ThemeResource SystemControlForegroundChromeBlackMediumLowBrush}">
-                            <controls:InstrumentListView x:Name="InstrumentPanel" Command="{x:Bind Command}"/>
-                        </ScrollViewer>
-                    </controls:InstrumentSplitView>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="44"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!--Body-->
+                        <controls:InstrumentSplitView Grid.Row="1" InstrumentPanel="{x:Bind InstrumentPanel}">
+                            <ScrollViewer Background="{ThemeResource SystemControlForegroundChromeBlackMediumLowBrush}">
+                                <controls:InstrumentListView x:Name="InstrumentPanel" Command="{x:Bind Command}"/>
+                            </ScrollViewer>
+                        </controls:InstrumentSplitView>
+
+                    </Grid>
                 </SplitView.Pane>
 
                 <!--Bar-->
@@ -229,7 +238,7 @@
                     </Grid.ColumnDefinitions>
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="32"/>
+                            <RowDefinition Height="44"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="44"/>
@@ -259,7 +268,6 @@
                                 TickFrequency="8"
                                 TickPlacement="Outside"
                                 Orientation="Vertical"
-                                HorizontalAlignment="Center"
                                 IsThumbToolTipEnabled="False"
                                 Controller="MainVolume"
                                 Command="{x:Bind Command}"
