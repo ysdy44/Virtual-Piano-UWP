@@ -1,0 +1,94 @@
+﻿<UserControl
+    x:Class="Virtual_Piano.TestApp.ColorView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"   
+    d:DesignWidth="400"
+    d:DesignHeight="400"
+    >
+
+    <ListView Background="{ThemeResource SystemControlBackgroundBaseHighBrush}">
+
+        <!--Step 1-->
+        <ListViewItem Background="{ThemeResource SystemControlHighlightAltAltHighBrush}">
+            <TextBlock IsTextSelectionEnabled="True">
+                SystemControlHighlightAltAltHighBrush
+            </TextBlock>
+        </ListViewItem>
+        <ListViewItem Background="{ThemeResource SystemControlForegroundAltHighBrush}">
+            <TextBlock IsTextSelectionEnabled="True">
+                SystemControlForegroundAltHighBrush
+            </TextBlock>
+        </ListViewItem>
+        <ListViewItem Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
+            <TextBlock IsTextSelectionEnabled="True">
+                SystemControlBackgroundAltHighBrush
+            </TextBlock>
+        </ListViewItem>
+
+        <!--Step 2-->
+        <ListViewItem HorizontalContentAlignment="Right" Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+            <TextBlock IsTextSelectionEnabled="True">
+                SystemControlPageBackgroundChromeLowBrush
+            </TextBlock>
+        </ListViewItem>
+
+        <!--Step 3-->
+        <ListViewItem Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+            <TextBlock IsTextSelectionEnabled="True">
+                SystemControlBackgroundChromeMediumBrush
+            </TextBlock>
+        </ListViewItem>
+        <ListViewItem Background="{ThemeResource SystemControlForegroundChromeMediumBrush}">
+            <TextBlock IsTextSelectionEnabled="True">
+                SystemControlForegroundChromeMediumBrush
+            </TextBlock>
+        </ListViewItem>
+
+        <!--Step 4-->
+        <ListViewItem HorizontalContentAlignment="Right" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+            <TextBlock IsTextSelectionEnabled="True">
+                SystemControlBackgroundChromeMediumLowBrush
+            </TextBlock>
+        </ListViewItem>
+
+        <!--Step 5-->
+        <ListViewItem Background="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}">
+            <TextBlock IsTextSelectionEnabled="True">
+                SystemControlDisabledChromeDisabledHighBrush
+            </TextBlock>
+        </ListViewItem>
+
+        <!--Step 6-->
+        <ListViewItem HorizontalContentAlignment="Right" Background="{ThemeResource SystemControlDisabledChromeHighBrush}">
+            <TextBlock IsTextSelectionEnabled="True">
+                SystemControlDisabledChromeHighBrush
+            </TextBlock>
+        </ListViewItem>
+        <ListViewItem HorizontalContentAlignment="Right" Background="{ThemeResource SystemControlForegroundChromeHighBrush}">
+            <TextBlock IsTextSelectionEnabled="True">
+                SystemControlForegroundChromeHighBrush
+            </TextBlock>
+        </ListViewItem>
+        <ListViewItem HorizontalContentAlignment="Right" Background="{ThemeResource SystemControlHighlightChromeHighBrush}">
+            <TextBlock IsTextSelectionEnabled="True">
+                SystemControlHighlightChromeHighBrush
+            </TextBlock>
+        </ListViewItem>
+
+        <!--Step 7-->
+        <ListViewItem Background="{ThemeResource SystemControlHighlightAltBaseHighBrush}">
+            <TextBlock IsTextSelectionEnabled="True" Foreground="{ThemeResource SystemControlHighlightAltAltHighBrush}">
+                SystemControlHighlightAltBaseHighBrush
+            </TextBlock>
+        </ListViewItem>
+        <ListViewItem Background="{ThemeResource SystemControlBackgroundBaseHighBrush}">
+            <TextBlock IsTextSelectionEnabled="True" Foreground="{ThemeResource SystemControlHighlightAltAltHighBrush}">
+                SystemControlBackgroundBaseHighBrush
+            </TextBlock>
+        </ListViewItem>
+
+    </ListView>
+</UserControl>

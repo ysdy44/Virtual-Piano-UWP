@@ -1,0 +1,20 @@
+﻿<Page
+    x:Class="Virtual_Piano.TestApp.ColorPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:Virtual_Piano.TestApp"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    >
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <local:ColorView Grid.Column="0" RequestedTheme="Dark"/>
+        <local:ColorView Grid.Column="1" RequestedTheme="Light"/>
+    </Grid>
+</Page>
