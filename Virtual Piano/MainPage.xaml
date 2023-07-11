@@ -9,12 +9,12 @@
     xmlns:notecontrols="using:Virtual_Piano.Notes.Controls"
     xmlns:strings="using:Virtual_Piano.Strings"
     mc:Ignorable="d"
-    Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
+    Background="{ThemeResource AppBackground}"
     >
 
     <!--Extension-->
     <FrameworkElement.Tag>
-        <elements:ApplicationTitleBarExtension x:Name="ApplicationView" TitleBarColor="{ThemeResource SystemChromeMediumColor}"/>
+        <elements:ApplicationTitleBarExtension x:Name="ApplicationView" TitleBarColor="{ThemeResource AppBackgroundColor}"/>
     </FrameworkElement.Tag>
 
     <Grid>
@@ -41,15 +41,12 @@
                 IsHorizontalScrollChainingEnabled="True"
                 
                 VerticalScrollBarVisibility="Disabled"
-                
-                Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
                 >
                 <FrameworkElement.Resources>
                     <!--Style-->
                     <Style TargetType="Button" BasedOn="{StaticResource TextBlockButtonStyle}">
                         <Setter Property="MinWidth" Value="44" />
                         <Setter Property="Height" Value="36" />
-                        <Setter Property="Foreground" Value="SkyBlue" />
                         <Setter Property="FontSize" Value="10" />
                         <Setter Property="FontWeight" Value="Bold" />
                         <Setter Property="Padding" Value="2" />
@@ -166,7 +163,7 @@
                         </Button>
                     </StackPanel>
 
-                    <StackPanel Height="36" Background="Black" Padding="16,0" Orientation="Horizontal" Spacing="16">
+                    <StackPanel Height="36" Background="Black" Padding="22,0" Orientation="Horizontal" Spacing="16">
 
                         <elements:DSTimer x:Name="DSTimer" Time="00:00:00.000"/>
 
@@ -199,8 +196,7 @@
                 Grid.Row="2"
                 Height="2" 
                 Value="0"
-                Background="Black"
-                Foreground="SkyBlue"
+                Background="{ThemeResource AppStroke}"
                 />
 
             <!--Body-->
@@ -234,8 +230,6 @@
                             ScrollViewer.VerticalScrollMode="Disabled"
                             ScrollViewer.VerticalScrollBarVisibility="Disabled"
                             ScrollViewer.IsVerticalScrollChainingEnabled="False"
-                      
-                            Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
                             >
 
                             <ItemsControl.ItemContainerStyle>
@@ -246,7 +240,7 @@
                                     <Setter Property="MinHeight" Value="36" />
                                     <Setter Property="MaxHeight" Value="36" />
                                     <Setter Property="Height" Value="36" />
-                                    <Setter Property="Background" Value="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" />
+                                    <Setter Property="Background" Value="{ThemeResource AppFill}" />
                                     <Setter Property="HorizontalContentAlignment" Value="Center" />
                                     <Setter Property="VerticalContentAlignment" Value="Center" />
                                 </Style>
@@ -279,25 +273,39 @@
                         </ListView>
 
                         <!--Body-->
-                        <controls:InstrumentSplitView Grid.Row="1" InstrumentPanel="{x:Bind InstrumentPanel}" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem41.IsSelected), Mode=OneWay}">
-                            <ScrollViewer Background="{ThemeResource SystemControlForegroundChromeBlackMediumLowBrush}">
-                                <controls:InstrumentListView x:Name="InstrumentPanel" Command="{x:Bind Command}"/>
-                            </ScrollViewer>
-                        </controls:InstrumentSplitView>
+                        <Border 
+                            Grid.Row="1"
+                            Margin="4" 
+                            BorderThickness="2"
+                            BorderBrush="{ThemeResource AppBorderBrush}"
+                            >
+                            <controls:InstrumentSplitView InstrumentPanel="{x:Bind InstrumentPanel}" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem41.IsSelected), Mode=OneWay}">
+                                <ScrollViewer>
+                                    <controls:InstrumentListView x:Name="InstrumentPanel" Command="{x:Bind Command}"/>
+                                </ScrollViewer>
+                            </controls:InstrumentSplitView>
+                        </Border>
 
-                        <Grid Grid.Row="1" Margin="4,0" ColumnSpacing="4" Background="{ThemeResource SystemControlForegroundChromeBlackMediumLowBrush}" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem42.IsSelected), Mode=OneWay}">
+                        <Grid 
+                            Grid.Row="1" 
+                            Margin="4" 
+                            ColumnSpacing="4" 
+                            BorderThickness="2"
+                            BorderBrush="{ThemeResource AppBorderBrush}"
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem42.IsSelected), Mode=OneWay}"
+                            >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1*"/>
                                 <ColumnDefinition Width="1*"/>
                                 <ColumnDefinition Width="1*"/>
                             </Grid.ColumnDefinitions>
-                            <notecontrols:Pedal Controller="Sustain" Command="{x:Bind Command}">
+                            <notecontrols:Pedal Controller="Sustain" BorderBrush="{ThemeResource AppFill}" Background="{ThemeResource AppForeground}" Command="{x:Bind Command}">
                                 Sustain
                             </notecontrols:Pedal>
-                            <notecontrols:Pedal Grid.Column="1" Controller="AllNotesOff" Command="{x:Bind Command}">
+                            <notecontrols:Pedal Grid.Column="1" Controller="AllNotesOff" BorderBrush="{ThemeResource AppFill}" Background="{ThemeResource AppForeground}" Command="{x:Bind Command}">
                                 SoftPedal
                             </notecontrols:Pedal>
-                            <notecontrols:Pedal Grid.Column="2" Controller="Sostenuto" Command="{x:Bind Command}">
+                            <notecontrols:Pedal Grid.Column="2" Controller="Sostenuto" BorderBrush="{ThemeResource AppFill}" Background="{ThemeResource AppForeground}" Command="{x:Bind Command}">
                                 Sostenuto
                             </notecontrols:Pedal>
                         </Grid>
@@ -306,7 +314,7 @@
                 </SplitView.Pane>
 
                 <!--Bar-->
-                <Grid Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="60"/>
                         <ColumnDefinition Width="*"/>
@@ -333,7 +341,7 @@
                             Width="44"
                             CornerRadius="6"
                             HorizontalAlignment="Center"
-                            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
+                            Background="{ThemeResource AppBorderBrush}"
                             >
                             <notecontrols:VelocitySlider
                                 x:Name="Slider"
@@ -349,7 +357,7 @@
                                 />
                         </Border>
 
-                        <Border Margin="8" Grid.Row="2" Width="44" Height="44" CornerRadius="4" Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+                        <Border Margin="0,8" Grid.Row="2" Width="44" Height="44" CornerRadius="4" Background="{ThemeResource AppBorderBrush}">
                             <ToggleButton x:Name="VolumeButton" IsChecked="True" Width="44" Height="44" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
                                 <ToolTipService.ToolTip>
                                     <ToolTip>
@@ -382,8 +390,6 @@
             <!--Head-->
             <ListView
                 Grid.Row="3"
-                Margin="0,2,0,0"
-                
                 SelectedIndex="0"
                 SelectionMode="Single"
          
@@ -396,10 +402,6 @@
                 ScrollViewer.VerticalScrollMode="Disabled"
                 ScrollViewer.VerticalScrollBarVisibility="Disabled"
                 ScrollViewer.IsVerticalScrollChainingEnabled="False"
-
-                BorderThickness="0,1,0,0"
-                BorderBrush="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}"
-                Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
                 >
 
                 <ItemsControl.ItemContainerStyle>
@@ -410,7 +412,7 @@
                         <Setter Property="MinHeight" Value="36" />
                         <Setter Property="MaxHeight" Value="36" />
                         <Setter Property="Height" Value="36" />
-                        <Setter Property="Background" Value="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" />
+                        <Setter Property="Background" Value="{ThemeResource AppFill}" />
                         <Setter Property="HorizontalContentAlignment" Value="Center" />
                         <Setter Property="VerticalContentAlignment" Value="Center" />
                     </Style>
@@ -542,8 +544,8 @@
                     IsPaneOpen="{x:Bind BendItem.IsChecked, Mode=OneWay}" 
                     PanePlacement="{x:Bind BooleanToPlacementConverter(BendPlacementItem.IsChecked), Mode=OneWay}"
                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
-                    PaneBackground="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
-                    Background="Black"
+                    PaneBackground="{x:Null}"
+                    Background="{x:Null}"
                     >
 
                     <!--Keyboard-->
@@ -565,6 +567,8 @@
                             VerticalScrollMode="Disabled"
                             VerticalScrollBarVisibility="Disabled"
                             IsVerticalScrollChainingEnabled="False"
+                            
+                            Background="Black"
                             >
                             <notecontrols:NoteTopPanel
                                  x:Name="NotePanel"
@@ -583,11 +587,11 @@
                     </Grid>
 
                     <SplitView.Pane>
-                        <StackPanel Margin="0,4" Orientation="Horizontal" HorizontalAlignment="Center">
-                            <notecontrols:BendPitchWheel x:Name="PitchWheel" Command="{x:Bind Command}">
+                        <StackPanel Margin="0,4" Orientation="Horizontal" HorizontalAlignment="Center" BorderThickness="2" BorderBrush="{ThemeResource AppBorderBrush}">
+                            <notecontrols:BendPitchWheel BorderBrush="{ThemeResource AppBorderBrush}" Background="{ThemeResource AppBorderBrush}" Foreground="{ThemeResource AppFill}" Command="{x:Bind Command}">
                                 Pitch
                             </notecontrols:BendPitchWheel>
-                            <notecontrols:BendModulationWheel x:Name="ModulationWheel" Command="{x:Bind Command}">
+                            <notecontrols:BendModulationWheel BorderBrush="{ThemeResource AppBorderBrush}" Background="{ThemeResource AppBorderBrush}" Foreground="{ThemeResource AppFill}" Command="{x:Bind Command}">
                                 Modulation
                             </notecontrols:BendModulationWheel>
                         </StackPanel>
@@ -654,7 +658,6 @@
                         ScrollViewer.VerticalScrollMode="Disabled"
                         ScrollViewer.VerticalScrollBarVisibility="Disabled"
                         ScrollViewer.IsVerticalScrollChainingEnabled="False"
-                        Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
                         >
 
                         <ItemsControl.ItemContainerTransitions>
