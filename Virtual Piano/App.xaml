@@ -6,57 +6,132 @@
     >
 
     <Application.Resources>
-        
-        <!--Style-->
-        <Style TargetType="FlyoutPresenter">
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="BorderBrush" Value="SkyBlue"/>
-            <Setter Property="Background" Value="Black"/>
-        </Style>
+        <ResourceDictionary>
 
-        <!--SolidColorBrush-->
-        <SolidColorBrush x:Key="SystemColorControlAccentBrush" Color="SkyBlue"/>
-        
-        <SolidColorBrush x:Key="HyperlinkButtonForeground" Color="SkyBlue"/>
+            <!--Style-->
+            <Style TargetType="FlyoutPresenter">
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="BorderBrush" Value="SkyBlue"/>
+                <Setter Property="Background" Value="Black"/>
+            </Style>
 
-        <SolidColorBrush x:Key="ListViewItemBackground" Color="Transparent" />
-        <SolidColorBrush x:Key="ListViewItemBackgroundSelected" Color="SkyBlue" />
-        <SolidColorBrush x:Key="ListViewItemBackgroundSelectedPointerOver" Color="SkyBlue" />
-        <SolidColorBrush x:Key="ListViewItemBackgroundSelectedPressed" Color="SkyBlue" />
-        <SolidColorBrush x:Key="ListViewItemForeground" Color="SkyBlue" />
-        <SolidColorBrush x:Key="ListViewItemForegroundPointerOver" Color="SkyBlue" />
-        <SolidColorBrush x:Key="ListViewItemForegroundSelected" Color="Black" />
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <Color x:Key="AppThemeColor">#40B4EC</Color>
+                    <Color x:Key="AppBackgroundColor">#CECECE</Color>
 
-        <!--Button-->
-        <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
-        <SolidColorBrush x:Key="ButtonForeground" Color="SkyBlue" />
-        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="SkyBlue" />
-        <SolidColorBrush x:Key="ButtonForegroundPressed" Color="SkyBlue" />
-        <SolidColorBrush x:Key="ButtonForegroundDisabled" Color="Gray" />
-        <SolidColorBrush x:Key="ButtonBorderBrush" Color="SkyBlue" />
-        <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="SkyBlue" />
-        <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="SkyBlue" />
-        <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="SkyBlue" />
+                    <SolidColorBrush x:Key="AppTheme" Color="{StaticResource AppThemeColor}"/>
+                    <SolidColorBrush x:Key="AppFill" Color="#EEEEEE"/>
+                    <SolidColorBrush x:Key="AppStroke" Color="#AAAAAA"/>
 
-        <Thickness x:Key="ButtonBorderThemeThickness">1</Thickness>
+                    <SolidColorBrush x:Key="AppBorderBrush" Color="#949698"/>
+                    <SolidColorBrush x:Key="AppBackground" Color="{StaticResource AppBackgroundColor}"/>
+                    <SolidColorBrush x:Key="AppForeground" Color="#A3A3A3"/>
 
-        <!--Slider-->
-        <SolidColorBrush x:Key="SliderThumbBackground" Color="{StaticResource SystemChromeHighColor}" />
-        <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="{StaticResource SystemChromeHighColor}" />
-        <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="{StaticResource SystemChromeHighColor}" />
-        <SolidColorBrush x:Key="SliderThumbBackgroundDisabled" Color="{StaticResource SystemChromeHighColor}" />
+                    <!--SolidColorBrush-->
+                    <SolidColorBrush x:Key="SystemColorControlAccentBrush" Color="{ThemeResource AppThemeColor}"/>
+                    <SolidColorBrush x:Key="SystemControlHighlightAccentBrush" Color="{ThemeResource AppThemeColor}"/>
+                    
+                    <SolidColorBrush x:Key="HyperlinkButtonForeground" Color="{StaticResource AppThemeColor}"/>
 
-        <SolidColorBrush x:Key="SliderTrackFill" Color="{StaticResource SystemChromeDisabledHighColor}" />
-        <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="{StaticResource SystemChromeDisabledHighColor}" />
-        <SolidColorBrush x:Key="SliderTrackFillPressed" Color="{StaticResource SystemChromeDisabledHighColor}" />
-        <SolidColorBrush x:Key="SliderTrackFillDisabled" Color="{StaticResource SystemChromeDisabledHighColor}" />
+                    <SolidColorBrush x:Key="ListViewItemBackground" Color="Transparent" />
+                    <SolidColorBrush x:Key="ListViewItemBackgroundSelected" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ListViewItemBackgroundSelectedPointerOver" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ListViewItemBackgroundSelectedPressed" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ListViewItemForeground" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ListViewItemForegroundPointerOver" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ListViewItemForegroundSelected" Color="Black" />
 
-        <SolidColorBrush x:Key="SliderTrackValueFill" Color="{StaticResource SystemChromeHighColor}" />
-        <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="{StaticResource SystemChromeHighColor}" />
-        <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="{StaticResource SystemChromeHighColor}" />
-        <SolidColorBrush x:Key="SliderTrackValueFillDisabled" Color="{StaticResource SystemChromeHighColor}" />
+                    <!--Button-->
+                    <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
+                    <SolidColorBrush x:Key="ButtonForeground" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ButtonForegroundPressed" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ButtonForegroundDisabled" Color="Gray" />
+                    <SolidColorBrush x:Key="ButtonBorderBrush" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="{StaticResource AppThemeColor}" />
 
-        <x:Double x:Key="SliderTrackThemeHeight">14</x:Double>
+                    <Thickness x:Key="ButtonBorderThemeThickness">1</Thickness>
 
+                    <!--Slider-->
+                    <SolidColorBrush x:Key="SliderThumbBackground" Color="{StaticResource SystemChromeHighColor}" />
+                    <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="{StaticResource SystemChromeHighColor}" />
+                    <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="{StaticResource SystemChromeHighColor}" />
+                    <SolidColorBrush x:Key="SliderThumbBackgroundDisabled" Color="{StaticResource SystemChromeHighColor}" />
+
+                    <SolidColorBrush x:Key="SliderTrackFill" Color="{StaticResource SystemChromeDisabledHighColor}" />
+                    <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="{StaticResource SystemChromeDisabledHighColor}" />
+                    <SolidColorBrush x:Key="SliderTrackFillPressed" Color="{StaticResource SystemChromeDisabledHighColor}" />
+                    <SolidColorBrush x:Key="SliderTrackFillDisabled" Color="{StaticResource SystemChromeDisabledHighColor}" />
+
+                    <SolidColorBrush x:Key="SliderTrackValueFill" Color="{StaticResource SystemChromeHighColor}" />
+                    <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="{StaticResource SystemChromeHighColor}" />
+                    <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="{StaticResource SystemChromeHighColor}" />
+                    <SolidColorBrush x:Key="SliderTrackValueFillDisabled" Color="{StaticResource SystemChromeHighColor}" />
+
+                    <x:Double x:Key="SliderTrackThemeHeight">14</x:Double>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <Color x:Key="AppThemeColor">SkyBlue</Color>
+                    <Color x:Key="AppBackgroundColor">#303030</Color>
+
+                    <SolidColorBrush x:Key="AppTheme" Color="{StaticResource AppThemeColor}"/>
+                    <SolidColorBrush x:Key="AppFill" Color="#555555"/>
+                    <SolidColorBrush x:Key="AppStroke" Color="Black"/>
+
+                    <SolidColorBrush x:Key="AppBorderBrush" Color="#202020"/>
+                    <SolidColorBrush x:Key="AppBackground" Color="{StaticResource AppBackgroundColor}"/>
+                    <SolidColorBrush x:Key="AppForeground" Color="#464646"/>
+
+                    <!--SolidColorBrush-->
+                    <SolidColorBrush x:Key="SystemColorControlAccentBrush" Color="{ThemeResource AppThemeColor}"/>
+                    <SolidColorBrush x:Key="SystemControlHighlightAccentBrush" Color="{ThemeResource AppThemeColor}"/>
+
+                    <SolidColorBrush x:Key="HyperlinkButtonForeground" Color="{StaticResource AppThemeColor}"/>
+
+                    <SolidColorBrush x:Key="ListViewItemBackground" Color="Transparent" />
+                    <SolidColorBrush x:Key="ListViewItemBackgroundSelected" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ListViewItemBackgroundSelectedPointerOver" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ListViewItemBackgroundSelectedPressed" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ListViewItemForeground" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ListViewItemForegroundPointerOver" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ListViewItemForegroundSelected" Color="Black" />
+
+                    <!--Button-->
+                    <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
+                    <SolidColorBrush x:Key="ButtonForeground" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ButtonForegroundPressed" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ButtonForegroundDisabled" Color="Gray" />
+                    <SolidColorBrush x:Key="ButtonBorderBrush" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="{StaticResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="{StaticResource AppThemeColor}" />
+
+                    <Thickness x:Key="ButtonBorderThemeThickness">1</Thickness>
+
+                    <!--Slider-->
+                    <SolidColorBrush x:Key="SliderThumbBackground" Color="{StaticResource SystemChromeHighColor}" />
+                    <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="{StaticResource SystemChromeHighColor}" />
+                    <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="{StaticResource SystemChromeHighColor}" />
+                    <SolidColorBrush x:Key="SliderThumbBackgroundDisabled" Color="{StaticResource SystemChromeHighColor}" />
+
+                    <SolidColorBrush x:Key="SliderTrackFill" Color="{StaticResource SystemChromeDisabledHighColor}" />
+                    <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="{StaticResource SystemChromeDisabledHighColor}" />
+                    <SolidColorBrush x:Key="SliderTrackFillPressed" Color="{StaticResource SystemChromeDisabledHighColor}" />
+                    <SolidColorBrush x:Key="SliderTrackFillDisabled" Color="{StaticResource SystemChromeDisabledHighColor}" />
+
+                    <SolidColorBrush x:Key="SliderTrackValueFill" Color="{StaticResource SystemChromeHighColor}" />
+                    <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="{StaticResource SystemChromeHighColor}" />
+                    <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="{StaticResource SystemChromeHighColor}" />
+                    <SolidColorBrush x:Key="SliderTrackValueFillDisabled" Color="{StaticResource SystemChromeHighColor}" />
+
+                    <x:Double x:Key="SliderTrackThemeHeight">14</x:Double>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
