@@ -9,6 +9,9 @@
     d:DesignHeight="400"
     Width="60"
     MinWidth="32"
+    BorderBrush="#60000000" 
+    Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"  
+    Foreground="{ThemeResource SystemControlDisabledChromeHighBrush}"
     >
 
     <Grid>
@@ -25,6 +28,7 @@
             FontSize="16" 
             HorizontalAlignment="Center" 
             VerticalAlignment="Center"
+            Foreground="{ThemeResource ApplicationForegroundThemeBrush}"
             >
            <!--Text-->
         </TextBlock>
@@ -75,29 +79,9 @@
             </Control.Template>
 
             <Control.Tag>
-                <Border IsHitTestVisible="False" BorderThickness="2" BorderBrush="Black">
+                <Border IsHitTestVisible="False" BorderThickness="2" BorderBrush="{x:Bind BorderBrush, Mode=OneWay}" Background="{x:Bind Background, Mode=OneWay}">
                     <Canvas x:Name="Canvas">
-
-                        <Panel.Background>
-                            <LinearGradientBrush EndPoint="0,1">
-                                <GradientStop Color="#282828" Offset="0"/>
-                                <GradientStop Color="#444444" Offset="0.4"/>
-                                <GradientStop Color="#282828" Offset="0.8"/>
-                                <GradientStop Color="#181818" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Panel.Background>
-
-                        <Rectangle x:Name="Rectangle">
-                            <Rectangle.Fill>
-                                <LinearGradientBrush EndPoint="0,1">
-                                    <GradientStop Color="#323232" Offset="0"/>
-                                    <GradientStop Color="#444444" Offset="0.4"/>
-                                    <GradientStop Color="#8E8E8E" Offset="0.9"/>
-                                    <GradientStop Color="White" Offset="0.9"/>
-                                </LinearGradientBrush>
-                            </Rectangle.Fill>
-                        </Rectangle>
-
+                        <Rectangle x:Name="Rectangle" Fill="{x:Bind Foreground, Mode=OneWay}"/>
                     </Canvas>
                 </Border>
             </Control.Tag>
@@ -111,6 +95,7 @@
             FontSize="10" 
             HorizontalAlignment="Center" 
             VerticalAlignment="Center"
+            Foreground="{ThemeResource ApplicationForegroundThemeBrush}"
             >
            <!--Text-->
         </TextBlock>

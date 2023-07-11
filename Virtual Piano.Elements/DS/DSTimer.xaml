@@ -18,10 +18,10 @@
     <FrameworkElement.Resources>
         <!--Style-->
         <Style TargetType="Polygon">
-            <Setter Property="Fill" Value="SkyBlue"/>
+            <Setter Property="Fill" Value="{ThemeResource SystemColorControlAccentBrush}"/>
         </Style>
         <Style TargetType="TextBlock">
-            <Setter Property="Foreground" Value="SkyBlue"/>
+            <Setter Property="Foreground" Value="{ThemeResource SystemColorControlAccentBrush}"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>

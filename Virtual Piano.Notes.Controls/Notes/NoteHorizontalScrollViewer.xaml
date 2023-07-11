@@ -27,7 +27,7 @@
         </Style>
     </FrameworkElement.Resources>
 
-    <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="2*"/>

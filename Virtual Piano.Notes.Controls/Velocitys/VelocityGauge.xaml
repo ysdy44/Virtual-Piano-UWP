@@ -21,7 +21,7 @@
 
         <Control.Tag>
             <Canvas IsHitTestVisible="False" Width="44" Height="44">
-                <Ellipse Width="44" Height="44" Fill="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" />
+                <Ellipse Width="44" Height="44" Fill="{ThemeResource SystemControlForegroundChromeMediumBrush}" />
 
                 <Canvas x:Name="Canvas" Canvas.Left="2" Canvas.Top="2" Width="40" Height="40">
                     <FrameworkElement.Resources>
@@ -40,7 +40,7 @@
                     <!--Y1-->
                 </Line>
 
-                <Ellipse Canvas.Left="10" Canvas.Top="10" Width="24" Height="24" Fill="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" />
+                <Ellipse Canvas.Left="10" Canvas.Top="10" Width="24" Height="24" Fill="{ThemeResource SystemControlForegroundChromeMediumBrush}" />
                 <Border Width="44" Height="44" >
                     <TextBlock 
                         x:Name="TextBlock" 

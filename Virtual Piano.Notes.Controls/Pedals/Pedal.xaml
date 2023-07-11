@@ -12,11 +12,13 @@
     VerticalContentAlignment="Stretch"
     MinHeight="44"
     MinWidth="44"
+    Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"
+    BorderBrush="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
     >
 
     <Control.Template>
         <ControlTemplate TargetType="local:ContactButton">
-            <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+            <Grid Background="Transparent">
 
                 <!--VisualState-->
                 <VisualStateManager.VisualStateGroups>
@@ -42,7 +44,7 @@
                     RadiusX="4" 
                     RadiusY="4" 
                     Margin="28,44,28,6" 
-                    Fill="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"
+                    Fill="{TemplateBinding BorderBrush}"
                     />
                 
                 <Rectangle 
@@ -63,7 +65,7 @@
                     VerticalAlignment="Top" 
                     BorderThickness="0,0,0,2"
                     BorderBrush="{ThemeResource SystemColorControlAccentBrush}"
-                    Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
+                    Background="{TemplateBinding Background}"
                     >
                     <ContentPresenter
                         x:Name="ContentPresenter"
@@ -72,7 +74,6 @@
                         Margin="4,2"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Foreground="White"
                         FontSize="12"
                         FontWeight="Normal"
                         />
