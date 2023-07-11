@@ -38,7 +38,6 @@
                         ScrollViewer.VerticalScrollMode="Disabled"
                         ScrollViewer.VerticalScrollBarVisibility="Disabled"
                         ScrollViewer.IsVerticalScrollChainingEnabled="False"
-                        Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
                         >
 
                         <ItemsControl.ItemContainerTransitions>
