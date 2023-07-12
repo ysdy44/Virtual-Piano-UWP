@@ -12,10 +12,48 @@
     Height="44"
     >
 
-    <Thumb x:Name="Thumb" IsTabStop="True" UseSystemFocusVisuals="True" Width="44" Height="44">
+    <Thumb x:Name="Thumb" IsTabStop="True" UseSystemFocusVisuals="True" Width="44" Height="44" Foreground="{ThemeResource SystemColorControlAccentBrush}">
+        <UIElement.ManipulationMode>
+            None
+        </UIElement.ManipulationMode>
+
         <Control.Template>
             <ControlTemplate TargetType="Thumb">
-                <ContentPresenter Content="{TemplateBinding Tag}" Background="Transparent"/>
+                <ContentPresenter x:Name="ContentPresenter" Content="{TemplateBinding Tag}" Background="Transparent">
+
+                    <!--VisualState-->
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+
+                            <VisualState x:Name="PointerOver">
+                                <Storyboard>
+                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                        <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ApplicationForegroundThemeBrush}" />
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </VisualState>
+
+                            <VisualState x:Name="Pressed">
+                                <Storyboard>
+                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                        <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ApplicationForegroundThemeBrush}" />
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </VisualState>
+
+                            <VisualState x:Name="Disabled">
+                                <Storyboard>
+                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Gray" />
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </VisualState>
+
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+
+                </ContentPresenter>
             </ControlTemplate>
         </Control.Template>
 
@@ -47,7 +85,6 @@
                         FontFamily="Agency FB" 
                         FontWeight="Bold"
                         FontSize="16" 
-                        Foreground="{ThemeResource SystemColorControlAccentBrush}"
                         HorizontalAlignment="Center" 
                         VerticalAlignment="Center"
                         >
