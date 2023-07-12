@@ -14,7 +14,7 @@ namespace Virtual_Piano.Notes.Controls
         {
             base.ValueChanged += (s, e) =>
             {
-                int value = System.Math.Clamp((int)e.NewValue, 0, VelocityGaugeBase.Velocity);
+                int value = System.Math.Clamp((int)e.NewValue, 0, Radial.Velocity);
                 this.Command?.Execute(new Message
                 {
                     Type = MidiMessageType.ControlChange,

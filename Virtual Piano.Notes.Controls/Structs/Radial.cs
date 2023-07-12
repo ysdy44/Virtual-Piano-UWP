@@ -5,7 +5,7 @@ using Windows.UI.Xaml.Shapes;
 
 namespace Virtual_Piano.Notes.Controls
 {
-    public abstract class VelocityGaugeBase : UserControl
+    public abstract class Radial : UserControl
     {
         //@const
         public const int Velocity = 127;

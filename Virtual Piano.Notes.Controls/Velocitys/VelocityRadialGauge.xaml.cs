@@ -4,7 +4,7 @@ using Windows.UI.Xaml.Shapes;
 
 namespace Virtual_Piano.Notes.Controls
 {
-    public sealed partial class VelocityRadialGauge : VelocityGaugeBase
+    public sealed partial class VelocityRadialGauge : Radial
     {
         protected override int S1 => 90;
         protected override int S2 => 80;
@@ -31,7 +31,7 @@ namespace Virtual_Piano.Notes.Controls
 
                 double delta = prop.MouseWheelDelta;
                 int index = base.Index + System.Math.Clamp((int)-delta, -1, 1);
-                base.Index = Math.Clamp(index, 0, VelocityGaugeBase.Velocity);
+                base.Index = Math.Clamp(index, 0, Radial.Velocity);
             };
 
             // Thumb

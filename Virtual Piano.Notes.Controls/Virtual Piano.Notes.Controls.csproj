@@ -192,13 +192,13 @@
     <Compile Include="Structs\Chords.cs" />
     <Compile Include="Structs\DrumLayout.cs" />
     <Compile Include="Structs\NoteSize.cs" />
+    <Compile Include="Structs\Radial.cs" />
     <Compile Include="Tracks\TrackNotePanel.xaml.cs">
       <DependentUpon>TrackNotePanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Velocitys\VelocityGauge.xaml.cs">
       <DependentUpon>VelocityGauge.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Velocitys\VelocityGaugeBase.cs" />
     <Compile Include="Velocitys\VelocityRadialGauge.xaml.cs">
       <DependentUpon>VelocityRadialGauge.xaml</DependentUpon>
     </Compile>
