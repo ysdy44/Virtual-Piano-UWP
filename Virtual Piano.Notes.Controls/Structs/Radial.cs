@@ -1,82 +1,82 @@
-﻿using System;
-using System.Collections.Generic;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Shapes;
+﻿using Windows.Foundation;
 
 namespace Virtual_Piano.Notes.Controls
 {
-    public abstract class Radial : UserControl
+    public readonly struct Radial
     {
         //@const
         public const int Velocity = 127;
-        const int VelocityHalf = Velocity / 2;
+        public const int VelocityHalf = Velocity / 2;
+        public static int ToIndex(double radians) => (int)((radians - Min) / Length * Velocity);
 
-        const int MinTick = 2;
-        const int MaxTick = 22;
+        public const int MinTick = 2;
+        public const int MaxTick = 22;
         const int LengthTick = MaxTick - MinTick;
+        const int Large = (MaxTick + MinTick) / 2 + MinTick;
+        public static double ToTick(double velocity) => velocity / Radial.Velocity * Radial.LengthTick + Radial.MinTick;
 
-        const double Min = (MinTick + 6) * 15 * Math.PI / 180;
-        const double Max = (MaxTick + 6) * 15 * Math.PI / 180;
+        public const double Min = (Radial.MinTick + 6) * 15 * System.Math.PI / 180;
+        public const double Max = (Radial.MaxTick + 6) * 15 * System.Math.PI / 180;
         const double Length = Max - Min;
+        public static double ToRadians(double tick) => (tick + 6) * 15 * System.Math.PI / 180;
 
-        static double ToRadians(double tick) => (tick + 6) * 15 * Math.PI / 180;
-        static int ToIndex(double angle) => (int)((angle - Min) / Length * Velocity);
-        static double ToTick(double index) => MinTick + 1d * LengthTick * index / Velocity;
+        public readonly double X1;
+        public readonly double X2;
+        public readonly double Y1;
+        public readonly double Y2;
+        public readonly bool IsLargeArc;
+        public readonly Point Point;
 
-        protected abstract int S1 { get; }
-        protected abstract int S2 { get; }
-        protected abstract int S3 { get; }
-
-        private int index;
-        public int Index
+        public Radial(double velocity, double radius1 = 60, double radius2 = 48, double radius3 = 20)
         {
-            get => this.index;
-            set
+            double tick = Radial.ToTick(velocity);
+            this.IsLargeArc = tick > Radial.Large;
+
+            double radians = Radial.ToRadians(tick);
+            double cos = System.Math.Cos(radians);
+            double sin = System.Math.Sin(radians);
+
+            this.X1 = cos * radius2 + radius1;
+            this.Y1 = sin * radius2 + radius1;
+            this.X2 = cos * radius3 + radius1;
+            this.Y2 = sin * radius3 + radius1;
+
+            this.Point = new Point
             {
-                if (this.index == value) return;
-                this.index = value;
-                this.Update(value);
-            }
+                X = cos * radius1 + radius1,
+                Y = sin * radius1 + radius1,
+            };
         }
 
-        protected abstract void Update(string value, double x, double y);
-        protected void Update(int value)
+        public static Point StartPoint(double radius = 60) => Radial.Create(Radial.MinTick, radius);
+        public static Point EndPoint(double radius = 60) => Radial.Create(Radial.MaxTick, radius);
+        private static Point Create(double tick, double radius = 60)
         {
-            double a = ToRadians(ToTick(value));
-            this.Update($"{value}", Math.Cos(a) * this.S2 + this.S1, Math.Sin(a) * this.S2 + this.S1);
-        }
+            double radians = Radial.ToRadians(tick);
+            double cos = System.Math.Cos(radians);
+            double sin = System.Math.Sin(radians);
 
-        protected IEnumerable<Line> Lines()
-        {
-            for (int i = MinTick; i <= MaxTick; i++)
+            return new Point
             {
-                double angle = ToRadians(i);
-                double cos = Math.Cos(angle);
-                double sin = Math.Sin(angle);
-                yield return new Line
-                {
-                    X1 = cos * this.S2 + this.S2,
-                    Y1 = sin * this.S2 + this.S2,
-                    X2 = cos * this.S3 + this.S2,
-                    Y2 = sin * this.S3 + this.S2,
-                };
-            }
+                X = cos * radius + radius,
+                Y = sin * radius + radius,
+            };
         }
 
-        protected void Position(double x, double y, bool disableFlip)
+        public static int ToIndex(int index, double x, double y, bool disableFlip, double radius = 60)
         {
-            double angle = Math.Atan2(y - this.S1, x - this.S1);
-            if (angle < Math.PI / 2 || angle > Math.PI) angle += Math.PI + Math.PI;
-            angle = Math.Clamp(angle, Min, Max);
+            double angle = System.Math.Atan2(y - radius, x - radius);
+            if (angle < System.Math.PI / 2 || angle > System.Math.PI) angle += System.Math.PI + System.Math.PI;
+            angle = System.Math.Clamp(angle, Radial.Min, Radial.Max);
 
-            int index = ToIndex(angle);
+            int i = Radial.ToIndex(angle);
             if (disableFlip)
             {
-                if (this.Index == 0 && index > VelocityHalf) return;
-                if (this.Index == Velocity && index < VelocityHalf) return;
-                this.Index = Math.Clamp(index, 0, Velocity);
+                if (index == 0 && i > Radial.VelocityHalf) return index;
+                if (index == Radial.Velocity && i < Radial.VelocityHalf) return index;
+                return System.Math.Clamp(i, 0, Radial.Velocity);
             }
-            this.Index = Math.Clamp(index, 0, Velocity);
+            return System.Math.Clamp(i, 0, Radial.Velocity);
         }
     }
 }

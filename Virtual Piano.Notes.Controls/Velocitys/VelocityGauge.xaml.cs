@@ -1,26 +1,48 @@
-﻿using System;
-using Windows.UI.Input;
+﻿using Windows.UI.Input;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Shapes;
 
 namespace Virtual_Piano.Notes.Controls
 {
-    public sealed partial class VelocityGauge : Radial
+    public sealed partial class VelocityGauge : UserControl
     {
-        protected override int S1 => 22;
-        protected override int S2 => 20;
-        protected override int S3 => 16;
+        //@Const
+        const int S1 = 22;
+        const int S2 = 20;
+        const int S3 = 16;
 
         double X;
         double Y;
 
+        private int index;
+        public int Index
+        {
+            get => this.index;
+            set
+            {
+                if (this.index == value) return;
+                this.index = value;
+                this.Update(value);
+            }
+        }
+
         public VelocityGauge()
         {
             this.InitializeComponent();
-            base.Update(base.Index);
+            this.Update(this.Index);
 
-            foreach (Line item in base.Lines())
+            for (int i = Radial.MinTick; i <= Radial.MaxTick; i++)
             {
-                this.Canvas.Children.Add(item);
+                double angle = Radial.ToRadians(i);
+                double cos = System.Math.Cos(angle);
+                double sin = System.Math.Sin(angle);
+                this.Canvas.Children.Add(new Line
+                {
+                    X1 = cos * S2 + S2,
+                    Y1 = sin * S2 + S2,
+                    X2 = cos * S3 + S2,
+                    Y2 = sin * S3 + S2,
+                });
             }
 
             // Wheel
@@ -30,8 +52,10 @@ namespace Virtual_Piano.Notes.Controls
                 PointerPointProperties prop = pp.Properties;
 
                 double delta = prop.MouseWheelDelta;
-                int index = base.Index + System.Math.Clamp((int)-delta, -1, 1);
-                base.Index = Math.Clamp(index, 0, Radial.Velocity);
+                int index = this.Index + System.Math.Clamp((int)-delta, -1, 1);
+                this.Index = System.Math.Clamp(index, 0, Radial.Velocity);
+
+                e.Handled = true;
             };
 
             // Thumb
@@ -39,20 +63,25 @@ namespace Virtual_Piano.Notes.Controls
             {
                 this.X = e.HorizontalOffset;
                 this.Y = e.VerticalOffset;
-                base.Position(this.X, this.Y, false);
+                this.Index = Radial.ToIndex(this.Index, this.X, this.Y, false, S1);
             };
             this.Thumb.DragDelta += (s, e) =>
             {
                 this.X += e.HorizontalChange;
                 this.Y += e.VerticalChange;
-                base.Position(this.X, this.Y, true);
+                this.Index = Radial.ToIndex(this.Index, this.X, this.Y, true, S1);
             };
             this.Thumb.DragCompleted += (s, e) =>
             {
             };
         }
 
-        protected override void Update(string value, double x, double y)
+        private void Update(int value)
+        {
+            double a = Radial.ToRadians(Radial.ToTick(value));
+            this.Update($"{value}", System.Math.Cos(a) * S2 + S1, System.Math.Sin(a) * S2 + S1);
+        }
+        private void Update(string value, double x, double y)
         {
             this.TextBlock.Text = value;
             this.Line.X1 = x;
