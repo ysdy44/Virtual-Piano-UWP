@@ -70,7 +70,7 @@
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
 
-                            <Rectangle IsHitTestVisible="False" RadiusX="4" RadiusY="4" Fill="{ThemeResource SystemControlForegroundChromeMediumBrush}"/>
+                            <Rectangle IsHitTestVisible="False" RadiusX="4" RadiusY="4" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
                             <Rectangle x:Name="Mask" Opacity="0" IsHitTestVisible="False" RadiusX="4" RadiusY="4" Fill="{TemplateBinding Foreground}"/>
 
                             <ContentPresenter
