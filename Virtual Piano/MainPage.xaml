@@ -52,7 +52,7 @@
                         <Setter Property="Padding" Value="2" />
                     </Style>
                 </FrameworkElement.Resources>
-                <StackPanel Margin="16,0" Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                <StackPanel Padding="12,0" Orientation="Horizontal" Spacing="8" Height="36" Background="Black"  HorizontalAlignment="Center" VerticalAlignment="Center">
 
                     <ListView                        
                         SelectedIndex="0"
@@ -89,7 +89,6 @@
                                 <Setter Property="MinHeight" Value="36" />
                                 <Setter Property="MaxHeight" Value="36" />
                                 <Setter Property="Height" Value="36" />
-                                <Setter Property="Background" Value="Black" />
                                 <Setter Property="HorizontalContentAlignment" Value="Center" />
                                 <Setter Property="VerticalContentAlignment" Value="Center" />
                             </Style>
@@ -136,7 +135,9 @@
 
                     </ListView>
 
-                    <StackPanel Height="36" Background="Black" Padding="8,0" Orientation="Horizontal">
+                    <Line Y1="10" Y2="28" StrokeThickness="1" Stroke="{ThemeResource SystemColorControlAccentBrush}"/>
+
+                    <StackPanel Margin="2,0" Orientation="Horizontal">
                         <Button>
                             <ToolTipService.ToolTip>
                                 <ToolTip>
@@ -163,7 +164,9 @@
                         </Button>
                     </StackPanel>
 
-                    <StackPanel Height="36" Background="Black" Padding="22,0" Orientation="Horizontal" Spacing="16">
+                    <Line Y1="10" Y2="28" StrokeThickness="1" Stroke="{ThemeResource SystemColorControlAccentBrush}"/>
+
+                    <StackPanel Margin="12,0" Orientation="Horizontal" Spacing="16">
 
                         <elements:DSTimer x:Name="DSTimer" Time="00:00:00.000"/>
 
@@ -346,9 +349,9 @@
                             <notecontrols:VelocitySlider
                                 x:Name="Slider"
                                 Margin="0,12"
-                                Value="128"
-                                Maximum="128"
-                                TickFrequency="8"
+                                Value="127"
+                                Maximum="127"
+                                TickFrequency="32"
                                 TickPlacement="Outside"
                                 Orientation="Vertical"
                                 IsThumbToolTipEnabled="False"
