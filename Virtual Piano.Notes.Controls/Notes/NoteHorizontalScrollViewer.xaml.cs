@@ -3,19 +3,19 @@ using Windows.UI.Xaml.Controls;
 
 namespace Virtual_Piano.Notes.Controls
 {
-    public sealed partial class NoteHorizontalScrollViewer : UserControl, INoteScrollViewer
+    public sealed partial class NoteHorizontalScrollViewer : UserControl, IPianoScrollViewer
     {
 
-        private NoteSize NoteSize = new NoteSize(20);
+        private PianoSize PianoSize = new PianoSize(20);
         private double Length = NoteExtensions.NoteWhiteCount * 20 * NoteExtensions.ToneCount / NoteExtensions.WhiteCount;
         public int ItemSize
         {
-            get => this.NoteSize.ItemSize;
+            get => this.PianoSize.ItemSize;
             set
             {
-                if (this.NoteSize.ItemSize == value) return;
-                this.NoteSize = new NoteSize(value);
-                this.Length = NoteExtensions.NoteWhiteCount * this.NoteSize.WhiteSize;
+                if (this.PianoSize.ItemSize == value) return;
+                this.PianoSize = new PianoSize(value);
+                this.Length = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize;
 
                 this.Rectangle.Width = base.ActualWidth * this.RootGrid.ActualWidth / this.Length;
 
@@ -90,14 +90,14 @@ namespace Virtual_Piano.Notes.Controls
         {
             if (this.ScrollViewer is null) return;
             this.Offset = this.ScrollViewer.HorizontalOffset;
-            this.Offset -= this.NoteSize.WhiteSize;
+            this.Offset -= this.PianoSize.WhiteSize;
             this.ScrollViewer.ChangeView(this.Offset, null, null, false);
         }
         public void PageDown()
         {
             if (this.ScrollViewer is null) return;
             this.Offset = this.ScrollViewer.HorizontalOffset;
-            this.Offset += this.NoteSize.WhiteSize;
+            this.Offset += this.PianoSize.WhiteSize;
             this.ScrollViewer.ChangeView(this.Offset, null, null, false);
         }
     }

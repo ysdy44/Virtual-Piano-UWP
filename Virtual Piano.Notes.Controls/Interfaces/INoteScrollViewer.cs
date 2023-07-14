@@ -2,7 +2,7 @@
 
 namespace Virtual_Piano.Notes.Controls
 {
-    public interface INoteScrollViewer
+    public interface IPianoScrollViewer
     {
         int ItemSize { get; set; }
         ScrollViewer ScrollViewer { get; set; }

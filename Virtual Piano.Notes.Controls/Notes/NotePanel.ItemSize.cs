@@ -9,15 +9,15 @@ namespace Virtual_Piano.Notes.Controls
 {
     partial class NotePanel
     {
-        private NoteSize NoteSize = new NoteSize(20);
+        private PianoSize PianoSize = new PianoSize(20);
 
         public int ItemSize
         {
-            get => this.NoteSize.ItemSize;
+            get => this.PianoSize.ItemSize;
             set
             {
-                if (this.NoteSize.ItemSize == value) return;
-                this.NoteSize = new NoteSize(value);
+                if (this.PianoSize.ItemSize == value) return;
+                this.PianoSize = new PianoSize(value);
 
                 int count = 0;
                 switch (this.Direction)
@@ -29,20 +29,20 @@ namespace Virtual_Piano.Notes.Controls
                             switch (item.Type)
                             {
                                 case ToneType.White:
-                                    item.Y = (NoteExtensions.NoteWhiteCount - count - 1) * this.NoteSize.WhiteSize;
-                                    item.Height = this.NoteSize.WhiteSize;
+                                    item.Y = (NoteExtensions.NoteWhiteCount - count - 1) * this.PianoSize.WhiteSize;
+                                    item.Height = this.PianoSize.WhiteSize;
                                     count++;
                                     break;
                                 case ToneType.Black:
-                                    item.Y = (NoteExtensions.NoteWhiteCount - count + 1) * this.NoteSize.WhiteSize - this.NoteSize.BlackSizeHalf;
-                                    item.Height = this.NoteSize.BlackSize;
+                                    item.Y = (NoteExtensions.NoteWhiteCount - count + 1) * this.PianoSize.WhiteSize - this.PianoSize.BlackSizeHalf;
+                                    item.Height = this.PianoSize.BlackSize;
                                     break;
                                 default:
                                     break;
                             }
                         }
 
-                        base.Height = NoteExtensions.NoteWhiteCount * this.NoteSize.WhiteSize;
+                        base.Height = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize;
                         break;
                     case NoteDirection.Top:
                         foreach (INoteButton item in base.Children.Cast<INoteButton>())
@@ -51,20 +51,20 @@ namespace Virtual_Piano.Notes.Controls
                             switch (item.Type)
                             {
                                 case ToneType.White:
-                                    item.X = count * this.NoteSize.WhiteSize;
-                                    item.Width = this.NoteSize.WhiteSize;
+                                    item.X = count * this.PianoSize.WhiteSize;
+                                    item.Width = this.PianoSize.WhiteSize;
                                     count++;
                                     break;
                                 case ToneType.Black:
-                                    item.X = (count + 1) * this.NoteSize.WhiteSize - this.NoteSize.BlackSizeHalf;
-                                    item.Width = this.NoteSize.BlackSize;
+                                    item.X = (count + 1) * this.PianoSize.WhiteSize - this.PianoSize.BlackSizeHalf;
+                                    item.Width = this.PianoSize.BlackSize;
                                     break;
                                 default:
                                     break;
                             }
                         }
 
-                        base.Width = NoteExtensions.NoteWhiteCount * this.NoteSize.WhiteSize;
+                        base.Width = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize;
                         break;
                     case NoteDirection.Right:
                         foreach (INoteButton item in base.Children.Cast<INoteButton>())
@@ -73,20 +73,20 @@ namespace Virtual_Piano.Notes.Controls
                             switch (item.Type)
                             {
                                 case ToneType.White:
-                                    item.Y = count * this.NoteSize.WhiteSize;
-                                    item.Height = this.NoteSize.WhiteSize;
+                                    item.Y = count * this.PianoSize.WhiteSize;
+                                    item.Height = this.PianoSize.WhiteSize;
                                     count++;
                                     break;
                                 case ToneType.Black:
-                                    item.Y = (count + 1) * this.NoteSize.WhiteSize - this.NoteSize.BlackSizeHalf;
-                                    item.Height = this.NoteSize.BlackSize;
+                                    item.Y = (count + 1) * this.PianoSize.WhiteSize - this.PianoSize.BlackSizeHalf;
+                                    item.Height = this.PianoSize.BlackSize;
                                     break;
                                 default:
                                     break;
                             }
                         }
 
-                        base.Height = NoteExtensions.NoteWhiteCount * this.NoteSize.WhiteSize;
+                        base.Height = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize;
                         break;
                     case NoteDirection.Bottom:
                         foreach (INoteButton item in base.Children.Cast<INoteButton>())
@@ -95,20 +95,20 @@ namespace Virtual_Piano.Notes.Controls
                             switch (item.Type)
                             {
                                 case ToneType.White:
-                                    item.X = (NoteExtensions.NoteWhiteCount - count - 1) * this.NoteSize.WhiteSize;
-                                    item.Width = this.NoteSize.WhiteSize;
+                                    item.X = (NoteExtensions.NoteWhiteCount - count - 1) * this.PianoSize.WhiteSize;
+                                    item.Width = this.PianoSize.WhiteSize;
                                     count++;
                                     break;
                                 case ToneType.Black:
-                                    item.X = (NoteExtensions.NoteWhiteCount - count + 1) * this.NoteSize.WhiteSize - this.NoteSize.BlackSizeHalf;
-                                    item.Width = this.NoteSize.BlackSize;
+                                    item.X = (NoteExtensions.NoteWhiteCount - count + 1) * this.PianoSize.WhiteSize - this.PianoSize.BlackSizeHalf;
+                                    item.Width = this.PianoSize.BlackSize;
                                     break;
                                 default:
                                     break;
                             }
                         }
 
-                        base.Width = NoteExtensions.NoteWhiteCount * this.NoteSize.WhiteSize;
+                        base.Width = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize;
                         break;
                     default:
                         break;

@@ -6,7 +6,7 @@ using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Notes.Controls
 {
-    public abstract partial class NotePanel : Canvas, INotePanel
+    public abstract partial class NotePanel : Canvas, IPianoPanel
     {
         //@Command
         public ICommand Command { get; set; }

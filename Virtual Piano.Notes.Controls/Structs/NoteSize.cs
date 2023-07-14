@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Notes.Controls
 {
-    public readonly struct NoteSize
+    public readonly struct PianoSize
     {
         public readonly int ItemSize;
 
@@ -8,7 +8,7 @@
         public readonly int BlackSize;
         public readonly int BlackSizeHalf;
 
-        public NoteSize(int value)
+        public PianoSize(int value)
         {
             this.ItemSize = value;
 

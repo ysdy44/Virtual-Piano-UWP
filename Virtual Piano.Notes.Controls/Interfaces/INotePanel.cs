@@ -5,6 +5,11 @@ namespace Virtual_Piano.Notes.Controls
     public interface INotePanel
     {
         ICommand Command { get; set; }
+
+        void OnClick(Note note);
+    }
+    public interface IPianoPanel : INotePanel
+    {
         double WhiteSize { get; set; }
         double BlackSize { get; set; }
 
@@ -12,8 +17,6 @@ namespace Virtual_Piano.Notes.Controls
         KeyLabel Label { get; set; }
 
         INoteButton this[Note item] { get; }
-
-        void OnClick(Note note);
 
         void Clear(int index);
         void Add(int index);

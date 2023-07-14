@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Notes.Controls
 {
-    public sealed class NoteButton : ClickButton, INoteButton
+    public sealed class PianoButton : ClickButton, INoteButton
     {
         //@Command
         public Note CommandParameter { get; set; }
@@ -8,7 +8,7 @@
 
         protected override void OnClick()
         {
-            if (base.Parent is INotePanel item)
+            if (base.Parent is IPianoPanel item)
             {
                 item.OnClick(this.CommandParameter);
             }
