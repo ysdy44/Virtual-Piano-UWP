@@ -535,6 +535,15 @@
                     <SymbolIcon Symbol="ViewAll"/>
                 </ListViewItem>
 
+                <ListViewItem x:Name="ListViewItem4">
+                    <ToolTipService.ToolTip>
+                        <ToolTip>
+                            Strings
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <SymbolIcon Symbol="AlignCenter"/>
+                </ListViewItem>
+
             </ListView>
 
             <!--Foot-->
@@ -557,9 +566,9 @@
                             <RowDefinition Height="36"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <notecontrols:PianoHorizontalScrollViewer ItemSize="28" ScrollViewer="{x:Bind NoteScrollViewer}"/>
+                        <notecontrols:PianoHorizontalScrollViewer ItemSize="28" ScrollViewer="{x:Bind KeyboardScrollViewer}"/>
                         <ScrollViewer
-                            x:Name="NoteScrollViewer"
+                            x:Name="KeyboardScrollViewer"
                             Grid.Row="1"
                             ZoomMode="Disabled"
                             
@@ -583,7 +592,7 @@
                                  >
                                 <!--Disable the ScrollViewer-->
                                 <UIElement.ManipulationMode>
-                                    TranslateX
+                                    None
                                 </UIElement.ManipulationMode>
                             </notecontrols:PianoTopPanel>
                         </ScrollViewer>
@@ -719,6 +728,42 @@
                     </controls:DrumSplitView>
 
                 </Grid>
+
+                <!--Guitar-->
+                <SplitView
+                    DisplayMode="Inline"
+                    OpenPaneLength="60"
+                    IsPaneOpen="True" 
+                    PanePlacement="Left"
+                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}"
+                    PaneBackground="{x:Null}"
+                    Background="{x:Null}"
+                    >
+                    <SplitView.Pane>
+                        <notecontrols:GuitarVerticalScrollViewer ScrollViewer="{x:Bind GuitarScrollViewer}"/>
+                    </SplitView.Pane>
+                    <ScrollViewer
+                        x:Name="GuitarScrollViewer"
+                        ZoomMode="Disabled"
+                         
+                        HorizontalScrollMode="Enabled"
+                        HorizontalScrollBarVisibility="Hidden"
+                        IsHorizontalScrollChainingEnabled="True"
+                      
+                        VerticalScrollMode="Disabled"
+                        VerticalScrollBarVisibility="Disabled"
+                        IsVerticalScrollChainingEnabled="False"
+                        
+                        Background="Black"
+                        >
+                        <notecontrols:GuitarPanel Command="{x:Bind Command}">
+                            <!--Disable the ScrollViewer-->
+                            <UIElement.ManipulationMode>
+                                None
+                            </UIElement.ManipulationMode>
+                        </notecontrols:GuitarPanel>
+                    </ScrollViewer>
+                </SplitView>
 
             </Grid>
 
