@@ -144,6 +144,9 @@
     <Compile Include="Drums\DrumSplitView.xaml.cs">
       <DependentUpon>DrumSplitView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Enums\GuitarInlay1.cs" />
+    <Compile Include="Enums\GuitarInlay2.cs" />
+    <Compile Include="Enums\GuitarString.cs" />
     <Compile Include="Enums\PianoDirection.cs" />
     <Compile Include="Instruments\InstrumentButton.cs" />
     <Compile Include="Instruments\InstrumentCarousel.xaml.cs">
