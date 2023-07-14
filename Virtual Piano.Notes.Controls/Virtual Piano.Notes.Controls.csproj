@@ -152,6 +152,9 @@
     <Compile Include="Guitars\GuitarPanel.xaml.cs">
       <DependentUpon>GuitarPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Guitars\GuitarVerticalScrollViewer.xaml.cs">
+      <DependentUpon>GuitarVerticalScrollViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Instruments\InstrumentButton.cs" />
     <Compile Include="Instruments\InstrumentCarousel.xaml.cs">
       <DependentUpon>InstrumentCarousel.xaml</DependentUpon>
@@ -257,6 +260,10 @@
     <Page Include="Guitars\GuitarPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Guitars\GuitarVerticalScrollViewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Instruments\InstrumentCarousel.xaml">
       <Generator>MSBuild:Compile</Generator>
