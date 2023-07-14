@@ -3,7 +3,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace Virtual_Piano.Notes.Controls
 {
-    public sealed partial class PianoHorizontalScrollViewer : UserControl, IPianoScrollViewer
+    public sealed partial class PianoHorizontalScrollViewer : UserControl
     {
 
         private PianoSize PianoSize = new PianoSize(20);

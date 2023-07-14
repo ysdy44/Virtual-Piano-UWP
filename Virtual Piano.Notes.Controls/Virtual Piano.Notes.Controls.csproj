@@ -162,7 +162,6 @@
     <Compile Include="Interfaces\IInstrumentPanel.cs" />
     <Compile Include="Interfaces\IPianoButton.cs" />
     <Compile Include="Interfaces\IPianoPanel.cs" />
-    <Compile Include="Interfaces\IPianoScrollViewer.cs" />
     <Compile Include="Models\DrumItemCategory.cs" />
     <Compile Include="Models\InstrumentItemCategory.cs" />
     <Compile Include="Pedals\Pedal.xaml.cs">
