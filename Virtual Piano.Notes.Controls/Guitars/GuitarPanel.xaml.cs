@@ -1,4 +1,6 @@
-﻿using System.Windows.Input;
+﻿using System.Linq;
+using System.Windows.Input;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Shapes;
@@ -7,6 +9,9 @@ namespace Virtual_Piano.Notes.Controls
 {
     public sealed partial class GuitarPanel : Canvas, IGuitarPanel
     {
+        //@Const
+        const string Headstock = "Headstock";
+
         //@Command
         public ICommand Command { get; set; }
 
@@ -19,6 +24,7 @@ namespace Virtual_Piano.Notes.Controls
         bool DisableC5;
         bool DisableC6;
 
+        //@Construct
         public GuitarPanel()
         {
             this.InitializeComponent();
@@ -70,7 +76,20 @@ namespace Virtual_Piano.Notes.Controls
 
         private void Initialize(Note note, int y, GuitarString strings)
         {
-            for (int i = 0; i < Guitar.Count; i++)
+            base.Children.Add(new GuitarButton
+            {
+                Strings = strings,
+                CommandParameter = note,
+                Content = note.ToCDE(),
+                Style = base.Resources[GuitarPanel.Headstock] as Style,
+                X = 0,
+                Y = y,
+                Width = this.Guitar.Fretboards.First().Length,
+                Height = 40,
+            });
+            note++;
+
+            for (int i = 1; i < Guitar.Count; i++)
             {
                 ItemIndexRange item = this.Guitar.Fretboards[i];
                 base.Children.Add(new GuitarButton
