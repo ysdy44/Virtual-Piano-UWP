@@ -148,6 +148,7 @@
     <Compile Include="Enums\GuitarInlay2.cs" />
     <Compile Include="Enums\GuitarString.cs" />
     <Compile Include="Enums\PianoDirection.cs" />
+    <Compile Include="Guitars\GuitarButton.cs" />
     <Compile Include="Instruments\InstrumentButton.cs" />
     <Compile Include="Instruments\InstrumentCarousel.xaml.cs">
       <DependentUpon>InstrumentCarousel.xaml</DependentUpon>
