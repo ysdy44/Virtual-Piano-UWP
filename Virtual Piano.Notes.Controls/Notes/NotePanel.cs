@@ -6,7 +6,7 @@ using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Notes.Controls
 {
-    public abstract partial class NotePanel : Canvas, IPianoPanel
+    public abstract partial class PianoPanel : Canvas, IPianoPanel
     {
         //@Command
         public ICommand Command { get; set; }
@@ -17,8 +17,8 @@ namespace Virtual_Piano.Notes.Controls
             {
                 switch (this.Direction)
                 {
-                    case NoteDirection.Left: case NoteDirection.Right: return System.Math.Max(base.MinWidth, base.MaxWidth);
-                    case NoteDirection.Top: case NoteDirection.Bottom: return System.Math.Max(base.MinHeight, base.MaxHeight);
+                    case PianoDirection.Left: case PianoDirection.Right: return System.Math.Max(base.MinWidth, base.MaxWidth);
+                    case PianoDirection.Top: case PianoDirection.Bottom: return System.Math.Max(base.MinHeight, base.MaxHeight);
                     default: return 0;
                 }
             }
@@ -26,8 +26,8 @@ namespace Virtual_Piano.Notes.Controls
             {
                 switch (this.Direction)
                 {
-                    case NoteDirection.Left: case NoteDirection.Right: base.MaxWidth = value; break;
-                    case NoteDirection.Top: case NoteDirection.Bottom: base.MaxHeight = value; break;
+                    case PianoDirection.Left: case PianoDirection.Right: base.MaxWidth = value; break;
+                    case PianoDirection.Top: case PianoDirection.Bottom: base.MaxHeight = value; break;
                     default: break;
                 }
             }
@@ -39,8 +39,8 @@ namespace Virtual_Piano.Notes.Controls
             {
                 switch (this.Direction)
                 {
-                    case NoteDirection.Left: case NoteDirection.Right: return base.MinWidth;
-                    case NoteDirection.Top: case NoteDirection.Bottom: return base.MinHeight;
+                    case PianoDirection.Left: case PianoDirection.Right: return base.MinWidth;
+                    case PianoDirection.Top: case PianoDirection.Bottom: return base.MinHeight;
                     default: return 0;
                 }
             }
@@ -48,8 +48,8 @@ namespace Virtual_Piano.Notes.Controls
             {
                 switch (this.Direction)
                 {
-                    case NoteDirection.Left: case NoteDirection.Right: base.MinWidth = value; break;
-                    case NoteDirection.Top: case NoteDirection.Bottom: base.MinHeight = value; break;
+                    case PianoDirection.Left: case PianoDirection.Right: base.MinWidth = value; break;
+                    case PianoDirection.Top: case PianoDirection.Bottom: base.MinHeight = value; break;
                     default: break;
                 }
             }
@@ -73,8 +73,8 @@ namespace Virtual_Piano.Notes.Controls
 
         public INoteButton this[Note item] => base.Children[(int)item] as INoteButton;
 
-        readonly NoteDirection Direction;
-        public NotePanel(NoteDirection direction) => this.Direction = direction;
+        readonly PianoDirection Direction;
+        public PianoPanel(PianoDirection direction) => this.Direction = direction;
 
         public void OnClick(Note note) => this.Command?.Execute(note); // Command
 
@@ -84,8 +84,8 @@ namespace Virtual_Piano.Notes.Controls
         {
             switch (this.Direction)
             {
-                case NoteDirection.Left: case NoteDirection.Bottom: return NoteExtensions.NoteCount - (int)note - 1;
-                case NoteDirection.Top: case NoteDirection.Right: return (int)note;
+                case PianoDirection.Left: case PianoDirection.Bottom: return NoteExtensions.NoteCount - (int)note - 1;
+                case PianoDirection.Top: case PianoDirection.Right: return (int)note;
                 default: return 0;
             }
         }

@@ -7,7 +7,7 @@ using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Notes.Controls
 {
-    partial class NotePanel
+    partial class PianoPanel
     {
         public Rect GetRect(int count, ToneType type)
         {
@@ -16,7 +16,7 @@ namespace Virtual_Piano.Notes.Controls
                 case ToneType.White:
                     switch (this.Direction)
                     {
-                        case NoteDirection.Left:
+                        case PianoDirection.Left:
                             return new Rect
                             {
                                 X = 0,
@@ -24,7 +24,7 @@ namespace Virtual_Piano.Notes.Controls
                                 Width = double.NaN,
                                 Height = this.PianoSize.WhiteSize
                             };
-                        case NoteDirection.Top:
+                        case PianoDirection.Top:
                             return new Rect
                             {
                                 X = count * this.PianoSize.WhiteSize,
@@ -32,7 +32,7 @@ namespace Virtual_Piano.Notes.Controls
                                 Width = this.PianoSize.WhiteSize,
                                 Height = double.NaN,
                             };
-                        case NoteDirection.Right:
+                        case PianoDirection.Right:
                             return new Rect
                             {
                                 X = 0,
@@ -40,7 +40,7 @@ namespace Virtual_Piano.Notes.Controls
                                 Width = double.NaN,
                                 Height = this.PianoSize.WhiteSize
                             };
-                        case NoteDirection.Bottom:
+                        case PianoDirection.Bottom:
                             return new Rect
                             {
                                 X = (NoteExtensions.NoteWhiteCount - count - 1) * this.PianoSize.WhiteSize,
@@ -53,7 +53,7 @@ namespace Virtual_Piano.Notes.Controls
                 case ToneType.Black:
                     switch (this.Direction)
                     {
-                        case NoteDirection.Left:
+                        case PianoDirection.Left:
                             return new Rect
                             {
                                 X = 0,
@@ -61,7 +61,7 @@ namespace Virtual_Piano.Notes.Controls
                                 Width = double.NaN,
                                 Height = this.PianoSize.BlackSize
                             };
-                        case NoteDirection.Top:
+                        case PianoDirection.Top:
                             return new Rect
                             {
                                 X = (count + 1) * this.PianoSize.WhiteSize - this.PianoSize.BlackSizeHalf,
@@ -69,7 +69,7 @@ namespace Virtual_Piano.Notes.Controls
                                 Width = this.PianoSize.BlackSize,
                                 Height = double.NaN,
                             };
-                        case NoteDirection.Right:
+                        case PianoDirection.Right:
                             return new Rect
                             {
                                 X = 0,
@@ -77,7 +77,7 @@ namespace Virtual_Piano.Notes.Controls
                                 Width = double.NaN,
                                 Height = this.PianoSize.BlackSize
                             };
-                        case NoteDirection.Bottom:
+                        case PianoDirection.Bottom:
                             return new Rect
                             {
                                 X = (NoteExtensions.NoteWhiteCount - count + 1) * this.PianoSize.WhiteSize - this.PianoSize.BlackSizeHalf,
@@ -138,8 +138,8 @@ namespace Virtual_Piano.Notes.Controls
 
             switch (this.Direction)
             {
-                case NoteDirection.Left: case NoteDirection.Right: base.Height = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize; break;
-                case NoteDirection.Top: case NoteDirection.Bottom: base.Width = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize; break;
+                case PianoDirection.Left: case PianoDirection.Right: base.Height = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize; break;
+                case PianoDirection.Top: case PianoDirection.Bottom: base.Width = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize; break;
                 default: break;
             }
         }

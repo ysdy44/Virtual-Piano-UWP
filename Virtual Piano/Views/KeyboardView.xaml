@@ -26,7 +26,7 @@
                             <RowDefinition Height="36"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <notecontrols:NoteHorizontalScrollViewer ItemSize="28" ScrollViewer="{x:Bind NoteScrollViewer}"/>
+                        <notecontrols:PianoHorizontalScrollViewer ItemSize="28" ScrollViewer="{x:Bind NoteScrollViewer}"/>
                         <ScrollViewer
                             x:Name="NoteScrollViewer"
                             Grid.Row="1"
@@ -40,8 +40,8 @@
                             VerticalScrollBarVisibility="Disabled"
                             IsVerticalScrollChainingEnabled="False"
                             >
-                            <notecontrols:NoteTopPanel
-                                 x:Name="NotePanel"
+                            <notecontrols:PianoTopPanel
+                                 x:Name="PianoTopPanel"
                                  Label="CDE"
                                  ItemSize="28"
                                  WhiteSize="250" 
@@ -52,7 +52,7 @@
                                 <UIElement.ManipulationMode>
                                     TranslateX
                                 </UIElement.ManipulationMode>
-                            </notecontrols:NoteTopPanel>
+                            </notecontrols:PianoTopPanel>
                         </ScrollViewer>
                     </Grid>
 

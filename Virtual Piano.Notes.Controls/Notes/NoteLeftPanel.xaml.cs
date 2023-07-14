@@ -4,9 +4,9 @@ using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Notes.Controls
 {
-    public sealed partial class NoteLeftPanel : NotePanel
+    public sealed partial class PianoLeftPanel : PianoPanel
     {
-        public NoteLeftPanel() : base(NoteDirection.Left)
+        public PianoLeftPanel() : base(PianoDirection.Left)
         {
             this.InitializeComponent();
             base.Initialize();

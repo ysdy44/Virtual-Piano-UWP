@@ -1,5 +1,5 @@
-﻿<controls:NotePanel
-    x:Class="Virtual_Piano.Notes.Controls.NoteRightPanel"
+﻿<controls:PianoPanel
+    x:Class="Virtual_Piano.Notes.Controls.PianoRightPanel"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -94,4 +94,4 @@
         </Style>
     </FrameworkElement.Resources>
 
-</controls:NotePanel>
+</controls:PianoPanel>

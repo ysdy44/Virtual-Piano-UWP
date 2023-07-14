@@ -7,7 +7,7 @@ using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Notes.Controls
 {
-    partial class NotePanel
+    partial class PianoPanel
     {
         private PianoSize PianoSize = new PianoSize(20);
 
@@ -22,7 +22,7 @@ namespace Virtual_Piano.Notes.Controls
                 int count = 0;
                 switch (this.Direction)
                 {
-                    case NoteDirection.Left:
+                    case PianoDirection.Left:
                         foreach (INoteButton item in base.Children.Cast<INoteButton>())
                         {
                             Note note = item.CommandParameter;
@@ -44,7 +44,7 @@ namespace Virtual_Piano.Notes.Controls
 
                         base.Height = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize;
                         break;
-                    case NoteDirection.Top:
+                    case PianoDirection.Top:
                         foreach (INoteButton item in base.Children.Cast<INoteButton>())
                         {
                             Note note = item.CommandParameter;
@@ -66,7 +66,7 @@ namespace Virtual_Piano.Notes.Controls
 
                         base.Width = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize;
                         break;
-                    case NoteDirection.Right:
+                    case PianoDirection.Right:
                         foreach (INoteButton item in base.Children.Cast<INoteButton>())
                         {
                             Note note = item.CommandParameter;
@@ -88,7 +88,7 @@ namespace Virtual_Piano.Notes.Controls
 
                         base.Height = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize;
                         break;
-                    case NoteDirection.Bottom:
+                    case PianoDirection.Bottom:
                         foreach (INoteButton item in base.Children.Cast<INoteButton>())
                         {
                             Note note = item.CommandParameter;

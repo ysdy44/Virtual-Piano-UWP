@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Notes.Controls
 {
-    public enum NoteDirection
+    public enum PianoDirection
     {
         Left,
         Top,

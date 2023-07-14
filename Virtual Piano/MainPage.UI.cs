@@ -15,11 +15,11 @@ namespace Virtual_Piano
 
         public void Clear(Note item)
         {
-            this.NotePanel[item].Clear();
+            this.PianoTopPanel[item].Clear();
         }
         public void Add(Note item)
         {
-            this.NotePanel[item].Add();
+            this.PianoTopPanel[item].Add();
         }
 
         public void Clear(MidiPercussionNote item)

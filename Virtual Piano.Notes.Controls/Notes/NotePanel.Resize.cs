@@ -7,13 +7,13 @@ using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Notes.Controls
 {
-    partial class NotePanel
+    partial class PianoPanel
     {
         public void Resize(Size newSize, Size previousSize)
         {
             switch (this.Direction)
             {
-                case NoteDirection.Left:
+                case PianoDirection.Left:
                     if (newSize.Width != previousSize.Width)
                     {
                         int count = 0;
@@ -40,7 +40,7 @@ namespace Virtual_Piano.Notes.Controls
                         }
                     }
                     break;
-                case NoteDirection.Top:
+                case PianoDirection.Top:
                     if (newSize.Height != previousSize.Height)
                     {
                         int count = 0;
@@ -67,7 +67,7 @@ namespace Virtual_Piano.Notes.Controls
                         }
                     }
                     break;
-                case NoteDirection.Right:
+                case PianoDirection.Right:
                     if (newSize.Width != previousSize.Width)
                     {
                         int count = 0;
@@ -95,7 +95,7 @@ namespace Virtual_Piano.Notes.Controls
                         }
                     }
                     break;
-                case NoteDirection.Bottom:
+                case PianoDirection.Bottom:
                     if (newSize.Height != previousSize.Height)
                     {
                         int count = 0;
