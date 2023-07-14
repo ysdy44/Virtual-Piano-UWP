@@ -179,26 +179,26 @@
     <Compile Include="Pedals\Pedal.xaml.cs">
       <DependentUpon>Pedal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pianos\PianoBottomPanel.xaml.cs">
+    <Compile Include="PianoPanels\PianoBottomPanel.xaml.cs">
       <DependentUpon>PianoBottomPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PianoPanels\PianoLeftPanel.xaml.cs">
+      <DependentUpon>PianoLeftPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PianoPanels\PianoRightPanel.xaml.cs">
+      <DependentUpon>PianoRightPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PianoPanels\PianoTopPanel.xaml.cs">
+      <DependentUpon>PianoTopPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pianos\PianoButton.cs" />
     <Compile Include="Pianos\PianoHorizontalScrollViewer.xaml.cs">
       <DependentUpon>PianoHorizontalScrollViewer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pianos\PianoLeftPanel.xaml.cs">
-      <DependentUpon>PianoLeftPanel.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pianos\PianoPanel.cs" />
     <Compile Include="Pianos\PianoPanel.Initialize.cs" />
     <Compile Include="Pianos\PianoPanel.ItemSize.cs" />
     <Compile Include="Pianos\PianoPanel.Resize.cs" />
-    <Compile Include="Pianos\PianoRightPanel.xaml.cs">
-      <DependentUpon>PianoRightPanel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pianos\PianoTopPanel.xaml.cs">
-      <DependentUpon>PianoTopPanel.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structs\Chords.cs" />
     <Compile Include="Structs\DrumLayout.cs" />
@@ -281,23 +281,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pianos\PianoBottomPanel.xaml">
+    <Page Include="PianoPanels\PianoBottomPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PianoPanels\PianoLeftPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PianoPanels\PianoRightPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PianoPanels\PianoTopPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pianos\PianoHorizontalScrollViewer.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pianos\PianoLeftPanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pianos\PianoRightPanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pianos\PianoTopPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
