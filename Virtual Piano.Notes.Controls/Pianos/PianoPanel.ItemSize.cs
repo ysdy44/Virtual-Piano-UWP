@@ -23,7 +23,7 @@ namespace Virtual_Piano.Notes.Controls
                 switch (this.Direction)
                 {
                     case PianoDirection.Left:
-                        foreach (INoteButton item in base.Children.Cast<INoteButton>())
+                        foreach (IPianoButton item in base.Children.Cast<IPianoButton>())
                         {
                             Note note = item.CommandParameter;
                             switch (item.Type)
@@ -45,7 +45,7 @@ namespace Virtual_Piano.Notes.Controls
                         base.Height = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize;
                         break;
                     case PianoDirection.Top:
-                        foreach (INoteButton item in base.Children.Cast<INoteButton>())
+                        foreach (IPianoButton item in base.Children.Cast<IPianoButton>())
                         {
                             Note note = item.CommandParameter;
                             switch (item.Type)
@@ -67,7 +67,7 @@ namespace Virtual_Piano.Notes.Controls
                         base.Width = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize;
                         break;
                     case PianoDirection.Right:
-                        foreach (INoteButton item in base.Children.Cast<INoteButton>())
+                        foreach (IPianoButton item in base.Children.Cast<IPianoButton>())
                         {
                             Note note = item.CommandParameter;
                             switch (item.Type)
@@ -89,7 +89,7 @@ namespace Virtual_Piano.Notes.Controls
                         base.Height = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize;
                         break;
                     case PianoDirection.Bottom:
-                        foreach (INoteButton item in base.Children.Cast<INoteButton>())
+                        foreach (IPianoButton item in base.Children.Cast<IPianoButton>())
                         {
                             Note note = item.CommandParameter;
                             switch (item.Type)

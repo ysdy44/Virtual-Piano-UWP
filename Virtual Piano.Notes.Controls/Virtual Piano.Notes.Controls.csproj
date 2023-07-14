@@ -160,8 +160,7 @@
     <Compile Include="Interfaces\IDrumButton.cs" />
     <Compile Include="Interfaces\IDrumPanel.cs" />
     <Compile Include="Interfaces\IInstrumentPanel.cs" />
-    <Compile Include="Interfaces\INoteButton.cs" />
-    <Compile Include="Interfaces\INotePanel.cs" />
+    <Compile Include="Interfaces\IPianoButton.cs" />
     <Compile Include="Interfaces\IPianoPanel.cs" />
     <Compile Include="Interfaces\IPianoScrollViewer.cs" />
     <Compile Include="Models\DrumItemCategory.cs" />

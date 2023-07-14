@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Notes.Controls
 {
-    public sealed class PianoButton : ClickButton, INoteButton
+    public sealed class PianoButton : ClickButton, IPianoButton
     {
         //@Command
         public Note CommandParameter { get; set; }

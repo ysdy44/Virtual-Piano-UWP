@@ -20,7 +20,7 @@ namespace Virtual_Piano.Notes.Controls
                         double size = newSize.Width;
                         double size2 = size * this.BlackSize / this.WhiteSize;
 
-                        foreach (INoteButton item in base.Children.Cast<INoteButton>())
+                        foreach (IPianoButton item in base.Children.Cast<IPianoButton>())
                         {
                             Note note = item.CommandParameter;
                             switch (item.Type)
@@ -47,7 +47,7 @@ namespace Virtual_Piano.Notes.Controls
                         double size = newSize.Height;
                         double size2 = size * this.BlackSize / this.WhiteSize;
 
-                        foreach (INoteButton item in base.Children.Cast<INoteButton>())
+                        foreach (IPianoButton item in base.Children.Cast<IPianoButton>())
                         {
                             Note note = item.CommandParameter;
                             switch (item.Type)
@@ -75,7 +75,7 @@ namespace Virtual_Piano.Notes.Controls
                         double size2 = size * this.BlackSize / this.WhiteSize;
                         double position = size - size2;
 
-                        foreach (INoteButton item in base.Children.Cast<INoteButton>())
+                        foreach (IPianoButton item in base.Children.Cast<IPianoButton>())
                         {
                             Note note = item.CommandParameter;
                             switch (item.Type)
@@ -103,7 +103,7 @@ namespace Virtual_Piano.Notes.Controls
                         double size2 = size * this.BlackSize / this.WhiteSize;
                         double position = size - size2;
 
-                        foreach (INoteButton item in base.Children.Cast<INoteButton>())
+                        foreach (IPianoButton item in base.Children.Cast<IPianoButton>())
                         {
                             Note note = item.CommandParameter;
                             switch (item.Type)

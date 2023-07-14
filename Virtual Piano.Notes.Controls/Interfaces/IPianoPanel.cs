@@ -1,14 +1,19 @@
-﻿namespace Virtual_Piano.Notes.Controls
+﻿using System.Windows.Input;
+
+namespace Virtual_Piano.Notes.Controls
 {
-    public interface IPianoPanel : INotePanel
+    public interface IPianoPanel
     {
+        ICommand Command { get; set; }
         double WhiteSize { get; set; }
         double BlackSize { get; set; }
 
         int ItemSize { get; set; }
         KeyLabel Label { get; set; }
 
-        INoteButton this[Note item] { get; }
+        IPianoButton this[Note item] { get; }
+
+        void OnClick(Note note);
 
         void Clear(int index);
         void Add(int index);

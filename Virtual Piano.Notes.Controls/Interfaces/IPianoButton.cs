@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Notes.Controls
 {
-    public interface INoteButton : IClickButton
+    public interface IPianoButton : IClickButton
     {
         Note CommandParameter { get; set; }
         ToneType Type { get; set; }

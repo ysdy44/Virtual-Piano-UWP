@@ -64,14 +64,14 @@ namespace Virtual_Piano.Notes.Controls
                 if (this.label == value) return;
                 this.label = value;
 
-                foreach (INoteButton item in base.Children.Cast<INoteButton>())
+                foreach (IPianoButton item in base.Children.Cast<IPianoButton>())
                 {
                     item.Content = item.CommandParameter.ToLabel(value);
                 }
             }
         }
 
-        public INoteButton this[Note item] => base.Children[(int)item] as INoteButton;
+        public IPianoButton this[Note item] => base.Children[(int)item] as IPianoButton;
 
         readonly PianoDirection Direction;
         public PianoPanel(PianoDirection direction) => this.Direction = direction;
@@ -92,14 +92,14 @@ namespace Virtual_Piano.Notes.Controls
 
         public void Clear(int index)
         {
-            if (base.Children[index] is INoteButton item)
+            if (base.Children[index] is IPianoButton item)
             {
                 item.Clear();
             }
         }
         public void Add(int index)
         {
-            if (base.Children[index] is INoteButton item)
+            if (base.Children[index] is IPianoButton item)
             {
                 item.Add();
             }
@@ -108,7 +108,7 @@ namespace Virtual_Piano.Notes.Controls
         public void Clear(Note note)
         {
             int i = (int)note;
-            if (base.Children[i] is INoteButton item)
+            if (base.Children[i] is IPianoButton item)
             {
                 item.Clear();
             }
@@ -116,7 +116,7 @@ namespace Virtual_Piano.Notes.Controls
         public void Add(Note note)
         {
             int i = (int)note;
-            if (base.Children[i] is INoteButton item)
+            if (base.Children[i] is IPianoButton item)
             {
                 item.Add();
             }
