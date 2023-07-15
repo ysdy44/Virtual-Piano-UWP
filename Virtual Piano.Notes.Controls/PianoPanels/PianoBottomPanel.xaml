@@ -67,7 +67,7 @@
                                 HorizontalAlignment="Center" 
                                 VerticalAlignment="Top" 
                                 Foreground="Black"
-                                BorderThickness="0,8,0,0"
+                                BorderThickness="0,6,0,0"
                                 BorderBrush="{TemplateBinding Foreground}" 
                                 FontFamily="Agency FB"  
                                 FontWeight="Bold"
@@ -86,7 +86,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ContentControl">
-                        <Border x:Name="RootGrid" CornerRadius="4,4,0,0" BorderThickness="2,4,2,0" BorderBrush="Black">
+                        <Border x:Name="RootGrid" CornerRadius="2,2,0,0" BorderThickness="4,10,4,0" BorderBrush="Black">
                             <Border.Background>
                                 <LinearGradientBrush EndPoint="0,1">
                                     <GradientStop Offset="0.2" Color="#2C2D30"/>
@@ -110,6 +110,7 @@
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
 
+                            <!--    
                             <ContentPresenter 
                                 Margin="0,4" 
                                 Content="{TemplateBinding Content}" 
@@ -120,6 +121,7 @@
                                 FontWeight="Bold"
                                 FontSize="14"
                                 />
+                            -->
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
