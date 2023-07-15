@@ -63,7 +63,7 @@
                     <SolidColorBrush x:Key="SliderThumbBackground" Color="{StaticResource SystemChromeHighColor}" />
                     <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="{StaticResource SystemChromeHighColor}" />
                     <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="{StaticResource SystemChromeHighColor}" />
-                    <SolidColorBrush x:Key="SliderThumbBackgroundDisabled" Color="{StaticResource SystemChromeHighColor}" />
+                    <SolidColorBrush x:Key="SliderThumbBackgroundDisabled" Color="{StaticResource SystemChromeDisabledHighColor}" />
 
                     <SolidColorBrush x:Key="SliderTrackFill" Color="{StaticResource SystemChromeDisabledHighColor}" />
                     <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="{StaticResource SystemChromeDisabledHighColor}" />
@@ -73,7 +73,7 @@
                     <SolidColorBrush x:Key="SliderTrackValueFill" Color="{StaticResource SystemChromeHighColor}" />
                     <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="{StaticResource SystemChromeHighColor}" />
                     <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="{StaticResource SystemChromeHighColor}" />
-                    <SolidColorBrush x:Key="SliderTrackValueFillDisabled" Color="{StaticResource SystemChromeHighColor}" />
+                    <SolidColorBrush x:Key="SliderTrackValueFillDisabled" Color="{StaticResource SystemChromeDisabledHighColor}" />
 
                     <x:Double x:Key="SliderTrackThemeHeight">14</x:Double>
                 </ResourceDictionary>
@@ -124,7 +124,7 @@
                     <SolidColorBrush x:Key="SliderThumbBackground" Color="{StaticResource SystemChromeHighColor}" />
                     <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="{StaticResource SystemChromeHighColor}" />
                     <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="{StaticResource SystemChromeHighColor}" />
-                    <SolidColorBrush x:Key="SliderThumbBackgroundDisabled" Color="{StaticResource SystemChromeHighColor}" />
+                    <SolidColorBrush x:Key="SliderThumbBackgroundDisabled" Color="{StaticResource SystemChromeDisabledHighColor}" />
 
                     <SolidColorBrush x:Key="SliderTrackFill" Color="{StaticResource SystemChromeDisabledHighColor}" />
                     <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="{StaticResource SystemChromeDisabledHighColor}" />
@@ -134,7 +134,7 @@
                     <SolidColorBrush x:Key="SliderTrackValueFill" Color="{StaticResource SystemChromeHighColor}" />
                     <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="{StaticResource SystemChromeHighColor}" />
                     <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="{StaticResource SystemChromeHighColor}" />
-                    <SolidColorBrush x:Key="SliderTrackValueFillDisabled" Color="{StaticResource SystemChromeHighColor}" />
+                    <SolidColorBrush x:Key="SliderTrackValueFillDisabled" Color="{StaticResource SystemChromeDisabledHighColor}" />
 
                     <x:Double x:Key="SliderTrackThemeHeight">14</x:Double>
                 </ResourceDictionary>
