@@ -124,6 +124,9 @@
     <Compile Include="Carousel.xaml.cs">
       <DependentUpon>Carousel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CommandGridView.cs" />
+    <Compile Include="CommandListView.cs" />
+    <Compile Include="CommandToggleButton.cs" />
     <Compile Include="CompositionExtensions.cs" />
     <Compile Include="DS\DSFloat.xaml.cs">
       <DependentUpon>DSFloat.xaml</DependentUpon>
