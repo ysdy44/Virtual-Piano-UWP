@@ -215,7 +215,7 @@
                 PaneBackground="{x:Null}"
                 IsPaneOpen="{x:Bind ReverseBooleanNullableToBooleanConverter(DockLeftButton.IsChecked), Mode=OneWay}" 
                 >
-                <!--Instrument-->
+                <!--Left-->
                 <SplitView.Pane>
                     <Grid>
                         <Grid.RowDefinitions>
@@ -268,7 +268,7 @@
                                 <SymbolIcon Symbol="AllApps"/>
                             </ListViewItem>
 
-                            <ListViewItem x:Name="ListViewItem42">
+                            <ListViewItem x:Name="ListViewItem43">
                                 <ToolTipService.ToolTip>
                                     <ToolTip>
                                         Pedals
@@ -280,41 +280,38 @@
                         </ListView>
 
                         <!--Body-->
-                        <Border 
+                        <Grid 
                             Grid.Row="1"
                             Margin="4" 
                             BorderThickness="2"
                             BorderBrush="{ThemeResource AppBorderBrush}"
                             >
-                            <controls:InstrumentSplitView InstrumentPanel="{x:Bind InstrumentPanel}" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem41.IsSelected), Mode=OneWay}">
+
+                            <!--Sounds-->
+                            <controls:InstrumentSplitView InstrumentGroupPanel="{x:Bind InstrumentGroupPanel}" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem41.IsSelected), Mode=OneWay}">
                                 <ScrollViewer>
-                                    <controls:InstrumentListView x:Name="InstrumentPanel" Command="{x:Bind Command}"/>
+                                    <controls:InstrumentGroupPanel x:Name="InstrumentGroupPanel" Command="{x:Bind Command}"/>
                                 </ScrollViewer>
                             </controls:InstrumentSplitView>
-                        </Border>
 
-                        <Grid 
-                            Grid.Row="1" 
-                            Margin="4" 
-                            ColumnSpacing="4" 
-                            BorderThickness="2"
-                            BorderBrush="{ThemeResource AppBorderBrush}"
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem42.IsSelected), Mode=OneWay}"
-                            >
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
-                            <notecontrols:Pedal Controller="Sustain" BorderBrush="{ThemeResource AppFill}" Background="{ThemeResource AppForeground}" Command="{x:Bind Command}">
-                                Sustain
-                            </notecontrols:Pedal>
-                            <notecontrols:Pedal Grid.Column="1" Controller="AllNotesOff" BorderBrush="{ThemeResource AppFill}" Background="{ThemeResource AppForeground}" Command="{x:Bind Command}">
-                                SoftPedal
-                            </notecontrols:Pedal>
-                            <notecontrols:Pedal Grid.Column="2" Controller="Sostenuto" BorderBrush="{ThemeResource AppFill}" Background="{ThemeResource AppForeground}" Command="{x:Bind Command}">
-                                Sostenuto
-                            </notecontrols:Pedal>
+                            <!--Pedal-->
+                            <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem43.IsSelected), Mode=OneWay}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <notecontrols:Pedal Controller="Sustain" BorderBrush="{ThemeResource AppFill}" Background="{ThemeResource AppForeground}" Command="{x:Bind Command}">
+                                    Sustain
+                                </notecontrols:Pedal>
+                                <notecontrols:Pedal Grid.Column="1" Controller="AllNotesOff" BorderBrush="{ThemeResource AppFill}" Background="{ThemeResource AppForeground}" Command="{x:Bind Command}">
+                                    SoftPedal
+                                </notecontrols:Pedal>
+                                <notecontrols:Pedal Grid.Column="2" Controller="Sostenuto" BorderBrush="{ThemeResource AppFill}" Background="{ThemeResource AppForeground}" Command="{x:Bind Command}">
+                                    Sostenuto
+                                </notecontrols:Pedal>
+                            </Grid>
+
                         </Grid>
                         
                     </Grid>

@@ -5,14 +5,15 @@ using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Notes.Controls
 {
-    public class InstrumentListView : InstrumentPanel, IInstrumentPanel
+    public class InstrumentGroupPanel : InstrumentPanel, IInstrumentGroupPanel
     {
         //@Command
         public ICommand Command { get; set; }
 
         private readonly IDictionary<MidiProgramGroup, IEnumerable<InstrumentButton>> Dictionary = new Dictionary<MidiProgramGroup, IEnumerable<InstrumentButton>>();
 
-        public InstrumentListView()
+        //@Construct
+        public InstrumentGroupPanel()
         {
             this.InitializeComponent();
             foreach (var item1 in MidiProgramFactory.Instance)

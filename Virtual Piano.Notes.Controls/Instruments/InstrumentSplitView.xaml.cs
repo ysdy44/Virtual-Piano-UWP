@@ -6,24 +6,25 @@ namespace Virtual_Piano.Notes.Controls
 {
     public partial class InstrumentSplitView : SplitView
     {
-        public IInstrumentPanel InstrumentPanel { get; set; }
+        public IInstrumentGroupPanel InstrumentGroupPanel { get; set; }
 
+        //@Construct
         public InstrumentSplitView()
         {
             this.InitializeComponent();
             this.ListView.ItemsSource = this.ItemsSource().ToArray();
             this.ListView.SelectionChanged += (s, e) =>
             {
-                if (this.InstrumentPanel is null) return;
+                if (this.InstrumentGroupPanel is null) return;
 
                 foreach (InstrumentItemCategory item in e.RemovedItems)
                 {
-                    this.InstrumentPanel.Remove(item.Group);
+                    this.InstrumentGroupPanel.Remove(item.Group);
                 }
 
                 foreach (InstrumentItemCategory item in e.AddedItems)
                 {
-                    this.InstrumentPanel.Add(item.Group);
+                    this.InstrumentGroupPanel.Add(item.Group);
                 }
             };
         }
