@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
-using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Notes.Controls
 {
-    public partial class InstrumentListView : StackPanel, IInstrumentPanel
+    public class InstrumentListView : InstrumentPanel, IInstrumentPanel
     {
         //@Command
         public ICommand Command { get; set; }

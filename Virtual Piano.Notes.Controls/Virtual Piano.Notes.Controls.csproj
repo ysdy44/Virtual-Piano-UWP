@@ -159,8 +159,9 @@
     <Compile Include="Instruments\InstrumentCarousel.xaml.cs">
       <DependentUpon>InstrumentCarousel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Instruments\InstrumentListView.xaml.cs">
-      <DependentUpon>InstrumentListView.xaml</DependentUpon>
+    <Compile Include="Instruments\InstrumentGroupPanel.cs" />
+    <Compile Include="Instruments\InstrumentPanel.xaml.cs">
+      <DependentUpon>InstrumentPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Instruments\InstrumentSplitView.xaml.cs">
       <DependentUpon>InstrumentSplitView.xaml</DependentUpon>
@@ -269,7 +270,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Instruments\InstrumentListView.xaml">
+    <Page Include="Instruments\InstrumentPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

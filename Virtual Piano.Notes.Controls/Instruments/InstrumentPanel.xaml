@@ -1,5 +1,5 @@
 ﻿<StackPanel
-    x:Class="Virtual_Piano.Notes.Controls.InstrumentListView"
+    x:Class="Virtual_Piano.Notes.Controls.InstrumentPanel"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -86,8 +86,8 @@
                                 x:Name="ContentPresenter"
                                 IsHitTestVisible="False"
                                 Content="{TemplateBinding Content}"
-                                Margin="16,2"
-                                HorizontalAlignment="Center"
+                                Margin="12,2"
+                                HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
                                 Foreground="{ThemeResource SystemControlHighlightAltBaseHighBrush}"
                                 FontSize="12"
@@ -100,5 +100,5 @@
             </Setter>
         </Style>
     </FrameworkElement.Resources>
-    
+
 </StackPanel>
