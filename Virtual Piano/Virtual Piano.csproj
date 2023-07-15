@@ -140,6 +140,9 @@
     <Compile Include="Views\DrumView.xaml.cs">
       <DependentUpon>DrumView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\GuitarView.xaml.cs">
+      <DependentUpon>GuitarView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\KeyboardView.xaml.cs">
       <DependentUpon>KeyboardView.xaml</DependentUpon>
     </Compile>
@@ -222,6 +225,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\DrumView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GuitarView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
