@@ -9,9 +9,4 @@ namespace Virtual_Piano.Notes.Controls
         void OnClick(MidiProgram program);
         string GetString(MidiProgram note);
     }
-    public interface IInstrumentGroupPanel : IInstrumentPanel
-    {
-        void Add(MidiProgramGroup group);
-        void Remove(MidiProgramGroup group);
-    }
 }

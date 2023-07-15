@@ -123,7 +123,8 @@
     <Compile Include="Controls\DrumPanel.cs" />
     <Compile Include="Controls\DrumSplitView.cs" />
     <Compile Include="Controls\InstrumentCarousel.cs" />
-    <Compile Include="Controls\InstrumentListView.cs" />
+    <Compile Include="Controls\InstrumentCollectionPanel.cs" />
+    <Compile Include="Controls\InstrumentGroupPanel.cs" />
     <Compile Include="Controls\InstrumentSplitView.cs" />
     <Compile Include="Enums\OptionType.cs" />
     <Compile Include="MainPage.Click.cs" />

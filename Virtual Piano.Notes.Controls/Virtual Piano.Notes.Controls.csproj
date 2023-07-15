@@ -159,6 +159,7 @@
     <Compile Include="Instruments\InstrumentCarousel.xaml.cs">
       <DependentUpon>InstrumentCarousel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Instruments\InstrumentCollectionPanel.cs" />
     <Compile Include="Instruments\InstrumentGroupPanel.cs" />
     <Compile Include="Instruments\InstrumentPanel.xaml.cs">
       <DependentUpon>InstrumentPanel.xaml</DependentUpon>
@@ -172,6 +173,7 @@
     <Compile Include="Interfaces\IDrumPanel.cs" />
     <Compile Include="Interfaces\IGuitarButton.cs" />
     <Compile Include="Interfaces\IGuitarPanel.cs" />
+    <Compile Include="Interfaces\IInstrumentGroupPanel.cs" />
     <Compile Include="Interfaces\IInstrumentPanel.cs" />
     <Compile Include="Interfaces\IPianoButton.cs" />
     <Compile Include="Interfaces\IPianoPanel.cs" />
