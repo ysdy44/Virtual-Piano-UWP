@@ -16,22 +16,15 @@
 
     <FrameworkElement.Resources>
         <!--"Brush-->
-        <SolidColorBrush x:Key="Brush1" Opacity="0.3" Color="Black"/>
-        <SolidColorBrush x:Key="Brush2" Color="#4D5463"/>
-        <SolidColorBrush x:Key="Brush3" Color="#9EACC9"/>
+        <SolidColorBrush x:Key="Brush0" Color="#2A3139"/>
+        <SolidColorBrush x:Key="Brush1" Color="#4D5463"/>
+        <SolidColorBrush x:Key="Brush2" Color="#5C6477"/>
+        <SolidColorBrush x:Key="Brush3" Color="#ABB6BC"/>
+        <SolidColorBrush x:Key="Brush4" Color="#9EACC9"/>
+        <SolidColorBrush x:Key="Brush5" Color="#F0F0FF"/>
+        <SolidColorBrush x:Key="Brush6" Opacity="0.5" Color="#F2F6FF"/>
+        <SolidColorBrush x:Key="Brush7" Opacity="0.3" Color="Black"/>
         <!--Style-->
-        <Style TargetType="local:GuitarButton">
-            <Setter Property="AllowFocusOnInteraction" Value="True"/>
-            <Setter Property="UseSystemFocusVisuals" Value="True"/>
-            <Setter Property="IsTabStop" Value="True"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="local:GuitarButton">
-                        <Rectangle Fill="Transparent"/>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
         <Style x:Key="Headstock" TargetType="ContentControl">
             <Setter Property="AllowFocusOnInteraction" Value="True"/>
             <Setter Property="UseSystemFocusVisuals" Value="True"/>
@@ -39,7 +32,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ContentControl">
-                        <Grid x:Name="RootGrid" Margin="2" Background="Transparent">
+                        <Grid x:Name="RootGrid" Background="Transparent">
 
                             <!--VisualState-->
                             <VisualStateManager.VisualStateGroups>
@@ -61,8 +54,8 @@
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
 
-                            <Rectangle IsHitTestVisible="False" RadiusX="4" RadiusY="4" Width="26" Height="20" Fill="White"/>
-                            <Rectangle x:Name="Mask" Opacity="0" IsHitTestVisible="False" RadiusX="4" RadiusY="4" Width="26" Height="20" Fill="{ThemeResource SystemColorControlAccentBrush}"/>
+                            <Rectangle IsHitTestVisible="False" RadiusX="4" RadiusY="4" Width="26" Height="20" Fill="{StaticResource Brush5}"/>
+                            <Rectangle x:Name="Mask" Opacity="0" IsHitTestVisible="False" RadiusX="4" RadiusY="4" Width="26" Height="20" Fill="{StaticResource Brush0}"/>
 
                             <ContentPresenter
                                 x:Name="ContentPresenter"
@@ -70,13 +63,46 @@
                                 Content="{TemplateBinding Content}"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                Foreground="Black"
-                                FontFamily="Agency FB"  
+                                Foreground="{StaticResource Brush2}"
+                                FontFamily="Agency FB"
                                 FontWeight="Bold"
                                 FontSize="16"
                                 />
 
                         </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="White" TargetType="ContentControl">
+            <Setter Property="AllowFocusOnInteraction" Value="True"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True"/>
+            <Setter Property="IsTabStop" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ContentControl">
+                        <Border Margin="2" Background="Transparent">
+                            <ToolTipService.ToolTip>
+                                <ToolTip FontSize="16" FontWeight="Bold" FontFamily="Agency FB" Content="{TemplateBinding Content}"/>
+                            </ToolTipService.ToolTip>
+                            <Ellipse IsHitTestVisible="False" Width="6" Height="6" Fill="{StaticResource Brush3}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="Black" TargetType="ContentControl">
+            <Setter Property="AllowFocusOnInteraction" Value="True"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True"/>
+            <Setter Property="IsTabStop" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ContentControl">
+                        <Rectangle Fill="Transparent">
+                            <ToolTipService.ToolTip>
+                                <ToolTip FontSize="16" FontWeight="Bold" FontFamily="Agency FB" Content="{TemplateBinding Content}"/>
+                            </ToolTipService.ToolTip>
+                        </Rectangle>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -119,41 +145,38 @@
                 <Setter Property="IsHitTestVisible" Value="False"/>
                 <Setter Property="Y2" Value="240"/>
                 <Setter Property="StrokeThickness" Value="3"/>
-                <Setter Property="Stroke">
-                    <Setter.Value>
-                        <SolidColorBrush Opacity="0.5" Color="#F2F6FF"/>
-                    </Setter.Value>
-                </Setter>
+                <Setter Property="Stroke" Value="{StaticResource Brush6}"/>
             </Style>
             <Style TargetType="Ellipse">
                 <Setter Property="IsHitTestVisible" Value="False"/>
                 <Setter Property="Width" Value="12"/>
                 <Setter Property="Height" Value="10"/>
                 <Setter Property="StrokeThickness" Value="1"/>
-                <Setter Property="Stroke" Value="{StaticResource Brush1}"/>
-                <Setter Property="Fill" Value="#ABB6BC"/>
+                <Setter Property="Stroke" Value="{StaticResource Brush7}"/>
+                <Setter Property="Fill" Value="{StaticResource Brush3}"/>
             </Style>
         </FrameworkElement.Resources>
         <!--Children-->
     </Canvas>
 
-    <Rectangle Width="70" Height="240" Fill="#5C6477"/>
+    <Rectangle Width="72" Height="240" Fill="{StaticResource Brush7}"/>
+    <Rectangle Width="70" Height="240" Fill="{StaticResource Brush2}"/>
 
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="30" StrokeThickness="2.8" Stroke="{StaticResource Brush1}"/>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="70" StrokeThickness="3.2" Stroke="{StaticResource Brush1}"/>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="110" StrokeThickness="4" Stroke="{StaticResource Brush1}"/>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="150" StrokeThickness="4.8" Stroke="{StaticResource Brush1}"/>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="190" StrokeThickness="6.4" Stroke="{StaticResource Brush1}"/>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="230" StrokeThickness="8" Stroke="{StaticResource Brush1}"/>
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="30" StrokeThickness="2.8" Stroke="{StaticResource Brush7}"/>
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="70" StrokeThickness="3.2" Stroke="{StaticResource Brush7}"/>
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="110" StrokeThickness="4" Stroke="{StaticResource Brush7}"/>
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="150" StrokeThickness="4.8" Stroke="{StaticResource Brush7}"/>
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="190" StrokeThickness="6.4" Stroke="{StaticResource Brush7}"/>
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="230" StrokeThickness="8" Stroke="{StaticResource Brush7}"/>
 
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="22.8" StrokeThickness="1.4" Stroke="{StaticResource Brush2}"/>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="63.2" StrokeThickness="1.6" Stroke="{StaticResource Brush2}"/>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="104" StrokeThickness="2" Stroke="{StaticResource Brush2}"/>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="144.8" StrokeThickness="2.4" Stroke="{StaticResource Brush2}"/>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="186.4" StrokeThickness="3.2" Stroke="{StaticResource Brush2}"/>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="229" StrokeThickness="4" Stroke="{StaticResource Brush2}"/>
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="22.8" StrokeThickness="1.4" Stroke="{StaticResource Brush1}"/>
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="63.2" StrokeThickness="1.6" Stroke="{StaticResource Brush1}"/>
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="104" StrokeThickness="2" Stroke="{StaticResource Brush1}"/>
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="144.8" StrokeThickness="2.4" Stroke="{StaticResource Brush1}"/>
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="186.4" StrokeThickness="3.2" Stroke="{StaticResource Brush1}"/>
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="229" StrokeThickness="4" Stroke="{StaticResource Brush1}"/>
 
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="20" StrokeDashArray="4 0.4" StrokeThickness="1.4" Stroke="{StaticResource Brush3}">
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="20" StrokeDashArray="4 0.4" StrokeThickness="1.4" Stroke="{StaticResource Brush4}">
         <UIElement.RenderTransformOrigin>
             0.5, 0.5
         </UIElement.RenderTransformOrigin>
@@ -161,7 +184,7 @@
             <CompositeTransform x:Name="CompositeTransform1" TranslateY="0" ScaleY="1"/>
         </UIElement.RenderTransform>
     </Line>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="60" StrokeDashArray="3.2 0.4" StrokeThickness="1.6" Stroke="{StaticResource Brush3}">
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="60" StrokeDashArray="3.2 0.4" StrokeThickness="1.6" Stroke="{StaticResource Brush4}">
         <UIElement.RenderTransformOrigin>
             0.5, 0.5
         </UIElement.RenderTransformOrigin>
@@ -169,7 +192,7 @@
             <CompositeTransform x:Name="CompositeTransform2" TranslateY="0" ScaleY="1"/>
         </UIElement.RenderTransform>
     </Line>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="100" StrokeDashArray="2.4 0.4" StrokeThickness="2" Stroke="{StaticResource Brush3}">
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="100" StrokeDashArray="2.4 0.4" StrokeThickness="2" Stroke="{StaticResource Brush4}">
         <UIElement.RenderTransformOrigin>
             0.5, 0.5
         </UIElement.RenderTransformOrigin>
@@ -177,7 +200,7 @@
             <CompositeTransform x:Name="CompositeTransform3" TranslateY="0" ScaleY="1"/>
         </UIElement.RenderTransform>
     </Line>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="140" StrokeDashArray="2 0.4" StrokeThickness="2.4" Stroke="{StaticResource Brush3}">
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="140" StrokeDashArray="2 0.4" StrokeThickness="2.4" Stroke="{StaticResource Brush4}">
         <UIElement.RenderTransformOrigin>
             0.5, 0.5
         </UIElement.RenderTransformOrigin>
@@ -185,7 +208,7 @@
             <CompositeTransform x:Name="CompositeTransform4" TranslateY="0" ScaleY="1"/>
         </UIElement.RenderTransform>
     </Line>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="180" StrokeDashArray="1.6 0.4" StrokeThickness="3.2" Stroke="{StaticResource Brush3}">
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="180" StrokeDashArray="1.6 0.4" StrokeThickness="3.2" Stroke="{StaticResource Brush4}">
         <UIElement.RenderTransformOrigin>
             0.5, 0.5
         </UIElement.RenderTransformOrigin>
@@ -193,7 +216,7 @@
             <CompositeTransform x:Name="CompositeTransform5" TranslateY="0" ScaleY="1"/>
         </UIElement.RenderTransform>
     </Line>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="220" StrokeDashArray="1.4 0.4" StrokeThickness="4" Stroke="{StaticResource Brush3}">
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="220" StrokeDashArray="1.4 0.4" StrokeThickness="4" Stroke="{StaticResource Brush4}">
         <UIElement.RenderTransformOrigin>
             0.5, 0.5
         </UIElement.RenderTransformOrigin>

@@ -92,15 +92,37 @@ namespace Virtual_Piano.Notes.Controls
             for (int i = 1; i < Guitar.Count; i++)
             {
                 ItemIndexRange item = this.Guitar.Fretboards[i];
-                base.Children.Add(new GuitarButton
+                switch (note.ToType())
                 {
-                    Strings = strings,
-                    CommandParameter = note,
-                    X = item.FirstIndex,
-                    Y = y,
-                    Width = item.Length,
-                    Height = 40,
-                });
+                    case ToneType.White:
+                        base.Children.Add(new GuitarButton
+                        {
+                            Strings = strings,
+                            CommandParameter = note,
+                            Content = note.ToCDE(),
+                            Style = base.Resources[$"{ToneType.White}"] as Style,
+                            X = item.FirstIndex,
+                            Y = y,
+                            Width = item.Length,
+                            Height = 40,
+                        });
+                        break;
+                    case ToneType.Black:
+                        base.Children.Add(new GuitarButton
+                        {
+                            Strings = strings,
+                            CommandParameter = note,
+                            Content = note.ToCDE(),
+                            Style = base.Resources[$"{ToneType.Black}"] as Style,
+                            X = item.FirstIndex,
+                            Y = y,
+                            Width = item.Length,
+                            Height = 40,
+                        });
+                        break;
+                    default:
+                        break;
+                }
                 note++;
             }
         }
