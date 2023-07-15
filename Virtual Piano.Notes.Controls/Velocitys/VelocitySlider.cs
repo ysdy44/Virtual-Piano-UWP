@@ -1,10 +1,11 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using Windows.Devices.Midi;
 using Windows.UI.Xaml.Controls;
 
 namespace Virtual_Piano.Notes.Controls
 {
-    public sealed class VelocitySlider : Slider
+    public sealed class VelocitySlider : Slider, ICommand
     {
         //@Command
         public ICommand Command { get; set; }
@@ -22,6 +23,41 @@ namespace Virtual_Piano.Notes.Controls
                     ControllerValue = (byte)value
                 }); // Command
             };
+        }
+
+        //@Delegate
+        public event EventHandler CanExecuteChanged;
+
+        //@Command
+        public bool CanExecute(object parameter) => true;
+        public void Execute(object parameter)
+        {
+            if (parameter is bool item)
+            {
+                if (item)
+                {
+                    base.IsEnabled = true;
+
+                    int value = System.Math.Clamp((int)base.Value, 0, Radial.Velocity);
+                    this.Command?.Execute(new Message
+                    {
+                        Type = MidiMessageType.ControlChange,
+                        Controller = this.Controller,
+                        ControllerValue = (byte)value
+                    }); // Command
+                }
+                else
+                {
+                    base.IsEnabled = false;
+
+                    this.Command?.Execute(new Message
+                    {
+                        Type = MidiMessageType.ControlChange,
+                        Controller = this.Controller,
+                        ControllerValue = 0
+                    }); // Command
+                }
+            }
         }
     }
 }
