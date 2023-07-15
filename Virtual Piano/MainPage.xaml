@@ -27,7 +27,7 @@
                 <RowDefinition Height="44"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-
+            
             <!--Title
             <TextBlock Grid.Row="1" IsHitTestVisible="False" Margin="30,6" Foreground="White" FontSize="80" FontFamily="Kunstler Script" HorizontalAlignment="Right" VerticalAlignment="Top">
                 Virtual Piano
@@ -36,11 +36,15 @@
 
             <!--Head-->
             <ScrollViewer 
+                ZoomMode="Disabled"
+                 
                 HorizontalScrollMode="Enabled"
                 HorizontalScrollBarVisibility="Hidden"
                 IsHorizontalScrollChainingEnabled="True"
-                
+              
+                VerticalScrollMode="Disabled"
                 VerticalScrollBarVisibility="Disabled"
+                IsVerticalScrollChainingEnabled="False"
                 >
                 <FrameworkElement.Resources>
                     <!--Style-->
@@ -223,13 +227,13 @@
                         <ListView
                             SelectedIndex="1"
                             SelectionMode="Single"
-                      
+                        
                             ScrollViewer.ZoomMode="Disabled"
                           
                             ScrollViewer.HorizontalScrollMode="Enabled"
                             ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                             ScrollViewer.IsHorizontalScrollChainingEnabled="True"
-                      
+                        
                             ScrollViewer.VerticalScrollMode="Disabled"
                             ScrollViewer.VerticalScrollBarVisibility="Disabled"
                             ScrollViewer.IsVerticalScrollChainingEnabled="False"
@@ -312,10 +316,10 @@
                                 Sostenuto
                             </notecontrols:Pedal>
                         </Grid>
-
+                        
                     </Grid>
                 </SplitView.Pane>
-
+                
                 <!--Bar-->
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -379,9 +383,9 @@
                             </ToolTipService.ToolTip>
                             <SymbolIcon Symbol="DockLeft"/>
                         </ToggleButton>
-
+                        
                     </Grid>
-
+                    
                     <Grid Grid.Column="1">
                         <notecontrols:TrackNotePanel x:Name="TrackNotePanel">
                             <notecontrols:PianoLeftPanel x:Name="PianoLeftPanel" Command="{x:Bind Command}"/>
@@ -496,6 +500,17 @@
                                     </MenuFlyoutItem.Icon>
                                 </MenuFlyoutItem>
 
+                                <MenuFlyoutItem
+                                    Command="{x:Bind Command}"
+                                    CommandParameter="{strings:OptionType Type=TryShowGuitarView}"
+                                    Text="{strings:Option Type=TryShowGuitarView}"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}"
+                                    >
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="AlignCenter"/>
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+
                             </MenuFlyout>
                         </Button.Flyout>
                         <SymbolIcon Symbol="More"/>
@@ -549,7 +564,7 @@
             <!--Foot-->
             <Grid Grid.Row="4" Height="240" Visibility="{x:Bind BooleanNullableToVisibilityConverter(DockButton.IsChecked), Mode=OneWay}">
 
-                <!--Note-->
+                <!--Keyboard-->
                 <SplitView
                     DisplayMode="Inline"
                     OpenPaneLength="136"
@@ -560,7 +575,6 @@
                     Background="{x:Null}"
                     >
 
-                    <!--Keyboard-->
                     <Grid Margin="2,0" RowSpacing="2">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="36"/>
@@ -571,7 +585,7 @@
                             x:Name="KeyboardScrollViewer"
                             Grid.Row="1"
                             ZoomMode="Disabled"
-                            
+                             
                             HorizontalScrollMode="Enabled"
                             HorizontalScrollBarVisibility="Hidden"
                             IsHorizontalScrollChainingEnabled="True"
@@ -583,13 +597,13 @@
                             Background="Black"
                             >
                             <notecontrols:PianoTopPanel
-                                 x:Name="PianoTopPanel"
-                                 Label="CDE"
-                                 ItemSize="28"
-                                 WhiteSize="250" 
-                                 BlackSize="150" 
-                                 Command="{x:Bind Command}"
-                                 >
+                                x:Name="PianoTopPanel"
+                                Label="CDE"
+                                ItemSize="28"
+                                WhiteSize="250" 
+                                BlackSize="150" 
+                                Command="{x:Bind Command}"
+                                >
                                 <!--Disable the ScrollViewer-->
                                 <UIElement.ManipulationMode>
                                     None
@@ -597,7 +611,7 @@
                             </notecontrols:PianoTopPanel>
                         </ScrollViewer>
                     </Grid>
-
+                    
                     <SplitView.Pane>
                         <StackPanel Margin="0,4" Orientation="Horizontal" HorizontalAlignment="Center" BorderThickness="2" BorderBrush="{ThemeResource AppBorderBrush}">
                             <notecontrols:BendPitchWheel BorderBrush="{ThemeResource AppBorderBrush}" Background="{ThemeResource AppBorderBrush}" Foreground="{ThemeResource AppFill}" Command="{x:Bind Command}">
@@ -754,7 +768,7 @@
                         VerticalScrollBarVisibility="Disabled"
                         IsVerticalScrollChainingEnabled="False"
                         
-                        Background="Black"
+                        Background="#2A3139"
                         >
                         <notecontrols:GuitarPanel Command="{x:Bind Command}">
                             <!--Disable the ScrollViewer-->
@@ -764,7 +778,7 @@
                         </notecontrols:GuitarPanel>
                     </ScrollViewer>
                 </SplitView>
-
+                
             </Grid>
 
         </Grid>

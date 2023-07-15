@@ -5,5 +5,6 @@
         TryShowKeyboardView,
         TryShowChordView,
         TryShowDrumView,
+        TryShowGuitarView,
     }
 }
