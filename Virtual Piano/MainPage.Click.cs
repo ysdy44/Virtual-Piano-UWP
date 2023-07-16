@@ -56,11 +56,6 @@ namespace Virtual_Piano
                         if (this.PianoViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewPianoView);
                         else if (await ApplicationViewSwitcher.TryShowAsStandaloneAsync(this.PianoViewId)) return;
                     break;
-                case OptionType.TryShowGuitarView:
-                    for (int i = 0; i < 3; i++)
-                        if (this.GuitarViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewGuitarView);
-                        else if (await ApplicationViewSwitcher.TryShowAsStandaloneAsync(this.GuitarViewId)) return;
-                    break;
                 case OptionType.TryShowChordView:
                     for (int i = 0; i < 3; i++)
                         if (this.ChordViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewChordView);
@@ -71,6 +66,16 @@ namespace Virtual_Piano
                         if (this.DrumViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewDrumView);
                         else if (await ApplicationViewSwitcher.TryShowAsStandaloneAsync(this.DrumViewId)) return;
                     break;
+                case OptionType.TryShowGuitarView:
+                    for (int i = 0; i < 3; i++)
+                        if (this.GuitarViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewGuitarView);
+                        else if (await ApplicationViewSwitcher.TryShowAsStandaloneAsync(this.GuitarViewId)) return;
+                    break;
+                case OptionType.TryShowBassView:
+                    for (int i = 0; i < 3; i++)
+                        if (this.BassViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewBassView);
+                        else if (await ApplicationViewSwitcher.TryShowAsStandaloneAsync(this.BassViewId)) return;
+                    break;
 
                 default:
                     break;
@@ -78,50 +83,25 @@ namespace Virtual_Piano
         }
 
         int PianoViewId;
-        int GuitarViewId;
         int ChordViewId;
         int DrumViewId;
+        int GuitarViewId;
+        int BassViewId;
 
-        private void CreateNewPianoView()
+        private void CreateNewPianoView() => this.PianoViewId = this.CreateNew(typeof(PianoView));
+        private void CreateNewChordView() => this.ChordViewId = this.CreateNew(typeof(ChordView));
+        private void CreateNewDrumView() => this.DrumViewId = this.CreateNew(typeof(DrumView));
+        private void CreateNewGuitarView() => this.GuitarViewId = this.CreateNew(typeof(GuitarView));
+        private void CreateNewBassView() => this.BassViewId = this.CreateNew(typeof(BassView));
+        private int CreateNew(Type sourcePageType)
         {
             Frame frame = new Frame();
-            frame.Navigate(typeof(PianoView), this.Command);
+            frame.Navigate(sourcePageType, this.Command);
 
             Window.Current.Content = frame;
             Window.Current.Activate();
 
-            this.PianoViewId = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().Id;
-        }
-
-        private void CreateNewChordView()
-        {
-            Frame frame = new Frame();
-            frame.Navigate(typeof(ChordView), this.Command);
-
-            Window.Current.Content = frame;
-            Window.Current.Activate();
-
-            this.ChordViewId = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().Id;
-        }
-        private void CreateNewDrumView()
-        {
-            Frame frame = new Frame();
-            frame.Navigate(typeof(DrumView), this.Command);
-
-            Window.Current.Content = frame;
-            Window.Current.Activate();
-
-            this.DrumViewId = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().Id;
-        }
-        private void CreateNewGuitarView()
-        {
-            Frame frame = new Frame();
-            frame.Navigate(typeof(GuitarView), this.Command);
-
-            Window.Current.Content = frame;
-            Window.Current.Activate();
-
-            this.GuitarViewId = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().Id;
+            return Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().Id;
         }
     }
 }
