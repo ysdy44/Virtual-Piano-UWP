@@ -44,10 +44,6 @@ namespace Virtual_Piano.Notes.Controls
             };
         }
 
-        public virtual string GetString(MidiPercussionNote note)
-        {
-            return note.ToString();
-        }
         public virtual string GetString(MidiPercussionNoteCategory category)
         {
             return category.ToString();

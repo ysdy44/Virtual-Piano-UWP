@@ -6,7 +6,7 @@ namespace Virtual_Piano.Controls
     {
         public override string GetString(MidiPercussionNote note)
         {
-            return App.Resource.GetString(note.ToString());
+            return App.Resource.GetString($"{note}");
         }
     }
 }

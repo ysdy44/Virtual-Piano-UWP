@@ -6,11 +6,11 @@ namespace Virtual_Piano.Controls
     {
         public override string GetString(MidiProgram note)
         {
-            return App.Resource.GetString(note.ToString());
+            return App.Resource.GetString($"{note}");
         }
         public override string GetString(MidiProgramGroup group)
         {
-            return App.Resource.GetString(group.ToString());
+            return App.Resource.GetString($"{group}");
         }
     }
 }

@@ -4,9 +4,9 @@ namespace Virtual_Piano.Controls
 {
     public class InstrumentObservableCollection : Notes.Controls.InstrumentObservableCollection
     {
-        public override string GetString(MidiProgram note)
+        public override string GetString(MidiProgram program)
         {
-            return App.Resource.GetString($"{note}");
+            return $"{(int)program} {App.Resource.GetString($"{program}")}";
         }
     }
 }

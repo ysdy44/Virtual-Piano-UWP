@@ -6,7 +6,7 @@ namespace Virtual_Piano.Controls
     {
         public override string GetString(MidiProgram program)
         {
-            return App.Resource.GetString(program.ToString());
+            return $"{(int)program} {App.Resource.GetString($"{program}")}";
         }
     }
 }

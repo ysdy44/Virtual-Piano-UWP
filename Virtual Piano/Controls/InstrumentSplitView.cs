@@ -6,7 +6,7 @@ namespace Virtual_Piano.Controls
     {
         public override string GetString(MidiProgramGroup group)
         {
-            return App.Resource.GetString(group.ToString());
+            return App.Resource.GetString($"{group}");
         }
     }
 }
