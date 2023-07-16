@@ -161,6 +161,7 @@
     </Compile>
     <Compile Include="Instruments\InstrumentCollectionPanel.cs" />
     <Compile Include="Instruments\InstrumentGroupPanel.cs" />
+    <Compile Include="Instruments\InstrumentObservableCollection.cs" />
     <Compile Include="Instruments\InstrumentPanel.xaml.cs">
       <DependentUpon>InstrumentPanel.xaml</DependentUpon>
     </Compile>
