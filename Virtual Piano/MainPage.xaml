@@ -205,7 +205,7 @@
                 Value="0"
                 Background="{ThemeResource AppStroke}"
                 />
-
+            
             <!--Body-->
             <SplitView
                 Grid.Row="1"
@@ -296,7 +296,7 @@
                             BorderThickness="2"
                             BorderBrush="{ThemeResource AppBorderBrush}"
                             >
-
+                            
                             <!--Sounds-->
                             <controls:InstrumentSplitView InstrumentGroupPanel="{x:Bind InstrumentGroupPanel}" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem41.IsSelected), Mode=OneWay}">
                                 <ScrollViewer>
@@ -556,24 +556,12 @@
                                     Right
                                 </ToggleMenuFlyoutItem>
 
-                                <!--Guitar-->
-                                <MenuFlyoutItem
-                                    Command="{x:Bind Command}"
-                                    CommandParameter="{strings:OptionType Type=TryShowGuitarView}"
-                                    Text="{strings:Option Type=TryShowGuitarView}"
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}"
-                                    >
-                                    <MenuFlyoutItem.Icon>
-                                        <SymbolIcon Symbol="AlignCenter"/>
-                                    </MenuFlyoutItem.Icon>
-                                </MenuFlyoutItem>
-
                                 <!--Chord-->
                                 <MenuFlyoutItem
                                     Command="{x:Bind Command}"
                                     CommandParameter="{strings:OptionType Type=TryShowChordView}"
                                     Text="{strings:Option Type=TryShowChordView}"
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}"
                                     >
                                     <MenuFlyoutItem.Icon>
                                         <SymbolIcon Symbol="OneBar"/>
@@ -585,10 +573,34 @@
                                     Command="{x:Bind Command}"
                                     CommandParameter="{strings:OptionType Type=TryShowDrumView}"
                                     Text="{strings:Option Type=TryShowDrumView}"
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}"
                                     >
                                     <MenuFlyoutItem.Icon>
                                         <SymbolIcon Symbol="ViewAll"/>
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+
+                                <!--Guitar-->
+                                <MenuFlyoutItem
+                                    Command="{x:Bind Command}"
+                                    CommandParameter="{strings:OptionType Type=TryShowGuitarView}"
+                                    Text="{strings:Option Type=TryShowGuitarView}"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}"
+                                    >
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="AlignLeft"/>
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+
+                                <!--Bass-->
+                                <MenuFlyoutItem
+                                    Command="{x:Bind Command}"
+                                    CommandParameter="{strings:OptionType Type=TryShowBassView}"
+                                    Text="{strings:Option Type=TryShowBassView}"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem5.IsSelected), Mode=OneWay}"
+                                    >
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="AlignRight"/>
                                     </MenuFlyoutItem.Icon>
                                 </MenuFlyoutItem>
 
@@ -614,18 +626,8 @@
                     <SymbolIcon Symbol="Keyboard"/>
                 </ListViewItem>
 
-                <!--Guitar-->
-                <ListViewItem x:Name="ListViewItem2">
-                    <ToolTipService.ToolTip>
-                        <ToolTip>
-                            Guitar
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                    <SymbolIcon Symbol="AlignCenter"/>
-                </ListViewItem>
-
                 <!--Chord-->
-                <ListViewItem x:Name="ListViewItem3">
+                <ListViewItem x:Name="ListViewItem2">
                     <ToolTipService.ToolTip>
                         <ToolTip>
                             Chord
@@ -635,13 +637,33 @@
                 </ListViewItem>
 
                 <!--Drum-->
-                <ListViewItem x:Name="ListViewItem4">
+                <ListViewItem x:Name="ListViewItem3">
                     <ToolTipService.ToolTip>
                         <ToolTip>
                             Drum
                         </ToolTip>
                     </ToolTipService.ToolTip>
                     <SymbolIcon Symbol="ViewAll"/>
+                </ListViewItem>
+
+                <!--Guitar-->
+                <ListViewItem x:Name="ListViewItem4">
+                    <ToolTipService.ToolTip>
+                        <ToolTip>
+                            Guitar
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <SymbolIcon Symbol="AlignLeft"/>
+                </ListViewItem>
+
+                <!--Bass-->
+                <ListViewItem x:Name="ListViewItem5">
+                    <ToolTipService.ToolTip>
+                        <ToolTip>
+                            Bass
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <SymbolIcon Symbol="AlignRight"/>
                 </ListViewItem>
 
             </ListView>
@@ -709,44 +731,8 @@
                     </SplitView.Pane>
                 </SplitView>
 
-                <!--Guitar-->
-                <SplitView
-                    DisplayMode="Inline"
-                    OpenPaneLength="60"
-                    IsPaneOpen="True" 
-                    PanePlacement="Left"
-                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}"
-                    PaneBackground="{x:Null}"
-                    Background="{x:Null}"
-                    >
-                    <SplitView.Pane>
-                        <notecontrols:GuitarVerticalScrollViewer ScrollViewer="{x:Bind GuitarScrollViewer}"/>
-                    </SplitView.Pane>
-                    <ScrollViewer
-                        x:Name="GuitarScrollViewer"
-                        ZoomMode="Disabled"
-                         
-                        HorizontalScrollMode="Enabled"
-                        HorizontalScrollBarVisibility="Hidden"
-                        IsHorizontalScrollChainingEnabled="True"
-                      
-                        VerticalScrollMode="Disabled"
-                        VerticalScrollBarVisibility="Disabled"
-                        IsVerticalScrollChainingEnabled="False"
-                        
-                        Background="#2A3139"
-                        >
-                        <notecontrols:GuitarPanel Command="{x:Bind Command}">
-                            <!--Disable the ScrollViewer-->
-                            <UIElement.ManipulationMode>
-                                None
-                            </UIElement.ManipulationMode>
-                        </notecontrols:GuitarPanel>
-                    </ScrollViewer>
-                </SplitView>
-
                 <!--Chord-->
-                <Grid ColumnSpacing="3" Margin="4" MaxWidth="900" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
+                <Grid ColumnSpacing="3" Margin="4" MaxWidth="900" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}">
                     <FrameworkElement.Resources>
                         <!--Style-->
                         <Style TargetType="Border">
@@ -787,7 +773,7 @@
                 </Grid>
 
                 <!--Drum-->
-                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}">
+                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="36"/>
                         <RowDefinition Height="*"/>
@@ -863,6 +849,78 @@
                     </controls:DrumSplitView>
 
                 </Grid>
+
+                <!--Guitar-->
+                <SplitView
+                    DisplayMode="Inline"
+                    OpenPaneLength="60"
+                    IsPaneOpen="True" 
+                    PanePlacement="Left"
+                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}"
+                    PaneBackground="{x:Null}"
+                    Background="{x:Null}"
+                    >
+                    <SplitView.Pane>
+                        <notecontrols:GuitarVerticalScrollViewer ScrollViewer="{x:Bind GuitarScrollViewer}"/>
+                    </SplitView.Pane>
+                    <ScrollViewer
+                        x:Name="GuitarScrollViewer"
+                        ZoomMode="Disabled"
+                         
+                        HorizontalScrollMode="Enabled"
+                        HorizontalScrollBarVisibility="Hidden"
+                        IsHorizontalScrollChainingEnabled="True"
+                      
+                        VerticalScrollMode="Disabled"
+                        VerticalScrollBarVisibility="Disabled"
+                        IsVerticalScrollChainingEnabled="False"
+                        
+                        Background="#CC9D55"
+                        >
+                        <notecontrols:GuitarPanel Command="{x:Bind Command}">
+                            <!--Disable the ScrollViewer-->
+                            <UIElement.ManipulationMode>
+                                None
+                            </UIElement.ManipulationMode>
+                        </notecontrols:GuitarPanel>
+                    </ScrollViewer>
+                </SplitView>
+
+                <!--Bass-->
+                <SplitView
+                    DisplayMode="Inline"
+                    OpenPaneLength="60"
+                    IsPaneOpen="True" 
+                    PanePlacement="Left"
+                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem5.IsSelected), Mode=OneWay}"
+                    PaneBackground="{x:Null}"
+                    Background="{x:Null}"
+                    >
+                    <SplitView.Pane>
+                        <notecontrols:GuitarVerticalScrollViewer ScrollViewer="{x:Bind BassScrollViewer}"/>
+                    </SplitView.Pane>
+                    <ScrollViewer
+                        x:Name="BassScrollViewer"
+                        ZoomMode="Disabled"
+                         
+                        HorizontalScrollMode="Enabled"
+                        HorizontalScrollBarVisibility="Hidden"
+                        IsHorizontalScrollChainingEnabled="True"
+                      
+                        VerticalScrollMode="Disabled"
+                        VerticalScrollBarVisibility="Disabled"
+                        IsVerticalScrollChainingEnabled="False"
+                        
+                        Background="#22262F"
+                        >
+                        <notecontrols:BaseGuitarPanel Command="{x:Bind Command}">
+                            <!--Disable the ScrollViewer-->
+                            <UIElement.ManipulationMode>
+                                None
+                            </UIElement.ManipulationMode>
+                        </notecontrols:BaseGuitarPanel>
+                    </ScrollViewer>
+                </SplitView>
 
             </Grid>
 
