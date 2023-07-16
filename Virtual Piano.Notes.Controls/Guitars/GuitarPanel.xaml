@@ -3,26 +3,25 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    xmlns:local="using:Virtual_Piano.Notes.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignWidth="800"
     d:DesignHeight="200"
     Width="{x:Bind Guitar.Length}"
     Height="240"
-    Background="#2A3139"
+    Background="#552C10"
     RequestedTheme="Light"
     >
 
     <FrameworkElement.Resources>
         <!--"Brush-->
-        <SolidColorBrush x:Key="Brush0" Color="#2A3139"/>
-        <SolidColorBrush x:Key="Brush1" Color="#4D5463"/>
-        <SolidColorBrush x:Key="Brush2" Color="#5C6477"/>
-        <SolidColorBrush x:Key="Brush3" Color="#ABB6BC"/>
-        <SolidColorBrush x:Key="Brush4" Color="#9EACC9"/>
-        <SolidColorBrush x:Key="Brush5" Color="#F0F0FF"/>
-        <SolidColorBrush x:Key="Brush6" Opacity="0.5" Color="#F2F6FF"/>
+        <SolidColorBrush x:Key="Brush0" Color="#442E1F"/>
+        <SolidColorBrush x:Key="Brush1" Color="#735B3D"/>
+        <SolidColorBrush x:Key="Brush2" Color="#2C1609"/>
+        <SolidColorBrush x:Key="Brush3" Color="#C8A89F"/>
+        <SolidColorBrush x:Key="Brush4" Color="#FFF6CC"/>
+        <SolidColorBrush x:Key="Brush5" Color="#FFFDF0"/>
+        <SolidColorBrush x:Key="Brush6" Opacity="0.6" Color="#FFFFF0"/>
         <SolidColorBrush x:Key="Brush7" Opacity="0.3" Color="Black"/>
         <!--Style-->
         <Style x:Key="Headstock" TargetType="ContentControl">
@@ -138,6 +137,16 @@
         </Storyboard>
     </FrameworkElement.Resources>
 
+    <Rectangle Width="72" Height="240" Fill="{StaticResource Brush7}"/>
+    <Rectangle Width="70" Height="240" Fill="{StaticResource Brush2}"/>
+
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="30" StrokeThickness="2.8" Stroke="{StaticResource Brush7}"/>
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="70" StrokeThickness="3.2" Stroke="{StaticResource Brush7}"/>
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="110" StrokeThickness="4" Stroke="{StaticResource Brush7}"/>
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="150" StrokeThickness="4.8" Stroke="{StaticResource Brush7}"/>
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="190" StrokeThickness="6.4" Stroke="{StaticResource Brush7}"/>
+    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="230" StrokeThickness="8" Stroke="{StaticResource Brush7}"/>
+
     <Canvas x:Name="EllipseCanvas" IsHitTestVisible="False">
         <FrameworkElement.Resources>
             <!--Style-->
@@ -158,16 +167,6 @@
         </FrameworkElement.Resources>
         <!--Children-->
     </Canvas>
-
-    <Rectangle Width="72" Height="240" Fill="{StaticResource Brush7}"/>
-    <Rectangle Width="70" Height="240" Fill="{StaticResource Brush2}"/>
-
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="30" StrokeThickness="2.8" Stroke="{StaticResource Brush7}"/>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="70" StrokeThickness="3.2" Stroke="{StaticResource Brush7}"/>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="110" StrokeThickness="4" Stroke="{StaticResource Brush7}"/>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="150" StrokeThickness="4.8" Stroke="{StaticResource Brush7}"/>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="190" StrokeThickness="6.4" Stroke="{StaticResource Brush7}"/>
-    <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="230" StrokeThickness="8" Stroke="{StaticResource Brush7}"/>
 
     <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="22.8" StrokeThickness="1.4" Stroke="{StaticResource Brush1}"/>
     <Line IsHitTestVisible="False" X2="{x:Bind Guitar.Length}" Canvas.Top="63.2" StrokeThickness="1.6" Stroke="{StaticResource Brush1}"/>

@@ -43,7 +43,7 @@
                         VerticalScrollBarVisibility="Disabled"
                         IsVerticalScrollChainingEnabled="False"
                         
-                        Background="#2A3139"
+                        Background="#CC9D55"
                         >
                         <notecontrols:GuitarPanel Command="{x:Bind Command}">
                             <!--Disable the ScrollViewer-->

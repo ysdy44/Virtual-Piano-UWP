@@ -11,6 +11,8 @@ namespace Virtual_Piano.Notes.Controls
     {
         //@Const
         const string Headstock = "Headstock";
+        const int Space = 240 / 6;
+        const int Center = 240 / 2;
 
         //@Command
         public ICommand Command { get; set; }
@@ -37,17 +39,17 @@ namespace Virtual_Piano.Notes.Controls
             this.Storyboard6.Completed += (s, e) => this.DisableC6 = false;
 
             this.Initialize(Note.E6, 0, GuitarString.S1);
-            this.Initialize(Note.B5, 40, GuitarString.S2);
-            this.Initialize(Note.G5, 80, GuitarString.S3);
-            this.Initialize(Note.D5, 120, GuitarString.S4);
-            this.Initialize(Note.A4, 160, GuitarString.S5);
-            this.Initialize(Note.E4, 200, GuitarString.S6);
+            this.Initialize(Note.B5, GuitarPanel.Space, GuitarString.S2);
+            this.Initialize(Note.G5, GuitarPanel.Space * 2, GuitarString.S3);
+            this.Initialize(Note.D5, GuitarPanel.Space * 3, GuitarString.S4);
+            this.Initialize(Note.A4, GuitarPanel.Space * 4, GuitarString.S5);
+            this.Initialize(Note.E4, GuitarPanel.Space * 5, GuitarString.S6);
 
             foreach (int item in this.Guitar.Inlay1())
             {
                 Ellipse ellipse = new Ellipse();
                 Canvas.SetLeft(ellipse, item - 6);
-                Canvas.SetTop(ellipse, 120 - 5);
+                Canvas.SetTop(ellipse, GuitarPanel.Center - 5);
                 this.EllipseCanvas.Children.Add(ellipse);
             }
 
@@ -55,12 +57,12 @@ namespace Virtual_Piano.Notes.Controls
             {
                 Ellipse ellipse1 = new Ellipse();
                 Canvas.SetLeft(ellipse1, item - 6);
-                Canvas.SetTop(ellipse1, 120 - 5 - 40);
+                Canvas.SetTop(ellipse1, GuitarPanel.Center - GuitarPanel.Space - 5);
                 this.EllipseCanvas.Children.Add(ellipse1);
 
                 Ellipse ellipse2 = new Ellipse();
                 Canvas.SetLeft(ellipse2, item - 6);
-                Canvas.SetTop(ellipse2, 120 - 5 + 40);
+                Canvas.SetTop(ellipse2, GuitarPanel.Center + GuitarPanel.Space - 5);
                 this.EllipseCanvas.Children.Add(ellipse2);
             }
 
@@ -85,7 +87,7 @@ namespace Virtual_Piano.Notes.Controls
                 X = 0,
                 Y = y,
                 Width = this.Guitar.Fretboards.First().Length,
-                Height = 40,
+                Height = GuitarPanel.Space,
             });
             note++;
 
@@ -104,7 +106,7 @@ namespace Virtual_Piano.Notes.Controls
                             X = item.FirstIndex,
                             Y = y,
                             Width = item.Length,
-                            Height = 40,
+                            Height = GuitarPanel.Space,
                         });
                         break;
                     case ToneType.Black:
@@ -117,7 +119,7 @@ namespace Virtual_Piano.Notes.Controls
                             X = item.FirstIndex,
                             Y = y,
                             Width = item.Length,
-                            Height = 40,
+                            Height = GuitarPanel.Space,
                         });
                         break;
                     default:
