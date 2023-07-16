@@ -4,11 +4,11 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Virtual_Piano.Views
 {
-    public sealed partial class KeyboardView : Page
+    public sealed partial class PianoView : Page
     {
         ICommand Command;
         
-        public KeyboardView()
+        public PianoView()
         {
             this.InitializeComponent();
         }

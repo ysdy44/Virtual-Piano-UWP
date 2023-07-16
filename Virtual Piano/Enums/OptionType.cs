@@ -2,9 +2,9 @@
 {
     public enum OptionType
     {
-        TryShowKeyboardView,
+        TryShowPianoView,
+        TryShowGuitarView,
         TryShowChordView,
         TryShowDrumView,
-        TryShowGuitarView,
     }
 }
