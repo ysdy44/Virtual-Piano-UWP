@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Virtual_Piano.Controls;
 using Virtual_Piano.Notes;
 using Windows.Devices.Midi;
 using Windows.System;
@@ -15,12 +16,9 @@ namespace Virtual_Piano
     {
         //@Converter
         private string DoubleToStringConverter(double value) => $"{System.Math.Clamp((int)value, 0, 127)}";
-        private double CanvasConverter(double value) => value - 100 + 32;
         private Visibility BooleanToVisibilityConverter(bool value) => value ? Visibility.Visible : Visibility.Collapsed;
         private Visibility ReverseBooleanToVisibilityConverter(bool value) => value ? Visibility.Collapsed : Visibility.Visible;
         private Visibility BooleanNullableToVisibilityConverter(bool? value) => value is true ? Visibility.Collapsed : Visibility.Visible;
-        private Symbol BooleanNullableToMuteConverter(bool? value) => value is true ? Symbol.Mute : Symbol.Volume;
-        private bool BooleanNullableToBooleanConverter(bool? value) => value is true;
         private bool ReverseBooleanNullableToBooleanConverter(bool? value) => value is true is false;
         private SplitViewPanePlacement BooleanToPlacementConverter(bool value) => value is true ? SplitViewPanePlacement.Right : SplitViewPanePlacement.Left;
 
@@ -29,6 +27,51 @@ namespace Virtual_Piano
         readonly IKeyDictionary BlackKeys = new KeyQWERTDictionary(ToneType.Black);
         readonly ObservableCollection<ContentControl> ItemsSource = new ObservableCollection<ContentControl>();
 
+        readonly Note DemoNote = Note.C5;
+        readonly InstrumentObservableCollection Favorites = new InstrumentObservableCollection
+        {
+            MidiProgram.AcousticGrand,
+            MidiProgram.ElectricPiano1,
+            MidiProgram.Harpsichord,
+            MidiProgram.Celesta,
+            MidiProgram.Glockenspiel,
+            MidiProgram.Vibraphone,
+            MidiProgram.Marimba,
+            MidiProgram.Xylophone,
+            MidiProgram.ChurchOrgan,
+            MidiProgram.AcousticGuitarNylon,
+            MidiProgram.AcousticGuitarSteel,
+            MidiProgram.TremoloStrings,
+            MidiProgram.PizzicatoStrings,
+            MidiProgram.Timpani,
+            MidiProgram.StringEnsemble1,
+            MidiProgram.StringEnsemble2,
+            MidiProgram.ChoirAahs,
+            MidiProgram.VoiceOohs,
+            MidiProgram.OrchestraHit,
+            MidiProgram.BrassSection,
+            MidiProgram.SynthBrass1,
+            MidiProgram.Whistle,
+            MidiProgram.Pad2Warm,
+            MidiProgram.Pad7Halo,
+            MidiProgram.Pad8Sweep,
+            MidiProgram.FX2Soundtrack,
+            MidiProgram.Shamisen,
+            MidiProgram.Kalimba,
+            MidiProgram.Agogo,
+            MidiProgram.SteelDrums,
+            MidiProgram.Woodblock,
+            MidiProgram.TaikoDrum,
+            MidiProgram.MelodicTom,
+            MidiProgram.SynthDrum,
+            MidiProgram.ReverseCymbal,
+            MidiProgram.GuitarFretNoise,
+            MidiProgram.Seashore,
+            MidiProgram.Applause ,
+            MidiProgram.Gunshot,
+        };
+
+        //@Construct
         ~MainPage()
         {
             this.Synthesizer?.Dispose();
