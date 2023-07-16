@@ -23,7 +23,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="44"/>
                 <RowDefinition Height="*" MinHeight="200"/>
-                <RowDefinition Height="2"/>
+                <RowDefinition Height="4"/>
                 <RowDefinition Height="44"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
@@ -197,15 +197,6 @@
                 </StackPanel>
             </ScrollViewer>
 
-            <!--ProgressBar-->
-            <ProgressBar 
-                x:Name="ProgressBar" 
-                Grid.Row="2"
-                Height="2" 
-                Value="0"
-                Background="{ThemeResource AppStroke}"
-                />
-            
             <!--Body-->
             <SplitView
                 Grid.Row="1"
@@ -290,13 +281,8 @@
                         </ListView>
 
                         <!--Body-->
-                        <Grid 
-                            Grid.Row="1"
-                            Margin="4" 
-                            BorderThickness="2"
-                            BorderBrush="{ThemeResource AppBorderBrush}"
-                            >
-                            
+                        <Grid Grid.Row="1" Margin="4">
+
                             <!--Sounds-->
                             <controls:InstrumentSplitView InstrumentGroupPanel="{x:Bind InstrumentGroupPanel}" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem41.IsSelected), Mode=OneWay}">
                                 <ScrollViewer>
@@ -310,7 +296,7 @@
                             </ScrollViewer>
 
                             <!--Pedal-->
-                            <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem43.IsSelected), Mode=OneWay}">
+                            <Grid ColumnSpacing="4" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem43.IsSelected), Mode=OneWay}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="1*"/>
@@ -386,12 +372,14 @@
                     </Grid>
                 </SplitView.Pane>
 
-                <!--Bar-->
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="4"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
+
+                    <!--Bar-->
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="44"/>
@@ -463,13 +451,26 @@
 
                     </Grid>
 
-                    <Grid Grid.Column="1">
+                    <!--Separator-->
+                    <Rectangle Grid.Column="1" Fill="{ThemeResource AppStroke}"/>
+
+                    <Grid Grid.Column="2">
                         <notecontrols:TrackNotePanel x:Name="TrackNotePanel">
                             <notecontrols:PianoLeftPanel x:Name="PianoLeftPanel" Command="{x:Bind Command}"/>
                         </notecontrols:TrackNotePanel>
                     </Grid>
+
                 </Grid>
             </SplitView>
+
+            <!--ProgressBar-->
+            <ProgressBar 
+                x:Name="ProgressBar" 
+                Grid.Row="2"
+                Height="4" 
+                Value="0"
+                Background="{ThemeResource AppStroke}"
+                />
 
             <!--Head-->
             <ListView
