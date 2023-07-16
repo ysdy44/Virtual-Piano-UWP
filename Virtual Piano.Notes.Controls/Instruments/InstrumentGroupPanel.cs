@@ -23,6 +23,15 @@ namespace Virtual_Piano.Notes.Controls
                     this.Dictionary.Add(item2.Key, this.ItemsSource(item2.Key, item2.Value).ToArray());
                 }
             }
+            // Initialize
+            foreach (var item2 in this.Dictionary)
+            {
+                foreach (var item3 in item2.Value)
+                {
+                    this.Children.Add(item3);
+                }
+                return;
+            }
         }
 
         public IEnumerable<InstrumentButton> ItemsSource(MidiProgramGroup group, IEnumerable<MidiProgram> programs)

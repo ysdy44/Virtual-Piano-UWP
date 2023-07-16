@@ -27,7 +27,7 @@
                 <RowDefinition Height="44"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            
+
             <!--Title
             <TextBlock Grid.Row="1" IsHitTestVisible="False" Margin="30,6" Foreground="White" FontSize="80" FontFamily="Kunstler Script" HorizontalAlignment="Right" VerticalAlignment="Top">
                 Virtual Piano
@@ -221,6 +221,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="44"/>
                             <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
                         <!--Head-->
@@ -268,6 +269,15 @@
                                 <SymbolIcon Symbol="AllApps"/>
                             </ListViewItem>
 
+                            <ListViewItem x:Name="ListViewItem42">
+                                <ToolTipService.ToolTip>
+                                    <ToolTip>
+                                        Favorites
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
+                                <SymbolIcon Symbol="SolidStar"/>
+                            </ListViewItem>
+
                             <ListViewItem x:Name="ListViewItem43">
                                 <ToolTipService.ToolTip>
                                     <ToolTip>
@@ -294,6 +304,11 @@
                                 </ScrollViewer>
                             </controls:InstrumentSplitView>
 
+                            <!--Favorite-->
+                            <ScrollViewer Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem42.IsSelected), Mode=OneWay}">
+                                <controls:InstrumentCollectionPanel ObservableCollection="{x:Bind Favorites}" Command="{x:Bind Command}"/>
+                            </ScrollViewer>
+
                             <!--Pedal-->
                             <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem43.IsSelected), Mode=OneWay}">
                                 <Grid.ColumnDefinitions>
@@ -313,10 +328,64 @@
                             </Grid>
 
                         </Grid>
-                        
+
+                        <!--Bar-->
+                        <Grid Grid.Row="2" ColumnSpacing="8" Height="44" Margin="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border
+                                Grid.Row="1" 
+                                Height="44"
+                                CornerRadius="6"
+                                BorderBrush="Transparent"
+                                Background="{ThemeResource AppForeground}"
+                                VerticalAlignment="Center"
+                                >
+                                <Button 
+                                    Margin="6,2"
+                                    FontSize="12"
+                                    FontWeight="Normal"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    CommandParameter="{x:Bind DemoNote}"
+                                    Command="{x:Bind Command}"
+                                    Content="{x:Bind Favorites.String, Mode=OneWay}"
+                                    Style="{StaticResource TextBlockButtonStyle}"
+                                    >
+                                    <!--Content-->
+                                </Button>
+                            </Border>
+
+                            <elements:CommandCheckedButton
+                                Grid.Column="1"
+                                CornerRadius="4"
+                                Width="44" 
+                                Height="44" 
+                                BorderBrush="Transparent"
+                                Background="{ThemeResource AppForeground}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                IsChecked="{x:Bind Favorites.IsContains, Mode=OneWay}"
+                                UncheckedSymbol="OutlineStar"
+                                CheckedSymbol="SolidStar"
+                                CommandParameter="{x:Bind Favorites.IsContains, Mode=OneWay}"
+                                Command="{x:Bind Favorites.Command}"
+                                >
+                                <ToolTipService.ToolTip>
+                                    <ToolTip>
+                                        Favorite
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
+                            </elements:CommandCheckedButton>
+
+                        </Grid>
+
                     </Grid>
                 </SplitView.Pane>
-                
+
                 <!--Bar-->
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -391,9 +460,9 @@
                             </ToolTipService.ToolTip>
                             <SymbolIcon Symbol="DockLeft"/>
                         </ToggleButton>
-                        
+
                     </Grid>
-                    
+
                     <Grid Grid.Column="1">
                         <notecontrols:TrackNotePanel x:Name="TrackNotePanel">
                             <notecontrols:PianoLeftPanel x:Name="PianoLeftPanel" Command="{x:Bind Command}"/>
@@ -453,7 +522,7 @@
                         </ToolTipService.ToolTip>
                         <Button.Flyout>
                             <MenuFlyout Placement="Bottom">
-                                
+
                                 <!--Piano-->
                                 <MenuFlyoutItem
                                     Command="{x:Bind Command}"
@@ -627,7 +696,7 @@
                             </notecontrols:PianoTopPanel>
                         </ScrollViewer>
                     </Grid>
-                    
+
                     <SplitView.Pane>
                         <StackPanel Margin="0,4" Orientation="Horizontal" HorizontalAlignment="Center" BorderThickness="2" BorderBrush="{ThemeResource AppBorderBrush}">
                             <notecontrols:BendPitchWheel BorderBrush="{ThemeResource AppBorderBrush}" Background="{ThemeResource AppBorderBrush}" Foreground="{ThemeResource AppFill}" Command="{x:Bind Command}">
@@ -794,7 +863,7 @@
                     </controls:DrumSplitView>
 
                 </Grid>
-                
+
             </Grid>
 
         </Grid>

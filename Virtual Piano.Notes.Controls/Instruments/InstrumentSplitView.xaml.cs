@@ -13,6 +13,7 @@ namespace Virtual_Piano.Notes.Controls
         {
             this.InitializeComponent();
             this.ListView.ItemsSource = this.ItemsSource().ToArray();
+            this.ListView.SelectedIndex = 0; // Initialize
             this.ListView.SelectionChanged += (s, e) =>
             {
                 if (this.InstrumentGroupPanel is null) return;
