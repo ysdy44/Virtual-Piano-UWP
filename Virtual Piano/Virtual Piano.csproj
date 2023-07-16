@@ -144,8 +144,8 @@
     <Compile Include="Views\GuitarView.xaml.cs">
       <DependentUpon>GuitarView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\KeyboardView.xaml.cs">
-      <DependentUpon>KeyboardView.xaml</DependentUpon>
+    <Compile Include="Views\PianoView.xaml.cs">
+      <DependentUpon>PianoView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -233,9 +233,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\KeyboardView.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Views\PianoView.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

@@ -7,7 +7,7 @@ namespace Virtual_Piano.Views
     public sealed partial class PianoView : Page
     {
         ICommand Command;
-        
+
         public PianoView()
         {
             this.InitializeComponent();
