@@ -566,7 +566,7 @@
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}"
                                     >
                                     <MenuFlyoutItem.Icon>
-                                        <SymbolIcon Symbol="OneBar"/>
+                                        <SymbolIcon Symbol="NewWindow"/>
                                     </MenuFlyoutItem.Icon>
                                 </MenuFlyoutItem>
 
@@ -578,7 +578,7 @@
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}"
                                     >
                                     <MenuFlyoutItem.Icon>
-                                        <SymbolIcon Symbol="ViewAll"/>
+                                        <SymbolIcon Symbol="NewWindow"/>
                                     </MenuFlyoutItem.Icon>
                                 </MenuFlyoutItem>
 
@@ -590,7 +590,7 @@
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}"
                                     >
                                     <MenuFlyoutItem.Icon>
-                                        <SymbolIcon Symbol="AlignLeft"/>
+                                        <SymbolIcon Symbol="NewWindow"/>
                                     </MenuFlyoutItem.Icon>
                                 </MenuFlyoutItem>
 
@@ -602,7 +602,7 @@
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem5.IsSelected), Mode=OneWay}"
                                     >
                                     <MenuFlyoutItem.Icon>
-                                        <SymbolIcon Symbol="AlignRight"/>
+                                        <SymbolIcon Symbol="NewWindow"/>
                                     </MenuFlyoutItem.Icon>
                                 </MenuFlyoutItem>
 
