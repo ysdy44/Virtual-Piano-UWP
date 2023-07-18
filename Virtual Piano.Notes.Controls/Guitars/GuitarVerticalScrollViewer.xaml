@@ -1,5 +1,5 @@
-﻿<UserControl
-    x:Class="Virtual_Piano.Notes.Controls.GuitarVerticalScrollViewer"
+﻿<StackPanel
+    x:Class="Virtual_Piano.Notes.Controls.GuitarScrollBar"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -18,15 +18,12 @@
         </Style>
     </FrameworkElement.Resources>
 
-    <StackPanel VerticalAlignment="Center">
+    <RepeatButton x:Name="PreviousButton">
+        <SymbolIcon Symbol="Previous"/>
+    </RepeatButton>
+    <AppBarSeparator/>
+    <RepeatButton x:Name="NextButton" Grid.Row="2">
+        <SymbolIcon Symbol="Next"/>
+    </RepeatButton>
 
-        <RepeatButton x:Name="PreviousButton" Height="44">
-            <SymbolIcon Symbol="Previous"/>
-        </RepeatButton>
-        <AppBarSeparator Height="32"/>
-        <RepeatButton x:Name="NextButton" Grid.Row="2" Height="44">
-            <SymbolIcon Symbol="Next"/>
-        </RepeatButton>
-
-    </StackPanel>
-</UserControl>
+</StackPanel>

@@ -20,19 +20,15 @@
             <Border>
 
                 <!--Base-->
-                <SplitView
-                    DisplayMode="Inline"
-                    OpenPaneLength="60"
-                    IsPaneOpen="True" 
-                    PanePlacement="Left"
-                    PaneBackground="{x:Null}"
-                    Background="{x:Null}"
-                    >
-                    <SplitView.Pane>
-                        <notecontrols:GuitarVerticalScrollViewer ScrollViewer="{x:Bind BaseScrollViewer}"/>
-                    </SplitView.Pane>
+                <Grid Margin="2,0" RowSpacing="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="36"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <notecontrols:GuitarScrollBar Orientation="Horizontal" HorizontalAlignment="Center" ScrollViewer="{x:Bind BaseScrollViewer}"/>
                     <ScrollViewer
                         x:Name="BaseScrollViewer"
+                        Grid.Row="1"
                         ZoomMode="Disabled"
                          
                         HorizontalScrollMode="Enabled"
@@ -52,7 +48,7 @@
                             </UIElement.ManipulationMode>
                         </notecontrols:BaseGuitarPanel>
                     </ScrollViewer>
-                </SplitView>
+                </Grid>
 
             </Border>
         </Border>

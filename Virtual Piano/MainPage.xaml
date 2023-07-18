@@ -728,7 +728,7 @@
                             <RowDefinition Height="36"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <notecontrols:PianoHorizontalScrollViewer ItemSize="28" ScrollViewer="{x:Bind KeyboardScrollViewer}"/>
+                        <notecontrols:PianoHorizontalScrollBar ItemSize="28" ScrollViewer="{x:Bind KeyboardScrollViewer}"/>
                         <ScrollViewer
                             x:Name="KeyboardScrollViewer"
                             Grid.Row="1"
@@ -892,20 +892,15 @@
                 </Grid>
 
                 <!--Guitar-->
-                <SplitView
-                    DisplayMode="Inline"
-                    OpenPaneLength="60"
-                    IsPaneOpen="True" 
-                    PanePlacement="Left"
-                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}"
-                    PaneBackground="{x:Null}"
-                    Background="{x:Null}"
-                    >
-                    <SplitView.Pane>
-                        <notecontrols:GuitarVerticalScrollViewer ScrollViewer="{x:Bind GuitarScrollViewer}"/>
-                    </SplitView.Pane>
+                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <notecontrols:GuitarScrollBar Orientation="Vertical" VerticalAlignment="Center" ScrollViewer="{x:Bind GuitarScrollViewer}"/>
                     <ScrollViewer
                         x:Name="GuitarScrollViewer"
+                        Grid.Column="1"
                         ZoomMode="Disabled"
                          
                         HorizontalScrollMode="Enabled"
@@ -925,23 +920,18 @@
                             </UIElement.ManipulationMode>
                         </notecontrols:GuitarPanel>
                     </ScrollViewer>
-                </SplitView>
+                </Grid>
 
                 <!--Bass-->
-                <SplitView
-                    DisplayMode="Inline"
-                    OpenPaneLength="60"
-                    IsPaneOpen="True" 
-                    PanePlacement="Left"
-                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem5.IsSelected), Mode=OneWay}"
-                    PaneBackground="{x:Null}"
-                    Background="{x:Null}"
-                    >
-                    <SplitView.Pane>
-                        <notecontrols:GuitarVerticalScrollViewer ScrollViewer="{x:Bind BassScrollViewer}"/>
-                    </SplitView.Pane>
+                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem5.IsSelected), Mode=OneWay}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <notecontrols:GuitarScrollBar Orientation="Vertical" VerticalAlignment="Center" ScrollViewer="{x:Bind BassScrollViewer}"/>
                     <ScrollViewer
                         x:Name="BassScrollViewer"
+                        Grid.Column="1"
                         ZoomMode="Disabled"
                          
                         HorizontalScrollMode="Enabled"
@@ -961,7 +951,7 @@
                             </UIElement.ManipulationMode>
                         </notecontrols:BaseGuitarPanel>
                     </ScrollViewer>
-                </SplitView>
+                </Grid>
 
             </Grid>
 

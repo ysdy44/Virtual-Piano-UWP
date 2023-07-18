@@ -26,7 +26,7 @@
                             <RowDefinition Height="36"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <notecontrols:PianoHorizontalScrollViewer ItemSize="28" ScrollViewer="{x:Bind NoteScrollViewer}"/>
+                        <notecontrols:PianoHorizontalScrollBar ItemSize="28" ScrollViewer="{x:Bind NoteScrollViewer}"/>
                         <ScrollViewer
                             x:Name="NoteScrollViewer"
                             Grid.Row="1"

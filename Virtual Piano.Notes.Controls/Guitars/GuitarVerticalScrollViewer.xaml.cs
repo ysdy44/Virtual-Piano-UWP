@@ -2,7 +2,7 @@
 
 namespace Virtual_Piano.Notes.Controls
 {
-    public sealed partial class GuitarVerticalScrollViewer : UserControl
+    public sealed partial class GuitarScrollBar : StackPanel
     {
 
         private ScrollViewer scrollViewer;
@@ -14,7 +14,7 @@ namespace Virtual_Piano.Notes.Controls
 
         double Offset;
 
-        public GuitarVerticalScrollViewer()
+        public GuitarScrollBar()
         {
             this.InitializeComponent();
             this.PreviousButton.Click += (s, e) => this.PageUp();
@@ -25,14 +25,14 @@ namespace Virtual_Piano.Notes.Controls
         {
             if (this.ScrollViewer is null) return;
             this.Offset = this.ScrollViewer.HorizontalOffset;
-            this.Offset -= 20;
+            this.Offset -= 40;
             this.ScrollViewer.ChangeView(this.Offset, null, null, false);
         }
         public void PageDown()
         {
             if (this.ScrollViewer is null) return;
             this.Offset = this.ScrollViewer.HorizontalOffset;
-            this.Offset += 20;
+            this.Offset += 40;
             this.ScrollViewer.ChangeView(this.Offset, null, null, false);
         }
     }
