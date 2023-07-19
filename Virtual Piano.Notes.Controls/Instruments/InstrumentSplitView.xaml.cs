@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Notes.Controls
 {
@@ -18,29 +19,40 @@ namespace Virtual_Piano.Notes.Controls
             {
                 if (this.InstrumentGroupPanel is null) return;
 
-                foreach (InstrumentItemCategory item in e.RemovedItems)
+                foreach (ListViewItem item in e.RemovedItems)
                 {
-                    this.InstrumentGroupPanel.Remove(item.Group);
+                    if (item.Content is InstrumentItemCategory category)
+                    {
+                        this.InstrumentGroupPanel.Remove(category.Group);
+                    }
                 }
 
-                foreach (InstrumentItemCategory item in e.AddedItems)
+                foreach (ListViewItem item in e.AddedItems)
                 {
-                    this.InstrumentGroupPanel.Add(item.Group);
+                    if (item.Content is InstrumentItemCategory category)
+                    {
+                        this.InstrumentGroupPanel.Add(category.Group);
+                    }
                 }
             };
         }
 
-        private IEnumerable<InstrumentItemCategory> ItemsSource()
+        private IEnumerable<ListViewItem> ItemsSource()
         {
             foreach (var item1 in MidiProgramFactory.Instance)
             {
                 foreach (var item2 in item1.Value)
                 {
-                    yield return new InstrumentItemCategory
+                    MidiProgramGroup group = item2.Key;
+                    ListViewItem item = new ListViewItem
                     {
-                        Group = item2.Key,
-                        Text = this.GetString(item2.Key)
+                        Content = new InstrumentItemCategory
+                        {
+                            Group = item2.Key,
+                        }
                     };
+                    ToolTipService.SetToolTip(item, this.GetString(group));
+                    yield return item;
                 }
             }
         }

@@ -3,7 +3,7 @@
     public class InstrumentItemCategory
     {
         public MidiProgramGroup Group;
-        public string Text;
-        public override string ToString() => this.Text;
+        public string Text => this.ToString();
+        public override string ToString() => MidiProgramFactory.Emoji[this.Group];
     }
 }

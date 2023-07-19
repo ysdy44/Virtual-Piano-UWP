@@ -4,21 +4,20 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="using:Virtual_Piano.Notes.Controls"
+    xmlns:controls="using:Virtual_Piano.Notes.Controls"
     mc:Ignorable="d"
     d:DesignWidth="800"
     d:DesignHeight="400"
     IsPaneOpen="True" 
     DisplayMode="Inline"
-    OpenPaneLength="120"
+    OpenPaneLength="62"
     PaneBackground="{x:Null}"
     >
-
+    
     <SplitView.Pane>
         <ListView
             x:Name="ListView"
-            Margin="4,4,0,4"
-            CornerRadius="4"
+            Margin="2,2,0,2"
             SelectionMode="Extended"
             VerticalAlignment="Top"
             IsMultiSelectCheckBoxEnabled="False"
@@ -26,15 +25,28 @@
             ScrollViewer.VerticalScrollBarVisibility="Hidden"
             >
 
-            <ItemsControl.ItemContainerStyle>
+            <FrameworkElement.Resources>
                 <Style TargetType="ListViewItem">
-                    <Setter Property="MinHeight" Value="36"/>
-                    <Setter Property="MaxHeight" Value="36"/>
-                    <Setter Property="Height" Value="36"/>
-                    <Setter Property="FontWeight" Value="Medium"/>
+                    <Setter Property="MinWidth" Value="60"/>
+                    <Setter Property="MaxWidth" Value="60"/>
+                    <Setter Property="Width" Value="60"/>
+                    <Setter Property="MinHeight" Value="50"/>
+                    <Setter Property="MaxHeight" Value="50"/>
+                    <Setter Property="Height" Value="50"/>
                     <Setter Property="Margin" Value="0"/>
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="FontSize" Value="24"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate x:DataType="controls:InstrumentItemCategory">
+                                <TextBlock IsColorFontEnabled="False" Text="{x:Bind Text}"/>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
                 </Style>
-            </ItemsControl.ItemContainerStyle>
+            </FrameworkElement.Resources>
 
             <ItemsControl.ItemContainerTransitions>
                 <TransitionCollection>
