@@ -125,6 +125,8 @@
     <Compile Include="Bends\BendWheel.xaml.cs">
       <DependentUpon>BendWheel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Bends\BendWheel0.cs" />
+    <Compile Include="Bends\BendWheel64.cs" />
     <Compile Include="Chords\ChordButton.cs" />
     <Compile Include="Chords\ChordPanel.xaml.cs">
       <DependentUpon>ChordPanel.xaml</DependentUpon>
