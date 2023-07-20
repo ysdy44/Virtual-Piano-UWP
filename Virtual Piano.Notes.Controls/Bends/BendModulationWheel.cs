@@ -3,7 +3,7 @@ using Windows.Devices.Midi;
 
 namespace Virtual_Piano.Notes.Controls
 {
-    public sealed class BendModulationWheel : BendWheel
+    public sealed class BendModulationWheel : BendWheel0
     {
         public ICommand Command { get; set; }
 

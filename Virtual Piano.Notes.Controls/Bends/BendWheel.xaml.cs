@@ -7,6 +7,13 @@ using Windows.UI.Xaml.Markup;
 
 namespace Virtual_Piano.Notes.Controls
 {
+    public abstract class BendWheel0 : BendWheel
+    {
+        protected BendWheel0() : base(0) { }
+
+        public override void Start() { }
+        public override void Stop() { }
+    }
 
     [ContentProperty(Name = nameof(Text))]
     public abstract partial class BendWheel : UserControl
@@ -16,7 +23,9 @@ namespace Virtual_Piano.Notes.Controls
         double WHalf;
         double H;
 
-        private int index = 64;
+        readonly int DefaultValue;
+
+        private int index;
         public int Index
         {
             get => this.index;
@@ -32,14 +41,12 @@ namespace Virtual_Piano.Notes.Controls
         // UI
         public string Text { get => this.TextBlock2.Text; set => this.TextBlock2.Text = value; }
 
-        readonly DispatcherTimer Timer = new DispatcherTimer
-        {
-            Interval = TimeSpan.FromMilliseconds(25)
-        };
-
-        public BendWheel()
+        public BendWheel(int defaultValue)
         {
             this.InitializeComponent();
+            this.DefaultValue = defaultValue;
+            this.index = defaultValue;
+            this.Update(defaultValue);
             this.Canvas.SizeChanged += (s, e) =>
             {
                 if (e.NewSize == Size.Empty) return;
@@ -73,7 +80,7 @@ namespace Virtual_Piano.Notes.Controls
             {
                 this.Y = e.VerticalOffset;
                 this.Position(this.Y);
-                this.Timer.Stop();
+                this.Stop();
             };
             this.Thumb.DragDelta += (s, e) =>
             {
@@ -82,12 +89,23 @@ namespace Virtual_Piano.Notes.Controls
             };
             this.Thumb.DragCompleted += (s, e) =>
             {
-                if (this.Index == 64)
-                    this.Timer.Stop();
+                if (this.Index == this.DefaultValue)
+                    this.Stop();
                 else
-                    this.Timer.Start();
+                    this.Start();
             };
+        }
+    }
 
+    public abstract class BendWheel64 : BendWheel
+    {
+        readonly DispatcherTimer Timer = new DispatcherTimer
+        {
+            Interval = TimeSpan.FromMilliseconds(25)
+        };
+
+        protected BendWheel64() : base(64)
+        {
             this.Timer.Tick += (s, e) =>
             {
                 switch (this.Index)
@@ -229,6 +247,14 @@ namespace Virtual_Piano.Notes.Controls
             };
         }
 
+        public override void Start() => this.Timer.Start();
+        public override void Stop() => this.Timer.Stop();
+    }
+
+    partial class BendWheel
+    {
+        public abstract void Stop();
+        public abstract void Start();
         public abstract void Execute(int value);
         private void Update(string value, double y)
         {
