@@ -149,6 +149,7 @@
     <Compile Include="Enums\GuitarInlay1.cs" />
     <Compile Include="Enums\GuitarInlay2.cs" />
     <Compile Include="Enums\GuitarString.cs" />
+    <Compile Include="Enums\KitSet.cs" />
     <Compile Include="Enums\PianoDirection.cs" />
     <Compile Include="Guitars\BaseGuitarPanel.xaml.cs">
       <DependentUpon>BaseGuitarPanel.xaml</DependentUpon>
