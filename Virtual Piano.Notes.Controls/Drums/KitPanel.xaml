@@ -1,0 +1,153 @@
+﻿<Canvas
+    x:Class="Virtual_Piano.Notes.Controls.KitPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:Virtual_Piano.Notes.Controls"
+    mc:Ignorable="d"
+    d:DesignWidth="400"
+    d:DesignHeight="400"
+    Width="1500" 
+    Height="1000"
+    >
+
+    <FrameworkElement.Resources>
+        <!--Style-->
+        <Style x:Key="ShapeStyle" TargetType="Shape">
+            <Setter Property="IsHitTestVisible" Value="False"/>
+            <Setter Property="StrokeThickness" Value="4"/>
+            <Setter Property="Stroke" Value="Gray"/>
+        </Style>
+        <Style TargetType="Path" BasedOn="{StaticResource ShapeStyle}"/>
+        <Style TargetType="Ellipse" BasedOn="{StaticResource ShapeStyle}"/>
+        <Style TargetType="Polyline" BasedOn="{StaticResource ShapeStyle}"/>
+        <!--Style-->
+        <Style TargetType="local:KitButton">
+            <Setter Property="AllowFocusOnInteraction" Value="True"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True"/>
+            <Setter Property="IsTabStop" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="local:KitButton">
+                        <Grid>
+                            <Ellipse x:Name="RootGrid" Fill="Transparent"/>
+                            <Ellipse IsHitTestVisible="False" Width="54" Height="54" Fill="CornflowerBlue"/>
+                            <ContentPresenter
+                                IsHitTestVisible="False"
+                                Content="{TemplateBinding Content}" 
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center" 
+                                Foreground="White"
+                                FontFamily="Agency FB"  
+                                FontWeight="Black"
+                                FontSize="40"
+                                />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </FrameworkElement.Resources>
+
+    <!--4-->
+    <Polyline Canvas.Left="194" Canvas.Top="237" Points="0,0 0,713 67,725"/>
+    <Polyline Canvas.Left="65" Canvas.Top="720" Points="0,206 121,0 136,0 312,160"/>
+    <Polyline Canvas.Left="148" Canvas.Top="782" Points="125,3 53,68 38,68 0,0"/>
+    <Canvas Canvas.Left="227" Canvas.Top="860" Width="99" Height="102">
+        <Polyline Points="99,88 37,14 8,0 0,26 76,102" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+    </Canvas>
+
+    <Polyline Canvas.Left="389" Canvas.Top="653" Points="0,7 51,47 72,47 118,0"/>
+    <Polyline Canvas.Left="452" Canvas.Top="133" Points="0,0 0,566"/>
+    <Polyline Canvas.Left="319" Canvas.Top="607" Points="258,114 142,0 121,0 0,128"/>
+
+    <Polyline Canvas.Left="1268" Canvas.Top="689" Points="52,0 0,64"/>
+    <Polyline Canvas.Left="1177" Canvas.Top="221" Points="0,0 243,141"/>
+    <Polyline Canvas.Left="1268" Canvas.Top="622" Points="119,158 0,0"/>
+    <Polyline Canvas.Left="1268" Canvas.Top="273" Points="0,0 0,502"/>
+
+    <Polyline Canvas.Left="504" Canvas.Top="577" Points="0,0 0,285"/>
+    <Polyline Canvas.Left="434" Canvas.Top="785" Points="0,89 63,0 79,0 216,101"/>
+    <Polyline Canvas.Left="477" Canvas.Top="814" Points="0,0 20,48 36,48 74,0"/>
+
+    <Polyline Canvas.Left="575" Canvas.Top="698" Points="29,0 0,73"/>
+
+    <Polyline Canvas.Left="1250" Canvas.Top="806" Points="31,97 31,68 0,42 0,0"/>
+    <Polyline Canvas.Left="1038" Canvas.Top="810" Points="0,64 0,37 18,18 18,0"/>
+    <!--3-->
+    <Ellipse Canvas.Left="43" Canvas.Top="237" Width="301" Height="37" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    </Ellipse>
+    <Ellipse Canvas.Left="43" Canvas.Top="237" Width="301" Height="37" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    </Ellipse>
+
+    <Ellipse Canvas.Left="296" Canvas.Top="64" Width="312" Height="140" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    </Ellipse>
+
+    <Ellipse Canvas.Left="959" Canvas.Top="92" Width="435" Height="140" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    </Ellipse>
+    <!--2-->
+    <Path Data="M566.224,267.597C566.201,267.245 566.189,266.89 566.189,266.534C566.189,244.805 609.63,227.164 663.137,227.164
+          C716.643,227.164 760.084,244.805 760.084,266.534L764.35,266.534L760.084,387.515C760.084,408.504 717.537,425.544 665.13,425.544
+          C612.724,425.544 570.176,408.504 570.176,387.515L566.224,267.597Z" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+    <Path Data="M760.084,266.534C760.084,288.262 716.643,305.903 663.137,305.903C609.63,305.903 566.189,288.262 566.189,266.534"/>
+
+    <Path Data="M380.012,444.291C380.009,444.212 380.006,444.133 380.006,444.053L380.006,444.039L380.006,444.039L380.006,444
+          C380.006,428.546 436.016,416 505.006,416C573.995,416 630.006,428.546 630.006,444L630.005,444.039L630.006,444.039
+          L630.006,549.297C630.006,564.363 574.624,576.594 506.41,576.594C438.196,576.594 382.815,564.363 382.815,549.297L380.012,444.291Z" 
+          Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+    <Path Data="M630.006,444C630.006,459.454 573.995,472 505.006,472C436.016,472 380.006,459.454 380.006,444" />
+
+    <Path Data="M664.526,484.223C692.788,433.398 747.054,398.972 809.297,398.972C875.012,398.972 931.834,437.345 958.554,492.883
+          L958.555,492.883L985.748,549.297L985.738,549.297C1003.05,579.763 1012.94,615.042 1012.94,652.631
+          C1012.94,767.755 920.109,861.222 805.766,861.222C691.423,861.222 598.59,767.755 598.59,652.631
+          C598.59,615.042 608.487,579.763 625.794,549.297L625.783,549.297L626.018,548.903C627.28,546.691 628.582,544.506 629.922,542.346L664.526,484.223Z" 
+          Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+    <Path Data="M598.59,652.631C598.59,537.506 691.423,444.039 805.766,444.039C920.109,444.039 1012.94,537.506 1012.94,652.631"/>
+
+    <Path Data="M850.354,267.299C850.343,267.05 850.337,266.8 850.337,266.551C850.337,244.831 894.413,227.198 948.703,227.198
+          C1002.99,227.198 1047.07,244.831 1047.07,266.551C1047.07,266.831 1047.06,267.11 1047.05,267.39L1043.61,396.281
+          C1043.61,419.038 1000.99,437.513 948.495,437.513C896.002,437.513 853.384,419.038 853.384,396.281L850.354,267.299Z" 
+          Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+    <Path Data="M1047.07,266.551C1047.07,288.27 1002.99,305.903 948.703,305.903C894.413,305.903 850.337,288.27 850.337,266.551"/>
+
+    <Path Data="M992.842,503.999C992.841,503.953 992.84,503.91 992.84,503.866C992.84,486.496 1059.67,472.393 1141.99,472.393
+          C1224.3,472.393 1291.13,486.496 1291.13,503.866L1291.13,780.058L1289.1,780.058C1289.1,800.961 1223.41,817.932 1142.49,817.932
+          C1061.57,817.932 995.88,800.961 995.88,780.058L992.842,503.999Z" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+    <Path Data="M1291.13,503.866C1291.13,521.237 1224.3,535.34 1141.99,535.34C1059.67,535.34 992.84,521.237 992.84,503.866"/>
+    <!--1-->
+    <Polyline Canvas.Left="194" Canvas.Top="191" Points="0,64 0,0">
+    </Polyline>
+
+    <Polyline Canvas.Left="452" Canvas.Top="108" Points="0,25 0,0"/>
+
+    <Polyline Canvas.Left="1177" Canvas.Top="83" Points="0,78 0,0"/>
+
+    <Polyline Canvas.Left="745" Canvas.Top="304" Points="52,119 52,38 0,0"/>
+
+    <Canvas Canvas.Left="767" Canvas.Top="771" Width="79" Height="133">
+        <Polyline Points="71,133 78,96 71,68 82,47 79,28 60,7 56,0 25,0 22,7 2,28 0,47 11,68 4,96 11,133" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+    </Canvas>
+    <Polyline Canvas.Left="770" Canvas.Top="734" Points="0,65 0,0 77,0 77,65"/>
+    <Polyline Canvas.Left="787" Canvas.Top="636" Points="22,50 43,36 43,15 22,0 0,15 0,36 22,50 22,135">
+    
+    </Polyline>
+
+    <Polyline Canvas.Left="994" Canvas.Top="652" Points="22,0 22,229 0,254 0,302"/>
+    <Polyline Canvas.Left="1241" Canvas.Top="673" Points="0,0 0,216 21,250 21,288"/>
+
+    <Polyline Canvas.Left="819" Canvas.Top="306" Points="40,0 0,35 0,117"/>
+    <!--0-->
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[0]}" Content="1" Canvas.Left="340" Canvas.Top="0" Width="240" Height="240"/>
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[1]}" Content="2" Canvas.Left="1053" Canvas.Top="0" Width="320" Height="320"/>
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[2]}" Content="3" Canvas.Left="80" Canvas.Top="50" Width="200" Height="200"/>
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[3]}" Content="4" Canvas.Left="120" Canvas.Top="260" Width="200" Height="200"/>
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[4]}" Content="5" Canvas.Left="150" Canvas.Top="750" Width="240" Height="240"/>
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[5]}" Content="6" Canvas.Left="565" Canvas.Top="200" Width="200" Height="200"/>
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[6]}" Content="7" Canvas.Left="825" Canvas.Top="180" Width="240" Height="240"/>
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[7]}" Content="8" Canvas.Left="990" Canvas.Top="450" Width="300" Height="300"/>
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[8]}" Content="9" Canvas.Left="370" Canvas.Top="290" Width="200" Height="200"/>
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[9]}" Content="10" Canvas.Left="455" Canvas.Top="490" Width="160" Height="160"/>
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[10]}" Content="11" Canvas.Left="605" Canvas.Top="460" Width="400" Height="400"/>
+    
+</Canvas>

@@ -146,6 +146,10 @@
     <Compile Include="Drums\DrumSplitView.xaml.cs">
       <DependentUpon>DrumSplitView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Drums\KitButton.cs" />
+    <Compile Include="Drums\KitPanel.xaml.cs">
+      <DependentUpon>KitPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Enums\GuitarInlay1.cs" />
     <Compile Include="Enums\GuitarInlay2.cs" />
     <Compile Include="Enums\GuitarString.cs" />
@@ -267,6 +271,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Drums\DrumSplitView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Drums\KitPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
