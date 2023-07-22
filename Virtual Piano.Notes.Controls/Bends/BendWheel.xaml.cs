@@ -86,25 +86,21 @@ namespace Virtual_Piano.Notes.Controls
                     this.Start();
             };
         }
-  
+
         public abstract void Stop();
         public abstract void Start();
         public abstract void Execute(int value);
-        private void Update(string value, double y)
-        {
-            this.TextBlock1.Text = value;
-            Canvas.SetTop(this.Rectangle, y);
-        }
         private void Update(int value)
         {
-            double top = (this.H - this.W) * value / 127;
-            this.Update($"{value}", top);
+            double top = (this.H - this.W) * (127 - value) / 127;
+            this.TextBlock1.Text = $"{value}";
+            Canvas.SetTop(this.Rectangle, top);
         }
 
         private void Position(double y)
         {
             int index = (int)((y - this.W - this.WHalf) / (this.H - this.W) * 127);
-            this.Index = Math.Clamp(index, 0, 127);
+            this.Index = Math.Clamp(127 - index, 0, 127);
         }
     }
 }

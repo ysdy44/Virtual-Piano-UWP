@@ -5,6 +5,7 @@ namespace Virtual_Piano.Notes.Controls
 {
     public sealed class BendPitchWheel : BendWheel64
     {
+        //@Command
         public ICommand Command { get; set; }
 
         public override void Execute(int value)
