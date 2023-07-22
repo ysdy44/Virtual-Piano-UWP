@@ -182,6 +182,8 @@
     <Compile Include="Interfaces\IGuitarPanel.cs" />
     <Compile Include="Interfaces\IInstrumentGroupPanel.cs" />
     <Compile Include="Interfaces\IInstrumentPanel.cs" />
+    <Compile Include="Interfaces\IKitButton.cs" />
+    <Compile Include="Interfaces\IKitPanel.cs" />
     <Compile Include="Interfaces\IPianoButton.cs" />
     <Compile Include="Interfaces\IPianoPanel.cs" />
     <Compile Include="Models\DrumItemCategory.cs" />
