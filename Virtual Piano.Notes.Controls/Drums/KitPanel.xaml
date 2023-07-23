@@ -14,6 +14,17 @@
 
     <FrameworkElement.Resources>
         <!--Style-->
+        <Style TargetType="Line">
+            <Setter Property="IsHitTestVisible" Value="False"/>
+            <Setter Property="Width" Value="600"/>
+            <Setter Property="Height" Value="600"/>
+            <Setter Property="X1" Value="300"/>
+            <Setter Property="Y1" Value="300"/>
+            <Setter Property="X2" Value="300"/>
+            <Setter Property="Y2" Value="0"/>
+            <Setter Property="StrokeThickness" Value="8"/>
+            <Setter Property="Stroke" Value="CornflowerBlue"/>
+        </Style>
         <Style x:Key="ShapeStyle" TargetType="Shape">
             <Setter Property="IsHitTestVisible" Value="False"/>
             <Setter Property="StrokeThickness" Value="4"/>
@@ -249,7 +260,47 @@
 
     <Polyline Canvas.Left="819" Canvas.Top="306" Points="40,0 0,35 0,117"/>
     <!--0-->
-
+    <Line x:Name="LeftHand" Canvas.Left="500" Canvas.Top="114">
+        <FrameworkElement.Resources>
+            <!--Easing-->
+            <CircleEase x:Key="CircleEase" EasingMode="EaseOut"/>
+            <!--Storyboard-->
+            <Storyboard x:Name="LeftHandHiTomStoryboard">
+                <DoubleAnimation Duration="00:00:00.15" From="-45" To="-25" Storyboard.TargetProperty="Angle" Storyboard.TargetName="LeftHandRotateTransform" EasingFunction="{StaticResource CircleEase}" d:IsOptimized="True"/>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="LeftHand" d:IsOptimized="True">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="500"/>
+                </ObjectAnimationUsingKeyFrames>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="LeftHand" d:IsOptimized="True">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="114"/>
+                </ObjectAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Name="LeftHandCrashStoryboard">
+                <DoubleAnimation Duration="00:00:00.15" From="-32" To="-52" Storyboard.TargetProperty="Angle" Storyboard.TargetName="LeftHandRotateTransform" EasingFunction="{StaticResource CircleEase}" d:IsOptimized="True"/>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="LeftHand" d:IsOptimized="True">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="361"/>
+                </ObjectAnimationUsingKeyFrames>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="LeftHand" d:IsOptimized="True">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="24"/>
+                </ObjectAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Name="LeftHandHiHatStoryboard">
+                <DoubleAnimation Duration="00:00:00.15" From="-62" To="-44" Storyboard.TargetProperty="Angle" Storyboard.TargetName="LeftHandRotateTransform" EasingFunction="{StaticResource CircleEase}" d:IsOptimized="True"/>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="LeftHand" d:IsOptimized="True">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="230"/>
+                </ObjectAnimationUsingKeyFrames>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="LeftHand" d:IsOptimized="True">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="66"/>
+                </ObjectAnimationUsingKeyFrames>
+            </Storyboard>
+        </FrameworkElement.Resources>
+        <UIElement.RenderTransformOrigin>
+            0.5,0.5
+        </UIElement.RenderTransformOrigin>
+        <UIElement.RenderTransform>
+            <RotateTransform x:Name="LeftHandRotateTransform" Angle="-25"/>
+        </UIElement.RenderTransform>
+    </Line>
+    <!--Children-->
     <local:KitButton CommandParameter="{x:Bind ItemsSource[0]}" Content="1" Canvas.Left="340" Canvas.Top="0" Width="240" Height="240"/>
     <local:KitButton CommandParameter="{x:Bind ItemsSource[1]}" Content="2" Canvas.Left="1053" Canvas.Top="0" Width="320" Height="320"/>
     <local:KitButton CommandParameter="{x:Bind ItemsSource[2]}" Content="3" Canvas.Left="80" Canvas.Top="50" Width="200" Height="200"/>

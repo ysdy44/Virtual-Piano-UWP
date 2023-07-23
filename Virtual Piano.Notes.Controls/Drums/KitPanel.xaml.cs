@@ -38,6 +38,8 @@ namespace Virtual_Piano.Notes.Controls
                 case KitSet.Crash:
                     this.CrashStoryboard.Stop(); // Storyboard
                     this.CrashStoryboard.Begin(); // Storyboard
+
+                    this.LeftHandCrashStoryboard.Begin(); // Storyboard
                     break;
                 case KitSet.Ride:
                     this.RideStoryboard.Stop(); // Storyboard
@@ -46,16 +48,21 @@ namespace Virtual_Piano.Notes.Controls
                 case KitSet.Open:
                     this.OpenStoryboard.Stop(); // Storyboard
                     this.OpenStoryboard.Begin(); // Storyboard
+
+                    this.LeftHandHiHatStoryboard.Begin(); // Storyboard
                     break;
                 case KitSet.Close:
                     this.CloseStoryboard.Stop(); // Storyboard
                     this.CloseStoryboard.Begin(); // Storyboard
+
+                    this.LeftHandHiHatStoryboard.Begin(); // Storyboard
                     break;
                 case KitSet.Pedal:
                     this.PedalStoryboard.Stop(); // Storyboard
                     this.PedalStoryboard.Begin(); // Storyboard
                     break;
                 case KitSet.HiTom:
+                    this.LeftHandHiTomStoryboard.Begin(); // Storyboard
                     break;
                 case KitSet.LowTom:
                     break;
