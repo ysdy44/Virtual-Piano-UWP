@@ -44,10 +44,16 @@ namespace Virtual_Piano.Notes.Controls
                     this.RideStoryboard.Begin(); // Storyboard
                     break;
                 case KitSet.Open:
+                    this.OpenStoryboard.Stop(); // Storyboard
+                    this.OpenStoryboard.Begin(); // Storyboard
                     break;
                 case KitSet.Close:
+                    this.CloseStoryboard.Stop(); // Storyboard
+                    this.CloseStoryboard.Begin(); // Storyboard
                     break;
                 case KitSet.Pedal:
+                    this.PedalStoryboard.Stop(); // Storyboard
+                    this.PedalStoryboard.Begin(); // Storyboard
                     break;
                 case KitSet.HiTom:
                     break;

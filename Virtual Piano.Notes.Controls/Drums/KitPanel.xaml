@@ -27,6 +27,41 @@
         <BounceEase x:Key="BounceEase" EasingMode="EaseOut"/>
         <CircleEase x:Key="CircleEase" EasingMode="EaseOut"/>
 
+        <!--Storyboard-->
+        <Storyboard x:Name="OpenStoryboard">
+            <DoubleAnimation BeginTime="00:00:00.1" Duration="00:00:00.5" From="12" To="2" Storyboard.TargetProperty="Rotation" Storyboard.TargetName="OpenCompositeTransform" EasingFunction="{StaticResource BounceEase}" d:IsOptimized="True"/>
+            <DoubleAnimation BeginTime="00:00:00.1" Duration="00:00:00.5" From="12" To="2" Storyboard.TargetProperty="Angle" Storyboard.TargetName="CloseRotateTransform" EasingFunction="{StaticResource BounceEase}" d:IsOptimized="True"/>
+
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Y" Storyboard.TargetName="OpenTranslateTransform" d:IsOptimized="True">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="-25"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="TranslateY" Storyboard.TargetName="OpenCompositeTransform" d:IsOptimized="True">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="-25"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Angle" Storyboard.TargetName="PedalRotateTransform" d:IsOptimized="True">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="-0"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="CloseStoryboard">
+            <DoubleAnimation BeginTime="00:00:00.1" Duration="00:00:00.5" From="12" To="2" Storyboard.TargetProperty="Rotation" Storyboard.TargetName="OpenCompositeTransform" EasingFunction="{StaticResource BounceEase}" d:IsOptimized="True"/>
+            <DoubleAnimation BeginTime="00:00:00.1" Duration="00:00:00.5" From="12" To="2" Storyboard.TargetProperty="Angle" Storyboard.TargetName="CloseRotateTransform" EasingFunction="{StaticResource BounceEase}" d:IsOptimized="True"/>
+
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Y" Storyboard.TargetName="OpenTranslateTransform" d:IsOptimized="True">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="-10"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="TranslateY" Storyboard.TargetName="OpenCompositeTransform" d:IsOptimized="True">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="-10"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Angle" Storyboard.TargetName="PedalRotateTransform" d:IsOptimized="True">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="-12"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="PedalStoryboard">
+            <DoubleAnimation Duration="00:00:00.2" From="-10" To="-25" Storyboard.TargetProperty="Y" Storyboard.TargetName="OpenTranslateTransform" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="00:00:00.2" From="-10" To="-25" Storyboard.TargetProperty="TranslateY" Storyboard.TargetName="OpenCompositeTransform" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="00:00:00.2" From="-12" To="0" Storyboard.TargetProperty="Angle" Storyboard.TargetName="PedalRotateTransform" d:IsOptimized="True"/>
+        </Storyboard>
+
         <!--Style-->
         <Style TargetType="local:KitButton">
             <Setter Property="AllowFocusOnInteraction" Value="True"/>
@@ -60,6 +95,12 @@
     <Polyline Canvas.Left="65" Canvas.Top="720" Points="0,206 121,0 136,0 312,160"/>
     <Polyline Canvas.Left="148" Canvas.Top="782" Points="125,3 53,68 38,68 0,0"/>
     <Canvas Canvas.Left="227" Canvas.Top="860" Width="99" Height="102">
+        <UIElement.RenderTransformOrigin>
+            1,1
+        </UIElement.RenderTransformOrigin>
+        <UIElement.RenderTransform>
+            <RotateTransform x:Name="PedalRotateTransform" Angle="0"/>
+        </UIElement.RenderTransform>
         <Polyline Points="99,88 37,14 8,0 0,26 76,102" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
     </Canvas>
 
@@ -82,8 +123,20 @@
     <Polyline Canvas.Left="1038" Canvas.Top="810" Points="0,64 0,37 18,18 18,0"/>
     <!--3-->
     <Ellipse Canvas.Left="43" Canvas.Top="237" Width="301" Height="37" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <UIElement.RenderTransformOrigin>
+            0.5,0.5
+        </UIElement.RenderTransformOrigin>
+        <UIElement.RenderTransform>
+            <RotateTransform x:Name="CloseRotateTransform" Angle="2"/>
+        </UIElement.RenderTransform>
     </Ellipse>
     <Ellipse Canvas.Left="43" Canvas.Top="237" Width="301" Height="37" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <UIElement.RenderTransformOrigin>
+            0.5,0.5
+        </UIElement.RenderTransformOrigin>
+        <UIElement.RenderTransform>
+            <CompositeTransform x:Name="OpenCompositeTransform" TranslateY="-25"  Rotation="2"/>
+        </UIElement.RenderTransform>
     </Ellipse>
 
     <Ellipse Canvas.Left="296" Canvas.Top="64" Width="312" Height="140" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -150,7 +203,7 @@
             0.5,0.5
         </UIElement.RenderTransformOrigin>
         <UIElement.RenderTransform>
-            <TranslateTransform x:Name="HiHatTranslateTransform1" Y="-25"/>
+            <TranslateTransform x:Name="OpenTranslateTransform" Y="-25"/>
         </UIElement.RenderTransform>
     </Polyline>
 
