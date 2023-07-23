@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Virtual_Piano.Controls"
     xmlns:elements="using:Virtual_Piano.Elements"
+    xmlns:notecontrols="using:Virtual_Piano.Notes.Controls"
     mc:Ignorable="d"   
     Background="Black"
     >
@@ -63,6 +64,10 @@
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
 
+                        <ListViewItem x:Name="ListViewItem31">
+                            Kit
+                        </ListViewItem>
+
                         <ListViewItem x:Name="ListViewItem32">
                             Pads
                         </ListViewItem>
@@ -77,6 +82,17 @@
 
                     </ListView>
                     <Grid Grid.Row="1">
+
+                        <Border
+                            Margin="2"
+                            CornerRadius="4"
+                            Background="{ThemeResource AppBackground}"
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem31.IsSelected), Mode=OneWay}"
+                            >
+                            <Viewbox>
+                                <notecontrols:KitPanel Command="{x:Bind Command}"/>
+                            </Viewbox>
+                        </Border>
 
                         <controls:DrumPanel 
                             x:Name="DrumPanel"

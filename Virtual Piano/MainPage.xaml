@@ -849,6 +849,10 @@
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
 
+                        <ListViewItem x:Name="ListViewItem31">
+                            Kit
+                        </ListViewItem>
+
                         <ListViewItem x:Name="ListViewItem32">
                             Pads
                         </ListViewItem>
@@ -863,6 +867,17 @@
 
                     </ListView>
                     <Grid Grid.Column="1">
+
+                        <Border
+                            Margin="2"
+                            CornerRadius="4"
+                            Background="{ThemeResource AppBackground}"
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem31.IsSelected), Mode=OneWay}"
+                            >
+                            <Viewbox>
+                                <notecontrols:KitPanel Command="{x:Bind Command}"/>
+                            </Viewbox>
+                        </Border>
 
                         <controls:DrumPanel 
                             x:Name="DrumPanel"
