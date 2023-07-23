@@ -44,6 +44,8 @@ namespace Virtual_Piano.Notes.Controls
                 case KitSet.Ride:
                     this.RideStoryboard.Stop(); // Storyboard
                     this.RideStoryboard.Begin(); // Storyboard
+
+                    this.RightHandRideStoryboard.Begin(); // Storyboard
                     break;
                 case KitSet.Open:
                     this.OpenStoryboard.Stop(); // Storyboard
@@ -65,12 +67,16 @@ namespace Virtual_Piano.Notes.Controls
                     this.LeftHandHiTomStoryboard.Begin(); // Storyboard
                     break;
                 case KitSet.LowTom:
+                    this.RightHandLowTomStoryboard.Begin(); // Storyboard
                     break;
                 case KitSet.FloorTom:
+                    this.RightHandFloorTomStoryboard.Begin(); // Storyboard
                     break;
                 case KitSet.Snare:
+                    this.RightHandSnareStoryboard.Begin(); // Storyboard
                     break;
                 case KitSet.Stick:
+                    this.RightHandSnareStoryboard.Begin(); // Storyboard
                     break;
                 case KitSet.Kick:
                     this.KickStoryboard1.Stop(); // Storyboard

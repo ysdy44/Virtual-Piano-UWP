@@ -262,8 +262,6 @@
     <!--0-->
     <Line x:Name="LeftHand" Canvas.Left="500" Canvas.Top="114">
         <FrameworkElement.Resources>
-            <!--Easing-->
-            <CircleEase x:Key="CircleEase" EasingMode="EaseOut"/>
             <!--Storyboard-->
             <Storyboard x:Name="LeftHandHiTomStoryboard">
                 <DoubleAnimation Duration="00:00:00.15" From="-45" To="-25" Storyboard.TargetProperty="Angle" Storyboard.TargetName="LeftHandRotateTransform" EasingFunction="{StaticResource CircleEase}" d:IsOptimized="True"/>
@@ -298,6 +296,54 @@
         </UIElement.RenderTransformOrigin>
         <UIElement.RenderTransform>
             <RotateTransform x:Name="LeftHandRotateTransform" Angle="-25"/>
+        </UIElement.RenderTransform>
+    </Line>
+
+    <Line x:Name="RightHand" Canvas.Left="522" Canvas.Top="106">
+        <FrameworkElement.Resources>
+            <!--Storyboard-->
+            <Storyboard x:Name="RightHandLowTomStoryboard">
+                <DoubleAnimation Duration="00:00:00.15" From="40" To="22" Storyboard.TargetProperty="Angle" Storyboard.TargetName="RightHandRotateTransform" EasingFunction="{StaticResource CircleEase}" d:IsOptimized="True"/>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="RightHand" d:IsOptimized="True">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="522"/>
+                </ObjectAnimationUsingKeyFrames>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="RightHand" d:IsOptimized="True">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="106"/>
+                </ObjectAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Name="RightHandSnareStoryboard">
+                <DoubleAnimation Duration="00:00:00.15" From="-70" To="-52" Storyboard.TargetProperty="Angle" Storyboard.TargetName="RightHandRotateTransform" EasingFunction="{StaticResource CircleEase}" d:IsOptimized="True"/>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="RightHand" d:IsOptimized="True">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="400"/>
+                </ObjectAnimationUsingKeyFrames>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="RightHand" d:IsOptimized="True">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="220"/>
+                </ObjectAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Name="RightHandRideStoryboard">
+                <DoubleAnimation Duration="00:00:00.15" From="60" To="37" Storyboard.TargetProperty="Angle" Storyboard.TargetName="RightHandRotateTransform" EasingFunction="{StaticResource CircleEase}" d:IsOptimized="True"/>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="RightHand" d:IsOptimized="True">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="678"/>
+                </ObjectAnimationUsingKeyFrames>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="RightHand" d:IsOptimized="True">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="20"/>
+                </ObjectAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Name="RightHandFloorTomStoryboard">
+                <DoubleAnimation Duration="00:00:00.15" From="84" To="64" Storyboard.TargetProperty="Angle" Storyboard.TargetName="RightHandRotateTransform" EasingFunction="{StaticResource CircleEase}" d:IsOptimized="True"/>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="RightHand" d:IsOptimized="True">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="652"/>
+                </ObjectAnimationUsingKeyFrames>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="RightHand" d:IsOptimized="True">
+                    <DiscreteObjectKeyFrame KeyTime="0" Value="220"/>
+                </ObjectAnimationUsingKeyFrames>
+            </Storyboard>
+        </FrameworkElement.Resources>
+        <UIElement.RenderTransformOrigin>
+            0.5,0.5
+        </UIElement.RenderTransformOrigin>
+        <UIElement.RenderTransform>
+            <RotateTransform x:Name="RightHandRotateTransform" Angle="22"/>
         </UIElement.RenderTransform>
     </Line>
     <!--Children-->
