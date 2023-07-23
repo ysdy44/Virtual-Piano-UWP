@@ -147,6 +147,7 @@
       <DependentUpon>DrumSplitView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Drums\KitButton.cs" />
+    <Compile Include="Drums\KitFlyout.cs" />
     <Compile Include="Drums\KitPanel.xaml.cs">
       <DependentUpon>KitPanel.xaml</DependentUpon>
     </Compile>

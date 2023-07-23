@@ -127,6 +127,7 @@
     <Compile Include="Controls\InstrumentGroupPanel.cs" />
     <Compile Include="Controls\InstrumentObservableCollection.cs" />
     <Compile Include="Controls\InstrumentSplitView.cs" />
+    <Compile Include="Controls\KitFlyout.cs" />
     <Compile Include="Enums\OptionType.cs" />
     <Compile Include="MainPage.Click.cs" />
     <Compile Include="MainPage.UI.cs" />
