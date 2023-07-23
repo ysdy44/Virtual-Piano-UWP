@@ -815,23 +815,13 @@
 
                 <!--Drum-->
                 <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="36"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
                     <ListView
                         SelectedIndex="0"
                         SelectionMode="Single"
-                    
-                        ScrollViewer.ZoomMode="Disabled"
-                      
-                        ScrollViewer.HorizontalScrollMode="Enabled"
-                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                        ScrollViewer.IsHorizontalScrollChainingEnabled="True"
-                    
-                        ScrollViewer.VerticalScrollMode="Disabled"
-                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                        ScrollViewer.IsVerticalScrollChainingEnabled="False"
                         >
 
                         <ItemsControl.ItemContainerTransitions>
@@ -842,10 +832,12 @@
 
                         <ItemsControl.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
-                                <Setter Property="Width" Value="Auto" />
-                                <Setter Property="MinHeight" Value="36" />
-                                <Setter Property="MaxHeight" Value="36" />
-                                <Setter Property="Height" Value="36" />
+                                <Setter Property="MinWidth" Value="60" />
+                                <Setter Property="MaxWidth" Value="60" />
+                                <Setter Property="Width" Value="60" />
+                                <Setter Property="MinHeight" Value="44" />
+                                <Setter Property="MaxHeight" Value="44" />
+                                <Setter Property="Height" Value="44" />
                                 <Setter Property="HorizontalContentAlignment" Value="Center" />
                                 <Setter Property="VerticalContentAlignment" Value="Center" />
                             </Style>
@@ -853,42 +845,45 @@
 
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Center"/>
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
 
-                        <ListViewItem x:Name="ListViewItem31">
+                        <ListViewItem x:Name="ListViewItem32">
                             Pads
                         </ListViewItem>
 
-                        <ListViewItem x:Name="ListViewItem32">
+                        <ListViewItem x:Name="ListViewItem33">
                             All
                         </ListViewItem>
 
-                        <ListViewItem x:Name="ListViewItem33">
+                        <ListViewItem x:Name="ListViewItem34">
                             Category
                         </ListViewItem>
 
                     </ListView>
-                    <controls:DrumPanel 
-                        x:Name="DrumPanel"
-                        Grid.Row="1" 
-                        Command="{x:Bind Command}"
-                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem31.IsSelected), Mode=OneWay}"
-                        />
-                    <ScrollViewer Grid.Row="1" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem32.IsSelected), Mode=OneWay}">
-                        <controls:DrumGridView Command="{x:Bind Command}"/>
-                    </ScrollViewer>
-                    <controls:DrumSplitView
-                        Grid.Row="1" 
-                        DrumPanel="{x:Bind DrumGridView}"
-                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem33.IsSelected), Mode=OneWay}"
-                        >
-                        <ScrollViewer>
-                            <controls:DrumCategoryGridView x:Name="DrumGridView" Command="{x:Bind Command}"/>
-                        </ScrollViewer>
-                    </controls:DrumSplitView>
+                    <Grid Grid.Column="1">
 
+                        <controls:DrumPanel 
+                            x:Name="DrumPanel"
+                            Command="{x:Bind Command}"
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem32.IsSelected), Mode=OneWay}"
+                            />
+
+                        <ScrollViewer Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem33.IsSelected), Mode=OneWay}">
+                            <controls:DrumGridView Command="{x:Bind Command}"/>
+                        </ScrollViewer>
+
+                        <controls:DrumSplitView
+                            DrumPanel="{x:Bind DrumGridView}"
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem34.IsSelected), Mode=OneWay}"
+                            >
+                            <ScrollViewer>
+                                <controls:DrumCategoryGridView x:Name="DrumGridView" Command="{x:Bind Command}"/>
+                            </ScrollViewer>
+                        </controls:DrumSplitView>
+
+                    </Grid>
                 </Grid>
 
                 <!--Guitar-->
