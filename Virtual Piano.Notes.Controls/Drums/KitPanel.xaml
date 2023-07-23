@@ -22,6 +22,11 @@
         <Style TargetType="Path" BasedOn="{StaticResource ShapeStyle}"/>
         <Style TargetType="Ellipse" BasedOn="{StaticResource ShapeStyle}"/>
         <Style TargetType="Polyline" BasedOn="{StaticResource ShapeStyle}"/>
+
+        <!--Easing-->
+        <BounceEase x:Key="BounceEase" EasingMode="EaseOut"/>
+        <CircleEase x:Key="CircleEase" EasingMode="EaseOut"/>
+
         <!--Style-->
         <Style TargetType="local:KitButton">
             <Setter Property="AllowFocusOnInteraction" Value="True"/>
@@ -82,9 +87,33 @@
     </Ellipse>
 
     <Ellipse Canvas.Left="296" Canvas.Top="64" Width="312" Height="140" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <FrameworkElement.Resources>
+            <!--Storyboard-->
+            <Storyboard x:Name="CrashStoryboard">
+                <DoubleAnimation Duration="00:00:00.5" From="8" To="2" Storyboard.TargetProperty="Angle" Storyboard.TargetName="CrashRotateTransform" EasingFunction="{StaticResource BounceEase}" d:IsOptimized="True"/>
+            </Storyboard>
+        </FrameworkElement.Resources>
+        <UIElement.RenderTransformOrigin>
+            0.5,0.5
+        </UIElement.RenderTransformOrigin>
+        <UIElement.RenderTransform>
+            <RotateTransform x:Name="CrashRotateTransform" Angle="2"/>
+        </UIElement.RenderTransform>
     </Ellipse>
 
     <Ellipse Canvas.Left="959" Canvas.Top="92" Width="435" Height="140" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <FrameworkElement.Resources>
+            <!--Storyboard-->
+            <Storyboard x:Name="RideStoryboard">
+                <DoubleAnimation Duration="00:00:00.5" From="-8" To="-2" Storyboard.TargetProperty="Angle" Storyboard.TargetName="RideRotateTransform" EasingFunction="{StaticResource BounceEase}" d:IsOptimized="True"/>
+            </Storyboard>
+        </FrameworkElement.Resources>
+        <UIElement.RenderTransformOrigin>
+            0.5,0.5
+        </UIElement.RenderTransformOrigin>
+        <UIElement.RenderTransform>
+            <RotateTransform x:Name="RideRotateTransform" Angle="-2"/>
+        </UIElement.RenderTransform>
     </Ellipse>
     <!--2-->
     <Path Data="M566.224,267.597C566.201,267.245 566.189,266.89 566.189,266.534C566.189,244.805 609.63,227.164 663.137,227.164
@@ -117,6 +146,12 @@
     <Path Data="M1291.13,503.866C1291.13,521.237 1224.3,535.34 1141.99,535.34C1059.67,535.34 992.84,521.237 992.84,503.866"/>
     <!--1-->
     <Polyline Canvas.Left="194" Canvas.Top="191" Points="0,64 0,0">
+        <UIElement.RenderTransformOrigin>
+            0.5,0.5
+        </UIElement.RenderTransformOrigin>
+        <UIElement.RenderTransform>
+            <TranslateTransform x:Name="HiHatTranslateTransform1" Y="-25"/>
+        </UIElement.RenderTransform>
     </Polyline>
 
     <Polyline Canvas.Left="452" Canvas.Top="108" Points="0,25 0,0"/>
@@ -126,11 +161,34 @@
     <Polyline Canvas.Left="745" Canvas.Top="304" Points="52,119 52,38 0,0"/>
 
     <Canvas Canvas.Left="767" Canvas.Top="771" Width="79" Height="133">
+        <FrameworkElement.Resources>
+            <!--Storyboard-->
+            <Storyboard x:Name="KickStoryboard1">
+                <DoubleAnimation Duration="00:00:00.2" From="0.8" To="1" Storyboard.TargetProperty="ScaleY" Storyboard.TargetName="KickScaleTransform" d:IsOptimized="True"/>
+            </Storyboard>
+        </FrameworkElement.Resources>
+        <UIElement.RenderTransformOrigin>
+            0.5,1
+        </UIElement.RenderTransformOrigin>
+        <UIElement.RenderTransform>
+            <ScaleTransform x:Name="KickScaleTransform" ScaleY="1"/>
+        </UIElement.RenderTransform>
         <Polyline Points="71,133 78,96 71,68 82,47 79,28 60,7 56,0 25,0 22,7 2,28 0,47 11,68 4,96 11,133" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
     </Canvas>
     <Polyline Canvas.Left="770" Canvas.Top="734" Points="0,65 0,0 77,0 77,65"/>
     <Polyline Canvas.Left="787" Canvas.Top="636" Points="22,50 43,36 43,15 22,0 0,15 0,36 22,50 22,135">
-    
+        <FrameworkElement.Resources>
+            <!--Storyboard-->
+            <Storyboard x:Name="KickStoryboard2">
+                <DoubleAnimation Duration="00:00:00.2" From="25" To="0" Storyboard.TargetProperty="Y" Storyboard.TargetName="KickTranslateTransform" d:IsOptimized="True"/>
+            </Storyboard>
+        </FrameworkElement.Resources>
+        <UIElement.RenderTransformOrigin>
+            0.5,0.5
+        </UIElement.RenderTransformOrigin>
+        <UIElement.RenderTransform>
+            <TranslateTransform x:Name="KickTranslateTransform" Y="0"/>
+        </UIElement.RenderTransform>
     </Polyline>
 
     <Polyline Canvas.Left="994" Canvas.Top="652" Points="22,0 22,229 0,254 0,302"/>
@@ -138,6 +196,7 @@
 
     <Polyline Canvas.Left="819" Canvas.Top="306" Points="40,0 0,35 0,117"/>
     <!--0-->
+
     <local:KitButton CommandParameter="{x:Bind ItemsSource[0]}" Content="1" Canvas.Left="340" Canvas.Top="0" Width="240" Height="240"/>
     <local:KitButton CommandParameter="{x:Bind ItemsSource[1]}" Content="2" Canvas.Left="1053" Canvas.Top="0" Width="320" Height="320"/>
     <local:KitButton CommandParameter="{x:Bind ItemsSource[2]}" Content="3" Canvas.Left="80" Canvas.Top="50" Width="200" Height="200"/>
@@ -149,5 +208,5 @@
     <local:KitButton CommandParameter="{x:Bind ItemsSource[8]}" Content="9" Canvas.Left="370" Canvas.Top="290" Width="200" Height="200"/>
     <local:KitButton CommandParameter="{x:Bind ItemsSource[9]}" Content="10" Canvas.Left="455" Canvas.Top="490" Width="160" Height="160"/>
     <local:KitButton CommandParameter="{x:Bind ItemsSource[10]}" Content="11" Canvas.Left="605" Canvas.Top="460" Width="400" Height="400"/>
-    
+
 </Canvas>
