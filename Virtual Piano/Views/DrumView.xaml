@@ -27,6 +27,7 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <ListView
+                        RequestedTheme="Dark"
                         SelectedIndex="0"
                         SelectionMode="Single"
                     
@@ -64,6 +65,20 @@
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
 
+                        <ListViewBase.Footer>
+                            <Button Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
+                                <ToolTipService.ToolTip>
+                                    <ToolTip>
+                                        More
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
+                                <Button.Flyout>
+                                    <controls:KitFlyout Placement="Bottom" KitPanel="{x:Bind KitPanel}"/>
+                                </Button.Flyout>
+                                <SymbolIcon Symbol="More"/>
+                            </Button>
+                        </ListViewBase.Footer>
+
                         <ListViewItem x:Name="ListViewItem31">
                             Kit
                         </ListViewItem>
@@ -81,12 +96,11 @@
                         </ListViewItem>
 
                     </ListView>
-                    <Grid Grid.Row="1">
+                    <Grid Grid.Row="1" Background="{ThemeResource AppBackground}">
 
                         <Border
                             Margin="2"
                             CornerRadius="4"
-                            Background="{ThemeResource AppBackground}"
                             Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem31.IsSelected), Mode=OneWay}"
                             >
                             <Viewbox>
