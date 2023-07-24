@@ -104,7 +104,7 @@
                             Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem31.IsSelected), Mode=OneWay}"
                             >
                             <Viewbox>
-                                <notecontrols:KitPanel Command="{x:Bind Command}"/>
+                                <notecontrols:KitPanel x:Name="KitPanel" Command="{x:Bind Command}"/>
                             </Viewbox>
                         </Border>
 
