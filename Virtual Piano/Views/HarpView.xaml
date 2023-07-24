@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="Virtual_Piano.Views.HarpView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:elements="using:Virtual_Piano.Elements"
+    xmlns:notecontrols="using:Virtual_Piano.Midi.Controls"
+    mc:Ignorable="d"   
+    Background="Black"
+    >
+
+    <!--Extension-->
+    <FrameworkElement.Tag>
+        <elements:ApplicationTitleBarExtension TitleBarColor="Black"/>
+    </FrameworkElement.Tag>
+
+    <Border>
+        <Border>
+            <Border>
+
+                <!--Harp-->
+                <ScrollViewer
+                    ZoomMode="Disabled"
+                     
+                    HorizontalScrollMode="Enabled"
+                    HorizontalScrollBarVisibility="Hidden"
+                    IsHorizontalScrollChainingEnabled="True"
+                  
+                    VerticalScrollMode="Disabled"
+                    VerticalScrollBarVisibility="Disabled"
+                    IsVerticalScrollChainingEnabled="False"
+                    >
+                    <notecontrols:HarpPanel Height="400" Command="{x:Bind Command}"/>
+                </ScrollViewer>
+
+            </Border>
+        </Border>
+    </Border>
+</Page>
