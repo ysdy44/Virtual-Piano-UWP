@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace Virtual_Piano.Notes.Controls
+namespace Virtual_Piano.Midi.Controls
 {
     public interface IInstrumentPanel
     {

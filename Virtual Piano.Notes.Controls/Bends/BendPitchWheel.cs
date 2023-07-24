@@ -1,7 +1,7 @@
 ﻿using System.Windows.Input;
 using Windows.Devices.Midi;
 
-namespace Virtual_Piano.Notes.Controls
+namespace Virtual_Piano.Midi.Controls
 {
     public sealed class BendPitchWheel : BendWheel64
     {

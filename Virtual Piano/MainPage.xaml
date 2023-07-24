@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Virtual_Piano.Controls"
     xmlns:elements="using:Virtual_Piano.Elements"
-    xmlns:notecontrols="using:Virtual_Piano.Notes.Controls"
+    xmlns:notecontrols="using:Virtual_Piano.Midi.Controls"
     xmlns:strings="using:Virtual_Piano.Strings"
     mc:Ignorable="d"
     Background="{ThemeResource AppBackground}"

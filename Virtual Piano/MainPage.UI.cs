@@ -1,4 +1,4 @@
-﻿using Virtual_Piano.Notes;
+﻿using Virtual_Piano.Midi;
 
 namespace Virtual_Piano
 {

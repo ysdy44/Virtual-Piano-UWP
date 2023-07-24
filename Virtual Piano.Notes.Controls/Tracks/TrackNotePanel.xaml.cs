@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using Virtual_Piano.Elements;
-using Virtual_Piano.Notes;
+using Virtual_Piano.Midi;
 using Windows.Foundation;
 using Windows.System;
 using Windows.UI.Input;
@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Shapes;
 
-namespace Virtual_Piano.Notes.Controls
+namespace Virtual_Piano.Midi.Controls
 {
     public class MessageCollection
     {

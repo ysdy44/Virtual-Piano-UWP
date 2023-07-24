@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Virtual_Piano.Notes
+namespace Virtual_Piano.Midi
 {
     public static class MidiProgramFactory
     {

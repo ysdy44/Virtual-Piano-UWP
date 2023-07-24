@@ -4,7 +4,7 @@ using Windows.Foundation;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
-namespace Virtual_Piano.Notes.Controls
+namespace Virtual_Piano.Midi.Controls
 {
     public partial class DrumPanel : Canvas, IDrumPanel
     {

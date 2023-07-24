@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Virtual_Piano.Controls;
-using Virtual_Piano.Notes;
+using Virtual_Piano.Midi;
 using Windows.Devices.Midi;
 using Windows.System;
 using Windows.UI.Core;

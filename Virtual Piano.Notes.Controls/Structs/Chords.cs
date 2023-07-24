@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Virtual_Piano.Notes.Controls
+namespace Virtual_Piano.Midi.Controls
 {
     public readonly struct Chords
     {

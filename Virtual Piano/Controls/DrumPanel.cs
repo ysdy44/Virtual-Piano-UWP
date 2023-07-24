@@ -1,8 +1,8 @@
-﻿using Virtual_Piano.Notes;
+﻿using Virtual_Piano.Midi;
 
 namespace Virtual_Piano.Controls
 {
-    public sealed class DrumPanel : Notes.Controls.DrumPanel
+    public sealed class DrumPanel : Midi.Controls.DrumPanel
     {
         public override string GetString(MidiPercussionNote note)
         {

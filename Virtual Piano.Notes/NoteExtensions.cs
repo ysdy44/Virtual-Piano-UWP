@@ -1,6 +1,6 @@
-﻿using Ex = Virtual_Piano.Notes.NoteExtensions;
+﻿using Ex = Virtual_Piano.Midi.NoteExtensions;
 
-namespace Virtual_Piano.Notes
+namespace Virtual_Piano.Midi
 {
     public static partial class NoteExtensions
     {

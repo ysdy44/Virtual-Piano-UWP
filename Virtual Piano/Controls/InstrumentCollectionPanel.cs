@@ -1,8 +1,8 @@
-﻿using Virtual_Piano.Notes;
+﻿using Virtual_Piano.Midi;
 
 namespace Virtual_Piano.Controls
 {
-    public sealed class InstrumentCollectionPanel : Notes.Controls.InstrumentCollectionPanel
+    public sealed class InstrumentCollectionPanel : Midi.Controls.InstrumentCollectionPanel
     {
         public override string GetString(MidiProgram program)
         {

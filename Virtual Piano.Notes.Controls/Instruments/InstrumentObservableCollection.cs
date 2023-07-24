@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Windows.Input;
 using System;
 
-namespace Virtual_Piano.Notes.Controls
+namespace Virtual_Piano.Midi.Controls
 {
     public class InstrumentObservableCollection : ObservableCollection<MidiProgram>, ICommand
     {

@@ -1,8 +1,8 @@
-﻿using Virtual_Piano.Notes;
+﻿using Virtual_Piano.Midi;
 
 namespace Virtual_Piano.Controls
 {
-    public class InstrumentCarousel : Notes.Controls.InstrumentCarousel
+    public class InstrumentCarousel : Midi.Controls.InstrumentCarousel
     {
         public override string GetString(MidiProgram note)
         {

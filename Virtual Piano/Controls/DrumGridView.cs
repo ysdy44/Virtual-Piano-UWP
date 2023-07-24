@@ -1,8 +1,8 @@
-﻿using Virtual_Piano.Notes;
+﻿using Virtual_Piano.Midi;
 
 namespace Virtual_Piano.Controls
 {
-    public class DrumGridView : Notes.Controls.DrumGridView
+    public class DrumGridView : Midi.Controls.DrumGridView
     {
         public DrumGridView() : base(false) { }
         public override string GetString(MidiPercussionNote note)
@@ -10,7 +10,7 @@ namespace Virtual_Piano.Controls
             return App.Resource.GetString($"{note}");
         }
     }
-    public class DrumCategoryGridView : Notes.Controls.DrumGridView
+    public class DrumCategoryGridView : Midi.Controls.DrumGridView
     {
         public DrumCategoryGridView() : base(true) { }
         public override string GetString(MidiPercussionNote note)

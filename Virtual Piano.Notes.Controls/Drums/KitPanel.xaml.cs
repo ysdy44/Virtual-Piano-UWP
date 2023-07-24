@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 
-namespace Virtual_Piano.Notes.Controls
+namespace Virtual_Piano.Midi.Controls
 {
     public partial class KitPanel : Canvas, IKitPanel
     {

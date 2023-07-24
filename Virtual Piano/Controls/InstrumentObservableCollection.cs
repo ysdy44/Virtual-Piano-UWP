@@ -1,8 +1,8 @@
-﻿using Virtual_Piano.Notes;
+﻿using Virtual_Piano.Midi;
 
 namespace Virtual_Piano.Controls
 {
-    public class InstrumentObservableCollection : Notes.Controls.InstrumentObservableCollection
+    public class InstrumentObservableCollection : Midi.Controls.InstrumentObservableCollection
     {
         public override string GetString(MidiProgram program)
         {

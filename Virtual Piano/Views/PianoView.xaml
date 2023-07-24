@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:elements="using:Virtual_Piano.Elements"
-    xmlns:notecontrols="using:Virtual_Piano.Notes.Controls"
+    xmlns:notecontrols="using:Virtual_Piano.Midi.Controls"
     mc:Ignorable="d"   
     Background="Black"
     >

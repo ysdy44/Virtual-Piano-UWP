@@ -4,7 +4,7 @@ using Windows.UI.Input;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Markup;
 
-namespace Virtual_Piano.Notes.Controls
+namespace Virtual_Piano.Midi.Controls
 {
     [ContentProperty(Name = nameof(Text))]
     public abstract partial class BendWheel : UserControl

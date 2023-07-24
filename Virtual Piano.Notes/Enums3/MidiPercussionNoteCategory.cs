@@ -1,4 +1,4 @@
-﻿namespace Virtual_Piano.Notes
+﻿namespace Virtual_Piano.Midi
 {
     public enum MidiPercussionNoteCategory : byte
     {

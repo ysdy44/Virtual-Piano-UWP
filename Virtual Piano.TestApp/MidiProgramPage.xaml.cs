@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Virtual_Piano.Notes;
+using Virtual_Piano.Midi;
 using Windows.Devices.Midi;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;

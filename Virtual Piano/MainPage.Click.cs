@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Virtual_Piano.Notes;
+using Virtual_Piano.Midi;
 using Virtual_Piano.Views;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;

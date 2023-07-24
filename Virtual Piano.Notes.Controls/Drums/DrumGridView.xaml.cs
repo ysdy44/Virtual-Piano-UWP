@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows.Input;
 using Windows.UI.Xaml.Media;
 
-namespace Virtual_Piano.Notes.Controls
+namespace Virtual_Piano.Midi.Controls
 {
     public partial class DrumGridView : WrapPanel, IDrumPanel
     {

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Windows.Devices.Midi;
 
-namespace Virtual_Piano.Notes
+namespace Virtual_Piano.Midi
 {
     public static class MidiExtensions
     {

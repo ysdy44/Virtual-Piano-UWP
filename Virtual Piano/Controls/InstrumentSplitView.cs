@@ -1,8 +1,8 @@
-﻿using Virtual_Piano.Notes;
+﻿using Virtual_Piano.Midi;
 
 namespace Virtual_Piano.Controls
 {
-    public class InstrumentSplitView : Notes.Controls.InstrumentSplitView
+    public class InstrumentSplitView : Midi.Controls.InstrumentSplitView
     {
         public override string GetString(MidiProgramGroup group)
         {
