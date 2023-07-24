@@ -16,7 +16,7 @@ namespace Virtual_Piano.Midi.Controls
             base.ValueChanged += (s, e) =>
             {
                 int value = System.Math.Clamp((int)e.NewValue, 0, Radial.Velocity);
-                this.Command?.Execute(new Message
+                this.Command?.Execute(new MidiMessage
                 {
                     Type = MidiMessageType.ControlChange,
                     Controller = this.Controller,
@@ -39,7 +39,7 @@ namespace Virtual_Piano.Midi.Controls
                     base.IsEnabled = true;
 
                     int value = System.Math.Clamp((int)base.Value, 0, Radial.Velocity);
-                    this.Command?.Execute(new Message
+                    this.Command?.Execute(new MidiMessage
                     {
                         Type = MidiMessageType.ControlChange,
                         Controller = this.Controller,
@@ -50,7 +50,7 @@ namespace Virtual_Piano.Midi.Controls
                 {
                     base.IsEnabled = false;
 
-                    this.Command?.Execute(new Message
+                    this.Command?.Execute(new MidiMessage
                     {
                         Type = MidiMessageType.ControlChange,
                         Controller = this.Controller,

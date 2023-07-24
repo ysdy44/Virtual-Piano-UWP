@@ -16,7 +16,7 @@ namespace Virtual_Piano.Midi.Controls
 
         protected override void OnContactOn()
         {
-            this.Command?.Execute(new Message
+            this.Command?.Execute(new MidiMessage
             {
                 Type = MidiMessageType.ControlChange,
                 Controller = this.Controller,
@@ -26,7 +26,7 @@ namespace Virtual_Piano.Midi.Controls
 
         protected override void OnContactOff()
         {
-            this.Command?.Execute(new Message
+            this.Command?.Execute(new MidiMessage
             {
                 Type = MidiMessageType.ControlChange,
                 Controller = this.Controller,

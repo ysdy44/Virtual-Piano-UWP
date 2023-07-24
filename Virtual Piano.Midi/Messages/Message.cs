@@ -2,7 +2,7 @@
 
 namespace Virtual_Piano.Midi
 {
-    public struct Message
+    public struct MidiMessage
     {
         public MidiMessageType Type;
         public byte Channel;

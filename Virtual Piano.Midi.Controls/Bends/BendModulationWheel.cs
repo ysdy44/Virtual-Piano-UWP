@@ -11,7 +11,7 @@ namespace Virtual_Piano.Midi.Controls
 
         public override void Execute(int value)
         {
-            this.Command?.Execute(new Message
+            this.Command?.Execute(new MidiMessage
             {
                 Type = MidiMessageType.NoteOn,
                 Controller = this.Controller,

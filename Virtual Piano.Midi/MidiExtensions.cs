@@ -54,7 +54,7 @@ namespace Virtual_Piano.Midi
             synthesizer?.SendMessage(new MidiSystemResetMessage());
         }
 
-        public static void SendMessage(this IMidiOutPort synthesizer, Message item)
+        public static void SendMessage(this IMidiOutPort synthesizer, MidiMessage item)
         {
             switch (item.Type)
             {
@@ -85,7 +85,7 @@ namespace Virtual_Piano.Midi
             }
         }
 
-        private async static void SendNote(this IMidiOutPort synthesizer, Message item)
+        private async static void SendNote(this IMidiOutPort synthesizer, MidiMessage item)
         {
             if (synthesizer is null) return;
             synthesizer.NoteOn(item.Note, item.Channel, item.Velocity);

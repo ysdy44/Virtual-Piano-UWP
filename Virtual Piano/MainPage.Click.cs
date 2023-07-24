@@ -22,7 +22,7 @@ namespace Virtual_Piano
         public bool CanExecute(object parameter) => parameter != default;
         public async void Execute(object parameter)
         {
-            if (parameter is Message item)
+            if (parameter is MidiMessage item)
             {
                 this.Synthesizer.SendMessage(item);
             }
