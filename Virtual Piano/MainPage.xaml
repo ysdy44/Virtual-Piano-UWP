@@ -606,6 +606,18 @@
                                     </MenuFlyoutItem.Icon>
                                 </MenuFlyoutItem>
 
+                                <!--Harp-->
+                                <MenuFlyoutItem
+                                    Command="{x:Bind Command}"
+                                    CommandParameter="{strings:OptionType Type=TryShowHarpView}"
+                                    Text="{strings:Option Type=TryShowHarpView}"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem6.IsSelected), Mode=OneWay}"
+                                    >
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="NewWindow"/>
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+
                             </MenuFlyout>
                         </Button.Flyout>
                         <SymbolIcon Symbol="More"/>
@@ -703,6 +715,21 @@
                         <PathIcon.Data>
                             M11.891 1.004v5.479H8.165V.102L1.436.156C1.259 1.981 3.754 5.782 3.54 7.279 3.275 9.139 0 12.316 0 15.432c0 3.115 6.222 5.09 11.891 5.876 5.543.769 9.037-.299 9.252-3.294.305-4.256-3.607-5.689-3.607-9.475 0-1.809 1.824-4.593 1.785-6.041-.023-.873-.854-2.934-1.556-2.416-.987.729-1.321 3.239-3.6 3.299-1.121-.039-1.891-1.154-2.274-2.377z
                             m0 13.94H8.165v1.5h3.726v-1.5zm0-5.312H8.165v1.5h3.726v-1.5z
+                        </PathIcon.Data>
+                    </PathIcon>
+                </ListViewItem>
+
+                <!--Harp-->
+                <ListViewItem x:Name="ListViewItem6">
+                    <ToolTipService.ToolTip>
+                        <ToolTip>
+                            Harp
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <PathIcon.Data>
+                            M10.5,19.5L12.5,19.5L12.5,21.5L0,21.5L0,19.5L0.5,19.5L0.5,16.5L1,16.5L1,4L0.5,4L0.5,0L4,0L4,0.5L6.5,0.5L8,1L9.5,2L10.5,3.5L11.5,5.5L12.5,6.5L13.5,7L15.5,6.5L18.5,5.5
+                            L19.5,5.5L20.5,6.5L19.5,8.5L10.5,19.5ZM4,4L4,3.5L5.5,3.5L7,4L7.5,4.5L9,7.5L10,8.5L11,9L12.5,9.5L14,9.5L15.5,9L15.5,9.5L6.5,19.5L4,19.5L4,16.5L3.5,16.5L3.5,4L4,4Z
                         </PathIcon.Data>
                     </PathIcon>
                 </ListViewItem>
@@ -963,6 +990,23 @@
                     </ScrollViewer>
                 </Grid>
 
+                <!--Harp-->
+                <ScrollViewer
+                    ZoomMode="Disabled"
+                     
+                    HorizontalScrollMode="Enabled"
+                    HorizontalScrollBarVisibility="Hidden"
+                    IsHorizontalScrollChainingEnabled="True"
+                  
+                    VerticalScrollMode="Disabled"
+                    VerticalScrollBarVisibility="Disabled"
+                    IsVerticalScrollChainingEnabled="False"
+                    
+                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem6.IsSelected), Mode=OneWay}"
+                    >
+                    <notecontrols:HarpPanel Command="{x:Bind Command}"/>
+                </ScrollViewer>
+                
             </Grid>
 
         </Grid>
