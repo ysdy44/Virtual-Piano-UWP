@@ -181,6 +181,10 @@
     <Compile Include="Instruments\Guitars\GuitarScrollBar.xaml.cs">
       <DependentUpon>GuitarScrollBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Instruments\Harps\HarpButton.cs" />
+    <Compile Include="Instruments\Harps\HarpPanel.xaml.cs">
+      <DependentUpon>HarpPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Instruments\Instruments\InstrumentButton.cs" />
     <Compile Include="Instruments\Instruments\InstrumentCarousel.xaml.cs">
       <DependentUpon>InstrumentCarousel.xaml</DependentUpon>
@@ -306,6 +310,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Instruments\Guitars\GuitarScrollBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Instruments\Harps\HarpPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

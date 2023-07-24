@@ -1,0 +1,143 @@
+﻿<StackPanel
+    x:Class="Virtual_Piano.Midi.Controls.HarpPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="400"
+    d:DesignHeight="400"
+    Orientation="Horizontal"
+    HorizontalAlignment="Center"
+    >
+
+    <!--Disable the ScrollViewer-->
+    <UIElement.ManipulationMode>
+        None
+    </UIElement.ManipulationMode>
+
+    <FrameworkElement.Resources>
+        <!--Style-->
+        <Style x:Key="White" TargetType="Control">
+            <Setter Property="Width" Value="22"/>
+            <Setter Property="AllowFocusOnInteraction" Value="True"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True"/>
+            <Setter Property="IsTabStop" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Control">
+                        <Border x:Name="RootGrid" Background="Transparent">
+
+                            <!--VisualState-->
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed">
+                                        <VisualState.Setters>
+                                            <Setter Target="SolidColorBrush.Color" Value="#DFFF87" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Rectangle IsHitTestVisible="False" RadiusX="5" RadiusY="5" Width="10">
+                                <Shape.Fill>
+                                    <SolidColorBrush x:Name="SolidColorBrush" Color="{ThemeResource SystemBaseHighColor}"/>
+                                </Shape.Fill>
+                            </Rectangle>
+
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="Red" TargetType="Control">
+            <Setter Property="Width" Value="22"/>
+            <Setter Property="AllowFocusOnInteraction" Value="True"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True"/>
+            <Setter Property="IsTabStop" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Control">
+                        <Border x:Name="RootGrid" Background="Transparent">
+
+                            <!--VisualState-->
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed">
+                                        <VisualState.Setters>
+                                            <Setter Target="SolidColorBrush.Color" Value="#E7D877" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Rectangle IsHitTestVisible="False" RadiusX="5" RadiusY="5" Width="10">
+                                <Shape.Fill>
+                                    <SolidColorBrush x:Name="SolidColorBrush" Color="Tomato"/>
+                                </Shape.Fill>
+                            </Rectangle>
+
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="Blue" TargetType="Control">
+            <Setter Property="Width" Value="22"/>
+            <Setter Property="AllowFocusOnInteraction" Value="True"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True"/>
+            <Setter Property="IsTabStop" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Control">
+                        <Border x:Name="RootGrid" Background="Transparent">
+
+                            <!--VisualState-->
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed">
+                                        <VisualState.Setters>
+                                            <Setter Target="SolidColorBrush.Color" Value="#E7D877" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Rectangle IsHitTestVisible="False" RadiusX="5" RadiusY="5" Width="10">
+                                <Shape.Fill>
+                                    <SolidColorBrush x:Name="SolidColorBrush" Color="SkyBlue"/>
+                                </Shape.Fill>
+                            </Rectangle>
+
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </FrameworkElement.Resources>
+
+</StackPanel>
