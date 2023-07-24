@@ -12,7 +12,7 @@ namespace Virtual_Piano.Midi
         public MidiNote Note;
         public byte Velocity;
 
-        public ControlController Controller { get; set; }
+        public MidiControlController Controller { get; set; }
         public byte ControllerValue { get; set; }
 
         public MidiProgram Program;

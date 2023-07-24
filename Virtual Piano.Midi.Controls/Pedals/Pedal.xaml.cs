@@ -7,7 +7,7 @@ namespace Virtual_Piano.Midi.Controls
     {
         //@Command
         public ICommand Command { get; set; }
-        public ControlController Controller { get; set; }
+        public MidiControlController Controller { get; set; }
 
         public Pedal()
         {

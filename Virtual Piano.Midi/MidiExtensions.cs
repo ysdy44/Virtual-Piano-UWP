@@ -29,7 +29,7 @@ namespace Virtual_Piano.Midi
             synthesizer?.SendMessage(new MidiPolyphonicKeyPressureMessage(channel, (byte)note, pressure));
         }
 
-        public static void ControlChange(this IMidiOutPort synthesizer, ControlController controller, byte controlValue, byte channel = 0)
+        public static void ControlChange(this IMidiOutPort synthesizer, MidiControlController controller, byte controlValue, byte channel = 0)
         {
             synthesizer?.SendMessage(new MidiControlChangeMessage(channel, (byte)controller, controlValue));
         }

@@ -7,7 +7,7 @@ namespace Virtual_Piano.Midi.Controls
     {
         //@Command
         public ICommand Command { get; set; }
-        public ControlController Controller { get; set; } = ControlController.Modulation;
+        public MidiControlController Controller { get; set; } = MidiControlController.Modulation;
 
         public override void Execute(int value)
         {
