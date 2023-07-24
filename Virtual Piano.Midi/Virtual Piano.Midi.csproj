@@ -7,8 +7,8 @@
     <ProjectGuid>{7F632B4A-9FA1-4842-942F-49274BBDBE61}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Virtual_Piano.Notes</RootNamespace>
-    <AssemblyName>Virtual Piano.Notes</AssemblyName>
+    <RootNamespace>Virtual_Piano.Midi</RootNamespace>
+    <AssemblyName>Virtual Piano.Midi</AssemblyName>
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.22000.0</TargetPlatformVersion>
@@ -143,7 +143,7 @@
     <Compile Include="Keys\KeyQWERTDictionary.cs" />
     <Compile Include="NoteExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\Virtual_Piano.Notes.rd.xml" />
+    <EmbeddedResource Include="Properties\Virtual_Piano.Midi.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">

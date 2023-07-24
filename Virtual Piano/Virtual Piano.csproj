@@ -262,13 +262,13 @@
       <Project>{13D38CDF-15B0-4127-B039-CFF47406C450}</Project>
       <Name>Virtual Piano.Elements</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Virtual Piano.Notes.Controls\Virtual Piano.Notes.Controls.csproj">
-      <Project>{e17bfd86-0726-4c0a-aafe-5b5dead05956}</Project>
-      <Name>Virtual Piano.Notes.Controls</Name>
+    <ProjectReference Include="..\Virtual Piano.Midi.Controls\Virtual Piano.Midi.Controls.csproj">
+      <Project>{E17BFD86-0726-4C0A-AAFE-5B5DEAD05956}</Project>
+      <Name>Virtual Piano.Midi.Controls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Virtual Piano.Notes\Virtual Piano.Notes.csproj">
+    <ProjectReference Include="..\Virtual Piano.Midi\Virtual Piano.Midi.csproj">
       <Project>{7F632B4A-9FA1-4842-942F-49274BBDBE61}</Project>
-      <Name>Virtual Piano.Notes</Name>
+      <Name>Virtual Piano.Midi</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

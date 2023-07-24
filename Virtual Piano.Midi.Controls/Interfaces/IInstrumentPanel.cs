@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using Virtual_Piano.Midi;
 
 namespace Virtual_Piano.Midi.Controls
 {

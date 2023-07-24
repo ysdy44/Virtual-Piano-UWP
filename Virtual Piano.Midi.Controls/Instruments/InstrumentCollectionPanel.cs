@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Windows.Input;
+using Virtual_Piano.Midi;
 using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Midi.Controls

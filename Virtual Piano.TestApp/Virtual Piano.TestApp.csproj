@@ -215,9 +215,9 @@
       <Project>{13D38CDF-15B0-4127-B039-CFF47406C450}</Project>
       <Name>Virtual Piano.Elements</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Virtual Piano.Notes\Virtual Piano.Notes.csproj">
-      <Project>{7F632B4A-9FA1-4842-942F-49274BBDBE61}</Project>
-      <Name>Virtual Piano.Notes</Name>
+    <ProjectReference Include="..\Virtual Piano.Midi\Virtual Piano.Midi.csproj">
+      <Project>{7f632b4a-9fa1-4842-942f-49274bbdbe61}</Project>
+      <Name>Virtual Piano.Midi</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
