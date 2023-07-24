@@ -7,5 +7,6 @@
         TryShowDrumView,
         TryShowGuitarView,
         TryShowBassView,
+        TryShowHarpView,
     }
 }

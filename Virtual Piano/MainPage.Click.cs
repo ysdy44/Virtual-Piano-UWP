@@ -76,6 +76,11 @@ namespace Virtual_Piano
                         if (this.BassViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewBassView);
                         else if (await ApplicationViewSwitcher.TryShowAsStandaloneAsync(this.BassViewId)) return;
                     break;
+                case OptionType.TryShowHarpView:
+                    for (int i = 0; i < 3; i++)
+                        if (this.HarpViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewHarpView);
+                        else if (await ApplicationViewSwitcher.TryShowAsStandaloneAsync(this.HarpViewId)) return;
+                    break;
 
                 default:
                     break;
@@ -87,12 +92,14 @@ namespace Virtual_Piano
         int DrumViewId;
         int GuitarViewId;
         int BassViewId;
+        int HarpViewId;
 
         private void CreateNewPianoView() => this.PianoViewId = this.CreateNew(typeof(PianoView));
         private void CreateNewChordView() => this.ChordViewId = this.CreateNew(typeof(ChordView));
         private void CreateNewDrumView() => this.DrumViewId = this.CreateNew(typeof(DrumView));
         private void CreateNewGuitarView() => this.GuitarViewId = this.CreateNew(typeof(GuitarView));
         private void CreateNewBassView() => this.BassViewId = this.CreateNew(typeof(BassView));
+        private void CreateNewHarpView() => this.HarpViewId = this.CreateNew(typeof(HarpView));
         private int CreateNew(Type sourcePageType)
         {
             Frame frame = new Frame();
