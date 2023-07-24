@@ -120,19 +120,33 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Bends\BendModulationWheel.cs" />
-    <Compile Include="Bends\BendPitchWheel.cs" />
-    <Compile Include="Bends\BendWheel.xaml.cs">
-      <DependentUpon>BendWheel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Bends\BendWheel0.cs" />
-    <Compile Include="Bends\BendWheel64.cs" />
     <Compile Include="Chords\ChordButton.cs" />
     <Compile Include="Chords\ChordPanel.xaml.cs">
       <DependentUpon>ChordPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="ClickButton.cs" />
     <Compile Include="ContactButton.cs" />
+    <Compile Include="Controllers\Bends\BendModulationWheel.cs" />
+    <Compile Include="Controllers\Bends\BendPitchWheel.cs" />
+    <Compile Include="Controllers\Bends\BendWheel.xaml.cs">
+      <DependentUpon>BendWheel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Bends\BendWheel0.cs" />
+    <Compile Include="Controllers\Bends\BendWheel64.cs" />
+    <Compile Include="Controllers\Pedals\Pedal.xaml.cs">
+      <DependentUpon>Pedal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Tracks\TrackNotePanel.xaml.cs">
+      <DependentUpon>TrackNotePanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Velocitys\VelocityGauge.xaml.cs">
+      <DependentUpon>VelocityGauge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Velocitys\VelocityRadialGauge.xaml.cs">
+      <DependentUpon>VelocityRadialGauge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Velocitys\VelocitySlider.cs" />
+    <Compile Include="Controllers\Velocitys\VelocityToggleButton.cs" />
     <Compile Include="Drums\DrumButton.cs" />
     <Compile Include="Drums\DrumGridView.xaml.cs">
       <DependentUpon>DrumGridView.xaml</DependentUpon>
@@ -193,9 +207,6 @@
     <Compile Include="Interfaces\IPianoPanel.cs" />
     <Compile Include="Models\DrumItemCategory.cs" />
     <Compile Include="Models\InstrumentItemCategory.cs" />
-    <Compile Include="Pedals\Pedal.xaml.cs">
-      <DependentUpon>Pedal.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PianoPanels\PianoBottomPanel.xaml.cs">
       <DependentUpon>PianoBottomPanel.xaml</DependentUpon>
     </Compile>
@@ -222,17 +233,6 @@
     <Compile Include="Structs\Guitar.cs" />
     <Compile Include="Structs\PianoSize.cs" />
     <Compile Include="Structs\Radial.cs" />
-    <Compile Include="Tracks\TrackNotePanel.xaml.cs">
-      <DependentUpon>TrackNotePanel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Velocitys\VelocityGauge.xaml.cs">
-      <DependentUpon>VelocityGauge.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Velocitys\VelocityRadialGauge.xaml.cs">
-      <DependentUpon>VelocityRadialGauge.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Velocitys\VelocitySlider.cs" />
-    <Compile Include="Velocitys\VelocityToggleButton.cs" />
     <EmbeddedResource Include="Properties\Virtual_Piano.Midi.Controls.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -251,11 +251,27 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Bends\BendWheel.xaml">
+    <Page Include="Chords\ChordPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Chords\ChordPanel.xaml">
+    <Page Include="Controllers\Bends\BendWheel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controllers\Pedals\Pedal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controllers\Tracks\TrackNotePanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controllers\Velocitys\VelocityGauge.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controllers\Velocitys\VelocityRadialGauge.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -303,10 +319,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pedals\Pedal.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="PianoPanels\PianoBottomPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -324,18 +336,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pianos\PianoHorizontalScrollBar.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Tracks\TrackNotePanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Velocitys\VelocityGauge.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Velocitys\VelocityRadialGauge.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
