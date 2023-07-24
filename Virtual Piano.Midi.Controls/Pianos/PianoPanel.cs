@@ -71,16 +71,16 @@ namespace Virtual_Piano.Midi.Controls
             }
         }
 
-        public IPianoButton this[Note item] => base.Children[(int)item] as IPianoButton;
+        public IPianoButton this[MidiNote item] => base.Children[(int)item] as IPianoButton;
 
         readonly PianoDirection Direction;
         public PianoPanel(PianoDirection direction) => this.Direction = direction;
 
-        public void OnClick(Note note) => this.Command?.Execute(note); // Command
+        public void OnClick(MidiNote note) => this.Command?.Execute(note); // Command
 
         public abstract Brush GetBrush(Octave octave);
         public abstract Style GetStyle(ToneType type);
-        public int GetIndex(Note note)
+        public int GetIndex(MidiNote note)
         {
             switch (this.Direction)
             {
@@ -105,7 +105,7 @@ namespace Virtual_Piano.Midi.Controls
             }
         }
 
-        public void Clear(Note note)
+        public void Clear(MidiNote note)
         {
             int i = (int)note;
             if (base.Children[i] is IPianoButton item)
@@ -113,7 +113,7 @@ namespace Virtual_Piano.Midi.Controls
                 item.Clear();
             }
         }
-        public void Add(Note note)
+        public void Add(MidiNote note)
         {
             int i = (int)note;
             if (base.Children[i] is IPianoButton item)

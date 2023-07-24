@@ -26,7 +26,7 @@ namespace Virtual_Piano
             {
                 this.Synthesizer.SendMessage(item);
             }
-            else if (parameter is Note item0)
+            else if (parameter is MidiNote item0)
             {
                 this.Synthesizer.NoteOn(item0);
                 await Task.Delay(2000);

@@ -11,13 +11,13 @@ namespace Virtual_Piano.Midi.Controls
         int ItemSize { get; set; }
         KeyLabel Label { get; set; }
 
-        IPianoButton this[Note item] { get; }
+        IPianoButton this[MidiNote item] { get; }
 
-        void OnClick(Note note);
+        void OnClick(MidiNote note);
 
         void Clear(int index);
         void Add(int index);
-        void Clear(Note note);
-        void Add(Note note);
+        void Clear(MidiNote note);
+        void Add(MidiNote note);
     }
 }

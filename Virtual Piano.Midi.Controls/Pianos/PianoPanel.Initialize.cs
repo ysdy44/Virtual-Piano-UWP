@@ -94,7 +94,7 @@ namespace Virtual_Piano.Midi.Controls
         public void Initialize()
         {
             int count = 0;
-            foreach (Note note in System.Enum.GetValues(typeof(Note)).Cast<Note>())
+            foreach (MidiNote note in System.Enum.GetValues(typeof(MidiNote)).Cast<MidiNote>())
             {
                 switch (note.ToTone().ToType())
                 {

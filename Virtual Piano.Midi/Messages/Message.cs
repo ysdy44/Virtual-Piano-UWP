@@ -9,7 +9,7 @@ namespace Virtual_Piano.Midi
         public int AbsoluteTime;
 
         public int Duration;
-        public Note Note;
+        public MidiNote Note;
         public byte Velocity;
 
         public ControlController Controller { get; set; }

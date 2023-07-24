@@ -3,7 +3,7 @@ using Windows.System;
 
 namespace Virtual_Piano.Midi
 {
-    public abstract class KeyDictionary : Dictionary<VirtualKey, Note>
+    public abstract class KeyDictionary : Dictionary<VirtualKey, MidiNote>
     {
         //@Abstract
         public abstract VirtualKey CreateKey(int index);
@@ -13,12 +13,12 @@ namespace Virtual_Piano.Midi
         {
             int index = 0;
 
-            int min = (int)Note.C3;
-            int max = (int)Note.C8;
+            int min = (int)MidiNote.C3;
+            int max = (int)MidiNote.C8;
 
             for (int i = min; i <= max; i++)
             {
-                Note note = (Note)i;
+                MidiNote note = (MidiNote)i;
                 Tone tone = note.ToTone();
 
                 switch (tone.ToType())

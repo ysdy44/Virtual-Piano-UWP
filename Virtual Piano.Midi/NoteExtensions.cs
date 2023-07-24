@@ -14,8 +14,8 @@ namespace Virtual_Piano.Midi
         public const int NoteWhiteCount = 75;
         public const int NoteBlackCount = NoteCount - NoteWhiteCount;
 
-        public static Tone ToTone(this Note note) => (Tone)((int)note % 12);
-        public static Octave ToOctave(this Note note) => (Octave)((int)note / 12);
+        public static Tone ToTone(this MidiNote note) => (Tone)((int)note % 12);
+        public static Octave ToOctave(this MidiNote note) => (Octave)((int)note / 12);
         public static ToneType ToType(this Tone tone)
         {
             switch (tone)
@@ -30,7 +30,7 @@ namespace Virtual_Piano.Midi
                     return ToneType.White;
             }
         }
-        public static ToneType ToType(this Note note)
+        public static ToneType ToType(this MidiNote note)
         {
             switch ((int)note % 12)
             {
@@ -44,7 +44,7 @@ namespace Virtual_Piano.Midi
                     return ToneType.White;
             }
         }
-        public static string ToLabel(this Note note, KeyLabel label)
+        public static string ToLabel(this MidiNote note, KeyLabel label)
         {
             switch (label)
             {
@@ -117,15 +117,15 @@ namespace Virtual_Piano.Midi
         {
             return $"{tone.ToCDE()}{(int)octave + 1}";
         }
-        public static string ToCDE(this Note note)
+        public static string ToCDE(this MidiNote note)
         {
             int i = (int)note;
             Tone tone = (Tone)(i % 12);
             return $"{tone.ToCDE()}{i / 12 + 1}";
         }
-        public static Note ToNote(this Octave octave, Tone tone)
+        public static MidiNote ToNote(this Octave octave, Tone tone)
         {
-            return (Note)(12 * (int)octave + (int)tone);
+            return (MidiNote)(12 * (int)octave + (int)tone);
         }
 
 

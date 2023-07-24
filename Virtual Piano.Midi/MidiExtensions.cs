@@ -6,11 +6,11 @@ namespace Virtual_Piano.Midi
     public static class MidiExtensions
     {
 
-        public static void NoteOff(this IMidiOutPort synthesizer, Note note, byte channel = 0)
+        public static void NoteOff(this IMidiOutPort synthesizer, MidiNote note, byte channel = 0)
         {
             synthesizer?.SendMessage(new MidiNoteOffMessage(channel, (byte)note, 0));
         }
-        public static void NoteOn(this IMidiOutPort synthesizer, Note note, byte channel = 0, byte velocity = 127)
+        public static void NoteOn(this IMidiOutPort synthesizer, MidiNote note, byte channel = 0, byte velocity = 127)
         {
             synthesizer?.SendMessage(new MidiNoteOnMessage(channel, (byte)note, velocity));
         }
@@ -24,7 +24,7 @@ namespace Virtual_Piano.Midi
             synthesizer?.SendMessage(new MidiNoteOnMessage(9, (byte)note, velocity));
         }
 
-        public static void PolyphonicKeyPressure(this IMidiOutPort synthesizer, Note note, byte pressure, byte channel = 0)
+        public static void PolyphonicKeyPressure(this IMidiOutPort synthesizer, MidiNote note, byte pressure, byte channel = 0)
         {
             synthesizer?.SendMessage(new MidiPolyphonicKeyPressureMessage(channel, (byte)note, pressure));
         }

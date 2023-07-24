@@ -87,7 +87,7 @@ namespace Virtual_Piano.Midi.Controls
         public async void OnClick(Octave octave)
         {
             this.Command?.Execute(this.Chords.Play(octave)); // Command
-            foreach (Note item in this.Chords.Plays(octave))
+            foreach (MidiNote item in this.Chords.Plays(octave))
             {
                 await Task.Delay(5);
                 this.Command?.Execute(item); // Command

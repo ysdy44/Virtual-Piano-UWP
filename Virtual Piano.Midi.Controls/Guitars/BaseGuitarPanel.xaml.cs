@@ -35,10 +35,10 @@ namespace Virtual_Piano.Midi.Controls
             this.Storyboard3.Completed += (s, e) => this.DisableS3 = false;
             this.Storyboard4.Completed += (s, e) => this.DisableS4 = false;
 
-            this.Initialize(Note.G4, 0, GuitarString.S1);
-            this.Initialize(Note.D3, BaseGuitarPanel.Space, GuitarString.S2);
-            this.Initialize(Note.A3, BaseGuitarPanel.Space * 2, GuitarString.S3);
-            this.Initialize(Note.E3, BaseGuitarPanel.Space * 3, GuitarString.S4);
+            this.Initialize(MidiNote.G4, 0, GuitarString.S1);
+            this.Initialize(MidiNote.D3, BaseGuitarPanel.Space, GuitarString.S2);
+            this.Initialize(MidiNote.A3, BaseGuitarPanel.Space * 2, GuitarString.S3);
+            this.Initialize(MidiNote.E3, BaseGuitarPanel.Space * 3, GuitarString.S4);
 
             foreach (int item in this.Guitar.Inlay1())
             {
@@ -71,7 +71,7 @@ namespace Virtual_Piano.Midi.Controls
             }
         }
 
-        private void Initialize(Note note, int y, GuitarString strings)
+        private void Initialize(MidiNote note, int y, GuitarString strings)
         {
             base.Children.Add(new GuitarButton
             {
@@ -124,7 +124,7 @@ namespace Virtual_Piano.Midi.Controls
             }
         }
 
-        public void OnClick(Note note, GuitarString strings)
+        public void OnClick(MidiNote note, GuitarString strings)
         {
             switch (strings)
             {

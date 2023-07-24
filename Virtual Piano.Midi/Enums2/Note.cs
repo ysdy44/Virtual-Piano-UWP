@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Midi
 {
-    public enum Note
+    public enum MidiNote
     {
         C0, Csharp0, D0, Dsharp0, E0, F0, Fsharp0, G0, Gsharp0, A0, Asharp0, B0,
         C1, Csharp1, D1, Dsharp1, E1, F1, Fsharp1, G1, Gsharp1, A1, Asharp1, B1,

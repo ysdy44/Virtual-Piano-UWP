@@ -3,7 +3,7 @@
     public sealed class GuitarButton : ClickButton, IGuitarButton
     {
         //@Command
-        public Note CommandParameter { get; set; }
+        public MidiNote CommandParameter { get; set; }
         public GuitarString Strings { get; set; }
 
         protected override void OnClick()

@@ -13,11 +13,11 @@ namespace Virtual_Piano
             this.DrumPanel.Add(item);
         }
 
-        public void Clear(Note item)
+        public void Clear(MidiNote item)
         {
             this.PianoTopPanel[item].Clear();
         }
-        public void Add(Note item)
+        public void Add(MidiNote item)
         {
             this.PianoTopPanel[item].Add();
         }

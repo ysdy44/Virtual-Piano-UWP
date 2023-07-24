@@ -106,7 +106,7 @@ namespace Virtual_Piano.Midi.Controls
 
             // BackgroundCanvas
             this.BackgroundCanvas.Height = this.ExtentHeightTop;
-            foreach (Note item in System.Enum.GetValues(typeof(Note)).Cast<Note>())
+            foreach (MidiNote item in System.Enum.GetValues(typeof(MidiNote)).Cast<MidiNote>())
             {
                 switch (item.ToType())
                 {

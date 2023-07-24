@@ -27,7 +27,7 @@ namespace Virtual_Piano
         readonly IKeyDictionary BlackKeys = new KeyQWERTDictionary(ToneType.Black);
         readonly ObservableCollection<ContentControl> ItemsSource = new ObservableCollection<ContentControl>();
 
-        readonly Note DemoNote = Note.C5;
+        readonly MidiNote DemoNote = MidiNote.C5;
         readonly InstrumentObservableCollection Favorites = new InstrumentObservableCollection
         {
             MidiProgram.AcousticGrand,
@@ -109,7 +109,7 @@ namespace Virtual_Piano
         private void CoreKeyUp(CoreWindow sender, KeyEventArgs args)
         {
             bool shift = Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift) == CoreVirtualKeyStates.Down;
-            if ((shift ? this.BlackKeys : this.WhiteKeys).TryGetValue(args.VirtualKey, out Note item))
+            if ((shift ? this.BlackKeys : this.WhiteKeys).TryGetValue(args.VirtualKey, out MidiNote item))
                 this.Clear(item);
 
             switch (args.VirtualKey)
@@ -126,7 +126,7 @@ namespace Virtual_Piano
         private void CoreKeyDown(CoreWindow sender, KeyEventArgs args)
         {
             bool shift = Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift) == CoreVirtualKeyStates.Down;
-            if ((shift ? this.BlackKeys : this.WhiteKeys).TryGetValue(args.VirtualKey, out Note item))
+            if ((shift ? this.BlackKeys : this.WhiteKeys).TryGetValue(args.VirtualKey, out MidiNote item))
                 this.Add(item);
 
             switch (args.VirtualKey)

@@ -2,7 +2,7 @@
 {
     public interface IGuitarButton : IClickButton
     {
-        Note CommandParameter { get; set; }
+        MidiNote CommandParameter { get; set; }
         GuitarString Strings { get; set; }
     }
 }

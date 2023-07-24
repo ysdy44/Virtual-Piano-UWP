@@ -2,7 +2,7 @@
 {
     public interface IPianoButton : IClickButton
     {
-        Note CommandParameter { get; set; }
+        MidiNote CommandParameter { get; set; }
         ToneType Type { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace Virtual_Piano.Midi.Controls
 
                         foreach (IPianoButton item in base.Children.Cast<IPianoButton>())
                         {
-                            Note note = item.CommandParameter;
+                            MidiNote note = item.CommandParameter;
                             switch (item.Type)
                             {
                                 case ToneType.White:
@@ -49,7 +49,7 @@ namespace Virtual_Piano.Midi.Controls
 
                         foreach (IPianoButton item in base.Children.Cast<IPianoButton>())
                         {
-                            Note note = item.CommandParameter;
+                            MidiNote note = item.CommandParameter;
                             switch (item.Type)
                             {
                                 case ToneType.White:
@@ -77,7 +77,7 @@ namespace Virtual_Piano.Midi.Controls
 
                         foreach (IPianoButton item in base.Children.Cast<IPianoButton>())
                         {
-                            Note note = item.CommandParameter;
+                            MidiNote note = item.CommandParameter;
                             switch (item.Type)
                             {
                                 case ToneType.White:
@@ -105,7 +105,7 @@ namespace Virtual_Piano.Midi.Controls
 
                         foreach (IPianoButton item in base.Children.Cast<IPianoButton>())
                         {
-                            Note note = item.CommandParameter;
+                            MidiNote note = item.CommandParameter;
                             switch (item.Type)
                             {
                                 case ToneType.White:

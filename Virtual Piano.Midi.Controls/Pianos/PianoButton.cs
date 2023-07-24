@@ -3,7 +3,7 @@
     public sealed class PianoButton : ClickButton, IPianoButton
     {
         //@Command
-        public Note CommandParameter { get; set; }
+        public MidiNote CommandParameter { get; set; }
         public ToneType Type { get; set; }
 
         protected override void OnClick()

@@ -6,6 +6,6 @@ namespace Virtual_Piano.Midi.Controls
     {
         ICommand Command { get; set; }
 
-        void OnClick(Note note, GuitarString strings);
+        void OnClick(MidiNote note, GuitarString strings);
     }
 }
