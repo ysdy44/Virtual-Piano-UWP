@@ -14,6 +14,11 @@
     BlackSize="150" 
     >
 
+    <!--Disable the ScrollViewer-->
+    <UIElement.ManipulationMode>
+        None
+    </UIElement.ManipulationMode>
+
     <FrameworkElement.Resources>
         <!--Brush-->
         <SolidColorBrush x:Key="Number0" Color="#323C80"/>

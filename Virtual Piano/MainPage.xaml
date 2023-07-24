@@ -778,12 +778,7 @@
                                 WhiteSize="250" 
                                 BlackSize="150" 
                                 Command="{x:Bind Command}"
-                                >
-                                <!--Disable the ScrollViewer-->
-                                <UIElement.ManipulationMode>
-                                    None
-                                </UIElement.ManipulationMode>
-                            </notecontrols:PianoTopPanel>
+                                />
                         </ScrollViewer>
                     </Grid>
 
@@ -950,12 +945,7 @@
                         
                         Background="#CC9D55"
                         >
-                        <notecontrols:GuitarPanel Command="{x:Bind Command}">
-                            <!--Disable the ScrollViewer-->
-                            <UIElement.ManipulationMode>
-                                None
-                            </UIElement.ManipulationMode>
-                        </notecontrols:GuitarPanel>
+                        <notecontrols:GuitarPanel Command="{x:Bind Command}"/>
                     </ScrollViewer>
                 </Grid>
 
@@ -981,12 +971,7 @@
                         
                         Background="#22262F"
                         >
-                        <notecontrols:BaseGuitarPanel Command="{x:Bind Command}">
-                            <!--Disable the ScrollViewer-->
-                            <UIElement.ManipulationMode>
-                                None
-                            </UIElement.ManipulationMode>
-                        </notecontrols:BaseGuitarPanel>
+                        <notecontrols:BaseGuitarPanel Command="{x:Bind Command}"/>
                     </ScrollViewer>
                 </Grid>
 

@@ -47,12 +47,7 @@
                                  WhiteSize="250" 
                                  BlackSize="150" 
                                  Command="{x:Bind Command}"
-                                 >
-                                <!--Disable the ScrollViewer-->
-                                <UIElement.ManipulationMode>
-                                    TranslateX
-                                </UIElement.ManipulationMode>
-                            </notecontrols:PianoTopPanel>
+                                 />
                         </ScrollViewer>
                     </Grid>
 

@@ -15,6 +15,11 @@
     Background="Gray"
     >
 
+    <!--Disable the ScrollViewer-->
+    <UIElement.ManipulationMode>
+        None
+    </UIElement.ManipulationMode>
+
     <FrameworkElement.Resources>
         <!--Style-->
         <Style x:Key="White" TargetType="ContentControl">

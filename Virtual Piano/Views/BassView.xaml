@@ -42,10 +42,7 @@
                         Background="#22262F"
                         >
                         <notecontrols:BaseGuitarPanel Command="{x:Bind Command}">
-                            <!--Disable the ScrollViewer-->
-                            <UIElement.ManipulationMode>
-                                None
-                            </UIElement.ManipulationMode>
+                          
                         </notecontrols:BaseGuitarPanel>
                     </ScrollViewer>
                 </Grid>

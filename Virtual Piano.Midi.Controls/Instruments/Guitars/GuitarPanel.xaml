@@ -13,6 +13,11 @@
     RequestedTheme="Light"
     >
 
+    <!--Disable the ScrollViewer-->
+    <UIElement.ManipulationMode>
+        None
+    </UIElement.ManipulationMode>
+
     <FrameworkElement.Resources>
         <!--"Brush-->
         <SolidColorBrush x:Key="Brush0" Color="#442E1F"/>
