@@ -1,10 +1,7 @@
-﻿using System.Windows.Input;
-
-namespace Virtual_Piano.Midi.Controls
+﻿namespace Virtual_Piano.Midi.Controls
 {
-    public interface IPianoPanel
+    public interface IPianoPanel: INotePanel
     {
-        ICommand Command { get; set; }
         double WhiteSize { get; set; }
         double BlackSize { get; set; }
 
@@ -12,8 +9,6 @@ namespace Virtual_Piano.Midi.Controls
         KeyLabel Label { get; set; }
 
         IPianoButton this[MidiNote item] { get; }
-
-        void OnClick(MidiNote note);
 
         void Clear(int index);
         void Add(int index);
