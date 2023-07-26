@@ -324,10 +324,12 @@
                                 VerticalAlignment="Stretch"
                                 CommandParameter="{x:Bind DemoNote}"
                                 Command="{x:Bind Command}"
-                                Content="{x:Bind Favorites.String, Mode=OneWay}"
                                 Style="{StaticResource TextBlockButtonStyle}"
                                 >
-                                <!--Content-->
+                                <StackPanel Spacing="2">
+                                    <TextBlock FontSize="32" IsColorFontEnabled="False" HorizontalAlignment="Center" Text="{x:Bind Favorites.Emoji, Mode=OneWay}"/>
+                                    <TextBlock FontSize="14" HorizontalAlignment="Center" Text="{x:Bind Favorites.String, Mode=OneWay}"/>
+                                </StackPanel>
                             </Button>
 
                             <elements:CommandCheckedButton
