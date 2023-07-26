@@ -208,11 +208,12 @@
                 >
                 <!--Left-->
                 <SplitView.Pane>
-                    <Grid>
+                    <Grid Margin="4,0,0,6">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="44"/>
                             <RowDefinition Height="*"/>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="6"/>
+                            <RowDefinition Height="92"/>
                         </Grid.RowDefinitions>
 
                         <!--Head-->
@@ -281,7 +282,7 @@
                         </ListView>
 
                         <!--Body-->
-                        <Grid Grid.Row="1" Margin="4">
+                        <Grid Grid.Row="1">
 
                             <!--Sounds-->
                             <controls:InstrumentSplitView InstrumentGroupPanel="{x:Bind InstrumentGroupPanel}" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem41.IsSelected), Mode=OneWay}">
@@ -296,7 +297,7 @@
                             </ScrollViewer>
 
                             <!--Pedal-->
-                            <Grid ColumnSpacing="4" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem43.IsSelected), Mode=OneWay}">
+                            <Grid ColumnSpacing="6" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem43.IsSelected), Mode=OneWay}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="1*"/>
@@ -316,49 +317,32 @@
                         </Grid>
 
                         <!--Bar-->
-                        <Grid Grid.Row="2" ColumnSpacing="8" Height="44" Margin="4">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="3" CornerRadius="6" Background="{ThemeResource AppForeground}">
 
-                            <Border
-                                Grid.Row="1" 
-                                Height="44"
-                                CornerRadius="6"
-                                BorderBrush="Transparent"
-                                Background="{ThemeResource AppForeground}"
-                                VerticalAlignment="Center"
+                            <Button 
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                CommandParameter="{x:Bind DemoNote}"
+                                Command="{x:Bind Command}"
+                                Content="{x:Bind Favorites.String, Mode=OneWay}"
+                                Style="{StaticResource TextBlockButtonStyle}"
                                 >
-                                <Button 
-                                    Margin="6,2"
-                                    FontSize="12"
-                                    FontWeight="Normal"
-                                    HorizontalAlignment="Stretch"
-                                    VerticalAlignment="Stretch"
-                                    CommandParameter="{x:Bind DemoNote}"
-                                    Command="{x:Bind Command}"
-                                    Content="{x:Bind Favorites.String, Mode=OneWay}"
-                                    Style="{StaticResource TextBlockButtonStyle}"
-                                    >
-                                    <!--Content-->
-                                </Button>
-                            </Border>
+                                <!--Content-->
+                            </Button>
 
                             <elements:CommandCheckedButton
-                                Grid.Column="1"
-                                CornerRadius="4"
                                 Width="44" 
                                 Height="44" 
                                 BorderBrush="Transparent"
                                 Background="{ThemeResource AppForeground}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
                                 IsChecked="{x:Bind Favorites.IsContains, Mode=OneWay}"
                                 UncheckedSymbol="OutlineStar"
                                 CheckedSymbol="SolidStar"
                                 CommandParameter="{x:Bind Favorites.IsContains, Mode=OneWay}"
                                 Command="{x:Bind Favorites.Command}"
+                                Style="{StaticResource TextBlockButtonStyle}"
                                 >
                                 <ToolTipService.ToolTip>
                                     <ToolTip>

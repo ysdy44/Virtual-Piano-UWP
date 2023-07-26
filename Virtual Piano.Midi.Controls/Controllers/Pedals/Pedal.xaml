@@ -43,7 +43,7 @@
                     IsHitTestVisible="False"
                     RadiusX="4" 
                     RadiusY="4" 
-                    Margin="28,44,28,6" 
+                    Margin="28,40,28,0" 
                     Fill="{TemplateBinding BorderBrush}"
                     />
                 
@@ -53,13 +53,12 @@
                     Visibility="Collapsed" 
                     RadiusX="4" 
                     RadiusY="4" 
-                    Margin="28,44,28,6" 
+                    Margin="28,40,28,0" 
                     Fill="{ThemeResource SystemColorControlAccentBrush}" 
                     />
                 
                 <Border 
                     IsHitTestVisible="False"
-                    Margin="4" 
                     CornerRadius="4,4,0,0"
                     Height="36"  
                     VerticalAlignment="Top" 

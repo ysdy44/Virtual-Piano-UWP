@@ -17,7 +17,6 @@
     <SplitView.Pane>
         <ListView
             x:Name="ListView"
-            Margin="2,2,0,2"
             SelectionMode="Extended"
             VerticalAlignment="Top"
             IsMultiSelectCheckBoxEnabled="False"

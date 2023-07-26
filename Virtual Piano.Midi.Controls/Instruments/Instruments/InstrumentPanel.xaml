@@ -8,7 +8,6 @@
     mc:Ignorable="d"
     d:DesignWidth="400"
     d:DesignHeight="400"
-    Margin="2"
     >
 
     <FrameworkElement.Resources>
@@ -57,7 +56,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="local:InstrumentButton">
-                        <Grid x:Name="RootGrid" Margin="2" Background="Transparent">
+                        <Grid x:Name="RootGrid" Margin="0,0,0,4" Background="Transparent">
 
                             <!--VisualState-->
                             <VisualStateManager.VisualStateGroups>
