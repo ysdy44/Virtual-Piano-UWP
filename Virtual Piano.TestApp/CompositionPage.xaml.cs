@@ -8,14 +8,14 @@ namespace Virtual_Piano.TestApp
         public CompositionPage()
         {
             this.InitializeComponent();
-            var m = this.ScrollViewer.GetManipulation();
-            var x = m.ExpressionX();
-            var y = m.ExpressionY();
-            this.Left.GetVisual().OffsetX(x);
-            this.Top.GetVisual().OffsetY(y);
+            var m = this.ScrollViewer.GetScroller();
+            var x = m.SnapScrollerX();
+            var y = m.SnapScrollerY();
+            this.Left.GetVisual().AnimationX(x);
+            this.Top.GetVisual().AnimationY(y);
             var v = this.LeftTop.GetVisual();
-            v.OffsetX(x);
-            v.OffsetY(y);
+            v.AnimationX(x);
+            v.AnimationY(y);
         }
     }
 }

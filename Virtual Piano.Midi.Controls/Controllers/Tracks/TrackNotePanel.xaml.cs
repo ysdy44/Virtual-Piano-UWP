@@ -84,25 +84,25 @@ namespace Virtual_Piano.Midi.Controls
             this.InitializeComponent();
 
             // Composition
-            var m = this.ScrollViewer.GetManipulation();
-            var ex = m.ExpressionX();
-            var ex2 = m.ExpressionX(-this.Left);
-            var ey = m.ExpressionY();
-            var ey2 = m.ExpressionY(-this.Top);
-            var sx = m.ExpressionX(MessageCollection.Step, 0);
+            var m = this.ScrollViewer.GetScroller();
+            var ex = m.SnapScrollerX();
+            var ex2 = m.SnapScrollerX(-this.Left);
+            var ey = m.SnapScrollerY();
+            var ey2 = m.SnapScrollerY(-this.Top);
+            var sx = m.SnapScrollerX(MessageCollection.Step, 0);
 
-            this.Polygon.GetVisual().OffsetY(ey2);
-            this.Line.GetVisual().OffsetY(ey);
-            this.TimelineThumb.GetVisual().Offset(ex, ey2);
+            this.Polygon.GetVisual().AnimationY(ey2);
+            this.Line.GetVisual().AnimationY(ey);
+            this.TimelineThumb.GetVisual().AnimationXY(ex, ey2);
 
-            this.PaneBorder.GetVisual().OffsetX(ex2);
-            this.HeadBorder.GetVisual().Offset(ex2, ey2);
+            this.PaneBorder.GetVisual().AnimationX(ex2);
+            this.HeadBorder.GetVisual().AnimationXY(ex2, ey2);
 
-            this.LineCanvas.GetVisual().Offset(sx, ey);
-            this.BackgroundCanvas.GetVisual().OffsetX(ex);
+            this.LineCanvas.GetVisual().AnimationXY(sx, ey);
+            this.BackgroundCanvas.GetVisual().AnimationX(ex);
 
-            this.TextCanvas.GetVisual().Offset(sx, ey2);
-            this.PointCanvas.GetVisual().Offset(sx, ey2);
+            this.TextCanvas.GetVisual().AnimationXY(sx, ey2);
+            this.PointCanvas.GetVisual().AnimationXY(sx, ey2);
 
             // BackgroundCanvas
             this.BackgroundCanvas.Height = this.ExtentHeightTop;
