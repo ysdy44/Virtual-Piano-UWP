@@ -28,10 +28,10 @@ namespace Virtual_Piano.Midi.Controls
         public int ViewportWidth { get; private set; }
         public int ViewportHeight { get; private set; }
 
-        public int ExtentWidth { get; private set; } = NoteExtensions.NoteCount * MessageCollection.Spacing;
+        public int ExtentWidth { get; private set; } = NoteExtensions.NoteCount * TrackLayout.Spacing;
         private int ExtentWidthLeft => this.ExtentWidth + this.Left;
 
-        public int ExtentHeight => NoteExtensions.NoteCount * MessageCollection.Spacing;
+        public int ExtentHeight => NoteExtensions.NoteCount * TrackLayout.Spacing;
         private int ExtentHeightTop => this.ExtentHeight + this.Top;
 
         // Content
