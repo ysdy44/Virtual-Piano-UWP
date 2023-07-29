@@ -5,7 +5,7 @@ using Windows.UI.Xaml.Shapes;
 
 namespace Virtual_Piano.Midi.Controls
 {
-    public sealed partial class VelocityRadialGauge : UserControl
+    public sealed partial class TickGauge : UserControl
     {
         //@Const
         const int S1 = 90;
@@ -27,7 +27,7 @@ namespace Virtual_Piano.Midi.Controls
             }
         }
 
-        public VelocityRadialGauge()
+        public TickGauge()
         {
             this.InitializeComponent();
             this.Update(this.Index);

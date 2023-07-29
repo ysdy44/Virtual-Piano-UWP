@@ -6,7 +6,7 @@ using Windows.UI.Xaml.Shapes;
 
 namespace Virtual_Piano.Midi.Controls
 {
-    public sealed partial class VelocityGauge : UserControl
+    public sealed partial class IndicatorGauge : UserControl
     {
         //@Command
         public ICommand Command { get; set; }
@@ -19,6 +19,8 @@ namespace Virtual_Piano.Midi.Controls
 
         double X;
         double Y;
+
+        readonly int DefaultValue = 64;
 
         private int index = 64;
         public int Index
@@ -33,7 +35,7 @@ namespace Virtual_Piano.Midi.Controls
             }
         }
 
-        public VelocityGauge()
+        public IndicatorGauge()
         {
             this.InitializeComponent();
             this.Update(this.Index);
@@ -86,7 +88,7 @@ namespace Virtual_Piano.Midi.Controls
         private void Update(int value)
         {
             double a = Radial.ToRadians(Radial.ToTick(value));
-            this.Update($"{value}", System.Math.Cos(a) * S2 + S1, System.Math.Sin(a) * S2 + S1);
+            this.Update($"{value - this.DefaultValue}", System.Math.Cos(a) * S2 + S1, System.Math.Sin(a) * S2 + S1);
         }
         private void Update(string value, double x, double y)
         {

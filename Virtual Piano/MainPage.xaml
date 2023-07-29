@@ -427,13 +427,13 @@
                                 />
                         </Border>
 
-                        <notecontrols:VelocityGauge Grid.Row="3" Controller="Pan" Command="{x:Bind Command}">
+                        <notecontrols:IndicatorGauge Grid.Row="3" Controller="Pan" Command="{x:Bind Command}">
                             <ToolTipService.ToolTip>
                                 <ToolTip>
                                     Panorama
                                 </ToolTip>
                             </ToolTipService.ToolTip>
-                        </notecontrols:VelocityGauge>
+                        </notecontrols:IndicatorGauge>
 
                         <ToggleButton x:Name="DockLeftButton" Grid.Row="4" IsChecked="False" Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
                             <ToolTipService.ToolTip>
