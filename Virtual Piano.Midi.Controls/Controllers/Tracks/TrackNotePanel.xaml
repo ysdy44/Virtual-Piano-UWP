@@ -4,10 +4,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Background="Black"
     mc:Ignorable="d"
     d:DesignWidth="400"
     d:DesignHeight="400"
+    RequestedTheme="Light"
     >
 
     <ScrollViewer
@@ -21,9 +21,10 @@
         VerticalScrollMode="Enabled"
         VerticalScrollBarVisibility="Visible"
         IsVerticalScrollChainingEnabled="True"
-         >
+        
+        Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
+        >
         <Canvas x:Name="Canvas" Margin="{x:Bind ExtentMargin}" Width="{x:Bind ExtentWidth}" Height="{x:Bind ExtentHeight}">
-
 
             <!--Center-->
             <Canvas x:Name="BackgroundCanvas" IsHitTestVisible="False" Background="Gainsboro">
@@ -31,19 +32,7 @@
                     <!--Style-->
                     <Style TargetType="Rectangle">
                         <Setter Property="IsHitTestVisible" Value="False" />
-                        <Setter Property="Fill" Value="Silver" />
-                    </Style>
-                </FrameworkElement.Resources>
-                <!--Children-->
-            </Canvas>
-
-            <Canvas x:Name="LineCanvas" IsHitTestVisible="False">
-                <FrameworkElement.Resources>
-                    <!--Style-->
-                    <Style TargetType="Line">
-                        <Setter Property="IsHitTestVisible" Value="False" />
-                        <Setter Property="StrokeThickness" Value="1" />
-                        <Setter Property="Stroke" Value="Gray" />
+                        <Setter Property="Fill" Value="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" />
                     </Style>
                 </FrameworkElement.Resources>
                 <!--Children-->
@@ -58,6 +47,8 @@
 
                 <ItemsControl.ItemContainerStyle>
                     <Style TargetType="ContentControl">
+                        <Setter Property="Padding" Value="4,0" />
+                        <Setter Property="FontWeight" Value="Medium" />
                         <Setter Property="Foreground" Value="Black" />
                         <Setter Property="Background" Value="#B4DE4B" />
                         <Setter Property="BorderBrush" Value="#708B2F" />
@@ -82,7 +73,16 @@
             </ItemsControl>
 
             <!--Timerline-->
-            <Line x:Name="Line" IsHitTestVisible="False"  StrokeThickness="2" Stroke="Red"/>
+            <Canvas x:Name="LineCanvas" IsHitTestVisible="False">
+                <FrameworkElement.Resources>
+                    <!--Style-->
+                    <Style TargetType="Line">
+                        <Setter Property="IsHitTestVisible" Value="False" />
+                        <Setter Property="Stroke" Value="#33888888" />
+                    </Style>
+                </FrameworkElement.Resources>
+                <!--Children-->
+            </Canvas>
 
             <!--Left-->
             <Border x:Name="PaneBorder" Width="{x:Bind Left}" Height="{x:Bind ExtentHeight}" BorderThickness="1,0" BorderBrush="Black" Background="Black">
@@ -90,6 +90,8 @@
             </Border>
 
             <!--Timerline-->
+            <Line x:Name="Line" IsHitTestVisible="False"  StrokeThickness="2" Stroke="Red"/>
+
             <Thumb x:Name="TimelineThumb" Height="{x:Bind Top}">
                 <UIElement.ManipulationMode>
                     None
@@ -116,7 +118,7 @@
             <Canvas x:Name="TextCanvas" IsHitTestVisible="False" Height="{x:Bind Top}">
                 <FrameworkElement.Resources>
                     <Style TargetType="TextBlock">
-                        <Setter Property="Foreground" Value="SkyBlue" />
+                        <Setter Property="Foreground" Value="{ThemeResource SystemColorControlAccentBrush}" />
                         <Setter Property="Margin" Value="4,0" />
                     </Style>
                 </FrameworkElement.Resources>

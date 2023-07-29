@@ -12,20 +12,6 @@ using Windows.UI.Xaml.Shapes;
 
 namespace Virtual_Piano.Midi.Controls
 {
-    public class MessageCollection
-    {
-        //@Const
-        public const int Scaling = 4;
-        public const int Spacing = 21;
-        public const int SpacingHalf = Spacing / 2;
-
-        public const int Step = 120;
-        public const int StepCount = 4;
-
-        public const int StepSpacing = Step / StepCount;
-        public const int StepSpacing2 = StepSpacing / StepCount;
-    }
-
     [ContentProperty(Name = nameof(Pane))]
     public sealed partial class TrackNotePanel : UserControl
     {
@@ -79,17 +65,19 @@ namespace Virtual_Piano.Midi.Controls
         private int Position;
         private int Timeline;
 
+        readonly Windows.UI.Composition.CompositionPropertySet ScrollProperties;
+
         public TrackNotePanel()
         {
             this.InitializeComponent();
 
             // Composition
-            var m = this.ScrollViewer.GetScroller();
-            var ex = m.SnapScrollerX();
-            var ex2 = m.SnapScrollerX(-this.Left);
-            var ey = m.SnapScrollerY();
-            var ey2 = m.SnapScrollerY(-this.Top);
-            var sx = m.SnapScrollerX(MessageCollection.Step, 0);
+            this.ScrollProperties = this.ScrollViewer.GetScroller();
+            var ex = this.ScrollProperties.SnapScrollerX();
+            var ex2 = this.ScrollProperties.SnapScrollerX(-this.Left);
+            var ey = this.ScrollProperties.SnapScrollerY();
+            var ey2 = this.ScrollProperties.SnapScrollerY(-this.Top);
+            var sx = this.ScrollProperties.SnapScrollerX(TrackLayout.Step, 0);
 
             this.Polygon.GetVisual().AnimationY(ey2);
             this.Line.GetVisual().AnimationY(ey);
@@ -115,11 +103,11 @@ namespace Virtual_Piano.Midi.Controls
                     case ToneType.Black:
                         Rectangle rect = new Rectangle
                         {
-                            Height = MessageCollection.Spacing
+                            Height = TrackLayout.Spacing
                         };
 
                         var i = NoteExtensions.NoteCount - (byte)item - 1;
-                        var y = i * MessageCollection.Spacing;
+                        var y = i * TrackLayout.Spacing;
 
                         Canvas.SetTop(rect, y);
                         this.BackgroundCanvas.Children.Add(rect);
@@ -130,23 +118,25 @@ namespace Virtual_Piano.Midi.Controls
             }
 
             // LineCanvas
-            this.LineCanvas.Width = 16 * MessageCollection.Step;
+            this.LineCanvas.Width = 16 * TrackLayout.Step;
             for (int i = 0; i < 16; i++)
             {
-                double x = i * MessageCollection.Step;
+                double x = i * TrackLayout.Step;
                 this.LineCanvas.Children.Add(new Line
                 {
+                    StrokeThickness = 2,
                     Y1 = 0,
                     X1 = x,
                     X2 = x,
                     //Y2 = ?
                 });
 
-                for (int j = 0; j < MessageCollection.StepCount; j++)
+                for (int j = 1; j < TrackLayout.StepCount; j++)
                 {
-                    double x2 = x + j * MessageCollection.StepSpacing;
+                    double x2 = x + j * TrackLayout.StepSpacing;
                     this.LineCanvas.Children.Add(new Line
                     {
+                        StrokeThickness = 1,
                         Y1 = 0,
                         X1 = x2,
                         X2 = x2,
@@ -156,10 +146,10 @@ namespace Virtual_Piano.Midi.Controls
             }
 
             // PointCanvas
-            this.PointCanvas.Width = 16 * MessageCollection.Step;
+            this.PointCanvas.Width = 16 * TrackLayout.Step;
             for (int i = 0; i < 16; i++)
             {
-                double x = i * MessageCollection.Step;
+                double x = i * TrackLayout.Step;
                 this.PointCanvas.Children.Add(new Line
                 {
                     Y1 = 0,
@@ -168,9 +158,9 @@ namespace Virtual_Piano.Midi.Controls
                     Y2 = this.Top
                 });
 
-                for (int j = 0; j < MessageCollection.StepCount; j++)
+                for (int j = 0; j < TrackLayout.StepCount; j++)
                 {
-                    double x2 = x + j * MessageCollection.StepSpacing;
+                    double x2 = x + j * TrackLayout.StepSpacing;
                     this.PointCanvas.Children.Add(new Line
                     {
                         Y1 = 9,
@@ -179,9 +169,9 @@ namespace Virtual_Piano.Midi.Controls
                         Y2 = this.Top
                     });
 
-                    for (int k = 0; k < MessageCollection.StepCount; k++)
+                    for (int k = 0; k < TrackLayout.StepCount; k++)
                     {
-                        double x3 = x2 + k * MessageCollection.StepSpacing2;
+                        double x3 = x2 + k * TrackLayout.StepSpacing2;
                         this.PointCanvas.Children.Add(new Line
                         {
                             Y1 = 9 + 4,
@@ -200,7 +190,7 @@ namespace Virtual_Piano.Midi.Controls
                 {
                     Text = $"{i}"
                 };
-                Canvas.SetLeft(item, i * MessageCollection.Step);
+                Canvas.SetLeft(item, i * TrackLayout.Step);
                 this.TextCanvas.Children.Add(item);
             }
 
@@ -209,26 +199,31 @@ namespace Virtual_Piano.Midi.Controls
                 if (e.NewSize == Size.Empty) return;
                 if (e.NewSize == e.PreviousSize) return;
 
-                var w = (int)e.NewSize.Width - this.Left;
-                var h = (int)e.NewSize.Height - this.Top;
-
-                this.ViewportWidth = w;
-                this.ViewportHeight = h;
-
-                this.Line.Y2 = h;
-                this.LineCanvas.Height = h;
-                foreach (Line item in this.LineCanvas.Children.Cast<Line>())
+                int w = (int)e.NewSize.Width - this.Left;
+                if (this.ViewportWidth != w)
                 {
-                    item.Y2 = h;
+                    this.ViewportWidth = w;
+
+                    this.TimelineThumb.Width = w;
+                    this.BackgroundCanvas.Width = w;
+                    foreach (FrameworkElement item in this.BackgroundCanvas.Children.Cast<FrameworkElement>())
+                    {
+                        item.Width = w;
+                    }
                 }
 
-                this.BackgroundCanvas.Width = w;
-                foreach (FrameworkElement item in this.BackgroundCanvas.Children.Cast<FrameworkElement>())
+                int h = (int)e.NewSize.Height - this.Top;
+                if (this.ViewportHeight != h)
                 {
-                    item.Width = w;
-                }
+                    this.ViewportHeight = h;
 
-                this.TimelineThumb.Width = w;
+                    this.Line.Y2 = h;
+                    this.LineCanvas.Height = h;
+                    foreach (Line item in this.LineCanvas.Children.Cast<Line>())
+                    {
+                        item.Y2 = h;
+                    }
+                }
             };
 
             base.PointerWheelChanged += (s, e) =>
@@ -254,13 +249,13 @@ namespace Virtual_Piano.Midi.Controls
             {
                 this.HorizontalOffset = (int)e.FinalView.HorizontalOffset;
                 this.VerticalOffset = (int)e.FinalView.VerticalOffset;
-                this.Index = this.HorizontalOffset / MessageCollection.Step;
+                this.Index = this.HorizontalOffset / TrackLayout.Step;
             };
         }
 
         public void ChangeDuration(int time)
         {
-            this.ExtentWidth = time / MessageCollection.Scaling;
+            this.ExtentWidth = time / TrackLayout.Scaling;
             this.ItemsControl.Width = this.ExtentWidth;
             this.Canvas.Width = this.ExtentWidthLeft;
         }
@@ -268,7 +263,7 @@ namespace Virtual_Piano.Midi.Controls
         public void ChangePosition(int time)
         {
             this.Time = System.Math.Max(0, time);
-            this.Position = this.Time / MessageCollection.Scaling;
+            this.Position = this.Time / TrackLayout.Scaling;
             this.Timeline = this.Position - this.HorizontalOffset + this.Left;
 
             // UI
@@ -291,7 +286,7 @@ namespace Virtual_Piano.Midi.Controls
         {
             this.Timeline = System.Math.Max(0, time);
             this.Position = this.Timeline + this.HorizontalOffset;
-            this.Time = this.Position * MessageCollection.Scaling;
+            this.Time = this.Position * TrackLayout.Scaling;
 
             // UI
             this.Line.X1 = this.Timeline;
