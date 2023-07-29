@@ -59,7 +59,7 @@
 
         <Control.Tag>
             <Canvas IsHitTestVisible="False" Width="44" Height="44">
-                <Ellipse Width="44" Height="44" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}" />
+                <Rectangle RadiusX="4" RadiusY="4" Width="44" Height="44" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}" />
 
                 <Canvas x:Name="Canvas" Canvas.Left="2" Canvas.Top="2" Width="40" Height="40">
                     <FrameworkElement.Resources>

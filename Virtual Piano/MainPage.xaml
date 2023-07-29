@@ -213,7 +213,7 @@
                             <RowDefinition Height="44"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="6"/>
-                            <RowDefinition Height="92"/>
+                            <RowDefinition Height="82"/>
                         </Grid.RowDefinitions>
 
                         <!--Head-->
@@ -370,6 +370,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="44"/>
                             <RowDefinition Height="*"/>
+                            <RowDefinition Height="6"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="44"/>
                         </Grid.RowDefinitions>
@@ -406,27 +407,9 @@
                                 />
                         </Border>
 
-                        <notecontrols:VelocityToggleButton
-                            Grid.Row="2" 
-                            Margin="0,8" 
-                            CornerRadius="4"
-                            Width="44" 
-                            Height="44" 
-                            BorderBrush="Transparent"
-                            Background="{ThemeResource AppForeground}"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            IsChecked="{x:Bind VelocitySlider.IsEnabled, Mode=OneWay}"
-                            Command="{x:Bind VelocitySlider}"
-                            >
-                            <ToolTipService.ToolTip>
-                                <ToolTip>
-                                    Mute
-                                </ToolTip>
-                            </ToolTipService.ToolTip>
-                        </notecontrols:VelocityToggleButton>
+                        <notecontrols:VelocityGauge Grid.Row="3" Controller="Pan" Command="{x:Bind Command}"/>
 
-                        <ToggleButton x:Name="DockLeftButton" Grid.Row="3" IsChecked="False" Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
+                        <ToggleButton x:Name="DockLeftButton" Grid.Row="4" IsChecked="False" Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
                             <ToolTipService.ToolTip>
                                 <ToolTip>
                                     Dock

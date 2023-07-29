@@ -1,4 +1,6 @@
-﻿using Windows.UI.Input;
+﻿using System.Windows.Input;
+using Windows.Devices.Midi;
+using Windows.UI.Input;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Shapes;
 
@@ -6,6 +8,10 @@ namespace Virtual_Piano.Midi.Controls
 {
     public sealed partial class VelocityGauge : UserControl
     {
+        //@Command
+        public ICommand Command { get; set; }
+        public MidiControlController Controller { get; set; }
+
         //@Const
         const int S1 = 22;
         const int S2 = 20;
@@ -14,7 +20,7 @@ namespace Virtual_Piano.Midi.Controls
         double X;
         double Y;
 
-        private int index;
+        private int index = 64;
         public int Index
         {
             get => this.index;
@@ -23,6 +29,7 @@ namespace Virtual_Piano.Midi.Controls
                 if (this.index == value) return;
                 this.index = value;
                 this.Update(value);
+                this.Execute(value);
             }
         }
 
@@ -86,6 +93,16 @@ namespace Virtual_Piano.Midi.Controls
             this.TextBlock.Text = value;
             this.Line.X1 = x;
             this.Line.Y1 = y;
+        }
+
+        private void Execute(int value)
+        {
+            this.Command?.Execute(new MidiMessage
+            {
+                Type = MidiMessageType.ControlChange,
+                Controller = this.Controller,
+                ControllerValue = (byte)value
+            }); // Command
         }
     }
 }
