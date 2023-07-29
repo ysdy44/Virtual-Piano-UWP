@@ -128,20 +128,19 @@
     <Compile Include="Controllers\Bends\BendWheel.xaml.cs">
       <DependentUpon>BendWheel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\Pedals\Pedal.xaml.cs">
+    <Compile Include="Controllers\Gauges\IndicatorGauge.xaml.cs">
+      <DependentUpon>IndicatorGauge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Gauges\TickGauge.xaml.cs">
+      <DependentUpon>TickGauge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Others\Pedal.xaml.cs">
       <DependentUpon>Pedal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\Others\VelocitySlider.cs" />
     <Compile Include="Controllers\Tracks\TrackNotePanel.xaml.cs">
       <DependentUpon>TrackNotePanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\Velocitys\VelocityGauge.xaml.cs">
-      <DependentUpon>VelocityGauge.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\Velocitys\VelocityRadialGauge.xaml.cs">
-      <DependentUpon>VelocityRadialGauge.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\Velocitys\VelocitySlider.cs" />
-    <Compile Include="Controllers\Velocitys\VelocityToggleButton.cs" />
     <Compile Include="Enums\GuitarInlay1.cs" />
     <Compile Include="Enums\GuitarInlay2.cs" />
     <Compile Include="Enums\GuitarString.cs" />
@@ -261,19 +260,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controllers\Pedals\Pedal.xaml">
+    <Page Include="Controllers\Gauges\IndicatorGauge.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controllers\Gauges\TickGauge.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controllers\Others\Pedal.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controllers\Tracks\TrackNotePanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controllers\Velocitys\VelocityGauge.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controllers\Velocitys\VelocityRadialGauge.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
