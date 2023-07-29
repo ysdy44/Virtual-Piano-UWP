@@ -124,6 +124,7 @@
     <Compile Include="ContactButton.cs" />
     <Compile Include="Controllers\Bends\BendModulationWheel.cs" />
     <Compile Include="Controllers\Bends\BendPitchWheel.cs" />
+    <Compile Include="Controllers\Bends\BendPressureWheel.cs" />
     <Compile Include="Controllers\Bends\BendWheel.xaml.cs">
       <DependentUpon>BendWheel.xaml</DependentUpon>
     </Compile>

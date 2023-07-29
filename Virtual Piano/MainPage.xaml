@@ -427,7 +427,13 @@
                                 />
                         </Border>
 
-                        <notecontrols:VelocityGauge Grid.Row="3" Controller="Pan" Command="{x:Bind Command}"/>
+                        <notecontrols:VelocityGauge Grid.Row="3" Controller="Pan" Command="{x:Bind Command}">
+                            <ToolTipService.ToolTip>
+                                <ToolTip>
+                                    Panorama
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
+                        </notecontrols:VelocityGauge>
 
                         <ToggleButton x:Name="DockLeftButton" Grid.Row="4" IsChecked="False" Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
                             <ToolTipService.ToolTip>
@@ -731,7 +737,7 @@
                 <!--Piano-->
                 <SplitView
                     DisplayMode="Inline"
-                    OpenPaneLength="136"
+                    OpenPaneLength="192"
                     IsPaneOpen="{x:Bind BendItem.IsChecked, Mode=OneWay}" 
                     PanePlacement="{x:Bind BooleanToPlacementConverter(BendPlacementItem.IsChecked), Mode=OneWay}"
                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
@@ -779,6 +785,9 @@
                             <notecontrols:BendModulationWheel BorderBrush="{ThemeResource AppBorderBrush}" Background="{ThemeResource AppBorderBrush}" Foreground="{ThemeResource AppFill}" Command="{x:Bind Command}">
                                 Modulation
                             </notecontrols:BendModulationWheel>
+                            <notecontrols:BendPressureWheel BorderBrush="{ThemeResource AppBorderBrush}" Background="{ThemeResource AppBorderBrush}" Foreground="{ThemeResource AppFill}" Command="{x:Bind Command}">
+                                Pressure
+                            </notecontrols:BendPressureWheel>
                         </StackPanel>
                     </SplitView.Pane>
                 </SplitView>
