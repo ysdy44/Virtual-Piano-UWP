@@ -23,11 +23,11 @@
         IsVerticalScrollChainingEnabled="True"
         
         Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
-        >
-        <Canvas x:Name="Canvas" Margin="{x:Bind ExtentMargin}" Width="{x:Bind ExtentWidth}" Height="{x:Bind ExtentHeight}">
+         >
+        <Canvas x:Name="Canvas" Margin="{x:Bind Layout.MarginLeftTop}" Width="{x:Bind Layout.ExtentHeight}" Height="{x:Bind Layout.ExtentHeight}">
 
             <!--Center-->
-            <Canvas x:Name="BackgroundCanvas" IsHitTestVisible="False" Background="Gainsboro">
+            <Canvas x:Name="BackgroundCanvas" IsHitTestVisible="False" Height="{x:Bind Layout.ExtentHeightTop}">
                 <FrameworkElement.Resources>
                     <!--Style-->
                     <Style TargetType="Rectangle">
@@ -38,7 +38,7 @@
                 <!--Children-->
             </Canvas>
 
-            <ItemsControl x:Name="ItemsControl" Canvas.Left="{x:Bind Left}" Canvas.Top="{x:Bind Top}" Width="{x:Bind ExtentWidth}" Height="{x:Bind ExtentHeight}">
+            <ItemsControl x:Name="ItemsControl" Canvas.Left="{x:Bind Layout.Left}" Canvas.Top="{x:Bind Layout.Top}" Width="{x:Bind Layout.ExtentHeight}" Height="{x:Bind Layout.ExtentHeight}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Canvas/>
@@ -85,14 +85,14 @@
             </Canvas>
 
             <!--Left-->
-            <Border x:Name="PaneBorder" Width="{x:Bind Left}" Height="{x:Bind ExtentHeight}" BorderThickness="1,0" BorderBrush="Black" Background="Black">
+            <Border x:Name="PaneBorder" Width="{x:Bind Layout.Left}" Height="{x:Bind Layout.ExtentHeight}" BorderThickness="1,0" BorderBrush="Black" Background="Black">
                 <!--Child-->
             </Border>
 
             <!--Timerline-->
-            <Line x:Name="Line" IsHitTestVisible="False"  StrokeThickness="2" Stroke="Red"/>
+            <Line x:Name="Line" IsHitTestVisible="False" StrokeThickness="2" Stroke="Red"/>
 
-            <Thumb x:Name="TimelineThumb" Height="{x:Bind Top}">
+            <Thumb x:Name="TimelineThumb" Height="{x:Bind Layout.Top}">
                 <UIElement.ManipulationMode>
                     None
                 </UIElement.ManipulationMode>
@@ -104,7 +104,7 @@
             </Thumb>
 
             <!--Top-->
-            <Canvas x:Name="PointCanvas" IsHitTestVisible="False" Height="{x:Bind Top}">
+            <Canvas x:Name="PointCanvas" IsHitTestVisible="False" Height="{x:Bind Layout.Top}">
                 <FrameworkElement.Resources>
                     <!--Style-->
                     <Style TargetType="Line">
@@ -115,7 +115,7 @@
                 <!--Children-->
             </Canvas>
 
-            <Canvas x:Name="TextCanvas" IsHitTestVisible="False" Height="{x:Bind Top}">
+            <Canvas x:Name="TextCanvas" IsHitTestVisible="False" Height="{x:Bind Layout.Top}">
                 <FrameworkElement.Resources>
                     <Style TargetType="TextBlock">
                         <Setter Property="Foreground" Value="{ThemeResource SystemColorControlAccentBrush}" />
@@ -125,12 +125,12 @@
                 <!--Children-->
             </Canvas>
 
-            <Border x:Name="HeadBorder" Width="{x:Bind Left}" Height="{x:Bind Top}" Background="Black">
+            <Border x:Name="HeadBorder" Width="{x:Bind Layout.Left}" Height="{x:Bind Layout.Top}" Background="Black">
                 <!--Child-->
             </Border>
 
             <!--Timerline-->
-            <Line x:Name="Polygon" IsHitTestVisible="False" Y1="0" Y2="{x:Bind Top}" StrokeThickness="8" Stroke="Red" StrokeStartLineCap="Flat" StrokeEndLineCap="Triangle"/>
+            <Line x:Name="Polygon" IsHitTestVisible="False" Y1="0" Y2="{x:Bind Layout.Top}" StrokeThickness="8" Stroke="Red" StrokeStartLineCap="Flat" StrokeEndLineCap="Triangle"/>
 
         </Canvas>
     </ScrollViewer>

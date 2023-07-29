@@ -20,19 +20,12 @@ namespace Virtual_Piano.Midi.Controls
         public event DragDeltaEventHandler DragDelta { remove => this.TimelineThumb.DragDelta -= value; add => this.TimelineThumb.DragDelta += value; }
         public event DragCompletedEventHandler DragCompleted { remove => this.TimelineThumb.DragCompleted -= value; add => this.TimelineThumb.DragCompleted += value; }
 
-        public int Left => 75;
-        public int Top => 18;
-        private Thickness ExtentMargin => new Thickness(this.Left, this.Top, 0, 0);
-
         // Container
         public int ViewportWidth { get; private set; }
         public int ViewportHeight { get; private set; }
 
-        public int ExtentWidth { get; private set; } = NoteExtensions.NoteCount * TrackLayout.Spacing;
-        private int ExtentWidthLeft => this.ExtentWidth + this.Left;
-
-        public int ExtentHeight => NoteExtensions.NoteCount * TrackLayout.Spacing;
-        private int ExtentHeightTop => this.ExtentHeight + this.Top;
+        // public int ExtentWidth { get; private set; }
+        // public int ExtentHeight { get; private set; }
 
         // Content
         public int HorizontalOffset { get; private set; }
@@ -65,8 +58,10 @@ namespace Virtual_Piano.Midi.Controls
         private int Position;
         private int Timeline;
 
+        readonly TrackLayout Layout = new TrackLayout(75, 22, 150);
         readonly Windows.UI.Composition.CompositionPropertySet ScrollProperties;
 
+        ~TrackNotePanel() => this.ScrollProperties?.Dispose();
         public TrackNotePanel()
         {
             this.InitializeComponent();
@@ -74,9 +69,9 @@ namespace Virtual_Piano.Midi.Controls
             // Composition
             this.ScrollProperties = this.ScrollViewer.GetScroller();
             var ex = this.ScrollProperties.SnapScrollerX();
-            var ex2 = this.ScrollProperties.SnapScrollerX(-this.Left);
+            var ex2 = this.ScrollProperties.SnapScrollerX(-this.Layout.Left);
             var ey = this.ScrollProperties.SnapScrollerY();
-            var ey2 = this.ScrollProperties.SnapScrollerY(-this.Top);
+            var ey2 = this.ScrollProperties.SnapScrollerY(-this.Layout.Top);
             var sx = this.ScrollProperties.SnapScrollerX(TrackLayout.Step, 0);
 
             this.Polygon.GetVisual().AnimationY(ey2);
@@ -93,7 +88,6 @@ namespace Virtual_Piano.Midi.Controls
             this.PointCanvas.GetVisual().AnimationXY(sx, ey2);
 
             // BackgroundCanvas
-            this.BackgroundCanvas.Height = this.ExtentHeightTop;
             foreach (MidiNote item in System.Enum.GetValues(typeof(MidiNote)).Cast<MidiNote>())
             {
                 switch (item.ToType())
@@ -155,7 +149,7 @@ namespace Virtual_Piano.Midi.Controls
                     Y1 = 0,
                     X1 = x,
                     X2 = x,
-                    Y2 = this.Top
+                    Y2 = this.Layout.Top
                 });
 
                 for (int j = 0; j < TrackLayout.StepCount; j++)
@@ -163,10 +157,10 @@ namespace Virtual_Piano.Midi.Controls
                     double x2 = x + j * TrackLayout.StepSpacing;
                     this.PointCanvas.Children.Add(new Line
                     {
-                        Y1 = 9,
                         X1 = x2,
+                        Y1 = this.Layout.Top - 9,
                         X2 = x2,
-                        Y2 = this.Top
+                        Y2 = this.Layout.Top
                     });
 
                     for (int k = 0; k < TrackLayout.StepCount; k++)
@@ -174,10 +168,10 @@ namespace Virtual_Piano.Midi.Controls
                         double x3 = x2 + k * TrackLayout.StepSpacing2;
                         this.PointCanvas.Children.Add(new Line
                         {
-                            Y1 = 9 + 4,
                             X1 = x3,
+                            Y1 = this.Layout.Top - 5,
                             X2 = x3,
-                            Y2 = this.Top
+                            Y2 = this.Layout.Top
                         });
                     }
                 }
@@ -199,7 +193,7 @@ namespace Virtual_Piano.Midi.Controls
                 if (e.NewSize == Size.Empty) return;
                 if (e.NewSize == e.PreviousSize) return;
 
-                int w = (int)e.NewSize.Width - this.Left;
+                int w = (int)e.NewSize.Width - this.Layout.Left;
                 if (this.ViewportWidth != w)
                 {
                     this.ViewportWidth = w;
@@ -212,7 +206,7 @@ namespace Virtual_Piano.Midi.Controls
                     }
                 }
 
-                int h = (int)e.NewSize.Height - this.Top;
+                int h = (int)e.NewSize.Height - this.Layout.Top;
                 if (this.ViewportHeight != h)
                 {
                     this.ViewportHeight = h;
@@ -255,16 +249,16 @@ namespace Virtual_Piano.Midi.Controls
 
         public void ChangeDuration(int time)
         {
-            this.ExtentWidth = time / TrackLayout.Scaling;
-            this.ItemsControl.Width = this.ExtentWidth;
-            this.Canvas.Width = this.ExtentWidthLeft;
+            int extentWidth = time / TrackLayout.Scaling;
+            this.ItemsControl.Width = extentWidth;
+            this.Canvas.Width = extentWidth + this.Layout.Left; ;
         }
 
         public void ChangePosition(int time)
         {
             this.Time = System.Math.Max(0, time);
             this.Position = this.Time / TrackLayout.Scaling;
-            this.Timeline = this.Position - this.HorizontalOffset + this.Left;
+            this.Timeline = this.Position - this.HorizontalOffset + this.Layout.Left;
 
             // UI
             this.Line.X1 = this.Timeline;
@@ -272,7 +266,7 @@ namespace Virtual_Piano.Midi.Controls
             this.Polygon.X1 = this.Timeline;
             this.Polygon.X2 = this.Timeline;
 
-            if (this.Timeline < this.HorizontalOffset + this.Left)
+            if (this.Timeline < this.HorizontalOffset + this.Layout.Left)
             {
                 this.ScrollViewer.ChangeView(this.Position / 2, null, null, true);
             }
