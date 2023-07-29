@@ -86,14 +86,24 @@
                             <Ellipse IsHitTestVisible="False" Width="54" Height="54" Fill="CornflowerBlue"/>
                             <ContentPresenter
                                 IsHitTestVisible="False"
-                                Content="{TemplateBinding Content}" 
+                                Content="{TemplateBinding TabIndex}" 
                                 HorizontalAlignment="Center" 
                                 VerticalAlignment="Center" 
                                 Foreground="White"
                                 FontFamily="Agency FB"  
                                 FontWeight="Black"
                                 FontSize="40"
-                                />
+                                >
+                                <ToolTipService.ToolTip>
+                                    <ToolTip 
+                                        Placement="Bottom" 
+                                        Foreground="White" 
+                                        Background="CornflowerBlue"
+                                        IsOpen="{TemplateBinding AllowDrop}"
+                                        Content="{TemplateBinding Content}" 
+                                        />
+                                </ToolTipService.ToolTip>
+                            </ContentPresenter>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -347,16 +357,16 @@
         </UIElement.RenderTransform>
     </Line>
     <!--Children-->
-    <local:KitButton CommandParameter="{x:Bind ItemsSource[0]}" Content="1" Canvas.Left="340" Canvas.Top="0" Width="240" Height="240"/>
-    <local:KitButton CommandParameter="{x:Bind ItemsSource[1]}" Content="2" Canvas.Left="1053" Canvas.Top="0" Width="320" Height="320"/>
-    <local:KitButton CommandParameter="{x:Bind ItemsSource[2]}" Content="3" Canvas.Left="80" Canvas.Top="50" Width="200" Height="200"/>
-    <local:KitButton CommandParameter="{x:Bind ItemsSource[3]}" Content="4" Canvas.Left="120" Canvas.Top="260" Width="200" Height="200"/>
-    <local:KitButton CommandParameter="{x:Bind ItemsSource[4]}" Content="5" Canvas.Left="150" Canvas.Top="750" Width="240" Height="240"/>
-    <local:KitButton CommandParameter="{x:Bind ItemsSource[5]}" Content="6" Canvas.Left="565" Canvas.Top="200" Width="200" Height="200"/>
-    <local:KitButton CommandParameter="{x:Bind ItemsSource[6]}" Content="7" Canvas.Left="825" Canvas.Top="180" Width="240" Height="240"/>
-    <local:KitButton CommandParameter="{x:Bind ItemsSource[7]}" Content="8" Canvas.Left="990" Canvas.Top="450" Width="300" Height="300"/>
-    <local:KitButton CommandParameter="{x:Bind ItemsSource[8]}" Content="9" Canvas.Left="370" Canvas.Top="290" Width="200" Height="200"/>
-    <local:KitButton CommandParameter="{x:Bind ItemsSource[9]}" Content="10" Canvas.Left="455" Canvas.Top="490" Width="160" Height="160"/>
-    <local:KitButton CommandParameter="{x:Bind ItemsSource[10]}" Content="11" Canvas.Left="605" Canvas.Top="460" Width="400" Height="400"/>
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[0]}" Content="{x:Bind Strings[0]}" TabIndex="1" Canvas.Left="340" Canvas.Top="0" Width="240" Height="240" AllowDrop="{x:Bind AllowDrop, Mode=OneWay}" />
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[1]}" Content="{x:Bind Strings[1]}" TabIndex="2" Canvas.Left="1053" Canvas.Top="0" Width="320" Height="320" AllowDrop="{x:Bind AllowDrop, Mode=OneWay}" />
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[2]}" Content="{x:Bind Strings[2]}" TabIndex="3" Canvas.Left="80" Canvas.Top="50" Width="200" Height="200" AllowDrop="{x:Bind AllowDrop, Mode=OneWay}" />
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[3]}" Content="{x:Bind Strings[3]}" TabIndex="4" Canvas.Left="120" Canvas.Top="260" Width="200" Height="200" AllowDrop="{x:Bind AllowDrop, Mode=OneWay}" />
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[4]}" Content="{x:Bind Strings[4]}" TabIndex="5" Canvas.Left="150" Canvas.Top="750" Width="240" Height="240" AllowDrop="{x:Bind AllowDrop, Mode=OneWay}" />
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[5]}" Content="{x:Bind Strings[5]}" TabIndex="6" Canvas.Left="565" Canvas.Top="200" Width="200" Height="200" AllowDrop="{x:Bind AllowDrop, Mode=OneWay}" />
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[6]}" Content="{x:Bind Strings[6]}" TabIndex="7" Canvas.Left="825" Canvas.Top="180" Width="240" Height="240" AllowDrop="{x:Bind AllowDrop, Mode=OneWay}" />
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[7]}" Content="{x:Bind Strings[7]}" TabIndex="8" Canvas.Left="990" Canvas.Top="450" Width="300" Height="300" AllowDrop="{x:Bind AllowDrop, Mode=OneWay}" />
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[8]}" Content="{x:Bind Strings[8]}" TabIndex="9" Canvas.Left="370" Canvas.Top="290" Width="200" Height="200" AllowDrop="{x:Bind AllowDrop, Mode=OneWay}" />
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[9]}" Content="{x:Bind Strings[9]}" TabIndex="10" Canvas.Left="455" Canvas.Top="490" Width="160" Height="160" AllowDrop="{x:Bind AllowDrop, Mode=OneWay}" />
+    <local:KitButton CommandParameter="{x:Bind ItemsSource[10]}" Content="{x:Bind Strings[10]}" TabIndex="11" Canvas.Left="605" Canvas.Top="460" Width="400" Height="400" AllowDrop="{x:Bind AllowDrop, Mode=OneWay}" />
 
 </Canvas>

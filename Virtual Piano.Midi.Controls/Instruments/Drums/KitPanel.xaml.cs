@@ -1,15 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Linq;
 using System.Windows.Input;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace Virtual_Piano.Midi.Controls
 {
-    public partial class KitPanel : Canvas, IKitPanel
+    public partial class KitPanel : Canvas, IKitPanel, ICommand
     {
         //@Command
         public ICommand Command { get; set; }
 
-        readonly IList<KitSet> ItemsSource = new List<KitSet>
+        readonly string[] Strings;
+        readonly KitSet[] ItemsSource = new KitSet[]
         {
             KitSet.Crash,
             KitSet.Ride,
@@ -24,9 +27,16 @@ namespace Virtual_Piano.Midi.Controls
             KitSet.Kick,
         };
 
+        readonly DispatcherTimer Timer = new DispatcherTimer
+        {
+            Interval = System.TimeSpan.FromMilliseconds(400)
+        };
+
         public KitPanel()
         {
             this.InitializeComponent();
+            this.Strings = this.ItemsSource.Select(this.GetString).ToArray();
+            this.Timer.Tick += (s, e) => this.HideToolTip();
         }
 
         public void OnClick(KitSet set)
@@ -87,6 +97,42 @@ namespace Virtual_Piano.Midi.Controls
                 default:
                     break;
             }
+        }
+
+        private string GetString(KitSet note) => this.GetString((MidiPercussionNote)note);
+        public virtual string GetString(MidiPercussionNote note)
+        {
+            return note.ToString();
+        }
+
+        //@Delegate
+        public event EventHandler CanExecuteChanged;
+
+        //@Command
+        public bool CanExecute(object parameter) => true;
+        public void Execute(object parameter)
+        {
+            this.ShowToolTip();
+
+            //if (parameter is bool item)
+            //{
+            //    if (item)
+            //        this.ShowToolTip();
+            //    else
+            //        this.HideToolTip();
+            //}
+        }
+
+        public void HideToolTip()
+        {
+            this.Timer.Stop();
+            base.AllowDrop = false;
+        }
+        public void ShowToolTip()
+        {
+            this.Timer.Stop();
+            this.Timer.Start();
+            base.AllowDrop = true;
         }
     }
 }
