@@ -127,8 +127,6 @@
     <Compile Include="Controllers\Bends\BendWheel.xaml.cs">
       <DependentUpon>BendWheel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\Bends\BendWheel0.cs" />
-    <Compile Include="Controllers\Bends\BendWheel64.cs" />
     <Compile Include="Controllers\Pedals\Pedal.xaml.cs">
       <DependentUpon>Pedal.xaml</DependentUpon>
     </Compile>
