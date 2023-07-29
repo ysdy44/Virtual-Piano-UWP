@@ -6,7 +6,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Virtual_Piano.Controls"
     xmlns:elements="using:Virtual_Piano.Elements"
-    xmlns:notecontrols="using:Virtual_Piano.Midi.Controls"
     mc:Ignorable="d"   
     Background="Black"
     >
@@ -65,10 +64,21 @@
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
 
-                        <ListViewBase.Footer>
-                            <Button Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
+                        <ListViewBase.Header>
+                            <RepeatButton Delay="0" Width="60" Height="36" Command="{x:Bind KitPanel}" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
                                 <ToolTipService.ToolTip>
-                                    <ToolTip>
+                                    <ToolTip Placement="Bottom">
+                                        Help
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
+                                <SymbolIcon Symbol="Help"/>
+                            </RepeatButton>
+                        </ListViewBase.Header>
+
+                        <ListViewBase.Footer>
+                            <Button Padding="0" Width="60" Height="36" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
+                                <ToolTipService.ToolTip>
+                                    <ToolTip Placement="Bottom">
                                         More
                                     </ToolTip>
                                 </ToolTipService.ToolTip>
@@ -104,7 +114,7 @@
                             Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem31.IsSelected), Mode=OneWay}"
                             >
                             <Viewbox>
-                                <notecontrols:KitPanel x:Name="KitPanel" Command="{x:Bind Command}"/>
+                                <controls:KitPanel x:Name="KitPanel" Command="{x:Bind Command}"/>
                             </Viewbox>
                         </Border>
 
