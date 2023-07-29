@@ -20,6 +20,10 @@ namespace Virtual_Piano.Midi.Controls
         public event DragDeltaEventHandler DragDelta { remove => this.TimelineThumb.DragDelta -= value; add => this.TimelineThumb.DragDelta += value; }
         public event DragCompletedEventHandler DragCompleted { remove => this.TimelineThumb.DragCompleted -= value; add => this.TimelineThumb.DragCompleted += value; }
 
+        //@Converter
+        private double HeightConverter(bool? value) => value is true ? this.Layout.ExtentHeightBottom : this.Layout.ExtentHeight;
+        private Visibility VisibilityConverter(bool? value) => value is true ? Visibility.Visible : Visibility.Collapsed;
+
         // Container
         public int ViewportWidth { get; private set; }
         public int ViewportHeight { get; private set; }
@@ -51,7 +55,6 @@ namespace Virtual_Piano.Midi.Controls
         // UI
         public object ItemsSource { get => this.ItemsControl.ItemsSource; set => this.ItemsControl.ItemsSource = value; }
         public UIElement Pane { get => this.PaneBorder.Child; set => this.PaneBorder.Child = value; }
-        public UIElement Head { get => this.HeadBorder.Child; set => this.HeadBorder.Child = value; }
 
         // Timeline
         public int Time { get; private set; }
@@ -79,6 +82,7 @@ namespace Virtual_Piano.Midi.Controls
             this.TimelineThumb.GetVisual().AnimationXY(ex, ey2);
 
             this.PaneBorder.GetVisual().AnimationX(ex2);
+            this.FootBorder.GetVisual().AnimationX(ex2);
             this.HeadBorder.GetVisual().AnimationXY(ex2, ey2);
 
             this.LineCanvas.GetVisual().AnimationXY(sx, ey);
@@ -217,6 +221,10 @@ namespace Virtual_Piano.Midi.Controls
                     {
                         item.Y2 = h;
                     }
+
+                    var sy = this.ScrollProperties.SnapScrollerY(h - this.Layout.Bottom);
+                    this.BottomBorder.GetVisual().AnimationY(sy);
+                    this.FootBorder.GetVisual().AnimationY(sy);
                 }
             };
 
@@ -251,7 +259,7 @@ namespace Virtual_Piano.Midi.Controls
         {
             int extentWidth = time / TrackLayout.Scaling;
             this.ItemsControl.Width = extentWidth;
-            this.Canvas.Width = extentWidth + this.Layout.Left; ;
+            this.Canvas.Width = extentWidth + this.Layout.Left;
         }
 
         public void ChangePosition(int time)

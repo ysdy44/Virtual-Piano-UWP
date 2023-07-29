@@ -24,7 +24,7 @@
         
         Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
          >
-        <Canvas x:Name="Canvas" Margin="{x:Bind Layout.MarginLeftTop}" Width="{x:Bind Layout.ExtentHeight}" Height="{x:Bind Layout.ExtentHeight}">
+        <Canvas x:Name="Canvas" Margin="{x:Bind Layout.MarginLeftTop}" Width="{x:Bind Layout.ExtentHeight}" Height="{x:Bind HeightConverter(ToggleButton.IsChecked), Mode=OneWay}">
 
             <!--Center-->
             <Canvas x:Name="BackgroundCanvas" IsHitTestVisible="False" Height="{x:Bind Layout.ExtentHeightTop}">
@@ -72,6 +72,24 @@
                 <!--ItemsSource-->
             </ItemsControl>
 
+            <!--Bottom-->
+            <Border x:Name="BottomBorder" Width="{x:Bind Layout.ExtentHeight}" Height="{x:Bind Layout.Bottom}" BorderThickness="0,1,0,0" BorderBrush="Black" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}" Visibility="{x:Bind VisibilityConverter(ToggleButton.IsChecked), Mode=OneWay}">
+                <!--ItemsSource-->
+                <Canvas x:Name="BottomCanvas" Height="127" >
+                    <FrameworkElement.Resources>
+                        <!--Style-->
+                        <Style TargetType="Line">
+                            <Setter Property="IsHitTestVisible" Value="False" />
+                            <Setter Property="StrokeThickness" Value="1" />
+                            <Setter Property="Stroke" Value="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" />
+                        </Style>
+                    </FrameworkElement.Resources>
+                    <Line Y1="0" X2="{x:Bind Layout.ExtentHeight}" Y2="0"/>
+                    <Line Y1="64" X2="{x:Bind Layout.ExtentHeight}" Y2="64"/>
+                    <Line Y1="127" X2="{x:Bind Layout.ExtentHeight}" Y2="127"/>
+                </Canvas>
+            </Border>
+
             <!--Timerline-->
             <Canvas x:Name="LineCanvas" IsHitTestVisible="False">
                 <FrameworkElement.Resources>
@@ -88,6 +106,26 @@
             <Border x:Name="PaneBorder" Width="{x:Bind Layout.Left}" Height="{x:Bind Layout.ExtentHeight}" BorderThickness="1,0" BorderBrush="Black" Background="Black">
                 <!--Child-->
             </Border>
+
+            <Grid x:Name="FootBorder" Padding="4,0" Width="{x:Bind Layout.Left}" Height="{x:Bind Layout.Bottom}" BorderThickness="0,1,1,0" BorderBrush="Black" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}" Visibility="{x:Bind VisibilityConverter(ToggleButton.IsChecked), Mode=OneWay}">
+                <FrameworkElement.Resources>
+                    <!--Style-->
+                    <Style TargetType="TextBlock">
+                        <Setter Property="IsHitTestVisible" Value="False" />
+                        <Setter Property="HorizontalAlignment" Value="Right" />
+                        <Setter Property="Height" Value="24" />
+                    </Style>
+                </FrameworkElement.Resources>
+                <TextBlock VerticalAlignment="Top">
+                    127
+                </TextBlock>
+                <TextBlock VerticalAlignment="Center">
+                    64
+                </TextBlock>
+                <TextBlock VerticalAlignment="Bottom">
+                    0
+                </TextBlock>
+            </Grid>
 
             <!--Timerline-->
             <Line x:Name="Line" IsHitTestVisible="False" StrokeThickness="2" Stroke="Red"/>
@@ -126,7 +164,9 @@
             </Canvas>
 
             <Border x:Name="HeadBorder" Width="{x:Bind Layout.Left}" Height="{x:Bind Layout.Top}" Background="Black">
-                <!--Child-->
+                <ToggleButton x:Name="ToggleButton" RequestedTheme="Dark" IsChecked="True" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Style="{StaticResource TextBlockButtonStyle}">
+                    <SymbolIcon Symbol="DockBottom"/>
+                </ToggleButton>
             </Border>
 
             <!--Timerline-->
