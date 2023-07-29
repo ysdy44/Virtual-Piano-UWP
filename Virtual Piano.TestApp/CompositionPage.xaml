@@ -104,7 +104,23 @@
                     LeftTop
                 </TextBlock>
             </Grid>
-            
+
+            <Grid x:Name="Bottom" Width="2560" Height="75" Background="Fuchsia">
+                <TextBlock Margin="87,0,12,0" Foreground="White" VerticalAlignment="Center">
+                    Bottom Bottom Bottom Bottom Bottom Bottom Bottom Bottom Bottom
+                    Bottom Bottom Bottom Bottom Bottom Bottom Bottom Bottom Bottom
+                    Bottom Bottom Bottom Bottom Bottom Bottom Bottom Bottom Bottom
+                    Bottom Bottom Bottom Bottom Bottom Bottom Bottom Bottom Bottom
+                    Bottom Bottom Bottom Bottom Bottom Bottom Bottom Bottom Bottom
+                </TextBlock>
+            </Grid>
+
+            <Grid x:Name="LeftBottom" Width="75" Height="75" Background="Yellow">
+                <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    LeftBottom
+                </TextBlock>
+            </Grid>
+
         </Canvas>
     </ScrollViewer>
 </Page>
