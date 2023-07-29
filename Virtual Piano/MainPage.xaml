@@ -375,14 +375,34 @@
                             <RowDefinition Height="44"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock 
-                            FontFamily="Agency FB" 
-                            FontWeight="Bold"
-                            FontSize="16" 
-                            HorizontalAlignment="Center" 
-                            VerticalAlignment="Center"
-                            Text="{x:Bind DoubleToStringConverter(VelocitySlider.Value), Mode=OneWay}"
-                            />
+                        <Button      
+                            Width="60" 
+                            Height="44"
+                            CommandParameter="{x:Bind VelocitySlider.IsEnabled, Mode=OneWay}"
+                            Command="{x:Bind VelocitySlider}"
+                            Style="{StaticResource TextBlockButtonStyle}"
+                            >
+                            <ToolTipService.ToolTip>
+                                <ToolTip>
+                                    Mute
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
+                            <Grid
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center"
+                                >
+                                <SymbolIcon Symbol="Mute" Visibility="{x:Bind ReverseBooleanToVisibilityConverter(VelocitySlider.IsEnabled), Mode=OneWay}"/>
+                                <TextBlock 
+                                    FontFamily="Agency FB" 
+                                    FontWeight="Bold"
+                                    FontSize="16" 
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center"
+                                    Text="{x:Bind DoubleToStringConverter(VelocitySlider.Value), Mode=OneWay}"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(VelocitySlider.IsEnabled), Mode=OneWay}"
+                                    />
+                            </Grid>
+                        </Button>
 
                         <Border
                             Grid.Row="1" 
@@ -960,7 +980,7 @@
                     >
                     <notecontrols:HarpPanel Command="{x:Bind Command}"/>
                 </ScrollViewer>
-                
+
             </Grid>
 
         </Grid>

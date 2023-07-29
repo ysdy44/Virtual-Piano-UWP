@@ -36,6 +36,17 @@ namespace Virtual_Piano.Midi.Controls
             {
                 if (item)
                 {
+                    base.IsEnabled = false;
+
+                    this.Command?.Execute(new MidiMessage
+                    {
+                        Type = MidiMessageType.ControlChange,
+                        Controller = this.Controller,
+                        ControllerValue = 0
+                    }); // Command
+                }
+                else
+                {
                     base.IsEnabled = true;
 
                     int value = System.Math.Clamp((int)base.Value, 0, Radial.Velocity);
@@ -44,17 +55,6 @@ namespace Virtual_Piano.Midi.Controls
                         Type = MidiMessageType.ControlChange,
                         Controller = this.Controller,
                         ControllerValue = (byte)value
-                    }); // Command
-                }
-                else
-                {
-                    base.IsEnabled = false;
-
-                    this.Command?.Execute(new MidiMessage
-                    {
-                        Type = MidiMessageType.ControlChange,
-                        Controller = this.Controller,
-                        ControllerValue = 0
                     }); // Command
                 }
             }
