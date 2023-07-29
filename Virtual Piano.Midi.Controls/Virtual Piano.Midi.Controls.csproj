@@ -239,6 +239,7 @@
     <Compile Include="Structs\Guitar.cs" />
     <Compile Include="Structs\PianoSize.cs" />
     <Compile Include="Structs\Radial.cs" />
+    <Compile Include="Structs\TrackLayout.cs" />
     <EmbeddedResource Include="Properties\Virtual_Piano.Midi.Controls.rd.xml" />
   </ItemGroup>
   <ItemGroup>
