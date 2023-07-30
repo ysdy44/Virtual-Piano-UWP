@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using Virtual_Piano.Elements;
-using Virtual_Piano.Midi;
 using Windows.Foundation;
 using Windows.System;
 using Windows.UI.Input;
@@ -8,6 +7,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Markup;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
 
 namespace Virtual_Piano.Midi.Controls
@@ -56,7 +56,9 @@ namespace Virtual_Piano.Midi.Controls
         public object ItemsSource { get => this.ItemsControl.ItemsSource; set => this.ItemsControl.ItemsSource = value; }
         public UIElement Pane { get => this.PaneBorder.Child; set => this.PaneBorder.Child = value; }
         public UIElement FootPane { get => this.FootPaneBorder.Child; set => this.FootPaneBorder.Child = value; }
-        
+        public PointCollection FootPoints { get => this.Polyline.Points; set => this.Polyline.Points = value; }
+        public object FootItemsSource { get => this.FootItemsControl.ItemsSource; set => this.FootItemsControl.ItemsSource = value; }
+
         // Timeline
         public int Time { get; private set; }
         private int Position;
@@ -261,6 +263,8 @@ namespace Virtual_Piano.Midi.Controls
             int extentWidth = time / TrackLayout.Scaling;
             this.ItemsControl.Width = extentWidth;
             this.Canvas.Width = extentWidth + this.Layout.Pane;
+            this.FootBorder.Width = extentWidth + this.Layout.Pane;
+            this.FootItemsControl.Width = extentWidth;
         }
 
         public void ChangePosition(int time)

@@ -72,9 +72,8 @@
                 <!--ItemsSource-->
             </ItemsControl>
 
-            <!--Bottom-->
+            <!--Foot-->
             <Border x:Name="FootBorder" Padding="0,0,0,18" Width="{x:Bind Layout.ExtentHeight}" Height="{x:Bind Layout.Foot}" BorderThickness="0,1,0,0" BorderBrush="Black" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}" Visibility="{x:Bind VisibilityConverter(ToggleButton.IsChecked), Mode=OneWay}">
-                <!--ItemsSource-->
                 <Canvas Height="127">
                     <FrameworkElement.Resources>
                         <!--Style-->
@@ -87,6 +86,48 @@
                     <Line Y1="0" X2="{x:Bind Layout.ExtentHeight}" Y2="0"/>
                     <Line Y1="64" X2="{x:Bind Layout.ExtentHeight}" Y2="64"/>
                     <Line Y1="127" X2="{x:Bind Layout.ExtentHeight}" Y2="127"/>
+                    <Polyline 
+                        x:Name="Polyline"
+                        StrokeThickness="2"
+                        Stroke="#708B2F"
+                        Fill="#66B4DE4B"
+                        >
+                        <!--Points-->
+                    </Polyline>
+
+                    <ItemsControl x:Name="FootItemsControl" Width="{x:Bind Layout.ExtentHeight}" Height="127">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Canvas/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+
+                        <ItemsControl.ItemContainerStyle>
+                            <Style TargetType="ContentControl">
+                                <Setter Property="Background" Value="#B4DE4B" />
+                                <Setter Property="BorderBrush" Value="#708B2F" />
+                                <Setter Property="BorderThickness" Value="2" />
+                                <Setter Property="ManipulationMode">
+                                    <Setter.Value>
+                                        TranslateX, TranslateY
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ContentControl">
+                                            <Border Background="Transparent">
+                                                <ToolTipService.ToolTip>
+                                                    <ToolTip Content="{TemplateBinding Content}"/>
+                                                </ToolTipService.ToolTip>
+                                                <Ellipse Width="12" Height="12" StrokeThickness="2" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ItemsControl.ItemContainerStyle>
+                        <!--ItemsSource-->
+                    </ItemsControl>
                 </Canvas>
             </Border>
 
