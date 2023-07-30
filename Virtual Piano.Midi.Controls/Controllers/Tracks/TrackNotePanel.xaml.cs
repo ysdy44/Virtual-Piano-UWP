@@ -21,7 +21,7 @@ namespace Virtual_Piano.Midi.Controls
         public event DragCompletedEventHandler DragCompleted { remove => this.TimelineThumb.DragCompleted -= value; add => this.TimelineThumb.DragCompleted += value; }
 
         //@Converter
-        private double HeightConverter(bool? value) => value is true ? this.Layout.ExtentHeightBottom : this.Layout.ExtentHeight;
+        private double HeightConverter(bool? value) => value is true ? this.Layout.ExtentHeightFoot : this.Layout.ExtentHeight;
         private Visibility VisibilityConverter(bool? value) => value is true ? Visibility.Visible : Visibility.Collapsed;
 
         // Container
@@ -55,13 +55,14 @@ namespace Virtual_Piano.Midi.Controls
         // UI
         public object ItemsSource { get => this.ItemsControl.ItemsSource; set => this.ItemsControl.ItemsSource = value; }
         public UIElement Pane { get => this.PaneBorder.Child; set => this.PaneBorder.Child = value; }
-
+        public UIElement FootPane { get => this.FootPaneBorder.Child; set => this.FootPaneBorder.Child = value; }
+        
         // Timeline
         public int Time { get; private set; }
         private int Position;
         private int Timeline;
 
-        readonly TrackLayout Layout = new TrackLayout(75, 22, 150);
+        readonly TrackLayout Layout = new TrackLayout(75, 22, 150 + 18);
         readonly Windows.UI.Composition.CompositionPropertySet ScrollProperties;
 
         ~TrackNotePanel() => this.ScrollProperties?.Dispose();
@@ -72,9 +73,9 @@ namespace Virtual_Piano.Midi.Controls
             // Composition
             this.ScrollProperties = this.ScrollViewer.GetScroller();
             var ex = this.ScrollProperties.SnapScrollerX();
-            var ex2 = this.ScrollProperties.SnapScrollerX(-this.Layout.Left);
+            var ex2 = this.ScrollProperties.SnapScrollerX(-this.Layout.Pane);
             var ey = this.ScrollProperties.SnapScrollerY();
-            var ey2 = this.ScrollProperties.SnapScrollerY(-this.Layout.Top);
+            var ey2 = this.ScrollProperties.SnapScrollerY(-this.Layout.Head);
             var sx = this.ScrollProperties.SnapScrollerX(TrackLayout.Step, 0);
 
             this.Polygon.GetVisual().AnimationY(ey2);
@@ -82,7 +83,7 @@ namespace Virtual_Piano.Midi.Controls
             this.TimelineThumb.GetVisual().AnimationXY(ex, ey2);
 
             this.PaneBorder.GetVisual().AnimationX(ex2);
-            this.FootBorder.GetVisual().AnimationX(ex2);
+            this.FootPaneGrid.GetVisual().AnimationX(ex2);
             this.HeadBorder.GetVisual().AnimationXY(ex2, ey2);
 
             this.LineCanvas.GetVisual().AnimationXY(sx, ey);
@@ -153,7 +154,7 @@ namespace Virtual_Piano.Midi.Controls
                     Y1 = 0,
                     X1 = x,
                     X2 = x,
-                    Y2 = this.Layout.Top
+                    Y2 = this.Layout.Head
                 });
 
                 for (int j = 0; j < TrackLayout.StepCount; j++)
@@ -162,9 +163,9 @@ namespace Virtual_Piano.Midi.Controls
                     this.PointCanvas.Children.Add(new Line
                     {
                         X1 = x2,
-                        Y1 = this.Layout.Top - 9,
+                        Y1 = this.Layout.Head - 9,
                         X2 = x2,
-                        Y2 = this.Layout.Top
+                        Y2 = this.Layout.Head
                     });
 
                     for (int k = 0; k < TrackLayout.StepCount; k++)
@@ -173,9 +174,9 @@ namespace Virtual_Piano.Midi.Controls
                         this.PointCanvas.Children.Add(new Line
                         {
                             X1 = x3,
-                            Y1 = this.Layout.Top - 5,
+                            Y1 = this.Layout.Head - 5,
                             X2 = x3,
-                            Y2 = this.Layout.Top
+                            Y2 = this.Layout.Head
                         });
                     }
                 }
@@ -197,7 +198,7 @@ namespace Virtual_Piano.Midi.Controls
                 if (e.NewSize == Size.Empty) return;
                 if (e.NewSize == e.PreviousSize) return;
 
-                int w = (int)e.NewSize.Width - this.Layout.Left;
+                int w = (int)e.NewSize.Width - this.Layout.Pane;
                 if (this.ViewportWidth != w)
                 {
                     this.ViewportWidth = w;
@@ -210,7 +211,7 @@ namespace Virtual_Piano.Midi.Controls
                     }
                 }
 
-                int h = (int)e.NewSize.Height - this.Layout.Top;
+                int h = (int)e.NewSize.Height - this.Layout.Head;
                 if (this.ViewportHeight != h)
                 {
                     this.ViewportHeight = h;
@@ -222,9 +223,9 @@ namespace Virtual_Piano.Midi.Controls
                         item.Y2 = h;
                     }
 
-                    var sy = this.ScrollProperties.SnapScrollerY(h - this.Layout.Bottom);
-                    this.BottomBorder.GetVisual().AnimationY(sy);
+                    var sy = this.ScrollProperties.SnapScrollerY(h - this.Layout.Foot);
                     this.FootBorder.GetVisual().AnimationY(sy);
+                    this.FootPaneGrid.GetVisual().AnimationY(sy);
                 }
             };
 
@@ -259,14 +260,14 @@ namespace Virtual_Piano.Midi.Controls
         {
             int extentWidth = time / TrackLayout.Scaling;
             this.ItemsControl.Width = extentWidth;
-            this.Canvas.Width = extentWidth + this.Layout.Left;
+            this.Canvas.Width = extentWidth + this.Layout.Pane;
         }
 
         public void ChangePosition(int time)
         {
             this.Time = System.Math.Max(0, time);
             this.Position = this.Time / TrackLayout.Scaling;
-            this.Timeline = this.Position - this.HorizontalOffset + this.Layout.Left;
+            this.Timeline = this.Position - this.HorizontalOffset + this.Layout.Pane;
 
             // UI
             this.Line.X1 = this.Timeline;
@@ -274,7 +275,7 @@ namespace Virtual_Piano.Midi.Controls
             this.Polygon.X1 = this.Timeline;
             this.Polygon.X2 = this.Timeline;
 
-            if (this.Timeline < this.HorizontalOffset + this.Layout.Left)
+            if (this.Timeline < this.HorizontalOffset + this.Layout.Pane)
             {
                 this.ScrollViewer.ChangeView(this.Position / 2, null, null, true);
             }

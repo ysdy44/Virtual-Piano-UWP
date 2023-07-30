@@ -15,30 +15,28 @@ namespace Virtual_Piano.Midi.Controls
         public const int StepSpacing = Step / StepCount;
         public const int StepSpacing2 = StepSpacing / StepCount;
 
-        public readonly int Left;
-        public readonly int Top;
-        public readonly int Bottom;
+        public readonly int Pane;
+        public readonly int Head;
+        public readonly int Foot;
 
-        public readonly Thickness MarginLeft;
-        public readonly Thickness MarginLeftTop;
+        public readonly Thickness Margin;
 
         public readonly int ExtentHeight;
-        public readonly int ExtentHeightTop;
-        public readonly int ExtentHeightBottom;
+        public readonly int ExtentHeightHead;
+        public readonly int ExtentHeightFoot;
 
-        public TrackLayout(int left, int top, int bottom) // 75, 18, 140
+        public TrackLayout(int pane, int head, int foot) // 75, 18, 140
         {
-            this.Left = left;
-            this.Top = top;
-            this.Bottom = bottom;
+            this.Pane = pane;
+            this.Head = head;
+            this.Foot = foot;
 
-            this.MarginLeft = new Thickness(left, 0, 0, 0);
-            this.MarginLeftTop = new Thickness(left, top, 0, 0);
+            this.Margin = new Thickness(pane, head, 0, 0);
 
             int h = NoteExtensions.NoteCount * TrackLayout.Spacing;
             this.ExtentHeight = h;
-            this.ExtentHeightTop = h + top;
-            this.ExtentHeightBottom = h + bottom;
+            this.ExtentHeightHead = h + head;
+            this.ExtentHeightFoot = h + foot;
         }
     }
 }
