@@ -120,6 +120,10 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Enums0\Beat.cs" />
+    <Compile Include="Enums0\KeySignature.cs" />
+    <Compile Include="Enums0\Tempo.cs" />
+    <Compile Include="Enums0\TimeSignature.cs" />
     <Compile Include="Enums1\Chord.cs" />
     <Compile Include="Enums1\Octave.cs" />
     <Compile Include="Enums1\Tone.cs" />
