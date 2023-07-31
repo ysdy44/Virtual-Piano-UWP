@@ -1,4 +1,4 @@
-﻿namespace Virtual_Piano.Midi.Controls
+﻿namespace Virtual_Piano.Midi
 {
     public enum KitSet : byte
     {
@@ -15,5 +15,9 @@
         Snare = MidiPercussionNote.AcousticSnare,
         Stick = MidiPercussionNote.SideStick,
         Kick = MidiPercussionNote.BassDrum1,
+
+        Clap = MidiPercussionNote.HandClap,
+        Ring = MidiPercussionNote.Cowbell,
+        Sandham = MidiPercussionNote.Shaker,
     }
 }
