@@ -1,0 +1,149 @@
+﻿<Page
+    x:Class="Virtual_Piano.TestApp.DrumMachinePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    >
+
+    <Page.TopAppBar>
+        <CommandBar>
+       
+            <CommandBar.Content>
+                <ListBox 
+                    x:Name="ListBox" 
+                    ItemsSource="{x:Bind Indexs}"
+                    >
+
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Margin" Value="0" />
+                            <Setter Property="Padding" Value="0" />
+                            <Setter Property="MinWidth" Value="52" />
+                            <Setter Property="MinHeight" Value="40" />
+                            <Setter Property="Width" Value="52" />
+                            <Setter Property="Height" Value="40" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="VerticalContentAlignment" Value="Center" />
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+
+                </ListBox>
+            </CommandBar.Content>
+            
+        </CommandBar>
+    </Page.TopAppBar>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+        
+            <CommandBar.Content>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="12,0" VerticalAlignment="Center">
+                        <Run>Tempo:</Run>   
+                        <Run x:Name="Run" FontWeight="Bold">
+                            <!--Text-->
+                        </Run>
+                        <Run FontWeight="Bold">bpm</Run>
+                    </TextBlock>
+                    <Slider 
+                        x:Name="Slider"
+                        Grid.Column="1"
+                        Width="320" 
+                        Minimum="1"
+                        Maximum="10"
+                        TickFrequency="1"
+                        TickPlacement="Outside"
+                        IsThumbToolTipEnabled="False"
+                        />
+                </Grid>
+            </CommandBar.Content>
+       
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:Name="PlayButton">
+                    <AppBarButton.Label>
+                        Play
+                    </AppBarButton.Label>
+                    <AppBarButton.Icon>
+                        <SymbolIcon Symbol="Play"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton x:Name="StopButton">
+                    <AppBarButton.Label>
+                        Stop
+                    </AppBarButton.Label>
+                    <AppBarButton.Icon>
+                        <SymbolIcon Symbol="Stop"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+            </CommandBar.PrimaryCommands>
+       
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="ClearButton">
+                    <AppBarButton.Label>
+                        Clear
+                    </AppBarButton.Label>
+                    <AppBarButton.Icon>
+                        <SymbolIcon Symbol="Delete"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton x:Name="ResetButton">
+                    <AppBarButton.Label>
+                        Reset
+                    </AppBarButton.Label>
+                    <AppBarButton.Icon>
+                        <SymbolIcon Symbol="Refresh"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+            </CommandBar.SecondaryCommands>
+      
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <ListView
+        x:Name="ListView"
+        SelectionMode="Multiple"
+        IsMultiSelectCheckBoxEnabled="False"
+        ItemsSource="{x:Bind ItemsSource}"
+        >
+
+        <ItemsControl.ItemContainerTransitions>
+            <TransitionCollection>
+
+            </TransitionCollection>
+        </ItemsControl.ItemContainerTransitions>
+
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <ItemsWrapGrid Orientation="Horizontal" MaximumRowsOrColumns="16"/>
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+
+        <ItemsControl.ItemContainerStyle>
+            <Style TargetType="ListViewItem">
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="MinWidth" Value="52" />
+                <Setter Property="MinHeight" Value="52" />
+                <Setter Property="Width" Value="52" />
+                <Setter Property="Height" Value="52" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+            </Style>
+        </ItemsControl.ItemContainerStyle>
+
+    </ListView>
+
+</Page>
