@@ -8,48 +8,20 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     >
 
-    <Page.TopAppBar>
-        <CommandBar>
-       
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <CommandBar x:Name="CommandBar">
+
             <CommandBar.Content>
-                <ListBox 
-                    x:Name="ListBox" 
-                    ItemsSource="{x:Bind Indexs}"
-                    >
-
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-
-                    <ItemsControl.ItemContainerStyle>
-                        <Style TargetType="ListBoxItem">
-                            <Setter Property="Margin" Value="0" />
-                            <Setter Property="Padding" Value="0" />
-                            <Setter Property="MinWidth" Value="52" />
-                            <Setter Property="MinHeight" Value="40" />
-                            <Setter Property="Width" Value="52" />
-                            <Setter Property="Height" Value="40" />
-                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            <Setter Property="VerticalContentAlignment" Value="Center" />
-                        </Style>
-                    </ItemsControl.ItemContainerStyle>
-
-                </ListBox>
-            </CommandBar.Content>
-            
-        </CommandBar>
-    </Page.TopAppBar>
-
-    <Page.BottomAppBar>
-        <CommandBar>
-        
-            <CommandBar.Content>
-                <Grid>
+                <Grid ColumnSpacing="12">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="140"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="320"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Margin="12,0" VerticalAlignment="Center">
                         <Run>Tempo:</Run>   
@@ -61,16 +33,16 @@
                     <Slider 
                         x:Name="Slider"
                         Grid.Column="1"
-                        Width="320" 
-                        Minimum="1"
-                        Maximum="10"
-                        TickFrequency="1"
+                        Minimum="20"
+                        Maximum="240"
+                        StepFrequency="20"
+                        TickFrequency="20"
                         TickPlacement="Outside"
                         IsThumbToolTipEnabled="False"
                         />
                 </Grid>
             </CommandBar.Content>
-       
+
             <CommandBar.PrimaryCommands>
                 <AppBarButton x:Name="PlayButton">
                     <AppBarButton.Label>
@@ -88,9 +60,6 @@
                         <SymbolIcon Symbol="Stop"/>
                     </AppBarButton.Icon>
                 </AppBarButton>
-            </CommandBar.PrimaryCommands>
-       
-            <CommandBar.SecondaryCommands>
                 <AppBarButton x:Name="ClearButton">
                     <AppBarButton.Label>
                         Clear
@@ -99,51 +68,111 @@
                         <SymbolIcon Symbol="Delete"/>
                     </AppBarButton.Icon>
                 </AppBarButton>
-                <AppBarButton x:Name="ResetButton">
-                    <AppBarButton.Label>
-                        Reset
-                    </AppBarButton.Label>
-                    <AppBarButton.Icon>
-                        <SymbolIcon Symbol="Refresh"/>
-                    </AppBarButton.Icon>
-                </AppBarButton>
-            </CommandBar.SecondaryCommands>
-      
+            </CommandBar.PrimaryCommands>
+
+            <!--SecondaryCommands-->
+
         </CommandBar>
-    </Page.BottomAppBar>
 
-    <ListView
-        x:Name="ListView"
-        SelectionMode="Multiple"
-        IsMultiSelectCheckBoxEnabled="False"
-        ItemsSource="{x:Bind ItemsSource}"
-        >
+        <ProgressBar 
+            x:Name="ProgressBar"
+            Grid.Row="1"
+            Minimum="0"
+            Maximum="16"
+            Background="{ThemeResource CommandBarBackground}"
+            />
 
-        <ItemsControl.ItemContainerTransitions>
-            <TransitionCollection>
+        <ListView
+            x:Name="ListView"
+            Grid.Row="2"
+            SelectionMode="Multiple"
+            IsMultiSelectCheckBoxEnabled="False"
+            ItemsSource="{x:Bind ItemsSource}"
+            
+            ScrollViewer.ZoomMode="Disabled"
+            
+            ScrollViewer.HorizontalScrollMode="Enabled"
+            ScrollViewer.HorizontalScrollBarVisibility="Visible"
+            ScrollViewer.IsHorizontalScrollChainingEnabled="True"
+                  
+            ScrollViewer.VerticalScrollMode="Enabled"
+            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            ScrollViewer.IsVerticalScrollChainingEnabled="True"
+            >
 
-            </TransitionCollection>
-        </ItemsControl.ItemContainerTransitions>
+            <ListViewBase.Header>
+                <ListView
+                    x:Name="HeadListView"
+                    SelectionMode="None"
+                    IsItemClickEnabled="True"
+                    ItemsSource="{x:Bind HeadItemsSource}"
+                    >
 
-        <ItemsControl.ItemsPanel>
-            <ItemsPanelTemplate>
-                <ItemsWrapGrid Orientation="Vertical" MaximumRowsOrColumns="4"/>
-            </ItemsPanelTemplate>
-        </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemContainerTransitions>
+                        <TransitionCollection>
 
-        <ItemsControl.ItemContainerStyle>
-            <Style TargetType="ListViewItem">
-                <Setter Property="Margin" Value="0" />
-                <Setter Property="Padding" Value="0" />
-                <Setter Property="MinWidth" Value="52" />
-                <Setter Property="MinHeight" Value="52" />
-                <Setter Property="Width" Value="52" />
-                <Setter Property="Height" Value="52" />
-                <Setter Property="HorizontalContentAlignment" Value="Center" />
-                <Setter Property="VerticalContentAlignment" Value="Center" />
-            </Style>
-        </ItemsControl.ItemContainerStyle>
+                        </TransitionCollection>
+                    </ItemsControl.ItemContainerTransitions>
 
-    </ListView>
+                    <ItemsControl.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Margin" Value="2" />
+                            <Setter Property="Padding" Value="0" />
+                            <Setter Property="MinWidth" Value="152" />
+                            <Setter Property="MinHeight" Value="52" />
+                            <Setter Property="Width" Value="152" />
+                            <Setter Property="Height" Value="52" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="VerticalContentAlignment" Value="Center" />
+                            <Setter Property="BorderThickness" Value="1" />
+                            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundChromeMediumBrush}" />
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+
+                    <ItemsControl.Template>
+                        <ControlTemplate TargetType="ListView">
+                            <ItemsPresenter 
+                                Header="{TemplateBinding Header}"
+                                HeaderTemplate="{TemplateBinding HeaderTemplate}"
+                                HeaderTransitions="{TemplateBinding HeaderTransitions}"
+                                Footer="{TemplateBinding Footer}"
+                                FooterTemplate="{TemplateBinding FooterTemplate}"
+                                FooterTransitions="{TemplateBinding FooterTransitions}"
+                                Padding="{TemplateBinding Padding}" 
+                                />
+                        </ControlTemplate>
+                    </ItemsControl.Template>
+
+                </ListView>
+            </ListViewBase.Header>
+
+            <ItemsControl.ItemContainerTransitions>
+                <TransitionCollection>
+
+                </TransitionCollection>
+            </ItemsControl.ItemContainerTransitions>
+
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsWrapGrid Orientation="Vertical" MaximumRowsOrColumns="4"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Margin" Value="2" />
+                    <Setter Property="Padding" Value="0" />
+                    <Setter Property="MinWidth" Value="52" />
+                    <Setter Property="MinHeight" Value="52" />
+                    <Setter Property="Width" Value="52" />
+                    <Setter Property="Height" Value="52" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                    <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundChromeMediumBrush}" />
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+
+        </ListView>
+    </Grid>
 
 </Page>

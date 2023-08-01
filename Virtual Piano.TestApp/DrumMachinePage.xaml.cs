@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
 using Virtual_Piano.Midi;
 using Windows.Devices.Midi;
 using Windows.UI.Xaml;
@@ -81,11 +82,10 @@ namespace Virtual_Piano.TestApp
         }
     }
 
-    public sealed partial class DrumMachinePage : Page
+    public sealed partial class DrumMachinePage : Page, ICommand
     {
         readonly KitSet[] Drum = new KitSet[] { KitSet.Open, KitSet.Close, KitSet.Clap, KitSet.Kick, };
-
-        readonly int[] Indexs = System.Linq.Enumerable.Range(0, 16).ToArray();
+        readonly ListViewItem[] HeadItemsSource;
         readonly DrumMachine ItemsSource = new DrumMachine();
         readonly DispatcherTimer Timer = new DispatcherTimer();
 
@@ -94,18 +94,37 @@ namespace Virtual_Piano.TestApp
         public DrumMachinePage()
         {
             this.InitializeComponent();
-            this.Timer.Interval = TimeSpan.FromMilliseconds(100);
-            this.Run.Text = $"{100}";
-            this.Slider.Value = 100 / 20;
+            this.HeadItemsSource = Drum.Select(c => new ListViewItem
+            {
+                Content = c
+            }).ToArray();
+
+            Tempo tempo = new Tempo(100);
+            this.Run.Text = $"{tempo.Bpm}";
+            this.Timer.Interval = TimeSpan.FromMilliseconds(tempo.MillisecondsPerQuarterNote / 4);
+            this.Slider.Value = tempo.Bpm;
             this.Slider.ValueChanged += (s, e) =>
             {
-                int value = (int)e.NewValue * 20;
-                this.Run.Text = $"{value}";
-                this.Timer.Interval = TimeSpan.FromMilliseconds(value);
+                Tempo t = new Tempo((int)e.NewValue);
+                this.Run.Text = $"{t.Bpm}";
+                this.Timer.Interval = TimeSpan.FromMilliseconds(t.MillisecondsPerQuarterNote / 4);
             };
 
-            base.Loaded += (s, e) => this.Initialize();
-      
+            base.Loaded += (s, e) => this.Initialize(0);
+            for (int i = 0; i < this.Music.Length; i++)
+            {
+                this.CommandBar.SecondaryCommands.Add(new AppBarButton
+                {
+                    CommandParameter = i,
+                    Command = this,
+                    Label = $"Reset {i}",
+                    Icon = new SymbolIcon
+                    {
+                        Symbol = Symbol.Refresh
+                    }
+                });
+            }
+
             this.ClearButton.Click += (s, e) => this.ItemsSource.Deselect();
             this.StopButton.Click += (s, e) => this.Timer.Stop();
             this.PlayButton.Click += (s, e) => this.Timer.Start();
@@ -129,21 +148,38 @@ namespace Virtual_Piano.TestApp
                 }
 
                 this.ItemsSource.Next();
-                this.ListBox.SelectedIndex = this.ItemsSource.Index;
+                this.ProgressBar.Value = this.ItemsSource.Index;
             };
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e) => this.Synthesizer?.Dispose();
         protected async override void OnNavigatedTo(NavigationEventArgs e) => this.Synthesizer = await MidiSynthesizer.CreateAsync();
 
-        private void Initialize()
+        //@Delegate
+        public event EventHandler CanExecuteChanged;
+
+        //@Command
+        public ICommand Command => this;
+        public bool CanExecute(object parameter) => true;
+        public void Execute(object parameter)
         {
-            this.ItemsSource.Initialize(this.Music);
-            this.ListBox.SelectedIndex = this.ItemsSource.Index;
+            if (parameter is int item)
+            {
+                this.Initialize(item);
+            }
         }
 
-        public readonly byte[] Music = new byte[]
+        private void Initialize(int index)
         {
+            this.ItemsSource.Initialize(this.Music[index]);
+            this.ProgressBar.Value = this.ItemsSource.Index;
+            this.ProgressBar.Maximum = this.ItemsSource.Length;
+        }
+
+        public readonly byte[][] Music = new byte[][]
+        {
+            new byte[]
+            {
                 0,1,0,1,
                 0,1,0,0,
                 1,0,0,0,
@@ -163,6 +199,95 @@ namespace Virtual_Piano.TestApp
                 0,0,0,0,
                 0,1,0,0,
                 0,0,0,1,
+            },
+            new byte[]
+            {
+                0,0,0,0,
+                1,1,1,1,
+                0,1,0,1,
+                1,0,0,0,
+
+                0,0,0,0,
+                1,0,0,0,
+                0,0,0,0,
+                0,0,0,0,
+
+                1,0,0,0,
+                0,1,1,1,
+                0,0,0,0,
+                0,0,1,0,
+
+                0,0,0,0,
+                0,0,0,0,
+                0,0,0,0,
+                0,1,0,1,
+            },
+            new byte[]
+            {
+                0,0,0,1,
+                0,0,0,0,
+                0,0,0,0,
+                0,0,0,0,
+
+                0,0,1,1,
+                0,0,0,0,
+                0,0,0,0,
+                0,0,0,0,
+
+                0,0,0,1,
+                0,0,0,0,
+                0,0,0,0,
+                0,0,0,0,
+
+                0,0,1,1,
+                0,0,0,0,
+                0,0,0,0,
+                1,0,0,0,
+            },
+            new byte[]
+            {
+                0,1,0,1,
+                0,1,0,0,
+                0,1,0,0,
+                0,1,0,0,
+
+                0,1,1,1,
+                0,1,0,0,
+                0,1,0,0,
+                0,1,0,0,
+
+                0,1,0,1,
+                0,1,0,0,
+                0,1,0,0,
+                0,1,0,0,
+
+                0,1,1,1,
+                0,1,0,0,
+                0,1,0,0,
+                0,1,0,1,
+
+
+
+                0,1,0,1,
+                0,1,0,0,
+                1,0,0,0,
+                0,1,0,0,
+
+                0,1,1,0,
+                0,1,0,0,
+                1,0,0,0,
+                0,1,0,1,
+
+                0,1,0,0,
+                0,1,0,1,
+                1,0,0,1,
+                0,1,0,0,
+
+                0,1,1,0,
+                0,1,0,1,
+                1,0,0,0,
+                0,1,1,0,
+            },
         };
     }
 }
