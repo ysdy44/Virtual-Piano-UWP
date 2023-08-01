@@ -127,7 +127,7 @@
 
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <ItemsWrapGrid Orientation="Horizontal" MaximumRowsOrColumns="16"/>
+                <ItemsWrapGrid Orientation="Vertical" MaximumRowsOrColumns="4"/>
             </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
 
