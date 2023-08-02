@@ -236,6 +236,7 @@
     <Compile Include="Structs\Chords.cs" />
     <Compile Include="Structs\DrumLayout.cs" />
     <Compile Include="Structs\Guitar.cs" />
+    <Compile Include="Structs\MachineLayout.cs" />
     <Compile Include="Structs\PianoSize.cs" />
     <Compile Include="Structs\Radial.cs" />
     <Compile Include="Structs\TrackLayout.cs" />
