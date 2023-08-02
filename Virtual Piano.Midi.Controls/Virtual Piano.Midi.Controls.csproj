@@ -139,6 +139,9 @@
     </Compile>
     <Compile Include="Controllers\Others\VelocitySlider.cs" />
     <Compile Include="Controllers\Tracks\MachineButton.cs" />
+    <Compile Include="Controllers\Tracks\MachinePanel.xaml.cs">
+      <DependentUpon>MachinePanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\Tracks\TrackNotePanel.xaml.cs">
       <DependentUpon>TrackNotePanel.xaml</DependentUpon>
     </Compile>
@@ -273,6 +276,10 @@
     <Page Include="Controllers\Others\Pedal.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controllers\Tracks\MachinePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controllers\Tracks\TrackNotePanel.xaml">
       <Generator>MSBuild:Compile</Generator>
