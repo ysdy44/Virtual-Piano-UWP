@@ -138,6 +138,7 @@
       <DependentUpon>Pedal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controllers\Others\VelocitySlider.cs" />
+    <Compile Include="Controllers\Tracks\MachineButton.cs" />
     <Compile Include="Controllers\Tracks\TrackNotePanel.xaml.cs">
       <DependentUpon>TrackNotePanel.xaml</DependentUpon>
     </Compile>
@@ -219,6 +220,7 @@
     <Compile Include="Interfaces\Buttons\IDrumButton.cs" />
     <Compile Include="Interfaces\Buttons\IGuitarButton.cs" />
     <Compile Include="Interfaces\Buttons\IKitButton.cs" />
+    <Compile Include="Interfaces\Buttons\IMachineButton.cs" />
     <Compile Include="Interfaces\Buttons\IPianoButton.cs" />
     <Compile Include="Interfaces\Panels\IChordPanel.cs" />
     <Compile Include="Interfaces\Panels\IDrumPanel.cs" />
