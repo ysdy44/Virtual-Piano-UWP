@@ -27,7 +27,7 @@
                     </Grid.RowDefinitions>
                     <ListView
                         RequestedTheme="Dark"
-                        SelectedIndex="0"
+                        SelectedIndex="1"
                         SelectionMode="Single"
                     
                         ScrollViewer.ZoomMode="Disabled"
@@ -90,19 +90,30 @@
                         </ListViewBase.Footer>
 
                         <ListViewItem x:Name="ListViewItem31">
-                            Kit
+                            <ToolTipService.ToolTip>
+                                <ToolTip>
+                                    Kit
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
+                            <SymbolIcon Symbol="MapDrive"/>
                         </ListViewItem>
 
                         <ListViewItem x:Name="ListViewItem32">
-                            Pads
+                            <ToolTipService.ToolTip>
+                                <ToolTip>
+                                    Pads
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
+                            <SymbolIcon Symbol="Stop"/>
                         </ListViewItem>
 
                         <ListViewItem x:Name="ListViewItem33">
-                            All
-                        </ListViewItem>
-
-                        <ListViewItem x:Name="ListViewItem34">
-                            Category
+                            <ToolTipService.ToolTip>
+                                <ToolTip>
+                                    All
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
+                            <SymbolIcon Symbol="ViewAll"/>
                         </ListViewItem>
 
                     </ListView>
@@ -127,15 +138,6 @@
                         <ScrollViewer Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem33.IsSelected), Mode=OneWay}">
                             <controls:DrumGridView Command="{x:Bind Command}"/>
                         </ScrollViewer>
-
-                        <controls:DrumSplitView
-                            DrumPanel="{x:Bind DrumGridView}"
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem34.IsSelected), Mode=OneWay}"
-                            >
-                            <ScrollViewer>
-                                <controls:DrumCategoryGridView x:Name="DrumGridView" Command="{x:Bind Command}"/>
-                            </ScrollViewer>
-                        </controls:DrumSplitView>
 
                     </Grid>
                 </Grid>
