@@ -9,7 +9,6 @@
     mc:Ignorable="d"
     d:DesignWidth="400"
     d:DesignHeight="400"
-    Margin="2"
     >
 
     <FrameworkElement.Resources>
@@ -73,17 +72,26 @@
                             <Rectangle IsHitTestVisible="False" RadiusX="4" RadiusY="4" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
                             <Rectangle x:Name="Mask" Opacity="0" IsHitTestVisible="False" RadiusX="4" RadiusY="4" Fill="{TemplateBinding Foreground}"/>
 
-                            <ContentPresenter
-                                x:Name="ContentPresenter"
-                                IsHitTestVisible="False"
-                                Content="{TemplateBinding Content}"
-                                Margin="16,2"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Foreground="{ThemeResource SystemControlHighlightAltBaseHighBrush}"
-                                FontSize="12"
-                                FontWeight="Normal"
-                                />
+                            <StackPanel Margin="20,0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                <ContentControl
+                                    Content="{TemplateBinding TabIndex}" 
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Bottom" 
+                                    Foreground="{TemplateBinding Foreground}"
+                                    FontFamily="Agency FB"  
+                                    FontWeight="Bold"
+                                    FontSize="18"
+                                    />
+                                <ContentPresenter
+                                    x:Name="ContentPresenter"
+                                    IsHitTestVisible="False"
+                                    Content="{TemplateBinding Content}"
+                                    HorizontalAlignment="Center"
+                                    Foreground="{ThemeResource SystemControlHighlightAltBaseHighBrush}"
+                                    FontSize="12"
+                                    FontWeight="Normal"
+                                    />
+                            </StackPanel>
 
                         </Grid>
                     </ControlTemplate>

@@ -1,16 +1,12 @@
-﻿using Windows.UI.Xaml;
-
-namespace Virtual_Piano.Midi.Controls
+﻿namespace Virtual_Piano.Midi.Controls
 {
     public readonly struct MachineLayout
     {
         //@Const
-        public const int Spacing = 80;
+        public const int Spacing = 56;
 
         public readonly int Pane;
         public readonly int Head;
-
-        public readonly Thickness Margin;
 
         public readonly int ExtentWidth;
         public readonly int ExtentHeight;
@@ -20,10 +16,8 @@ namespace Virtual_Piano.Midi.Controls
             this.Pane = pane;
             this.Head = head;
 
-            this.Margin = new Thickness(pane, head, 0, 0);
-
-            this.ExtentWidth = width * MachineLayout.Spacing;
-            this.ExtentHeight = height * MachineLayout.Spacing;
+            this.ExtentWidth = pane + width * MachineLayout.Spacing;
+            this.ExtentHeight = head + height * MachineLayout.Spacing;
         }
     }
 }
