@@ -10,13 +10,34 @@
     >
 
     <FrameworkElement.Resources>
+        <!--Color-->
+        <Color x:Key="Hue0">#FF0000</Color>
+        <Color x:Key="Hue30">#FF7200</Color>
+        <Color x:Key="Hue60">#FFE900</Color>
+        <Color x:Key="Hue90">#9DFF00</Color>
+        <Color x:Key="Hue120">#2AFF00</Color>
+        <Color x:Key="Hue150">#00FF4C</Color>
+        <Color x:Key="Hue180">#00FFC3</Color>
+        <Color x:Key="Hue210">#00C7FF</Color>
+        <Color x:Key="Hue240">#0050FF</Color>
+        <Color x:Key="Hue270">#2600FF</Color>
+        <Color x:Key="Hue300">#9800FF</Color>
+        <Color x:Key="Hue330">#FF00EE</Color>
+        <Color x:Key="Hue360">#FF0077</Color>
+        <!--Brush-->
+        <SolidColorBrush x:Key="Drum" Color="{StaticResource Hue30}"/>
+        <SolidColorBrush x:Key="Hat" Color="{StaticResource Hue210}"/>
+        <SolidColorBrush x:Key="Cymbal" Color="{StaticResource Hue330}"/>
+        <SolidColorBrush x:Key="Tom" Color="{StaticResource Hue150}"/>
+        <SolidColorBrush x:Key="African" Color="{StaticResource Hue90}"/>
+        <SolidColorBrush x:Key="Latin" Color="{StaticResource Hue120}"/>
+        <SolidColorBrush x:Key="Special" Color="{StaticResource Hue300}"/>
+        <SolidColorBrush x:Key="Synth" Color="{StaticResource Hue240}"/>
         <!--Style-->
         <Style x:Key="ToggleButtonStyle" TargetType="ToggleButton">
             <Setter Property="Padding" Value="4" />
             <Setter Property="CornerRadius" Value="4" />
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="Width" Value="80" />
-            <Setter Property="Height" Value="80" />
             <Setter Property="BorderBrush" Value="Transparent" />
             <Setter Property="AllowFocusOnInteraction" Value="True"/>
             <Setter Property="UseSystemFocusVisuals" Value="True"/>
@@ -177,7 +198,7 @@
             <Setter Property="StrokeThickness" Value="4" />
             <Setter Property="Stroke" Value="{ThemeResource SystemColorControlAccentBrush}" />
         </Style>
-        
+
         <!--Style-->
         <Style TargetType="Button">
             <Setter Property="AllowFocusOnInteraction" Value="True"/>
@@ -212,31 +233,19 @@
                             <Rectangle x:Name="Mask" Opacity="0" IsHitTestVisible="False" RadiusX="4" RadiusY="4" Fill="{TemplateBinding Foreground}"/>
 
                             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
-                                <Border 
-                                    Margin="0,6,0,0"
-                                    IsHitTestVisible="False"
+                                <ContentControl
+                                    Content="{TemplateBinding TabIndex}" 
                                     HorizontalAlignment="Center" 
-                                    VerticalAlignment="Center" 
-                                    Height="22"
-                                    CornerRadius="10" 
-                                    Background="{TemplateBinding Foreground}"
-                                    >
-                                    <ContentControl
-                                        Margin="8,2"
-                                        Content="{TemplateBinding TabIndex}" 
-                                        HorizontalAlignment="Center" 
-                                        VerticalAlignment="Bottom" 
-                                        Foreground="Black"
-                                        FontFamily="Agency FB"  
-                                        FontWeight="Bold"
-                                        FontSize="16"
-                                        />
-                                </Border>
+                                    VerticalAlignment="Bottom" 
+                                    Foreground="{TemplateBinding Foreground}"
+                                    FontFamily="Agency FB"  
+                                    FontWeight="Bold"
+                                    FontSize="18"
+                                    />
                                 <ContentPresenter
                                     x:Name="ContentPresenter"
                                     IsHitTestVisible="False"
                                     Content="{TemplateBinding Content}"
-                                    Margin="8,2"
                                     HorizontalAlignment="Center"
                                     Foreground="{ThemeResource SystemControlHighlightAltBaseHighBrush}"
                                     FontSize="12"
@@ -259,13 +268,13 @@
         HorizontalScrollBarVisibility="Visible"
         IsHorizontalScrollChainingEnabled="True"
                         
-        VerticalScrollMode="Enabled"
-        VerticalScrollBarVisibility="Visible"
-        IsVerticalScrollChainingEnabled="True"
+        VerticalScrollMode="Disabled"
+        VerticalScrollBarVisibility="Disabled"
+        IsVerticalScrollChainingEnabled="False"
         
         Background="{x:Bind Background, Mode=OneWay}"
         >
-        <Canvas x:Name="Canvas" Margin="{x:Bind Layout.Margin}" Width="{x:Bind Layout.ExtentWidth}" Height="{x:Bind Layout.ExtentHeight}" Background="Transparent">
+        <Canvas x:Name="Canvas" Width="{x:Bind Layout.ExtentWidth}" Height="{x:Bind Layout.ExtentHeight}" Background="Transparent">
             <Canvas x:Name="ItemsControl"/>
             <Canvas x:Name="Timeline" Width="{x:Bind Layout.ExtentWidth}" Height="{x:Bind Layout.Head}" Background="{x:Bind Background, Mode=OneWay}"/>
             <Canvas x:Name="Pane" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.ExtentHeight}" Background="{x:Bind Background, Mode=OneWay}"/>

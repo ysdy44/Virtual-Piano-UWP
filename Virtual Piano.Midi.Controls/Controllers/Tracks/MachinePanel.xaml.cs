@@ -5,6 +5,7 @@ using Windows.System;
 using Windows.UI.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
 
 namespace Virtual_Piano.Midi.Controls
@@ -31,8 +32,8 @@ namespace Virtual_Piano.Midi.Controls
         Style Black => base.Resources[$"{ToneType.Black}"] as Style;
         Style White => base.Resources[$"{ToneType.White}"] as Style;
 
-        readonly static KitSet[] Drum = new KitSet[] { KitSet.Open, KitSet.Close, KitSet.Clap, KitSet.Kick, };
-        readonly MachineLayout Layout = new MachineLayout(160, 40, 32, Drum.Length);
+        readonly static KitSet[] Drum = new KitSet[] { KitSet.Open, KitSet.Close, KitSet.Clap, KitSet.Kick };
+        readonly MachineLayout Layout = new MachineLayout(160, 15, 32, Drum.Length);
         readonly Windows.UI.Composition.CompositionPropertySet ScrollProperties;
 
         ~MachinePanel() => this.ScrollProperties.Dispose();
@@ -40,8 +41,8 @@ namespace Virtual_Piano.Midi.Controls
         {
             this.InitializeComponent();
             this.ScrollProperties = this.ScrollViewer.GetScroller();
-            var x = this.ScrollProperties.SnapScrollerX(-this.Layout.Pane);
-            var y = this.ScrollProperties.SnapScrollerY(-this.Layout.Head);
+            var x = this.ScrollProperties.SnapScrollerX();
+            var y = this.ScrollProperties.SnapScrollerY();
             this.Pane.GetVisual().AnimationX(x);
             this.Timeline.GetVisual().AnimationY(y);
             this.HeadBorder.GetVisual().AnimationXY(x, y);
@@ -50,8 +51,8 @@ namespace Virtual_Piano.Midi.Controls
             {
                 this.Timeline.Children.Add(new Line
                 {
-                    X1 = i * MachineLayout.Spacing + 10,
-                    X2 = i * MachineLayout.Spacing + MachineLayout.Spacing - 10,
+                    X1 = this.Layout.Pane + i * MachineLayout.Spacing + 10,
+                    X2 = this.Layout.Pane + i * MachineLayout.Spacing + MachineLayout.Spacing - 10,
                     Y1 = this.Layout.Head / 2,
                     Y2 = this.Layout.Head / 2,
                 });
@@ -61,8 +62,10 @@ namespace Virtual_Piano.Midi.Controls
                     MidiPercussionNote item = (MidiPercussionNote)MachinePanel.Drum[n];
                     this.ItemsControl.Children.Add(new MachineButton
                     {
-                        X = i * MachineLayout.Spacing,
-                        Y = n * MachineLayout.Spacing,
+                        X = this.Layout.Pane + i * MachineLayout.Spacing,
+                        Y = this.Layout.Head + n * MachineLayout.Spacing,
+                        Width = MachineLayout.Spacing,
+                        Height = MachineLayout.Spacing,
                         Style = i / 4 % 2 == 0 ? this.Black : this.White,
                         CommandParameter = item,
                         Command = this
@@ -75,15 +78,16 @@ namespace Virtual_Piano.Midi.Controls
                 MidiPercussionNote item = (MidiPercussionNote)MachinePanel.Drum[n];
                 Button button = new Button
                 {
+                    CommandParameter = item,
+                    Command = this,
+                    Content = $"{this.GetString(item)}",
+                    TabIndex = (byte)item,
+                    Foreground = base.Resources[$"{this.GetCategory(item)}"] as Brush,
                     Width = this.Layout.Pane,
                     Height = MachineLayout.Spacing,
-                    TabIndex = (int)item,
-                    Content = this.GetString(item),
-                    CommandParameter = item,
-                    Command = this
                 };
                 Canvas.SetLeft(button, 0);
-                Canvas.SetTop(button, n * MachineLayout.Spacing);
+                Canvas.SetTop(button, this.Layout.Head + n * MachineLayout.Spacing);
                 this.Pane.Children.Add(button);
             }
 
@@ -106,6 +110,22 @@ namespace Virtual_Piano.Midi.Controls
                         break;
                 }
             };
+        }
+
+        private MidiPercussionNoteCategory GetCategory(MidiPercussionNote item)
+        {
+            foreach (var item2 in MidiPercussionNoteFactory.Instance)
+            {
+                foreach (var item3 in item2.Value)
+                {
+                    if (item3 == item)
+                    {
+                        return item2.Key;
+                    }
+                }
+            }
+
+            return default;
         }
 
         //@Delegate
