@@ -335,8 +335,6 @@
                             <elements:CommandCheckedButton
                                 Width="44" 
                                 Height="44" 
-                                BorderBrush="Transparent"
-                                Background="{ThemeResource AppForeground}"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Top"
                                 IsChecked="{x:Bind Favorites.IsContains, Mode=OneWay}"
@@ -570,7 +568,7 @@
                                     Command="{x:Bind Command}"
                                     CommandParameter="{strings:OptionType Type=TryShowDrumView}"
                                     Text="{strings:Option Type=TryShowDrumView}"
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}"
                                     >
                                     <MenuFlyoutItem.Icon>
                                         <SymbolIcon Symbol="NewWindow"/>
@@ -582,7 +580,7 @@
                                     Command="{x:Bind Command}"
                                     CommandParameter="{strings:OptionType Type=TryShowGuitarView}"
                                     Text="{strings:Option Type=TryShowGuitarView}"
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem5.IsSelected), Mode=OneWay}"
                                     >
                                     <MenuFlyoutItem.Icon>
                                         <SymbolIcon Symbol="NewWindow"/>
@@ -594,7 +592,7 @@
                                     Command="{x:Bind Command}"
                                     CommandParameter="{strings:OptionType Type=TryShowBassView}"
                                     Text="{strings:Option Type=TryShowBassView}"
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem5.IsSelected), Mode=OneWay}"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem6.IsSelected), Mode=OneWay}"
                                     >
                                     <MenuFlyoutItem.Icon>
                                         <SymbolIcon Symbol="NewWindow"/>
@@ -606,7 +604,7 @@
                                     Command="{x:Bind Command}"
                                     CommandParameter="{strings:OptionType Type=TryShowHarpView}"
                                     Text="{strings:Option Type=TryShowHarpView}"
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem6.IsSelected), Mode=OneWay}"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem7.IsSelected), Mode=OneWay}"
                                     >
                                     <MenuFlyoutItem.Icon>
                                         <SymbolIcon Symbol="NewWindow"/>
@@ -662,7 +660,7 @@
                 </ListViewItem>
 
                 <!--Drum-->
-                <ListViewItem x:Name="ListViewItem3">
+                <ListViewItem x:Name="ListViewItem4">
                     <ToolTipService.ToolTip>
                         <ToolTip>
                             Drum
@@ -683,7 +681,7 @@
                 </ListViewItem>
 
                 <!--Guitar-->
-                <ListViewItem x:Name="ListViewItem4">
+                <ListViewItem x:Name="ListViewItem5">
                     <ToolTipService.ToolTip>
                         <ToolTip>
                             Guitar
@@ -700,7 +698,7 @@
                 </ListViewItem>
 
                 <!--Bass-->
-                <ListViewItem x:Name="ListViewItem5">
+                <ListViewItem x:Name="ListViewItem6">
                     <ToolTipService.ToolTip>
                         <ToolTip>
                             Bass
@@ -715,7 +713,7 @@
                 </ListViewItem>
 
                 <!--Harp-->
-                <ListViewItem x:Name="ListViewItem6">
+                <ListViewItem x:Name="ListViewItem7">
                     <ToolTipService.ToolTip>
                         <ToolTip>
                             Harp
@@ -834,7 +832,7 @@
                 </Grid>
 
                 <!--Drum-->
-                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
+                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="60"/>
                         <ColumnDefinition Width="*"/>
@@ -906,7 +904,7 @@
                             Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem31.IsSelected), Mode=OneWay}"
                             >
                             <Viewbox>
-                                <notecontrols:KitPanel Command="{x:Bind Command}"/>
+                                <notecontrols:KitPanel x:Name="KitPanel" Command="{x:Bind Command}"/>
                             </Viewbox>
                         </Border>
 
@@ -924,7 +922,7 @@
                 </Grid>
 
                 <!--Guitar-->
-                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}">
+                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem5.IsSelected), Mode=OneWay}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="60"/>
                         <ColumnDefinition Width="*"/>
@@ -950,7 +948,7 @@
                 </Grid>
 
                 <!--Bass-->
-                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem5.IsSelected), Mode=OneWay}">
+                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem6.IsSelected), Mode=OneWay}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="60"/>
                         <ColumnDefinition Width="*"/>
@@ -987,7 +985,7 @@
                     VerticalScrollBarVisibility="Disabled"
                     IsVerticalScrollChainingEnabled="False"
                     
-                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem6.IsSelected), Mode=OneWay}"
+                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem7.IsSelected), Mode=OneWay}"
                     >
                     <notecontrols:HarpPanel Command="{x:Bind Command}"/>
                 </ScrollViewer>
