@@ -563,6 +563,18 @@
                                     </MenuFlyoutItem.Icon>
                                 </MenuFlyoutItem>
 
+                                <!--Machine-->
+                                <MenuFlyoutItem
+                                    Command="{x:Bind Command}"
+                                    CommandParameter="{strings:OptionType Type=TryShowMachineView}"
+                                    Text="{strings:Option Type=TryShowMachineView}"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}"
+                                    >
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="NewWindow"/>
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+
                                 <!--Drum-->
                                 <MenuFlyoutItem
                                     Command="{x:Bind Command}"
@@ -655,6 +667,31 @@
                             M13 5V0H7v6h5V5h1z
                             M6 0H0v6h6V0z
                             m8 5h1v1h5V0h-6v5z
+                        </PathIcon.Data>
+                    </PathIcon>
+                </ListViewItem>
+
+                <!--Machine-->
+                <ListViewItem x:Name="ListViewItem3">
+                    <ToolTipService.ToolTip>
+                        <ToolTip>
+                            Machine
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <PathIcon.Data>
+                            M5,12L0,12L0,17L5,17L5,12Z
+                            M23,12L18,12L18,17L23,17L23,12Z
+                            M11,12L6,12L6,17L11,17L11,12Z
+                            M17,12L12,12L12,17L17,17L17,12Z
+                            M23,6L18,6L18,11L23,11L23,6Z
+                            M5,6L0,6L0,11L5,11L5,6Z
+                            M11,6L6,6L6,11L11,11L11,6Z
+                            M17,6L12,6L12,11L17,11L17,6Z
+                            M23,0L18,0L18,5L23,5L23,0Z
+                            M5,0L0,0L0,5L5,5L5,0Z
+                            M11,0L6,0L6,5L11,5L11,0Z
+                            M17,0L12,0L12,5L17,5L17,0Z
                         </PathIcon.Data>
                     </PathIcon>
                 </ListViewItem>
@@ -830,6 +867,14 @@
                         <notecontrols:ChordPanel Chord="Bdim" Command="{x:Bind Command}"/>
                     </Border>
                 </Grid>
+
+                <!--Machine-->
+                <notecontrols:MachinePanel 
+                    x:Name="MachinePanel" 
+                    Command="{x:Bind Command}" 
+                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}"
+                    Background="{ThemeResource AppBackground}"
+                    />
 
                 <!--Drum-->
                 <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}">

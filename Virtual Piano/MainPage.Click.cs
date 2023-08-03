@@ -61,6 +61,11 @@ namespace Virtual_Piano
                         if (this.ChordViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewChordView);
                         else if (await ApplicationViewSwitcher.TryShowAsStandaloneAsync(this.ChordViewId)) return;
                     break;
+                case OptionType.TryShowMachineView:
+                    for (int i = 0; i < 3; i++)
+                        if (this.MachineViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewMachineView);
+                        else if (await ApplicationViewSwitcher.TryShowAsStandaloneAsync(this.MachineViewId)) return;
+                    break;
                 case OptionType.TryShowDrumView:
                     for (int i = 0; i < 3; i++)
                         if (this.DrumViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewDrumView);
@@ -89,6 +94,7 @@ namespace Virtual_Piano
 
         int PianoViewId;
         int ChordViewId;
+        int MachineViewId;
         int DrumViewId;
         int GuitarViewId;
         int BassViewId;
@@ -96,6 +102,7 @@ namespace Virtual_Piano
 
         private void CreateNewPianoView() => this.PianoViewId = this.CreateNew(typeof(PianoView));
         private void CreateNewChordView() => this.ChordViewId = this.CreateNew(typeof(ChordView));
+        private void CreateNewMachineView() => this.MachineViewId = this.CreateNew(typeof(MachineView));
         private void CreateNewDrumView() => this.DrumViewId = this.CreateNew(typeof(DrumView));
         private void CreateNewGuitarView() => this.GuitarViewId = this.CreateNew(typeof(GuitarView));
         private void CreateNewBassView() => this.BassViewId = this.CreateNew(typeof(BassView));
