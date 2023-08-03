@@ -1,6 +1,5 @@
 ﻿using Microsoft.Toolkit.Uwp.UI.Controls;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Input;
 using Windows.UI.Xaml.Media;
 
@@ -35,11 +34,11 @@ namespace Virtual_Piano.Midi.Controls
         private readonly IList<MidiPercussionNote> ItemsSource;
 
         //@Construct
-        public DrumGridView(bool isCategory)
+        public DrumGridView()
         {
             this.InitializeComponent();
-            this.ItemsSource = new List<MidiPercussionNote>(isCategory ? this.GetKeyItemsSource() : this.GetItemsSource());
-            
+            this.ItemsSource = new List<MidiPercussionNote>(this.GetKeyItemsSource());
+
             foreach (MidiPercussionNote item in this.ItemsSource)
             {
                 base.Children.Add(new DrumButton
@@ -49,14 +48,6 @@ namespace Virtual_Piano.Midi.Controls
                     Foreground = base.Resources[$"{this.GetKey(item)}"] as Brush,
                     Content = $"{this.GetString(item)}"
                 });
-            }
-        }
-
-        private IEnumerable<MidiPercussionNote> GetItemsSource()
-        {
-            foreach (MidiPercussionNote item in System.Enum.GetValues(typeof(MidiPercussionNote)).Cast<MidiPercussionNote>())
-            {
-                yield return item;
             }
         }
 

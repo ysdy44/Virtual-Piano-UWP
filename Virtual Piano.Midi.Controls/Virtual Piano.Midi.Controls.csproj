@@ -164,9 +164,6 @@
     <Compile Include="Instruments\Drums\DrumPanel.xaml.cs">
       <DependentUpon>DrumPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Instruments\Drums\DrumSplitView.xaml.cs">
-      <DependentUpon>DrumSplitView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Instruments\Drums\KitButton.cs" />
     <Compile Include="Instruments\Drums\KitFlyout.cs" />
     <Compile Include="Instruments\Drums\KitPanel.xaml.cs">
@@ -298,10 +295,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Instruments\Drums\DrumPanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Instruments\Drums\DrumSplitView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
