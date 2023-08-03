@@ -152,6 +152,9 @@
     <Compile Include="Views\HarpView.xaml.cs">
       <DependentUpon>HarpView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MachineView.xaml.cs">
+      <DependentUpon>MachineView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PianoView.xaml.cs">
       <DependentUpon>PianoView.xaml</DependentUpon>
     </Compile>
@@ -248,6 +251,10 @@
     <Page Include="Views\HarpView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MachineView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\PianoView.xaml">
       <SubType>Designer</SubType>

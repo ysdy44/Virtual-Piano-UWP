@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="Virtual_Piano.Views.MachineView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:elements="using:Virtual_Piano.Elements"
+    xmlns:notecontrols="using:Virtual_Piano.Midi.Controls"
+    mc:Ignorable="d"   
+    Background="Black"
+    >
+
+    <!--Extension-->
+    <FrameworkElement.Tag>
+        <elements:ApplicationTitleBarExtension TitleBarColor="Black"/>
+    </FrameworkElement.Tag>
+
+    <Border>
+        <Border>
+            <Border>
+
+                <!--Machine-->
+                <notecontrols:MachinePanel 
+                    x:Name="MachinePanel" 
+                    Command="{x:Bind Command}" 
+                    Background="{ThemeResource AppBackground}"
+                    />
+                
+            </Border>
+        </Border>
+    </Border>
+</Page>
