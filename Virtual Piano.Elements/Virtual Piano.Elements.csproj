@@ -128,7 +128,6 @@
     <Compile Include="CommandGridView.cs" />
     <Compile Include="CommandListView.cs" />
     <Compile Include="CommandToggleButton.cs" />
-    <Compile Include="CompositionExtensions.cs" />
     <Compile Include="DS\DSFloat.xaml.cs">
       <DependentUpon>DSFloat.xaml</DependentUpon>
     </Compile>
@@ -147,9 +146,6 @@
     <Compile Include="Scrolls\ScrollViewer2.xaml.cs">
       <DependentUpon>ScrollViewer2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Controls.Primitives\WrapPanel\StretchChild.cs" />
-    <Compile Include="WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Controls.Primitives\WrapPanel\WrapPanel.cs" />
-    <Compile Include="WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Controls.Primitives\WrapPanel\WrapPanel.Data.cs" />
     <EmbeddedResource Include="Properties\Virtual_Piano.Elements.rd.xml" />
   </ItemGroup>
   <ItemGroup>

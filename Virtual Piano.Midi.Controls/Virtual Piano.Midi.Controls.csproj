@@ -121,6 +121,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ClickButton.cs" />
+    <Compile Include="CompositionExtensions.cs" />
     <Compile Include="ContactButton.cs" />
     <Compile Include="Controllers\Bends\BendModulationWheel.cs" />
     <Compile Include="Controllers\Bends\BendPitchWheel.cs" />
@@ -237,6 +238,9 @@
     <Compile Include="Structs\PianoSize.cs" />
     <Compile Include="Structs\Radial.cs" />
     <Compile Include="Structs\TrackLayout.cs" />
+    <Compile Include="WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Controls.Primitives\WrapPanel\StretchChild.cs" />
+    <Compile Include="WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Controls.Primitives\WrapPanel\WrapPanel.cs" />
+    <Compile Include="WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Controls.Primitives\WrapPanel\WrapPanel.Data.cs" />
     <EmbeddedResource Include="Properties\Virtual_Piano.Midi.Controls.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -245,10 +249,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Virtual Piano.Elements\Virtual Piano.Elements.csproj">
-      <Project>{13d38cdf-15b0-4127-b039-cff47406c450}</Project>
-      <Name>Virtual Piano.Elements</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Virtual Piano.Midi\Virtual Piano.Midi.csproj">
       <Project>{7f632b4a-9fa1-4842-942f-49274bbdbe61}</Project>
       <Name>Virtual Piano.Midi</Name>
