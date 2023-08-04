@@ -184,9 +184,6 @@
       <DependentUpon>HarpPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Instruments\Instruments\InstrumentButton.cs" />
-    <Compile Include="Instruments\Instruments\InstrumentCarousel.xaml.cs">
-      <DependentUpon>InstrumentCarousel.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Instruments\Instruments\InstrumentCollectionPanel.cs" />
     <Compile Include="Instruments\Instruments\InstrumentGroupPanel.cs" />
     <Compile Include="Instruments\Instruments\InstrumentObservableCollection.cs" />
@@ -315,10 +312,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Instruments\Harps\HarpPanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Instruments\Instruments\InstrumentCarousel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
