@@ -146,6 +146,7 @@
     <Compile Include="Scrolls\ScrollViewer2.xaml.cs">
       <DependentUpon>ScrollViewer2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="XamlExtensions.cs" />
     <EmbeddedResource Include="Properties\Virtual_Piano.Elements.rd.xml" />
   </ItemGroup>
   <ItemGroup>
