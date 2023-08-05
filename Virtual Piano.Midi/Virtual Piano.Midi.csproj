@@ -125,14 +125,14 @@
     <Compile Include="Enums0\Tempo.cs" />
     <Compile Include="Enums0\TimeSignature.cs" />
     <Compile Include="Enums1\Chord.cs" />
+    <Compile Include="Enums1\KitSet.cs" />
     <Compile Include="Enums1\Octave.cs" />
     <Compile Include="Enums1\Tone.cs" />
     <Compile Include="Enums1\ToneType.cs" />
     <Compile Include="Enums2\KeyboardType.cs" />
     <Compile Include="Enums2\KeyLabel.cs" />
-    <Compile Include="Enums2\MidiControlController.cs" />
     <Compile Include="Enums2\MidiNote.cs" />
-    <Compile Include="Enums3\KitSet.cs" />
+    <Compile Include="Enums3\MidiControlController.cs" />
     <Compile Include="Enums3\MidiPercussionNote.cs" />
     <Compile Include="Enums3\MidiPercussionNoteCategory.cs" />
     <Compile Include="Enums3\MidiProgram.cs" />

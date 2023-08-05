@@ -19,5 +19,6 @@
         Clap = MidiPercussionNote.HandClap,
         Ring = MidiPercussionNote.Cowbell,
         Sandham = MidiPercussionNote.Shaker,
+        Tambourine = MidiPercussionNote.Tambourine,
     }
 }
