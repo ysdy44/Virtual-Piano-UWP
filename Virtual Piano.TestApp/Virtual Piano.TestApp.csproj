@@ -147,6 +147,9 @@
       <DependentUpon>MidiProgramPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XamlPathIconPage.xaml.cs">
+      <DependentUpon>XamlPathIconPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -201,6 +204,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MidiProgramPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="XamlPathIconPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
