@@ -101,13 +101,13 @@ namespace Virtual_Piano.TestApp
 
             Tempo tempo = new Tempo(100);
             this.Run.Text = $"{tempo.Bpm}";
-            this.Timer.Interval = TimeSpan.FromMilliseconds(tempo.MillisecondsPerQuarterNote / 4);
+            this.Timer.Interval = (tempo.Delay);
             this.Slider.Value = tempo.Bpm;
             this.Slider.ValueChanged += (s, e) =>
             {
                 Tempo t = new Tempo((int)e.NewValue);
                 this.Run.Text = $"{t.Bpm}";
-                this.Timer.Interval = TimeSpan.FromMilliseconds(t.MillisecondsPerQuarterNote / 4);
+                this.Timer.Interval = (t.Delay);
             };
 
             base.Loaded += (s, e) => this.Initialize(0);
