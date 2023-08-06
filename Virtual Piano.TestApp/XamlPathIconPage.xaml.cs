@@ -8,13 +8,13 @@ namespace Virtual_Piano.TestApp
         public XamlPathIconPage()
         {
             this.InitializeComponent();
-            this.StackPanel.Children.Add(new PathIcon { Data = base.Resources["Piano"].ToGeometry() });
-            this.StackPanel.Children.Add(new PathIcon { Data = base.Resources["Chord"].ToGeometry() });
-            this.StackPanel.Children.Add(new PathIcon { Data = base.Resources["Machine"].ToGeometry() });
-            this.StackPanel.Children.Add(new PathIcon { Data = base.Resources["Drum"].ToGeometry() });
-            this.StackPanel.Children.Add(new PathIcon { Data = base.Resources["Guitar"].ToGeometry() });
-            this.StackPanel.Children.Add(new PathIcon { Data = base.Resources["Bass"].ToGeometry() });
-            this.StackPanel.Children.Add(new PathIcon { Data = base.Resources["Harp"].ToGeometry() });
+            this.StackPanel.Children.Add(new PathIcon { Data = base.Resources["Piano"].FindGeometry() });
+            this.StackPanel.Children.Add(new PathIcon { Data = base.Resources["Chord"].FindGeometry() });
+            this.StackPanel.Children.Add(new PathIcon { Data = base.Resources["Machine"].FindGeometry() });
+            this.StackPanel.Children.Add(new PathIcon { Data = base.Resources["Drum"].FindGeometry() });
+            this.StackPanel.Children.Add(new PathIcon { Data = base.Resources["Guitar"].FindGeometry() });
+            this.StackPanel.Children.Add(new PathIcon { Data = base.Resources["Bass"].FindGeometry() });
+            this.StackPanel.Children.Add(new PathIcon { Data = base.Resources["Harp"].FindGeometry() });
         }
     }
 }
