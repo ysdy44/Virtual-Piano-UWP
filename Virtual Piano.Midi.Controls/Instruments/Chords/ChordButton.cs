@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Midi.Controls
 {
-    public sealed class ChordButton : ClickButton, IClickButton
+    public sealed class ChordButton : ClickButton, IChordButton
     {
         //@Command
         public MidiOctave CommandParameter { get; set; }

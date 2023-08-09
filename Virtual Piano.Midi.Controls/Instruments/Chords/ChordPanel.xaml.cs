@@ -50,7 +50,7 @@ namespace Virtual_Piano.Midi.Controls
 
                 if (e.NewSize.Width != e.PreviousSize.Width)
                 {
-                    foreach (IClickButton item in base.Children.Cast<IClickButton>())
+                    foreach (IChordButton item in base.Children.Cast<IChordButton>())
                     {
                         item.Width = e.NewSize.Width;
                     }
@@ -66,7 +66,7 @@ namespace Virtual_Piano.Midi.Controls
 
                     for (int i = 0; i < count; i++)
                     {
-                        IClickButton item = base.Children[i] as IClickButton;
+                        IChordButton item = base.Children[i] as IChordButton;
                         item.Y = i * (height + spacing);
                         item.Height = height;
                     }
