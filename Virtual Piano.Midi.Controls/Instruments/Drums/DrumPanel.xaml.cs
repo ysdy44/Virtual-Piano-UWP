@@ -1,6 +1,6 @@
 ﻿using Microsoft.Toolkit.Uwp.UI.Controls;
 using System.Windows.Input;
-using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Controls;
 
 namespace Virtual_Piano.Midi.Controls
 {
@@ -8,6 +8,9 @@ namespace Virtual_Piano.Midi.Controls
     {
         //@Command
         public ICommand Command { get; set; }
+
+        readonly MidiPercussionNoteCategoryDictionary MidiPercussionNoteCategoryDictionary = new MidiPercussionNoteCategoryDictionary();
+        readonly MidiPercussionNoteDictionary MidiPercussionNoteDictionary = new MidiPercussionNoteDictionary();
 
         //@Construct
         public DrumPanel()
@@ -19,10 +22,14 @@ namespace Virtual_Piano.Midi.Controls
                 {
                     base.Children.Add(new DrumButton
                     {
+                        Content = $"{this.GetString(item3)}",
                         CommandParameter = item3,
                         TabIndex = (byte)item3,
-                        Foreground = base.Resources[$"{item2.Key}"] as Brush,
-                        Content = $"{this.GetString(item3)}"
+                        Foreground = this.MidiPercussionNoteCategoryDictionary[item2.Key],
+                        Tag = new PathIcon
+                        {
+                            Data = this.MidiPercussionNoteDictionary[item3]
+                        }
                     });
                 }
             }

@@ -12,29 +12,6 @@
     >
 
     <FrameworkElement.Resources>
-        <!--Color-->
-        <Color x:Key="Hue0">#FF0000</Color>
-        <Color x:Key="Hue30">#FF7200</Color>
-        <Color x:Key="Hue60">#FFE900</Color>
-        <Color x:Key="Hue90">#9DFF00</Color>
-        <Color x:Key="Hue120">#2AFF00</Color>
-        <Color x:Key="Hue150">#00FF4C</Color>
-        <Color x:Key="Hue180">#00FFC3</Color>
-        <Color x:Key="Hue210">#00C7FF</Color>
-        <Color x:Key="Hue240">#0050FF</Color>
-        <Color x:Key="Hue270">#2600FF</Color>
-        <Color x:Key="Hue300">#9800FF</Color>
-        <Color x:Key="Hue330">#FF00EE</Color>
-        <Color x:Key="Hue360">#FF0077</Color>
-        <!--Brush-->
-        <SolidColorBrush x:Key="Drum" Color="{StaticResource Hue30}"/>
-        <SolidColorBrush x:Key="Hat" Color="{StaticResource Hue210}"/>
-        <SolidColorBrush x:Key="Cymbal" Color="{StaticResource Hue330}"/>
-        <SolidColorBrush x:Key="Tom" Color="{StaticResource Hue150}"/>
-        <SolidColorBrush x:Key="African" Color="{StaticResource Hue90}"/>
-        <SolidColorBrush x:Key="Latin" Color="{StaticResource Hue120}"/>
-        <SolidColorBrush x:Key="Special" Color="{StaticResource Hue300}"/>
-        <SolidColorBrush x:Key="Synth" Color="{StaticResource Hue240}"/>
         <!--Style-->
         <Style TargetType="local:DrumButton">
             <Setter Property="MinWidth" Value="80"/>
@@ -72,25 +49,34 @@
                             <Rectangle IsHitTestVisible="False" RadiusX="4" RadiusY="4" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
                             <Rectangle x:Name="Mask" Opacity="0" IsHitTestVisible="False" RadiusX="4" RadiusY="4" Fill="{TemplateBinding Foreground}"/>
 
-                            <StackPanel Margin="20,0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                            <StackPanel Margin="20,0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
                                 <ContentControl
-                                    Content="{TemplateBinding TabIndex}" 
+                                    Width="52"
+                                    Height="52" 
+                                    Content="{TemplateBinding Tag}"
                                     HorizontalAlignment="Center" 
-                                    VerticalAlignment="Bottom" 
+                                    VerticalAlignment="Center" 
+                                    HorizontalContentAlignment="Center" 
+                                    VerticalContentAlignment="Center" 
                                     Foreground="{TemplateBinding Foreground}"
-                                    FontFamily="Agency FB"  
-                                    FontWeight="Bold"
-                                    FontSize="18"
                                     />
-                                <ContentPresenter
-                                    x:Name="ContentPresenter"
-                                    IsHitTestVisible="False"
-                                    Content="{TemplateBinding Content}"
-                                    HorizontalAlignment="Center"
-                                    Foreground="{ThemeResource SystemControlHighlightAltBaseHighBrush}"
-                                    FontSize="12"
-                                    FontWeight="Normal"
+                                <StackPanel Margin="12,0" VerticalAlignment="Center">
+                                    <ContentControl
+                                        Content="{TemplateBinding TabIndex}" 
+                                        Foreground="{TemplateBinding Foreground}"
+                                        FontFamily="Agency FB"  
+                                        FontWeight="Bold"
+                                        FontSize="18"
+                                        />
+                                    <ContentPresenter
+                                        x:Name="ContentPresenter"
+                                        IsHitTestVisible="False"
+                                        Content="{TemplateBinding Content}"
+                                        Foreground="{ThemeResource SystemControlHighlightAltBaseHighBrush}"
+                                        FontSize="10"
+                                        FontWeight="Bold"
                                     />
+                                </StackPanel>
                             </StackPanel>
 
                         </Grid>
