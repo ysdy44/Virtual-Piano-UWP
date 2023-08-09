@@ -869,7 +869,7 @@
                 </Grid>
 
                 <!--Machine-->
-                <notecontrols:MachinePanel 
+                <controls:MachinePanel 
                     x:Name="MachinePanel" 
                     Command="{x:Bind Command}" 
                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}"
@@ -912,6 +912,31 @@
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
 
+                        <ListViewBase.Header>
+                            <RepeatButton Delay="0" Width="60" Height="36" Command="{x:Bind KitPanel}" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
+                                <ToolTipService.ToolTip>
+                                    <ToolTip Placement="Bottom">
+                                        Help
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
+                                <SymbolIcon Symbol="Help"/>
+                            </RepeatButton>
+                        </ListViewBase.Header>
+
+                        <ListViewBase.Footer>
+                            <Button Padding="0" Width="60" Height="36" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
+                                <ToolTipService.ToolTip>
+                                    <ToolTip Placement="Bottom">
+                                        More
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
+                                <Button.Flyout>
+                                    <controls:KitFlyout Placement="Top" KitPanel="{x:Bind KitPanel}"/>
+                                </Button.Flyout>
+                                <SymbolIcon Symbol="More"/>
+                            </Button>
+                        </ListViewBase.Footer>
+
                         <ListViewItem x:Name="ListViewItem31">
                             <ToolTipService.ToolTip>
                                 <ToolTip>
@@ -949,7 +974,7 @@
                             Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem31.IsSelected), Mode=OneWay}"
                             >
                             <Viewbox>
-                                <notecontrols:KitPanel x:Name="KitPanel" Command="{x:Bind Command}"/>
+                                <controls:KitPanel x:Name="KitPanel" Command="{x:Bind Command}"/>
                             </Viewbox>
                         </Border>
 
