@@ -35,13 +35,13 @@
         <SolidColorBrush x:Key="Special" Color="{StaticResource Hue300}"/>
         <SolidColorBrush x:Key="Synth" Color="{StaticResource Hue240}"/>
         <!--Style-->
-        <Style TargetType="local:DrumButton">
+        <Style TargetType="local:KitButton">
             <Setter Property="AllowFocusOnInteraction" Value="True"/>
             <Setter Property="UseSystemFocusVisuals" Value="True"/>
             <Setter Property="IsTabStop" Value="True"/>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="local:DrumButton">
+                    <ControlTemplate TargetType="local:KitButton">
                         <Grid x:Name="RootGrid" Margin="2" Background="Transparent">
 
                             <!--VisualState-->

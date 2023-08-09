@@ -6,38 +6,28 @@ using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Midi.Controls
 {
-    public partial class DrumPanel : Canvas, IDrumPanel
+    public partial class DrumPanel : Canvas, IKitPanel
     {
         //@Command
         public ICommand Command { get; set; }
 
-        public IDrumButton this[MidiPercussionNote note] =>
-            this.ItemsSource.Contains(note) ? 
-            base.Children[this.ItemsSource.IndexOf(note)] as IDrumButton : null;
 
-        public MidiPercussionNote this[int index]
+        private readonly IList<KitSet> ItemsSource = new List<KitSet>
         {
-            get => this.ItemsSource[index];
-            set
-            {
-                if (this.ItemsSource[index] == value) return;
-                this.ItemsSource[index] = value;
+            KitSet.Open,
+            KitSet.Ride,
+            KitSet.Sandham,
+            KitSet.Crash,
 
-                if (base.Children[index] is IDrumButton item)
-                {
-                    item.CommandParameter = value;
-                    item.TabIndex = (byte)value;
-                    item.Foreground = base.Resources[$"{this.GetCategory(value)}"] as Brush;
-                    item.Content = this.GetString(value);
-                }
-            }
-        }
+            KitSet.Close,
+            KitSet.LowTom,
+            KitSet.MidTom,
+            KitSet.FloorTom,
 
-        private readonly IList<MidiPercussionNote> ItemsSource = new List<MidiPercussionNote>
-        {
-             MidiPercussionNote.OpenHiHat, MidiPercussionNote.RideCymbal1, MidiPercussionNote.Shaker, MidiPercussionNote.CrashCymbal1,
-             MidiPercussionNote.ClosedHiHat, MidiPercussionNote.LowTom, MidiPercussionNote.LowMidTom, MidiPercussionNote.HighTom,
-             MidiPercussionNote.Cowbell, MidiPercussionNote.HandClap, MidiPercussionNote.AcousticSnare, MidiPercussionNote.AcousticBassDrum,
+            KitSet.Ring,
+            KitSet.Clap,
+            KitSet.Snare,
+            KitSet.Kick,
         };
 
         //@Construct
@@ -55,7 +45,7 @@ namespace Virtual_Piano.Midi.Controls
                     for (int x = 0; x < size.Column; x++)
                     {
                         int i = size.Column * y + x;
-                        if (base.Children[i] is IDrumButton item)
+                        if (base.Children[i] is IKitButton item)
                         {
                             item.X = x * size.Width;
                             item.Y = y * size.Height;
@@ -66,14 +56,15 @@ namespace Virtual_Piano.Midi.Controls
                 }
             };
 
-            foreach (MidiPercussionNote item in this.ItemsSource)
+            foreach (KitSet set in this.ItemsSource)
             {
-                base.Children.Add(new DrumButton
+                MidiPercussionNote item = (MidiPercussionNote)set;
+                base.Children.Add(new KitButton
                 {
                     Content = $"{this.GetString(item)}",
-                    CommandParameter = item,
+                    CommandParameter = set,
                     TabIndex = (byte)item,
-                    Foreground = base.Resources[$"{this.GetCategory(item)}"] as Brush
+                    Foreground = base.Resources[$"{this.GetCategory(item)}"] as Brush,
                 });
             }
         }
@@ -94,45 +85,10 @@ namespace Virtual_Piano.Midi.Controls
             return default;
         }
 
-        public void OnClick(MidiPercussionNote note) => this.Command?.Execute(note); // Command
-
+        public void OnClick(KitSet set) => this.Command?.Execute((MidiPercussionNote)set); // Command
         public virtual string GetString(MidiPercussionNote note)
         {
             return note.ToString();
-        }
-
-        public void Clear(int index)
-        {
-            if (base.Children[index] is IDrumButton item)
-            {
-                item.Clear();
-            }
-        }
-
-        public void Add(int index)
-        {
-            if (base.Children[index] is IDrumButton item)
-            {
-                item.Add();
-            }
-        }
-
-        public void Clear(MidiPercussionNote note)
-        {
-            int i = this.ItemsSource.IndexOf(note);
-            if (base.Children[i] is IDrumButton item)
-            {
-                item.Clear();
-            }
-        }
-
-        public void Add(MidiPercussionNote note)
-        {
-            int i = this.ItemsSource.IndexOf(note);
-            if (base.Children[i] is IDrumButton item)
-            {
-                item.Add();
-            }
         }
     }
 }
