@@ -111,34 +111,12 @@ namespace Virtual_Piano
             bool shift = Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift) == CoreVirtualKeyStates.Down;
             if ((shift ? this.BlackKeys : this.WhiteKeys).TryGetValue(args.VirtualKey, out MidiNote item))
                 this.Clear(item);
-
-            switch (args.VirtualKey)
-            {
-#pragma warning disable format
-                case VirtualKey.F1: case VirtualKey.F2: case VirtualKey.F3: case VirtualKey.F4: case VirtualKey.F5: case VirtualKey.F6: case VirtualKey.F7: case VirtualKey.F8: case VirtualKey.F9: case VirtualKey.F10: case VirtualKey.F11: case VirtualKey.F12:
-#pragma warning restore format
-                    this.Clear(args.VirtualKey - VirtualKey.F1);
-                    break;
-                default:
-                    break;
-            }
         }
         private void CoreKeyDown(CoreWindow sender, KeyEventArgs args)
         {
             bool shift = Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift) == CoreVirtualKeyStates.Down;
             if ((shift ? this.BlackKeys : this.WhiteKeys).TryGetValue(args.VirtualKey, out MidiNote item))
                 this.Add(item);
-
-            switch (args.VirtualKey)
-            {
-#pragma warning disable format
-                case VirtualKey.F1: case VirtualKey.F2: case VirtualKey.F3: case VirtualKey.F4: case VirtualKey.F5: case VirtualKey.F6: case VirtualKey.F7: case VirtualKey.F8: case VirtualKey.F9: case VirtualKey.F10: case VirtualKey.F11: case VirtualKey.F12:
-#pragma warning restore format
-                    this.Add(args.VirtualKey - VirtualKey.F1);
-                    break;
-                default:
-                    break;
-            }
         }
     }
 }
