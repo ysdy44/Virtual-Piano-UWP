@@ -2,7 +2,6 @@
 using System.Windows.Input;
 using Windows.Foundation;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Midi.Controls
 {
@@ -61,6 +60,9 @@ namespace Virtual_Piano.Midi.Controls
             KitSet.Snare,
             KitSet.Kick,
         };
+
+        readonly MidiPercussionNoteCategoryDictionary MidiPercussionNoteCategoryDictionary = new MidiPercussionNoteCategoryDictionary();
+        readonly MidiPercussionNoteDictionary MidiPercussionNoteDictionary = new MidiPercussionNoteDictionary();
 
         //@Construct
         public PadPanel()
@@ -143,7 +145,11 @@ namespace Virtual_Piano.Midi.Controls
                     Content = $"{this.GetString(item)}",
                     CommandParameter = set,
                     TabIndex = (byte)item,
-                    Foreground = base.Resources[$"{this.GetCategory(item)}"] as Brush,
+                    Foreground = this.MidiPercussionNoteCategoryDictionary[this.GetCategory(item)],
+                    Tag = new PathIcon
+                    {
+                        Data = this.MidiPercussionNoteDictionary[item]
+                    }
                 });
             }
         }
