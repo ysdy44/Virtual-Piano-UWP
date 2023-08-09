@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Midi.Controls
 {
-    public sealed class InstrumentButton : ClickButton, IClickButton
+    public sealed class InstrumentButton : ClickButton, IInstrumentButton
     {
         //@Command
         public MidiProgram CommandParameter { get; set; }
