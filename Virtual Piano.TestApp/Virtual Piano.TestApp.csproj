@@ -125,6 +125,9 @@
     <Compile Include="ColorView.xaml.cs">
       <DependentUpon>ColorView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CompositionPage.xaml.cs">
+      <DependentUpon>CompositionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DrumMachinePage.xaml.cs">
       <DependentUpon>DrumMachinePage.xaml</DependentUpon>
     </Compile>
@@ -178,6 +181,10 @@
     <Page Include="ColorView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CompositionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DrumMachinePage.xaml">
       <Generator>MSBuild:Compile</Generator>
