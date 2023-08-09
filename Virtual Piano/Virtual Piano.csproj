@@ -126,6 +126,7 @@
     <Compile Include="Controls\InstrumentSplitView.cs" />
     <Compile Include="Controls\KitFlyout.cs" />
     <Compile Include="Controls\KitPanel.cs" />
+    <Compile Include="Controls\MachinePanel.cs" />
     <Compile Include="Controls\PadPanel.cs" />
     <Compile Include="Enums\OptionType.cs" />
     <Compile Include="MainPage.Click.cs" />
