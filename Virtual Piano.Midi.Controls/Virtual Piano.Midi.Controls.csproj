@@ -244,6 +244,7 @@
     <Compile Include="WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Controls.Primitives\WrapPanel\StretchChild.cs" />
     <Compile Include="WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Controls.Primitives\WrapPanel\WrapPanel.cs" />
     <Compile Include="WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Controls.Primitives\WrapPanel\WrapPanel.Data.cs" />
+    <Compile Include="XamlExtensions.cs" />
     <EmbeddedResource Include="Properties\Virtual_Piano.Midi.Controls.rd.xml" />
   </ItemGroup>
   <ItemGroup>

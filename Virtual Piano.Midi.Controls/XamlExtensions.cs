@@ -2,7 +2,7 @@
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 
-namespace Virtual_Piano.Elements
+namespace Virtual_Piano.Midi.Controls
 {
     public static class XamlExtensions
     {

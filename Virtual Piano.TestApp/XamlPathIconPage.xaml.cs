@@ -1,4 +1,4 @@
-﻿using Virtual_Piano.Elements;
+﻿using Virtual_Piano.Midi.Controls;
 using Windows.UI.Xaml.Controls;
 
 namespace Virtual_Piano.TestApp
