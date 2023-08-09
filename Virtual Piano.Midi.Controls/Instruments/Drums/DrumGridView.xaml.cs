@@ -4,13 +4,13 @@ using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Midi.Controls
 {
-    public partial class DrumGridView : WrapPanel, IDrumPanel
+    public partial class DrumPanel : WrapPanel, IDrumPanel
     {
         //@Command
         public ICommand Command { get; set; }
 
         //@Construct
-        public DrumGridView()
+        public DrumPanel()
         {
             this.InitializeComponent();
             foreach (var item2 in MidiPercussionNoteFactory.Instance)

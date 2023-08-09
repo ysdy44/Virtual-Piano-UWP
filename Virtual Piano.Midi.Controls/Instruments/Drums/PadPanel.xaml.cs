@@ -6,7 +6,7 @@ using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Midi.Controls
 {
-    public partial class DrumPanel : Canvas, IKitPanel
+    public partial class PadPanel : Canvas, IKitPanel
     {
         //@Command
         public ICommand Command { get; set; }
@@ -63,7 +63,7 @@ namespace Virtual_Piano.Midi.Controls
         };
 
         //@Construct
-        public DrumPanel()
+        public PadPanel()
         {
             this.InitializeComponent();
             base.SizeChanged += (s, e) =>
@@ -82,7 +82,7 @@ namespace Virtual_Piano.Midi.Controls
                             {
                                 int i = size.Column * y + x;
                                 int index = i;
-                                if (base.Children[index] is IDrumButton item)
+                                if (base.Children[index] is IKitButton item)
                                 {
                                     item.X = x * size.Width;
                                     item.Y = y * size.Height;
@@ -101,7 +101,7 @@ namespace Virtual_Piano.Midi.Controls
                                 int i = size.Column * y + x;
                                 KitSet note = this.Pads2x6[i];
                                 int index = this.Pads1x12.IndexOf(note);
-                                if (base.Children[index] is IDrumButton item)
+                                if (base.Children[index] is IKitButton item)
                                 {
                                     item.X = x * size.Width;
                                     item.Y = y * size.Height;
@@ -120,7 +120,7 @@ namespace Virtual_Piano.Midi.Controls
                                 int i = size.Column * y + x;
                                 KitSet note = this.Pads3x4[i];
                                 int index = this.Pads1x12.IndexOf(note);
-                                if (base.Children[index] is IDrumButton item)
+                                if (base.Children[index] is IKitButton item)
                                 {
                                     item.X = x * size.Width;
                                     item.Y = y * size.Height;

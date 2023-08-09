@@ -129,14 +129,14 @@
                             </Viewbox>
                         </Border>
 
-                        <controls:DrumPanel 
-                            x:Name="DrumPanel"
+                        <controls:PadPanel 
+                            x:Name="PadPanel"
                             Command="{x:Bind Command}"
                             Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem32.IsSelected), Mode=OneWay}"
                             />
 
                         <ScrollViewer Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem33.IsSelected), Mode=OneWay}">
-                            <controls:DrumGridView Command="{x:Bind Command}"/>
+                            <controls:DrumPanel Command="{x:Bind Command}"/>
                         </ScrollViewer>
 
                     </Grid>
