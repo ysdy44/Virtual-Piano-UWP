@@ -4,7 +4,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace Virtual_Piano.Midi.Controls
 {
-    public partial class HarpPanel : StackPanel, INotePanel
+    public partial class HarpPanel : StackPanel, IHarpPanel
     {
         //@Command
         public ICommand Command { get; set; }
