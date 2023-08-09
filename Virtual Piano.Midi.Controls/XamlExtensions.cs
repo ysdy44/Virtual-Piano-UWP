@@ -24,5 +24,11 @@ namespace Virtual_Piano.Midi.Controls
             && XamlReader.Load($"{XamlExtensions.Head}{data}{XamlExtensions.Foot}") is Geometry geometry
             ? geometry
             : null;
+
+        public static Brush FindBrush(this ResourceDictionary dictionary, string dateKey)
+            => dictionary.ContainsKey(dateKey)
+            && dictionary[dateKey] is Brush brush
+            ? brush
+            : null;
     }
 }
