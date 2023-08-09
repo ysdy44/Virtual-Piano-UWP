@@ -157,11 +157,11 @@
       <DependentUpon>ChordPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Instruments\Drums\DrumButton.cs" />
-    <Compile Include="Instruments\Drums\DrumGridView.xaml.cs">
-      <DependentUpon>DrumGridView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Instruments\Drums\DrumMask.xaml.cs">
       <DependentUpon>DrumMask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\Drums\DrumPanel.xaml.cs">
+      <DependentUpon>DrumPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Instruments\Drums\KitButton.cs" />
     <Compile Include="Instruments\Drums\KitFlyout.cs" />
@@ -287,13 +287,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Instruments\Drums\DrumGridView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Instruments\Drums\DrumMask.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Instruments\Drums\DrumPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Instruments\Drums\KitPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
