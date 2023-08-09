@@ -1,20 +1,7 @@
-﻿using System.Windows.Input;
-
-namespace Virtual_Piano.Midi.Controls
+﻿namespace Virtual_Piano.Midi.Controls
 {
     public interface IDrumPanel
     {
-        IDrumButton this[MidiPercussionNote note] { get; }
-        MidiPercussionNote this[int index] { get; set; }
-
-        ICommand Command { get; set; }
-
         void OnClick(MidiPercussionNote note);
-        string GetString(MidiPercussionNote note);
-
-        void Clear(int index);
-        void Add(int index);
-        void Clear(MidiPercussionNote note);
-        void Add(MidiPercussionNote note);
     }
 }
