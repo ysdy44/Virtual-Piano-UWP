@@ -241,6 +241,9 @@
     <Compile Include="Structs\PianoSize.cs" />
     <Compile Include="Structs\Radial.cs" />
     <Compile Include="Structs\TrackLayout.cs" />
+    <Compile Include="Themes\MidiInstrumentDictionary.xaml.cs">
+      <DependentUpon>MidiInstrumentDictionary.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Controls.Primitives\WrapPanel\StretchChild.cs" />
     <Compile Include="WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Controls.Primitives\WrapPanel\WrapPanel.cs" />
     <Compile Include="WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Controls.Primitives\WrapPanel\WrapPanel.Data.cs" />
@@ -347,10 +350,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\MidiInstrumentDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Themes\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
