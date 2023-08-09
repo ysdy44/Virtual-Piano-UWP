@@ -150,6 +150,7 @@
     <Compile Include="Enums\GuitarInlay2.cs" />
     <Compile Include="Enums\GuitarString.cs" />
     <Compile Include="Enums\HarpType.cs" />
+    <Compile Include="Enums\PadLayoutMode.cs" />
     <Compile Include="Enums\PianoDirection.cs" />
     <Compile Include="Instruments\Chords\ChordButton.cs" />
     <Compile Include="Instruments\Chords\ChordPanel.xaml.cs">
@@ -162,13 +163,13 @@
     <Compile Include="Instruments\Drums\DrumMask.xaml.cs">
       <DependentUpon>DrumMask.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Instruments\Drums\DrumPanel.xaml.cs">
-      <DependentUpon>DrumPanel.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Instruments\Drums\KitButton.cs" />
     <Compile Include="Instruments\Drums\KitFlyout.cs" />
     <Compile Include="Instruments\Drums\KitPanel.xaml.cs">
       <DependentUpon>KitPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\Drums\PadPanel.xaml.cs">
+      <DependentUpon>PadPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Instruments\Guitars\BaseGuitarPanel.xaml.cs">
       <DependentUpon>BaseGuitarPanel.xaml</DependentUpon>
@@ -234,7 +235,7 @@
     <Compile Include="Models\InstrumentItemCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structs\Chords.cs" />
-    <Compile Include="Structs\DrumLayout.cs" />
+    <Compile Include="Structs\PadLayout.cs" />
     <Compile Include="Structs\Guitar.cs" />
     <Compile Include="Structs\MachineLayout.cs" />
     <Compile Include="Structs\PianoSize.cs" />
@@ -293,13 +294,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Instruments\Drums\DrumPanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Instruments\Drums\KitPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Instruments\Drums\PadPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Instruments\Guitars\BaseGuitarPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
