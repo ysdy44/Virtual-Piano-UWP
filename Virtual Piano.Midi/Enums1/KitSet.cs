@@ -10,7 +10,7 @@
 
         HiTom = MidiPercussionNote.HighTom,
         LowTom = MidiPercussionNote.LowTom,
-        FloorTom = MidiPercussionNote.LowFloorTom,
+        FloorTom = MidiPercussionNote.HighFloorTom,
 
         Snare = MidiPercussionNote.AcousticSnare,
         Stick = MidiPercussionNote.SideStick,
@@ -19,6 +19,6 @@
         Clap = MidiPercussionNote.HandClap,
         Ring = MidiPercussionNote.Cowbell,
         Sandham = MidiPercussionNote.Shaker,
-        Tambourine = MidiPercussionNote.Tambourine,
+        MidTom = MidiPercussionNote.HighTom,
     }
 }
