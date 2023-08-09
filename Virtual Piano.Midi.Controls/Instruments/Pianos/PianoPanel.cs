@@ -71,8 +71,6 @@ namespace Virtual_Piano.Midi.Controls
             }
         }
 
-        public IPianoButton this[MidiNote item] => base.Children[(int)item] as IPianoButton;
-
         readonly PianoDirection Direction;
         public PianoPanel(PianoDirection direction) => this.Direction = direction;
 
@@ -87,38 +85,6 @@ namespace Virtual_Piano.Midi.Controls
                 case PianoDirection.Left: case PianoDirection.Bottom: return NoteExtensions.NoteCount - (int)note - 1;
                 case PianoDirection.Top: case PianoDirection.Right: return (int)note;
                 default: return 0;
-            }
-        }
-
-        public void Clear(int index)
-        {
-            if (base.Children[index] is IPianoButton item)
-            {
-                item.Clear();
-            }
-        }
-        public void Add(int index)
-        {
-            if (base.Children[index] is IPianoButton item)
-            {
-                item.Add();
-            }
-        }
-
-        public void Clear(MidiNote note)
-        {
-            int i = (int)note;
-            if (base.Children[i] is IPianoButton item)
-            {
-                item.Clear();
-            }
-        }
-        public void Add(MidiNote note)
-        {
-            int i = (int)note;
-            if (base.Children[i] is IPianoButton item)
-            {
-                item.Add();
             }
         }
     }
