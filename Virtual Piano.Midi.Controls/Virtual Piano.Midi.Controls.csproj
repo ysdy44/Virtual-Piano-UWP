@@ -214,9 +214,11 @@
     <Compile Include="Instruments\Pianos\PianoPanel.Initialize.cs" />
     <Compile Include="Instruments\Pianos\PianoPanel.ItemSize.cs" />
     <Compile Include="Instruments\Pianos\PianoPanel.Resize.cs" />
+    <Compile Include="Interfaces\Buttons\IChordButton.cs" />
     <Compile Include="Interfaces\Buttons\IClickButton.cs" />
     <Compile Include="Interfaces\Buttons\IDrumButton.cs" />
     <Compile Include="Interfaces\Buttons\IGuitarButton.cs" />
+    <Compile Include="Interfaces\Buttons\IInstrumentButton.cs" />
     <Compile Include="Interfaces\Buttons\IKitButton.cs" />
     <Compile Include="Interfaces\Buttons\IMachineButton.cs" />
     <Compile Include="Interfaces\Buttons\IPianoButton.cs" />
@@ -226,7 +228,7 @@
     <Compile Include="Interfaces\Panels\IInstrumentGroupPanel.cs" />
     <Compile Include="Interfaces\Panels\IInstrumentPanel.cs" />
     <Compile Include="Interfaces\Panels\IKitPanel.cs" />
-    <Compile Include="Interfaces\Panels\INotePanel.cs" />
+    <Compile Include="Interfaces\Panels\IHarpPanel.cs" />
     <Compile Include="Interfaces\Panels\IPianoPanel.cs" />
     <Compile Include="Models\DrumItemCategory.cs" />
     <Compile Include="Models\InstrumentItemCategory.cs" />
