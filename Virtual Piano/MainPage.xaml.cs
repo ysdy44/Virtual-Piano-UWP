@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using Virtual_Piano.Controls;
 using Virtual_Piano.Midi;
+using Virtual_Piano.Midi.Controls;
 using Windows.Devices.Midi;
 using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace Virtual_Piano
@@ -28,7 +29,7 @@ namespace Virtual_Piano
         readonly ObservableCollection<ContentControl> ItemsSource = new ObservableCollection<ContentControl>();
 
         readonly MidiNote DemoNote = MidiNote.C5;
-        readonly InstrumentObservableCollection Favorites = new InstrumentObservableCollection
+        readonly Controls.InstrumentObservableCollection Favorites = new Controls.InstrumentObservableCollection
         {
             MidiProgram.AcousticGrand,
             MidiProgram.ElectricPiano1,
@@ -43,6 +44,7 @@ namespace Virtual_Piano
             MidiProgram.AcousticGuitarSteel,
             MidiProgram.TremoloStrings,
             MidiProgram.PizzicatoStrings,
+            MidiProgram.OrchestralStrings,
             MidiProgram.Timpani,
             MidiProgram.StringEnsemble1,
             MidiProgram.StringEnsemble2,
@@ -67,9 +69,18 @@ namespace Virtual_Piano
             MidiProgram.ReverseCymbal,
             MidiProgram.GuitarFretNoise,
             MidiProgram.Seashore,
-            MidiProgram.Applause ,
+            MidiProgram.Applause,
             MidiProgram.Gunshot,
         };
+
+        readonly InstrumentDictionary InstrumentDictionary = new InstrumentDictionary();
+        Geometry Piano => this.InstrumentDictionary[MidiInstrument.Piano];
+        Geometry Chord => this.InstrumentDictionary[MidiInstrument.Chord];
+        Geometry Machine => this.InstrumentDictionary[MidiInstrument.Machine];
+        Geometry Drum => this.InstrumentDictionary[MidiInstrument.Drum];
+        Geometry Guitar => this.InstrumentDictionary[MidiInstrument.Guitar];
+        Geometry Bass => this.InstrumentDictionary[MidiInstrument.Bass];
+        Geometry Harp => this.InstrumentDictionary[MidiInstrument.Harp];
 
         //@Construct
         ~MainPage()

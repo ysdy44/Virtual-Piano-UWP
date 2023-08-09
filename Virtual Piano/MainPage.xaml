@@ -635,133 +635,26 @@
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
 
-                <!--Piano-->
-                <ListViewItem x:Name="ListViewItem1">
-                    <ToolTipService.ToolTip>
-                        <ToolTip>
-                            Piano
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <PathIcon.Data>
-                            M23 19V0H0v19h3.996v-8h-.991V0h3v11h-.991v8h5.979v-8h-.991V0h3v11h-.991v8h5.978v-8h-.991V0h3v11h-.991v8H23z
-                        </PathIcon.Data>
-                    </PathIcon>
+                <ListViewItem x:Name="ListViewItem1" ToolTipService.ToolTip="Piano">
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind Piano}"/>
                 </ListViewItem>
-
-                <!--Chord-->
-                <ListViewItem x:Name="ListViewItem2">
-                    <ToolTipService.ToolTip>
-                        <ToolTip>
-                            Chord
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <PathIcon.Data>
-                            M0 14v6h6v-5.014H5V14H0z
-                            m13 6v-1.5h-1v-3h1V14H8v.986H7V20h6z
-                            m7 0v-6h-6v1.5h1v3h-1V20h6z
-                            M12 8h1v5H8v-1.014H7V7h5v1z
-                            m3-1v1h-1v5h6V7h-5z
-                            m-9 4.986V7H0v6h5v-1.014h1z
-                            M13 5V0H7v6h5V5h1z
-                            M6 0H0v6h6V0z
-                            m8 5h1v1h5V0h-6v5z
-                        </PathIcon.Data>
-                    </PathIcon>
+                <ListViewItem x:Name="ListViewItem2" ToolTipService.ToolTip="Chord">
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind Chord}"/>
                 </ListViewItem>
-
-                <!--Machine-->
-                <ListViewItem x:Name="ListViewItem3">
-                    <ToolTipService.ToolTip>
-                        <ToolTip>
-                            Machine
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <PathIcon.Data>
-                            M5,12L0,12L0,17L5,17L5,12Z
-                            M23,12L18,12L18,17L23,17L23,12Z
-                            M11,12L6,12L6,17L11,17L11,12Z
-                            M17,12L12,12L12,17L17,17L17,12Z
-                            M23,6L18,6L18,11L23,11L23,6Z
-                            M5,6L0,6L0,11L5,11L5,6Z
-                            M11,6L6,6L6,11L11,11L11,6Z
-                            M17,6L12,6L12,11L17,11L17,6Z
-                            M23,0L18,0L18,5L23,5L23,0Z
-                            M5,0L0,0L0,5L5,5L5,0Z
-                            M11,0L6,0L6,5L11,5L11,0Z
-                            M17,0L12,0L12,5L17,5L17,0Z
-                        </PathIcon.Data>
-                    </PathIcon>
+                <ListViewItem x:Name="ListViewItem3" ToolTipService.ToolTip="Machine">
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind Machine}"/>
                 </ListViewItem>
-
-                <!--Drum-->
-                <ListViewItem x:Name="ListViewItem4">
-                    <ToolTipService.ToolTip>
-                        <ToolTip>
-                            Drum
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <PathIcon.Data>
-                            M24.721 15.48v1.019c-1.31 4.048-6.275 7.063-12.192 7.063S1.647 20.547.338 16.499V15.48c1.309 4.048 6.274 7.064 12.191 7.064 5.918 0 10.883-3.016 12.192-7.064z
-                            m-20.63.872c2.134 1.329 4.885 2.163 7.904 2.252v2.855c-3.076-.098-5.853-1.03-7.904-2.49v-2.617z
-                            m16.876 0v2.617c-2.051 1.46-4.828 2.392-7.904 2.49v-2.855c3.019-.089 5.771-.923 7.904-2.252z
-                            m.96-.663c1.119-.858 2.012-1.869 2.61-2.984l.001.111c0 2.035-.977 3.906-2.611 5.384v-2.511z
-                            M3.131 18.2C1.497 16.722.52 14.851.52 12.816l.001-.111c.598 1.115 1.491 2.126 2.61 2.984V18.2z
-                            M12.529 0c6.915 0 12.529 3.982 12.529 8.886 0 4.905-5.614 8.887-12.529 8.887S0 13.791 0 8.886C0 3.982 5.614 0 12.529 0z
-                            m0 .482c6.494 0 11.765 3.626 11.765 8.092 0 4.466-5.271 8.091-11.765 8.091C6.036 16.665.764 13.04.764 8.574.764 4.108 6.036.482 12.529.482z
-                            m0 .51c6.027 0 10.921 3.352 10.921 7.48 0 4.129-4.894 7.481-10.921 7.481-6.027 0-10.921-3.352-10.921-7.481 0-4.128 4.894-7.48 10.921-7.48z
-                        </PathIcon.Data>
-                    </PathIcon>
+                <ListViewItem x:Name="ListViewItem4" ToolTipService.ToolTip="Drum">
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind Drum}"/>
                 </ListViewItem>
-
-                <!--Guitar-->
-                <ListViewItem x:Name="ListViewItem5">
-                    <ToolTipService.ToolTip>
-                        <ToolTip>
-                            Guitar
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <PathIcon.Data>
-                            M11.919 0l6.284.001c.867.014 1.06 1.511 1.083 2.383.039 1.448-1.756 4.359-1.519 6.152.026.192.069.379.128.564.451.87 1.184 1.899 1.83 3.067.708 1.085 1.333 2.312 1.323 3.916l-.001.546c-.038 2.481-1.797 4.087-4.461 4.967-1.741.595-3.85.837-6.061.835
-                            h-.002c-2.211.002-4.32-.24-6.061-.835-2.664-.88-4.423-2.486-4.461-4.967L0 16.083c-.01-1.604.615-2.831 1.323-3.916C1.969 11 2.702 9.971 3.153 9.1c.059-.185.102-.372.128-.564.237-1.793-1.558-4.704-1.519-6.152.023-.872.216-2.369 1.083-2.383L8.345 0 
-                            v8.905a3.19 3.19 0 0 0-1.481 2.694 3.194 3.194 0 0 0 3.193 3.192 3.194 3.194 0 0 0 3.192-3.192 3.19 3.19 0 0 0-1.33-2.592V0z
-                            m0 15.638H8.194v1.143h3.725v-1.143z
-                        </PathIcon.Data>
-                    </PathIcon>
+                <ListViewItem x:Name="ListViewItem5" ToolTipService.ToolTip="Guitar">
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind Guitar}"/>
                 </ListViewItem>
-
-                <!--Bass-->
-                <ListViewItem x:Name="ListViewItem6">
-                    <ToolTipService.ToolTip>
-                        <ToolTip>
-                            Bass
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <PathIcon.Data>
-                            M11.891 1.004v5.479H8.165V.102L1.436.156C1.259 1.981 3.754 5.782 3.54 7.279 3.275 9.139 0 12.316 0 15.432c0 3.115 6.222 5.09 11.891 5.876 5.543.769 9.037-.299 9.252-3.294.305-4.256-3.607-5.689-3.607-9.475 0-1.809 1.824-4.593 1.785-6.041-.023-.873-.854-2.934-1.556-2.416-.987.729-1.321 3.239-3.6 3.299-1.121-.039-1.891-1.154-2.274-2.377z
-                            m0 13.94H8.165v1.5h3.726v-1.5zm0-5.312H8.165v1.5h3.726v-1.5z
-                        </PathIcon.Data>
-                    </PathIcon>
+                <ListViewItem x:Name="ListViewItem6" ToolTipService.ToolTip="Bass">
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind Bass}"/>
                 </ListViewItem>
-
-                <!--Harp-->
-                <ListViewItem x:Name="ListViewItem7">
-                    <ToolTipService.ToolTip>
-                        <ToolTip>
-                            Harp
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <PathIcon.Data>
-                            M10.5,19.5L12.5,19.5L12.5,21.5L0,21.5L0,19.5L0.5,19.5L0.5,16.5L1,16.5L1,4L0.5,4L0.5,0L4,0L4,0.5L6.5,0.5L8,1L9.5,2L10.5,3.5L11.5,5.5L12.5,6.5L13.5,7L15.5,6.5L18.5,5.5
-                            L19.5,5.5L20.5,6.5L19.5,8.5L10.5,19.5ZM4,4L4,3.5L5.5,3.5L7,4L7.5,4.5L9,7.5L10,8.5L11,9L12.5,9.5L14,9.5L15.5,9L15.5,9.5L6.5,19.5L4,19.5L4,16.5L3.5,16.5L3.5,4L4,4Z
-                        </PathIcon.Data>
-                    </PathIcon>
+                <ListViewItem x:Name="ListViewItem7" ToolTipService.ToolTip="Harp">
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind Harp}"/>
                 </ListViewItem>
 
             </ListView>
