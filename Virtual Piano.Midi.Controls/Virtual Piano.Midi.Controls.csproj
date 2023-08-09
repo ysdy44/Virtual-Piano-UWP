@@ -244,6 +244,9 @@
     <Compile Include="Themes\MidiInstrumentDictionary.xaml.cs">
       <DependentUpon>MidiInstrumentDictionary.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Themes\MidiOctaveDictionary.xaml.cs">
+      <DependentUpon>MidiOctaveDictionary.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Controls.Primitives\WrapPanel\StretchChild.cs" />
     <Compile Include="WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Controls.Primitives\WrapPanel\WrapPanel.cs" />
     <Compile Include="WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Controls.Primitives\WrapPanel\WrapPanel.Data.cs" />
@@ -351,6 +354,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\MidiInstrumentDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\MidiOctaveDictionary.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -1,0 +1,20 @@
+﻿<ResourceDictionary
+    x:Class="Virtual_Piano.Midi.Controls.MidiOctaveDictionary"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+
+    <!--Brush-->
+    <SolidColorBrush x:Key="Number0" Color="#323C80"/>
+    <SolidColorBrush x:Key="Number1" Color="#683280"/>
+    <SolidColorBrush x:Key="Number2" Color="#FF2E2E"/>
+    <SolidColorBrush x:Key="Number3" Color="#FF9348"/>
+    <SolidColorBrush x:Key="Number4" Color="#FAE100"/>
+    <SolidColorBrush x:Key="Number5" Color="#56FF56"/>
+    <SolidColorBrush x:Key="Number6" Color="#11FFF7"/>
+    <SolidColorBrush x:Key="Number7" Color="#6477FF"/>
+    <SolidColorBrush x:Key="Number8" Color="#CF64FF"/>
+    <SolidColorBrush x:Key="Number9" Color="#FFCBCB"/>
+    <SolidColorBrush x:Key="Number10" Color="#FFE4D1"/>
+
+</ResourceDictionary>
