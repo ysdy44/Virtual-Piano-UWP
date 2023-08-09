@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Midi
 {
-    public enum Octave
+    public enum MidiOctave
     {
         Number0,
         Number1,

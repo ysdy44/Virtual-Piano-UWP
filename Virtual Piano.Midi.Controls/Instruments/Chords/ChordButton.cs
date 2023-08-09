@@ -3,7 +3,7 @@
     public sealed class ChordButton : ClickButton, IClickButton
     {
         //@Command
-        public Octave CommandParameter { get; set; }
+        public MidiOctave CommandParameter { get; set; }
 
         protected override void OnClick()
         {

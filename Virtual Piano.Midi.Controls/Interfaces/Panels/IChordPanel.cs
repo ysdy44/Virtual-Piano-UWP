@@ -8,6 +8,6 @@ namespace Virtual_Piano.Midi.Controls
 
         Chord Chord { get; set; }
 
-        void OnClick(Octave octave);
+        void OnClick(MidiOctave octave);
     }
 }

@@ -78,7 +78,7 @@ namespace Virtual_Piano.Midi.Controls
 
         public void OnClick(MidiNote note) => this.Command?.Execute(note); // Command
 
-        public abstract Brush GetBrush(Octave octave);
+        public abstract Brush GetBrush(MidiOctave octave);
         public abstract Style GetStyle(ToneType type);
         public int GetIndex(MidiNote note)
         {

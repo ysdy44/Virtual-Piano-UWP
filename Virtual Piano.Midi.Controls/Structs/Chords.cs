@@ -19,12 +19,12 @@ namespace Virtual_Piano.Midi.Controls
             this.Root3 = this.Root + this.Source.ToTone3();
         }
 
-        public MidiNote Play(Octave octave)
+        public MidiNote Play(MidiOctave octave)
         {
             return octave.ToNote(this.Root);
         }
 
-        public IEnumerable<MidiNote> Plays(Octave octave)
+        public IEnumerable<MidiNote> Plays(MidiOctave octave)
         {
             yield return octave.ToNote(this.Root2);
             yield return octave.ToNote(this.Root3);

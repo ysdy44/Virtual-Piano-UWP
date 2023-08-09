@@ -9,19 +9,19 @@ namespace Virtual_Piano.Midi.Controls
 {
     public sealed partial class ChordPanel : Canvas, IChordPanel
     {
-        public static readonly Octave Octave = Octave.Number8;
-        public static readonly Octave[] Octaves = new Octave[]
+        public static readonly MidiOctave Octave = MidiOctave.Number8;
+        public static readonly MidiOctave[] Octaves = new MidiOctave[]
         {
-            Octave.Number8,
-            Octave.Number7,
-            Octave.Number6,
+            MidiOctave.Number8,
+            MidiOctave.Number7,
+            MidiOctave.Number6,
 
             // C
-            Octave.Number5,
+            MidiOctave.Number5,
 
-            Octave.Number4,
-            Octave.Number3,
-            Octave.Number2,
+            MidiOctave.Number4,
+            MidiOctave.Number3,
+            MidiOctave.Number2,
         };
 
         //@Command
@@ -73,7 +73,7 @@ namespace Virtual_Piano.Midi.Controls
                 }
             };
 
-            foreach (Octave item in ChordPanel.Octaves)
+            foreach (MidiOctave item in ChordPanel.Octaves)
             {
                 base.Children.Add(new ChordButton
                 {
@@ -84,7 +84,7 @@ namespace Virtual_Piano.Midi.Controls
             }
         }
 
-        public async void OnClick(Octave octave)
+        public async void OnClick(MidiOctave octave)
         {
             this.Command?.Execute(this.Chords.Play(octave)); // Command
             foreach (MidiNote item in this.Chords.Plays(octave))

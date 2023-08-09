@@ -10,7 +10,7 @@ namespace Virtual_Piano.Midi.Controls
         public ICommand Command { get; set; }
 
         //@Const
-        const Octave Number = Octave.Number3;
+        const MidiOctave Number = MidiOctave.Number3;
         const int Min = (int)HarpPanel.Number;
         const int Max = HarpPanel.Min + 7;
 

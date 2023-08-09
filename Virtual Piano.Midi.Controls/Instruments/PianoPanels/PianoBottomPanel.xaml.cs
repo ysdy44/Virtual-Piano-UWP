@@ -17,7 +17,7 @@ namespace Virtual_Piano.Midi.Controls
                 base.Resize(e.NewSize, e.PreviousSize);
             };
         }
-        public override Brush GetBrush(Octave octave) => this.Resources[$"{octave}"] as SolidColorBrush;
+        public override Brush GetBrush(MidiOctave octave) => this.Resources[$"{octave}"] as SolidColorBrush;
         public override Style GetStyle(ToneType type) => this.Resources[$"{type}"] as Style;
     }
 }
