@@ -1,4 +1,6 @@
-﻿namespace Virtual_Piano.Midi.Controls
+﻿using Virtual_Piano.Midi.Core;
+
+namespace Virtual_Piano.Midi.Controls
 {
     public interface IGuitarPanel
     {

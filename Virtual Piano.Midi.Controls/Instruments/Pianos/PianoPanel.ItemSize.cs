@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Virtual_Piano.Midi.Core;
 
 namespace Virtual_Piano.Midi.Controls
 {

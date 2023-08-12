@@ -1,4 +1,4 @@
-﻿namespace Virtual_Piano.Midi.Controls
+﻿namespace Virtual_Piano.Midi.Core
 {
     public enum PadLayoutMode // n =12 * width / height
     {
