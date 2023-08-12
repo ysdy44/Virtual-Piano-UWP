@@ -1,4 +1,5 @@
 ﻿using System;
+using Virtual_Piano.Midi.Core;
 using Windows.Foundation;
 using Windows.UI.Input;
 using Windows.UI.Xaml.Controls;
@@ -61,7 +62,7 @@ namespace Virtual_Piano.Midi.Controllers
 
                 double delta = prop.MouseWheelDelta;
                 int index = this.Index + System.Math.Clamp((int)delta, -1, 1);
-                this.Index = Math.Clamp(index, 0, 127);
+                this.Index = Math.Clamp(index, 0, Radial.Velocity);
 
                 e.Handled = true;
             };
@@ -92,15 +93,15 @@ namespace Virtual_Piano.Midi.Controllers
         public abstract void Execute(int value);
         private void Update(int value)
         {
-            double top = (this.H - this.W) * (127 - value) / 127;
+            double top = (this.H - this.W) * (Radial.Velocity - value) / Radial.Velocity;
             this.TextBlock1.Text = $"{value}";
             Canvas.SetTop(this.Rectangle, top);
         }
 
         private void Position(double y)
         {
-            int index = (int)((y - this.W - this.WHalf) / (this.H - this.W) * 127);
-            this.Index = Math.Clamp(127 - index, 0, 127);
+            int index = (int)((y - this.W - this.WHalf) / (this.H - this.W) * Radial.Velocity);
+            this.Index = Math.Clamp(Radial.Velocity - index, 0, Radial.Velocity);
         }
     }
 }

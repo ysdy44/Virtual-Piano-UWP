@@ -123,29 +123,6 @@
     <Compile Include="ClickButton.cs" />
     <Compile Include="CompositionExtensions.cs" />
     <Compile Include="ContactButton.cs" />
-    <Compile Include="Controllers\Bends\BendModulationWheel.cs" />
-    <Compile Include="Controllers\Bends\BendPitchWheel.cs" />
-    <Compile Include="Controllers\Bends\BendPressureWheel.cs" />
-    <Compile Include="Controllers\Bends\BendWheel.xaml.cs">
-      <DependentUpon>BendWheel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\Gauges\IndicatorGauge.xaml.cs">
-      <DependentUpon>IndicatorGauge.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\Gauges\TickGauge.xaml.cs">
-      <DependentUpon>TickGauge.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\Others\Pedal.xaml.cs">
-      <DependentUpon>Pedal.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\Others\VelocitySlider.cs" />
-    <Compile Include="Controllers\Tracks\MachineButton.cs" />
-    <Compile Include="Controllers\Tracks\MachinePanel.xaml.cs">
-      <DependentUpon>MachinePanel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\Tracks\TrackNotePanel.xaml.cs">
-      <DependentUpon>TrackNotePanel.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Enums\GuitarInlay1.cs" />
     <Compile Include="Enums\GuitarInlay2.cs" />
     <Compile Include="Enums\GuitarString.cs" />
@@ -271,30 +248,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Controllers\Bends\BendWheel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controllers\Gauges\IndicatorGauge.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controllers\Gauges\TickGauge.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controllers\Others\Pedal.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controllers\Tracks\MachinePanel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controllers\Tracks\TrackNotePanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Instruments\Chords\ChordPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

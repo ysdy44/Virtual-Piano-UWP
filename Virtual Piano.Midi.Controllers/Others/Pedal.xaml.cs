@@ -21,7 +21,7 @@ namespace Virtual_Piano.Midi.Controllers
             {
                 Type = MidiMessageType.ControlChange,
                 Controller = this.Controller,
-                ControllerValue = 127
+                ControllerValue = Radial.Velocity
             }); // Command
         }
 

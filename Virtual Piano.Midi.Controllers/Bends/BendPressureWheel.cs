@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using Virtual_Piano.Midi.Core;
 using Windows.Devices.Midi;
 
 namespace Virtual_Piano.Midi.Controllers
@@ -8,7 +9,7 @@ namespace Virtual_Piano.Midi.Controllers
         //@Command
         public ICommand Command { get; set; }
 
-        public BendPressureWheel() : base(127) { }
+        public BendPressureWheel() : base(Radial.Velocity) { }
 
         public override void Start() { }
         public override void Stop() { }
