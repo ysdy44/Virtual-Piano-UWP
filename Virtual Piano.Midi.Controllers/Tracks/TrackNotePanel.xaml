@@ -26,8 +26,8 @@
          >
         <Canvas x:Name="Canvas" Margin="{x:Bind Layout.Margin}" Width="{x:Bind Layout.ExtentHeight}" Height="{x:Bind HeightConverter(ToggleButton.IsChecked), Mode=OneWay}">
 
-            <!--Center-->
-            <Canvas x:Name="BackgroundCanvas" IsHitTestVisible="False" Height="{x:Bind Layout.ExtentHeightHead}">
+            <!--Body-->
+            <Canvas x:Name="BodyBackgroundCanvas" IsHitTestVisible="False" Height="{x:Bind Layout.ExtentHeightHead}">
                 <FrameworkElement.Resources>
                     <!--Style-->
                     <Style TargetType="Rectangle">
@@ -38,7 +38,7 @@
                 <!--Children-->
             </Canvas>
 
-            <ItemsControl x:Name="ItemsControl" Canvas.Left="{x:Bind Layout.Pane}" Canvas.Top="{x:Bind Layout.Head}" Width="{x:Bind Layout.ExtentHeight}" Height="{x:Bind Layout.ExtentHeight}">
+            <ItemsControl x:Name="BodyItemsControl" Canvas.Left="{x:Bind Layout.Pane}" Canvas.Top="{x:Bind Layout.Head}" Width="{x:Bind Layout.ExtentHeight}" Height="{x:Bind Layout.ExtentHeight}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Canvas/>
@@ -72,8 +72,8 @@
                 <!--ItemsSource-->
             </ItemsControl>
 
-            <!--Foot-->
-            <Border x:Name="FootBorder" Padding="0,0,0,18" Width="{x:Bind Layout.ExtentHeight}" Height="{x:Bind Layout.Foot}" BorderThickness="0,1,0,0" BorderBrush="Black" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}" Visibility="{x:Bind VisibilityConverter(ToggleButton.IsChecked), Mode=OneWay}">
+            <!--Controller-->
+            <Border x:Name="ControllerBorder" Padding="0,0,0,18" Width="{x:Bind Layout.ExtentHeight}" Height="{x:Bind Layout.Foot}" BorderThickness="0,1,0,0" BorderBrush="Black" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}" Visibility="{x:Bind VisibilityConverter(ToggleButton.IsChecked), Mode=OneWay}">
                 <Canvas Height="127">
                     <FrameworkElement.Resources>
                         <!--Style-->
@@ -87,7 +87,7 @@
                     <Line Y1="64" X2="{x:Bind Layout.ExtentHeight}" Y2="64"/>
                     <Line Y1="127" X2="{x:Bind Layout.ExtentHeight}" Y2="127"/>
                     <Polyline 
-                        x:Name="Polyline"
+                        x:Name="ControllerPolyline"
                         StrokeThickness="2"
                         Stroke="#708B2F"
                         Fill="#66B4DE4B"
@@ -95,6 +95,7 @@
                         <!--Points-->
                     </Polyline>
 
+                    <!--Foot-->
                     <ItemsControl x:Name="FootItemsControl" Width="{x:Bind Layout.ExtentHeight}" Height="127">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -131,8 +132,8 @@
                 </Canvas>
             </Border>
 
-            <!--Timerline-->
-            <Canvas x:Name="LineCanvas" IsHitTestVisible="False">
+            <!--Body-->
+            <Canvas x:Name="BodyLineCanvas" IsHitTestVisible="False">
                 <FrameworkElement.Resources>
                     <!--Style-->
                     <Style TargetType="Line">
@@ -143,7 +144,8 @@
                 <!--Children-->
             </Canvas>
 
-            <Line x:Name="Line" IsHitTestVisible="False" StrokeThickness="2" Stroke="Red"/>
+            <!--Timeline-->
+            <Line x:Name="TimelineLine" IsHitTestVisible="False" StrokeThickness="2" Stroke="Red"/>
 
             <!--Pane-->
             <Border x:Name="PaneBorder" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.ExtentHeight}" BorderThickness="1,0" BorderBrush="Black" Background="Black">
@@ -151,7 +153,7 @@
             </Border>
 
             <!--Foot-->
-            <Grid x:Name="FootPaneGrid" Padding="0,0,0,18" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.Foot}" BorderThickness="0,1,1,0" BorderBrush="Black" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}" Visibility="{x:Bind VisibilityConverter(ToggleButton.IsChecked), Mode=OneWay}">
+            <Grid x:Name="FootBorder" Padding="0,0,0,18" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.Foot}" BorderThickness="0,1,1,0" BorderBrush="Black" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}" Visibility="{x:Bind VisibilityConverter(ToggleButton.IsChecked), Mode=OneWay}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
@@ -165,7 +167,7 @@
                 <TextBlock IsHitTestVisible="False" Grid.Column="1" Height="24" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                     0
                 </TextBlock>
-                <Border x:Name="FootPaneBorder">
+                <Border x:Name="FootBorderBorder">
                     <!--Child-->
                 </Border>
             </Grid>
@@ -182,8 +184,8 @@
                 </Control.Template>
             </Thumb>
 
-            <!--Head-->
-            <Canvas x:Name="PointCanvas" IsHitTestVisible="False" Height="{x:Bind Layout.Head}">
+            <!--Timeline-->
+            <Canvas x:Name="TimelinePointCanvas" IsHitTestVisible="False" Height="{x:Bind Layout.Head}">
                 <FrameworkElement.Resources>
                     <!--Style-->
                     <Style TargetType="Line">
@@ -194,7 +196,7 @@
                 <!--Children-->
             </Canvas>
 
-            <Canvas x:Name="TextCanvas" IsHitTestVisible="False" Height="{x:Bind Layout.Head}">
+            <Canvas x:Name="TimelineTextCanvas" IsHitTestVisible="False" Height="{x:Bind Layout.Head}">
                 <FrameworkElement.Resources>
                     <Style TargetType="TextBlock">
                         <Setter Property="Foreground" Value="{ThemeResource SystemColorControlAccentBrush}" />
@@ -204,6 +206,7 @@
                 <!--Children-->
             </Canvas>
 
+            <!--Head-->
             <Border x:Name="HeadBorder" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.Head}" Background="Black">
                 <ToggleButton x:Name="ToggleButton" RequestedTheme="Dark" IsChecked="True" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Style="{StaticResource TextBlockButtonStyle}">
                     <SymbolIcon Symbol="DockBottom"/>
@@ -211,7 +214,7 @@
             </Border>
 
             <!--Timerline-->
-            <Line x:Name="Polygon" IsHitTestVisible="False" Y1="0" Y2="{x:Bind Layout.Head}" StrokeThickness="8" Stroke="Red" StrokeStartLineCap="Flat" StrokeEndLineCap="Triangle"/>
+            <Line x:Name="TimelinePoint" IsHitTestVisible="False" Y1="0" Y2="{x:Bind Layout.Head}" StrokeThickness="8" Stroke="Red" StrokeStartLineCap="Flat" StrokeEndLineCap="Triangle"/>
 
         </Canvas>
     </ScrollViewer>

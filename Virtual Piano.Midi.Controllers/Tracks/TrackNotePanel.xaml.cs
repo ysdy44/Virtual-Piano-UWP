@@ -44,19 +44,19 @@ namespace Virtual_Piano.Midi.Controllers
                 if (this.index == value) return;
                 this.index = value;
 
-                for (int i = 0; i < this.TextCanvas.Children.Count; i++)
+                for (int i = 0; i < this.TimelineTextCanvas.Children.Count; i++)
                 {
-                    TextBlock item = this.TextCanvas.Children[i] as TextBlock;
+                    TextBlock item = this.TimelineTextCanvas.Children[i] as TextBlock;
                     item.Text = $"{value + i}";
                 }
             }
         }
 
         // UI
-        public object ItemsSource { get => this.ItemsControl.ItemsSource; set => this.ItemsControl.ItemsSource = value; }
+        public object ItemsSource { get => this.BodyItemsControl.ItemsSource; set => this.BodyItemsControl.ItemsSource = value; }
         public UIElement Pane { get => this.PaneBorder.Child; set => this.PaneBorder.Child = value; }
-        public UIElement FootPane { get => this.FootPaneBorder.Child; set => this.FootPaneBorder.Child = value; }
-        public PointCollection FootPoints { get => this.Polyline.Points; set => this.Polyline.Points = value; }
+        public UIElement Foot { get => this.FootBorderBorder.Child; set => this.FootBorderBorder.Child = value; }
+        public PointCollection ControllerPoints { get => this.ControllerPolyline.Points; set => this.ControllerPolyline.Points = value; }
         public object FootItemsSource { get => this.FootItemsControl.ItemsSource; set => this.FootItemsControl.ItemsSource = value; }
 
         // Timeline
@@ -80,21 +80,21 @@ namespace Virtual_Piano.Midi.Controllers
             var ey2 = this.ScrollProperties.SnapScrollerY(-this.Layout.Head);
             var sx = this.ScrollProperties.SnapScrollerX(TrackLayout.Step, 0);
 
-            this.Polygon.GetVisual().AnimationY(ey2);
-            this.Line.GetVisual().AnimationY(ey);
+            this.TimelinePoint.GetVisual().AnimationY(ey2);
+            this.TimelineLine.GetVisual().AnimationY(ey);
             this.TimelineThumb.GetVisual().AnimationXY(ex, ey2);
 
             this.PaneBorder.GetVisual().AnimationX(ex2);
-            this.FootPaneGrid.GetVisual().AnimationX(ex2);
+            this.FootBorder.GetVisual().AnimationX(ex2);
             this.HeadBorder.GetVisual().AnimationXY(ex2, ey2);
 
-            this.LineCanvas.GetVisual().AnimationXY(sx, ey);
-            this.BackgroundCanvas.GetVisual().AnimationX(ex);
+            this.BodyLineCanvas.GetVisual().AnimationXY(sx, ey);
+            this.BodyBackgroundCanvas.GetVisual().AnimationX(ex);
 
-            this.TextCanvas.GetVisual().AnimationXY(sx, ey2);
-            this.PointCanvas.GetVisual().AnimationXY(sx, ey2);
+            this.TimelineTextCanvas.GetVisual().AnimationXY(sx, ey2);
+            this.TimelinePointCanvas.GetVisual().AnimationXY(sx, ey2);
 
-            // BackgroundCanvas
+            // BodyBackgroundCanvas
             foreach (MidiNote item in System.Enum.GetValues(typeof(MidiNote)).Cast<MidiNote>())
             {
                 switch (item.ToType())
@@ -111,19 +111,19 @@ namespace Virtual_Piano.Midi.Controllers
                         var y = i * TrackLayout.Spacing;
 
                         Canvas.SetTop(rect, y);
-                        this.BackgroundCanvas.Children.Add(rect);
+                        this.BodyBackgroundCanvas.Children.Add(rect);
                         break;
                     default:
                         break;
                 }
             }
 
-            // LineCanvas
-            this.LineCanvas.Width = 16 * TrackLayout.Step;
+            // BodyLineCanvas
+            this.BodyLineCanvas.Width = 16 * TrackLayout.Step;
             for (int i = 0; i < 16; i++)
             {
                 double x = i * TrackLayout.Step;
-                this.LineCanvas.Children.Add(new Line
+                this.BodyLineCanvas.Children.Add(new Line
                 {
                     StrokeThickness = 2,
                     Y1 = 0,
@@ -135,7 +135,7 @@ namespace Virtual_Piano.Midi.Controllers
                 for (int j = 1; j < TrackLayout.StepCount; j++)
                 {
                     double x2 = x + j * TrackLayout.StepSpacing;
-                    this.LineCanvas.Children.Add(new Line
+                    this.BodyLineCanvas.Children.Add(new Line
                     {
                         StrokeThickness = 1,
                         Y1 = 0,
@@ -147,11 +147,11 @@ namespace Virtual_Piano.Midi.Controllers
             }
 
             // PointCanvas
-            this.PointCanvas.Width = 16 * TrackLayout.Step;
+            this.TimelinePointCanvas.Width = 16 * TrackLayout.Step;
             for (int i = 0; i < 16; i++)
             {
                 double x = i * TrackLayout.Step;
-                this.PointCanvas.Children.Add(new Line
+                this.TimelinePointCanvas.Children.Add(new Line
                 {
                     Y1 = 0,
                     X1 = x,
@@ -162,7 +162,7 @@ namespace Virtual_Piano.Midi.Controllers
                 for (int j = 0; j < TrackLayout.StepCount; j++)
                 {
                     double x2 = x + j * TrackLayout.StepSpacing;
-                    this.PointCanvas.Children.Add(new Line
+                    this.TimelinePointCanvas.Children.Add(new Line
                     {
                         X1 = x2,
                         Y1 = this.Layout.Head - 9,
@@ -173,7 +173,7 @@ namespace Virtual_Piano.Midi.Controllers
                     for (int k = 0; k < TrackLayout.StepCount; k++)
                     {
                         double x3 = x2 + k * TrackLayout.StepSpacing2;
-                        this.PointCanvas.Children.Add(new Line
+                        this.TimelinePointCanvas.Children.Add(new Line
                         {
                             X1 = x3,
                             Y1 = this.Layout.Head - 5,
@@ -192,7 +192,7 @@ namespace Virtual_Piano.Midi.Controllers
                     Text = $"{i}"
                 };
                 Canvas.SetLeft(item, i * TrackLayout.Step);
-                this.TextCanvas.Children.Add(item);
+                this.TimelineTextCanvas.Children.Add(item);
             }
 
             base.SizeChanged += (s, e) =>
@@ -206,8 +206,8 @@ namespace Virtual_Piano.Midi.Controllers
                     this.ViewportWidth = w;
 
                     this.TimelineThumb.Width = w;
-                    this.BackgroundCanvas.Width = w;
-                    foreach (FrameworkElement item in this.BackgroundCanvas.Children.Cast<FrameworkElement>())
+                    this.BodyBackgroundCanvas.Width = w;
+                    foreach (FrameworkElement item in this.BodyBackgroundCanvas.Children.Cast<FrameworkElement>())
                     {
                         item.Width = w;
                     }
@@ -218,16 +218,16 @@ namespace Virtual_Piano.Midi.Controllers
                 {
                     this.ViewportHeight = h;
 
-                    this.Line.Y2 = h;
-                    this.LineCanvas.Height = h;
-                    foreach (Line item in this.LineCanvas.Children.Cast<Line>())
+                    this.TimelineLine.Y2 = h;
+                    this.BodyLineCanvas.Height = h;
+                    foreach (Line item in this.BodyLineCanvas.Children.Cast<Line>())
                     {
                         item.Y2 = h;
                     }
 
                     var sy = this.ScrollProperties.SnapScrollerY(h - this.Layout.Foot);
+                    this.ControllerBorder.GetVisual().AnimationY(sy);
                     this.FootBorder.GetVisual().AnimationY(sy);
-                    this.FootPaneGrid.GetVisual().AnimationY(sy);
                 }
             };
 
@@ -261,9 +261,9 @@ namespace Virtual_Piano.Midi.Controllers
         public void ChangeDuration(int time)
         {
             int extentWidth = time / TrackLayout.Scaling;
-            this.ItemsControl.Width = extentWidth;
+            this.BodyItemsControl.Width = extentWidth;
             this.Canvas.Width = extentWidth + this.Layout.Pane;
-            this.FootBorder.Width = extentWidth + this.Layout.Pane;
+            this.ControllerBorder.Width = extentWidth + this.Layout.Pane;
             this.FootItemsControl.Width = extentWidth;
         }
 
@@ -274,10 +274,10 @@ namespace Virtual_Piano.Midi.Controllers
             this.Timeline = this.Position - this.HorizontalOffset + this.Layout.Pane;
 
             // UI
-            this.Line.X1 = this.Timeline;
-            this.Line.X2 = this.Timeline;
-            this.Polygon.X1 = this.Timeline;
-            this.Polygon.X2 = this.Timeline;
+            this.TimelineLine.X1 = this.Timeline;
+            this.TimelineLine.X2 = this.Timeline;
+            this.TimelinePoint.X1 = this.Timeline;
+            this.TimelinePoint.X2 = this.Timeline;
 
             if (this.Timeline < this.HorizontalOffset + this.Layout.Pane)
             {
@@ -296,10 +296,10 @@ namespace Virtual_Piano.Midi.Controllers
             this.Time = this.Position * TrackLayout.Scaling;
 
             // UI
-            this.Line.X1 = this.Timeline;
-            this.Line.X2 = this.Timeline;
-            this.Polygon.X1 = this.Timeline;
-            this.Polygon.X2 = this.Timeline;
+            this.TimelineLine.X1 = this.Timeline;
+            this.TimelineLine.X2 = this.Timeline;
+            this.TimelinePoint.X1 = this.Timeline;
+            this.TimelinePoint.X2 = this.Timeline;
 
             return this.Time;
         }
