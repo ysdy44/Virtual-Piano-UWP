@@ -21,7 +21,7 @@ namespace Virtual_Piano.Midi.Controllers
         public event DragCompletedEventHandler DragCompleted { remove => this.TimelineThumb.DragCompleted -= value; add => this.TimelineThumb.DragCompleted += value; }
 
         //@Converter
-        private double HeightConverter(bool? value) => value is true ? this.Layout.ExtentHeightFoot : this.Layout.ExtentHeight;
+        private double HeightConverter(bool? value) => value is true ? this.Layout.ExtentHeightFoot : this.Layout.ExtentHeightHead;
         private Visibility VisibilityConverter(bool? value) => value is true ? Visibility.Visible : Visibility.Collapsed;
 
         // Container
@@ -74,22 +74,20 @@ namespace Virtual_Piano.Midi.Controllers
 
             // Composition
             this.ScrollProperties = this.ScrollViewer.GetScroller();
-            var ex = this.ScrollProperties.SnapScrollerX();
-            var ex2 = this.ScrollProperties.SnapScrollerX(-this.Layout.Pane);
-            var ey = this.ScrollProperties.SnapScrollerY();
-            var ey2 = this.ScrollProperties.SnapScrollerY(-this.Layout.Head);
-            var sx = this.ScrollProperties.SnapScrollerX(TrackLayout.Step, 0);
+            var ex2 = this.ScrollProperties.SnapScrollerX();
+            var ey2 = this.ScrollProperties.SnapScrollerY();
+            var sx = this.ScrollProperties.SnapScrollerX(TrackLayout.Step, this.Layout.Pane);
 
             this.TimelinePoint.GetVisual().AnimationY(ey2);
-            this.TimelineLine.GetVisual().AnimationY(ey);
-            this.TimelineThumb.GetVisual().AnimationXY(ex, ey2);
+            this.TimelineLine.GetVisual().AnimationY(ey2);
+            this.TimelineThumb.GetVisual().AnimationXY(ex2, ey2);
 
-            this.PaneBorder.GetVisual().AnimationX(ex2);
+            this.PaneBorder.GetVisual().AnimationXY(ex2, this.Layout.Head);
             this.FootBorder.GetVisual().AnimationX(ex2);
             this.HeadBorder.GetVisual().AnimationXY(ex2, ey2);
 
-            this.BodyLineCanvas.GetVisual().AnimationXY(sx, ey);
-            this.BodyBackgroundCanvas.GetVisual().AnimationX(ex);
+            this.BodyLineCanvas.GetVisual().AnimationXY(sx, ey2);
+            this.BodyBackgroundCanvas.GetVisual().AnimationXY(ex2, this.Layout.Head);
 
             this.TimelineTextCanvas.GetVisual().AnimationXY(sx, ey2);
             this.TimelinePointCanvas.GetVisual().AnimationXY(sx, ey2);
@@ -200,7 +198,7 @@ namespace Virtual_Piano.Midi.Controllers
                 if (e.NewSize == Size.Empty) return;
                 if (e.NewSize == e.PreviousSize) return;
 
-                int w = (int)e.NewSize.Width - this.Layout.Pane;
+                int w = (int)e.NewSize.Width;
                 if (this.ViewportWidth != w)
                 {
                     this.ViewportWidth = w;
@@ -213,7 +211,7 @@ namespace Virtual_Piano.Midi.Controllers
                     }
                 }
 
-                int h = (int)e.NewSize.Height - this.Layout.Head;
+                int h = (int)e.NewSize.Height;
                 if (this.ViewportHeight != h)
                 {
                     this.ViewportHeight = h;
@@ -289,17 +287,32 @@ namespace Virtual_Piano.Midi.Controllers
             }
         }
 
-        public int UpdateTimeline(int time)
+        public int UpdateTimeline(int timeline)
         {
-            this.Timeline = System.Math.Max(0, time);
-            this.Position = this.Timeline + this.HorizontalOffset;
-            this.Time = this.Position * TrackLayout.Scaling;
+            if (timeline > this.Layout.Pane)
+            {
+                this.Timeline = System.Math.Max(this.Layout.Pane, timeline);
+                this.Position = this.Timeline + this.HorizontalOffset;
+                this.Time = (this.Position - this.Layout.Pane) * TrackLayout.Scaling;
 
-            // UI
-            this.TimelineLine.X1 = this.Timeline;
-            this.TimelineLine.X2 = this.Timeline;
-            this.TimelinePoint.X1 = this.Timeline;
-            this.TimelinePoint.X2 = this.Timeline;
+                // UI
+                this.TimelineLine.X1 = this.Timeline;
+                this.TimelineLine.X2 = this.Timeline;
+                this.TimelinePoint.X1 = this.Timeline;
+                this.TimelinePoint.X2 = this.Timeline;
+            }
+            else
+            {
+                this.Timeline = this.Layout.Pane;
+                this.Position = this.Layout.Pane + this.HorizontalOffset;
+                this.Time = this.HorizontalOffset * TrackLayout.Scaling;
+
+                // UI
+                this.TimelineLine.X1 = this.Layout.Pane;
+                this.TimelineLine.X2 = this.Layout.Pane;
+                this.TimelinePoint.X1 = this.Layout.Pane;
+                this.TimelinePoint.X2 = this.Layout.Pane;
+            }
 
             return this.Time;
         }
