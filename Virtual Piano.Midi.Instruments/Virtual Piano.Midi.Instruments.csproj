@@ -120,6 +120,69 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Chords\ChordButton.cs" />
+    <Compile Include="Chords\ChordPanel.xaml.cs">
+      <DependentUpon>ChordPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Drums\DrumButton.cs" />
+    <Compile Include="Drums\DrumMask.xaml.cs">
+      <DependentUpon>DrumMask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Drums\DrumPanel.xaml.cs">
+      <DependentUpon>DrumPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Drums\KitButton.cs" />
+    <Compile Include="Drums\KitFlyout.cs" />
+    <Compile Include="Drums\KitPanel.xaml.cs">
+      <DependentUpon>KitPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Drums\PadPanel.xaml.cs">
+      <DependentUpon>PadPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Guitars\BaseGuitarPanel.xaml.cs">
+      <DependentUpon>BaseGuitarPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Guitars\GuitarButton.cs" />
+    <Compile Include="Guitars\GuitarPanel.xaml.cs">
+      <DependentUpon>GuitarPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Guitars\GuitarScrollBar.xaml.cs">
+      <DependentUpon>GuitarScrollBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Harps\HarpButton.cs" />
+    <Compile Include="Harps\HarpPanel.xaml.cs">
+      <DependentUpon>HarpPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\InstrumentButton.cs" />
+    <Compile Include="Instruments\InstrumentCollectionPanel.cs" />
+    <Compile Include="Instruments\InstrumentGroupPanel.cs" />
+    <Compile Include="Instruments\InstrumentObservableCollection.cs" />
+    <Compile Include="Instruments\InstrumentPanel.xaml.cs">
+      <DependentUpon>InstrumentPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\InstrumentSplitView.xaml.cs">
+      <DependentUpon>InstrumentSplitView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PianoPanels\PianoBottomPanel.xaml.cs">
+      <DependentUpon>PianoBottomPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PianoPanels\PianoLeftPanel.xaml.cs">
+      <DependentUpon>PianoLeftPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PianoPanels\PianoRightPanel.xaml.cs">
+      <DependentUpon>PianoRightPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PianoPanels\PianoTopPanel.xaml.cs">
+      <DependentUpon>PianoTopPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pianos\PianoButton.cs" />
+    <Compile Include="Pianos\PianoHorizontalScrollBar.xaml.cs">
+      <DependentUpon>PianoHorizontalScrollBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pianos\PianoPanel.cs" />
+    <Compile Include="Pianos\PianoPanel.Initialize.cs" />
+    <Compile Include="Pianos\PianoPanel.ItemSize.cs" />
+    <Compile Include="Pianos\PianoPanel.Resize.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Virtual_Piano.Midi.Instruments.rd.xml" />
   </ItemGroup>
@@ -137,6 +200,72 @@
       <Project>{7f632b4a-9fa1-4842-942f-49274bbdbe61}</Project>
       <Name>Virtual Piano.Midi</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Chords\ChordPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Drums\DrumMask.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Drums\DrumPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Drums\KitPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Drums\PadPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Guitars\BaseGuitarPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Guitars\GuitarPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Guitars\GuitarScrollBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Harps\HarpPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Instruments\InstrumentPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Instruments\InstrumentSplitView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PianoPanels\PianoBottomPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PianoPanels\PianoLeftPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PianoPanels\PianoRightPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PianoPanels\PianoTopPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pianos\PianoHorizontalScrollBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
