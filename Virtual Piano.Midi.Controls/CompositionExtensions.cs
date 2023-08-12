@@ -3,7 +3,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Hosting;
 
-namespace Virtual_Piano.Midi.Controls
+namespace Virtual_Piano.Midi.Core
 {
     /// <summary>
     /// The <see cref="UIElement"/> of <see cref="Visual"/> without:

@@ -3,7 +3,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml;
 using Windows.System;
 
-namespace Virtual_Piano.Midi.Controls
+namespace Virtual_Piano.Midi.Core
 {
     [TemplateVisualState(Name = Normal)]
     [TemplateVisualState(Name = Pressed)]

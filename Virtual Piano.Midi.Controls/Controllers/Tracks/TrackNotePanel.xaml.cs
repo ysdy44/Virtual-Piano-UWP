@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Virtual_Piano.Midi.Core;
 using Windows.Foundation;
 using Windows.System;
 using Windows.UI.Input;
