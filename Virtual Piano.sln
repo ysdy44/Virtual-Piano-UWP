@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Virtual Piano.Midi.Controls
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Virtual Piano.Midi", "Virtual Piano.Midi\Virtual Piano.Midi.csproj", "{7F632B4A-9FA1-4842-942F-49274BBDBE61}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Virtual Piano.Midi.Instruments", "Virtual Piano.Midi.Instruments\Virtual Piano.Midi.Instruments.csproj", "{7B25386C-1DD9-4D05-8325-323A0C9070DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -160,6 +162,26 @@ Global
 		{7F632B4A-9FA1-4842-942F-49274BBDBE61}.Release|x64.Build.0 = Release|x64
 		{7F632B4A-9FA1-4842-942F-49274BBDBE61}.Release|x86.ActiveCfg = Release|x86
 		{7F632B4A-9FA1-4842-942F-49274BBDBE61}.Release|x86.Build.0 = Release|x86
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Debug|ARM.ActiveCfg = Debug|ARM
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Debug|ARM.Build.0 = Debug|ARM
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Debug|ARM64.Build.0 = Debug|ARM64
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Debug|x64.ActiveCfg = Debug|x64
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Debug|x64.Build.0 = Debug|x64
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Debug|x86.ActiveCfg = Debug|x86
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Debug|x86.Build.0 = Debug|x86
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Release|ARM.ActiveCfg = Release|ARM
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Release|ARM.Build.0 = Release|ARM
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Release|ARM64.ActiveCfg = Release|ARM64
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Release|ARM64.Build.0 = Release|ARM64
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Release|x64.ActiveCfg = Release|x64
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Release|x64.Build.0 = Release|x64
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Release|x86.ActiveCfg = Release|x86
+		{7B25386C-1DD9-4D05-8325-323A0C9070DB}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

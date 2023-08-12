@@ -280,6 +280,10 @@
       <Project>{E17BFD86-0726-4C0A-AAFE-5B5DEAD05956}</Project>
       <Name>Virtual Piano.Midi.Controls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Virtual Piano.Midi.Instruments\Virtual Piano.Midi.Instruments.csproj">
+      <Project>{7b25386c-1dd9-4d05-8325-323a0c9070db}</Project>
+      <Name>Virtual Piano.Midi.Instruments</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Virtual Piano.Midi\Virtual Piano.Midi.csproj">
       <Project>{7F632B4A-9FA1-4842-942F-49274BBDBE61}</Project>
       <Name>Virtual Piano.Midi</Name>
