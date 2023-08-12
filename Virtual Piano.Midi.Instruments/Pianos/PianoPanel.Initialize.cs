@@ -17,14 +17,14 @@ namespace Virtual_Piano.Midi.Instruments
                             return new Rect
                             {
                                 X = 0,
-                                Y = (NoteExtensions.NoteWhiteCount - count - 1) * this.PianoSize.WhiteSize,
+                                Y = this.PianoSize.ReverseToWhite(count),
                                 Width = double.NaN,
                                 Height = this.PianoSize.WhiteSize
                             };
                         case PianoDirection.Top:
                             return new Rect
                             {
-                                X = count * this.PianoSize.WhiteSize,
+                                X = this.PianoSize.ToWhite(count),
                                 Y = 0,
                                 Width = this.PianoSize.WhiteSize,
                                 Height = double.NaN,
@@ -33,14 +33,14 @@ namespace Virtual_Piano.Midi.Instruments
                             return new Rect
                             {
                                 X = 0,
-                                Y = count * this.PianoSize.WhiteSize,
+                                Y = this.PianoSize.ToWhite(count),
                                 Width = double.NaN,
                                 Height = this.PianoSize.WhiteSize
                             };
                         case PianoDirection.Bottom:
                             return new Rect
                             {
-                                X = (NoteExtensions.NoteWhiteCount - count - 1) * this.PianoSize.WhiteSize,
+                                X = this.PianoSize.ReverseToWhite(count),
                                 Y = 0,
                                 Width = this.PianoSize.WhiteSize,
                                 Height = double.NaN,
@@ -54,14 +54,14 @@ namespace Virtual_Piano.Midi.Instruments
                             return new Rect
                             {
                                 X = 0,
-                                Y = (NoteExtensions.NoteWhiteCount - count + 1) * this.PianoSize.WhiteSize - this.PianoSize.BlackSizeHalf,
+                                Y = this.PianoSize.ReverseToBlack(count),
                                 Width = double.NaN,
                                 Height = this.PianoSize.BlackSize
                             };
                         case PianoDirection.Top:
                             return new Rect
                             {
-                                X = (count + 1) * this.PianoSize.WhiteSize - this.PianoSize.BlackSizeHalf,
+                                X = this.PianoSize.ToBlack(count),
                                 Y = 0,
                                 Width = this.PianoSize.BlackSize,
                                 Height = double.NaN,
@@ -70,14 +70,14 @@ namespace Virtual_Piano.Midi.Instruments
                             return new Rect
                             {
                                 X = 0,
-                                Y = count * this.PianoSize.WhiteSize,
+                                Y = this.PianoSize.ToWhite(count),
                                 Width = double.NaN,
                                 Height = this.PianoSize.BlackSize
                             };
                         case PianoDirection.Bottom:
                             return new Rect
                             {
-                                X = (NoteExtensions.NoteWhiteCount - count + 1) * this.PianoSize.WhiteSize - this.PianoSize.BlackSizeHalf,
+                                X = this.PianoSize.ReverseToBlack(count),
                                 Y = 0,
                                 Width = this.PianoSize.BlackSize,
                                 Height = double.NaN,
@@ -135,8 +135,8 @@ namespace Virtual_Piano.Midi.Instruments
 
             switch (this.Direction)
             {
-                case PianoDirection.Left: case PianoDirection.Right: base.Height = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize; break;
-                case PianoDirection.Top: case PianoDirection.Bottom: base.Width = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize; break;
+                case PianoDirection.Left: case PianoDirection.Right: base.Height = this.PianoSize.Length; break;
+                case PianoDirection.Top: case PianoDirection.Bottom: base.Width = this.PianoSize.Length; break;
                 default: break;
             }
         }

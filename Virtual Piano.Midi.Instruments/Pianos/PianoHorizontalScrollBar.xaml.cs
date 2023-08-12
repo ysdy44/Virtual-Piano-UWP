@@ -8,7 +8,7 @@ namespace Virtual_Piano.Midi.Instruments
     {
 
         private PianoSize PianoSize = new PianoSize(20);
-        private double Length = NoteExtensions.NoteWhiteCount * 20 * NoteExtensions.ToneCount / NoteExtensions.WhiteCount;
+
         public int ItemSize
         {
             get => this.PianoSize.ItemSize;
@@ -16,12 +16,11 @@ namespace Virtual_Piano.Midi.Instruments
             {
                 if (this.PianoSize.ItemSize == value) return;
                 this.PianoSize = new PianoSize(value);
-                this.Length = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize;
 
-                this.Rectangle.Width = base.ActualWidth * this.RootGrid.ActualWidth / this.Length;
+                this.Rectangle.Width = base.ActualWidth * this.RootGrid.ActualWidth / this.PianoSize.Length;
 
                 if (this.ScrollViewer is null) return;
-                Canvas.SetLeft(this.Rectangle, this.ScrollViewer.HorizontalOffset * this.RootGrid.ActualWidth / this.Length);
+                Canvas.SetLeft(this.Rectangle, this.ScrollViewer.HorizontalOffset * this.RootGrid.ActualWidth / this.PianoSize.Length);
             }
         }
 
@@ -48,7 +47,7 @@ namespace Virtual_Piano.Midi.Instruments
                 if (e.NewSize == e.PreviousSize) return;
                 if (e.NewSize.Width == e.PreviousSize.Width) return;
 
-                this.Rectangle.Width = e.NewSize.Width * this.RootGrid.ActualWidth / this.Length;
+                this.Rectangle.Width = e.NewSize.Width * this.RootGrid.ActualWidth / this.PianoSize.Length;
             };
             this.RootGrid.SizeChanged += (s, e) =>
             {
@@ -56,10 +55,10 @@ namespace Virtual_Piano.Midi.Instruments
                 if (e.NewSize == e.PreviousSize) return;
                 if (e.NewSize.Width == e.PreviousSize.Width) return;
 
-                this.Rectangle.Width = base.ActualWidth * e.NewSize.Width / this.Length;
+                this.Rectangle.Width = base.ActualWidth * e.NewSize.Width / this.PianoSize.Length;
 
                 if (this.ScrollViewer is null) return;
-                Canvas.SetLeft(this.Rectangle, this.ScrollViewer.HorizontalOffset * e.NewSize.Width / this.Length);
+                Canvas.SetLeft(this.Rectangle, this.ScrollViewer.HorizontalOffset * e.NewSize.Width / this.PianoSize.Length);
             };
 
             this.PreviousButton.Click += (s, e) => this.PageUp();
@@ -68,12 +67,12 @@ namespace Virtual_Piano.Midi.Instruments
             this.Thumb.DragStarted += (s, e) =>
             {
                 this.Offset = e.HorizontalOffset - this.Rectangle.ActualWidth / 2;
-                this.Offset = this.Offset * this.Length / this.RootGrid.ActualWidth;
+                this.Offset = this.Offset * this.PianoSize.Length / this.RootGrid.ActualWidth;
                 this.ScrollViewer.ChangeView(this.Offset, null, null, true);
             };
             this.Thumb.DragDelta += (s, e) =>
             {
-                this.Offset += e.HorizontalChange * this.Length / this.RootGrid.ActualWidth;
+                this.Offset += e.HorizontalChange * this.PianoSize.Length / this.RootGrid.ActualWidth;
                 this.ScrollViewer.ChangeView(this.Offset, null, null, true);
             };
             this.Thumb.DragCompleted += (s, e) =>
@@ -84,7 +83,7 @@ namespace Virtual_Piano.Midi.Instruments
 
         private void ViewChanging(object sender, ScrollViewerViewChangingEventArgs e)
         {
-            Canvas.SetLeft(this.Rectangle, e.NextView.HorizontalOffset * this.RootGrid.ActualWidth / this.Length);
+            Canvas.SetLeft(this.Rectangle, e.NextView.HorizontalOffset * this.RootGrid.ActualWidth / this.PianoSize.Length);
         }
 
         public void PageUp()

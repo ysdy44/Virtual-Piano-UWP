@@ -25,12 +25,12 @@ namespace Virtual_Piano.Midi.Instruments
                             switch (item.Type)
                             {
                                 case ToneType.White:
-                                    item.Y = (NoteExtensions.NoteWhiteCount - count - 1) * this.PianoSize.WhiteSize;
+                                    item.Y = this.PianoSize.ReverseToWhite(count);
                                     item.Height = this.PianoSize.WhiteSize;
                                     count++;
                                     break;
                                 case ToneType.Black:
-                                    item.Y = (NoteExtensions.NoteWhiteCount - count + 1) * this.PianoSize.WhiteSize - this.PianoSize.BlackSizeHalf;
+                                    item.Y = this.PianoSize.ReverseToBlack(count);
                                     item.Height = this.PianoSize.BlackSize;
                                     break;
                                 default:
@@ -38,7 +38,7 @@ namespace Virtual_Piano.Midi.Instruments
                             }
                         }
 
-                        base.Height = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize;
+                        base.Height = this.PianoSize.Length;
                         break;
                     case PianoDirection.Top:
                         foreach (IPianoButton item in base.Children.Cast<IPianoButton>())
@@ -47,12 +47,12 @@ namespace Virtual_Piano.Midi.Instruments
                             switch (item.Type)
                             {
                                 case ToneType.White:
-                                    item.X = count * this.PianoSize.WhiteSize;
+                                    item.X = this.PianoSize.ToWhite(count);
                                     item.Width = this.PianoSize.WhiteSize;
                                     count++;
                                     break;
                                 case ToneType.Black:
-                                    item.X = (count + 1) * this.PianoSize.WhiteSize - this.PianoSize.BlackSizeHalf;
+                                    item.X = this.PianoSize.ToBlack(count);
                                     item.Width = this.PianoSize.BlackSize;
                                     break;
                                 default:
@@ -60,7 +60,7 @@ namespace Virtual_Piano.Midi.Instruments
                             }
                         }
 
-                        base.Width = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize;
+                        base.Width = this.PianoSize.Length;
                         break;
                     case PianoDirection.Right:
                         foreach (IPianoButton item in base.Children.Cast<IPianoButton>())
@@ -69,12 +69,12 @@ namespace Virtual_Piano.Midi.Instruments
                             switch (item.Type)
                             {
                                 case ToneType.White:
-                                    item.Y = count * this.PianoSize.WhiteSize;
+                                    item.Y = this.PianoSize.ToWhite(count);
                                     item.Height = this.PianoSize.WhiteSize;
                                     count++;
                                     break;
                                 case ToneType.Black:
-                                    item.Y = (count + 1) * this.PianoSize.WhiteSize - this.PianoSize.BlackSizeHalf;
+                                    item.Y = this.PianoSize.ToBlack(count);
                                     item.Height = this.PianoSize.BlackSize;
                                     break;
                                 default:
@@ -82,7 +82,7 @@ namespace Virtual_Piano.Midi.Instruments
                             }
                         }
 
-                        base.Height = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize;
+                        base.Height = this.PianoSize.Length;
                         break;
                     case PianoDirection.Bottom:
                         foreach (IPianoButton item in base.Children.Cast<IPianoButton>())
@@ -91,12 +91,12 @@ namespace Virtual_Piano.Midi.Instruments
                             switch (item.Type)
                             {
                                 case ToneType.White:
-                                    item.X = (NoteExtensions.NoteWhiteCount - count - 1) * this.PianoSize.WhiteSize;
+                                    item.X = this.PianoSize.ReverseToWhite(count);
                                     item.Width = this.PianoSize.WhiteSize;
                                     count++;
                                     break;
                                 case ToneType.Black:
-                                    item.X = (NoteExtensions.NoteWhiteCount - count + 1) * this.PianoSize.WhiteSize - this.PianoSize.BlackSizeHalf;
+                                    item.X = this.PianoSize.ReverseToBlack(count);
                                     item.Width = this.PianoSize.BlackSize;
                                     break;
                                 default:
@@ -104,7 +104,7 @@ namespace Virtual_Piano.Midi.Instruments
                             }
                         }
 
-                        base.Width = NoteExtensions.NoteWhiteCount * this.PianoSize.WhiteSize;
+                        base.Width = this.PianoSize.Length;
                         break;
                     default:
                         break;
