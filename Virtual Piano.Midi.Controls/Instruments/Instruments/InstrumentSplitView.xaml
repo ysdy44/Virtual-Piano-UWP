@@ -4,7 +4,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:Virtual_Piano.Midi.Controls"
+    xmlns:core="using:Virtual_Piano.Midi.Core"
     mc:Ignorable="d"
     d:DesignWidth="800"
     d:DesignHeight="400"
@@ -39,7 +39,7 @@
                     <Setter Property="VerticalContentAlignment" Value="Center"/>
                     <Setter Property="ContentTemplate">
                         <Setter.Value>
-                            <DataTemplate x:DataType="controls:InstrumentItemCategory">
+                            <DataTemplate x:DataType="core:InstrumentItemCategory">
                                 <TextBlock IsColorFontEnabled="False" Text="{x:Bind Text}"/>
                             </DataTemplate>
                         </Setter.Value>

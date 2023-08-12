@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Virtual_Piano.Midi;
-using Virtual_Piano.Midi.Controls;
+using Virtual_Piano.Midi.Core;
 using Windows.Devices.Midi;
 using Windows.System;
 using Windows.UI.Core;
@@ -73,7 +73,7 @@ namespace Virtual_Piano
             MidiProgram.Gunshot,
         };
 
-        readonly InstrumentDictionary InstrumentDictionary = new InstrumentDictionary();
+        readonly MidiInstrumentDictionary InstrumentDictionary = new MidiInstrumentDictionary();
         Geometry Piano => this.InstrumentDictionary[MidiInstrument.Piano];
         Geometry Chord => this.InstrumentDictionary[MidiInstrument.Chord];
         Geometry Machine => this.InstrumentDictionary[MidiInstrument.Machine];
