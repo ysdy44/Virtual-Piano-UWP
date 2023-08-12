@@ -411,7 +411,7 @@
                             Background="{ThemeResource AppForeground}"
                             HorizontalAlignment="Center"
                             >
-                            <notecontrols:VelocitySlider
+                            <controllers:VelocitySlider
                                 x:Name="VelocitySlider"
                                 Margin="0,12"
                                 Value="127"
@@ -449,9 +449,9 @@
                     <Rectangle Grid.Column="1" Fill="{ThemeResource AppStroke}"/>
 
                     <Grid Grid.Column="2">
-                        <notecontrols:TrackNotePanel x:Name="TrackNotePanel">
+                        <controllers:TrackNotePanel x:Name="TrackNotePanel">
                             <notecontrols:PianoLeftPanel x:Name="PianoLeftPanel" Command="{x:Bind Command}"/>
-                        </notecontrols:TrackNotePanel>
+                        </controllers:TrackNotePanel>
                     </Grid>
 
                 </Grid>
@@ -763,7 +763,7 @@
                 </Grid>
 
                 <!--Machine-->
-                <controls:MachinePanel 
+                <controllers:MachinePanel 
                     x:Name="MachinePanel" 
                     Command="{x:Bind Command}" 
                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}"

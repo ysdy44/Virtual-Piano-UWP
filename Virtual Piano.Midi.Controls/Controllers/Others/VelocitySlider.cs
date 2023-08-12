@@ -4,7 +4,7 @@ using Virtual_Piano.Midi.Core;
 using Windows.Devices.Midi;
 using Windows.UI.Xaml.Controls;
 
-namespace Virtual_Piano.Midi.Controls
+namespace Virtual_Piano.Midi.Controllers
 {
     public sealed class VelocitySlider : Slider, ICommand
     {

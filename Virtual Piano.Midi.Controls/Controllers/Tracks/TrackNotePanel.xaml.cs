@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
 
-namespace Virtual_Piano.Midi.Controls
+namespace Virtual_Piano.Midi.Controllers
 {
     [ContentProperty(Name = nameof(Pane))]
     public sealed partial class TrackNotePanel : UserControl
