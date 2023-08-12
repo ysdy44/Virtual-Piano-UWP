@@ -1,6 +1,6 @@
 ﻿using Virtual_Piano.Midi.Core;
 
-namespace Virtual_Piano.Midi.Controls
+namespace Virtual_Piano.Midi.Core
 {
     public readonly struct PadLayout
     {

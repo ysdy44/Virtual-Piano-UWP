@@ -1,4 +1,5 @@
 ﻿using System;
+using Virtual_Piano.Midi.Core;
 using Windows.UI.Input;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Shapes;

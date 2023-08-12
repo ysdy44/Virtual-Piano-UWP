@@ -1,6 +1,6 @@
 ﻿using Windows.Foundation;
 
-namespace Virtual_Piano.Midi.Controls
+namespace Virtual_Piano.Midi.Core
 {
     public readonly struct Radial
     {

@@ -4,6 +4,6 @@
     {
         public MidiPercussionNoteCategory Category;
         public string Text;
-        public override string ToString() => this.Text;
+        public override string ToString() => Text;
     }
 }

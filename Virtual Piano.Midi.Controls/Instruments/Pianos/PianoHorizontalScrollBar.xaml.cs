@@ -1,4 +1,5 @@
-﻿using Windows.Foundation;
+﻿using Virtual_Piano.Midi.Core;
+using Windows.Foundation;
 using Windows.UI.Xaml.Controls;
 
 namespace Virtual_Piano.Midi.Controls

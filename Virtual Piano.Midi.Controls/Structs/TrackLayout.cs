@@ -1,6 +1,6 @@
 ﻿using Windows.UI.Xaml;
 
-namespace Virtual_Piano.Midi.Controls
+namespace Virtual_Piano.Midi.Core
 {
     public readonly struct TrackLayout
     {
