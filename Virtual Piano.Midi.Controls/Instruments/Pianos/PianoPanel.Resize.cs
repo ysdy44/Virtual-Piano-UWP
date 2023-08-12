@@ -1,12 +1,8 @@
 ﻿using System.Linq;
-using System.Windows.Input;
 using Virtual_Piano.Midi.Core;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
 
-namespace Virtual_Piano.Midi.Controls
+namespace Virtual_Piano.Midi.Instruments
 {
     partial class PianoPanel
     {

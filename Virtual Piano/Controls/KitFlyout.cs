@@ -2,7 +2,7 @@
 
 namespace Virtual_Piano.Controls
 {
-    public sealed class KitFlyout : Midi.Controls.KitFlyout
+    public sealed class KitFlyout : Midi.Instruments.KitFlyout
     {
         public override string GetString(MidiPercussionNote note)
         {

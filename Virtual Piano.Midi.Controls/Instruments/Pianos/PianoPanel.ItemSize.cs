@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Virtual_Piano.Midi.Core;
 
-namespace Virtual_Piano.Midi.Controls
+namespace Virtual_Piano.Midi.Instruments
 {
     partial class PianoPanel
     {

@@ -7,7 +7,7 @@
     xmlns:controls="using:Virtual_Piano.Controls"
     xmlns:elements="using:Virtual_Piano.Elements"
     xmlns:controllers="using:Virtual_Piano.Midi.Controllers"
-    xmlns:notecontrols="using:Virtual_Piano.Midi.Controls"
+    xmlns:instruments="using:Virtual_Piano.Midi.Instruments"
     xmlns:strings="using:Virtual_Piano.Strings"
     mc:Ignorable="d"
     Background="{ThemeResource AppBackground}"
@@ -450,7 +450,7 @@
 
                     <Grid Grid.Column="2">
                         <controllers:TrackNotePanel x:Name="TrackNotePanel">
-                            <notecontrols:PianoLeftPanel x:Name="PianoLeftPanel" Command="{x:Bind Command}"/>
+                            <instruments:PianoLeftPanel x:Name="PianoLeftPanel" Command="{x:Bind Command}"/>
                         </controllers:TrackNotePanel>
                     </Grid>
 
@@ -679,7 +679,7 @@
                             <RowDefinition Height="36"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <notecontrols:PianoHorizontalScrollBar ItemSize="28" ScrollViewer="{x:Bind KeyboardScrollViewer}"/>
+                        <instruments:PianoHorizontalScrollBar ItemSize="28" ScrollViewer="{x:Bind KeyboardScrollViewer}"/>
                         <ScrollViewer
                             x:Name="KeyboardScrollViewer"
                             Grid.Row="1"
@@ -695,7 +695,7 @@
                             
                             Background="Black"
                             >
-                            <notecontrols:PianoTopPanel
+                            <instruments:PianoTopPanel
                                 x:Name="PianoTopPanel"
                                 Label="CDE"
                                 ItemSize="28"
@@ -740,25 +740,25 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <Border>
-                        <notecontrols:ChordPanel Chord="C" Command="{x:Bind Command}"/>
+                        <instruments:ChordPanel Chord="C" Command="{x:Bind Command}"/>
                     </Border>
                     <Border Grid.Column="1">
-                        <notecontrols:ChordPanel Chord="Dm" Command="{x:Bind Command}"/>
+                        <instruments:ChordPanel Chord="Dm" Command="{x:Bind Command}"/>
                     </Border>
                     <Border Grid.Column="2">
-                        <notecontrols:ChordPanel Chord="Em" Command="{x:Bind Command}"/>
+                        <instruments:ChordPanel Chord="Em" Command="{x:Bind Command}"/>
                     </Border>
                     <Border Grid.Column="3">
-                        <notecontrols:ChordPanel Chord="F" Command="{x:Bind Command}"/>
+                        <instruments:ChordPanel Chord="F" Command="{x:Bind Command}"/>
                     </Border>
                     <Border Grid.Column="4">
-                        <notecontrols:ChordPanel Chord="G" Command="{x:Bind Command}"/>
+                        <instruments:ChordPanel Chord="G" Command="{x:Bind Command}"/>
                     </Border>
                     <Border Grid.Column="5">
-                        <notecontrols:ChordPanel Chord="Am" Command="{x:Bind Command}"/>
+                        <instruments:ChordPanel Chord="Am" Command="{x:Bind Command}"/>
                     </Border>
                     <Border Grid.Column="6">
-                        <notecontrols:ChordPanel Chord="Bdim" Command="{x:Bind Command}"/>
+                        <instruments:ChordPanel Chord="Bdim" Command="{x:Bind Command}"/>
                     </Border>
                 </Grid>
 
@@ -891,7 +891,7 @@
                         <ColumnDefinition Width="60"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <notecontrols:GuitarScrollBar Orientation="Vertical" VerticalAlignment="Center" ScrollViewer="{x:Bind GuitarScrollViewer}"/>
+                    <instruments:GuitarScrollBar Orientation="Vertical" VerticalAlignment="Center" ScrollViewer="{x:Bind GuitarScrollViewer}"/>
                     <ScrollViewer
                         x:Name="GuitarScrollViewer"
                         Grid.Column="1"
@@ -907,7 +907,7 @@
                         
                         Background="#CC9D55"
                         >
-                        <notecontrols:GuitarPanel Command="{x:Bind Command}"/>
+                        <instruments:GuitarPanel Command="{x:Bind Command}"/>
                     </ScrollViewer>
                 </Grid>
 
@@ -917,7 +917,7 @@
                         <ColumnDefinition Width="60"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <notecontrols:GuitarScrollBar Orientation="Vertical" VerticalAlignment="Center" ScrollViewer="{x:Bind BassScrollViewer}"/>
+                    <instruments:GuitarScrollBar Orientation="Vertical" VerticalAlignment="Center" ScrollViewer="{x:Bind BassScrollViewer}"/>
                     <ScrollViewer
                         x:Name="BassScrollViewer"
                         Grid.Column="1"
@@ -933,7 +933,7 @@
                         
                         Background="#22262F"
                         >
-                        <notecontrols:BaseGuitarPanel Command="{x:Bind Command}"/>
+                        <instruments:BaseGuitarPanel Command="{x:Bind Command}"/>
                     </ScrollViewer>
                 </Grid>
 
@@ -951,7 +951,7 @@
                     
                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem7.IsSelected), Mode=OneWay}"
                     >
-                    <notecontrols:HarpPanel Command="{x:Bind Command}"/>
+                    <instruments:HarpPanel Command="{x:Bind Command}"/>
                 </ScrollViewer>
 
             </Grid>

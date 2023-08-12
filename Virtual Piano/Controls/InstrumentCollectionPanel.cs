@@ -2,7 +2,7 @@
 
 namespace Virtual_Piano.Controls
 {
-    public sealed class InstrumentCollectionPanel : Midi.Controls.InstrumentCollectionPanel
+    public sealed class InstrumentCollectionPanel : Midi.Instruments.InstrumentCollectionPanel
     {
         public override string GetString(MidiProgram program)
         {

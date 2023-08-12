@@ -5,7 +5,7 @@ using Virtual_Piano.Midi.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Virtual_Piano.Midi.Controls
+namespace Virtual_Piano.Midi.Instruments
 {
     public partial class KitPanel : Canvas, IKitPanel, ICommand
     {

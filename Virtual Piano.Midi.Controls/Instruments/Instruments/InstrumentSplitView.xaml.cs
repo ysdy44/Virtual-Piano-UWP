@@ -3,7 +3,7 @@ using System.Linq;
 using Virtual_Piano.Midi.Core;
 using Windows.UI.Xaml.Controls;
 
-namespace Virtual_Piano.Midi.Controls
+namespace Virtual_Piano.Midi.Instruments
 {
     public partial class InstrumentSplitView : SplitView
     {

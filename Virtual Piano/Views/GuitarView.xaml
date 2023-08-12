@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:elements="using:Virtual_Piano.Elements"
-    xmlns:notecontrols="using:Virtual_Piano.Midi.Controls"
+    xmlns:instruments="using:Virtual_Piano.Midi.Instruments"
     mc:Ignorable="d"   
     Background="Black"
     >
@@ -25,7 +25,7 @@
                         <RowDefinition Height="36"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <notecontrols:GuitarScrollBar RequestedTheme="Dark" Orientation="Horizontal" HorizontalAlignment="Center" ScrollViewer="{x:Bind GuitarScrollViewer}"/>
+                    <instruments:GuitarScrollBar RequestedTheme="Dark" Orientation="Horizontal" HorizontalAlignment="Center" ScrollViewer="{x:Bind GuitarScrollViewer}"/>
                     <ScrollViewer
                         x:Name="GuitarScrollViewer"
                         Grid.Row="1"
@@ -41,7 +41,7 @@
                         
                         Background="#CC9D55"
                         >
-                        <notecontrols:GuitarPanel Command="{x:Bind Command}"/>
+                        <instruments:GuitarPanel Command="{x:Bind Command}"/>
                     </ScrollViewer>
                 </Grid>
 

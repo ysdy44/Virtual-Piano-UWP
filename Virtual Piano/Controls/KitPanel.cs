@@ -2,7 +2,7 @@
 
 namespace Virtual_Piano.Controls
 {
-    public sealed class KitPanel : Midi.Controls.KitPanel
+    public sealed class KitPanel : Midi.Instruments.KitPanel
     {
         public override string GetString(MidiPercussionNote note)
         {

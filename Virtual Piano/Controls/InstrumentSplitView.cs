@@ -2,7 +2,7 @@
 
 namespace Virtual_Piano.Controls
 {
-    public class InstrumentSplitView : Midi.Controls.InstrumentSplitView
+    public class InstrumentSplitView : Midi.Instruments.InstrumentSplitView
     {
         public override string GetString(MidiProgramGroup group)
         {

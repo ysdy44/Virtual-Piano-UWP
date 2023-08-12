@@ -4,7 +4,7 @@ using System.Windows.Input;
 using Virtual_Piano.Midi.Core;
 using Windows.UI.Xaml.Media;
 
-namespace Virtual_Piano.Midi.Controls
+namespace Virtual_Piano.Midi.Instruments
 {
     public class InstrumentGroupPanel : InstrumentPanel, IInstrumentGroupPanel
     {
