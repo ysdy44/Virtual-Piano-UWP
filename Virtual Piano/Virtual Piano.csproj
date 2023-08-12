@@ -280,9 +280,9 @@
       <Project>{cb6d6926-5dd4-4e6f-a19d-d9608b3a4ba9}</Project>
       <Name>Virtual Piano.Midi.Controllers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Virtual Piano.Midi.Controls\Virtual Piano.Midi.Controls.csproj">
+    <ProjectReference Include="..\Virtual Piano.Midi.Core\Virtual Piano.Midi.Core.csproj">
       <Project>{E17BFD86-0726-4C0A-AAFE-5B5DEAD05956}</Project>
-      <Name>Virtual Piano.Midi.Controls</Name>
+      <Name>Virtual Piano.Midi.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Virtual Piano.Midi.Instruments\Virtual Piano.Midi.Instruments.csproj">
       <Project>{7b25386c-1dd9-4d05-8325-323a0c9070db}</Project>

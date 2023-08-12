@@ -22,7 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScreenShot", "ScreenShot", 
 		ScreenShot\logo.png = ScreenShot\logo.png
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Virtual Piano.Midi.Controls", "Virtual Piano.Midi.Controls\Virtual Piano.Midi.Controls.csproj", "{E17BFD86-0726-4C0A-AAFE-5B5DEAD05956}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Virtual Piano.Midi.Core", "Virtual Piano.Midi.Core\Virtual Piano.Midi.Core.csproj", "{E17BFD86-0726-4C0A-AAFE-5B5DEAD05956}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Virtual Piano.Midi", "Virtual Piano.Midi\Virtual Piano.Midi.csproj", "{7F632B4A-9FA1-4842-942F-49274BBDBE61}"
 EndProject

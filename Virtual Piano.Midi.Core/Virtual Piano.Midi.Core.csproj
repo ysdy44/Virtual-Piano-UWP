@@ -7,8 +7,8 @@
     <ProjectGuid>{E17BFD86-0726-4C0A-AAFE-5B5DEAD05956}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Virtual_Piano.Midi.Controls</RootNamespace>
-    <AssemblyName>Virtual Piano.Midi.Controls</AssemblyName>
+    <RootNamespace>Virtual_Piano.Midi.Core</RootNamespace>
+    <AssemblyName>Virtual Piano.Midi.Core</AssemblyName>
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.22000.0</TargetPlatformVersion>
@@ -171,7 +171,7 @@
     <Compile Include="WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Controls.Primitives\WrapPanel\WrapPanel.cs" />
     <Compile Include="WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Controls.Primitives\WrapPanel\WrapPanel.Data.cs" />
     <Compile Include="XamlExtensions.cs" />
-    <EmbeddedResource Include="Properties\Virtual_Piano.Midi.Controls.rd.xml" />
+    <EmbeddedResource Include="Properties\Virtual_Piano.Midi.Core.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">

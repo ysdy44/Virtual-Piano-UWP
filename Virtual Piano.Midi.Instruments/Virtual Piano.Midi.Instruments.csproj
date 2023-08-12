@@ -192,9 +192,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Virtual Piano.Midi.Controls\Virtual Piano.Midi.Controls.csproj">
+    <ProjectReference Include="..\Virtual Piano.Midi.Core\Virtual Piano.Midi.Core.csproj">
       <Project>{e17bfd86-0726-4c0a-aafe-5b5dead05956}</Project>
-      <Name>Virtual Piano.Midi.Controls</Name>
+      <Name>Virtual Piano.Midi.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Virtual Piano.Midi\Virtual Piano.Midi.csproj">
       <Project>{7f632b4a-9fa1-4842-942f-49274bbdbe61}</Project>
