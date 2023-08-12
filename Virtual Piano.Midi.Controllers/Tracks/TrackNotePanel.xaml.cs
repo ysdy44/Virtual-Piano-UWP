@@ -74,23 +74,24 @@ namespace Virtual_Piano.Midi.Controllers
 
             // Composition
             this.ScrollProperties = this.ScrollViewer.GetScroller();
-            var ex2 = this.ScrollProperties.SnapScrollerX();
-            var ey2 = this.ScrollProperties.SnapScrollerY();
+            var ex = this.ScrollProperties.SnapScrollerX();
+            var ey = this.ScrollProperties.SnapScrollerY();
             var sx = this.ScrollProperties.SnapScrollerX(TrackLayout.Step, this.Layout.Pane);
 
-            this.TimelinePoint.GetVisual().AnimationY(ey2);
-            this.TimelineLine.GetVisual().AnimationY(ey2);
-            this.TimelineThumb.GetVisual().AnimationXY(ex2, ey2);
+            this.FootBorder.GetVisual().AnimationX(ex);
 
-            this.PaneBorder.GetVisual().AnimationXY(ex2, this.Layout.Head);
-            this.FootBorder.GetVisual().AnimationX(ex2);
-            this.HeadBorder.GetVisual().AnimationXY(ex2, ey2);
+            this.TimelinePoint.GetVisual().AnimationY(ey);
+            this.TimelineLine.GetVisual().AnimationY(ey);
 
-            this.BodyLineCanvas.GetVisual().AnimationXY(sx, ey2);
-            this.BodyBackgroundCanvas.GetVisual().AnimationXY(ex2, this.Layout.Head);
+            this.TimelineThumb.GetVisual().AnimationXY(ex, ey);
+            this.HeadBorder.GetVisual().AnimationXY(ex, ey);
 
-            this.TimelineTextCanvas.GetVisual().AnimationXY(sx, ey2);
-            this.TimelinePointCanvas.GetVisual().AnimationXY(sx, ey2);
+            this.PaneBorder.GetVisual().AnimationXY(ex, this.Layout.Head);
+            this.BodyBackgroundCanvas.GetVisual().AnimationXY(ex, this.Layout.Head);
+
+            this.BodyLineCanvas.GetVisual().AnimationXY(sx, ey);
+            this.TimelineTextCanvas.GetVisual().AnimationXY(sx, ey);
+            this.TimelinePointCanvas.GetVisual().AnimationXY(sx, ey);
 
             // BodyBackgroundCanvas
             foreach (MidiNote item in System.Enum.GetValues(typeof(MidiNote)).Cast<MidiNote>())
@@ -144,7 +145,7 @@ namespace Virtual_Piano.Midi.Controllers
                 }
             }
 
-            // PointCanvas
+            // TimelinePointCanvas
             this.TimelinePointCanvas.Width = 16 * TrackLayout.Step;
             for (int i = 0; i < 16; i++)
             {
@@ -182,7 +183,7 @@ namespace Virtual_Piano.Midi.Controllers
                 }
             }
 
-            // TextCanvas
+            // TimelineTextCanvas
             for (int i = 0; i < 16; i++)
             {
                 TextBlock item = new TextBlock
@@ -265,11 +266,11 @@ namespace Virtual_Piano.Midi.Controllers
             this.FootItemsControl.Width = extentWidth;
         }
 
-        public void ChangePosition(int time)
+        public void ChangePosition(int timeline)
         {
-            this.Time = System.Math.Max(0, time);
-            this.Position = this.Time / TrackLayout.Scaling;
-            this.Timeline = this.Position - this.HorizontalOffset + this.Layout.Pane;
+            this.Timeline = System.Math.Max(this.Layout.Pane, timeline);
+            this.Position = this.Timeline + this.HorizontalOffset;
+            this.Time = (this.Position - this.Layout.Pane) * TrackLayout.Scaling;
 
             // UI
             this.TimelineLine.X1 = this.Timeline;
@@ -277,7 +278,7 @@ namespace Virtual_Piano.Midi.Controllers
             this.TimelinePoint.X1 = this.Timeline;
             this.TimelinePoint.X2 = this.Timeline;
 
-            if (this.Timeline < this.HorizontalOffset + this.Layout.Pane)
+            if (this.Timeline < this.HorizontalOffset)
             {
                 this.ScrollViewer.ChangeView(this.Position / 2, null, null, true);
             }
