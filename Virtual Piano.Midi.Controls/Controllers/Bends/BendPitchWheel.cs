@@ -3,7 +3,7 @@ using System.Windows.Input;
 using Windows.Devices.Midi;
 using Windows.UI.Xaml;
 
-namespace Virtual_Piano.Midi.Controls
+namespace Virtual_Piano.Midi.Controllers
 {
     public sealed class BendPitchWheel : BendWheel
     {
