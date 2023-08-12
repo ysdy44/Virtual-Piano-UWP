@@ -1,4 +1,4 @@
-﻿namespace Virtual_Piano.Midi.Controls
+﻿namespace Virtual_Piano.Midi.Core
 {
     public interface IInstrumentButton : IClickButton
     {

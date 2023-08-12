@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Virtual_Piano.Midi.Core;
 using Windows.UI.Xaml.Controls;
 
 namespace Virtual_Piano.Midi.Controls

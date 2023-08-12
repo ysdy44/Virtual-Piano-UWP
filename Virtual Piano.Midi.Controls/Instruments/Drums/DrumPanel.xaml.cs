@@ -1,5 +1,6 @@
 ﻿using Microsoft.Toolkit.Uwp.UI.Controls;
 using System.Windows.Input;
+using Virtual_Piano.Midi.Core;
 using Windows.UI.Xaml.Controls;
 
 namespace Virtual_Piano.Midi.Controls
