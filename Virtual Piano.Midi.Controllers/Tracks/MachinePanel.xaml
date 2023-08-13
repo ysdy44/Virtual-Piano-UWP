@@ -10,30 +10,34 @@
     >
 
     <FrameworkElement.Resources>
-        <!--Color-->
-        <Color x:Key="Hue0">#FF0000</Color>
-        <Color x:Key="Hue30">#FF7200</Color>
-        <Color x:Key="Hue60">#FFE900</Color>
-        <Color x:Key="Hue90">#9DFF00</Color>
-        <Color x:Key="Hue120">#2AFF00</Color>
-        <Color x:Key="Hue150">#00FF4C</Color>
-        <Color x:Key="Hue180">#00FFC3</Color>
-        <Color x:Key="Hue210">#00C7FF</Color>
-        <Color x:Key="Hue240">#0050FF</Color>
-        <Color x:Key="Hue270">#2600FF</Color>
-        <Color x:Key="Hue300">#9800FF</Color>
-        <Color x:Key="Hue330">#FF00EE</Color>
-        <Color x:Key="Hue360">#FF0077</Color>
-        <!--Brush-->
-        <SolidColorBrush x:Key="Drum" Color="{StaticResource Hue30}"/>
-        <SolidColorBrush x:Key="Hat" Color="{StaticResource Hue210}"/>
-        <SolidColorBrush x:Key="Cymbal" Color="{StaticResource Hue330}"/>
-        <SolidColorBrush x:Key="Tom" Color="{StaticResource Hue150}"/>
-        <SolidColorBrush x:Key="African" Color="{StaticResource Hue90}"/>
-        <SolidColorBrush x:Key="Latin" Color="{StaticResource Hue120}"/>
-        <SolidColorBrush x:Key="Special" Color="{StaticResource Hue300}"/>
-        <SolidColorBrush x:Key="Synth" Color="{StaticResource Hue240}"/>
         <!--Style-->
+        <Style TargetType="Button">
+            <Setter Property="AllowFocusOnInteraction" Value="True"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True"/>
+            <Setter Property="IsTabStop" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="RootGrid" Background="Transparent">
+                            <ToolTipService.ToolTip>
+                                <ToolTip Content="{TemplateBinding Content}"/>
+                            </ToolTipService.ToolTip>
+                            <Viewbox Width="32" Height="32">
+                                <ContentPresenter
+                                    x:Name="ContentPresenter"
+                                    IsHitTestVisible="False"
+                                    Content="{TemplateBinding Tag}"
+                                    VerticalAlignment="Center"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    FontSize="12"
+                                    FontWeight="Medium"
+                                    />
+                            </Viewbox>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <Style x:Key="ToggleButtonStyle" TargetType="ToggleButton">
             <Setter Property="Padding" Value="4" />
             <Setter Property="CornerRadius" Value="4" />
@@ -194,69 +198,22 @@
         <Style x:Key="White" TargetType="ToggleButton" BasedOn="{StaticResource ToggleButtonStyle}">
             <Setter Property="Background" Value="{ThemeResource SystemControlForegroundBaseMediumHighBrush}"/>
         </Style>
-        <Style TargetType="Line">
+
+        <Style x:Key="AccentLineStyle" TargetType="Line">
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="StrokeThickness" Value="4" />
+            <Setter Property="Stroke" Value="Red" />
+        </Style>
+        <Style x:Key="LineStyle" TargetType="Line">
+            <Setter Property="IsHitTestVisible" Value="False" />
             <Setter Property="StrokeThickness" Value="4" />
             <Setter Property="Stroke" Value="{ThemeResource SystemColorControlAccentBrush}" />
         </Style>
-
-        <!--Style-->
-        <Style TargetType="Button">
-            <Setter Property="AllowFocusOnInteraction" Value="True"/>
-            <Setter Property="UseSystemFocusVisuals" Value="True"/>
-            <Setter Property="IsTabStop" Value="True"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Grid x:Name="RootGrid" Margin="6,4" Background="Transparent">
-
-                            <!--VisualState-->
-                            <VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="CommonStates">
-
-                                    <VisualState x:Name="Normal"/>
-
-                                    <VisualState x:Name="Pressed">
-                                        <VisualState.Storyboard>
-                                            <Storyboard>
-                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Mask" Storyboard.TargetProperty="Opacity">
-                                                    <LinearDoubleKeyFrame KeyTime="0:0:0" Value="1" />
-                                                    <LinearDoubleKeyFrame KeyTime="0:0:0.2" Value="0" />
-                                                </DoubleAnimationUsingKeyFrames>
-                                            </Storyboard>
-                                        </VisualState.Storyboard>
-                                    </VisualState>
-
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
-
-                            <Rectangle IsHitTestVisible="False" RadiusX="4" RadiusY="4" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
-                            <Rectangle x:Name="Mask" Opacity="0" IsHitTestVisible="False" RadiusX="4" RadiusY="4" Fill="{TemplateBinding Foreground}"/>
-
-                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
-                                <ContentControl
-                                    Content="{TemplateBinding TabIndex}" 
-                                    HorizontalAlignment="Center" 
-                                    VerticalAlignment="Bottom" 
-                                    Foreground="{TemplateBinding Foreground}"
-                                    FontFamily="Agency FB"  
-                                    FontWeight="Bold"
-                                    FontSize="18"
-                                    />
-                                <ContentPresenter
-                                    x:Name="ContentPresenter"
-                                    IsHitTestVisible="False"
-                                    Content="{TemplateBinding Content}"
-                                    HorizontalAlignment="Center"
-                                    Foreground="{ThemeResource SystemControlHighlightAltBaseHighBrush}"
-                                    FontSize="12"
-                                    FontWeight="Normal"
-                                    />
-                            </StackPanel>
-
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
+        
+        <Style TargetType="TextBlock">
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="Bold" />
         </Style>
     </FrameworkElement.Resources>
 

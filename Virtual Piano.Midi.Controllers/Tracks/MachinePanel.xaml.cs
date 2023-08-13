@@ -32,9 +32,28 @@ namespace Virtual_Piano.Midi.Controllers
         Style Black => base.Resources[$"{ToneType.Black}"] as Style;
         Style White => base.Resources[$"{ToneType.White}"] as Style;
 
+        readonly Style AccentLineStyle;
+        readonly Style LineStyle;
+
+        readonly MidiPercussionNoteCategoryDictionary PercussionNoteCategoryDictionary = new MidiPercussionNoteCategoryDictionary();
+        readonly MidiPercussionNoteDictionary PercussionNoteDictionary = new MidiPercussionNoteDictionary();
+
         readonly static KitSet[] Drum = new KitSet[] { KitSet.Open, KitSet.Close, KitSet.Clap, KitSet.Kick };
         readonly MachineLayout Layout = new MachineLayout(50, 60, 24, 16, 32, Drum.Length);
         readonly Windows.UI.Composition.CompositionPropertySet ScrollProperties;
+
+        readonly DispatcherTimer Timer = new DispatcherTimer();
+
+        private Tempo tempo = new Tempo(100);
+        public Tempo Tempo
+        {
+            get => this.tempo;
+            set
+            {
+                this.Timer.Interval = value.Delay;
+                this.tempo = value;
+            }
+        }
 
         //@Construct
         ~MachinePanel() => this.ScrollProperties.Dispose();
@@ -43,10 +62,21 @@ namespace Virtual_Piano.Midi.Controllers
             this.InitializeComponent();
             this.ScrollProperties = this.ScrollViewer.GetScroller();
             var x = this.ScrollProperties.SnapScrollerX();
-            var y = this.ScrollProperties.SnapScrollerY();
             this.Pane.GetVisual().AnimationX(x);
-            this.HeadBorder.GetVisual().AnimationXY(x, y);
+            this.HeadBorder.GetVisual().AnimationX(x);
 
+            for (int i = 0; i < 32 / MachinePanel.Drum.Length; i++)
+            {
+                TextBlock textBlock = new TextBlock
+                {
+                    Text = $"{1 + i}"
+                };
+                Canvas.SetLeft(textBlock, this.Layout.Pane + i * MachinePanel.Drum.Length * this.Layout.Spacing + 10);
+                this.TimelineTextCanvas.Children.Add(textBlock);
+            }
+
+            this.AccentLineStyle = base.Resources[nameof(AccentLineStyle)] as Style;
+            this.LineStyle = base.Resources[nameof(LineStyle)] as Style;
             for (int i = 0; i < 32; i++)
             {
                 this.TimelineLineCanvas.Children.Add(new Line
@@ -55,8 +85,12 @@ namespace Virtual_Piano.Midi.Controllers
                     X2 = this.Layout.Pane + i * this.Layout.Spacing + this.Layout.Spacing - 10,
                     Y1 = this.Layout.Timeline2 / 2,
                     Y2 = this.Layout.Timeline2 / 2,
+                    Style = this.LineStyle
                 });
+            }
 
+            for (int i = 0; i < 32; i++)
+            {
                 for (int n = 0; n < MachinePanel.Drum.Length; n++)
                 {
                     MidiPercussionNote item = (MidiPercussionNote)MachinePanel.Drum[n];
@@ -78,13 +112,17 @@ namespace Virtual_Piano.Midi.Controllers
                 MidiPercussionNote item = (MidiPercussionNote)MachinePanel.Drum[n];
                 Button button = new Button
                 {
+                    Content = $"{this.GetString(item)}",
                     CommandParameter = item,
                     Command = this,
-                    Content = $"{this.GetString(item)}",
                     TabIndex = (byte)item,
-                    Foreground = base.Resources[$"{this.GetCategory(item)}"] as Brush,
+                    Foreground = this.PercussionNoteCategoryDictionary[this.GetCategory(item)],
                     Width = this.Layout.Pane,
                     Height = this.Layout.Spacing,
+                    Tag = new PathIcon
+                    {
+                        Data = this.PercussionNoteDictionary[item]
+                    }
                 };
                 Canvas.SetLeft(button, 0);
                 Canvas.SetTop(button, this.Layout.Head + n * this.Layout.Spacing);
@@ -109,6 +147,32 @@ namespace Virtual_Piano.Midi.Controllers
                     default:
                         break;
                 }
+            };
+
+            this.StopButton.Visibility = Visibility.Collapsed;
+            this.PlayButton.Visibility = Visibility.Visible;
+            this.StopButton.Click += (s, e) => this.Stop();
+            this.PlayButton.Click += (s, e) => this.Play();
+
+            this.Timer.Interval = this.Tempo.Delay;
+            this.Timer.Tick += (s, e) =>
+            {
+                int i = this.Index;
+
+                for (int n = 0; n < 4; n++)
+                {
+                    MidiPercussionNote note = (MidiPercussionNote)MachinePanel.Drum[n];
+
+                    if (this[n, i] is UIElement item)
+                    {
+                        if (item.AllowDrop)
+                        {
+                            this.Execute(note);
+                        }
+                    }
+                }
+
+                this.Next();
             };
         }
 
@@ -156,7 +220,7 @@ namespace Virtual_Piano.Midi.Controllers
                     if (this[index] is IMachineButton item)
                     {
                         item.IsEnabled = true;
-                        item.IsChecked = music[index] is 1;
+                        item.IsChecked = music[index] != default;
                     }
                 }
             }
@@ -182,11 +246,49 @@ namespace Virtual_Piano.Midi.Controllers
             }
         }
 
+        private void Stop()
+        {
+            this.StopButton.Visibility = Visibility.Collapsed;
+            this.PlayButton.Visibility = Visibility.Visible;
+            this.Timer.Stop();
+
+            if (this.TimelineLineCanvas.Children[this.Index] is Line element)
+            {
+                element.Style = this.LineStyle;
+            }
+            this.Index = 0;
+        }
+
+        private void Play()
+        {
+            this.PlayButton.Visibility = Visibility.Collapsed;
+            this.StopButton.Visibility = Visibility.Visible;
+            this.Timer.Start();
+
+            if (this.TimelineLineCanvas.Children[this.Index] is Line element)
+            {
+                element.Style = this.AccentLineStyle;
+            }
+            this.Index = 0;
+        }
+
         public void Next()
         {
+            if (this.TimelineLineCanvas.Children[this.Index] is Line element1)
+            {
+                element1.Style = this.LineStyle;
+            }
+
             this.Index++;
-            if (this.Index < this.Length) return;
-            this.Index = 0;
+            if (this.Index >= this.Length)
+            {
+                this.Index = 0;
+            }
+
+            if (this.TimelineLineCanvas.Children[this.Index] is Line element2)
+            {
+                element2.Style = this.AccentLineStyle;
+            }
         }
     }
 }
