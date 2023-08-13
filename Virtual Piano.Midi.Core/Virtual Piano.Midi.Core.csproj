@@ -147,6 +147,10 @@
     <Compile Include="Interfaces\Panels\IPianoPanel.cs" />
     <Compile Include="Models\DrumItemCategory.cs" />
     <Compile Include="Models\InstrumentItemCategory.cs" />
+    <Compile Include="Models\KeyABCDictionary.cs" />
+    <Compile Include="Models\KeyDictionary.cs" />
+    <Compile Include="Models\KeyDrumDictionary.cs" />
+    <Compile Include="Models\KeyQWERTDictionary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structs\Chords.cs" />
     <Compile Include="Structs\PadLayout.cs" />
