@@ -1,6 +1,6 @@
 ﻿using Windows.System;
 
-namespace Virtual_Piano.Midi
+namespace Virtual_Piano.Midi.Core
 {
     public sealed class KeyQWERTDictionary : KeyDictionary, IKeyDictionary
     {

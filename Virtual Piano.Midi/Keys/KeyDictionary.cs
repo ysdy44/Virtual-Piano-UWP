@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Windows.System;
 
-namespace Virtual_Piano.Midi
+namespace Virtual_Piano.Midi.Core
 {
     public abstract class KeyDictionary : Dictionary<VirtualKey, MidiNote>
     {
@@ -27,7 +27,7 @@ namespace Virtual_Piano.Midi
                         switch (type)
                         {
                             case ToneType.White:
-                                base[CreateKey(index)] = note;
+                                base[this.CreateKey(index)] = note;
                                 break;
                             default:
                                 break;
@@ -38,7 +38,7 @@ namespace Virtual_Piano.Midi
                         switch (type)
                         {
                             case ToneType.Black:
-                                base[CreateKey(index - 1)] = note;
+                                base[this.CreateKey(index - 1)] = note;
                                 break;
                             default:
                                 break;
