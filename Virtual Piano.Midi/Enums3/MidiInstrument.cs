@@ -4,10 +4,15 @@
     {
         Piano,
         Chord,
-        Machine,
-        Drum,
+
         Guitar,
         Bass,
-        Harp
+
+        Harp,
+
+        Kit,
+        Pad,
+        Drum,
+        Machine,
     }
 }
