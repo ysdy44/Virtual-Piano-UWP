@@ -33,9 +33,10 @@ namespace Virtual_Piano.Midi.Controllers
         Style White => base.Resources[$"{ToneType.White}"] as Style;
 
         readonly static KitSet[] Drum = new KitSet[] { KitSet.Open, KitSet.Close, KitSet.Clap, KitSet.Kick };
-        readonly MachineLayout Layout = new MachineLayout(160, 15, 32, Drum.Length);
+        readonly MachineLayout Layout = new MachineLayout(50, 60, 24, 16, 32, Drum.Length);
         readonly Windows.UI.Composition.CompositionPropertySet ScrollProperties;
 
+        //@Construct
         ~MachinePanel() => this.ScrollProperties.Dispose();
         public MachinePanel()
         {
@@ -44,17 +45,16 @@ namespace Virtual_Piano.Midi.Controllers
             var x = this.ScrollProperties.SnapScrollerX();
             var y = this.ScrollProperties.SnapScrollerY();
             this.Pane.GetVisual().AnimationX(x);
-            this.Timeline.GetVisual().AnimationY(y);
             this.HeadBorder.GetVisual().AnimationXY(x, y);
 
             for (int i = 0; i < 32; i++)
             {
-                this.Timeline.Children.Add(new Line
+                this.TimelineLineCanvas.Children.Add(new Line
                 {
-                    X1 = this.Layout.Pane + i * MachineLayout.Spacing + 10,
-                    X2 = this.Layout.Pane + i * MachineLayout.Spacing + MachineLayout.Spacing - 10,
-                    Y1 = this.Layout.Head / 2,
-                    Y2 = this.Layout.Head / 2,
+                    X1 = this.Layout.Pane + i * this.Layout.Spacing + 10,
+                    X2 = this.Layout.Pane + i * this.Layout.Spacing + this.Layout.Spacing - 10,
+                    Y1 = this.Layout.Timeline2 / 2,
+                    Y2 = this.Layout.Timeline2 / 2,
                 });
 
                 for (int n = 0; n < MachinePanel.Drum.Length; n++)
@@ -62,10 +62,10 @@ namespace Virtual_Piano.Midi.Controllers
                     MidiPercussionNote item = (MidiPercussionNote)MachinePanel.Drum[n];
                     this.ItemsControl.Children.Add(new MachineButton
                     {
-                        X = this.Layout.Pane + i * MachineLayout.Spacing,
-                        Y = this.Layout.Head + n * MachineLayout.Spacing,
-                        Width = MachineLayout.Spacing,
-                        Height = MachineLayout.Spacing,
+                        X = this.Layout.Pane + i * this.Layout.Spacing,
+                        Y = this.Layout.Head + n * this.Layout.Spacing,
+                        Width = this.Layout.Spacing,
+                        Height = this.Layout.Spacing,
                         Style = i / 4 % 2 == 0 ? this.Black : this.White,
                         CommandParameter = item,
                         Command = this
@@ -84,10 +84,10 @@ namespace Virtual_Piano.Midi.Controllers
                     TabIndex = (byte)item,
                     Foreground = base.Resources[$"{this.GetCategory(item)}"] as Brush,
                     Width = this.Layout.Pane,
-                    Height = MachineLayout.Spacing,
+                    Height = this.Layout.Spacing,
                 };
                 Canvas.SetLeft(button, 0);
-                Canvas.SetTop(button, this.Layout.Head + n * MachineLayout.Spacing);
+                Canvas.SetTop(button, this.Layout.Head + n * this.Layout.Spacing);
                 this.Pane.Children.Add(button);
             }
 

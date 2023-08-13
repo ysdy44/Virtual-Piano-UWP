@@ -276,11 +276,17 @@
         >
         <Canvas x:Name="Canvas" Width="{x:Bind Layout.ExtentWidth}" Height="{x:Bind Layout.ExtentHeight}" Background="Transparent">
             <Canvas x:Name="ItemsControl"/>
-            <Canvas x:Name="Timeline" Width="{x:Bind Layout.ExtentWidth}" Height="{x:Bind Layout.Head}" Background="{x:Bind Background, Mode=OneWay}"/>
+            <Canvas x:Name="TimelineTextCanvas" Width="{x:Bind Layout.ExtentWidth}" Height="{x:Bind Layout.Timeline1}" Background="{x:Bind Background, Mode=OneWay}"/>
+            <Canvas x:Name="TimelineLineCanvas" Width="{x:Bind Layout.ExtentWidth}" Height="{x:Bind Layout.Timeline2}" Canvas.Top="{x:Bind Layout.Timeline1}" Background="{x:Bind Background, Mode=OneWay}"/>
             <Canvas x:Name="Pane" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.ExtentHeight}" Background="{x:Bind Background, Mode=OneWay}"/>
-            <Border x:Name="HeadBorder" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.Head}" Background="{x:Bind Background, Mode=OneWay}">
-                <!--Child-->
-            </Border>
+            <Grid x:Name="HeadBorder" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.Head}" Background="{x:Bind Background, Mode=OneWay}">
+                <Button x:Name="PlayButton" RequestedTheme="Dark" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Style="{StaticResource TextBlockButtonStyle}">
+                    <SymbolIcon Symbol="Play"/>
+                </Button>
+                <Button x:Name="StopButton" RequestedTheme="Dark" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Style="{StaticResource TextBlockButtonStyle}">
+                    <SymbolIcon Symbol="Pause"/>
+                </Button>
+            </Grid>
         </Canvas>
     </ScrollViewer>
 </UserControl>

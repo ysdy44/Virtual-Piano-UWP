@@ -2,22 +2,28 @@
 {
     public readonly struct MachineLayout
     {
-        //@Const
-        public const int Spacing = 56;
+        public readonly int Spacing;
 
         public readonly int Pane;
         public readonly int Head;
+        public readonly int Timeline1;
+        public readonly int Timeline2;
 
         public readonly int ExtentWidth;
         public readonly int ExtentHeight;
 
-        public MachineLayout(int pane, int head, int width, int height) // 160 40 32 15
+        public MachineLayout(int spacing, int pane, int timeline1, int timeline2, int widthCount, int heightCount) // 50 60 24 16 32 4
         {
+            var head = timeline1 + timeline2;
+            this.Spacing = spacing;
+
             this.Pane = pane;
             this.Head = head;
+            this.Timeline1 = timeline1;
+            this.Timeline2 = timeline2;
 
-            this.ExtentWidth = pane + width * MachineLayout.Spacing;
-            this.ExtentHeight = head + height * MachineLayout.Spacing;
+            this.ExtentWidth = pane + widthCount * spacing;
+            this.ExtentHeight = head + heightCount * spacing;
         }
     }
 }
