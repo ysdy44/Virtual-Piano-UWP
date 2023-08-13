@@ -4,6 +4,7 @@ using System.Windows.Input;
 using Virtual_Piano.Midi;
 using Virtual_Piano.Midi.Core;
 using Windows.Devices.Midi;
+using Windows.Foundation;
 using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -71,9 +72,12 @@ namespace Virtual_Piano
             MidiProgram.Seashore,
             MidiProgram.Applause,
             MidiProgram.Gunshot,
-        };
-
+        }; 
+        
         readonly MidiInstrumentDictionary InstrumentDictionary = new MidiInstrumentDictionary();
+        readonly MidiInstrumentDictionary InstrumentDictionary2 = new MidiInstrumentDictionary();
+        Geometry InstrumentData(int index) => this.InstrumentDictionary[(MidiInstrument)index];
+        Geometry InstrumentData2(int index) => this.InstrumentDictionary2[(MidiInstrument)index];
         Geometry Piano => this.InstrumentDictionary[MidiInstrument.Piano];
         Geometry Chord => this.InstrumentDictionary[MidiInstrument.Chord];
         Geometry Machine => this.InstrumentDictionary[MidiInstrument.Machine];
@@ -104,6 +108,14 @@ namespace Virtual_Piano
                 Window.Current.CoreWindow.KeyDown -= this.CoreKeyDown;
                 Window.Current.CoreWindow.KeyUp += this.CoreKeyUp;
                 Window.Current.CoreWindow.KeyDown += this.CoreKeyDown;
+            };
+            this.DrumScrollViewer.SizeChanged += (s, e) =>
+            {
+                if (e.NewSize == Size.Empty) return;
+                if (e.NewSize == e.PreviousSize) return;
+                if (e.NewSize.Width == e.PreviousSize.Width) return;
+
+                this.DrumPanel.UpdateWidthCount(e.NewSize.Width);
             };
         }
 

@@ -471,7 +471,7 @@
                 Grid.Row="3"
                 RequestedTheme="Dark"
                 SelectedIndex="0"
-                SelectionMode="Single"
+                SelectionMode="Extended"
          
                 ScrollViewer.ZoomMode="Disabled"
               
@@ -878,8 +878,8 @@
                             Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem32.IsSelected), Mode=OneWay}"
                             />
 
-                        <ScrollViewer Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem33.IsSelected), Mode=OneWay}">
-                            <controls:DrumPanel Command="{x:Bind Command}"/>
+                        <ScrollViewer x:Name="DrumScrollViewer" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem33.IsSelected), Mode=OneWay}">
+                            <controls:DrumPanel x:Name="DrumPanel" Command="{x:Bind Command}"/>
                         </ScrollViewer>
 
                     </Grid>
