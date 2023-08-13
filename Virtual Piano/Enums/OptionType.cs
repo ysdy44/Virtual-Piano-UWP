@@ -4,10 +4,15 @@
     {
         TryShowPianoView,
         TryShowChordView,
-        TryShowMachineView,
-        TryShowDrumView,
+
         TryShowGuitarView,
         TryShowBassView,
+
         TryShowHarpView,
+
+        TryShowKitView,
+        TryShowPadView,
+        TryShowDrumView,
+        TryShowMachineView,
     }
 }

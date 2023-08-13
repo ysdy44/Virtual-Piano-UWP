@@ -61,16 +61,6 @@ namespace Virtual_Piano
                         if (this.ChordViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewChordView);
                         else if (await ApplicationViewSwitcher.TryShowAsStandaloneAsync(this.ChordViewId)) return;
                     break;
-                case OptionType.TryShowMachineView:
-                    for (int i = 0; i < 3; i++)
-                        if (this.MachineViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewMachineView);
-                        else if (await ApplicationViewSwitcher.TryShowAsStandaloneAsync(this.MachineViewId)) return;
-                    break;
-                case OptionType.TryShowDrumView:
-                    for (int i = 0; i < 3; i++)
-                        if (this.DrumViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewDrumView);
-                        else if (await ApplicationViewSwitcher.TryShowAsStandaloneAsync(this.DrumViewId)) return;
-                    break;
                 case OptionType.TryShowGuitarView:
                     for (int i = 0; i < 3; i++)
                         if (this.GuitarViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewGuitarView);
@@ -86,7 +76,26 @@ namespace Virtual_Piano
                         if (this.HarpViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewHarpView);
                         else if (await ApplicationViewSwitcher.TryShowAsStandaloneAsync(this.HarpViewId)) return;
                     break;
-
+                case OptionType.TryShowKitView:
+                    for (int i = 0; i < 3; i++)
+                        if (this.KitViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewKitView);
+                        else if (await ApplicationViewSwitcher.TryShowAsStandaloneAsync(this.KitViewId)) return;
+                    break;
+                case OptionType.TryShowPadView:
+                    for (int i = 0; i < 3; i++)
+                        if (this.PadViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewPadView);
+                        else if (await ApplicationViewSwitcher.TryShowAsStandaloneAsync(this.PadViewId)) return;
+                    break;
+                case OptionType.TryShowDrumView:
+                    for (int i = 0; i < 3; i++)
+                        if (this.DrumViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewDrumView);
+                        else if (await ApplicationViewSwitcher.TryShowAsStandaloneAsync(this.DrumViewId)) return;
+                    break;
+                case OptionType.TryShowMachineView:
+                    for (int i = 0; i < 3; i++)
+                        if (this.MachineViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewMachineView);
+                        else if (await ApplicationViewSwitcher.TryShowAsStandaloneAsync(this.MachineViewId)) return;
+                    break;
                 default:
                     break;
             }
@@ -94,19 +103,24 @@ namespace Virtual_Piano
 
         int PianoViewId;
         int ChordViewId;
-        int MachineViewId;
-        int DrumViewId;
         int GuitarViewId;
         int BassViewId;
         int HarpViewId;
+        int KitViewId;
+        int PadViewId;
+        int DrumViewId;
+        int MachineViewId;
 
         private void CreateNewPianoView() => this.PianoViewId = this.CreateNew(typeof(PianoView));
         private void CreateNewChordView() => this.ChordViewId = this.CreateNew(typeof(ChordView));
-        private void CreateNewMachineView() => this.MachineViewId = this.CreateNew(typeof(MachineView));
-        private void CreateNewDrumView() => this.DrumViewId = this.CreateNew(typeof(DrumView));
         private void CreateNewGuitarView() => this.GuitarViewId = this.CreateNew(typeof(GuitarView));
         private void CreateNewBassView() => this.BassViewId = this.CreateNew(typeof(BassView));
         private void CreateNewHarpView() => this.HarpViewId = this.CreateNew(typeof(HarpView));
+        private void CreateNewKitView() => this.KitViewId = this.CreateNew(typeof(KitView));
+        private void CreateNewPadView() => this.PadViewId = this.CreateNew(typeof(PadView));
+        private void CreateNewDrumView() => this.DrumViewId = this.CreateNew(typeof(DrumView));
+        private void CreateNewMachineView() => this.MachineViewId = this.CreateNew(typeof(MachineView));
+
         private int CreateNew(Type sourcePageType)
         {
             Frame frame = new Frame();
