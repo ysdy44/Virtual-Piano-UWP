@@ -6,7 +6,7 @@ namespace Virtual_Piano.Midi.Instruments
 {
     partial class PianoPanel
     {
-        public void Resize(Size newSize, Size previousSize)
+        private void Resize(Size newSize, Size previousSize)
         {
             switch (this.Direction)
             {

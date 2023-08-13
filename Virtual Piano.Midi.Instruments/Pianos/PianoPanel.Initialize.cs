@@ -88,7 +88,7 @@ namespace Virtual_Piano.Midi.Instruments
             }
         }
 
-        public void Initialize()
+        private void Initialize()
         {
             int count = 0;
             foreach (MidiNote note in System.Enum.GetValues(typeof(MidiNote)).Cast<MidiNote>())
@@ -97,14 +97,12 @@ namespace Virtual_Piano.Midi.Instruments
                 {
                     case ToneType.White:
                         Rect white = this.GetRect(count, ToneType.White);
-                        base.Children.Add(new PianoButton
+                        base.Children.Add(new PianoWhiteButton
                         {
-                            Type = ToneType.White,
                             CommandParameter = note,
                             Content = note.ToLabel(this.Label),
                             TabIndex = this.GetIndex(note),
-                            Foreground = this.GetBrush(note.ToOctave()),
-                            Style = this.GetStyle(ToneType.White),
+                            Foreground = this.OctaveDictionary[note.ToOctave()],
                             X = white.X,
                             Y = white.Y,
                             Width = white.Width,
@@ -114,13 +112,11 @@ namespace Virtual_Piano.Midi.Instruments
                         break;
                     case ToneType.Black:
                         Rect black = this.GetRect(count, ToneType.Black);
-                        base.Children.Add(new PianoButton
+                        base.Children.Add(new PianoBlackButton
                         {
-                            Type = ToneType.Black,
-                            Style = this.GetStyle(ToneType.Black),
                             Content = note.ToLabel(this.Label),
                             TabIndex = this.GetIndex(note),
-                            Foreground = this.GetBrush(note.ToOctave()),
+                            Foreground = this.OctaveDictionary[note.ToOctave()],
                             CommandParameter = note,
                             X = black.X,
                             Y = black.Y,

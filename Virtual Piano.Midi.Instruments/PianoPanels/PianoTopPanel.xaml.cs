@@ -10,15 +10,6 @@ namespace Virtual_Piano.Midi.Instruments
         public PianoTopPanel() : base(PianoDirection.Top)
         {
             this.InitializeComponent();
-            base.Initialize();
-            base.SizeChanged += (s, e) =>
-            {
-                if (e.NewSize == Size.Empty) return;
-                if (e.NewSize == e.PreviousSize) return;
-                base.Resize(e.NewSize, e.PreviousSize);
-            };
         }
-        public override Brush GetBrush(MidiOctave octave) => this.Resources[$"{octave}"] as SolidColorBrush;
-        public override Style GetStyle(ToneType type) => this.Resources[$"{type}"] as Style;
     }
 }

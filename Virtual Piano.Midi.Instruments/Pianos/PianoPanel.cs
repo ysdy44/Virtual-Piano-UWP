@@ -1,9 +1,8 @@
 ﻿using System.Linq;
 using System.Windows.Input;
 using Virtual_Piano.Midi.Core;
-using Windows.UI.Xaml;
+using Windows.Foundation;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Midi.Instruments
 {
@@ -72,13 +71,23 @@ namespace Virtual_Piano.Midi.Instruments
             }
         }
 
+        readonly MidiOctaveDictionary OctaveDictionary = new MidiOctaveDictionary();
         readonly PianoDirection Direction;
-        public PianoPanel(PianoDirection direction) => this.Direction = direction;
+
+        public PianoPanel(PianoDirection direction)
+        {
+            this.Direction = direction;
+            this.Initialize();
+            base.SizeChanged += (s, e) =>
+            {
+                if (e.NewSize == Size.Empty) return;
+                if (e.NewSize == e.PreviousSize) return;
+                this.Resize(e.NewSize, e.PreviousSize);
+            };
+        }
 
         public void OnClick(MidiNote note) => this.Command?.Execute(note); // Command
 
-        public abstract Brush GetBrush(MidiOctave octave);
-        public abstract Style GetStyle(ToneType type);
         public int GetIndex(MidiNote note)
         {
             switch (this.Direction)

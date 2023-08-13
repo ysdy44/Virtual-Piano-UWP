@@ -20,26 +20,14 @@
     </UIElement.ManipulationMode>
 
     <FrameworkElement.Resources>
-        <!--Brush-->
-        <SolidColorBrush x:Key="Number0" Color="#323C80"/>
-        <SolidColorBrush x:Key="Number1" Color="#683280"/>
-        <SolidColorBrush x:Key="Number2" Color="#FF2E2E"/>
-        <SolidColorBrush x:Key="Number3" Color="#FF9348"/>
-        <SolidColorBrush x:Key="Number4" Color="#FAE100"/>
-        <SolidColorBrush x:Key="Number5" Color="#56FF56"/>
-        <SolidColorBrush x:Key="Number6" Color="#11FFF7"/>
-        <SolidColorBrush x:Key="Number7" Color="#6477FF"/>
-        <SolidColorBrush x:Key="Number8" Color="#CF64FF"/>
-        <SolidColorBrush x:Key="Number9" Color="#FFCBCB"/>
-        <SolidColorBrush x:Key="Number10" Color="#FFE4D1"/>
         <!--Style-->
-        <Style x:Key="White" TargetType="ContentControl">
+        <Style TargetType="controls:PianoWhiteButton">
             <Setter Property="AllowFocusOnInteraction" Value="True"/>
             <Setter Property="UseSystemFocusVisuals" Value="True"/>
             <Setter Property="IsTabStop" Value="True"/>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="ContentControl">
+                    <ControlTemplate TargetType="controls:PianoWhiteButton">
                         <Border x:Name="RootGrid" Margin="1,2,1,0" CornerRadius="0,0,5,5" BorderThickness="0,0,0,2" BorderBrush="Gray" Background="#DDDDDD">
 
                             <!--VisualState-->
@@ -83,14 +71,14 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="Black" TargetType="ContentControl">
+        <Style TargetType="controls:PianoBlackButton">
             <Setter Property="Canvas.ZIndex" Value="1"/>
             <Setter Property="AllowFocusOnInteraction" Value="True"/>
             <Setter Property="UseSystemFocusVisuals" Value="True"/>
             <Setter Property="IsTabStop" Value="True"/>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="ContentControl">
+                    <ControlTemplate TargetType="controls:PianoBlackButton">
                         <Border x:Name="RootGrid" CornerRadius="0,0,2,2" BorderThickness="4,0,4,10" BorderBrush="Black">
                             <Border.Background>
                                 <LinearGradientBrush EndPoint="0,1">
