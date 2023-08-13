@@ -1,23 +1,20 @@
-﻿<controls:WrapPanel
+﻿<Canvas
     x:Class="Virtual_Piano.Midi.Instruments.DrumPanel"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:local="using:Virtual_Piano.Midi.Instruments"
     mc:Ignorable="d"
     d:DesignWidth="400"
     d:DesignHeight="400"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
     >
 
     <FrameworkElement.Resources>
         <!--Style-->
         <Style TargetType="local:DrumButton">
-            <Setter Property="MinWidth" Value="80"/>
-            <Setter Property="MinHeight" Value="80"/>
-            <Setter Property="Height" Value="80"/>
-
             <Setter Property="AllowFocusOnInteraction" Value="True"/>
             <Setter Property="UseSystemFocusVisuals" Value="True"/>
             <Setter Property="IsTabStop" Value="True"/>
@@ -49,7 +46,7 @@
                             <Rectangle IsHitTestVisible="False" RadiusX="4" RadiusY="4" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
                             <Rectangle x:Name="Mask" Opacity="0" IsHitTestVisible="False" RadiusX="4" RadiusY="4" Fill="{TemplateBinding Foreground}"/>
 
-                            <StackPanel Margin="20,0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                            <StackPanel Margin="20,0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" >
                                 <ContentControl
                                     Width="52"
                                     Height="52" 
@@ -60,23 +57,24 @@
                                     VerticalContentAlignment="Center" 
                                     Foreground="{TemplateBinding Foreground}"
                                     />
-                                <StackPanel Margin="12,0" VerticalAlignment="Center">
-                                    <ContentControl
-                                        Content="{TemplateBinding TabIndex}" 
-                                        Foreground="{TemplateBinding Foreground}"
-                                        FontFamily="Agency FB"  
-                                        FontWeight="Bold"
-                                        FontSize="18"
-                                        />
-                                    <ContentPresenter
-                                        x:Name="ContentPresenter"
-                                        IsHitTestVisible="False"
-                                        Content="{TemplateBinding Content}"
-                                        Foreground="{ThemeResource SystemControlHighlightAltBaseHighBrush}"
-                                        FontSize="10"
-                                        FontWeight="Bold"
+                                <ContentControl
+                                    Content="{TemplateBinding TabIndex}" 
+                                    Foreground="{TemplateBinding Foreground}"
+                                    HorizontalAlignment="Center" 
+                                    FontFamily="Agency FB"  
+                                    FontWeight="Bold"
+                                    FontSize="18"
                                     />
-                                </StackPanel>
+                                <ContentPresenter
+                                    x:Name="ContentPresenter"
+                                    IsHitTestVisible="False"
+                                    Content="{TemplateBinding Content}"
+                                    Foreground="{ThemeResource SystemControlHighlightAltBaseHighBrush}"
+                                    HorizontalAlignment="Center" 
+                                    FontSize="10"
+                                    FontWeight="Bold"
+                                    TextWrapping="WrapWholeWords"
+                                    />
                             </StackPanel>
 
                         </Grid>
@@ -86,4 +84,4 @@
         </Style>
     </FrameworkElement.Resources>
 
-</controls:WrapPanel>
+</Canvas>
