@@ -175,10 +175,38 @@
 
                         <elements:DSTimer x:Name="DSTimer" Time="00:00:00.000"/>
 
-                        <Button>
+                        <Button Width="60">
+                            <Button.Flyout>
+                                <Flyout>
+                                    <Border
+                                        Width="44"
+                                        CornerRadius="6"
+                                        BorderBrush="Transparent"
+                                        Background="{ThemeResource AppForeground}"
+                                        HorizontalAlignment="Center"
+                                        >
+                                        <Slider 
+                                            x:Name="TempoSlider"
+                                            Margin="0,12"
+                                            IsEnabled="True"
+                                            Height="320" 
+                                            Value="120"
+                                            Minimum="20"
+                                            Maximum="240"
+                                            StepFrequency="20"
+                                            TickFrequency="20"
+                                            TickPlacement="Outside"
+                                            Orientation="Vertical"
+                                            IsThumbToolTipEnabled="False"
+                                            />
+                                    </Border>
+                                </Flyout>
+                            </Button.Flyout>
                             <TextBlock>
                                 <Run></Run>
-                                <Run FontSize="14">127</Run><Run FontSize="14">.</Run><Run>00</Run>
+                                <Run FontSize="14" Text="{x:Bind TempoSlider.Value,Mode=OneWay}">
+                                    <!--Text-->
+                                </Run><Run FontSize="14">.</Run><Run>00</Run>
                                 <LineBreak/>
                                 <Run>Tempo</Run>
                             </TextBlock>

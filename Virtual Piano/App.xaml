@@ -8,12 +8,6 @@
     <Application.Resources>
         <ResourceDictionary>
 
-            <!--Style-->
-            <Style TargetType="FlyoutPresenter">
-                <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="BorderBrush" Value="SkyBlue"/>
-                <Setter Property="Background" Value="Black"/>
-            </Style>
 
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Light">
@@ -76,6 +70,14 @@
                     <SolidColorBrush x:Key="SliderTrackValueFillDisabled" Color="{StaticResource SystemChromeDisabledHighColor}" />
 
                     <x:Double x:Key="SliderTrackThemeHeight">14</x:Double>
+                   
+                    <!--Style-->
+                    <Style TargetType="FlyoutPresenter">
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="BorderBrush" Value="{ThemeResource AppBorderBrush}"/>
+                        <Setter Property="Background" Value="{ThemeResource AppBackground}"/>
+                    </Style>
+                    
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Dark">
                     <Color x:Key="AppThemeColor">#57C1FF</Color>
@@ -137,6 +139,14 @@
                     <SolidColorBrush x:Key="SliderTrackValueFillDisabled" Color="{StaticResource SystemChromeDisabledHighColor}" />
 
                     <x:Double x:Key="SliderTrackThemeHeight">14</x:Double>
+
+                    <!--Style-->
+                    <Style TargetType="FlyoutPresenter">
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="BorderBrush" Value="{ThemeResource AppBorderBrush}"/>
+                        <Setter Property="Background" Value="{ThemeResource AppBackground}"/>
+                    </Style>
+                    
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
 
