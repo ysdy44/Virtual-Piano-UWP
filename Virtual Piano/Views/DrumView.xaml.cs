@@ -1,7 +1,10 @@
 ﻿using System.Windows.Input;
+using Virtual_Piano.Midi.Core;
+using Virtual_Piano.Midi;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Windows.Foundation;
 
 namespace Virtual_Piano.Views
 {
@@ -15,6 +18,14 @@ namespace Virtual_Piano.Views
         public DrumView()
         {
             this.InitializeComponent();
+            this.DrumScrollViewer.SizeChanged += (s, e) =>
+            {
+                if (e.NewSize == Size.Empty) return;
+                if (e.NewSize == e.PreviousSize) return;
+                if (e.NewSize.Width == e.PreviousSize.Width) return;
+
+                this.DrumPanel.UpdateWidthCount(e.NewSize.Width);
+            };
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
