@@ -20,6 +20,7 @@ namespace Virtual_Piano.Midi.Controllers
         public event DragStartedEventHandler DragStarted { remove => this.TimelineThumb.DragStarted -= value; add => this.TimelineThumb.DragStarted += value; }
         public event DragDeltaEventHandler DragDelta { remove => this.TimelineThumb.DragDelta -= value; add => this.TimelineThumb.DragDelta += value; }
         public event DragCompletedEventHandler DragCompleted { remove => this.TimelineThumb.DragCompleted -= value; add => this.TimelineThumb.DragCompleted += value; }
+        public event RoutedEventHandler BackClick { remove => this.BackButton.Click -= value; add => this.BackButton.Click += value; }
 
         //@Converter
         private double HeightConverter(bool? value) => value is true ? this.Layout.ExtentHeightFoot : this.Layout.ExtentHeightHead;
