@@ -199,6 +199,7 @@ namespace Virtual_Piano.Midi.Controllers
                 Canvas.SetLeft(item, i * TrackLayout.Step);
                 this.TimelineTextCanvas.Children.Add(item);
             }
+            this.TimelineTextCanvas.Width = 16 * TrackLayout.Step;
 
             base.SizeChanged += (s, e) =>
             {
@@ -249,10 +250,27 @@ namespace Virtual_Piano.Midi.Controllers
                     case VirtualKeyModifiers.Control:
                         double offset = this.HorizontalOffset - delta;
                         this.ScrollViewer.ChangeView(offset, null, null);
+                        e.Handled = true;
                         break;
                     default:
                         break;
                 }
+            };
+
+            this.TimelineThumb.PointerWheelChanged += (s, e) => e.Handled = true;
+            this.HeadItemsControl.PointerWheelChanged += (s, e) => e.Handled = true;
+            this.ControllerBorder.PointerWheelChanged += (s, e) =>
+            {
+                PointerPoint pp = e.GetCurrentPoint(this.ControllerBorder);
+                if (pp.Properties.IsHorizontalMouseWheel) return;
+
+                int delta = pp.Properties.MouseWheelDelta;
+                if (delta == 0) return;
+
+                double offset = this.HorizontalOffset - delta;
+                this.ScrollViewer.ChangeView(offset, null, null);
+
+                e.Handled = true;
             };
 
             this.ScrollViewer.ViewChanging += (s, e) =>

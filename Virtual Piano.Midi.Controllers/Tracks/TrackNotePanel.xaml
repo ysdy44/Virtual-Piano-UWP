@@ -7,7 +7,6 @@
     mc:Ignorable="d"
     d:DesignWidth="400"
     d:DesignHeight="400"
-    RequestedTheme="Light"
     >
 
     <ScrollViewer
@@ -106,7 +105,6 @@
                         <!--Points-->
                     </Polyline>
 
-                    <!--Foot-->
                     <ItemsControl x:Name="ControllerItemsControl" Width="{x:Bind Layout.ExtentHeight}" Height="127">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -143,6 +141,8 @@
                 </Canvas>
             </Border>
 
+            <!--Separator-->
+
             <!--Body-->
             <Canvas x:Name="BodyLineCanvas" IsHitTestVisible="False">
                 <FrameworkElement.Resources>
@@ -157,6 +157,8 @@
 
             <!--Timeline-->
             <Line x:Name="TimelineLine" IsHitTestVisible="False" X1="{x:Bind Layout.Pane}" X2="{x:Bind Layout.Pane}" StrokeThickness="2" Stroke="Red"/>
+
+            <!--Separator-->
 
             <!--Pane-->
             <Border x:Name="PaneBorder" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.ExtentHeight}" BorderThickness="1,0" BorderBrush="Black" Background="Black">
@@ -175,6 +177,8 @@
                 <!--ItemsSource-->
             </ListView>
 
+            <!--Separator-->
+
             <!--Timerline-->
             <Thumb x:Name="TimelineThumb" Height="{x:Bind Layout.Head}">
                 <UIElement.ManipulationMode>
@@ -187,7 +191,6 @@
                 </Control.Template>
             </Thumb>
 
-            <!--Timeline-->
             <Canvas x:Name="TimelinePointCanvas" IsHitTestVisible="False" Height="{x:Bind Layout.Head}">
                 <FrameworkElement.Resources>
                     <!--Style-->
@@ -208,6 +211,8 @@
                 </FrameworkElement.Resources>
                 <!--Children-->
             </Canvas>
+
+            <!--Separator-->
 
             <!--Head-->
             <ItemsControl x:Name="HeadItemsControl" Width="{x:Bind Layout.ExtentHeight}" Height="{x:Bind Layout.Timerline2}">
