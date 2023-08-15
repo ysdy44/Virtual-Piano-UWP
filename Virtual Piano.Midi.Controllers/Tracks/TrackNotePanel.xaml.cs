@@ -65,7 +65,7 @@ namespace Virtual_Piano.Midi.Controllers
         private int Position;
         private int Timeline;
 
-        readonly TrackLayout Layout = new TrackLayout(75, 22, 150 + 18);
+        readonly TrackNoteLayout Layout = new TrackNoteLayout(75, 22, 22, 150);
         readonly Windows.UI.Composition.CompositionPropertySet ScrollProperties;
 
         ~TrackNotePanel() => this.ScrollProperties?.Dispose();
