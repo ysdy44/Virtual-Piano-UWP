@@ -57,9 +57,8 @@ namespace Virtual_Piano.Midi.Controllers
         // UI
         public object ItemsSource { get => this.BodyItemsControl.ItemsSource; set => this.BodyItemsControl.ItemsSource = value; }
         public UIElement Pane { get => this.PaneBorder.Child; set => this.PaneBorder.Child = value; }
-        public UIElement Foot { get => this.FootBorderBorder.Child; set => this.FootBorderBorder.Child = value; }
         public PointCollection ControllerPoints { get => this.ControllerPolyline.Points; set => this.ControllerPolyline.Points = value; }
-        public object FootItemsSource { get => this.FootItemsControl.ItemsSource; set => this.FootItemsControl.ItemsSource = value; }
+        public object ControllerItemsSource { get => this.ControllerItemsControl.ItemsSource; set => this.ControllerItemsControl.ItemsSource = value; }
 
         // Timeline
         public int Time { get; private set; }
@@ -80,7 +79,7 @@ namespace Virtual_Piano.Midi.Controllers
             var ey = this.ScrollProperties.SnapScrollerY();
             var sx = this.ScrollProperties.SnapScrollerX(TrackLayout.Step, this.Layout.Pane);
 
-            this.FootBorder.GetVisual().AnimationX(ex);
+            this.FootListView.GetVisual().AnimationX(ex);
 
             this.TimelinePoint.GetVisual().AnimationY(ey);
             this.TimelineLine.GetVisual().AnimationY(ey);
@@ -219,7 +218,7 @@ namespace Virtual_Piano.Midi.Controllers
                 {
                     this.ViewportHeight = h;
 
-                    this.TimelineLine.Y2 = h;
+                    this.TimelineLine.Y2 = h + this.Layout.Timerline1;
                     this.BodyLineCanvas.Height = h;
                     foreach (Line item in this.BodyLineCanvas.Children.Cast<Line>())
                     {
@@ -227,8 +226,8 @@ namespace Virtual_Piano.Midi.Controllers
                     }
 
                     var sy = this.ScrollProperties.SnapScrollerY(h - this.Layout.Foot);
-                    this.ControllerBorder.GetVisual().AnimationY(sy);
-                    this.FootBorder.GetVisual().AnimationY(sy);
+                    this.ControllerBorder.GetVisual().AnimationXY(this.Layout.Pane, sy);
+                    this.FootListView.GetVisual().AnimationY(sy);
                 }
             };
 
@@ -265,7 +264,7 @@ namespace Virtual_Piano.Midi.Controllers
             this.BodyItemsControl.Width = extentWidth;
             this.Canvas.Width = extentWidth + this.Layout.Pane;
             this.ControllerBorder.Width = extentWidth + this.Layout.Pane;
-            this.FootItemsControl.Width = extentWidth;
+            this.ControllerItemsControl.Width = extentWidth;
         }
 
         public void ChangePosition(int timeline)
