@@ -223,15 +223,26 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
     </PackageReference>
+    <PackageReference Include="NAudio.Midi">
+      <Version>2.1.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Virtual Piano.Elements\Virtual Piano.Elements.csproj">
       <Project>{13D38CDF-15B0-4127-B039-CFF47406C450}</Project>
       <Name>Virtual Piano.Elements</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Virtual Piano.Midi.Controllers\Virtual Piano.Midi.Controllers.csproj">
+      <Project>{cb6d6926-5dd4-4e6f-a19d-d9608b3a4ba9}</Project>
+      <Name>Virtual Piano.Midi.Controllers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Virtual Piano.Midi.Core\Virtual Piano.Midi.Core.csproj">
       <Project>{E17BFD86-0726-4C0A-AAFE-5B5DEAD05956}</Project>
       <Name>Virtual Piano.Midi.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Virtual Piano.Midi.Instruments\Virtual Piano.Midi.Instruments.csproj">
+      <Project>{7b25386c-1dd9-4d05-8325-323a0c9070db}</Project>
+      <Name>Virtual Piano.Midi.Instruments</Name>
     </ProjectReference>
     <ProjectReference Include="..\Virtual Piano.Midi\Virtual Piano.Midi.csproj">
       <Project>{7f632b4a-9fa1-4842-942f-49274bbdbe61}</Project>

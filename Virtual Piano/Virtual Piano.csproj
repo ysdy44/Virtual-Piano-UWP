@@ -279,6 +279,9 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
     </PackageReference>
+    <PackageReference Include="NAudio.Midi">
+      <Version>2.1.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="Microsoft.Midi.GmDls, Version=10.0.22000.0">
