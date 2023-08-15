@@ -22,8 +22,8 @@
         VerticalScrollBarVisibility="Visible"
         IsVerticalScrollChainingEnabled="True"
         
-        Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
-        >
+         Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
+         >
         <Canvas x:Name="Canvas" Width="{x:Bind Layout.ExtentHeightHead}" Height="{x:Bind Layout.ExtentHeightHeadFoot}">
 
             <!--Body-->
@@ -210,6 +210,39 @@
             </Canvas>
 
             <!--Head-->
+            <ItemsControl x:Name="HeadItemsControl" Width="{x:Bind Layout.ExtentHeight}" Height="{x:Bind Layout.Timerline2}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas Background="Transparent"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentControl">
+                        <Setter Property="Padding" Value="6,0" />
+                        <Setter Property="FontWeight" Value="Medium" />
+                        <Setter Property="Foreground" Value="Black" />
+                        <Setter Property="Background" Value="GreenYellow" />
+                        <Setter Property="ManipulationMode">
+                            <Setter.Value>
+                                TranslateX, TranslateY
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ContentControl">
+                                    <Border CornerRadius="2,2,0,0 " BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                        <ContentPresenter Margin="{TemplateBinding Padding}"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+
+                <!--ItemsSource-->
+            </ItemsControl>
+
             <Border x:Name="HeadBorder" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.Head}" Background="Black">
                 <Button x:Name="BackButton" RequestedTheme="Dark" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Style="{StaticResource TextBlockButtonStyle}">
                     <SymbolIcon Symbol="Back"/>

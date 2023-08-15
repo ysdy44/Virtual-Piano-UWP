@@ -20,10 +20,11 @@ namespace Virtual_Piano.Midi.Controllers
         public event DragStartedEventHandler DragStarted { remove => this.TimelineThumb.DragStarted -= value; add => this.TimelineThumb.DragStarted += value; }
         public event DragDeltaEventHandler DragDelta { remove => this.TimelineThumb.DragDelta -= value; add => this.TimelineThumb.DragDelta += value; }
         public event DragCompletedEventHandler DragCompleted { remove => this.TimelineThumb.DragCompleted -= value; add => this.TimelineThumb.DragCompleted += value; }
+        public event ItemClickEventHandler FootItemClick { remove => this.FootListView.ItemClick -= value; add => this.FootListView.ItemClick += value; }
         public event RoutedEventHandler BackClick { remove => this.BackButton.Click -= value; add => this.BackButton.Click += value; }
 
         //@Converter
-        private double HeightConverter(bool? value) => value is true ? this.Layout.ExtentHeightFoot : this.Layout.ExtentHeightHead;
+        private double HeightConverter(bool? value) => value is true ? this.Layout.ExtentHeightFoot : this.Layout.ExtentHeight;
         private Visibility VisibilityConverter(bool? value) => value is true ? Visibility.Visible : Visibility.Collapsed;
 
         // Container
@@ -59,6 +60,8 @@ namespace Virtual_Piano.Midi.Controllers
         public UIElement Pane { get => this.PaneBorder.Child; set => this.PaneBorder.Child = value; }
         public PointCollection ControllerPoints { get => this.ControllerPolyline.Points; set => this.ControllerPolyline.Points = value; }
         public object ControllerItemsSource { get => this.ControllerItemsControl.ItemsSource; set => this.ControllerItemsControl.ItemsSource = value; }
+        public object FootItemsSource { get => this.FootListView.ItemsSource; set => this.FootListView.ItemsSource = value; }
+        public object HeadItemsSource { get => this.HeadItemsControl.ItemsSource; set => this.HeadItemsControl.ItemsSource = value; }
 
         // Timeline
         public int Time { get; private set; }
@@ -77,12 +80,13 @@ namespace Virtual_Piano.Midi.Controllers
             this.ScrollProperties = this.ScrollViewer.GetScroller();
             var ex = this.ScrollProperties.SnapScrollerX();
             var ey = this.ScrollProperties.SnapScrollerY();
+            var ey3 = this.ScrollProperties.SnapScrollerY(1 - this.Layout.Timerline1);
             var sx = this.ScrollProperties.SnapScrollerX(TrackLayout.Step, this.Layout.Pane);
 
             this.FootListView.GetVisual().AnimationX(ex);
 
             this.TimelinePoint.GetVisual().AnimationY(ey);
-            this.TimelineLine.GetVisual().AnimationY(ey);
+            this.TimelineLine.GetVisual().AnimationY(ey3);
 
             this.TimelineThumb.GetVisual().AnimationXY(ex, ey);
             this.HeadBorder.GetVisual().AnimationXY(ex, ey);
@@ -93,6 +97,7 @@ namespace Virtual_Piano.Midi.Controllers
             this.BodyLineCanvas.GetVisual().AnimationXY(sx, ey);
             this.TimelineTextCanvas.GetVisual().AnimationXY(sx, ey);
             this.TimelinePointCanvas.GetVisual().AnimationXY(sx, ey);
+            this.HeadItemsControl.GetVisual().AnimationXY(this.Layout.Pane, ey);
 
             // BodyBackgroundCanvas
             foreach (MidiNote item in System.Enum.GetValues(typeof(MidiNote)).Cast<MidiNote>())
@@ -263,8 +268,9 @@ namespace Virtual_Piano.Midi.Controllers
             int extentWidth = time / TrackLayout.Scaling;
             this.BodyItemsControl.Width = extentWidth;
             this.Canvas.Width = extentWidth + this.Layout.Pane;
-            this.ControllerBorder.Width = extentWidth + this.Layout.Pane;
+            this.ControllerBorder.Width = extentWidth;
             this.ControllerItemsControl.Width = extentWidth;
+            this.HeadItemsControl.Width = extentWidth;
         }
 
         public void ChangePosition(int timeline)
