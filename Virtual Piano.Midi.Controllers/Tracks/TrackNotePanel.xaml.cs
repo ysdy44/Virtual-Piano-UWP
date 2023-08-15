@@ -9,6 +9,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
+using TrackLayout = Virtual_Piano.Midi.Core.TrackNoteLayout;
 
 namespace Virtual_Piano.Midi.Controllers
 {
