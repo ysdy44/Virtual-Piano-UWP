@@ -138,6 +138,7 @@
     <Compile Include="Others\VelocitySlider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrackCollections\ControllerCollection.cs" />
+    <Compile Include="TrackCollections\TrackCollection.cs" />
     <Compile Include="TrackCollections\TrackInfo.cs" />
     <Compile Include="TrackCollections\TrackItem.xaml.cs">
       <DependentUpon>TrackItem.xaml</DependentUpon>
