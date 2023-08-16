@@ -19,6 +19,14 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="18"/>
         </Style>
+        <Style TargetType="Ellipse">
+            <Setter Property="IsHitTestVisible" Value="False"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="4"/>
+            <Setter Property="Height" Value="4"/>
+            <Setter Property="Margin" Value="1"/>
+        </Style>
         <Style TargetType="RepeatButton" BasedOn="{StaticResource TextBlockButtonStyle}">
             <Setter Property="Width" Value="60"/>
             <Setter Property="Padding" Value="0"/>
@@ -65,7 +73,8 @@
                 <TextBlock Grid.Column="4">
                     5
                 </TextBlock>
-                <TextBlock Grid.Column="5">
+                <Ellipse Grid.Column="5" Fill="{ThemeResource SystemColorControlAccentBrush}"/>
+                <TextBlock Grid.Column="5" Foreground="{ThemeResource SystemColorControlAccentBrush}">
                     6
                 </TextBlock>
                 <TextBlock Grid.Column="6">
