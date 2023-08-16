@@ -21,12 +21,12 @@
 
     <!--Brush-->
     <SolidColorBrush x:Key="Drum" Color="{StaticResource Hue30}"/>
-    <SolidColorBrush x:Key="Hat" Color="{StaticResource Hue210}"/>
-    <SolidColorBrush x:Key="Cymbal" Color="{StaticResource Hue330}"/>
-    <SolidColorBrush x:Key="Tom" Color="{StaticResource Hue150}"/>
-    <SolidColorBrush x:Key="African" Color="{StaticResource Hue90}"/>
-    <SolidColorBrush x:Key="Latin" Color="{StaticResource Hue120}"/>
-    <SolidColorBrush x:Key="Special" Color="{StaticResource Hue300}"/>
-    <SolidColorBrush x:Key="Synth" Color="{StaticResource Hue240}"/>
+    <SolidColorBrush x:Key="Hat" Color="{StaticResource Hue60}"/>
+    <SolidColorBrush x:Key="Cymbal" Color="{StaticResource Hue120}"/>
+    <SolidColorBrush x:Key="Tom" Color="{StaticResource Hue210}"/>
+    <SolidColorBrush x:Key="African" Color="{StaticResource Hue240}"/>
+    <SolidColorBrush x:Key="Latin" Color="{StaticResource Hue300}"/>
+    <SolidColorBrush x:Key="Special" Color="{StaticResource Hue330}"/>
+    <SolidColorBrush x:Key="Synth" Color="{StaticResource Hue360}"/>
 
 </ResourceDictionary>

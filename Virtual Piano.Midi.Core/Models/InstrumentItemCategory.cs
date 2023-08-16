@@ -4,6 +4,6 @@
     {
         public MidiProgramGroup Group;
         public string Text => this.ToString();
-        public override string ToString() => MidiProgramFactory.Emoji[Group];
+        public override string ToString() => MidiProgramFactory.Emoji[this.Group];
     }
 }

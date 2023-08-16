@@ -62,7 +62,7 @@ namespace Virtual_Piano.Midi.Controllers
 
                 double delta = prop.MouseWheelDelta;
                 int index = this.Index + System.Math.Clamp((int)delta, -1, 1);
-                this.Index = Math.Clamp(index, 0, Radial.Velocity);
+                this.Index = System.Math.Clamp(index, 0, Radial.Velocity);
 
                 e.Handled = true;
             };

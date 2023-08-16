@@ -43,20 +43,22 @@
                     IsHitTestVisible="False"
                     RadiusX="4" 
                     RadiusY="4" 
-                    Margin="28,40,28,6" 
+                    Width="28"
+                    Margin="0,40,0,6" 
                     Fill="{TemplateBinding BorderBrush}"
                     />
-                
+
                 <Rectangle 
                     x:Name="Overlay" 
                     IsHitTestVisible="False"
                     Visibility="Collapsed" 
                     RadiusX="4" 
                     RadiusY="4" 
-                    Margin="28,40,28,6" 
+                    Width="28"
+                    Margin="0,40,0,6" 
                     Fill="{ThemeResource SystemColorControlAccentBrush}" 
                     />
-                
+
                 <Border 
                     IsHitTestVisible="False"
                     CornerRadius="4,4,0,0"
