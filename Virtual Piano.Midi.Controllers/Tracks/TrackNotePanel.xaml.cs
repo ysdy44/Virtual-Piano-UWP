@@ -342,5 +342,42 @@ namespace Virtual_Piano.Midi.Controllers
 
             return this.Time;
         }
+
+        public void LoadInfo(TrackInfo info)
+        {
+            if (info is null)
+            {
+                this.ChangeDuration(this.Layout.ExtentHeight * TrackLayout.Scaling);
+                this.ItemsSource = null;
+                this.HeadItemsSource = null;
+                this.FootItemsSource = null;
+                this.LoadCC(null);
+            }
+            else
+            {
+                this.ChangeDuration(info.Duration);
+                this.ItemsSource = info.Notes;
+                this.HeadItemsSource = info.Programs;
+                this.FootItemsSource = info.Controllers.Keys;
+                if (info.Controllers.Count is 0)
+                    this.LoadCC(null);
+                else
+                    this.LoadCC(info.Controllers.Values.First());
+            }
+        }
+
+        public void LoadCC(ControllerCollection cc)
+        {
+            if (cc is null)
+            {
+                this.ControllerItemsSource = null;
+                this.ControllerPoints = null;
+            }
+            else
+            {
+                this.ControllerItemsSource = cc.ItemsSource;
+                this.ControllerPoints = cc.Points;
+            }
+        }
     }
 }
