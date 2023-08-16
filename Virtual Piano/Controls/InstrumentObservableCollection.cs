@@ -2,7 +2,7 @@
 
 namespace Virtual_Piano.Controls
 {
-    public class InstrumentObservableCollection : Midi.Instruments.InstrumentObservableCollection
+    public class InstrumentObservableCollection : Midi.Core.InstrumentObservableCollection
     {
         public override string GetString(MidiProgram program)
         {
