@@ -15,18 +15,12 @@
         <elements:ApplicationTitleBarExtension TitleBarColor="Black"/>
     </FrameworkElement.Tag>
 
-    <Border>
-        <Border>
-            <Border>
-
-                <!--Machine-->
-                <controls:MachinePanel 
-                    x:Name="MachinePanel" 
-                    Command="{x:Bind Command}" 
-                    Background="{ThemeResource AppBackground}"
-                    />
+    <!--Machine-->
+    <controls:MachinePanel 
+        x:Name="MachinePanel" 
+        MinHeight="240"
+        Command="{x:Bind Command}" 
+        Background="{ThemeResource AppBackground}"
+        />
                 
-            </Border>
-        </Border>
-    </Border>
 </Page>

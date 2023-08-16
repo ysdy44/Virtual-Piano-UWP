@@ -15,51 +15,50 @@
         <elements:ApplicationTitleBarExtension TitleBarColor="Black"/>
     </FrameworkElement.Tag>
 
-    <Border>
+    <Grid
+        Margin="4" 
+        MinWidth="400" 
+        MinHeight="232" 
+        MaxHeight="520" 
+        MaxWidth="900" 
+        >
+        <FrameworkElement.Resources>
+            <!--Style-->
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="Background" Value="#FCFCFC"/>
+            </Style>
+        </FrameworkElement.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
         <Border>
-            <Border>
-
-                <Grid ColumnSpacing="3" Margin="4" MaxWidth="900">
-                    <FrameworkElement.Resources>
-                        <!--Style-->
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="8"/>
-                            <Setter Property="Background" Value="#FCFCFC"/>
-                        </Style>
-                    </FrameworkElement.Resources>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <Border>
-                        <instruments:ChordPanel Chord="C" Command="{x:Bind Command}"/>
-                    </Border>
-                    <Border Grid.Column="1">
-                        <instruments:ChordPanel Chord="Dm" Command="{x:Bind Command}"/>
-                    </Border>
-                    <Border Grid.Column="2">
-                        <instruments:ChordPanel Chord="Em" Command="{x:Bind Command}"/>
-                    </Border>
-                    <Border Grid.Column="3">
-                        <instruments:ChordPanel Chord="F" Command="{x:Bind Command}"/>
-                    </Border>
-                    <Border Grid.Column="4">
-                        <instruments:ChordPanel Chord="G" Command="{x:Bind Command}"/>
-                    </Border>
-                    <Border Grid.Column="5">
-                        <instruments:ChordPanel Chord="Am" Command="{x:Bind Command}"/>
-                    </Border>
-                    <Border Grid.Column="6">
-                        <instruments:ChordPanel Chord="Bdim" Command="{x:Bind Command}"/>
-                    </Border>
-                </Grid>
-
-            </Border>
+            <instruments:ChordPanel Chord="C" Command="{x:Bind Command}"/>
         </Border>
-    </Border>
+        <Border Grid.Column="1">
+            <instruments:ChordPanel Chord="Dm" Command="{x:Bind Command}"/>
+        </Border>
+        <Border Grid.Column="2">
+            <instruments:ChordPanel Chord="Em" Command="{x:Bind Command}"/>
+        </Border>
+        <Border Grid.Column="3">
+            <instruments:ChordPanel Chord="F" Command="{x:Bind Command}"/>
+        </Border>
+        <Border Grid.Column="4">
+            <instruments:ChordPanel Chord="G" Command="{x:Bind Command}"/>
+        </Border>
+        <Border Grid.Column="5">
+            <instruments:ChordPanel Chord="Am" Command="{x:Bind Command}"/>
+        </Border>
+        <Border Grid.Column="6">
+            <instruments:ChordPanel Chord="Bdim" Command="{x:Bind Command}"/>
+        </Border>
+    </Grid>
+
 </Page>

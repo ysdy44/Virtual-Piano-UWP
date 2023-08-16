@@ -15,37 +15,30 @@
         <elements:ApplicationTitleBarExtension TitleBarColor="Black"/>
     </FrameworkElement.Tag>
 
-    <Border>
-        <Border>
-            <Border>
+    <!--Base-->
+    <Grid RowSpacing="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <instruments:GuitarScrollBar RequestedTheme="Dark" Orientation="Horizontal" HorizontalAlignment="Center" ScrollViewer="{x:Bind BaseScrollViewer}"/>
+        <ScrollViewer
+            x:Name="BaseScrollViewer"
+            Grid.Row="1"
+            ZoomMode="Disabled"
+             
+            HorizontalScrollMode="Enabled"
+            HorizontalScrollBarVisibility="Hidden"
+            IsHorizontalScrollChainingEnabled="True"
+          
+            VerticalScrollMode="Disabled"
+            VerticalScrollBarVisibility="Disabled"
+            IsVerticalScrollChainingEnabled="False"
+            
+            Background="#22262F"
+            >
+            <instruments:BaseGuitarPanel Command="{x:Bind Command}"/>
+        </ScrollViewer>
+    </Grid>
 
-                <!--Base-->
-                <Grid RowSpacing="2">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="36"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <instruments:GuitarScrollBar RequestedTheme="Dark" Orientation="Horizontal" HorizontalAlignment="Center" ScrollViewer="{x:Bind BaseScrollViewer}"/>
-                    <ScrollViewer
-                        x:Name="BaseScrollViewer"
-                        Grid.Row="1"
-                        ZoomMode="Disabled"
-                         
-                        HorizontalScrollMode="Enabled"
-                        HorizontalScrollBarVisibility="Hidden"
-                        IsHorizontalScrollChainingEnabled="True"
-                      
-                        VerticalScrollMode="Disabled"
-                        VerticalScrollBarVisibility="Disabled"
-                        IsVerticalScrollChainingEnabled="False"
-                        
-                        Background="#22262F"
-                        >
-                        <instruments:BaseGuitarPanel Command="{x:Bind Command}"/>
-                    </ScrollViewer>
-                </Grid>
-
-            </Border>
-        </Border>
-    </Border>
 </Page>

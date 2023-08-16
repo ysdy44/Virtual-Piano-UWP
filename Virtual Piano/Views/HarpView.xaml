@@ -15,26 +15,20 @@
         <elements:ApplicationTitleBarExtension TitleBarColor="Black"/>
     </FrameworkElement.Tag>
 
-    <Border>
-        <Border>
-            <Border>
+    <!--Harp-->
+    <ScrollViewer
+        MaxHeight="400" 
+        ZoomMode="Disabled"
+         
+        HorizontalScrollMode="Enabled"
+        HorizontalScrollBarVisibility="Hidden"
+        IsHorizontalScrollChainingEnabled="True"
+      
+        VerticalScrollMode="Disabled"
+        VerticalScrollBarVisibility="Disabled"
+        IsVerticalScrollChainingEnabled="False"
+        >
+        <instruments:HarpPanel MinHeight="220" Command="{x:Bind Command}"/>
+    </ScrollViewer>
 
-                <!--Harp-->
-                <ScrollViewer
-                    ZoomMode="Disabled"
-                     
-                    HorizontalScrollMode="Enabled"
-                    HorizontalScrollBarVisibility="Hidden"
-                    IsHorizontalScrollChainingEnabled="True"
-                  
-                    VerticalScrollMode="Disabled"
-                    VerticalScrollBarVisibility="Disabled"
-                    IsVerticalScrollChainingEnabled="False"
-                    >
-                    <instruments:HarpPanel Height="400" Command="{x:Bind Command}"/>
-                </ScrollViewer>
-
-            </Border>
-        </Border>
-    </Border>
 </Page>

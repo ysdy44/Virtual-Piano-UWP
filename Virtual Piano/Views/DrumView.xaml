@@ -15,7 +15,9 @@
         <elements:ApplicationTitleBarExtension TitleBarColor="Black"/>
     </FrameworkElement.Tag>
 
-    <ScrollViewer x:Name="DrumScrollViewer">
-        <controls:DrumPanel x:Name="DrumPanel" Command="{x:Bind Command}"/>
+    <ScrollViewer
+        x:Name="DrumScrollViewer"
+        >
+        <controls:DrumPanel x:Name="DrumPanel" MinHeight="240" Command="{x:Bind Command}"/>
     </ScrollViewer>
 </Page>

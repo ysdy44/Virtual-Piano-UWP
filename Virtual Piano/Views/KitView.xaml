@@ -57,7 +57,10 @@
             CornerRadius="4"
             Background="{ThemeResource AppBackground}"
             >
-            <Viewbox>
+            <Viewbox
+                MinHeight="236"
+                MaxHeight="640"
+                >
                 <controls:KitPanel x:Name="KitPanel" Command="{x:Bind Command}"/>
             </Viewbox>
         </Border>

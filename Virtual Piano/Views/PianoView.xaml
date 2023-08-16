@@ -15,44 +15,35 @@
         <elements:ApplicationTitleBarExtension TitleBarColor="Black"/>
     </FrameworkElement.Tag>
 
-    <Border>
-        <Border>
-            <Border>
-                <Border>
+    <!--Keyboard-->
+    <Grid RowSpacing="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <instruments:PianoHorizontalScrollBar RequestedTheme="Dark" ItemSize="28" ScrollViewer="{x:Bind NoteScrollViewer}"/>
+        <ScrollViewer
+            x:Name="NoteScrollViewer"
+            Grid.Row="1"
+            ZoomMode="Disabled"
+            
+            HorizontalScrollMode="Enabled"
+            HorizontalScrollBarVisibility="Hidden"
+            IsHorizontalScrollChainingEnabled="True"
+          
+            VerticalScrollMode="Disabled"
+            VerticalScrollBarVisibility="Disabled"
+            IsVerticalScrollChainingEnabled="False"
+            >
+            <instruments:PianoTopPanel
+                 x:Name="PianoTopPanel"
+                 Label="CDE"
+                 ItemSize="28"
+                 WhiteSize="250" 
+                 BlackSize="150" 
+                 Command="{x:Bind Command}"
+                 />
+        </ScrollViewer>
+    </Grid>
 
-                    <!--Keyboard-->
-                    <Grid RowSpacing="2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="36"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <instruments:PianoHorizontalScrollBar RequestedTheme="Dark" ItemSize="28" ScrollViewer="{x:Bind NoteScrollViewer}"/>
-                        <ScrollViewer
-                            x:Name="NoteScrollViewer"
-                            Grid.Row="1"
-                            ZoomMode="Disabled"
-                            
-                            HorizontalScrollMode="Enabled"
-                            HorizontalScrollBarVisibility="Hidden"
-                            IsHorizontalScrollChainingEnabled="True"
-                          
-                            VerticalScrollMode="Disabled"
-                            VerticalScrollBarVisibility="Disabled"
-                            IsVerticalScrollChainingEnabled="False"
-                            >
-                            <instruments:PianoTopPanel
-                                 x:Name="PianoTopPanel"
-                                 Label="CDE"
-                                 ItemSize="28"
-                                 WhiteSize="250" 
-                                 BlackSize="150" 
-                                 Command="{x:Bind Command}"
-                                 />
-                        </ScrollViewer>
-                    </Grid>
-
-                </Border>
-            </Border>
-        </Border>
-    </Border>
 </Page>
