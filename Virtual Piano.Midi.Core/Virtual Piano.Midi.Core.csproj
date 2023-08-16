@@ -145,7 +145,10 @@
     <Compile Include="Interfaces\Panels\IKitPanel.cs" />
     <Compile Include="Interfaces\Panels\IHarpPanel.cs" />
     <Compile Include="Interfaces\Panels\IPianoPanel.cs" />
+    <Compile Include="Models\InstrumentItem.cs" />
     <Compile Include="Models\InstrumentItemCategory.cs" />
+    <Compile Include="Models\InstrumentItemGrouping.cs" />
+    <Compile Include="Models\InstrumentObservableCollection.cs" />
     <Compile Include="Models\KeyABCDictionary.cs" />
     <Compile Include="Models\KeyDictionary.cs" />
     <Compile Include="Models\KeyDrumDictionary.cs" />
