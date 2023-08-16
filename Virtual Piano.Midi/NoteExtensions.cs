@@ -56,6 +56,8 @@ namespace Virtual_Piano.Midi
             }
         }
 
+        public static int ToInedx(this MidiNote note) => NoteExtensions.NoteCount - (byte)note - 1;
+
         public static int ToIndex(this Tone item)
         {
             switch (item)

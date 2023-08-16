@@ -112,7 +112,7 @@ namespace Virtual_Piano.Midi.Controllers
                             Height = TrackLayout.Spacing
                         };
 
-                        var i = NoteExtensions.NoteCount - (byte)item - 1;
+                        var i = item.ToInedx();
                         var y = i * TrackLayout.Spacing;
 
                         Canvas.SetTop(rect, y);
