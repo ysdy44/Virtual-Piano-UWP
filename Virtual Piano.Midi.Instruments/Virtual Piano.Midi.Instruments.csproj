@@ -125,9 +125,6 @@
       <DependentUpon>ChordPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Drums\DrumButton.cs" />
-    <Compile Include="Drums\DrumMask.xaml.cs">
-      <DependentUpon>DrumMask.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Drums\DrumPanel.xaml.cs">
       <DependentUpon>DrumPanel.xaml</DependentUpon>
     </Compile>
@@ -203,10 +200,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Chords\ChordPanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Drums\DrumMask.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
