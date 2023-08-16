@@ -1,4 +1,4 @@
-﻿<Page
+<Page
     x:Class="Virtual_Piano.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -36,6 +36,7 @@
             -->
 
             <!--Head-->
+            <!--
             <ScrollViewer 
                 ZoomMode="Disabled"
                  
@@ -48,7 +49,9 @@
                 IsVerticalScrollChainingEnabled="False"
                 >
                 <FrameworkElement.Resources>
+                    -->
                     <!--Style-->
+                    <!--
                     <Style TargetType="Button" BasedOn="{StaticResource TextBlockButtonStyle}">
                         <Setter Property="MinWidth" Value="44" />
                         <Setter Property="Height" Value="36" />
@@ -205,7 +208,9 @@
                             <TextBlock>
                                 <Run></Run>
                                 <Run FontSize="14" Text="{x:Bind TempoSlider.Value,Mode=OneWay}">
+                                    -->
                                     <!--Text-->
+                                    <!--
                                 </Run><Run FontSize="14">.</Run><Run>00</Run>
                                 <LineBreak/>
                                 <Run>Tempo</Run>
@@ -225,8 +230,10 @@
 
                 </StackPanel>
             </ScrollViewer>
+            -->
 
             <!--Body-->
+            <!--
             <SplitView
                 Grid.Row="1"
                 DisplayMode="Inline"
@@ -235,7 +242,9 @@
                 PaneBackground="{x:Null}"
                 IsPaneOpen="{x:Bind ReverseBooleanNullableToBooleanConverter(DockLeftButton.IsChecked), Mode=OneWay}" 
                 >
+                -->
                 <!--Left-->
+                <!--
                 <SplitView.Pane>
                     <Grid Margin="4,0,0,6">
                         <Grid.RowDefinitions>
@@ -244,8 +253,10 @@
                             <RowDefinition Height="6"/>
                             <RowDefinition Height="82"/>
                         </Grid.RowDefinitions>
+                        -->
 
                         <!--Head-->
+                        <!--
                         <ListView
                             SelectedIndex="1"
                             SelectionMode="Single"
@@ -309,23 +320,31 @@
                             </ListViewItem>
 
                         </ListView>
+                        -->
 
                         <!--Body-->
+                        <!--
                         <Grid Grid.Row="1">
 
-                            <!--Sounds-->
+                        -->
+                        <!--Sounds-->
+                        <!--
                             <controls:InstrumentSplitView InstrumentGroupPanel="{x:Bind InstrumentGroupPanel}" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem41.IsSelected), Mode=OneWay}">
                                 <ScrollViewer>
                                     <controls:InstrumentGroupPanel x:Name="InstrumentGroupPanel" Command="{x:Bind Command}"/>
                                 </ScrollViewer>
                             </controls:InstrumentSplitView>
 
+                            -->
                             <!--Favorite-->
+                            <!--
                             <ScrollViewer Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem42.IsSelected), Mode=OneWay}">
                                 <controls:InstrumentCollectionPanel ObservableCollection="{x:Bind Favorites}" Command="{x:Bind Command}"/>
                             </ScrollViewer>
 
+                            -->
                             <!--Pedal-->
+                            <!--
                             <Grid ColumnSpacing="6" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem43.IsSelected), Mode=OneWay}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*"/>
@@ -344,8 +363,10 @@
                             </Grid>
 
                         </Grid>
+                        -->
 
                         <!--Bar-->
+                        <!--
                         <Grid Grid.Row="3" CornerRadius="6" Background="{ThemeResource AppForeground}">
 
                             <Button 
@@ -384,7 +405,9 @@
 
                     </Grid>
                 </SplitView.Pane>
+                -->
 
+                <!--
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="60"/>
@@ -392,7 +415,9 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
+                    -->
                     <!--Bar-->
+                    <!--
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="44"/>
@@ -472,8 +497,10 @@
                         </ToggleButton>
 
                     </Grid>
-
+            
+                    -->
                     <!--Separator-->
+                    <!--
                     <Rectangle Grid.Column="1" Fill="{ThemeResource AppStroke}"/>
 
                     <Grid Grid.Column="2">
@@ -484,8 +511,10 @@
 
                 </Grid>
             </SplitView>
+            -->
 
             <!--ProgressBar-->
+            <!--
             <ProgressBar 
                 x:Name="ProgressBar" 
                 Grid.Row="2"
@@ -493,6 +522,7 @@
                 Value="0"
                 Background="{ThemeResource AppStroke}"
                 />
+            -->
 
             <!--Head-->
             <ListView
@@ -663,7 +693,7 @@
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(7)}"/>
                                     </MenuFlyoutItem.Icon>
                                 </MenuFlyoutItem>
-                                
+
                                 <!--Machine-->
                                 <MenuFlyoutItem 
                                     Command="{x:Bind Command}" 
@@ -929,6 +959,6 @@
             </StackPanel>
 
         </Grid>
-
+        
     </Grid>
 </Page>
