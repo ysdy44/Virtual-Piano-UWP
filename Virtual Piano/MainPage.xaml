@@ -749,11 +749,10 @@
             </ListView>
 
             <!--Foot-->
-            <StackPanel Grid.Row="4" MinHeight="240" Visibility="{x:Bind BooleanNullableToVisibilityConverter(DockButton.IsChecked), Mode=OneWay}">
+            <Grid Grid.Row="4" >
 
                 <!--Piano-->
                 <SplitView
-                    Height="240"
                     DisplayMode="Inline"
                     OpenPaneLength="192"
                     IsPaneOpen="{x:Bind BendItem.IsChecked, Mode=OneWay}" 
@@ -796,7 +795,7 @@
                     </Grid>
 
                     <SplitView.Pane>
-                        <StackPanel Margin="0,4" Orientation="Horizontal" HorizontalAlignment="Center" BorderThickness="2" BorderBrush="{ThemeResource AppBorderBrush}">
+                        <StackPanel Margin="0,4" MaxHeight="320" Orientation="Horizontal" HorizontalAlignment="Center" BorderThickness="2" BorderBrush="{ThemeResource AppBorderBrush}">
                             <controllers:BendPitchWheel BorderBrush="{ThemeResource AppBorderBrush}" Background="{ThemeResource AppBorderBrush}" Foreground="{ThemeResource AppFill}" Command="{x:Bind Command}">
                                 Pitch
                             </controllers:BendPitchWheel>
@@ -811,7 +810,15 @@
                 </SplitView>
 
                 <!--Chord-->
-                <Grid ColumnSpacing="3" Margin="4" Height="232" MaxWidth="900" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}">
+                <Grid 
+                    ColumnSpacing="3" 
+                    Margin="4" 
+                    MinWidth="400" 
+                    MinHeight="232" 
+                    MaxHeight="520" 
+                    MaxWidth="900" 
+                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
+                    >
                     <FrameworkElement.Resources>
                         <!--Style-->
                         <Style TargetType="Border">
@@ -852,7 +859,7 @@
                 </Grid>
 
                 <!--Guitar-->
-                <Grid Height="240" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}">
+                <Grid MinHeight="240" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="60"/>
                         <ColumnDefinition Width="*"/>
@@ -878,7 +885,7 @@
                 </Grid>
 
                 <!--Bass-->
-                <Grid Height="240" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
+                <Grid MinHeight="240" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="60"/>
                         <ColumnDefinition Width="*"/>
@@ -905,7 +912,7 @@
 
                 <!--Harp-->
                 <ScrollViewer
-                    Height="240"
+                    MaxHeight="400" 
                     ZoomMode="Disabled"
                      
                     HorizontalScrollMode="Enabled"
@@ -918,18 +925,19 @@
                     
                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}"
                     >
-                    <instruments:HarpPanel Command="{x:Bind Command}"/>
+                    <instruments:HarpPanel MinHeight="220" Command="{x:Bind Command}"/>
                 </ScrollViewer>
 
                 <!--Kit-->
                 <Border
                     Margin="2"
-                    Height="236"
                     CornerRadius="4"
-                    Background="{ThemeResource AppBackground}"
                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem5.IsSelected), Mode=OneWay}"
                     >
-                    <Viewbox>
+                    <Viewbox
+                        MinHeight="236"
+                        MaxHeight="640"
+                        >
                         <controls:KitPanel x:Name="KitPanel" Command="{x:Bind Command}"/>
                     </Viewbox>
                 </Border>
@@ -937,26 +945,30 @@
                 <!--Pad-->
                 <controls:PadPanel 
                     x:Name="PadPanel"
-                    Height="240"
+                    MinHeight="240"
+                    MaxHeight="540"
                     Command="{x:Bind Command}"
                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem6.IsSelected), Mode=OneWay}"
                     />
 
                 <!--Drum-->
-                <ScrollViewer x:Name="DrumScrollViewer" Height="240" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem7.IsSelected), Mode=OneWay}">
-                    <controls:DrumPanel x:Name="DrumPanel" Command="{x:Bind Command}"/>
+                <ScrollViewer 
+                    x:Name="DrumScrollViewer" 
+                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem7.IsSelected), Mode=OneWay}"
+                    >
+                    <controls:DrumPanel x:Name="DrumPanel" MinHeight="240" Command="{x:Bind Command}"/>
                 </ScrollViewer>
 
                 <!--Machine-->
                 <controllers:MachinePanel 
                     x:Name="MachinePanel" 
-                    Height="240"
+                    MinHeight="240"
                     Command="{x:Bind Command}" 
                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem8.IsSelected), Mode=OneWay}"
                     Background="{ThemeResource AppBackground}"
                     />
 
-            </StackPanel>
+            </Grid>
 
         </Grid>
         
