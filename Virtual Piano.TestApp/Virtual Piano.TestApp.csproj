@@ -137,6 +137,9 @@
     <Compile Include="EmojiPage.xaml.cs">
       <DependentUpon>EmojiPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InstrumentCarouselPage.xaml.cs">
+      <DependentUpon>InstrumentCarouselPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -198,6 +201,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EmojiPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InstrumentCarouselPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
