@@ -18,15 +18,136 @@
         <elements:ApplicationTitleBarExtension x:Name="ApplicationView" TitleBarColor="{ThemeResource AppBackgroundColor}"/>
     </FrameworkElement.Tag>
 
-    <Grid>
+    <FrameworkElement.Resources>
+        <CollectionViewSource x:Name="Collection" IsSourceGrouped="True">
+            <CollectionViewSource.Source>
+                <controls:InstrumentGroupingCollection/>
+            </CollectionViewSource.Source>
+            <!--Source-->
+        </CollectionViewSource>
+    </FrameworkElement.Resources>
+
+    <SplitView
+        x:Name="SplitView"
+        DisplayMode="Inline"
+        IsPaneOpen="False"
+        OpenPaneLength="280"
+        PaneBackground="{ThemeResource AppBackground}"
+        Background="{x:Null}"
+        >
+
+        <!--VisualState-->
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+
+                <!--Phone-->
+                <VisualState x:Name="Phone">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--SplitView-->
+                        <Setter Target="SplitView.DisplayMode" Value="Overlay"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!--Pad-->
+                <VisualState x:Name="Pad">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--SplitView-->
+                        <!--<Setter Target="SplitView.DisplayMode" Value="CompactOverlay"/>-->
+                        <Setter Target="SplitView.DisplayMode" Value="Overlay"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!--PC-->
+                <VisualState x:Name="PC">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <SplitView.Pane>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="82"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <ListView
+                    x:Name="ListView"
+                    Grid.Row="2"
+                    SelectionMode="None"
+                    IsItemClickEnabled="True"
+                    ItemsSource="{x:Bind Collection.View}"
+                    >
+                    <ItemsControl.GroupStyle>
+                        <GroupStyle/>
+                    </ItemsControl.GroupStyle>
+                    <!--Items-->
+                </ListView>
+
+                <Grid Background="{ThemeResource AppForeground}">
+
+                    <Button 
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        CommandParameter="{x:Bind DemoNote}"
+                        Command="{x:Bind Command}"
+                        Style="{StaticResource TextBlockButtonStyle}"
+                        >
+                        <StackPanel Spacing="2">
+                            <TextBlock FontSize="32" IsColorFontEnabled="False" HorizontalAlignment="Center" Text="{x:Bind Favorites.Emoji, Mode=OneWay}"/>
+                            <TextBlock FontSize="14" HorizontalAlignment="Center" Text="{x:Bind Favorites.String, Mode=OneWay}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <elements:CommandCheckedButton
+                        Width="44" 
+                        Height="44" 
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        IsChecked="{x:Bind Favorites.IsContains, Mode=OneWay}"
+                        UncheckedSymbol="OutlineStar"
+                        CheckedSymbol="SolidStar"
+                        CommandParameter="{x:Bind Favorites.IsContains, Mode=OneWay}"
+                        Command="{x:Bind Favorites.Command}"
+                        Style="{StaticResource TextBlockButtonStyle}"
+                        >
+                        <ToolTipService.ToolTip>
+                            <ToolTip>
+                                Favorite
+                            </ToolTip>
+                        </ToolTipService.ToolTip>
+                    </elements:CommandCheckedButton>
+
+                </Grid>
+
+            </Grid>
+        </SplitView.Pane>
 
         <Grid>
+            <!--
             <Grid.RowDefinitions>
                 <RowDefinition Height="44"/>
                 <RowDefinition Height="*" MinHeight="200"/>
                 <RowDefinition Height="4"/>
                 <RowDefinition Height="44"/>
                 <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            -->
+
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <!--Title
@@ -526,10 +647,9 @@
 
             <!--Head-->
             <ListView
-                Grid.Row="3"
                 RequestedTheme="Dark"
                 SelectedIndex="0"
-                SelectionMode="Extended"
+                SelectionMode="Single"
          
                 ScrollViewer.ZoomMode="Disabled"
               
@@ -557,14 +677,14 @@
                 </ItemsControl.ItemContainerStyle>
 
                 <ListViewBase.Header>
-                    <ToggleButton x:Name="DockButton" IsChecked="False" Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
+                    <Button x:Name="SplitButton" Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
                         <ToolTipService.ToolTip>
                             <ToolTip>
-                                Dock
+                                Split
                             </ToolTip>
                         </ToolTipService.ToolTip>
-                        <SymbolIcon Symbol="DockBottom"/>
-                    </ToggleButton>
+                        <SymbolIcon Symbol="GlobalNavigationButton"/>
+                    </Button>
                 </ListViewBase.Header>
 
                 <ListViewBase.Footer>
@@ -591,7 +711,7 @@
                                 <MenuFlyoutSeparator Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"/>
                                 <ToggleMenuFlyoutItem
                                     x:Name="BendItem"
-                                    IsChecked="True" 
+                                    IsChecked="False" 
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
                                     >
                                     <MenuFlyoutItem.Icon>
@@ -749,7 +869,7 @@
             </ListView>
 
             <!--Foot-->
-            <Grid Grid.Row="4" >
+            <Grid Grid.Row="1" >
 
                 <!--Piano-->
                 <SplitView
@@ -971,6 +1091,6 @@
             </Grid>
 
         </Grid>
-        
-    </Grid>
+    
+    </SplitView>
 </Page>

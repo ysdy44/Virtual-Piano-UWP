@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Virtual_Piano.Midi;
@@ -27,7 +27,9 @@ namespace Virtual_Piano
         MidiSynthesizer Synthesizer;
         readonly IKeyDictionary WhiteKeys = new KeyQWERTDictionary(ToneType.White);
         readonly IKeyDictionary BlackKeys = new KeyQWERTDictionary(ToneType.Black);
+        /*
         readonly ObservableCollection<ContentControl> ItemsSource = new ObservableCollection<ContentControl>();
+         */
 
         readonly MidiNote DemoNote = MidiNote.C5;
         readonly Controls.InstrumentObservableCollection Favorites = new Controls.InstrumentObservableCollection
@@ -72,19 +74,12 @@ namespace Virtual_Piano
             MidiProgram.Seashore,
             MidiProgram.Applause,
             MidiProgram.Gunshot,
-        }; 
-        
+        };
+
         readonly MidiInstrumentDictionary InstrumentDictionary = new MidiInstrumentDictionary();
         readonly MidiInstrumentDictionary InstrumentDictionary2 = new MidiInstrumentDictionary();
         Geometry InstrumentData(int index) => this.InstrumentDictionary[(MidiInstrument)index];
         Geometry InstrumentData2(int index) => this.InstrumentDictionary2[(MidiInstrument)index];
-        Geometry Piano => this.InstrumentDictionary[MidiInstrument.Piano];
-        Geometry Chord => this.InstrumentDictionary[MidiInstrument.Chord];
-        Geometry Machine => this.InstrumentDictionary[MidiInstrument.Machine];
-        Geometry Drum => this.InstrumentDictionary[MidiInstrument.Drum];
-        Geometry Guitar => this.InstrumentDictionary[MidiInstrument.Guitar];
-        Geometry Bass => this.InstrumentDictionary[MidiInstrument.Bass];
-        Geometry Harp => this.InstrumentDictionary[MidiInstrument.Harp];
 
         //@Construct
         ~MainPage()
@@ -109,6 +104,19 @@ namespace Virtual_Piano
                 Window.Current.CoreWindow.KeyUp += this.CoreKeyUp;
                 Window.Current.CoreWindow.KeyDown += this.CoreKeyDown;
             };
+
+            this.SplitButton.Click += (s, e) =>
+            {
+                this.SplitView.IsPaneOpen = !this.SplitView.IsPaneOpen;
+            };
+            this.ListView.ItemClick += (s, e) =>
+            {
+                if (e.ClickedItem is InstrumentItem item)
+                {
+                    this.Favorites.Instrument = item.Key;
+                }
+            };
+
             this.DrumScrollViewer.SizeChanged += (s, e) =>
             {
                 if (e.NewSize == Size.Empty) return;
