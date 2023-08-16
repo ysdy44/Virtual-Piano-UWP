@@ -2,22 +2,41 @@
 using System.Collections.Generic;
 using System.Linq;
 using Virtual_Piano.Midi;
+using Virtual_Piano.Midi.Core;
 using Windows.Devices.Midi;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
 namespace Virtual_Piano.TestApp
 {
-    internal sealed class ProgramGrouping : List<MidiProgram>, IList<MidiProgram>, IGrouping<MidiProgramGroup, MidiProgram>
+    public sealed class InstrumentGroupingCollection : List<InstrumentItemGrouping>
     {
-        public MidiProgramGroup Key { get; }
-        public ProgramGrouping(MidiProgramGroup key, IEnumerable<MidiProgram> collection) : base(collection) => this.Key = key;
-        public override string ToString() => this.Key.ToString();
+        public InstrumentGroupingCollection() : base(GetItemsSource()) { }
+
+        private static IEnumerable<InstrumentItemGrouping> GetItemsSource()
+        {
+            foreach (var item in MidiProgramFactory.Instance)
+            {
+                foreach (var item2 in item.Value)
+                {
+                    yield return new InstrumentItemGrouping(item2.Value.Select(GetItem))
+                    {
+                        Key = item2.Key,
+                        Text = $"{item2.Key}"
+                    };
+                }
+            }
+        }
+
+        private static InstrumentItem GetItem(MidiProgram item) => new InstrumentItem
+        {
+            Key = item,
+            Text = $"{item}"
+        };
     }
 
     public sealed partial class MidiProgramPage : Page
     {
-        private ProgramGrouping[] Groupings => MidiProgramPage.GetItemsSource().ToArray();
         private int[] ItemsSource => System.Linq.Enumerable.Range(0, 128).ToArray();
 
         readonly byte Channel = 0;
@@ -45,17 +64,6 @@ namespace Virtual_Piano.TestApp
                     this.Note = (byte)n;
                 }
             };
-        }
-
-        private static IEnumerable<ProgramGrouping> GetItemsSource()
-        {
-            foreach (var item in MidiProgramFactory.Instance)
-            {
-                foreach (var item2 in item.Value)
-                {
-                    yield return new ProgramGrouping(item2.Key, item2.Value);
-                }
-            }
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
