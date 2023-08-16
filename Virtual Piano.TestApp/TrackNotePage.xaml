@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="Virtual_Piano.TestApp.TrackNotePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:elements="using:Virtual_Piano.Elements"
+    xmlns:controllers="using:Virtual_Piano.Midi.Controllers"
+    xmlns:instruments="using:Virtual_Piano.Midi.Instruments"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    >
+
+    <SplitView
+        DisplayMode="Inline"
+        OpenPaneLength="240"
+        IsPaneOpen="True" 
+        >
+        <SplitView.Pane>
+            <ListView
+                 x:Name="TrackListView"
+                 SelectionMode="None"
+                 IsItemClickEnabled="True"
+                 >
+                <ListView.Header>
+                    <Button x:Name="Button" HorizontalAlignment="Stretch">
+                        Pick
+                    </Button>
+                </ListView.Header>
+                <ListView.Footer>
+                    <elements:DSTimer x:Name="DSTimer"/>
+                </ListView.Footer>
+            </ListView>
+        </SplitView.Pane>
+
+        <controllers:TrackNotePanel x:Name="TrackNotePanel">
+            <instruments:PianoLeftPanel/>
+        </controllers:TrackNotePanel>
+    </SplitView>
+</Page>

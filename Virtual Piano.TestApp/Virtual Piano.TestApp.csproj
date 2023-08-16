@@ -150,6 +150,9 @@
       <DependentUpon>MidiProgramPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrackNotePage.xaml.cs">
+      <DependentUpon>TrackNotePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="XamlPathIconPage.xaml.cs">
       <DependentUpon>XamlPathIconPage.xaml</DependentUpon>
     </Compile>
@@ -211,6 +214,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MidiProgramPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TrackNotePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
