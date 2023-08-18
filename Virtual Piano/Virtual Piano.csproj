@@ -131,14 +131,15 @@
     <Compile Include="Controls\PadFlyout.cs" />
     <Compile Include="Controls\PadPanel.cs" />
     <Compile Include="Enums\OptionType.cs" />
+    <Compile Include="Enums\UIType.cs" />
     <Compile Include="MainPage.Click.cs" />
     <Compile Include="MainPage.UI.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Strings\OptionExtension.cs" />
     <Compile Include="Strings\OptionTypeExtension.cs" />
+    <Compile Include="Strings\UIExtension.cs" />
     <Compile Include="Views\BassView.xaml.cs">
       <DependentUpon>BassView.xaml</DependentUpon>
     </Compile>
