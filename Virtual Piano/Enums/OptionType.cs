@@ -10,6 +10,8 @@
         MetronomeStart,
         MetronomeStop,
 
+        LanguageTip,
+
 
         TryShowPianoView,
         TryShowChordView,

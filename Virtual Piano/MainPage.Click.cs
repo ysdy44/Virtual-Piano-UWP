@@ -69,6 +69,10 @@ namespace Virtual_Piano
                     this.ClickMetronomeStop();
                     break;
 
+                case OptionType.LanguageTip:
+                    await Windows.ApplicationModel.Core.CoreApplication.RequestRestartAsync(string.Empty);
+                    break;
+
                 case OptionType.TryShowPianoView:
                     for (int i = 0; i < 3; i++)
                         if (this.PianoViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewPianoView);
