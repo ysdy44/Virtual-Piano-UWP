@@ -82,6 +82,18 @@ namespace Virtual_Piano
                     await Windows.ApplicationModel.Core.CoreApplication.RequestRestartAsync(string.Empty);
                     break;
 
+                case OptionType.Mute:
+                    this.ClickMute();
+                    this.Synthesizer.ControlChange(MidiControlController.MainVolume, 0);
+                    this.Synthesizer.ControlChange(MidiControlController.MainVolume, 0, 9);
+                    break;
+                case OptionType.Volume:
+                    this.ClickVolume();
+                    this.Synthesizer.ControlChange(MidiControlController.MainVolume, 127);
+                    this.Synthesizer.ControlChange(MidiControlController.MainVolume, 127, 9);
+                    break;
+
+
                 case OptionType.TryShowPianoView:
                     for (int i = 0; i < 3; i++)
                         if (this.PianoViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewPianoView);

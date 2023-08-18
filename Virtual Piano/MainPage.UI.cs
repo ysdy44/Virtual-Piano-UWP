@@ -73,5 +73,11 @@ namespace Virtual_Piano
             return ElementTheme.Dark;
         }
 
+        public void ClickMute()
+        {
+        }
+        public void ClickVolume()
+        {
+        }
     }
 }

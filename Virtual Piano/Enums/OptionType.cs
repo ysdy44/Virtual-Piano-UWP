@@ -12,6 +12,9 @@
 
         LanguageTip,
 
+        Mute,
+        Volume,
+
 
         TryShowPianoView,
         TryShowChordView,
