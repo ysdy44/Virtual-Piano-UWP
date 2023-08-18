@@ -1156,7 +1156,31 @@
                     </elements:PathToggleButton>
                     <SymbolIcon IsHitTestVisible="False" Canvas.Left="119" Canvas.Top="33" Width="24" Height="24" Symbol="{x:Bind FullScreenSymbolConverter(FullScreenButton.IsChecked), Mode=OneWay}"/>
 
-                    
+
+                    <!--Metronome-->
+                    <elements:PathToggleButton
+                        x:Name="MetronomeButton" 
+                        UncheckedCommandParameter="{strings:OptionType Type=MetronomeStart}" 
+                        CheckedCommandParameter="{strings:OptionType Type=MetronomeStop}"
+                        Background="{ThemeResource AppBackground}" 
+                        Command="{x:Bind Command}"
+                        Data="{x:Bind RouletterData(1)}"
+                        >
+                        <ToolTipService.ToolTip>
+                            <ToolTip Placement="Bottom">
+                                Metronome
+                            </ToolTip>
+                        </ToolTipService.ToolTip>
+                    </elements:PathToggleButton>
+                    <Border IsHitTestVisible="False" Canvas.Left="151" Canvas.Top="88" Width="24" Height="24">
+                        <PathIcon>
+                            <PathIcon.Data>
+                                M4.23,6.891L1.133,3.201L0,4.152L3.653,8.505L0.096,18.444L0.158,18.9L1.325,20.557L1.733,20.769L17.851,20.769L18.26,20.557L19.427,18.9L19.489,18.444L13.007,0.332L12.537,0L7.048,0L6.577,0.332L4.23,6.891ZM2.148,15.678L9.091,15.678L9.091,14.987L4.397,9.392L2.148,15.678ZM4.974,7.779L9.091,12.685L9.091,5.747L10.571,5.747L10.571,14.448L11.603,15.678L17.437,15.678L12.185,1L7.4,1L4.974,7.779Z
+                            </PathIcon.Data>
+                        </PathIcon>
+                    </Border>
+
+                
                 </elements:AnimationRouletter>
 
                 <!--MarbleButton-->

@@ -145,6 +145,24 @@ namespace Virtual_Piano
 
                 this.DrumPanel.UpdateWidthCount(e.NewSize.Width);
             };
+
+            this.MetronomeTimer.Tick += async (s, e) =>
+            {
+                this.MetronomeIndex++;
+                switch (this.MetronomeIndex % 4)
+                {
+                    case 0:
+                        this.Synthesizer.NoteOn(MidiPercussionNote.MetronomeBell);
+                        await System.Threading.Tasks.Task.Delay(1000);
+                        this.Synthesizer.NoteOff(MidiPercussionNote.MetronomeBell);
+                        break;
+                    default:
+                        this.Synthesizer.NoteOn(MidiPercussionNote.MetronomeClick);
+                        await System.Threading.Tasks.Task.Delay(1000);
+                        this.Synthesizer.NoteOff(MidiPercussionNote.MetronomeClick);
+                        break;
+                }
+            };
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)

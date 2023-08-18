@@ -44,10 +44,12 @@ namespace Virtual_Piano
         public void ClickMetronomeStart()
         {
             this.MetronomeTimer.Start();
+            this.MetronomeButton.IsChecked = true;
         }
         public void ClickMetronomeStop()
         {
             this.MetronomeTimer.Stop();
+            this.MetronomeButton.IsChecked = false;
         }
     }
 }
