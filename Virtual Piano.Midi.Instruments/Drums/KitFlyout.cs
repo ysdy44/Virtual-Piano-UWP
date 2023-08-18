@@ -39,9 +39,11 @@ namespace Virtual_Piano.Midi.Instruments
         public bool CanExecute(object parameter) => true;
         public void Execute(object parameter)
         {
+            if (this.KitPanel is null) return;
+
             if (parameter is KitSet item)
             {
-                this.KitPanel?.OnClick(item);
+                this.KitPanel.Execute(item);
             }
         }
 
