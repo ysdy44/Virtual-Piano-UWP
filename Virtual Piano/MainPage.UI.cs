@@ -23,5 +23,20 @@ namespace Virtual_Piano
                 this.Rouletter.Show();
             }
         }
+
+        public void ClickFullScreen()
+        {
+            if (this.ApplicationView.IsFullScreenMode)
+            {
+                this.ClickUnFullScreen();
+            }
+            else if (this.ApplicationView.TryEnterFullScreenMode())
+            {
+            }
+        }
+        public void ClickUnFullScreen()
+        {
+            this.ApplicationView.ExitFullScreenMode();
+        }
     }
 }

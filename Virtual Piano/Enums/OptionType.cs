@@ -4,6 +4,9 @@
     {
         Roulette,
 
+        FullScreen,
+        UnFullScreen,
+
 
         TryShowPianoView,
         TryShowChordView,

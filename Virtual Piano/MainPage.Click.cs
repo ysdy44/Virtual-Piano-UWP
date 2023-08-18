@@ -55,6 +55,13 @@ namespace Virtual_Piano
                     this.ClickRoulette();
                     break;
 
+                case OptionType.FullScreen:
+                    this.ClickFullScreen();
+                    break;
+                case OptionType.UnFullScreen:
+                    this.ClickUnFullScreen();
+                    break;
+
                 case OptionType.TryShowPianoView:
                     for (int i = 0; i < 3; i++)
                         if (this.PianoViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewPianoView);
