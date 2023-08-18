@@ -59,8 +59,67 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <!--Separator 0-->
+  <data name='Name' xml:space='preserve'> <value>V Piano</value> </data>
+  <data name='Version' xml:space='preserve'> <value>1.0.0</value> </data>
+  <data name='Github' xml:space='preserve'> <value>Virtual-Piano-UWP</value> </data>
+  <data name='Feedback' xml:space='preserve'> <value>ysdy44@outlook.com</value> </data>
   <!--Separator 1-->
+  <data name='VersionTitle' xml:space='preserve'> <value>الإصدار</value> </data>
+  <data name='GithubTitle' xml:space='preserve'> <value>Github</value> </data>
+  <data name='FeedbackTitle' xml:space='preserve'> <value>ردود الفعل</value> </data>
+  <data name='GithubLink' xml:space='preserve'> <value>https://github.com/ysdy44/Virtual-Piano-UWP</value> </data>
+  <data name='FeedbackLink' xml:space='preserve'> <value>mailto:ysdy44@outlook.com</value> </data>
   <!--Separator 2-->
+  <data name='Cancel' xml:space='preserve'> <value>يلغي</value> </data>
+  <data name='OK' xml:space='preserve'> <value>موافق</value> </data>
+  <data name='About' xml:space='preserve'> <value>حول...</value> </data>
+  <data name='Setting' xml:space='preserve'> <value>اقامة</value> </data>
+  <data name='Split' xml:space='preserve'> <value>انشق، مزق</value> </data>
+  <data name='More' xml:space='preserve'> <value>أكثر</value> </data>
+  <data name='Tutorial' xml:space='preserve'> <value>دروس</value> </data>
+  <data name='Metronome' xml:space='preserve'> <value>المسرع</value> </data>
+  <data name='Mute' xml:space='preserve'> <value>أخرس</value> </data>
+  <data name='FullScreen' xml:space='preserve'> <value>تكبير الشاشة</value> </data>
+  <data name='UnFullScreen' xml:space='preserve'> <value>الخروج من وضع ملئ للشاشة</value> </data>
+  <data name='Favorite' xml:space='preserve'> <value>مفضل</value> </data>
+  <data name='UnFavorite' xml:space='preserve'> <value>غير مفضل</value> </data>
+  <data name='Theme' xml:space='preserve'> <value>سمة</value> </data>
+  <data name='ThemeLight' xml:space='preserve'> <value>خفيفة</value> </data>
+  <data name='ThemeDark' xml:space='preserve'> <value>داكن</value> </data>
+  <data name='ThemeUseSystem' xml:space='preserve'> <value>استخدم النظام</value> </data>
+  <data name='Language' xml:space='preserve'> <value>لغة</value> </data>
+  <data name='LanguageTip' xml:space='preserve'> <value>أعد تشغيل التطبيق لمشاهدة التغييرات.</value> </data>
+  <data name='LanguageUseSystemSetting' xml:space='preserve'> <value>استخدم إعدادات النظام</value> </data>
+  <data name='DockLeft' xml:space='preserve'> <value>قفص الاتهام اليسار</value> </data>
+  <data name='DockRight' xml:space='preserve'> <value>قفص الاتهام الحق</value> </data>
+  <data name='DockBottom' xml:space='preserve'> <value>قفص الاتهام القاع</value> </data>
+  <data name='Bends' xml:space='preserve'> <value>الانحناءات</value> </data>
+  <data name='BendPitch' xml:space='preserve'> <value>زفت</value> </data>
+  <data name='BendModulation' xml:space='preserve'> <value>تعديل</value> </data>
+  <data name='BendPressure' xml:space='preserve'> <value>ضغط</value> </data>
+  <data name='Pedals' xml:space='preserve'> <value>الدواسات</value> </data>
+  <data name='PedalSustain' xml:space='preserve'> <value>الحفاظ</value> </data>
+  <data name='PedalSoftPedal' xml:space='preserve'> <value>دواسة ناعمة</value> </data>
+  <data name='PedalSostenuto' xml:space='preserve'> <value>سوستنوتو</value> </data>
+  <data name='PedalExpression' xml:space='preserve'> <value>تعبير</value> </data>
+  <data name='PianoView' xml:space='preserve'> <value>بيانو</value> </data>
+  <data name='ChordView' xml:space='preserve'> <value>وتر البيانو</value> </data>
+  <data name='GuitarView' xml:space='preserve'> <value>قيثارة</value> </data>
+  <data name='BassView' xml:space='preserve'> <value>جيتار باس</value> </data>
+  <data name='HarpView' xml:space='preserve'> <value>جنك</value> </data>
+  <data name='KitView' xml:space='preserve'> <value>مجموعة طبل</value> </data>
+  <data name='PadView' xml:space='preserve'> <value>منصات طبل</value> </data>
+  <data name='DrumView' xml:space='preserve'> <value>طبل</value> </data>
+  <data name='MachineView' xml:space='preserve'> <value>آلات الطبل</value> </data>
+  <data name='TryShowPianoView' xml:space='preserve'> <value>عرض عرض البيانو</value> </data>
+  <data name='TryShowChordView' xml:space='preserve'> <value>عرض وتر البيانو</value> </data>
+  <data name='TryShowGuitarView' xml:space='preserve'> <value>عرض عرض الغيتار</value> </data>
+  <data name='TryShowBassView' xml:space='preserve'> <value>عرض عرض جيتار باس</value> </data>
+  <data name='TryShowHarpView' xml:space='preserve'> <value>عرض عرض القيثارة</value> </data>
+  <data name='TryShowKitView' xml:space='preserve'> <value>إظهار عرض مجموعة مجموعة الأسطوانة</value> </data>
+  <data name='TryShowPadView' xml:space='preserve'> <value>عرض منصات الطبل</value> </data>
+  <data name='TryShowDrumView' xml:space='preserve'> <value>عرض الطبل</value> </data>
+  <data name='TryShowMachineView' xml:space='preserve'> <value>عرض آلات الطبل عرض</value> </data>
   <!--Separator 3-->
   <data name='Drum' xml:space='preserve'> <value>Drumkit</value> </data>
   <data name='Hat' xml:space='preserve'> <value>Hi-hat</value> </data>

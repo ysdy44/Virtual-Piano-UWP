@@ -59,8 +59,67 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <!--Separator 0-->
+  <data name='Name' xml:space='preserve'> <value>V Piano</value> </data>
+  <data name='Version' xml:space='preserve'> <value>1.0.0</value> </data>
+  <data name='Github' xml:space='preserve'> <value>Virtual-Piano-UWP</value> </data>
+  <data name='Feedback' xml:space='preserve'> <value>ysdy44@outlook.com</value> </data>
   <!--Separator 1-->
+  <data name='VersionTitle' xml:space='preserve'> <value>Versione</value> </data>
+  <data name='GithubTitle' xml:space='preserve'> <value>Github</value> </data>
+  <data name='FeedbackTitle' xml:space='preserve'> <value>Valutazione</value> </data>
+  <data name='GithubLink' xml:space='preserve'> <value>https://github.com/ysdy44/Virtual-Piano-UWP</value> </data>
+  <data name='FeedbackLink' xml:space='preserve'> <value>mailto:ysdy44@outlook.com</value> </data>
   <!--Separator 2-->
+  <data name='Cancel' xml:space='preserve'> <value>Annulla</value> </data>
+  <data name='OK' xml:space='preserve'> <value>ok</value> </data>
+  <data name='About' xml:space='preserve'> <value>A proposito...</value> </data>
+  <data name='Setting' xml:space='preserve'> <value>Ambientazione</value> </data>
+  <data name='Split' xml:space='preserve'> <value>Diviso</value> </data>
+  <data name='More' xml:space='preserve'> <value>Di più</value> </data>
+  <data name='Tutorial' xml:space='preserve'> <value>Tutorial</value> </data>
+  <data name='Metronome' xml:space='preserve'> <value>Metronomo</value> </data>
+  <data name='Mute' xml:space='preserve'> <value>Muto</value> </data>
+  <data name='FullScreen' xml:space='preserve'> <value>A schermo intero</value> </data>
+  <data name='UnFullScreen' xml:space='preserve'> <value>Esci dalla modalità schermo intero</value> </data>
+  <data name='Favorite' xml:space='preserve'> <value>Preferito</value> </data>
+  <data name='UnFavorite' xml:space='preserve'> <value>Non preferito</value> </data>
+  <data name='Theme' xml:space='preserve'> <value>Tema</value> </data>
+  <data name='ThemeLight' xml:space='preserve'> <value>Luce</value> </data>
+  <data name='ThemeDark' xml:space='preserve'> <value>Buio</value> </data>
+  <data name='ThemeUseSystem' xml:space='preserve'> <value>Usa System</value> </data>
+  <data name='Language' xml:space='preserve'> <value>linguaggio</value> </data>
+  <data name='LanguageTip' xml:space='preserve'> <value>Riavviare l'app per visualizzare le modifiche.</value> </data>
+  <data name='LanguageUseSystemSetting' xml:space='preserve'> <value>Usa le impostazioni di sistema</value> </data>
+  <data name='DockLeft' xml:space='preserve'> <value>Dock a sinistra</value> </data>
+  <data name='DockRight' xml:space='preserve'> <value>Dock a destra</value> </data>
+  <data name='DockBottom' xml:space='preserve'> <value>Dock inferiore</value> </data>
+  <data name='Bends' xml:space='preserve'> <value>Curve</value> </data>
+  <data name='BendPitch' xml:space='preserve'> <value>Pitch</value> </data>
+  <data name='BendModulation' xml:space='preserve'> <value>Modulazione</value> </data>
+  <data name='BendPressure' xml:space='preserve'> <value>Pressione</value> </data>
+  <data name='Pedals' xml:space='preserve'> <value>Pedali</value> </data>
+  <data name='PedalSustain' xml:space='preserve'> <value>Sostenere</value> </data>
+  <data name='PedalSoftPedal' xml:space='preserve'> <value>Pedaliera morbida</value> </data>
+  <data name='PedalSostenuto' xml:space='preserve'> <value>Sostenuto</value> </data>
+  <data name='PedalExpression' xml:space='preserve'> <value>Espressione</value> </data>
+  <data name='PianoView' xml:space='preserve'> <value>Pianoforte</value> </data>
+  <data name='ChordView' xml:space='preserve'> <value>Accordo di pianoforte</value> </data>
+  <data name='GuitarView' xml:space='preserve'> <value>Chitarra</value> </data>
+  <data name='BassView' xml:space='preserve'> <value>Basso</value> </data>
+  <data name='HarpView' xml:space='preserve'> <value>Arpa</value> </data>
+  <data name='KitView' xml:space='preserve'> <value>Batteria</value> </data>
+  <data name='PadView' xml:space='preserve'> <value>Tappetini per batteria</value> </data>
+  <data name='DrumView' xml:space='preserve'> <value>Batteria</value> </data>
+  <data name='MachineView' xml:space='preserve'> <value>Macchine per batteria</value> </data>
+  <data name='TryShowPianoView' xml:space='preserve'> <value>Mostra vista pianoforte</value> </data>
+  <data name='TryShowChordView' xml:space='preserve'> <value>Mostra vista accordi di pianoforte</value> </data>
+  <data name='TryShowGuitarView' xml:space='preserve'> <value>Mostra Vista Chitarra</value> </data>
+  <data name='TryShowBassView' xml:space='preserve'> <value>Mostra la vista del basso</value> </data>
+  <data name='TryShowHarpView' xml:space='preserve'> <value>Mostra la vista dell'arpa</value> </data>
+  <data name='TryShowKitView' xml:space='preserve'> <value>Mostra la vista Drum Kit-Set</value> </data>
+  <data name='TryShowPadView' xml:space='preserve'> <value>Mostra i pad della batteria</value> </data>
+  <data name='TryShowDrumView' xml:space='preserve'> <value>Mostra Drum View</value> </data>
+  <data name='TryShowMachineView' xml:space='preserve'> <value>Mostra la vista Drum Machines</value> </data>
   <!--Separator 3-->
   <data name='Drum' xml:space='preserve'> <value>Kit percussioni</value> </data>
   <data name='Hat' xml:space='preserve'> <value>Charleston</value> </data>

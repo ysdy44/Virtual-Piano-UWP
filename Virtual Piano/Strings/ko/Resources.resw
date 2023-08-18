@@ -59,8 +59,67 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <!--Separator 0-->
+  <data name='Name' xml:space='preserve'> <value>V Piano</value> </data>
+  <data name='Version' xml:space='preserve'> <value>1.0.0</value> </data>
+  <data name='Github' xml:space='preserve'> <value>Virtual-Piano-UWP</value> </data>
+  <data name='Feedback' xml:space='preserve'> <value>ysdy44@outlook.com</value> </data>
   <!--Separator 1-->
+  <data name='VersionTitle' xml:space='preserve'> <value>버전입니다</value> </data>
+  <data name='GithubTitle' xml:space='preserve'> <value>Github</value> </data>
+  <data name='FeedbackTitle' xml:space='preserve'> <value>피드백</value> </data>
+  <data name='GithubLink' xml:space='preserve'> <value>https://github.com/ysdy44/Virtual-Piano-UWP</value> </data>
+  <data name='FeedbackLink' xml:space='preserve'> <value>mailto:ysdy44@outlook.com</value> </data>
   <!--Separator 2-->
+  <data name='Cancel' xml:space='preserve'> <value>취소</value> </data>
+  <data name='OK' xml:space='preserve'> <value>확인</value> </data>
+  <data name='About' xml:space='preserve'> <value>대해 ...</value> </data>
+  <data name='Setting' xml:space='preserve'> <value>환경</value> </data>
+  <data name='Split' xml:space='preserve'> <value>나뉘다</value> </data>
+  <data name='More' xml:space='preserve'> <value>더</value> </data>
+  <data name='Tutorial' xml:space='preserve'> <value>튜토리얼</value> </data>
+  <data name='Metronome' xml:space='preserve'> <value>메트로놈</value> </data>
+  <data name='Mute' xml:space='preserve'> <value>음소거</value> </data>
+  <data name='FullScreen' xml:space='preserve'> <value>전체 화면</value> </data>
+  <data name='UnFullScreen' xml:space='preserve'> <value>전체 화면 종료</value> </data>
+  <data name='Favorite' xml:space='preserve'> <value>가장 좋아하는</value> </data>
+  <data name='UnFavorite' xml:space='preserve'> <value>즐겨찾기 취소</value> </data>
+  <data name='Theme' xml:space='preserve'> <value>테마</value> </data>
+  <data name='ThemeLight' xml:space='preserve'> <value>빛</value> </data>
+  <data name='ThemeDark' xml:space='preserve'> <value>어두운</value> </data>
+  <data name='ThemeUseSystem' xml:space='preserve'> <value>사용 시스템</value> </data>
+  <data name='Language' xml:space='preserve'> <value>언어</value> </data>
+  <data name='LanguageTip' xml:space='preserve'> <value>앱을 다시 시작하여 변경 내용을 확인하세요.</value> </data>
+  <data name='LanguageUseSystemSetting' xml:space='preserve'> <value>시스템 설정 사용</value> </data>
+  <data name='DockLeft' xml:space='preserve'> <value>왼쪽 도크</value> </data>
+  <data name='DockRight' xml:space='preserve'> <value>도크 오른쪽</value> </data>
+  <data name='DockBottom' xml:space='preserve'> <value>도크 하단</value> </data>
+  <data name='Bends' xml:space='preserve'> <value>Bends</value> </data>
+  <data name='BendPitch' xml:space='preserve'> <value>Pitch</value> </data>
+  <data name='BendModulation' xml:space='preserve'> <value>변조</value> </data>
+  <data name='BendPressure' xml:space='preserve'> <value>압력</value> </data>
+  <data name='Pedals' xml:space='preserve'> <value>페달</value> </data>
+  <data name='PedalSustain' xml:space='preserve'> <value>Sustain</value> </data>
+  <data name='PedalSoftPedal' xml:space='preserve'> <value>소프트 페달링</value> </data>
+  <data name='PedalSostenuto' xml:space='preserve'> <value>Sostenuto</value> </data>
+  <data name='PedalExpression' xml:space='preserve'> <value>표현</value> </data>
+  <data name='PianoView' xml:space='preserve'> <value>피아노</value> </data>
+  <data name='ChordView' xml:space='preserve'> <value>피아노 코드</value> </data>
+  <data name='GuitarView' xml:space='preserve'> <value>Guitar</value> </data>
+  <data name='BassView' xml:space='preserve'> <value>베이스 기타</value> </data>
+  <data name='HarpView' xml:space='preserve'> <value>하프</value> </data>
+  <data name='KitView' xml:space='preserve'> <value>드럼 키트 세트</value> </data>
+  <data name='PadView' xml:space='preserve'> <value>드럼 패드</value> </data>
+  <data name='DrumView' xml:space='preserve'> <value>드럼</value> </data>
+  <data name='MachineView' xml:space='preserve'> <value>드럼 머신</value> </data>
+  <data name='TryShowPianoView' xml:space='preserve'> <value>피아노 보기 보기</value> </data>
+  <data name='TryShowChordView' xml:space='preserve'> <value>피아노 코드 보기 보기</value> </data>
+  <data name='TryShowGuitarView' xml:space='preserve'> <value>기타 보기 보기</value> </data>
+  <data name='TryShowBassView' xml:space='preserve'> <value>베이스 기타 보기 보기</value> </data>
+  <data name='TryShowHarpView' xml:space='preserve'> <value>하프 보기 보기</value> </data>
+  <data name='TryShowKitView' xml:space='preserve'> <value>드럼 키트-세트 보기 보기</value> </data>
+  <data name='TryShowPadView' xml:space='preserve'> <value>드럼 패드 보기 보기</value> </data>
+  <data name='TryShowDrumView' xml:space='preserve'> <value>드럼 보기 보기</value> </data>
+  <data name='TryShowMachineView' xml:space='preserve'> <value>드럼 머신 보기 보기</value> </data>
   <!--Separator 3-->
   <data name='Drum' xml:space='preserve'> <value>Drumkit</value> </data>
   <data name='Hat' xml:space='preserve'> <value>Hi-hat</value> </data>

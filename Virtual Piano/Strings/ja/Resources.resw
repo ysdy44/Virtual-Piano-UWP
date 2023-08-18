@@ -59,8 +59,67 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <!--Separator 0-->
+  <data name='Name' xml:space='preserve'> <value>V Piano</value> </data>
+  <data name='Version' xml:space='preserve'> <value>1.0.0</value> </data>
+  <data name='Github' xml:space='preserve'> <value>Virtual-Piano-UWP</value> </data>
+  <data name='Feedback' xml:space='preserve'> <value>ysdy44@outlook.com</value> </data>
   <!--Separator 1-->
+  <data name='VersionTitle' xml:space='preserve'> <value>バージョン</value> </data>
+  <data name='GithubTitle' xml:space='preserve'> <value>Github</value> </data>
+  <data name='FeedbackTitle' xml:space='preserve'> <value>フィードバック</value> </data>
+  <data name='GithubLink' xml:space='preserve'> <value>https://github.com/ysdy44/Virtual-Piano-UWP</value> </data>
+  <data name='FeedbackLink' xml:space='preserve'> <value>mailto:ysdy44@outlook.com</value> </data>
   <!--Separator 2-->
+  <data name='Cancel' xml:space='preserve'> <value>キャンセル</value> </data>
+  <data name='OK' xml:space='preserve'> <value>OK</value> </data>
+  <data name='About' xml:space='preserve'> <value>もっと...</value> </data>
+  <data name='Setting' xml:space='preserve'> <value>設定</value> </data>
+  <data name='Split' xml:space='preserve'> <value>スプリット</value> </data>
+  <data name='More' xml:space='preserve'> <value>もっと</value> </data>
+  <data name='Tutorial' xml:space='preserve'> <value>チュートリアル</value> </data>
+  <data name='Metronome' xml:space='preserve'> <value>メトロノーム</value> </data>
+  <data name='Mute' xml:space='preserve'> <value>唖</value> </data>
+  <data name='FullScreen' xml:space='preserve'> <value>全画面表示</value> </data>
+  <data name='UnFullScreen' xml:space='preserve'> <value>全画面表示を終了</value> </data>
+  <data name='Favorite' xml:space='preserve'> <value>お気に入り</value> </data>
+  <data name='UnFavorite' xml:space='preserve'> <value>嫌い</value> </data>
+  <data name='Theme' xml:space='preserve'> <value>テーマ</value> </data>
+  <data name='ThemeLight' xml:space='preserve'> <value>光</value> </data>
+  <data name='ThemeDark' xml:space='preserve'> <value>闇</value> </data>
+  <data name='ThemeUseSystem' xml:space='preserve'> <value>システムを使用する</value> </data>
+  <data name='Language' xml:space='preserve'> <value>言語</value> </data>
+  <data name='LanguageTip' xml:space='preserve'> <value>アプリを再起動して変更内容を表示します。</value> </data>
+  <data name='LanguageUseSystemSetting' xml:space='preserve'> <value>システム設定を使用する</value> </data>
+  <data name='DockLeft' xml:space='preserve'> <value>左ドック</value> </data>
+  <data name='DockRight' xml:space='preserve'> <value>ドック右</value> </data>
+  <data name='DockBottom' xml:space='preserve'> <value>ドック・ボトム</value> </data>
+  <data name='Bends' xml:space='preserve'> <value>ベンド</value> </data>
+  <data name='BendPitch' xml:space='preserve'> <value>ピッチ</value> </data>
+  <data name='BendModulation' xml:space='preserve'> <value>モジュレーション</value> </data>
+  <data name='BendPressure' xml:space='preserve'> <value>プレッシャー</value> </data>
+  <data name='Pedals' xml:space='preserve'> <value>ペダル</value> </data>
+  <data name='PedalSustain' xml:space='preserve'> <value>サステイン</value> </data>
+  <data name='PedalSoftPedal' xml:space='preserve'> <value>ソフト・ペダリング</value> </data>
+  <data name='PedalSostenuto' xml:space='preserve'> <value>ソステヌート</value> </data>
+  <data name='PedalExpression' xml:space='preserve'> <value>エクスプレッション</value> </data>
+  <data name='PianoView' xml:space='preserve'> <value>ピアノ</value> </data>
+  <data name='ChordView' xml:space='preserve'> <value>ピアノ・コード</value> </data>
+  <data name='GuitarView' xml:space='preserve'> <value>ギター</value> </data>
+  <data name='BassView' xml:space='preserve'> <value>ベース・ギター</value> </data>
+  <data name='HarpView' xml:space='preserve'> <value>ハープ</value> </data>
+  <data name='KitView' xml:space='preserve'> <value>ドラム・キット・セット</value> </data>
+  <data name='PadView' xml:space='preserve'> <value>ドラム・パッド</value> </data>
+  <data name='DrumView' xml:space='preserve'> <value>ドラム</value> </data>
+  <data name='MachineView' xml:space='preserve'> <value>ドラム・マシン</value> </data>
+  <data name='TryShowPianoView' xml:space='preserve'> <value>ピアノ・ビューを表示</value> </data>
+  <data name='TryShowChordView' xml:space='preserve'> <value>ピアノ・コード表示</value> </data>
+  <data name='TryShowGuitarView' xml:space='preserve'> <value>ギター・ビューを表示</value> </data>
+  <data name='TryShowBassView' xml:space='preserve'> <value>ベース・ギター・ビューを表示する</value> </data>
+  <data name='TryShowHarpView' xml:space='preserve'> <value>ハープを表示する</value> </data>
+  <data name='TryShowKitView' xml:space='preserve'> <value>ドラム・キット・セットの表示</value> </data>
+  <data name='TryShowPadView' xml:space='preserve'> <value>ドラムパッド表示</value> </data>
+  <data name='TryShowDrumView' xml:space='preserve'> <value>ドラムを表示する</value> </data>
+  <data name='TryShowMachineView' xml:space='preserve'> <value>ドラムマシン表示</value> </data>
   <!--Separator 3-->
   <data name='Drum' xml:space='preserve'> <value>ドラムセット</value> </data>
   <data name='Hat' xml:space='preserve'> <value>ハイハット</value> </data>

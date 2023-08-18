@@ -59,8 +59,67 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <!--Separator 0-->
+  <data name='Name' xml:space='preserve'> <value>V Piano</value> </data>
+  <data name='Version' xml:space='preserve'> <value>1.0.0</value> </data>
+  <data name='Github' xml:space='preserve'> <value>Virtual-Piano-UWP</value> </data>
+  <data name='Feedback' xml:space='preserve'> <value>ysdy44@outlook.com</value> </data>
   <!--Separator 1-->
+  <data name='VersionTitle' xml:space='preserve'> <value>версии</value> </data>
+  <data name='GithubTitle' xml:space='preserve'> <value>Github</value> </data>
+  <data name='FeedbackTitle' xml:space='preserve'> <value>Обратная связь</value> </data>
+  <data name='GithubLink' xml:space='preserve'> <value>https://github.com/ysdy44/Virtual-Piano-UWP</value> </data>
+  <data name='FeedbackLink' xml:space='preserve'> <value>mailto:ysdy44@outlook.com</value> </data>
   <!--Separator 2-->
+  <data name='Cancel' xml:space='preserve'> <value>Отмена</value> </data>
+  <data name='OK' xml:space='preserve'> <value>Ok</value> </data>
+  <data name='About' xml:space='preserve'> <value>Около...</value> </data>
+  <data name='Setting' xml:space='preserve'> <value>Параметр</value> </data>
+  <data name='Split' xml:space='preserve'> <value>Расколоть</value> </data>
+  <data name='More' xml:space='preserve'> <value>Более</value> </data>
+  <data name='Tutorial' xml:space='preserve'> <value>Учебники</value> </data>
+  <data name='Metronome' xml:space='preserve'> <value>Метроном</value> </data>
+  <data name='Mute' xml:space='preserve'> <value>Немой</value> </data>
+  <data name='FullScreen' xml:space='preserve'> <value>Полноэкранный</value> </data>
+  <data name='UnFullScreen' xml:space='preserve'> <value>Выйти из полноэкранного режима</value> </data>
+  <data name='Favorite' xml:space='preserve'> <value>Любимый</value> </data>
+  <data name='UnFavorite' xml:space='preserve'> <value>Удалить из избранного</value> </data>
+  <data name='Theme' xml:space='preserve'> <value>Тема</value> </data>
+  <data name='ThemeLight' xml:space='preserve'> <value>Свет</value> </data>
+  <data name='ThemeDark' xml:space='preserve'> <value>Тьма</value> </data>
+  <data name='ThemeUseSystem' xml:space='preserve'> <value>Использовать систему</value> </data>
+  <data name='Language' xml:space='preserve'> <value>Язык</value> </data>
+  <data name='LanguageTip' xml:space='preserve'> <value>Перезапустите приложение, чтобы увидеть изменения.</value> </data>
+  <data name='LanguageUseSystemSetting' xml:space='preserve'> <value>Использовать системные настройки</value> </data>
+  <data name='DockLeft' xml:space='preserve'> <value>Док слева</value> </data>
+  <data name='DockRight' xml:space='preserve'> <value>Док справа</value> </data>
+  <data name='DockBottom' xml:space='preserve'> <value>Dock Bottom</value> </data>
+  <data name='Bends' xml:space='preserve'> <value>Бенды</value> </data>
+  <data name='BendPitch' xml:space='preserve'> <value>Питч</value> </data>
+  <data name='BendModulation' xml:space='preserve'> <value>Модуляция</value> </data>
+  <data name='BendPressure' xml:space='preserve'> <value>Давление</value> </data>
+  <data name='Pedals' xml:space='preserve'> <value>Педали</value> </data>
+  <data name='PedalSustain' xml:space='preserve'> <value>Sustain</value> </data>
+  <data name='PedalSoftPedal' xml:space='preserve'> <value>Мягкое педалирование</value> </data>
+  <data name='PedalSostenuto' xml:space='preserve'> <value>Sostenuto</value> </data>
+  <data name='PedalExpression' xml:space='preserve'> <value>Экспрессия</value> </data>
+  <data name='PianoView' xml:space='preserve'> <value>Фортепиано</value> </data>
+  <data name='ChordView' xml:space='preserve'> <value>Аккорды для фортепиано</value> </data>
+  <data name='GuitarView' xml:space='preserve'> <value>Гитара</value> </data>
+  <data name='BassView' xml:space='preserve'> <value>Бас-гитара</value> </data>
+  <data name='HarpView' xml:space='preserve'> <value>Арфа</value> </data>
+  <data name='KitView' xml:space='preserve'> <value>Набор ударных инструментов</value> </data>
+  <data name='PadView' xml:space='preserve'> <value>Барабанные пэды</value> </data>
+  <data name='DrumView' xml:space='preserve'> <value>Барабан</value> </data>
+  <data name='MachineView' xml:space='preserve'> <value>Барабанные установки</value> </data>
+  <data name='TryShowPianoView' xml:space='preserve'> <value>Показать вид фортепиано</value> </data>
+  <data name='TryShowChordView' xml:space='preserve'> <value>Показать аккорды для фортепиано</value> </data>
+  <data name='TryShowGuitarView' xml:space='preserve'> <value>Показать вид гитары</value> </data>
+  <data name='TryShowBassView' xml:space='preserve'> <value>Показать бас-гитару</value> </data>
+  <data name='TryShowHarpView' xml:space='preserve'> <value>Показать арфу</value> </data>
+  <data name='TryShowKitView' xml:space='preserve'> <value>Показать набор ударных инструментов</value> </data>
+  <data name='TryShowPadView' xml:space='preserve'> <value>Показать барабанные пэды</value> </data>
+  <data name='TryShowDrumView' xml:space='preserve'> <value>Показать барабаны</value> </data>
+  <data name='TryShowMachineView' xml:space='preserve'> <value>Показать барабанные установки</value> </data>
   <!--Separator 3-->
   <data name='Drum' xml:space='preserve'> <value>Drumkit</value> </data>
   <data name='Hat' xml:space='preserve'> <value>Hi-hat</value> </data>
