@@ -1130,6 +1130,33 @@
                     >
                     <Ellipse Canvas.Left="-1" Canvas.Top="-1" Width="202" Height="202" StrokeThickness="1" Stroke="{ThemeResource ApplicationForegroundThemeBrush}" Fill="{ThemeResource AppStroke}"/>
 
+
+                    <!--FullScreen-->
+                    <elements:PathToggleButton 
+                        x:Name="FullScreenButton" 
+                        UncheckedCommandParameter="{strings:OptionType Type=FullScreen}" 
+                        CheckedCommandParameter="{strings:OptionType Type=UnFullScreen}" 
+                        Background="{ThemeResource AppBackground}" 
+                        Command="{x:Bind Command}"
+                        Data="{x:Bind RouletterData(0)}"
+                        >
+                        <ToolTipService.ToolTip>
+                            <ToolTip Placement="Bottom">
+                                <TextBlock>
+                                    <Run>
+                                        Full-screen
+                                    </Run>
+                                    /
+                                    <Run>
+                                        Exit Full-screen
+                                    </Run>
+                                </TextBlock>
+                            </ToolTip>
+                        </ToolTipService.ToolTip>
+                    </elements:PathToggleButton>
+                    <SymbolIcon IsHitTestVisible="False" Canvas.Left="119" Canvas.Top="33" Width="24" Height="24" Symbol="{x:Bind FullScreenSymbolConverter(FullScreenButton.IsChecked), Mode=OneWay}"/>
+
+                    
                 </elements:AnimationRouletter>
 
                 <!--MarbleButton-->

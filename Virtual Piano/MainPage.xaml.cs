@@ -24,6 +24,7 @@ namespace Virtual_Piano
         private bool ReverseBooleanNullableToBooleanConverter(bool? value) => value is true is false;
         private SplitViewPanePlacement BooleanToPlacementConverter(bool value) => value is true ? SplitViewPanePlacement.Right : SplitViewPanePlacement.Left;
         private double MarbleToRouletteConverter(double value) => value - 100 + 32;
+        private Symbol FullScreenSymbolConverter(bool value) => value ? Symbol.BackToWindow : Symbol.FullScreen;
 
         // Synthesizer
         MidiSynthesizer Synthesizer;

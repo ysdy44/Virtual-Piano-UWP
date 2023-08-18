@@ -1,4 +1,4 @@
-﻿using Virtual_Piano.Midi;
+﻿using Windows.UI.Xaml;
 
 namespace Virtual_Piano
 {
@@ -32,11 +32,13 @@ namespace Virtual_Piano
             }
             else if (this.ApplicationView.TryEnterFullScreenMode())
             {
+                this.FullScreenButton.IsChecked = true;
             }
         }
         public void ClickUnFullScreen()
         {
             this.ApplicationView.ExitFullScreenMode();
+            this.FullScreenButton.IsChecked = false;
         }
     }
 }
