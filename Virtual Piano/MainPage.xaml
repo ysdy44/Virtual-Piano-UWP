@@ -71,6 +71,33 @@
                 </VisualState>
 
             </VisualStateGroup>
+            <VisualStateGroup>
+
+                <!--Piano-->
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--PianoTopPanel-->
+                        <Setter Target="PianoTopPanel.Height" Value="Auto"/>
+                        <Setter Target="PianoTopPanel.VerticalAlignment" Value="Stretch"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!--Piano-->
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="500"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--PianoTopPanel-->
+                        <Setter Target="PianoTopPanel.Height" Value="420"/>
+                        <Setter Target="PianoTopPanel.VerticalAlignment" Value="Center"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+            </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
         <SplitView.Pane>
@@ -887,9 +914,9 @@
                             <RowDefinition Height="36"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <instruments:PianoHorizontalScrollBar ItemSize="28" ScrollViewer="{x:Bind KeyboardScrollViewer}"/>
+                        <instruments:PianoHorizontalScrollBar ItemSize="28" ScrollViewer="{x:Bind NoteScrollViewer}"/>
                         <ScrollViewer
-                            x:Name="KeyboardScrollViewer"
+                            x:Name="NoteScrollViewer"
                             Grid.Row="1"
                             ZoomMode="Disabled"
                              
@@ -901,14 +928,14 @@
                             VerticalScrollBarVisibility="Disabled"
                             IsVerticalScrollChainingEnabled="False"
                             
-                            Background="Black"
+                            Background="{ThemeResource AppStroke}"
                             >
                             <instruments:PianoTopPanel
                                 x:Name="PianoTopPanel"
                                 Label="CDE"
                                 ItemSize="28"
-                                WhiteSize="250" 
-                                BlackSize="150" 
+                                WhiteSize="420" 
+                                BlackSize="240" 
                                 Command="{x:Bind Command}"
                                 />
                         </ScrollViewer>
