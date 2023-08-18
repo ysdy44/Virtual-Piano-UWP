@@ -31,18 +31,26 @@ namespace Virtual_Piano
             }
             else if (parameter is MidiNote item0)
             {
+                this.AllowRing = true;
+
                 this.Synthesizer.NoteOn(item0);
                 await Task.Delay(2000);
                 this.Synthesizer.NoteOff(item0);
             }
             else if (parameter is MidiProgram item1)
             {
+                this.AllowRing = true;
+
                 this.Favorites.Instrument = item1;
                 this.Synthesizer.ProgramChange(item1);
             }
             else if (parameter is MidiPercussionNote item2)
             {
+                this.AllowRing = true;
+
                 this.Synthesizer.NoteOn(item2);
+                await Task.Delay(2000);
+                this.Synthesizer.NoteOff(item2);
             }
             else if (parameter is OptionType item3)
             {

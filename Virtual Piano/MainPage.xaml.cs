@@ -99,6 +99,12 @@ namespace Virtual_Piano
         Geometry InstrumentData2(int index) => this.InstrumentDictionary2[(MidiInstrument)index];
 
         // Timer
+        bool AllowRing;
+        readonly DispatcherTimer RingTimer = new DispatcherTimer
+        {
+            Interval = TimeSpan.FromMilliseconds(250)
+        };
+
         int MetronomeIndex;
         readonly DispatcherTimer MetronomeTimer = new DispatcherTimer
         {
@@ -122,6 +128,9 @@ namespace Virtual_Piano
 
             this.WhiteKeys.Dispose();
             this.BlackKeys.Dispose();
+
+            this.MetronomeTimer.Stop();
+            this.RingTimer.Stop();
         }
         public MainPage()
         {
@@ -154,6 +163,16 @@ namespace Virtual_Piano
                 this.DrumPanel.UpdateWidthCount(e.NewSize.Width);
             };
 
+            // Timer
+            this.RingTimer.Tick += (s, e) =>
+            {
+                if (this.AllowRing)
+                {
+                    this.AllowRing = false;
+                    this.MarbleButton.ShowRing();
+                }
+            };
+
             this.MetronomeTimer.Tick += async (s, e) =>
             {
                 this.MetronomeIndex++;
@@ -172,6 +191,7 @@ namespace Virtual_Piano
                 }
             };
 
+            // Setting
             ElementTheme theme = this.GetTheme();
             this.SetTheme(theme);
 
@@ -187,11 +207,16 @@ namespace Virtual_Piano
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             this.Synthesizer?.Dispose();
+
+            this.MetronomeTimer.Stop();
+            this.RingTimer.Stop();
         }
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             this.Synthesizer?.Dispose();
             this.Synthesizer = await MidiSynthesizer.CreateAsync();
+
+            this.RingTimer.Start();
         }
 
         // UI
