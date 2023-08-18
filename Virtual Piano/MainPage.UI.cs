@@ -51,5 +51,27 @@ namespace Virtual_Piano
             this.MetronomeTimer.Stop();
             this.MetronomeButton.IsChecked = false;
         }
+
+        public void SetTheme(ElementTheme value)
+        {
+            this.LocalSettings.Values["Theme"] = (int)value;
+            if (Window.Current.Content is FrameworkElement frameworkElement)
+            {
+                if (frameworkElement.RequestedTheme == value) return;
+                frameworkElement.RequestedTheme = value;
+            }
+        }
+        public ElementTheme GetTheme()
+        {
+            if (this.LocalSettings.Values.ContainsKey("Theme"))
+            {
+                if (this.LocalSettings.Values["Theme"] is int item)
+                {
+                    return (ElementTheme)item;
+                }
+            }
+            return ElementTheme.Dark;
+        }
+
     }
 }

@@ -1,10 +1,13 @@
 using System;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Windows.Input;
+using Virtual_Piano.Elements;
 using Virtual_Piano.Midi;
 using Virtual_Piano.Midi.Core;
 using Windows.Devices.Midi;
 using Windows.Foundation;
+using Windows.Storage;
 using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -100,6 +103,9 @@ namespace Virtual_Piano
         {
             Interval = new Tempo(60).Delay * 4
         };
+
+        // Setting
+        readonly ApplicationDataContainer LocalSettings = ApplicationData.Current.LocalSettings;
 
         //@Construct
         ~MainPage()
