@@ -97,5 +97,20 @@ namespace Virtual_Piano.Midi.Instruments
                 default: return 0;
             }
         }
+
+        public void Clear(MidiNote note)
+        {
+            if (this.Children[(int)note] is IPianoButton item)
+            {
+                item.Clear();
+            }
+        }
+        public void Add(MidiNote note)
+        {
+            if (this.Children[(int)note] is IPianoButton item)
+            {
+                item.Add();
+            }
+        }
     }
 }

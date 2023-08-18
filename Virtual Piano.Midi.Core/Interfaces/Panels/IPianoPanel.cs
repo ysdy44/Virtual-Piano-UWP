@@ -9,5 +9,8 @@
         KeyLabel Label { get; set; }
 
         void OnClick(MidiNote note);
+
+        void Clear(MidiNote note);
+        void Add(MidiNote note);
     }
 }
