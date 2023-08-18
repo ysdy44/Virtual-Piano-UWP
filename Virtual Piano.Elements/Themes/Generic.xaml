@@ -1,0 +1,10 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    >
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ms-appx:///Virtual Piano.Elements/Paths/PathButton.xaml" />
+        <ResourceDictionary Source="ms-appx:///Virtual Piano.Elements/Paths/PathCheckedButton.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>
