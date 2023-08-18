@@ -139,6 +139,18 @@
       <DependentUpon>DSTimer.xaml</DependentUpon>
     </Compile>
     <Compile Include="DS\DSType.cs" />
+    <Compile Include="Paths\IPathButton.cs" />
+    <Compile Include="Paths\IPathFlyoutButton.cs" />
+    <Compile Include="Paths\IPathToggleButton.cs" />
+    <Compile Include="Paths\PathButton.xaml.cs">
+      <DependentUpon>PathButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paths\PathButtonBase.cs" />
+    <Compile Include="Paths\PathCheckedButton.xaml.cs">
+      <DependentUpon>PathCheckedButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paths\PathFlyoutButton.cs" />
+    <Compile Include="Paths\PathToggleButton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scrolls\IScrollBar2.cs" />
     <Compile Include="Scrolls\ScrollBar2.cs" />
@@ -167,6 +179,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DS\DSTimer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Paths\PathButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Paths\PathCheckedButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

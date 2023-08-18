@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Virtual_Piano.Elements"
+    >
+
+    <Style TargetType="local:PathButton" >
+        <Setter Property="AllowFocusOnInteraction" Value="True"/>
+        <Setter Property="UseSystemFocusVisuals" Value="False"/>
+        <Setter Property="IsTabStop" Value="True"/>
+        <Setter Property="Background" Value="{ThemeResource FlipViewBackground}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:PathButton">
+                    <Path x:Name="RootPath" StrokeThickness="2" Stroke="Transparent" Fill="{TemplateBinding Background}" Data="{TemplateBinding Data}">
+
+                        <!--VisualState-->
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <PointerUpThemeAnimation Storyboard.TargetName="RootPath" />
+                                    </Storyboard>
+                                </VisualState>
+
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Target="RootPath.(RevealBrush.State)" Value="Pressed" />
+                                        <Setter Target="RootPath.Fill" Value="{ThemeResource ThumbBackgroundPointerOver}" />
+                                    </VisualState.Setters>
+                                    <Storyboard>
+                                        <PointerDownThemeAnimation Storyboard.TargetName="RootPath" />
+                                    </Storyboard>
+                                </VisualState>
+
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootPath" Storyboard.TargetProperty="Stroke">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused" />
+                                <VisualState x:Name="PointerFocused" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                    </Path>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
