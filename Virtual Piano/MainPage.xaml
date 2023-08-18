@@ -4,6 +4,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:globalization="using:System.Globalization"
     xmlns:controls="using:Virtual_Piano.Controls"
     xmlns:elements="using:Virtual_Piano.Elements"
     xmlns:controllers="using:Virtual_Piano.Midi.Controllers"
@@ -19,12 +20,26 @@
     </FrameworkElement.Tag>
 
     <FrameworkElement.Resources>
+        <!--Collection-->
         <CollectionViewSource x:Name="Collection" IsSourceGrouped="True">
             <CollectionViewSource.Source>
                 <controls:InstrumentGroupingCollection/>
             </CollectionViewSource.Source>
             <!--Source-->
         </CollectionViewSource>
+        <!--Template-->
+        <DataTemplate x:Name="LanguageUseSystemSettingTemplate">
+            <TextBlock>
+                Use system setting
+            </TextBlock>
+        </DataTemplate>
+        <DataTemplate x:Name="LanguageTemplate" x:DataType="globalization:CultureInfo">
+            <TextBlock>                  
+                <Run FontWeight="Medium" Text="{Binding NativeName, Mode=OneTime}"/>              
+                <Run Text=" "/>                
+                <Run Text="{Binding DisplayName, Mode=OneTime}" Foreground="{ThemeResource AppBarItemForegroundThemeBrush}"/>
+            </TextBlock>
+        </DataTemplate>
     </FrameworkElement.Resources>
 
     <SplitView

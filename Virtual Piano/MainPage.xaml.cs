@@ -106,6 +106,13 @@ namespace Virtual_Piano
 
         // Setting
         readonly ApplicationDataContainer LocalSettings = ApplicationData.Current.LocalSettings;
+        readonly CultureInfoCollection Cultures = new CultureInfoCollection();
+        readonly ListViewItem[] Languages;
+        private ListViewItem LanguageSelect(CultureInfo item) => new ListViewItem
+        {
+            ContentTemplate = string.IsNullOrEmpty(item.Name) ? this.LanguageUseSystemSettingTemplate : this.LanguageTemplate,
+            Content = item
+        };
 
         //@Construct
         ~MainPage()
