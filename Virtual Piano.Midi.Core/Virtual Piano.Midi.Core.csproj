@@ -162,6 +162,9 @@
     <Compile Include="Structs\Radial.cs" />
     <Compile Include="Structs\TrackLayout.cs" />
     <Compile Include="Structs\TrackNoteLayout.cs" />
+    <Compile Include="Themes\AnimationRouletterDictionary.xaml.cs">
+      <DependentUpon>AnimationRouletterDictionary.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Themes\MidiInstrumentDictionary.xaml.cs">
       <DependentUpon>MidiInstrumentDictionary.xaml</DependentUpon>
     </Compile>
@@ -189,6 +192,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Themes\AnimationRouletterDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\MidiInstrumentDictionary.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
