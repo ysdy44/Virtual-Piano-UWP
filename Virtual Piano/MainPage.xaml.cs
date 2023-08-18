@@ -24,13 +24,20 @@ namespace Virtual_Piano
         private bool ReverseBooleanNullableToBooleanConverter(bool? value) => value is true is false;
         private SplitViewPanePlacement BooleanToPlacementConverter(bool value) => value is true ? SplitViewPanePlacement.Right : SplitViewPanePlacement.Left;
 
+        // Synthesizer
         MidiSynthesizer Synthesizer;
+
+        // Key
+        bool IsShift;
+        MidiNote WhiteKey;
+        MidiNote BlackKey;
         readonly IKeyDictionary WhiteKeys = new KeyQWERTDictionary(ToneType.White);
         readonly IKeyDictionary BlackKeys = new KeyQWERTDictionary(ToneType.Black);
         /*
         readonly ObservableCollection<ContentControl> ItemsSource = new ObservableCollection<ContentControl>();
          */
 
+        // Favorites
         readonly MidiNote DemoNote = MidiNote.C5;
         readonly Controls.InstrumentObservableCollection Favorites = new Controls.InstrumentObservableCollection
         {
@@ -137,17 +144,33 @@ namespace Virtual_Piano
             this.Synthesizer = await MidiSynthesizer.CreateAsync();
         }
 
+        // UI
         private void CoreKeyUp(CoreWindow sender, KeyEventArgs args)
         {
-            bool shift = Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift) == CoreVirtualKeyStates.Down;
-            if ((shift ? this.BlackKeys : this.WhiteKeys).TryGetValue(args.VirtualKey, out MidiNote item))
-                this.Clear(item);
+            if (args.VirtualKey is VirtualKey.Shift)
+                this.IsShift = false;
+
+            if (this.BlackKeys.TryGetValue(args.VirtualKey, out this.BlackKey))
+                this.PianoTopPanel.Clear(this.BlackKey);
+
+            if (this.WhiteKeys.TryGetValue(args.VirtualKey, out this.WhiteKey))
+                this.PianoTopPanel.Clear(this.WhiteKey);
         }
         private void CoreKeyDown(CoreWindow sender, KeyEventArgs args)
         {
-            bool shift = Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift) == CoreVirtualKeyStates.Down;
-            if ((shift ? this.BlackKeys : this.WhiteKeys).TryGetValue(args.VirtualKey, out MidiNote item))
-                this.Add(item);
+            if (args.VirtualKey is VirtualKey.Shift)
+                this.IsShift = true;
+
+            if (this.IsShift)
+            {
+                if (this.BlackKeys.TryGetValue(args.VirtualKey, out this.BlackKey))
+                    this.PianoTopPanel.Add(this.BlackKey);
+            }
+            else
+            {
+                if (this.WhiteKeys.TryGetValue(args.VirtualKey, out this.WhiteKey))
+                    this.PianoTopPanel.Add(this.WhiteKey);
+            }
         }
     }
 }
