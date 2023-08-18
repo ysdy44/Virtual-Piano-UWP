@@ -1195,7 +1195,27 @@
                         </PathIcon>
                     </Border>
 
-                
+
+                    <!--Favorite-->
+                    <elements:PathFlyoutButton 
+                        Background="{ThemeResource AppBackground}"
+                        Data="{x:Bind RouletterData(2)}"
+                        >
+                        <ToolTipService.ToolTip>
+                            <ToolTip Placement="Bottom">
+                                Favorites
+                            </ToolTip>
+                        </ToolTipService.ToolTip>
+                        <elements:PathFlyoutButton.Flyout>
+                            <!--Flyout-->
+                            <Flyout Placement="Full">
+                                <controls:InstrumentCollectionPanel MaxWidth="360" ObservableCollection="{x:Bind Favorites}" Command="{x:Bind Command}"/>
+                            </Flyout>
+                        </elements:PathFlyoutButton.Flyout>
+                    </elements:PathFlyoutButton>
+                    <SymbolIcon IsHitTestVisible="False" Canvas.Left="119" Canvas.Top="142" Width="24" Height="24" Symbol="SolidStar"/>
+
+                    
                 </elements:AnimationRouletter>
 
                 <!--MarbleButton-->
