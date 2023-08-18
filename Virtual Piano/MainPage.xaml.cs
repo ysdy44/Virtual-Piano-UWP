@@ -23,6 +23,7 @@ namespace Virtual_Piano
         private Visibility BooleanNullableToVisibilityConverter(bool? value) => value is true ? Visibility.Collapsed : Visibility.Visible;
         private bool ReverseBooleanNullableToBooleanConverter(bool? value) => value is true is false;
         private SplitViewPanePlacement BooleanToPlacementConverter(bool value) => value is true ? SplitViewPanePlacement.Right : SplitViewPanePlacement.Left;
+        private double MarbleToRouletteConverter(double value) => value - 100 + 32;
 
         // Synthesizer
         MidiSynthesizer Synthesizer;
@@ -83,8 +84,12 @@ namespace Virtual_Piano
             MidiProgram.Gunshot,
         };
 
+        // Icon
+        bool IsRoulette;
+        readonly AnimationRouletterDictionary RouletterDictionary = new AnimationRouletterDictionary();
         readonly MidiInstrumentDictionary InstrumentDictionary = new MidiInstrumentDictionary();
         readonly MidiInstrumentDictionary InstrumentDictionary2 = new MidiInstrumentDictionary();
+        Geometry RouletterData(int index) => this.RouletterDictionary[index];
         Geometry InstrumentData(int index) => this.InstrumentDictionary[(MidiInstrument)index];
         Geometry InstrumentData2(int index) => this.InstrumentDictionary2[(MidiInstrument)index];
 
