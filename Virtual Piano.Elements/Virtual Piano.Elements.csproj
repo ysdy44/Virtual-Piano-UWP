@@ -120,6 +120,16 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Animations\AnimationRing.xaml.cs">
+      <DependentUpon>AnimationRing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Animations\AnimationRouletter.xaml.cs">
+      <DependentUpon>AnimationRouletter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Animations\Marble.cs" />
+    <Compile Include="Animations\MarbleButton.xaml.cs">
+      <DependentUpon>MarbleButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ApplicationTitleBarExtension.cs" />
     <Compile Include="Carousel.xaml.cs">
       <DependentUpon>Carousel.xaml</DependentUpon>
@@ -166,6 +176,18 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Animations\AnimationRing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Animations\AnimationRouletter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Animations\MarbleButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Carousel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

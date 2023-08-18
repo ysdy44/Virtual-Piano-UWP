@@ -1,0 +1,49 @@
+﻿<UserControl
+    x:Class="Virtual_Piano.Elements.AnimationRing"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="50"
+    d:DesignHeight="50"
+    IsHitTestVisible="False"
+    >
+
+    <FrameworkElement.Resources>
+        <!--Storyboard-->
+        <Storyboard x:Name="Storyboard">
+            <DoubleAnimation From="1.2" To="1.7" Duration="0:0:0.6" Storyboard.TargetProperty="ScaleX" Storyboard.TargetName="ScaleTransform" >
+                <DoubleAnimation.EasingFunction>
+                    <CircleEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation From="1.2" To="1.7" Duration="0:0:0.6" Storyboard.TargetProperty="ScaleY" Storyboard.TargetName="ScaleTransform" >
+                <DoubleAnimation.EasingFunction>
+                    <CircleEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation From="1" To="0" Duration="0:0:1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Ellipse" >
+                <DoubleAnimation.EasingFunction>
+                    <CircleEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+    </FrameworkElement.Resources>
+
+    <Ellipse 
+        x:Name="Ellipse" 
+        Opacity="0" 
+        StrokeThickness="1"
+        Stroke="{x:Bind Foreground, Mode=OneWay}"
+        Fill="{x:Bind Background, Mode=OneWay}"
+        >
+        <UIElement.RenderTransformOrigin>
+            0.5,0.5
+        </UIElement.RenderTransformOrigin>
+        <UIElement.RenderTransform>
+            <ScaleTransform x:Name="ScaleTransform" ScaleX="1" ScaleY="1"/>
+        </UIElement.RenderTransform>
+    </Ellipse>
+
+</UserControl>
