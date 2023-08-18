@@ -1341,6 +1341,24 @@
                     </elements:PathFlyoutButton>
                     <SymbolIcon IsHitTestVisible="False" Canvas.Left="25" Canvas.Top="88" Width="24" Height="24" Symbol="Important"/>
 
+
+                    <!--Mute-->
+                    <elements:PathToggleButton
+                        x:Name="MuteButton" 
+                        UncheckedCommandParameter="{strings:OptionType Type=Mute}" 
+                        CheckedCommandParameter="{strings:OptionType Type=Volume}"
+                        Background="{ThemeResource AppBackground}" 
+                        Command="{x:Bind Command}"
+                        Data="{x:Bind RouletterData(5)}"
+                        >
+                        <ToolTipService.ToolTip>
+                            <ToolTip Placement="Bottom">
+                                Mute
+                            </ToolTip>
+                        </ToolTipService.ToolTip>
+                    </elements:PathToggleButton>
+                    <SymbolIcon IsHitTestVisible="False" Canvas.Left="56" Canvas.Top="33" Width="24" Height="24" Symbol="{x:Bind MuteSymbolConverter(MuteButton.IsChecked), Mode=OneWay}"/>
+
                     
                 </elements:AnimationRouletter>
 

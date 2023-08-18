@@ -75,9 +75,11 @@ namespace Virtual_Piano
 
         public void ClickMute()
         {
+            this.MuteButton.IsChecked = true;
         }
         public void ClickVolume()
         {
+            this.MuteButton.IsChecked = false;
         }
     }
 }
