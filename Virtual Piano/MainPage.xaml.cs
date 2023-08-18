@@ -154,6 +154,11 @@ namespace Virtual_Piano
                 this.SplitView.IsPaneOpen = !this.SplitView.IsPaneOpen;
             };
 
+            this.NoteScrollViewer.Loaded += (s, e) =>
+            {
+                var x = this.NoteScrollViewer.ScrollableWidth / 2;
+                this.NoteScrollViewer.ChangeView(x, null, null, true);
+            };
             this.DrumScrollViewer.SizeChanged += (s, e) =>
             {
                 if (e.NewSize == Size.Empty) return;
