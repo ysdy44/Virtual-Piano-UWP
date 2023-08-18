@@ -138,6 +138,7 @@
     <Compile Include="CommandGridView.cs" />
     <Compile Include="CommandListView.cs" />
     <Compile Include="CommandToggleButton.cs" />
+    <Compile Include="CultureInfoCollection.cs" />
     <Compile Include="DS\DSFloat.xaml.cs">
       <DependentUpon>DSFloat.xaml</DependentUpon>
     </Compile>
