@@ -2,6 +2,9 @@
 {
     public enum OptionType
     {
+        Roulette,
+
+
         TryShowPianoView,
         TryShowChordView,
 

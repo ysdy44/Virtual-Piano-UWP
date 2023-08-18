@@ -51,6 +51,10 @@ namespace Virtual_Piano
         {
             switch (type)
             {
+                case OptionType.Roulette:
+                    this.ClickRoulette();
+                    break;
+
                 case OptionType.TryShowPianoView:
                     for (int i = 0; i < 3; i++)
                         if (this.PianoViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewPianoView);

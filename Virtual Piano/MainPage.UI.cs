@@ -4,11 +4,9 @@ namespace Virtual_Piano
 {
     partial class MainPage
     {
-        public void Clear(MidiNote item)
+        public void ClickRoulette()
         {
-        }
-        public void Add(MidiNote item)
-        {
+
         }
     }
 }
