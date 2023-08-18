@@ -1,6 +1,4 @@
 using System;
-using System.Collections.ObjectModel;
-using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
@@ -145,13 +143,6 @@ namespace Virtual_Piano
             this.SplitButton.Click += (s, e) =>
             {
                 this.SplitView.IsPaneOpen = !this.SplitView.IsPaneOpen;
-            };
-            this.ListView.ItemClick += (s, e) =>
-            {
-                if (e.ClickedItem is InstrumentItem item)
-                {
-                    this.Favorites.Instrument = item.Key;
-                }
             };
 
             this.DrumScrollViewer.SizeChanged += (s, e) =>

@@ -123,18 +123,18 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <ListView
-                    x:Name="ListView"
+                <elements:CommandListView
                     Grid.Row="2"
                     SelectionMode="None"
                     IsItemClickEnabled="True"
                     ItemsSource="{x:Bind Collection.View}"
+                    Command="{x:Bind Command}"
                     >
                     <ItemsControl.GroupStyle>
                         <GroupStyle/>
                     </ItemsControl.GroupStyle>
                     <!--Items-->
-                </ListView>
+                </elements:CommandListView>
 
                 <Grid Background="{ThemeResource AppForeground}">
 
