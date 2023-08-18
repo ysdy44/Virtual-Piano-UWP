@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Virtual_Piano.Elements;
 using Virtual_Piano.Midi;
 using Virtual_Piano.Views;
 using Windows.ApplicationModel.Core;
@@ -44,6 +46,13 @@ namespace Virtual_Piano
             else if (parameter is OptionType item3)
             {
                 this.Click(item3);
+            }
+            else if (parameter is CultureInfo item5)
+            {
+                if (string.IsNullOrEmpty(item5.Name))
+                    CultureInfoCollection.SetLanguageEmpty();
+                else
+                    CultureInfoCollection.SetLanguage(item5.Name);
             }
         }
 

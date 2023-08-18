@@ -1,6 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Input;
 using Virtual_Piano.Elements;
 using Virtual_Piano.Midi;
@@ -125,6 +126,7 @@ namespace Virtual_Piano
         public MainPage()
         {
             this.InitializeComponent();
+            this.Languages = this.Cultures.Select(this.LanguageSelect).ToArray();
             base.Unloaded += (s, e) =>
             {
                 Window.Current.CoreWindow.KeyUp -= this.CoreKeyUp;
@@ -176,6 +178,17 @@ namespace Virtual_Piano
                         break;
                 }
             };
+
+            ElementTheme theme = this.GetTheme();
+            this.SetTheme(theme);
+
+            this.LightRadioButton.IsChecked = (theme == ElementTheme.Light);
+            this.DarkRadioButton.IsChecked = (theme == ElementTheme.Dark);
+            this.DefaultRadioButton.IsChecked = (theme == ElementTheme.Default);
+
+            this.LightRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Light);
+            this.DarkRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Dark);
+            this.DefaultRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Default);
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)

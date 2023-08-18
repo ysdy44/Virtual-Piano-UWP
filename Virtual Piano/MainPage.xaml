@@ -1215,6 +1215,72 @@
                     </elements:PathFlyoutButton>
                     <SymbolIcon IsHitTestVisible="False" Canvas.Left="119" Canvas.Top="142" Width="24" Height="24" Symbol="SolidStar"/>
 
+
+                    <!--Setting-->
+                    <elements:PathFlyoutButton
+                        Background="{ThemeResource AppBackground}"
+                        Data="{x:Bind RouletterData(3)}"
+                        >
+                        <ToolTipService.ToolTip>
+                            <ToolTip Placement="Bottom">
+                                Setting
+                            </ToolTip>
+                        </ToolTipService.ToolTip>
+                        <elements:PathFlyoutButton.Flyout>
+                            <!--Flyout-->
+                            <Flyout Placement="Full">
+
+                                <StackPanel MaxWidth="360">
+
+                                    <Panel.ChildrenTransitions>
+                                        <TransitionCollection>
+                                            <EntranceThemeTransition IsStaggeringEnabled="True"/>
+                                        </TransitionCollection>
+                                    </Panel.ChildrenTransitions>
+
+                                    <!--ThemeMode-->
+                                    <TextBlock x:Name="ThemeTextBlock" Style="{StaticResource SubtitleTextBlockStyle}">
+                                        Theme
+                                    </TextBlock>
+                                    <RadioButton x:Name="LightRadioButton">
+                                        Light
+                                    </RadioButton>
+                                    <RadioButton x:Name="DarkRadioButton">
+                                        Dark
+                                    </RadioButton>
+                                    <RadioButton x:Name="DefaultRadioButton">
+                                        Use System
+                                    </RadioButton>
+                                    <ContentControl Height="8"/>
+
+                                    <!--Language-->
+                                    <TextBlock x:Name="LanguageTextBlock" Style="{StaticResource SubtitleTextBlockStyle}">
+                                        Languages
+                                    </TextBlock>
+                                    <elements:CommandListView
+                                        IsItemClickEnabled="True" 
+                                        SelectionMode="Single"
+                                        Background="{ThemeResource AppForeground}"
+                                        ItemsSource="{x:Bind Languages}"
+                                        SelectedIndex="{x:Bind Cultures.Index}"
+                                        Command="{x:Bind Command}"
+                                        >
+                                        <!--ItemsSource-->
+                                    </elements:CommandListView>
+                                    <HyperlinkButton 
+                                        CommandParameter="{strings:OptionType Type=LanguageTip}"
+                                        Command="{x:Bind Command}"
+                                        >
+                                        Restart the app to see your changes.
+                                    </HyperlinkButton>
+                                    <ContentControl Height="8"/>
+
+                                </StackPanel>
+                            </Flyout>
+                        </elements:PathFlyoutButton.Flyout>
+                    </elements:PathFlyoutButton>
+                    <SymbolIcon IsHitTestVisible="False" Canvas.Left="56" Canvas.Top="142" Width="24" Height="24" Symbol="Setting"/>
+
                     
                 </elements:AnimationRouletter>
 
