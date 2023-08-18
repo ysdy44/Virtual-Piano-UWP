@@ -19,6 +19,10 @@ namespace Virtual_Piano
 {
     public sealed partial class MainPage : Page, ICommand
     {
+        //@String
+        readonly Uri GithubLink = new Uri(App.Resource.GetString(UIType.GithubLink.ToString()));
+        readonly Uri FeedbackLink = new Uri($"mailto:{App.Resource.GetString(UIType.FeedbackLink.ToString())}");
+
         //@Converter
         private string DoubleToStringConverter(double value) => $"{System.Math.Clamp((int)value, 0, 127)}";
         private Visibility BooleanToVisibilityConverter(bool value) => value ? Visibility.Visible : Visibility.Collapsed;

@@ -29,8 +29,8 @@
         </CollectionViewSource>
         <!--Template-->
         <DataTemplate x:Name="LanguageUseSystemSettingTemplate">
-            <TextBlock>
-                Use system setting
+            <TextBlock Text="{strings:UI Type=LanguageUseSystemSetting}">
+                <!--Use system setting-->
             </TextBlock>
         </DataTemplate>
         <DataTemplate x:Name="LanguageTemplate" x:DataType="globalization:CultureInfo">
@@ -164,8 +164,16 @@
                         Style="{StaticResource TextBlockButtonStyle}"
                         >
                         <ToolTipService.ToolTip>
-                            <ToolTip>
-                                Favorite
+                            <ToolTip Placement="Bottom">
+                                <TextBlock>
+                                    <Run Text="{strings:UI Type=Favorite}">
+                                        <!--Favorites-->
+                                    </Run>
+                                    /
+                                    <Run Text="{strings:UI Type=UnFavorite}">
+                                        <!--UnFavorite-->
+                                    </Run>
+                                </TextBlock>
                             </ToolTip>
                         </ToolTipService.ToolTip>
                     </elements:CommandCheckedButton>
@@ -720,8 +728,8 @@
                 <ListViewBase.Header>
                     <Button x:Name="SplitButton" Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
                         <ToolTipService.ToolTip>
-                            <ToolTip>
-                                Split
+                            <ToolTip Placement="Bottom" Content="{strings:UI Type=Split}">
+                                <!--Split-->
                             </ToolTip>
                         </ToolTipService.ToolTip>
                         <SymbolIcon Symbol="GlobalNavigationButton"/>
@@ -731,8 +739,8 @@
                 <ListViewBase.Footer>
                     <Button Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
                         <ToolTipService.ToolTip>
-                            <ToolTip>
-                                More
+                            <ToolTip Placement="Bottom" Content="{strings:UI Type=More}">
+                                <!--More-->
                             </ToolTip>
                         </ToolTipService.ToolTip>
                         <Button.Flyout>
@@ -740,6 +748,7 @@
 
                                 <!--Piano-->
                                 <MenuFlyoutItem
+                                    Text="{strings:UI Type=TryShowPianoView}"
                                     Command="{x:Bind Command}" 
                                     CommandParameter="{strings:OptionType Type=TryShowPianoView}" 
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
@@ -747,32 +756,35 @@
                                     <MenuFlyoutItem.Icon>
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(0)}"/>
                                     </MenuFlyoutItem.Icon>
-                                    Show Piano View
+                                    <!--Show Piano View-->
                                 </MenuFlyoutItem>
                                 <MenuFlyoutSeparator Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"/>
                                 <ToggleMenuFlyoutItem
                                     x:Name="BendItem"
                                     IsChecked="False" 
+                                    Text="{strings:UI Type=Bends}"
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
                                     >
                                     <MenuFlyoutItem.Icon>
                                         <SymbolIcon Symbol="Rotate"/>
                                     </MenuFlyoutItem.Icon>
-                                    Bend
+                                    <!--Bend-->
                                 </ToggleMenuFlyoutItem>
                                 <ToggleMenuFlyoutItem 
                                     x:Name="BendPlacementItem"
                                     IsChecked="False" 
+                                    Text="{strings:UI Type=DockRight}"
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
                                     >
                                     <MenuFlyoutItem.Icon>
                                         <SymbolIcon Symbol="DockRight"/>
                                     </MenuFlyoutItem.Icon>
-                                    Dock Right
+                                    <!--Dock Right-->
                                 </ToggleMenuFlyoutItem>
 
                                 <!--Chord-->
                                 <MenuFlyoutItem 
+                                    Text="{strings:UI Type=TryShowChordView}"
                                     Command="{x:Bind Command}" 
                                     CommandParameter="{strings:OptionType Type=TryShowChordView}" 
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
@@ -780,11 +792,12 @@
                                     <MenuFlyoutItem.Icon>
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(1)}"/>
                                     </MenuFlyoutItem.Icon>
-                                    Show Piano Chord View
+                                    <!--Show Piano Chord View-->
                                 </MenuFlyoutItem>
 
                                 <!--Guitar-->
                                 <MenuFlyoutItem 
+                                    Text="{strings:UI Type=TryShowGuitarView}"
                                     Command="{x:Bind Command}" 
                                     CommandParameter="{strings:OptionType Type=TryShowGuitarView}" 
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}"
@@ -792,11 +805,12 @@
                                     <MenuFlyoutItem.Icon>
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(2)}"/>
                                     </MenuFlyoutItem.Icon>
-                                    Show Guitar View
+                                    <!--Show Guitar View-->
                                 </MenuFlyoutItem>
 
                                 <!--Bass-->
                                 <MenuFlyoutItem
+                                    Text="{strings:UI Type=TryShowBassView}"
                                     Command="{x:Bind Command}"
                                     CommandParameter="{strings:OptionType Type=TryShowBassView}" 
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}"
@@ -804,11 +818,12 @@
                                     <MenuFlyoutItem.Icon>
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(3)}"/>
                                     </MenuFlyoutItem.Icon>
-                                    Show Bass Guitar View
+                                    <!--Show Bass Guitar View-->
                                 </MenuFlyoutItem>
 
                                 <!--Harp-->
                                 <MenuFlyoutItem 
+                                    Text="{strings:UI Type=TryShowHarpView}"
                                     Command="{x:Bind Command}"
                                     CommandParameter="{strings:OptionType Type=TryShowHarpView}" 
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}"
@@ -816,11 +831,12 @@
                                     <MenuFlyoutItem.Icon>
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(4)}"/>
                                     </MenuFlyoutItem.Icon>
-                                    Show Harp View
+                                    <!--Show Harp View-->
                                 </MenuFlyoutItem>
 
                                 <!--Kit-->
                                 <MenuFlyoutItem 
+                                    Text="{strings:UI Type=TryShowKitView}"
                                     Command="{x:Bind Command}" 
                                     CommandParameter="{strings:OptionType Type=TryShowKitView}" 
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem5.IsSelected), Mode=OneWay}"
@@ -828,11 +844,12 @@
                                     <MenuFlyoutItem.Icon>
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(5)}"/>
                                     </MenuFlyoutItem.Icon>
-                                    Show Drum Kit-Set View
+                                    <!--Show Drum Kit-Set View-->
                                 </MenuFlyoutItem>
 
                                 <!--Pad-->
                                 <MenuFlyoutItem 
+                                    Text="{strings:UI Type=TryShowPadView}"
                                     Command="{x:Bind Command}" 
                                     CommandParameter="{strings:OptionType Type=TryShowPadView}" 
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem6.IsSelected), Mode=OneWay}"
@@ -840,11 +857,12 @@
                                     <MenuFlyoutItem.Icon>
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(6)}"/>
                                     </MenuFlyoutItem.Icon>
-                                    Show Drum Pads View
+                                    <!--Show Drum Pads View-->
                                 </MenuFlyoutItem>
 
                                 <!--Drum-->
                                 <MenuFlyoutItem 
+                                    Text="{strings:UI Type=TryShowDrumView}"
                                     Command="{x:Bind Command}" 
                                     CommandParameter="{strings:OptionType Type=TryShowDrumView}"
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem7.IsSelected), Mode=OneWay}"
@@ -852,11 +870,12 @@
                                     <MenuFlyoutItem.Icon>
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(7)}"/>
                                     </MenuFlyoutItem.Icon>
-                                    Show Drum View
+                                    <!--Show Drum View-->
                                 </MenuFlyoutItem>
 
                                 <!--Machine-->
                                 <MenuFlyoutItem 
+                                    Text="{strings:UI Type=TryShowMachineView}"
                                     Command="{x:Bind Command}" 
                                     CommandParameter="{strings:OptionType Type=TryShowMachineView}" 
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem8.IsSelected), Mode=OneWay}"
@@ -864,7 +883,7 @@
                                     <MenuFlyoutItem.Icon>
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(8)}"/>
                                     </MenuFlyoutItem.Icon>
-                                    Show Drum Machines View
+                                    <!--Show Drum Machines View-->
                                 </MenuFlyoutItem>
 
                             </MenuFlyout>
@@ -881,72 +900,72 @@
 
                 <ListViewItem x:Name="ListViewItem0">
                     <ToolTipService.ToolTip>
-                        <ToolTip Placement="Bottom">
-                            Piano
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=PianoView}">
+                            <!--Piano-->
                         </ToolTip>
                     </ToolTipService.ToolTip>
                     <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(0)}"/>
                 </ListViewItem>
                 <ListViewItem x:Name="ListViewItem1">
                     <ToolTipService.ToolTip>
-                        <ToolTip Placement="Bottom">
-                            Chord
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=ChordView}">
+                            <!--Chord-->
                         </ToolTip>
                     </ToolTipService.ToolTip>
                     <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(1)}"/>
                 </ListViewItem>
                 <ListViewItem x:Name="ListViewItem2">
                     <ToolTipService.ToolTip>
-                        <ToolTip Placement="Bottom">
-                            Guitar
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=GuitarView}">
+                            <!--Guitar-->
                         </ToolTip>
                     </ToolTipService.ToolTip>
                     <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(2)}"/>
                 </ListViewItem>
                 <ListViewItem x:Name="ListViewItem3">
                     <ToolTipService.ToolTip>
-                        <ToolTip Placement="Bottom">
-                            Bass Guitar
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=BassView}">
+                            <!--Bass Guitar-->
                         </ToolTip>
                     </ToolTipService.ToolTip>
                     <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(3)}"/>
                 </ListViewItem>
                 <ListViewItem x:Name="ListViewItem4">
                     <ToolTipService.ToolTip>
-                        <ToolTip Placement="Bottom">
-                            Harp
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=HarpView}">
+                            <!--Harp-->
                         </ToolTip>
                     </ToolTipService.ToolTip>
                     <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(4)}"/>
                 </ListViewItem>
                 <ListViewItem x:Name="ListViewItem5">
                     <ToolTipService.ToolTip>
-                        <ToolTip Placement="Bottom">
-                            Drum Kit-Set
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=KitView}">
+                            <!--Drum Kit-Set-->
                         </ToolTip>
                     </ToolTipService.ToolTip>
                     <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(5)}"/>
                 </ListViewItem>
                 <ListViewItem x:Name="ListViewItem6">
                     <ToolTipService.ToolTip>
-                        <ToolTip Placement="Bottom">
-                            Drum Pads
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=PadView}">
+                            <!--Drum Pads-->
                         </ToolTip>
                     </ToolTipService.ToolTip>
                     <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(6)}"/>
                 </ListViewItem>
                 <ListViewItem x:Name="ListViewItem7">
                     <ToolTipService.ToolTip>
-                        <ToolTip Placement="Bottom">
-                            Drum
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=DrumView}">
+                            <!--Drum-->
                         </ToolTip>
                     </ToolTipService.ToolTip>
                     <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(7)}"/>
                 </ListViewItem>
                 <ListViewItem x:Name="ListViewItem8">
                     <ToolTipService.ToolTip>
-                        <ToolTip Placement="Bottom">
-                            Drum Machines
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=MachineView}">
+                            <!--Drum Machines-->
                         </ToolTip>
                     </ToolTipService.ToolTip>
                     <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(8)}"/>
@@ -1006,25 +1025,28 @@
                                 BorderBrush="{ThemeResource AppBorderBrush}"
                                 Background="{ThemeResource AppBorderBrush}"
                                 Foreground="{ThemeResource AppFill}"
+                                Text="{strings:UI Type=BendPitch}"
                                 Command="{x:Bind Command}"
                                 >
-                                Pitch
+                                <!--Pitch-->
                             </controllers:BendPitchWheel>
                             <controllers:BendModulationWheel
                                 BorderBrush="{ThemeResource AppBorderBrush}"
                                 Background="{ThemeResource AppBorderBrush}"
                                 Foreground="{ThemeResource AppFill}"
+                                Text="{strings:UI Type=BendModulation}"
                                 Command="{x:Bind Command}"
                                 >
-                                Modulation
+                                <!--Modulation-->
                             </controllers:BendModulationWheel>
                             <controllers:BendPressureWheel
                                 BorderBrush="{ThemeResource AppBorderBrush}"
                                 Background="{ThemeResource AppBorderBrush}"
                                 Foreground="{ThemeResource AppFill}"
+                                Text="{strings:UI Type=BendPressure}"
                                 Command="{x:Bind Command}"
                                 >
-                                Pressure
+                                <!--Pressure-->
                             </controllers:BendPressureWheel>
                         </StackPanel>
                     </SplitView.Pane>
@@ -1218,12 +1240,12 @@
                         <ToolTipService.ToolTip>
                             <ToolTip Placement="Bottom">
                                 <TextBlock>
-                                    <Run>
-                                        Full-screen
+                                    <Run Text="{strings:UI Type=FullScreen}">
+                                        <!--Full-screen-->
                                     </Run>
                                     /
-                                    <Run>
-                                        Exit Full-screen
+                                    <Run Text="{strings:UI Type=UnFullScreen}">
+                                        <!--Exit Full-screen-->
                                     </Run>
                                 </TextBlock>
                             </ToolTip>
@@ -1242,8 +1264,8 @@
                         Data="{x:Bind RouletterData(1)}"
                         >
                         <ToolTipService.ToolTip>
-                            <ToolTip Placement="Bottom">
-                                Metronome
+                            <ToolTip Placement="Bottom" Content="{strings:UI Type=Metronome}">
+                                <!--Metronome-->
                             </ToolTip>
                         </ToolTipService.ToolTip>
                     </elements:PathToggleButton>
@@ -1262,8 +1284,8 @@
                         Data="{x:Bind RouletterData(2)}"
                         >
                         <ToolTipService.ToolTip>
-                            <ToolTip Placement="Bottom">
-                                Favorites
+                            <ToolTip Placement="Bottom" Content="{strings:UI Type=Favorite}">
+                                <!--Favorites-->
                             </ToolTip>
                         </ToolTipService.ToolTip>
                         <elements:PathFlyoutButton.Flyout>
@@ -1282,8 +1304,8 @@
                         Data="{x:Bind RouletterData(3)}"
                         >
                         <ToolTipService.ToolTip>
-                            <ToolTip Placement="Bottom">
-                                Setting
+                            <ToolTip Placement="Bottom" Content="{strings:UI Type=Setting}">
+                                <!--Setting-->
                             </ToolTip>
                         </ToolTipService.ToolTip>
                         <elements:PathFlyoutButton.Flyout>
@@ -1299,23 +1321,23 @@
                                     </Panel.ChildrenTransitions>
 
                                     <!--ThemeMode-->
-                                    <TextBlock x:Name="ThemeTextBlock" Style="{StaticResource SubtitleTextBlockStyle}">
-                                        Theme
+                                    <TextBlock Text="{strings:UI Type=Theme}" Style="{StaticResource SubtitleTextBlockStyle}">
+                                        <!--Theme-->
                                     </TextBlock>
-                                    <RadioButton x:Name="LightRadioButton">
-                                        Light
+                                    <RadioButton x:Name="LightRadioButton" Content="{strings:UI Type=ThemeLight}">
+                                        <!--Light-->
                                     </RadioButton>
-                                    <RadioButton x:Name="DarkRadioButton">
-                                        Dark
+                                    <RadioButton x:Name="DarkRadioButton" Content="{strings:UI Type=ThemeDark}">
+                                        <!--Dark-->
                                     </RadioButton>
-                                    <RadioButton x:Name="DefaultRadioButton">
-                                        Use System
+                                    <RadioButton x:Name="DefaultRadioButton" Content="{strings:UI Type=ThemeUseSystem}">
+                                        <!--Use System-->
                                     </RadioButton>
                                     <ContentControl Height="8"/>
 
                                     <!--Language-->
-                                    <TextBlock x:Name="LanguageTextBlock" Style="{StaticResource SubtitleTextBlockStyle}">
-                                        Languages
+                                    <TextBlock Text="{strings:UI Type=Language}" Style="{StaticResource SubtitleTextBlockStyle}">
+                                        <!--Languages-->
                                     </TextBlock>
                                     <elements:CommandListView
                                         IsItemClickEnabled="True" 
@@ -1328,10 +1350,11 @@
                                         <!--ItemsSource-->
                                     </elements:CommandListView>
                                     <HyperlinkButton 
+                                        Content="{strings:UI Type=LanguageTip}"
                                         CommandParameter="{strings:OptionType Type=LanguageTip}"
                                         Command="{x:Bind Command}"
                                         >
-                                        Restart the app to see your changes.
+                                        <!--Restart the app to see your changes.-->
                                     </HyperlinkButton>
                                     <ContentControl Height="8"/>
 
@@ -1348,8 +1371,8 @@
                         Data="{x:Bind RouletterData(4)}"
                         >
                         <ToolTipService.ToolTip>
-                            <ToolTip Placement="Bottom">
-                                About
+                            <ToolTip Placement="Bottom" Content="{strings:UI Type=About}">
+                                <!--About-->
                             </ToolTip>
                         </ToolTipService.ToolTip>
                         <elements:PathFlyoutButton.Flyout>
@@ -1374,25 +1397,25 @@
                                                 <Setter Property="Background" Value="{ThemeResource AppForeground}"/>
                                             </Style>
                                         </Border.Style>
-                                        <TextBlock>
-                                            Version
+                                        <TextBlock Text="{strings:UI Type=Version}">
+                                            <!--Version-->
                                         </TextBlock>
                                     </Border>
 
                                     <ContentControl Height="12"/>
-                                    <TextBlock HorizontalAlignment="Center">
-                                        Github
+                                    <TextBlock HorizontalAlignment="Center" Text="{strings:UI Type=Github}">
+                                        <!--Github-->
                                     </TextBlock>
-                                    <HyperlinkButton HorizontalAlignment="Center">
-                                        GithubLink
+                                    <HyperlinkButton HorizontalAlignment="Center" Content="{strings:UI Type=GithubLink}" NavigateUri="{x:Bind GithubLink}">
+                                        <!--GithubLink-->
                                     </HyperlinkButton>
 
                                     <ContentControl Height="12"/>
-                                    <TextBlock HorizontalAlignment="Center">
-                                        Feedback
+                                    <TextBlock HorizontalAlignment="Center" Text="{strings:UI Type=Feedback}">
+                                        <!--Feedback-->
                                     </TextBlock>
-                                    <HyperlinkButton HorizontalAlignment="Center">
-                                        FeedbackLink
+                                    <HyperlinkButton HorizontalAlignment="Center" Content="{strings:UI Type=FeedbackLink}" NavigateUri="{x:Bind FeedbackLink}">
+                                        <!--FeedbackLink-->
                                     </HyperlinkButton>
 
                                 </StackPanel>
@@ -1412,8 +1435,8 @@
                         Data="{x:Bind RouletterData(5)}"
                         >
                         <ToolTipService.ToolTip>
-                            <ToolTip Placement="Bottom">
-                                Mute
+                            <ToolTip Placement="Bottom" Content="{strings:UI Type=Mute}">
+                                <!--Mute-->
                             </ToolTip>
                         </ToolTipService.ToolTip>
                     </elements:PathToggleButton>

@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Virtual_Piano.Controls"
     xmlns:elements="using:Virtual_Piano.Elements"
+    xmlns:strings="using:Virtual_Piano.Strings"
     mc:Ignorable="d"   
     Background="Black"
     >
@@ -30,8 +31,8 @@
 
             <Button Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
                 <ToolTipService.ToolTip>
-                    <ToolTip Placement="Bottom">
-                        More
+                    <ToolTip Placement="Bottom" Content="{strings:UI Type=More}">
+                        <!--More-->
                     </ToolTip>
                 </ToolTipService.ToolTip>
                 <Button.Flyout>
