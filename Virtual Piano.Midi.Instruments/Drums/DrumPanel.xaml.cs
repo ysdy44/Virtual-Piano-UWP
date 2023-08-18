@@ -31,7 +31,10 @@ namespace Virtual_Piano.Midi.Instruments
 
                 int count = base.Children.Count;
                 base.Width = value * 100;
-                base.Height = (count / value) * 120;
+                if (count % value == 0)
+                    base.Height = (count / value) * 120;
+                else
+                    base.Height = (count / value) * 120 + 120;
             }
         }
 
