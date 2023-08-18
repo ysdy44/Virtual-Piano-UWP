@@ -3,5 +3,7 @@
     public interface IKitPanel
     {
         void OnClick(KitSet set);
+
+        void Execute(KitSet set);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 using Virtual_Piano.Midi.Core;
@@ -13,7 +14,7 @@ namespace Virtual_Piano.Midi.Instruments
         public ICommand Command { get; set; }
 
         readonly string[] Strings;
-        readonly KitSet[] ItemsSource = new KitSet[]
+        readonly IList<KitSet> ItemsSource = new List<KitSet>
         {
             KitSet.Crash,
             KitSet.Ride,
@@ -33,6 +34,7 @@ namespace Virtual_Piano.Midi.Instruments
             Interval = System.TimeSpan.FromMilliseconds(400)
         };
 
+        ~KitPanel() => this.Timer.Stop();
         public KitPanel()
         {
             this.InitializeComponent();
@@ -40,7 +42,8 @@ namespace Virtual_Piano.Midi.Instruments
             this.Timer.Tick += (s, e) => this.HideToolTip();
         }
 
-        public void OnClick(KitSet set)
+        public void OnClick(KitSet set) => this.Execute(set);
+        public void Execute(KitSet set)
         {
             this.Command?.Execute((MidiPercussionNote)set); // Command
 
@@ -99,7 +102,6 @@ namespace Virtual_Piano.Midi.Instruments
                     break;
             }
         }
-
         private string GetString(KitSet note) => this.GetString((MidiPercussionNote)note);
         public virtual string GetString(MidiPercussionNote note)
         {

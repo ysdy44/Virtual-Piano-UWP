@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Virtual_Piano.Midi.Core;
 using Windows.Foundation;
@@ -172,6 +173,18 @@ namespace Virtual_Piano.Midi.Instruments
         }
 
         public void OnClick(KitSet set) => this.Command?.Execute((MidiPercussionNote)set); // Command
+        public async void Execute(KitSet set)
+        {
+            int index = this.Pads1x12.IndexOf(set);
+            if (index < 0) return;
+
+            if (base.Children[index] is IKitButton item)
+            {
+                item.Add();
+                await Task.Delay(1000);
+                item.Clear();
+            }
+        }
         public virtual string GetString(MidiPercussionNote note)
         {
             return note.ToString();
