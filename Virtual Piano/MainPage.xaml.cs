@@ -94,6 +94,13 @@ namespace Virtual_Piano
         Geometry InstrumentData(int index) => this.InstrumentDictionary[(MidiInstrument)index];
         Geometry InstrumentData2(int index) => this.InstrumentDictionary2[(MidiInstrument)index];
 
+        // Timer
+        int MetronomeIndex;
+        readonly DispatcherTimer MetronomeTimer = new DispatcherTimer
+        {
+            Interval = new Tempo(60).Delay * 4
+        };
+
         //@Construct
         ~MainPage()
         {

@@ -7,6 +7,9 @@
         FullScreen,
         UnFullScreen,
 
+        MetronomeStart,
+        MetronomeStop,
+
 
         TryShowPianoView,
         TryShowChordView,

@@ -40,5 +40,14 @@ namespace Virtual_Piano
             this.ApplicationView.ExitFullScreenMode();
             this.FullScreenButton.IsChecked = false;
         }
+
+        public void ClickMetronomeStart()
+        {
+            this.MetronomeTimer.Start();
+        }
+        public void ClickMetronomeStop()
+        {
+            this.MetronomeTimer.Stop();
+        }
     }
 }

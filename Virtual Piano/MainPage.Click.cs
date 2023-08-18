@@ -62,6 +62,13 @@ namespace Virtual_Piano
                     this.ClickUnFullScreen();
                     break;
 
+                case OptionType.MetronomeStart:
+                    this.ClickMetronomeStart();
+                    break;
+                case OptionType.MetronomeStop:
+                    this.ClickMetronomeStop();
+                    break;
+
                 case OptionType.TryShowPianoView:
                     for (int i = 0; i < 3; i++)
                         if (this.PianoViewId == default) await CoreApplication.CreateNewView().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, this.CreateNewPianoView);
