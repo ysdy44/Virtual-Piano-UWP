@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="4a8451ba-d1a9-4b45-960c-60f2654cdc61"
-    Publisher="CN=apple"
+    Name="43956ysdy44.VPiano"
+    Publisher="CN=9DF2B1A6-C2CE-481C-9997-A3B93DA91100"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="4a8451ba-d1a9-4b45-960c-60f2654cdc61" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="9a4708d0-24ce-4ff5-ac36-f6058b954468" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Virtual Piano</DisplayName>
-    <PublisherDisplayName>apple</PublisherDisplayName>
+    <DisplayName>V Piano</DisplayName>
+    <PublisherDisplayName>淹死的鱼ysdy44</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
