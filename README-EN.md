@@ -10,7 +10,7 @@
 
 ## Function description
 
-Virtual Piano is a MIDI tool based on the Microsoft GS Wavetable Synth that can play 128 instruments, chords, and percussion instruments.
+V Piano is a MIDI tool based on the Microsoft GS Wavetable Synth that can play 128 instruments, chords, and percussion instruments.
 
 
 <br/>
