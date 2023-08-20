@@ -14,7 +14,7 @@ using TrackLayout = Virtual_Piano.Midi.Core.TrackNoteLayout;
 namespace Virtual_Piano.Midi.Controllers
 {
     [ContentProperty(Name = nameof(Pane))]
-    public sealed partial class TrackNotePanel : UserControl
+    public sealed partial class TrackNotePanel : UserControl, ITrackNotePanel
     {
         //@Delegate
         public event DragStartedEventHandler DragStarted { remove => this.TimelineThumb.DragStarted -= value; add => this.TimelineThumb.DragStarted += value; }
@@ -123,6 +123,18 @@ namespace Virtual_Piano.Midi.Controllers
                 }
             }
 
+            foreach (MidiOctave item in System.Enum.GetValues(typeof(MidiOctave)).Cast<MidiOctave>())
+            {
+                int i = (int)item + 1;
+                var y = i * TrackLayout.Spacing * NoteExtensions.ToneCount;
+
+                this.BodyBackgroundCanvas.Children.Add(new Line
+                {
+                    Y1 = y,
+                    Y2 = y,
+                });
+            }
+
             // BodyLineCanvas
             this.BodyLineCanvas.Width = 16 * TrackLayout.Step;
             for (int i = 0; i < 16; i++)
@@ -215,7 +227,14 @@ namespace Virtual_Piano.Midi.Controllers
                     this.BodyBackgroundCanvas.Width = w;
                     foreach (FrameworkElement item in this.BodyBackgroundCanvas.Children.Cast<FrameworkElement>())
                     {
-                        item.Width = w;
+                        if (item is Line line)
+                        {
+                            line.X2 = w;
+                        }
+                        else
+                        {
+                            item.Width = w;
+                        }
                     }
                 }
 

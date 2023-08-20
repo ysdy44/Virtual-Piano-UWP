@@ -31,7 +31,12 @@
                     <!--Style-->
                     <Style TargetType="Rectangle">
                         <Setter Property="IsHitTestVisible" Value="False" />
-                        <Setter Property="Fill" Value="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" />
+                        <Setter Property="Fill" Value="{ThemeResource AppBarBackgroundThemeBrush}" />
+                    </Style>
+                    <Style TargetType="Line">
+                        <Setter Property="IsHitTestVisible" Value="False" />
+                        <Setter Property="StrokeThickness" Value="1" />
+                        <Setter Property="Stroke" Value="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" />
                     </Style>
                 </FrameworkElement.Resources>
                 <!--Children-->
@@ -47,7 +52,8 @@
                 <ItemsControl.ItemContainerStyle>
                     <Style TargetType="ContentControl">
                         <Setter Property="Padding" Value="4,0" />
-                        <Setter Property="FontWeight" Value="Medium" />
+                        <Setter Property="FontSize" Value="10" />
+                        <Setter Property="FontWeight" Value="Bold" />
                         <Setter Property="Foreground" Value="Black" />
                         <Setter Property="Background" Value="#B4DE4B" />
                         <Setter Property="BorderBrush" Value="#708B2F" />
@@ -79,7 +85,7 @@
                         <Style TargetType="Line">
                             <Setter Property="IsHitTestVisible" Value="False" />
                             <Setter Property="StrokeThickness" Value="1" />
-                            <Setter Property="Stroke" Value="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" />
+                            <Setter Property="Stroke" Value="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" />
                         </Style>
                     </FrameworkElement.Resources>
                     <Line IsHitTestVisible="False" X1="30" Y1="0" X2="{x:Bind Layout.ExtentHeight}" Y2="0"/>
