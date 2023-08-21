@@ -140,6 +140,7 @@
     <Compile Include="Enums\OptionType.cs" />
     <Compile Include="Enums\UIType.cs" />
     <Compile Include="MainPage.Click.cs" />
+    <Compile Include="MainPage.Construct.cs" />
     <Compile Include="MainPage.UI.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
