@@ -1,4 +1,4 @@
-# Virtual-Piano-UWP
+# V Piano-UWP
 
 ![](ScreenShot/logo.png)
 
