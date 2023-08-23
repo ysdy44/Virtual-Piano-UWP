@@ -27,9 +27,12 @@ namespace Virtual_Piano
         private string DoubleToStringConverter(double value) => $"{System.Math.Clamp((int)value, 0, 127)}";
         private Visibility BooleanToVisibilityConverter(bool value) => value ? Visibility.Visible : Visibility.Collapsed;
         private Visibility ReverseBooleanToVisibilityConverter(bool value) => value ? Visibility.Collapsed : Visibility.Visible;
-        private Visibility BooleanNullableToVisibilityConverter(bool? value) => value is true ? Visibility.Collapsed : Visibility.Visible;
+        private Visibility BooleanNullableToVisibilityConverter(bool? value) => value is true ? Visibility.Visible : Visibility.Collapsed;
+        private Visibility ReverseBooleanNullableToVisibilityConverter(bool? value) => value is true ? Visibility.Collapsed : Visibility.Visible;
         private bool ReverseBooleanNullableToBooleanConverter(bool? value) => value is true is false;
         private SplitViewPanePlacement BooleanToPlacementConverter(bool value) => value is true ? SplitViewPanePlacement.Right : SplitViewPanePlacement.Left;
+        private Thickness BooleanToThickness163Converter(bool value) => value ? new Thickness(0, 163, 0, -163) : default;
+        private Thickness BooleanToThickness203Converter(bool value) => value ? new Thickness(0, 203, 0, -203) : default;
         private double MarbleToRouletteConverter(double value) => value - 100 + 32;
         private Symbol FullScreenSymbolConverter(bool value) => value ? Symbol.BackToWindow : Symbol.FullScreen;
         private Symbol MuteSymbolConverter(bool value) => value ? Symbol.Mute : Symbol.Volume;
