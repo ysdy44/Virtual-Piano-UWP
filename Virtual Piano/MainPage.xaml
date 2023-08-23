@@ -805,6 +805,16 @@
                                     </MenuFlyoutItem.Icon>
                                     <!--Show Piano Chord View-->
                                 </MenuFlyoutItem>
+                                <ToggleMenuFlyoutItem 
+                                    x:Name="ChordItem"
+                                    Text="{strings:UI Type=ChordView}"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
+                                    >
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="Edit"/>
+                                    </MenuFlyoutItem.Icon>
+                                    <!--Chords-->
+                                </ToggleMenuFlyoutItem>
 
                                 <!--Guitar-->
                                 <MenuFlyoutItem 
