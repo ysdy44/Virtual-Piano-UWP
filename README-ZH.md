@@ -2,8 +2,9 @@
 
 ![](ScreenShot/logo.png)
 
-
- 正在开发，敬请期待......
+ 
+ Windows 10 app 应用商店地址: 
+[购置 V 钢琴 - 微软商店](https://www.microsoft.com/store/productid/9N2RJ51HNTSX)   
 
 
 <br/>
@@ -18,7 +19,7 @@ V 钢琴 是一款基于微软GS波表合成器的 Midi 工具，它可以演奏
 ## 开发环境
 
 |Key|Value|
-|:-|:-|
+|---|---|
 |系统要求| Windows 10 秋季创意者更新 或更高|
 |开发工具|Visual Studio 2022|
 |编程语言|C#|

@@ -3,7 +3,8 @@
 ![](ScreenShot/logo.png)
 
  
- In development, please stay tuned......
+ Windows 10 app store address: 
+[Buy V Piano - Microsoft Store](https://www.microsoft.com/store/productid/9N2RJ51HNTSX)   
 
 
 <br/>
@@ -18,7 +19,7 @@ V Piano is a MIDI tool based on the Microsoft GS Wavetable Synth that can play 1
 ## Development environment
 
 |Key|Value|
-|:-|:-|
+|---|---|
 |System requirements| Windows 10 Fall Creators Update or upper|
 |Development tool|Visual Studio 2022|
 |Programing language|C#|
