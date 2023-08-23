@@ -126,6 +126,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ChordCarousel.cs" />
     <Compile Include="Controls\DrumPanel.cs" />
     <Compile Include="Controls\InstrumentCollectionPanel.cs" />
     <Compile Include="Controls\InstrumentGroupingCollection.cs" />
