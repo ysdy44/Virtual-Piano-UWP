@@ -977,17 +977,14 @@
             <Grid Grid.Row="1" >
 
                 <!--Piano-->
-                <SplitView
-                    DisplayMode="Inline"
-                    OpenPaneLength="192"
-                    IsPaneOpen="{x:Bind BendItem.IsChecked, Mode=OneWay}" 
-                    PanePlacement="{x:Bind BooleanToPlacementConverter(BendPlacementItem.IsChecked), Mode=OneWay}"
-                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
-                    PaneBackground="{x:Null}"
-                    Background="{x:Null}"
-                    >
+                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
 
-                    <Grid Margin="2,0" RowSpacing="2">
+                    <Grid Margin="2,0" Grid.Column="1" RowSpacing="2">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="36"/>
                             <RowDefinition Height="*"/>
@@ -1019,8 +1016,15 @@
                         </ScrollViewer>
                     </Grid>
 
-                    <SplitView.Pane>
-                        <StackPanel Margin="0,4" MaxHeight="320" Orientation="Horizontal" HorizontalAlignment="Center" BorderThickness="2" BorderBrush="{ThemeResource AppBorderBrush}">
+                    <Border 
+                        Margin="4"
+                        MaxHeight="320"
+                        HorizontalAlignment="Center"
+                        BorderThickness="2"
+                        BorderBrush="{ThemeResource AppBorderBrush}"
+                        Visibility="{x:Bind BooleanNullableToVisibilityConverter(BendItem.IsChecked), Mode=OneWay}"
+                        >
+                        <StackPanel Margin="4" Orientation="Horizontal">
                             <controllers:BendPitchWheel
                                 BorderBrush="{ThemeResource AppBorderBrush}"
                                 Background="{ThemeResource AppBorderBrush}"
@@ -1049,8 +1053,8 @@
                                 <!--Pressure-->
                             </controllers:BendPressureWheel>
                         </StackPanel>
-                    </SplitView.Pane>
-                </SplitView>
+                    </Border>
+                </Grid>
 
                 <!--Chord-->
                 <Grid 
