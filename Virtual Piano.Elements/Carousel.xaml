@@ -7,13 +7,11 @@
     mc:Ignorable="d"
     d:DesignWidth="100"
     d:DesignHeight="400"
-    Background="Transparent"
-    BorderBrush="{ThemeResource SystemColorControlAccentBrush}"
     ManipulationMode="TranslateY,TranslateInertia"
     AllowFocusOnInteraction="True"
     UseSystemFocusVisuals="True"
     IsTabStop="True"
-    Margin="2"
+    RequestedTheme="Dark" 
     >
 
     <FrameworkElement.Resources>
@@ -27,7 +25,7 @@
         </Storyboard>
     </FrameworkElement.Resources>
 
-    <Border CornerRadius="4" Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+    <Border CornerRadius="8" Background="#A05EFF">
         <Canvas Height="40" HorizontalAlignment="Stretch" VerticalAlignment="Center">
             <ItemsControl
                 x:Name="ItemsControl"
@@ -41,6 +39,9 @@
                         <Setter Property="Height" Value="40" />
                         <Setter Property="HorizontalContentAlignment" Value="Center" />
                         <Setter Property="VerticalContentAlignment" Value="Center" />
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="FontSize" Value="16" />
+                        <Setter Property="Foreground" Value="White" />
                     </Style>
                 </ItemsControl.ItemContainerStyle>
                 <!--ItemsSource-->
@@ -48,11 +49,12 @@
             <Rectangle
                 x:Name="Rectangle"
                 IsHitTestVisible="False"
+                Canvas.Left="2"
                 RadiusX="4" 
                 RadiusY="4"
                 Height="40"
                 StrokeThickness="2" 
-                Stroke="{x:Bind BorderBrush, Mode=OneWay}"
+                Stroke="White"
                 />
         </Canvas>
     </Border>

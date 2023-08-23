@@ -6,7 +6,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace Virtual_Piano.Elements
 {
-    public sealed partial class Carousel : UserControl
+    public partial class Carousel : UserControl
     {
         //@Delegate
         public event EventHandler<int> ItemClick;
@@ -27,7 +27,7 @@ namespace Virtual_Piano.Elements
                 if (e.NewSize == e.PreviousSize) return;
 
                 double w = e.NewSize.Width;
-                this.Rectangle.Width = w;
+                this.Rectangle.Width = w - 4;
                 this.ItemsControl.Width = w;
             };
 
@@ -143,7 +143,7 @@ namespace Virtual_Piano.Elements
 
         public void Reset(int index = 0)
         {
-            this.Y = index * 40;
+            this.Y = -index * 40;
             Canvas.SetTop(this.ItemsControl, this.Y);
 
             this.Index = index;
