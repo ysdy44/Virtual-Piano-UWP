@@ -771,15 +771,26 @@
                                     <!--Bend-->
                                 </ToggleMenuFlyoutItem>
                                 <ToggleMenuFlyoutItem 
-                                    x:Name="BendPlacementItem"
+                                    x:Name="PedalItem"
                                     IsChecked="False" 
-                                    Text="{strings:UI Type=DockRight}"
+                                    Text="{strings:UI Type=Pedals}"
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
                                     >
                                     <MenuFlyoutItem.Icon>
-                                        <SymbolIcon Symbol="DockRight"/>
+                                        <SymbolIcon Symbol="CalendarWeek"/>
                                     </MenuFlyoutItem.Icon>
-                                    <!--Dock Right-->
+                                    <!--Pedal-->
+                                </ToggleMenuFlyoutItem>
+                                <ToggleMenuFlyoutItem 
+                                    x:Name="PianoHorizontalScrollBarItem"
+                                    IsChecked="True" 
+                                    Text="{strings:UI Type=DockBottom}"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
+                                    >
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="DockBottom"/>
+                                    </MenuFlyoutItem.Icon>
+                                    <!--Dock Bottom-->
                                 </ToggleMenuFlyoutItem>
 
                                 <!--Chord-->
@@ -984,12 +995,57 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
+                    <!--Right-->
+                    <Border 
+                        Grid.Column="2"
+                        Margin="4"
+                        MaxHeight="320"
+                        HorizontalAlignment="Center"
+                        BorderThickness="2"
+                        BorderBrush="{ThemeResource AppBorderBrush}"
+                        Visibility="{x:Bind BooleanNullableToVisibilityConverter(PedalItem.IsChecked), Mode=OneWay}"
+                        >
+                        <StackPanel Margin="4" Spacing="4" Orientation="Horizontal">
+                            <controllers:Pedal 
+                                Width="60"
+                                Controller="Sustain"
+                                BorderBrush="{ThemeResource AppFill}"
+                                Background="{ThemeResource AppForeground}"
+                                Content="{strings:UI Type=PedalSustain}"
+                                Command="{x:Bind Command}"
+                                >
+                                <!--Sustain-->
+                            </controllers:Pedal>
+                            <controllers:Pedal 
+                                Width="60"
+                                Controller="AllNotesOff"
+                                BorderBrush="{ThemeResource AppFill}"
+                                Background="{ThemeResource AppForeground}"
+                                Content="{strings:UI Type=PedalSoftPedal}"
+                                Command="{x:Bind Command}"
+                                >
+                                <!--Soft Pedal-->
+                            </controllers:Pedal>
+                            <controllers:Pedal 
+                                Width="60"
+                                Controller="Sostenuto"
+                                BorderBrush="{ThemeResource AppFill}"
+                                Background="{ThemeResource AppForeground}"
+                                Content="{strings:UI Type=PedalSostenuto}"
+                                Command="{x:Bind Command}"
+                                >
+                                <!--Sostenuto-->
+                            </controllers:Pedal>
+                        </StackPanel>
+                    </Border>
+
+                    <!--Center-->
                     <Grid Margin="2,0" Grid.Column="1" RowSpacing="2">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="36"/>
+                            <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <instruments:PianoHorizontalScrollBar ItemSize="28" ScrollViewer="{x:Bind NoteScrollViewer}"/>
+                        <instruments:PianoHorizontalScrollBar Height="36" ItemSize="28" ScrollViewer="{x:Bind NoteScrollViewer}" Visibility="{x:Bind BooleanNullableToVisibilityConverter(PianoHorizontalScrollBarItem.IsChecked), Mode=OneWay}"/>
                         <ScrollViewer
                             x:Name="NoteScrollViewer"
                             Grid.Row="1"
@@ -1016,6 +1072,7 @@
                         </ScrollViewer>
                     </Grid>
 
+                    <!--Left-->
                     <Border 
                         Margin="4"
                         MaxHeight="320"
