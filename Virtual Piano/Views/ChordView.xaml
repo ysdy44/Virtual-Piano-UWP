@@ -47,8 +47,17 @@
             <FrameworkElement.Resources>
                 <!--Style-->
                 <Style TargetType="Border">
+                    <Setter Property="RequestedTheme" Value="Light"/>
                     <Setter Property="CornerRadius" Value="8"/>
                     <Setter Property="Background" Value="#FCFCFC"/>
+                    <Setter Property="Transitions">
+                        <Setter.Value>
+                            <!--Transitions-->
+                            <TransitionCollection>
+                                <RepositionThemeTransition IsStaggeringEnabled="False"/>
+                            </TransitionCollection>
+                        </Setter.Value>
+                    </Setter>
                 </Style>
             </FrameworkElement.Resources>
             <Grid.ColumnDefinitions>
@@ -60,26 +69,35 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Border>
-                <instruments:ChordPanel Chord="C" Command="{x:Bind Command}"/>
+
+            <controls:CarouselCCm ChordPanel="{x:Bind ChordPanel1}" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
+            <controls:CarouselDmD ChordPanel="{x:Bind ChordPanel2}" Grid.Column="1" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
+            <controls:CarouselEmE ChordPanel="{x:Bind ChordPanel3}" Grid.Column="2" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
+            <controls:CarouselFFm ChordPanel="{x:Bind ChordPanel4}" Grid.Column="3" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
+            <controls:CarouselGGm ChordPanel="{x:Bind ChordPanel5}" Grid.Column="4" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
+            <controls:CarouselAmA ChordPanel="{x:Bind ChordPanel6}" Grid.Column="5" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
+            <controls:CarouselBdimBBm ChordPanel="{x:Bind ChordPanel7}" Grid.Column="6" Height="200" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
+
+            <Border Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
+                <instruments:ChordPanel x:Name="ChordPanel1" Chord="C" Command="{x:Bind Command}"/>
             </Border>
-            <Border Grid.Column="1">
-                <instruments:ChordPanel Chord="Dm" Command="{x:Bind Command}"/>
+            <Border Grid.Column="1" Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
+                <instruments:ChordPanel x:Name="ChordPanel2" Chord="Dm" Command="{x:Bind Command}"/>
             </Border>
-            <Border Grid.Column="2">
-                <instruments:ChordPanel Chord="Em" Command="{x:Bind Command}"/>
+            <Border Grid.Column="2" Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
+                <instruments:ChordPanel x:Name="ChordPanel3" Chord="Em" Command="{x:Bind Command}"/>
             </Border>
-            <Border Grid.Column="3">
-                <instruments:ChordPanel Chord="F" Command="{x:Bind Command}"/>
+            <Border Grid.Column="3" Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
+                <instruments:ChordPanel x:Name="ChordPanel4" Chord="F" Command="{x:Bind Command}"/>
             </Border>
-            <Border Grid.Column="4">
-                <instruments:ChordPanel Chord="G" Command="{x:Bind Command}"/>
+            <Border Grid.Column="4" Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
+                <instruments:ChordPanel x:Name="ChordPanel5" Chord="G" Command="{x:Bind Command}"/>
             </Border>
-            <Border Grid.Column="5">
-                <instruments:ChordPanel Chord="Am" Command="{x:Bind Command}"/>
+            <Border Grid.Column="5" Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
+                <instruments:ChordPanel x:Name="ChordPanel6" Chord="Am" Command="{x:Bind Command}"/>
             </Border>
-            <Border Grid.Column="6">
-                <instruments:ChordPanel Chord="Bdim" Command="{x:Bind Command}"/>
+            <Border Grid.Column="6" Margin="{x:Bind BooleanToThickness203Converter(ChordItem.IsChecked), Mode=OneWay}">
+                <instruments:ChordPanel x:Name="ChordPanel7" Chord="Bdim" Command="{x:Bind Command}"/>
             </Border>
         </Grid>
     </Grid>
