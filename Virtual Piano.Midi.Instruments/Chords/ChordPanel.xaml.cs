@@ -59,11 +59,11 @@ namespace Virtual_Piano.Midi.Instruments
 
                 if (e.NewSize.Height != e.PreviousSize.Height)
                 {
-                    const double spacing = 1;
+                    const int spacing = 1;
                     int count = base.Children.Count;
 
-                    double length = e.NewSize.Height - spacing * count + spacing;
-                    double height = length / count;
+                    int length = (int)e.NewSize.Height - spacing * count + spacing;
+                    int height = length / count;
 
                     for (int i = 0; i < count; i++)
                     {
