@@ -1054,6 +1054,7 @@
                     <Border 
                         Grid.Column="2"
                         Margin="4"
+                        Width="200"
                         MaxHeight="320"
                         HorizontalAlignment="Center"
                         BorderThickness="2"
@@ -1130,6 +1131,7 @@
                     <!--Left-->
                     <Border 
                         Margin="4"
+                        Width="200"
                         MaxHeight="320"
                         HorizontalAlignment="Center"
                         BorderThickness="2"
@@ -1146,6 +1148,11 @@
                                 >
                                 <!--Pitch-->
                             </controllers:BendPitchWheel>
+                            <Canvas IsHitTestVisible="False" Width="4" Height="178">
+                                <Polygon IsHitTestVisible="False" Points="4,78 0,78 0,0" Fill="{ThemeResource AppFill}"/>
+                                <Polygon IsHitTestVisible="False" Points="4,100 0,100 0,178" Fill="{ThemeResource AppFill}"/>
+                                <Ellipse IsHitTestVisible="False" Canvas.Top="88" Width="4" Height="4" Fill="{ThemeResource AppBarItemForegroundThemeBrush}"/>
+                            </Canvas>
                             <controllers:BendModulationWheel
                                 BorderBrush="{ThemeResource AppBorderBrush}"
                                 Background="{ThemeResource AppBorderBrush}"
@@ -1155,6 +1162,10 @@
                                 >
                                 <!--Modulation-->
                             </controllers:BendModulationWheel>
+                            <Canvas IsHitTestVisible="False" Width="4" Height="178">
+                                <Polygon IsHitTestVisible="False" Points="4,16 0,16 0,178 0,178" Fill="{ThemeResource AppFill}"/>
+                                <Ellipse IsHitTestVisible="False" Canvas.Top="4" Width="4" Height="4" Fill="{ThemeResource AppBarItemForegroundThemeBrush}"/>
+                            </Canvas>
                             <controllers:BendPressureWheel
                                 BorderBrush="{ThemeResource AppBorderBrush}"
                                 Background="{ThemeResource AppBorderBrush}"
