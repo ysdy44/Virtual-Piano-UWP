@@ -792,7 +792,52 @@
                                     </MenuFlyoutItem.Icon>
                                     <!--Dock Bottom-->
                                 </ToggleMenuFlyoutItem>
-
+                                <MenuFlyoutSeparator Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"/>
+                                <ToggleMenuFlyoutItem 
+                                    x:Name="Label0Item"
+                                    IsChecked="False" 
+                                    Text="{strings:UI Type=PianoView}"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
+                                    >
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="Tag"/>
+                                    </MenuFlyoutItem.Icon>
+                                    <!--None-->
+                                </ToggleMenuFlyoutItem>
+                                <ToggleMenuFlyoutItem 
+                                    x:Name="Label1Item"
+                                    IsChecked="False" 
+                                    Text="C"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
+                                    >
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="Tag"/>
+                                    </MenuFlyoutItem.Icon>
+                                    <!--C-->
+                                </ToggleMenuFlyoutItem>
+                                <ToggleMenuFlyoutItem 
+                                    x:Name="Label2Item"
+                                    IsChecked="True" 
+                                    Text="CDE"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
+                                    >
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="Tag"/>
+                                    </MenuFlyoutItem.Icon>
+                                    <!--CDE-->
+                                </ToggleMenuFlyoutItem>
+                                <ToggleMenuFlyoutItem 
+                                    x:Name="Label3Item"
+                                    IsChecked="False" 
+                                    Text="DoReMi"
+                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
+                                    >
+                                    <MenuFlyoutItem.Icon>
+                                        <SymbolIcon Symbol="Tag"/>
+                                    </MenuFlyoutItem.Icon>
+                                    <!--DoReMi-->
+                                </ToggleMenuFlyoutItem>
+                                
                                 <!--Chord-->
                                 <MenuFlyoutItem 
                                     Text="{strings:UI Type=TryShowChordView}"

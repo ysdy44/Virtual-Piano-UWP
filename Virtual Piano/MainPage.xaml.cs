@@ -161,6 +161,16 @@ namespace Virtual_Piano
                 this.SplitView.IsPaneOpen = !this.SplitView.IsPaneOpen;
             };
 
+            this.Label0Item.Click += (s, e) => this.PianoTopPanel.Label = KeyLabel.Off;
+            this.Label1Item.Click += (s, e) => this.PianoTopPanel.Label = KeyLabel.Conly;
+            this.Label2Item.Click += (s, e) => this.PianoTopPanel.Label = KeyLabel.CDE;
+            this.Label3Item.Click += (s, e) => this.PianoTopPanel.Label = KeyLabel.DoReMi;
+
+            this.Label0Item.Click += (s, e) => this.Label1Item.IsChecked = this.Label2Item.IsChecked = this.Label3Item.IsChecked = false;
+            this.Label1Item.Click += (s, e) => this.Label0Item.IsChecked = this.Label2Item.IsChecked = this.Label3Item.IsChecked = false;
+            this.Label2Item.Click += (s, e) => this.Label0Item.IsChecked = this.Label1Item.IsChecked = this.Label3Item.IsChecked = false;
+            this.Label3Item.Click += (s, e) => this.Label0Item.IsChecked = this.Label1Item.IsChecked = this.Label2Item.IsChecked = false;
+
             this.NoteScrollViewer.Loaded += (s, e) =>
             {
                 var x = this.NoteScrollViewer.ScrollableWidth / 2;
