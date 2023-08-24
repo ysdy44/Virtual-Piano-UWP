@@ -55,7 +55,7 @@
 
                             <ContentPresenter 
                                 Margin="0,8" 
-                                Padding="1,0"
+                                Padding="0"
                                 Content="{TemplateBinding Content}" 
                                 HorizontalAlignment="Center" 
                                 VerticalAlignment="Bottom" 
