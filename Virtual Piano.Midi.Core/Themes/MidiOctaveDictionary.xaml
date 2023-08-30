@@ -3,18 +3,33 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     >
+    
+    <!--Color-->
+    <Color x:Key="Hue0">#FF0000</Color>
+    <Color x:Key="Hue30">#FF7200</Color>
+    <Color x:Key="Hue60">#FFE900</Color>
+    <Color x:Key="Hue90">#9DFF00</Color>
+    <Color x:Key="Hue120">#2AFF00</Color>
+    <Color x:Key="Hue150">#00FF4C</Color>
+    <Color x:Key="Hue180">#00FFC3</Color>
+    <Color x:Key="Hue210">#00C7FF</Color>
+    <Color x:Key="Hue240">#0050FF</Color>
+    <Color x:Key="Hue270">#2600FF</Color>
+    <Color x:Key="Hue300">#9800FF</Color>
+    <Color x:Key="Hue330">#FF00EE</Color>
+    <Color x:Key="Hue360">#FF0077</Color>
 
     <!--Brush-->
-    <SolidColorBrush x:Key="Number0" Color="#323C80"/>
-    <SolidColorBrush x:Key="Number1" Color="#683280"/>
-    <SolidColorBrush x:Key="Number2" Color="#FF2E2E"/>
-    <SolidColorBrush x:Key="Number3" Color="#FF9348"/>
-    <SolidColorBrush x:Key="Number4" Color="#FAE100"/>
-    <SolidColorBrush x:Key="Number5" Color="#56FF56"/>
-    <SolidColorBrush x:Key="Number6" Color="#11FFF7"/>
-    <SolidColorBrush x:Key="Number7" Color="#6477FF"/>
-    <SolidColorBrush x:Key="Number8" Color="#CF64FF"/>
-    <SolidColorBrush x:Key="Number9" Color="#FFCBCB"/>
-    <SolidColorBrush x:Key="Number10" Color="#FFE4D1"/>
+    <SolidColorBrush x:Key="Number0" Color="{StaticResource Hue0}"/>
+    <SolidColorBrush x:Key="Number1" Color="{StaticResource Hue30}"/>
+    <SolidColorBrush x:Key="Number2" Color="{StaticResource Hue60}"/>
+    <SolidColorBrush x:Key="Number3" Color="{StaticResource Hue90}"/>
+    <SolidColorBrush x:Key="Number4" Color="{StaticResource Hue150}"/>
+    <SolidColorBrush x:Key="Number5" Color="{StaticResource Hue210}"/>
+    <SolidColorBrush x:Key="Number6" Color="{StaticResource Hue270}"/>
+    <SolidColorBrush x:Key="Number7" Color="{StaticResource Hue300}"/>
+    <SolidColorBrush x:Key="Number8" Color="{StaticResource Hue330}"/>
+    <SolidColorBrush x:Key="Number9" Color="{StaticResource Hue360}"/>
+    <SolidColorBrush x:Key="Number10" Color="{StaticResource Hue0}"/>
 
 </ResourceDictionary>
