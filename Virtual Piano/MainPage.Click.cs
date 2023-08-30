@@ -27,30 +27,30 @@ namespace Virtual_Piano
         {
             if (parameter is MidiMessage item)
             {
-                this.Synthesizer.SendMessage(item);
+                this.MidiSynthesizer.SendMessage(item);
             }
             else if (parameter is MidiNote item0)
             {
                 this.AllowRing = true;
 
-                this.Synthesizer.NoteOn(item0);
+                this.MidiSynthesizer.NoteOn(item0);
                 await Task.Delay(2000);
-                this.Synthesizer.NoteOff(item0);
+                this.MidiSynthesizer.NoteOff(item0);
             }
             else if (parameter is MidiProgram item1)
             {
                 this.AllowRing = true;
 
                 this.Favorites.Instrument = item1;
-                this.Synthesizer.ProgramChange(item1);
+                this.MidiSynthesizer.ProgramChange(item1);
             }
             else if (parameter is MidiPercussionNote item2)
             {
                 this.AllowRing = true;
 
-                this.Synthesizer.NoteOn(item2);
+                this.MidiSynthesizer.NoteOn(item2);
                 await Task.Delay(2000);
-                this.Synthesizer.NoteOff(item2);
+                this.MidiSynthesizer.NoteOff(item2);
             }
             else if (parameter is OptionType item3)
             {
@@ -59,7 +59,7 @@ namespace Virtual_Piano
             else if (parameter is InstrumentItem item4)
             {
                 this.Favorites.Instrument = item4.Key;
-                this.Synthesizer.ProgramChange(item4.Key);
+                this.MidiSynthesizer.ProgramChange(item4.Key);
             }
             else if (parameter is CultureInfo item5)
             {
@@ -98,13 +98,13 @@ namespace Virtual_Piano
 
                 case OptionType.Mute:
                     this.ClickMute();
-                    this.Synthesizer.ControlChange(MidiControlController.MainVolume, 0);
-                    this.Synthesizer.ControlChange(MidiControlController.MainVolume, 0, 9);
+                    this.MidiSynthesizer.ControlChange(MidiControlController.MainVolume, 0);
+                    this.MidiSynthesizer.ControlChange(MidiControlController.MainVolume, 0, 9);
                     break;
                 case OptionType.Volume:
                     this.ClickVolume();
-                    this.Synthesizer.ControlChange(MidiControlController.MainVolume, 127);
-                    this.Synthesizer.ControlChange(MidiControlController.MainVolume, 127, 9);
+                    this.MidiSynthesizer.ControlChange(MidiControlController.MainVolume, 127);
+                    this.MidiSynthesizer.ControlChange(MidiControlController.MainVolume, 127, 9);
                     break;
 
 

@@ -21,7 +21,7 @@
 
     <FrameworkElement.Resources>
         <!--Collection-->
-        <CollectionViewSource x:Name="Collection" IsSourceGrouped="True">
+        <CollectionViewSource x:Name="MidiInstrumentCollection" IsSourceGrouped="True">
             <CollectionViewSource.Source>
                 <controls:InstrumentGroupingCollection/>
             </CollectionViewSource.Source>
@@ -127,7 +127,7 @@
                     Grid.Row="2"
                     SelectionMode="None"
                     IsItemClickEnabled="True"
-                    ItemsSource="{x:Bind Collection.View}"
+                    ItemsSource="{x:Bind MidiInstrumentCollection.View}"
                     Command="{x:Bind Command}"
                     >
                     <ItemsControl.GroupStyle>

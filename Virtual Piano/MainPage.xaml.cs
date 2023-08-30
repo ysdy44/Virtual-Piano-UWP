@@ -38,7 +38,7 @@ namespace Virtual_Piano
         private Symbol MuteSymbolConverter(bool value) => value ? Symbol.Mute : Symbol.Volume;
 
         // Synthesizer
-        MidiSynthesizer Synthesizer;
+        MidiSynthesizer MidiSynthesizer;
 
         // Key
         bool IsShift;
@@ -131,7 +131,7 @@ namespace Virtual_Piano
         //@Construct
         ~MainPage()
         {
-            this.Synthesizer?.Dispose();
+            this.MidiSynthesizer?.Dispose();
 
             this.WhiteKeys.Dispose();
             this.BlackKeys.Dispose();
@@ -201,14 +201,14 @@ namespace Virtual_Piano
                 switch (this.MetronomeIndex % 4)
                 {
                     case 0:
-                        this.Synthesizer.NoteOn(MidiPercussionNote.MetronomeBell);
+                        this.MidiSynthesizer.NoteOn(MidiPercussionNote.MetronomeBell);
                         await System.Threading.Tasks.Task.Delay(1000);
-                        this.Synthesizer.NoteOff(MidiPercussionNote.MetronomeBell);
+                        this.MidiSynthesizer.NoteOff(MidiPercussionNote.MetronomeBell);
                         break;
                     default:
-                        this.Synthesizer.NoteOn(MidiPercussionNote.MetronomeClick);
+                        this.MidiSynthesizer.NoteOn(MidiPercussionNote.MetronomeClick);
                         await System.Threading.Tasks.Task.Delay(1000);
-                        this.Synthesizer.NoteOff(MidiPercussionNote.MetronomeClick);
+                        this.MidiSynthesizer.NoteOff(MidiPercussionNote.MetronomeClick);
                         break;
                 }
             };
@@ -228,15 +228,15 @@ namespace Virtual_Piano
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
-            this.Synthesizer?.Dispose();
+            this.MidiSynthesizer?.Dispose();
 
             this.MetronomeTimer.Stop();
             this.RingTimer.Stop();
         }
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            this.Synthesizer?.Dispose();
-            this.Synthesizer = await MidiSynthesizer.CreateAsync();
+            this.MidiSynthesizer?.Dispose();
+            this.MidiSynthesizer = await MidiSynthesizer.CreateAsync();
 
             this.RingTimer.Start();
         }
