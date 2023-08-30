@@ -43,10 +43,18 @@
                                         </VisualState.Setters>
                                     </VisualState>
 
+                                    <VisualState x:Name="Disabled">
+                                        <VisualState.Setters>
+                                            <Setter Target="RootGrid.Background" Value="Gray" />
+                                            <Setter Target="ContentPresenter.Foreground" Value="DimGray" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
 
                             <ContentPresenter 
+                                x:Name="ContentPresenter"
                                 Margin="4,0" 
                                 Content="{TemplateBinding Content}" 
                                 HorizontalAlignment="Right" 
@@ -81,10 +89,18 @@
                                         </VisualState.Setters>
                                     </VisualState>
 
+                                    <VisualState x:Name="Disabled">
+                                        <VisualState.Setters>
+                                            <Setter Target="RootGrid.Background" Value="DimGray" />
+                                            <Setter Target="ContentPresenter.Foreground" Value="Gray" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
 
                             <ContentPresenter 
+                                x:Name="ContentPresenter"
                                 Margin="4,0" 
                                 Content="{TemplateBinding Content}" 
                                 HorizontalAlignment="Right" 

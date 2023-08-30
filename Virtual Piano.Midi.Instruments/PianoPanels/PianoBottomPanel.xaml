@@ -12,6 +12,7 @@
     ItemSize="28"
     WhiteSize="250" 
     BlackSize="150" 
+    Background="{ThemeResource ApplicationForegroundThemeBrush}"
     >
 
     <!--Disable the ScrollViewer-->
@@ -50,12 +51,21 @@
                                         </Storyboard>
                                     </VisualState>
 
+                                    <VisualState x:Name="Disabled">
+                                        <VisualState.Setters>
+                                            <Setter Target="RootGrid.Background" Value="Gray" />
+                                            <Setter Target="ContentPresenter.Foreground" Value="DimGray" />
+                                            <Setter Target="ContentPresenter.BorderBrush" Value="DimGray" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
 
-                            <ContentPresenter 
+                            <ContentPresenter
+                                x:Name="ContentPresenter"
                                 Margin="0,8" 
-                                Padding="0"
+                                Padding="1,0"
                                 Content="{TemplateBinding Content}" 
                                 HorizontalAlignment="Center" 
                                 VerticalAlignment="Top" 
@@ -97,6 +107,13 @@
                                         <VisualState.Setters>
                                             <Setter Target="RootGrid.(RevealBrush.State)" Value="Pressed" />
                                             <Setter Target="RootGrid.Background" Value="Gray" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Disabled">
+                                        <VisualState.Setters>
+                                            <Setter Target="RootGrid.Background" Value="DimGray" />
+                                            <Setter Target="RootGrid.BorderBrush" Value="Black" />
                                         </VisualState.Setters>
                                     </VisualState>
 
