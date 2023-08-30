@@ -7,10 +7,12 @@ namespace Virtual_Piano.Midi.Core
 {
     [TemplateVisualState(Name = Normal)]
     [TemplateVisualState(Name = Pressed)]
+    [TemplateVisualState(Name = Disabled)]
     public abstract class ContactButton : ContentControl
     {
         const string Normal = "Normal";
         const string Pressed = "Pressed";
+        const string Disabled = "Disabled";
 
         readonly ICollection<uint> Contacts = new HashSet<uint>();
         bool IsInContact;
@@ -21,7 +23,22 @@ namespace Virtual_Piano.Midi.Core
         public ContactButton()
         {
             base.Unloaded += (s, e) => this.Clear();
-            base.Loaded += (s, e) => this.Clear();
+            base.Loaded += (s, e) =>
+            {
+                this.Clear();
+                if (base.IsEnabled)
+                    VisualStateManager.GoToState(this, Normal, false);
+                else
+                    VisualStateManager.GoToState(this, Disabled, false);
+            };
+
+            base.IsEnabledChanged += (s, e) =>
+            {
+                if (base.IsEnabled)
+                    VisualStateManager.GoToState(this, Normal, false);
+                else
+                    VisualStateManager.GoToState(this, Disabled, false);
+            };
 
             base.PreviewKeyUp += (s, e) =>
             {
