@@ -71,6 +71,25 @@ namespace Virtual_Piano.Midi.Instruments
             }
         }
 
+        public bool this[MidiNote note]
+        {
+            get
+            {
+                if (this.Children[(int)note] is IPianoButton item)
+                {
+                    return item.IsEnabled;
+                }
+                return false;
+            }
+            set
+            {
+                if (this.Children[(int)note] is IPianoButton item)
+                {
+                    item.IsEnabled = value;
+                }
+            }
+        }
+
         readonly MidiOctaveDictionary OctaveDictionary = new MidiOctaveDictionary();
         readonly PianoDirection Direction;
 

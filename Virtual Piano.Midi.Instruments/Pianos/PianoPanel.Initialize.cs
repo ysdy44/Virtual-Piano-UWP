@@ -70,7 +70,7 @@ namespace Virtual_Piano.Midi.Instruments
                             return new Rect
                             {
                                 X = 0,
-                                Y = this.PianoSize.ToWhite(count),
+                                Y = this.PianoSize.ToBlack(count),
                                 Width = double.NaN,
                                 Height = this.PianoSize.BlackSize
                             };

@@ -5,7 +5,7 @@ namespace Virtual_Piano.Midi.Instruments
 {
     partial class PianoPanel
     {
-        private PianoSize PianoSize = new PianoSize(20);
+        private PianoSize PianoSize = new PianoSize(21);
 
         public int ItemSize
         {

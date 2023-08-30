@@ -4,5 +4,6 @@
     {
         MidiNote CommandParameter { get; set; }
         ToneType Type { get; }
+        bool IsEnabled { get; set; }
     }
 }

@@ -8,6 +8,8 @@
         int ItemSize { get; set; }
         KeyLabel Label { get; set; }
 
+        bool this[MidiNote note] { get; set; }
+
         void OnClick(MidiNote note);
 
         void Clear(MidiNote note);
