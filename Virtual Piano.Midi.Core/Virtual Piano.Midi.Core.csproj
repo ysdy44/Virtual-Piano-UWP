@@ -161,6 +161,7 @@
     <Compile Include="Structs\MachineLayout.cs" />
     <Compile Include="Structs\PianoSize.cs" />
     <Compile Include="Structs\Radial.cs" />
+    <Compile Include="Structs\SampleLayout.cs" />
     <Compile Include="Structs\TrackLayout.cs" />
     <Compile Include="Structs\TrackNoteLayout.cs" />
     <Compile Include="Themes\AnimationRouletterDictionary.xaml.cs">
