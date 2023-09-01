@@ -120,6 +120,8 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Audios\AudioOutPort.cs" />
+    <Compile Include="Audios\AudioSynthesizer.cs" />
     <Compile Include="Enums0\Beat.cs" />
     <Compile Include="Enums0\KeySignature.cs" />
     <Compile Include="Enums0\Tempo.cs" />
