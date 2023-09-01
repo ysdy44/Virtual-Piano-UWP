@@ -1,0 +1,89 @@
+﻿<Canvas
+    x:Class="Virtual_Piano.Midi.Controllers.SamplePanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="400"
+    d:DesignHeight="800"
+    Height="{x:Bind Layout.Length}"
+    >
+
+    <FrameworkElement.Resources>
+        <!--Style-->
+        <Style x:Key="White" TargetType="Border">
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="Background" Value="{ThemeResource AppBarBackgroundThemeBrush}" />
+        </Style>
+        <Style x:Key="Black" TargetType="Border">
+            <Setter Property="IsHitTestVisible" Value="False" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Gray" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="8,0" />
+        </Style>
+    </FrameworkElement.Resources>
+
+    <!--Pane-->
+    <Border x:Name="PaneBorder" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.Length}" Background="Black">
+        <!--Child-->
+    </Border>
+
+    <Canvas x:Name="NoteBackgroundCanvas" Grid.Column="1" Canvas.Left="{x:Bind Layout.Pane}" Height="{x:Bind Layout.Length}">
+        <FrameworkElement.Resources>
+            <!--Style-->
+            <Style TargetType="Button">
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Padding" Value="2" />
+            </Style>
+        </FrameworkElement.Resources>
+        <!--Children-->
+    </Canvas>
+
+    <Canvas x:Name="BackgroundCanvas" Grid.Column="2" IsHitTestVisible="False" Canvas.Left="{x:Bind Layout.PaneBar}" Height="{x:Bind Layout.Length}">
+        <!--Children-->
+    </Canvas>
+
+    <ItemsControl x:Name="ItemsControl" Grid.Column="2" Canvas.Left="{x:Bind Layout.PaneBar}" Height="{x:Bind Layout.Length}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <Canvas/>
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+
+        <ItemsControl.ItemContainerStyle>
+            <Style TargetType="ContentControl">
+                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="MinWidth" Value="44" />
+                <Setter Property="Padding" Value="6,0" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="Background" Value="#B4DE4B" />
+                <Setter Property="BorderBrush" Value="#708B2F" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="ManipulationMode">
+                    <Setter.Value>
+                        TranslateX, TranslateY
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ContentControl">
+                            <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ItemsControl.ItemContainerStyle>
+        <!--ItemsSource-->
+    </ItemsControl>
+
+</Canvas>

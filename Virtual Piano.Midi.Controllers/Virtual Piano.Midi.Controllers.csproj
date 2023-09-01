@@ -147,6 +147,9 @@
     <Compile Include="Tracks\MachinePanel.xaml.cs">
       <DependentUpon>MachinePanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tracks\SamplePanel.xaml.cs">
+      <DependentUpon>SamplePanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tracks\TrackNotePanel.xaml.cs">
       <DependentUpon>TrackNotePanel.xaml</DependentUpon>
     </Compile>
@@ -189,6 +192,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Tracks\MachinePanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tracks\SamplePanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
