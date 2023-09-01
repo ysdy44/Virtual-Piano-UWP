@@ -9,6 +9,7 @@
         KeyLabel Label { get; set; }
 
         bool this[MidiNote note] { get; set; }
+        void SetAllIsEnabled(bool isEnabled);
 
         void OnClick(MidiNote note);
 

@@ -75,7 +75,7 @@ namespace Virtual_Piano.Midi.Instruments
         {
             get
             {
-                if (this.Children[(int)note] is IPianoButton item)
+                if (base.Children[(int)note] is IPianoButton item)
                 {
                     return item.IsEnabled;
                 }
@@ -83,7 +83,7 @@ namespace Virtual_Piano.Midi.Instruments
             }
             set
             {
-                if (this.Children[(int)note] is IPianoButton item)
+                if (base.Children[(int)note] is IPianoButton item)
                 {
                     item.IsEnabled = value;
                 }
@@ -105,6 +105,14 @@ namespace Virtual_Piano.Midi.Instruments
             };
         }
 
+        public void SetAllIsEnabled(bool isEnabled)
+        {
+            foreach (IPianoButton item in base.Children)
+            {
+                item.IsEnabled = isEnabled;
+            }
+        }
+
         public void OnClick(MidiNote note) => this.Command?.Execute(note); // Command
 
         public int GetIndex(MidiNote note)
@@ -119,14 +127,14 @@ namespace Virtual_Piano.Midi.Instruments
 
         public void Clear(MidiNote note)
         {
-            if (this.Children[(int)note] is IPianoButton item)
+            if (base.Children[(int)note] is IPianoButton item)
             {
                 item.Clear();
             }
         }
         public void Add(MidiNote note)
         {
-            if (this.Children[(int)note] is IPianoButton item)
+            if (base.Children[(int)note] is IPianoButton item)
             {
                 item.Add();
             }
