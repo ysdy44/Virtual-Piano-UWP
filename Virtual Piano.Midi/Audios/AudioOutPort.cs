@@ -6,7 +6,7 @@ using Windows.Storage;
 
 namespace Virtual_Piano.Midi
 {
-    public sealed class AudioOutPort : IDisposable
+    public sealed class AudioOutPort : IAudioOutPort
     {
         private AudioGraph Graph;
         private AudioDeviceOutputNode DeviceOutputNode;
@@ -47,7 +47,7 @@ namespace Virtual_Piano.Midi
             return true;
         }
 
-        public async Task<AudioFileInputNode> AddAsync(StorageFile file)
+        public async Task<AudioFileInputNode> AddAsync(IStorageFile file)
         {
             if (file is null) return null;
 
