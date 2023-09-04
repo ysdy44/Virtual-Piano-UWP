@@ -146,6 +146,7 @@
     <Compile Include="Interfaces\Panels\IHarpPanel.cs" />
     <Compile Include="Interfaces\Panels\IPianoPanel.cs" />
     <Compile Include="Interfaces\ITrackNotePanel.cs" />
+    <Compile Include="Models\AudioObservableCollection.cs" />
     <Compile Include="Models\InstrumentItem.cs" />
     <Compile Include="Models\InstrumentItemCategory.cs" />
     <Compile Include="Models\InstrumentItemGrouping.cs" />
