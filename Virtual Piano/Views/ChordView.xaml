@@ -10,6 +10,7 @@
     xmlns:strings="using:Virtual_Piano.Strings"
     mc:Ignorable="d"   
     Background="Black"
+    FlowDirection="{x:Bind Direction}"
     >
 
     <!--Extension-->

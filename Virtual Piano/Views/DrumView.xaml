@@ -8,6 +8,7 @@
     xmlns:elements="using:Virtual_Piano.Elements"
     mc:Ignorable="d"   
     Background="Black"
+    FlowDirection="{x:Bind Direction}"
     >
 
     <!--Extension-->

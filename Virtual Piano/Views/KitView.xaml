@@ -9,6 +9,7 @@
     xmlns:strings="using:Virtual_Piano.Strings"
     mc:Ignorable="d"   
     Background="Black"
+    FlowDirection="{x:Bind Direction}"
     >
 
     <!--Extension-->
@@ -53,6 +54,7 @@
         </Grid>
 
         <Border
+            FlowDirection="LeftToRight"
             Grid.Row="1"
             Margin="2"
             CornerRadius="4"

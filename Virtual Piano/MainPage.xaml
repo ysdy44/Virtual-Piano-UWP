@@ -11,7 +11,9 @@
     xmlns:instruments="using:Virtual_Piano.Midi.Instruments"
     xmlns:strings="using:Virtual_Piano.Strings"
     mc:Ignorable="d"
+    NavigationCacheMode="Enabled"
     Background="{ThemeResource AppBackground}"
+    FlowDirection="{x:Bind Direction}"
     >
 
     <!--Extension-->
@@ -179,7 +181,7 @@
                     </elements:CommandCheckedButton>
 
                 </Grid>
-
+                
             </Grid>
         </SplitView.Pane>
 
@@ -1043,7 +1045,7 @@
             <Grid Grid.Row="1" >
 
                 <!--Piano-->
-                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}">
+                <Grid FlowDirection="LeftToRight" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="1*"/>
@@ -1247,7 +1249,7 @@
                 </Grid>
 
                 <!--Guitar-->
-                <Grid MinHeight="240" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}">
+                <Grid FlowDirection="LeftToRight" MinHeight="240" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="60"/>
                         <ColumnDefinition Width="*"/>
@@ -1273,7 +1275,7 @@
                 </Grid>
 
                 <!--Bass-->
-                <Grid MinHeight="240" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
+                <Grid FlowDirection="LeftToRight" MinHeight="240" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="60"/>
                         <ColumnDefinition Width="*"/>
@@ -1300,6 +1302,7 @@
 
                 <!--Harp-->
                 <ScrollViewer
+                    FlowDirection="LeftToRight" 
                     MaxHeight="400" 
                     ZoomMode="Disabled"
                      
@@ -1319,6 +1322,7 @@
 
                 <!--Kit-->
                 <Border
+                    FlowDirection="LeftToRight" 
                     Margin="2"
                     CornerRadius="4"
                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem5.IsSelected), Mode=OneWay}"
@@ -1334,6 +1338,7 @@
                 <!--Pad-->
                 <controls:PadPanel 
                     x:Name="PadPanel"
+                    FlowDirection="LeftToRight" 
                     MinHeight="240"
                     MaxHeight="540"
                     Command="{x:Bind Command}"
@@ -1351,6 +1356,7 @@
                 <!--Machine-->
                 <controls:MachinePanel 
                     x:Name="MachinePanel" 
+                    FlowDirection="LeftToRight" 
                     MinHeight="240"
                     Command="{x:Bind Command}" 
                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem8.IsSelected), Mode=OneWay}"

@@ -8,6 +8,7 @@
     xmlns:instruments="using:Virtual_Piano.Midi.Instruments"
     mc:Ignorable="d"   
     Background="Black"
+    FlowDirection="LeftToRight"
     >
 
     <!--Extension-->

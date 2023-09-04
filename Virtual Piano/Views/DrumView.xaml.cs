@@ -5,11 +5,15 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Windows.Foundation;
+using Virtual_Piano.Elements;
 
 namespace Virtual_Piano.Views
 {
     public sealed partial class DrumView : Page
     {
+        //@String
+        FlowDirection Direction => CultureInfoCollection.FlowDirection;
+
         //@Converter
         private Visibility BooleanToVisibilityConverter(bool value) => value ? Visibility.Visible : Visibility.Collapsed;
 

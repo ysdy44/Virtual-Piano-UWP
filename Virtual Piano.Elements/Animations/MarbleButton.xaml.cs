@@ -34,7 +34,17 @@ namespace Virtual_Piano.Elements
             };
             base.ManipulationDelta += (s, e) =>
             {
-                this.X = this.MarbleX.Move(this.X, e.Delta.Translation.X, e.IsInertial, 32, this.MaxX);
+                switch (base.FlowDirection)
+                {
+                    case FlowDirection.LeftToRight:
+                        this.X = this.MarbleX.Move(this.X, e.Delta.Translation.X, e.IsInertial, 32, this.MaxX);
+                        break;
+                    case FlowDirection.RightToLeft:
+                        this.X = this.MarbleX.Move(this.X, -e.Delta.Translation.X, e.IsInertial, 32, this.MaxX);
+                        break;
+                    default:
+                        break;
+                }
                 this.Y = this.MarbleY.Move(this.Y, e.Delta.Translation.Y, e.IsInertial, 32, this.MaxY);
                 Canvas.SetLeft(this, this.X - 32);
                 Canvas.SetTop(this, this.Y - 32);

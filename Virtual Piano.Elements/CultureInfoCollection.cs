@@ -7,6 +7,10 @@ namespace Virtual_Piano.Elements
 {
     public sealed class CultureInfoCollection : List<CultureInfo>
     {
+        //@Static
+        public static bool IsRightToLeft => System.Globalization.CultureInfo.CurrentUICulture.TextInfo.IsRightToLeft;
+        public static FlowDirection FlowDirection => CultureInfoCollection.IsRightToLeft ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
+
         readonly List<string> Languages;
         //readonly List<string> Languages = new List<string>
         //{

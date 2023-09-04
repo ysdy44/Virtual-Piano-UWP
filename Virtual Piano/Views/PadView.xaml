@@ -9,6 +9,7 @@
     xmlns:strings="using:Virtual_Piano.Strings"
     mc:Ignorable="d"   
     Background="Black"
+    FlowDirection="{x:Bind Direction}"
     >
 
     <!--Extension-->
@@ -46,6 +47,7 @@
         <!--Pad-->
         <controls:PadPanel 
             x:Name="PadPanel" 
+            FlowDirection="LeftToRight"
             Grid.Row="1"
             MinHeight="240"
             MaxHeight="540"

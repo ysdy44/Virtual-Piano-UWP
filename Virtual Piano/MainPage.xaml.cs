@@ -1,4 +1,5 @@
 using System;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
@@ -22,6 +23,7 @@ namespace Virtual_Piano
         //@String
         readonly Uri GithubLink = new Uri(App.Resource.GetString(UIType.GithubLink.ToString()));
         readonly Uri FeedbackLink = new Uri($"mailto:{App.Resource.GetString(UIType.FeedbackLink.ToString())}");
+        FlowDirection Direction => CultureInfoCollection.FlowDirection;
 
         //@Converter
         private string DoubleToStringConverter(double value) => $"{System.Math.Clamp((int)value, 0, 127)}";
@@ -132,6 +134,7 @@ namespace Virtual_Piano
         ~MainPage()
         {
             this.MidiSynthesizer?.Dispose();
+            this.MidiSynthesizer = null;
 
             this.WhiteKeys.Dispose();
             this.BlackKeys.Dispose();
@@ -229,6 +232,7 @@ namespace Virtual_Piano
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             this.MidiSynthesizer?.Dispose();
+            this.MidiSynthesizer = null;
 
             this.MetronomeTimer.Stop();
             this.RingTimer.Stop();
