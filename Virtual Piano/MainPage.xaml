@@ -698,37 +698,14 @@
             -->
 
             <!--Head-->
-            <ListView
-                SelectedIndex="0"
-                SelectionMode="Single"
-         
-                ScrollViewer.ZoomMode="Disabled"
-              
-                ScrollViewer.HorizontalScrollMode="Enabled"
-                ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                ScrollViewer.IsHorizontalScrollChainingEnabled="True"
-        
-                ScrollViewer.VerticalScrollMode="Disabled"
-                ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                ScrollViewer.IsVerticalScrollChainingEnabled="False"
-                >
-
-                <ItemsControl.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="MinWidth" Value="60" />
-                        <Setter Property="MaxWidth" Value="60" />
-                        <Setter Property="Width" Value="60" />
-                        <Setter Property="MinHeight" Value="36" />
-                        <Setter Property="MaxHeight" Value="36" />
-                        <Setter Property="Height" Value="36" />
-                        <Setter Property="Background" Value="{ThemeResource AppStroke}" />
-                        <Setter Property="HorizontalContentAlignment" Value="Center" />
-                        <Setter Property="VerticalContentAlignment" Value="Center" />
-                    </Style>
-                </ItemsControl.ItemContainerStyle>
-
-                <ListViewBase.Header>
-                    <Button x:Name="SplitButton" Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" MinWidth="50" MaxWidth="80"/>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="1*" MinWidth="50" MaxWidth="80"/>
+                </Grid.ColumnDefinitions>              
+                
+                    <Button x:Name="SplitButton" Width="Auto" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
                         <ToolTipService.ToolTip>
                             <ToolTip Placement="Bottom" Content="{strings:UI Type=Split}">
                                 <!--Split-->
@@ -736,10 +713,8 @@
                         </ToolTipService.ToolTip>
                         <SymbolIcon Symbol="GlobalNavigationButton"/>
                     </Button>
-                </ListViewBase.Header>
-
-                <ListViewBase.Footer>
-                    <Button Width="60" Padding="0" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
+                
+                    <Button Grid.Column="2" Width="Auto" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
                         <ToolTipService.ToolTip>
                             <ToolTip Placement="Bottom" Content="{strings:UI Type=More}">
                                 <!--More-->
@@ -958,7 +933,36 @@
                         </Button.Flyout>
                         <SymbolIcon Symbol="More"/>
                     </Button>
-                </ListViewBase.Footer>
+           
+            <ListView
+                Grid.Column="1"
+                SelectedIndex="0"
+                SelectionMode="Single"
+         
+                ScrollViewer.ZoomMode="Disabled"
+              
+                ScrollViewer.HorizontalScrollMode="Enabled"
+                ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                ScrollViewer.IsHorizontalScrollChainingEnabled="True"
+        
+                ScrollViewer.VerticalScrollMode="Disabled"
+                ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                ScrollViewer.IsVerticalScrollChainingEnabled="False"
+                >
+
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="MinWidth" Value="60" />
+                        <Setter Property="MaxWidth" Value="60" />
+                        <Setter Property="Width" Value="60" />
+                        <Setter Property="MinHeight" Value="36" />
+                        <Setter Property="MaxHeight" Value="36" />
+                        <Setter Property="Height" Value="36" />
+                        <Setter Property="Background" Value="{ThemeResource AppStroke}" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="VerticalContentAlignment" Value="Center" />
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
 
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -1040,6 +1044,8 @@
                 </ListViewItem>
 
             </ListView>
+            
+            </Grid>
 
             <!--Foot-->
             <Grid Grid.Row="1" >
