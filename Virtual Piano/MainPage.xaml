@@ -44,14 +44,7 @@
         </DataTemplate>
     </FrameworkElement.Resources>
 
-    <SplitView
-        x:Name="SplitView"
-        DisplayMode="Inline"
-        IsPaneOpen="False"
-        OpenPaneLength="280"
-        PaneBackground="{ThemeResource AppBackground}"
-        Background="{x:Null}"
-        >
+    <Grid>
 
         <!--VisualState-->
         <VisualStateManager.VisualStateGroups>
@@ -116,6 +109,15 @@
 
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+
+    <SplitView
+        x:Name="SplitView"
+        DisplayMode="Inline"
+        IsPaneOpen="False"
+        OpenPaneLength="280"
+        PaneBackground="{ThemeResource AppBackground}"
+        Background="{x:Null}"
+        >
 
         <SplitView.Pane>
             <Grid>
@@ -1371,6 +1373,11 @@
 
             </Grid>
 
+        </Grid>
+
+        </SplitView>
+
+        <Border>
             <!--Marble-->
             <Canvas Grid.Row="1" MinWidth="200" MinHeight="200">
 
@@ -1606,8 +1613,8 @@
                 <elements:MarbleButton x:Name="MarbleButton" CommandParameter="{strings:OptionType Type=Roulette}" Command="{x:Bind Command}"/>
 
             </Canvas>
+        </Border>
 
-        </Grid>
+    </Grid>
     
-    </SplitView>
 </Page>
