@@ -150,6 +150,7 @@
     <Compile Include="MidiPercussionNoteFactory.cs" />
     <Compile Include="MidiProgramFactory.cs" />
     <Compile Include="NoteExtensions.cs" />
+    <Compile Include="OrderExtenisons.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Virtual_Piano.Midi.rd.xml" />
   </ItemGroup>
