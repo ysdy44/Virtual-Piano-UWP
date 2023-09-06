@@ -42,6 +42,8 @@ namespace Virtual_Piano.Midi.Core
 
             base.PreviewKeyUp += (s, e) =>
             {
+                if (base.IsEnabled is false) return;
+
                 switch (base.FocusState)
                 {
                     case FocusState.Keyboard:
@@ -61,6 +63,8 @@ namespace Virtual_Piano.Midi.Core
             };
             base.PreviewKeyDown += (s, e) =>
             {
+                if (base.IsEnabled is false) return;
+
                 switch (base.FocusState)
                 {
                     case FocusState.Keyboard:
