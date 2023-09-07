@@ -31,6 +31,11 @@
 
                     <SolidColorBrush x:Key="HyperlinkButtonForeground" Color="{ThemeResource AppThemeColor}"/>
 
+                    <!--SolidColorBrush-->
+                    <SolidColorBrush x:Key="ToggleMenuFlyoutItemForegroundDisabled" Color="{ThemeResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ToggleMenuFlyoutItemCheckGlyphForegroundDisabled" Color="Black" />
+
+                    <!--SolidColorBrush-->
                     <SolidColorBrush x:Key="ListViewItemBackground" Color="Transparent" />
                     <SolidColorBrush x:Key="ListViewItemBackgroundSelected" Color="{ThemeResource AppThemeColor}" />
                     <SolidColorBrush x:Key="ListViewItemBackgroundSelectedPointerOver" Color="{ThemeResource AppThemeColor}" />
@@ -101,6 +106,11 @@
 
                     <SolidColorBrush x:Key="HyperlinkButtonForeground" Color="{ThemeResource AppThemeColor}"/>
 
+                    <!--SolidColorBrush-->
+                    <SolidColorBrush x:Key="ToggleMenuFlyoutItemForegroundDisabled" Color="{ThemeResource AppThemeColor}" />
+                    <SolidColorBrush x:Key="ToggleMenuFlyoutItemCheckGlyphForegroundDisabled" Color="White" />
+
+                    <!--SolidColorBrush-->
                     <SolidColorBrush x:Key="ListViewItemBackground" Color="Transparent" />
                     <SolidColorBrush x:Key="ListViewItemBackgroundSelected" Color="{ThemeResource AppThemeColor}" />
                     <SolidColorBrush x:Key="ListViewItemBackgroundSelectedPointerOver" Color="{ThemeResource AppThemeColor}" />

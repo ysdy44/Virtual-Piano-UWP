@@ -700,6 +700,7 @@
                                     x:Name="Label0Item"
                                     IsChecked="False" 
                                     Text="{strings:UI Type=PianoView}"
+                                    IsEnabled="{x:Bind ReverseBooleanToBooleanConverter(Label0Item.IsChecked), Mode=OneWay}"
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
                                     >
                                     <MenuFlyoutItem.Icon>
@@ -711,6 +712,7 @@
                                     x:Name="Label1Item"
                                     IsChecked="False" 
                                     Text="C"
+                                    IsEnabled="{x:Bind ReverseBooleanToBooleanConverter(Label1Item.IsChecked), Mode=OneWay}"
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
                                     >
                                     <MenuFlyoutItem.Icon>
@@ -722,6 +724,7 @@
                                     x:Name="Label2Item"
                                     IsChecked="True" 
                                     Text="CDE"
+                                    IsEnabled="{x:Bind ReverseBooleanToBooleanConverter(Label2Item.IsChecked), Mode=OneWay}"
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
                                     >
                                     <MenuFlyoutItem.Icon>
@@ -733,6 +736,7 @@
                                     x:Name="Label3Item"
                                     IsChecked="False" 
                                     Text="DoReMi"
+                                    IsEnabled="{x:Bind ReverseBooleanToBooleanConverter(Label3Item.IsChecked), Mode=OneWay}"
                                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
                                     >
                                     <MenuFlyoutItem.Icon>
