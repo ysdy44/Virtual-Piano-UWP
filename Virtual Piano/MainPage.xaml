@@ -637,234 +637,229 @@
                 />
             -->
 
-            <Border Grid.Column="2">
-                <Grid>
+            <Button Grid.Column="2" Width="Auto" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
+                <ToolTipService.ToolTip>
+                    <ToolTip Placement="Bottom" Content="{strings:UI Type=More}">
+                        <!--More-->
+                    </ToolTip>
+                </ToolTipService.ToolTip>
+                <Button.Flyout>
+                    <MenuFlyout Placement="Bottom">
 
-                    <Button Grid.Column="2" Width="Auto" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
-                        <ToolTipService.ToolTip>
-                            <ToolTip Placement="Bottom" Content="{strings:UI Type=More}">
-                                <!--More-->
-                            </ToolTip>
-                        </ToolTipService.ToolTip>
-                        <Button.Flyout>
-                            <MenuFlyout Placement="Bottom">
+                        <!--Piano-->
+                        <MenuFlyoutItem
+                            Text="{strings:UI Type=TryShowPianoView}"
+                            Command="{x:Bind Command}" 
+                            CommandParameter="{strings:OptionType Type=TryShowPianoView}" 
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
+                            >
+                            <MenuFlyoutItem.Icon>
+                                <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(0)}"/>
+                            </MenuFlyoutItem.Icon>
+                            <!--Show Piano View-->
+                        </MenuFlyoutItem>
+                        <MenuFlyoutSeparator Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"/>
+                        <ToggleMenuFlyoutItem
+                            x:Name="BendItem"
+                            IsChecked="False" 
+                            Text="{strings:UI Type=Bends}"
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
+                            >
+                            <MenuFlyoutItem.Icon>
+                                <SymbolIcon Symbol="Rotate"/>
+                            </MenuFlyoutItem.Icon>
+                            <!--Bend-->
+                        </ToggleMenuFlyoutItem>
+                        <ToggleMenuFlyoutItem 
+                            x:Name="PedalItem"
+                            IsChecked="False" 
+                            Text="{strings:UI Type=Pedals}"
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
+                            >
+                            <MenuFlyoutItem.Icon>
+                                <SymbolIcon Symbol="CalendarWeek"/>
+                            </MenuFlyoutItem.Icon>
+                            <!--Pedal-->
+                        </ToggleMenuFlyoutItem>
+                        <ToggleMenuFlyoutItem 
+                            x:Name="PianoHorizontalScrollBarItem"
+                            IsChecked="True" 
+                            Text="{strings:UI Type=DockBottom}"
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
+                            >
+                            <MenuFlyoutItem.Icon>
+                                <SymbolIcon Symbol="DockBottom"/>
+                            </MenuFlyoutItem.Icon>
+                            <!--Dock Bottom-->
+                        </ToggleMenuFlyoutItem>
+                        <MenuFlyoutSeparator Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"/>
+                        <ToggleMenuFlyoutItem 
+                            x:Name="Label0Item"
+                            IsChecked="False" 
+                            Text="{strings:UI Type=PianoView}"
+                            IsEnabled="{x:Bind ReverseBooleanToBooleanConverter(Label0Item.IsChecked), Mode=OneWay}"
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
+                            >
+                            <MenuFlyoutItem.Icon>
+                                <SymbolIcon Symbol="Tag"/>
+                            </MenuFlyoutItem.Icon>
+                            <!--None-->
+                        </ToggleMenuFlyoutItem>
+                        <ToggleMenuFlyoutItem 
+                            x:Name="Label1Item"
+                            IsChecked="False" 
+                            Text="C"
+                            IsEnabled="{x:Bind ReverseBooleanToBooleanConverter(Label1Item.IsChecked), Mode=OneWay}"
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
+                            >
+                            <MenuFlyoutItem.Icon>
+                                <SymbolIcon Symbol="Tag"/>
+                            </MenuFlyoutItem.Icon>
+                            <!--C-->
+                        </ToggleMenuFlyoutItem>
+                        <ToggleMenuFlyoutItem 
+                            x:Name="Label2Item"
+                            IsChecked="True" 
+                            Text="CDE"
+                            IsEnabled="{x:Bind ReverseBooleanToBooleanConverter(Label2Item.IsChecked), Mode=OneWay}"
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
+                            >
+                            <MenuFlyoutItem.Icon>
+                                <SymbolIcon Symbol="Tag"/>
+                            </MenuFlyoutItem.Icon>
+                            <!--CDE-->
+                        </ToggleMenuFlyoutItem>
+                        <ToggleMenuFlyoutItem 
+                            x:Name="Label3Item"
+                            IsChecked="False" 
+                            Text="DoReMi"
+                            IsEnabled="{x:Bind ReverseBooleanToBooleanConverter(Label3Item.IsChecked), Mode=OneWay}"
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
+                            >
+                            <MenuFlyoutItem.Icon>
+                                <SymbolIcon Symbol="Tag"/>
+                            </MenuFlyoutItem.Icon>
+                            <!--DoReMi-->
+                        </ToggleMenuFlyoutItem>
+                        
+                        <!--Chord-->
+                        <MenuFlyoutItem 
+                            Text="{strings:UI Type=TryShowChordView}"
+                            Command="{x:Bind Command}" 
+                            CommandParameter="{strings:OptionType Type=TryShowChordView}" 
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
+                            >
+                            <MenuFlyoutItem.Icon>
+                                <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(1)}"/>
+                            </MenuFlyoutItem.Icon>
+                            <!--Show Piano Chord View-->
+                        </MenuFlyoutItem>
+                        <ToggleMenuFlyoutItem 
+                            x:Name="ChordItem"
+                            Text="{strings:UI Type=ChordView}"
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
+                            >
+                            <MenuFlyoutItem.Icon>
+                                <SymbolIcon Symbol="Edit"/>
+                            </MenuFlyoutItem.Icon>
+                            <!--Chords-->
+                        </ToggleMenuFlyoutItem>
 
-                                <!--Piano-->
-                                <MenuFlyoutItem
-                                    Text="{strings:UI Type=TryShowPianoView}"
-                                    Command="{x:Bind Command}" 
-                                    CommandParameter="{strings:OptionType Type=TryShowPianoView}" 
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
-                                    >
-                                    <MenuFlyoutItem.Icon>
-                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(0)}"/>
-                                    </MenuFlyoutItem.Icon>
-                                    <!--Show Piano View-->
-                                </MenuFlyoutItem>
-                                <MenuFlyoutSeparator Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"/>
-                                <ToggleMenuFlyoutItem
-                                    x:Name="BendItem"
-                                    IsChecked="False" 
-                                    Text="{strings:UI Type=Bends}"
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
-                                    >
-                                    <MenuFlyoutItem.Icon>
-                                        <SymbolIcon Symbol="Rotate"/>
-                                    </MenuFlyoutItem.Icon>
-                                    <!--Bend-->
-                                </ToggleMenuFlyoutItem>
-                                <ToggleMenuFlyoutItem 
-                                    x:Name="PedalItem"
-                                    IsChecked="False" 
-                                    Text="{strings:UI Type=Pedals}"
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
-                                    >
-                                    <MenuFlyoutItem.Icon>
-                                        <SymbolIcon Symbol="CalendarWeek"/>
-                                    </MenuFlyoutItem.Icon>
-                                    <!--Pedal-->
-                                </ToggleMenuFlyoutItem>
-                                <ToggleMenuFlyoutItem 
-                                    x:Name="PianoHorizontalScrollBarItem"
-                                    IsChecked="True" 
-                                    Text="{strings:UI Type=DockBottom}"
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
-                                    >
-                                    <MenuFlyoutItem.Icon>
-                                        <SymbolIcon Symbol="DockBottom"/>
-                                    </MenuFlyoutItem.Icon>
-                                    <!--Dock Bottom-->
-                                </ToggleMenuFlyoutItem>
-                                <MenuFlyoutSeparator Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"/>
-                                <ToggleMenuFlyoutItem 
-                                    x:Name="Label0Item"
-                                    IsChecked="False" 
-                                    Text="{strings:UI Type=PianoView}"
-                                    IsEnabled="{x:Bind ReverseBooleanToBooleanConverter(Label0Item.IsChecked), Mode=OneWay}"
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
-                                    >
-                                    <MenuFlyoutItem.Icon>
-                                        <SymbolIcon Symbol="Tag"/>
-                                    </MenuFlyoutItem.Icon>
-                                    <!--None-->
-                                </ToggleMenuFlyoutItem>
-                                <ToggleMenuFlyoutItem 
-                                    x:Name="Label1Item"
-                                    IsChecked="False" 
-                                    Text="C"
-                                    IsEnabled="{x:Bind ReverseBooleanToBooleanConverter(Label1Item.IsChecked), Mode=OneWay}"
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
-                                    >
-                                    <MenuFlyoutItem.Icon>
-                                        <SymbolIcon Symbol="Tag"/>
-                                    </MenuFlyoutItem.Icon>
-                                    <!--C-->
-                                </ToggleMenuFlyoutItem>
-                                <ToggleMenuFlyoutItem 
-                                    x:Name="Label2Item"
-                                    IsChecked="True" 
-                                    Text="CDE"
-                                    IsEnabled="{x:Bind ReverseBooleanToBooleanConverter(Label2Item.IsChecked), Mode=OneWay}"
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
-                                    >
-                                    <MenuFlyoutItem.Icon>
-                                        <SymbolIcon Symbol="Tag"/>
-                                    </MenuFlyoutItem.Icon>
-                                    <!--CDE-->
-                                </ToggleMenuFlyoutItem>
-                                <ToggleMenuFlyoutItem 
-                                    x:Name="Label3Item"
-                                    IsChecked="False" 
-                                    Text="DoReMi"
-                                    IsEnabled="{x:Bind ReverseBooleanToBooleanConverter(Label3Item.IsChecked), Mode=OneWay}"
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
-                                    >
-                                    <MenuFlyoutItem.Icon>
-                                        <SymbolIcon Symbol="Tag"/>
-                                    </MenuFlyoutItem.Icon>
-                                    <!--DoReMi-->
-                                </ToggleMenuFlyoutItem>
-                                
-                                <!--Chord-->
-                                <MenuFlyoutItem 
-                                    Text="{strings:UI Type=TryShowChordView}"
-                                    Command="{x:Bind Command}" 
-                                    CommandParameter="{strings:OptionType Type=TryShowChordView}" 
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
-                                    >
-                                    <MenuFlyoutItem.Icon>
-                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(1)}"/>
-                                    </MenuFlyoutItem.Icon>
-                                    <!--Show Piano Chord View-->
-                                </MenuFlyoutItem>
-                                <ToggleMenuFlyoutItem 
-                                    x:Name="ChordItem"
-                                    Text="{strings:UI Type=ChordView}"
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
-                                    >
-                                    <MenuFlyoutItem.Icon>
-                                        <SymbolIcon Symbol="Edit"/>
-                                    </MenuFlyoutItem.Icon>
-                                    <!--Chords-->
-                                </ToggleMenuFlyoutItem>
+                        <!--Guitar-->
+                        <MenuFlyoutItem 
+                            Text="{strings:UI Type=TryShowGuitarView}"
+                            Command="{x:Bind Command}" 
+                            CommandParameter="{strings:OptionType Type=TryShowGuitarView}" 
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}"
+                            >
+                            <MenuFlyoutItem.Icon>
+                                <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(2)}"/>
+                            </MenuFlyoutItem.Icon>
+                            <!--Show Guitar View-->
+                        </MenuFlyoutItem>
 
-                                <!--Guitar-->
-                                <MenuFlyoutItem 
-                                    Text="{strings:UI Type=TryShowGuitarView}"
-                                    Command="{x:Bind Command}" 
-                                    CommandParameter="{strings:OptionType Type=TryShowGuitarView}" 
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}"
-                                    >
-                                    <MenuFlyoutItem.Icon>
-                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(2)}"/>
-                                    </MenuFlyoutItem.Icon>
-                                    <!--Show Guitar View-->
-                                </MenuFlyoutItem>
+                        <!--Bass-->
+                        <MenuFlyoutItem
+                            Text="{strings:UI Type=TryShowBassView}"
+                            Command="{x:Bind Command}"
+                            CommandParameter="{strings:OptionType Type=TryShowBassView}" 
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}"
+                            >
+                            <MenuFlyoutItem.Icon>
+                                <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(3)}"/>
+                            </MenuFlyoutItem.Icon>
+                            <!--Show Bass Guitar View-->
+                        </MenuFlyoutItem>
 
-                                <!--Bass-->
-                                <MenuFlyoutItem
-                                    Text="{strings:UI Type=TryShowBassView}"
-                                    Command="{x:Bind Command}"
-                                    CommandParameter="{strings:OptionType Type=TryShowBassView}" 
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}"
-                                    >
-                                    <MenuFlyoutItem.Icon>
-                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(3)}"/>
-                                    </MenuFlyoutItem.Icon>
-                                    <!--Show Bass Guitar View-->
-                                </MenuFlyoutItem>
+                        <!--Harp-->
+                        <MenuFlyoutItem 
+                            Text="{strings:UI Type=TryShowHarpView}"
+                            Command="{x:Bind Command}"
+                            CommandParameter="{strings:OptionType Type=TryShowHarpView}" 
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}"
+                            >
+                            <MenuFlyoutItem.Icon>
+                                <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(4)}"/>
+                            </MenuFlyoutItem.Icon>
+                            <!--Show Harp View-->
+                        </MenuFlyoutItem>
 
-                                <!--Harp-->
-                                <MenuFlyoutItem 
-                                    Text="{strings:UI Type=TryShowHarpView}"
-                                    Command="{x:Bind Command}"
-                                    CommandParameter="{strings:OptionType Type=TryShowHarpView}" 
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}"
-                                    >
-                                    <MenuFlyoutItem.Icon>
-                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(4)}"/>
-                                    </MenuFlyoutItem.Icon>
-                                    <!--Show Harp View-->
-                                </MenuFlyoutItem>
+                        <!--Kit-->
+                        <MenuFlyoutItem 
+                            Text="{strings:UI Type=TryShowKitView}"
+                            Command="{x:Bind Command}" 
+                            CommandParameter="{strings:OptionType Type=TryShowKitView}" 
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem5.IsSelected), Mode=OneWay}"
+                            >
+                            <MenuFlyoutItem.Icon>
+                                <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(5)}"/>
+                            </MenuFlyoutItem.Icon>
+                            <!--Show Drum Kit-Set View-->
+                        </MenuFlyoutItem>
 
-                                <!--Kit-->
-                                <MenuFlyoutItem 
-                                    Text="{strings:UI Type=TryShowKitView}"
-                                    Command="{x:Bind Command}" 
-                                    CommandParameter="{strings:OptionType Type=TryShowKitView}" 
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem5.IsSelected), Mode=OneWay}"
-                                    >
-                                    <MenuFlyoutItem.Icon>
-                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(5)}"/>
-                                    </MenuFlyoutItem.Icon>
-                                    <!--Show Drum Kit-Set View-->
-                                </MenuFlyoutItem>
+                        <!--Pad-->
+                        <MenuFlyoutItem 
+                            Text="{strings:UI Type=TryShowPadView}"
+                            Command="{x:Bind Command}" 
+                            CommandParameter="{strings:OptionType Type=TryShowPadView}" 
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem6.IsSelected), Mode=OneWay}"
+                            >
+                            <MenuFlyoutItem.Icon>
+                                <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(6)}"/>
+                            </MenuFlyoutItem.Icon>
+                            <!--Show Drum Pads View-->
+                        </MenuFlyoutItem>
 
-                                <!--Pad-->
-                                <MenuFlyoutItem 
-                                    Text="{strings:UI Type=TryShowPadView}"
-                                    Command="{x:Bind Command}" 
-                                    CommandParameter="{strings:OptionType Type=TryShowPadView}" 
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem6.IsSelected), Mode=OneWay}"
-                                    >
-                                    <MenuFlyoutItem.Icon>
-                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(6)}"/>
-                                    </MenuFlyoutItem.Icon>
-                                    <!--Show Drum Pads View-->
-                                </MenuFlyoutItem>
+                        <!--Drum-->
+                        <MenuFlyoutItem 
+                            Text="{strings:UI Type=TryShowDrumView}"
+                            Command="{x:Bind Command}" 
+                            CommandParameter="{strings:OptionType Type=TryShowDrumView}"
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem7.IsSelected), Mode=OneWay}"
+                            >
+                            <MenuFlyoutItem.Icon>
+                                <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(7)}"/>
+                            </MenuFlyoutItem.Icon>
+                            <!--Show Drum View-->
+                        </MenuFlyoutItem>
 
-                                <!--Drum-->
-                                <MenuFlyoutItem 
-                                    Text="{strings:UI Type=TryShowDrumView}"
-                                    Command="{x:Bind Command}" 
-                                    CommandParameter="{strings:OptionType Type=TryShowDrumView}"
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem7.IsSelected), Mode=OneWay}"
-                                    >
-                                    <MenuFlyoutItem.Icon>
-                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(7)}"/>
-                                    </MenuFlyoutItem.Icon>
-                                    <!--Show Drum View-->
-                                </MenuFlyoutItem>
+                        <!--Machine-->
+                        <MenuFlyoutItem 
+                            Text="{strings:UI Type=TryShowMachineView}"
+                            Command="{x:Bind Command}" 
+                            CommandParameter="{strings:OptionType Type=TryShowMachineView}" 
+                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem8.IsSelected), Mode=OneWay}"
+                            >
+                            <MenuFlyoutItem.Icon>
+                                <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(8)}"/>
+                            </MenuFlyoutItem.Icon>
+                            <!--Show Drum Machines View-->
+                        </MenuFlyoutItem>
 
-                                <!--Machine-->
-                                <MenuFlyoutItem 
-                                    Text="{strings:UI Type=TryShowMachineView}"
-                                    Command="{x:Bind Command}" 
-                                    CommandParameter="{strings:OptionType Type=TryShowMachineView}" 
-                                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem8.IsSelected), Mode=OneWay}"
-                                    >
-                                    <MenuFlyoutItem.Icon>
-                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(8)}"/>
-                                    </MenuFlyoutItem.Icon>
-                                    <!--Show Drum Machines View-->
-                                </MenuFlyoutItem>
-
-                            </MenuFlyout>
-                        </Button.Flyout>
-                        <SymbolIcon Symbol="More"/>
-                    </Button>
-                </Grid>
-            </Border>
+                    </MenuFlyout>
+                </Button.Flyout>
+                <SymbolIcon Symbol="More"/>
+            </Button>
 
             <ListView
                 Grid.Column="1"
@@ -976,8 +971,8 @@
                 </ListViewItem>
 
             </ListView>
-            
-            </Grid>
+
+        </Grid>
 
         <SplitView
             x:Name="SplitView"
@@ -1057,72 +1052,225 @@
                 </Grid>
             </SplitView.Pane>
 
-            <!--Foot-->
-            <Grid Grid.Row="1" >
-
-                <!--Piano-->
-                <Grid FlowDirection="LeftToRight" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-
-                    <!--Right-->
-                    <Border 
-                        Grid.Column="2"
-                        Margin="4"
-                        Width="200"
-                        MaxHeight="320"
-                        HorizontalAlignment="Center"
-                        BorderThickness="2"
-                        BorderBrush="{ThemeResource AppBorderBrush}"
-                        Visibility="{x:Bind BooleanNullableToVisibilityConverter(PedalItem.IsChecked), Mode=OneWay}"
+            <!--Body-->
+            <Grid>
+                
+                <Grid>
+            
+                    <!--Piano-->
+                    <Grid FlowDirection="LeftToRight" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+            
+                        <!--Right-->
+                        <Border 
+                            Grid.Column="2"
+                            Margin="4"
+                            Width="200"
+                            MaxHeight="320"
+                            HorizontalAlignment="Center"
+                            BorderThickness="2"
+                            BorderBrush="{ThemeResource AppBorderBrush}"
+                            Visibility="{x:Bind BooleanNullableToVisibilityConverter(PedalItem.IsChecked), Mode=OneWay}"
+                            >
+                            <StackPanel Margin="4" Spacing="4" Orientation="Horizontal">
+                                <controllers:Pedal 
+                                    Width="60"
+                                    Controller="Sustain"
+                                    BorderBrush="{ThemeResource AppFill}"
+                                    Background="{ThemeResource AppForeground}"
+                                    Content="{strings:UI Type=PedalSustain}"
+                                    Command="{x:Bind Command}"
+                                    >
+                                    <!--Sustain-->
+                                </controllers:Pedal>
+                                <controllers:Pedal 
+                                    Width="60"
+                                    Controller="AllNotesOff"
+                                    BorderBrush="{ThemeResource AppFill}"
+                                    Background="{ThemeResource AppForeground}"
+                                    Content="{strings:UI Type=PedalSoftPedal}"
+                                    Command="{x:Bind Command}"
+                                    >
+                                    <!--Soft Pedal-->
+                                </controllers:Pedal>
+                                <controllers:Pedal 
+                                    Width="60"
+                                    Controller="Sostenuto"
+                                    BorderBrush="{ThemeResource AppFill}"
+                                    Background="{ThemeResource AppForeground}"
+                                    Content="{strings:UI Type=PedalSostenuto}"
+                                    Command="{x:Bind Command}"
+                                    >
+                                    <!--Sostenuto-->
+                                </controllers:Pedal>
+                            </StackPanel>
+                        </Border>
+            
+                        <!--Center-->
+                        <Grid Margin="2,0" Grid.Column="1" RowSpacing="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <instruments:PianoHorizontalScrollBar Height="36" ItemSize="28" ScrollViewer="{x:Bind NoteScrollViewer}" Visibility="{x:Bind BooleanNullableToVisibilityConverter(PianoHorizontalScrollBarItem.IsChecked), Mode=OneWay}"/>
+                            <ScrollViewer
+                                x:Name="NoteScrollViewer"
+                                Grid.Row="1"
+                                ZoomMode="Disabled"
+                                 
+                                HorizontalScrollMode="Enabled"
+                                HorizontalScrollBarVisibility="Hidden"
+                                IsHorizontalScrollChainingEnabled="True"
+                              
+                                VerticalScrollMode="Disabled"
+                                VerticalScrollBarVisibility="Disabled"
+                                IsVerticalScrollChainingEnabled="False"
+                                
+                                Background="{ThemeResource AppStroke}"
+                                >
+                                <instruments:PianoTopPanel
+                                    x:Name="PianoTopPanel"
+                                    Label="CDE"
+                                    ItemSize="28"
+                                    WhiteSize="420" 
+                                    BlackSize="240" 
+                                    Command="{x:Bind Command}"
+                                    />
+                            </ScrollViewer>
+                        </Grid>
+            
+                        <!--Left-->
+                        <Border 
+                            Margin="4"
+                            Width="200"
+                            MaxHeight="320"
+                            HorizontalAlignment="Center"
+                            BorderThickness="2"
+                            BorderBrush="{ThemeResource AppBorderBrush}"
+                            Visibility="{x:Bind BooleanNullableToVisibilityConverter(BendItem.IsChecked), Mode=OneWay}"
+                            >
+                            <StackPanel Margin="4" Orientation="Horizontal">
+                                <controllers:BendPitchWheel
+                                    BorderBrush="{ThemeResource AppBorderBrush}"
+                                    Background="{ThemeResource AppBorderBrush}"
+                                    Foreground="{ThemeResource AppFill}"
+                                    Text="{strings:UI Type=BendPitch}"
+                                    Command="{x:Bind Command}"
+                                    >
+                                    <!--Pitch-->
+                                </controllers:BendPitchWheel>
+                                <Canvas IsHitTestVisible="False" Width="4" Height="178">
+                                    <Polygon IsHitTestVisible="False" Points="4,78 0,78 0,0" Fill="{ThemeResource AppFill}"/>
+                                    <Polygon IsHitTestVisible="False" Points="4,100 0,100 0,178" Fill="{ThemeResource AppFill}"/>
+                                    <Ellipse IsHitTestVisible="False" Canvas.Top="88" Width="4" Height="4" Fill="{ThemeResource AppBarItemForegroundThemeBrush}"/>
+                                </Canvas>
+                                <controllers:BendModulationWheel
+                                    BorderBrush="{ThemeResource AppBorderBrush}"
+                                    Background="{ThemeResource AppBorderBrush}"
+                                    Foreground="{ThemeResource AppFill}"
+                                    Text="{strings:UI Type=BendModulation}"
+                                    Command="{x:Bind Command}"
+                                    >
+                                    <!--Modulation-->
+                                </controllers:BendModulationWheel>
+                                <Canvas IsHitTestVisible="False" Width="4" Height="178">
+                                    <Polygon IsHitTestVisible="False" Points="4,16 0,16 0,178 0,178" Fill="{ThemeResource AppFill}"/>
+                                    <Ellipse IsHitTestVisible="False" Canvas.Top="4" Width="4" Height="4" Fill="{ThemeResource AppBarItemForegroundThemeBrush}"/>
+                                </Canvas>
+                                <controllers:BendPressureWheel
+                                    BorderBrush="{ThemeResource AppBorderBrush}"
+                                    Background="{ThemeResource AppBorderBrush}"
+                                    Foreground="{ThemeResource AppFill}"
+                                    Text="{strings:UI Type=BendPressure}"
+                                    Command="{x:Bind Command}"
+                                    >
+                                    <!--Pressure-->
+                                </controllers:BendPressureWheel>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+            
+                    <!--Chord-->
+                    <Grid 
+                        ColumnSpacing="3" 
+                        Margin="4" 
+                        MinWidth="400" 
+                        MinHeight="232" 
+                        MaxHeight="520" 
+                        MaxWidth="900" 
+                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
                         >
-                        <StackPanel Margin="4" Spacing="4" Orientation="Horizontal">
-                            <controllers:Pedal 
-                                Width="60"
-                                Controller="Sustain"
-                                BorderBrush="{ThemeResource AppFill}"
-                                Background="{ThemeResource AppForeground}"
-                                Content="{strings:UI Type=PedalSustain}"
-                                Command="{x:Bind Command}"
-                                >
-                                <!--Sustain-->
-                            </controllers:Pedal>
-                            <controllers:Pedal 
-                                Width="60"
-                                Controller="AllNotesOff"
-                                BorderBrush="{ThemeResource AppFill}"
-                                Background="{ThemeResource AppForeground}"
-                                Content="{strings:UI Type=PedalSoftPedal}"
-                                Command="{x:Bind Command}"
-                                >
-                                <!--Soft Pedal-->
-                            </controllers:Pedal>
-                            <controllers:Pedal 
-                                Width="60"
-                                Controller="Sostenuto"
-                                BorderBrush="{ThemeResource AppFill}"
-                                Background="{ThemeResource AppForeground}"
-                                Content="{strings:UI Type=PedalSostenuto}"
-                                Command="{x:Bind Command}"
-                                >
-                                <!--Sostenuto-->
-                            </controllers:Pedal>
-                        </StackPanel>
-                    </Border>
-
-                    <!--Center-->
-                    <Grid Margin="2,0" Grid.Column="1" RowSpacing="2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <instruments:PianoHorizontalScrollBar Height="36" ItemSize="28" ScrollViewer="{x:Bind NoteScrollViewer}" Visibility="{x:Bind BooleanNullableToVisibilityConverter(PianoHorizontalScrollBarItem.IsChecked), Mode=OneWay}"/>
+                        <FrameworkElement.Resources>
+                            <!--Style-->
+                            <Style TargetType="Border">
+                                <Setter Property="RequestedTheme" Value="Light"/>
+                                <Setter Property="CornerRadius" Value="8"/>
+                                <Setter Property="Background" Value="#FCFCFC"/>
+                                <Setter Property="Transitions">
+                                    <Setter.Value>
+                                        <!--Transitions-->
+                                        <TransitionCollection>
+                                            <RepositionThemeTransition IsStaggeringEnabled="False"/>
+                                        </TransitionCollection>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </FrameworkElement.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+            
+                        <controls:CarouselCCm ChordPanel="{x:Bind ChordPanel1}" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
+                        <controls:CarouselDmD ChordPanel="{x:Bind ChordPanel2}" Grid.Column="1" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
+                        <controls:CarouselEmE ChordPanel="{x:Bind ChordPanel3}" Grid.Column="2" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
+                        <controls:CarouselFFm ChordPanel="{x:Bind ChordPanel4}" Grid.Column="3" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
+                        <controls:CarouselGGm ChordPanel="{x:Bind ChordPanel5}" Grid.Column="4" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
+                        <controls:CarouselAmA ChordPanel="{x:Bind ChordPanel6}" Grid.Column="5" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
+                        <controls:CarouselBdimBBm ChordPanel="{x:Bind ChordPanel7}" Grid.Column="6" Height="200" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
+            
+                        <Border Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
+                            <instruments:ChordPanel x:Name="ChordPanel1" Chord="C" Command="{x:Bind Command}"/>
+                        </Border>
+                        <Border Grid.Column="1" Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
+                            <instruments:ChordPanel x:Name="ChordPanel2" Chord="Dm" Command="{x:Bind Command}"/>
+                        </Border>
+                        <Border Grid.Column="2" Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
+                            <instruments:ChordPanel x:Name="ChordPanel3" Chord="Em" Command="{x:Bind Command}"/>
+                        </Border>
+                        <Border Grid.Column="3" Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
+                            <instruments:ChordPanel x:Name="ChordPanel4" Chord="F" Command="{x:Bind Command}"/>
+                        </Border>
+                        <Border Grid.Column="4" Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
+                            <instruments:ChordPanel x:Name="ChordPanel5" Chord="G" Command="{x:Bind Command}"/>
+                        </Border>
+                        <Border Grid.Column="5" Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
+                            <instruments:ChordPanel x:Name="ChordPanel6" Chord="Am" Command="{x:Bind Command}"/>
+                        </Border>
+                        <Border Grid.Column="6" Margin="{x:Bind BooleanToThickness203Converter(ChordItem.IsChecked), Mode=OneWay}">
+                            <instruments:ChordPanel x:Name="ChordPanel7" Chord="Bdim" Command="{x:Bind Command}"/>
+                        </Border>
+                    </Grid>
+            
+                    <!--Guitar-->
+                    <Grid FlowDirection="LeftToRight" MinHeight="240" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <instruments:GuitarScrollBar Orientation="Vertical" VerticalAlignment="Center" ScrollViewer="{x:Bind GuitarScrollViewer}"/>
                         <ScrollViewer
-                            x:Name="NoteScrollViewer"
-                            Grid.Row="1"
+                            x:Name="GuitarScrollViewer"
+                            Grid.Column="1"
                             ZoomMode="Disabled"
                              
                             HorizontalScrollMode="Enabled"
@@ -1133,147 +1281,42 @@
                             VerticalScrollBarVisibility="Disabled"
                             IsVerticalScrollChainingEnabled="False"
                             
-                            Background="{ThemeResource AppStroke}"
+                            Background="#CC9D55"
                             >
-                            <instruments:PianoTopPanel
-                                x:Name="PianoTopPanel"
-                                Label="CDE"
-                                ItemSize="28"
-                                WhiteSize="420" 
-                                BlackSize="240" 
-                                Command="{x:Bind Command}"
-                                />
+                            <instruments:GuitarPanel Command="{x:Bind Command}"/>
                         </ScrollViewer>
                     </Grid>
-
-                    <!--Left-->
-                    <Border 
-                        Margin="4"
-                        Width="200"
-                        MaxHeight="320"
-                        HorizontalAlignment="Center"
-                        BorderThickness="2"
-                        BorderBrush="{ThemeResource AppBorderBrush}"
-                        Visibility="{x:Bind BooleanNullableToVisibilityConverter(BendItem.IsChecked), Mode=OneWay}"
-                        >
-                        <StackPanel Margin="4" Orientation="Horizontal">
-                            <controllers:BendPitchWheel
-                                BorderBrush="{ThemeResource AppBorderBrush}"
-                                Background="{ThemeResource AppBorderBrush}"
-                                Foreground="{ThemeResource AppFill}"
-                                Text="{strings:UI Type=BendPitch}"
-                                Command="{x:Bind Command}"
-                                >
-                                <!--Pitch-->
-                            </controllers:BendPitchWheel>
-                            <Canvas IsHitTestVisible="False" Width="4" Height="178">
-                                <Polygon IsHitTestVisible="False" Points="4,78 0,78 0,0" Fill="{ThemeResource AppFill}"/>
-                                <Polygon IsHitTestVisible="False" Points="4,100 0,100 0,178" Fill="{ThemeResource AppFill}"/>
-                                <Ellipse IsHitTestVisible="False" Canvas.Top="88" Width="4" Height="4" Fill="{ThemeResource AppBarItemForegroundThemeBrush}"/>
-                            </Canvas>
-                            <controllers:BendModulationWheel
-                                BorderBrush="{ThemeResource AppBorderBrush}"
-                                Background="{ThemeResource AppBorderBrush}"
-                                Foreground="{ThemeResource AppFill}"
-                                Text="{strings:UI Type=BendModulation}"
-                                Command="{x:Bind Command}"
-                                >
-                                <!--Modulation-->
-                            </controllers:BendModulationWheel>
-                            <Canvas IsHitTestVisible="False" Width="4" Height="178">
-                                <Polygon IsHitTestVisible="False" Points="4,16 0,16 0,178 0,178" Fill="{ThemeResource AppFill}"/>
-                                <Ellipse IsHitTestVisible="False" Canvas.Top="4" Width="4" Height="4" Fill="{ThemeResource AppBarItemForegroundThemeBrush}"/>
-                            </Canvas>
-                            <controllers:BendPressureWheel
-                                BorderBrush="{ThemeResource AppBorderBrush}"
-                                Background="{ThemeResource AppBorderBrush}"
-                                Foreground="{ThemeResource AppFill}"
-                                Text="{strings:UI Type=BendPressure}"
-                                Command="{x:Bind Command}"
-                                >
-                                <!--Pressure-->
-                            </controllers:BendPressureWheel>
-                        </StackPanel>
-                    </Border>
-                </Grid>
-
-                <!--Chord-->
-                <Grid 
-                    ColumnSpacing="3" 
-                    Margin="4" 
-                    MinWidth="400" 
-                    MinHeight="232" 
-                    MaxHeight="520" 
-                    MaxWidth="900" 
-                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
-                    >
-                    <FrameworkElement.Resources>
-                        <!--Style-->
-                        <Style TargetType="Border">
-                            <Setter Property="RequestedTheme" Value="Light"/>
-                            <Setter Property="CornerRadius" Value="8"/>
-                            <Setter Property="Background" Value="#FCFCFC"/>
-                            <Setter Property="Transitions">
-                                <Setter.Value>
-                                    <!--Transitions-->
-                                    <TransitionCollection>
-                                        <RepositionThemeTransition IsStaggeringEnabled="False"/>
-                                    </TransitionCollection>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </FrameworkElement.Resources>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <controls:CarouselCCm ChordPanel="{x:Bind ChordPanel1}" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
-                    <controls:CarouselDmD ChordPanel="{x:Bind ChordPanel2}" Grid.Column="1" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
-                    <controls:CarouselEmE ChordPanel="{x:Bind ChordPanel3}" Grid.Column="2" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
-                    <controls:CarouselFFm ChordPanel="{x:Bind ChordPanel4}" Grid.Column="3" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
-                    <controls:CarouselGGm ChordPanel="{x:Bind ChordPanel5}" Grid.Column="4" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
-                    <controls:CarouselAmA ChordPanel="{x:Bind ChordPanel6}" Grid.Column="5" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
-                    <controls:CarouselBdimBBm ChordPanel="{x:Bind ChordPanel7}" Grid.Column="6" Height="200" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
-
-                    <Border Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
-                        <instruments:ChordPanel x:Name="ChordPanel1" Chord="C" Command="{x:Bind Command}"/>
-                    </Border>
-                    <Border Grid.Column="1" Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
-                        <instruments:ChordPanel x:Name="ChordPanel2" Chord="Dm" Command="{x:Bind Command}"/>
-                    </Border>
-                    <Border Grid.Column="2" Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
-                        <instruments:ChordPanel x:Name="ChordPanel3" Chord="Em" Command="{x:Bind Command}"/>
-                    </Border>
-                    <Border Grid.Column="3" Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
-                        <instruments:ChordPanel x:Name="ChordPanel4" Chord="F" Command="{x:Bind Command}"/>
-                    </Border>
-                    <Border Grid.Column="4" Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
-                        <instruments:ChordPanel x:Name="ChordPanel5" Chord="G" Command="{x:Bind Command}"/>
-                    </Border>
-                    <Border Grid.Column="5" Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
-                        <instruments:ChordPanel x:Name="ChordPanel6" Chord="Am" Command="{x:Bind Command}"/>
-                    </Border>
-                    <Border Grid.Column="6" Margin="{x:Bind BooleanToThickness203Converter(ChordItem.IsChecked), Mode=OneWay}">
-                        <instruments:ChordPanel x:Name="ChordPanel7" Chord="Bdim" Command="{x:Bind Command}"/>
-                    </Border>
-                </Grid>
-
-                <!--Guitar-->
-                <Grid FlowDirection="LeftToRight" MinHeight="240" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="60"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <instruments:GuitarScrollBar Orientation="Vertical" VerticalAlignment="Center" ScrollViewer="{x:Bind GuitarScrollViewer}"/>
+            
+                    <!--Bass-->
+                    <Grid FlowDirection="LeftToRight" MinHeight="240" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <instruments:GuitarScrollBar Orientation="Vertical" VerticalAlignment="Center" ScrollViewer="{x:Bind BassScrollViewer}"/>
+                        <ScrollViewer
+                            x:Name="BassScrollViewer"
+                            Grid.Column="1"
+                            ZoomMode="Disabled"
+                             
+                            HorizontalScrollMode="Enabled"
+                            HorizontalScrollBarVisibility="Hidden"
+                            IsHorizontalScrollChainingEnabled="True"
+                          
+                            VerticalScrollMode="Disabled"
+                            VerticalScrollBarVisibility="Disabled"
+                            IsVerticalScrollChainingEnabled="False"
+                            
+                            Background="#22262F"
+                            >
+                            <instruments:BaseGuitarPanel Command="{x:Bind Command}"/>
+                        </ScrollViewer>
+                    </Grid>
+            
+                    <!--Harp-->
                     <ScrollViewer
-                        x:Name="GuitarScrollViewer"
-                        Grid.Column="1"
+                        FlowDirection="LeftToRight" 
+                        MaxHeight="400" 
                         ZoomMode="Disabled"
                          
                         HorizontalScrollMode="Enabled"
@@ -1284,343 +1327,295 @@
                         VerticalScrollBarVisibility="Disabled"
                         IsVerticalScrollChainingEnabled="False"
                         
-                        Background="#CC9D55"
+                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}"
+                        Background="{ThemeResource AppStroke}"
                         >
-                        <instruments:GuitarPanel Command="{x:Bind Command}"/>
+                        <instruments:HarpPanel MinHeight="220" Command="{x:Bind Command}"/>
                     </ScrollViewer>
-                </Grid>
-
-                <!--Bass-->
-                <Grid FlowDirection="LeftToRight" MinHeight="240" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="60"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <instruments:GuitarScrollBar Orientation="Vertical" VerticalAlignment="Center" ScrollViewer="{x:Bind BassScrollViewer}"/>
-                    <ScrollViewer
-                        x:Name="BassScrollViewer"
-                        Grid.Column="1"
-                        ZoomMode="Disabled"
-                         
-                        HorizontalScrollMode="Enabled"
-                        HorizontalScrollBarVisibility="Hidden"
-                        IsHorizontalScrollChainingEnabled="True"
-                      
-                        VerticalScrollMode="Disabled"
-                        VerticalScrollBarVisibility="Disabled"
-                        IsVerticalScrollChainingEnabled="False"
-                        
-                        Background="#22262F"
+            
+                    <!--Kit-->
+                    <Border
+                        FlowDirection="LeftToRight" 
+                        Margin="2"
+                        CornerRadius="4"
+                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem5.IsSelected), Mode=OneWay}"
                         >
-                        <instruments:BaseGuitarPanel Command="{x:Bind Command}"/>
+                        <Viewbox
+                            MinHeight="236"
+                            MaxHeight="640"
+                            >
+                            <controls:KitPanel x:Name="KitPanel" Command="{x:Bind Command}"/>
+                        </Viewbox>
+                    </Border>
+            
+                    <!--Pad-->
+                    <controls:PadPanel 
+                        x:Name="PadPanel"
+                        FlowDirection="LeftToRight" 
+                        MinHeight="240"
+                        MaxHeight="540"
+                        Command="{x:Bind Command}"
+                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem6.IsSelected), Mode=OneWay}"
+                        />
+            
+                    <!--Drum-->
+                    <ScrollViewer 
+                        x:Name="DrumScrollViewer" 
+                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem7.IsSelected), Mode=OneWay}"
+                        >
+                        <controls:DrumPanel x:Name="DrumPanel" MinHeight="240" Command="{x:Bind Command}"/>
                     </ScrollViewer>
+
+                    <!--Machine-->
+                    <controls:MachinePanel 
+                        x:Name="MachinePanel" 
+                        FlowDirection="LeftToRight" 
+                        MinHeight="240"
+                        Command="{x:Bind Command}" 
+                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem8.IsSelected), Mode=OneWay}"
+                        Background="{ThemeResource AppBackground}"
+                        />
+
                 </Grid>
-
-                <!--Harp-->
-                <ScrollViewer
-                    FlowDirection="LeftToRight" 
-                    MaxHeight="400" 
-                    ZoomMode="Disabled"
-                     
-                    HorizontalScrollMode="Enabled"
-                    HorizontalScrollBarVisibility="Hidden"
-                    IsHorizontalScrollChainingEnabled="True"
-                  
-                    VerticalScrollMode="Disabled"
-                    VerticalScrollBarVisibility="Disabled"
-                    IsVerticalScrollChainingEnabled="False"
-                    
-                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}"
-                    Background="{ThemeResource AppStroke}"
-                    >
-                    <instruments:HarpPanel MinHeight="220" Command="{x:Bind Command}"/>
-                </ScrollViewer>
-
-                <!--Kit-->
-                <Border
-                    FlowDirection="LeftToRight" 
-                    Margin="2"
-                    CornerRadius="4"
-                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem5.IsSelected), Mode=OneWay}"
-                    >
-                    <Viewbox
-                        MinHeight="236"
-                        MaxHeight="640"
-                        >
-                        <controls:KitPanel x:Name="KitPanel" Command="{x:Bind Command}"/>
-                    </Viewbox>
-                </Border>
-
-                <!--Pad-->
-                <controls:PadPanel 
-                    x:Name="PadPanel"
-                    FlowDirection="LeftToRight" 
-                    MinHeight="240"
-                    MaxHeight="540"
-                    Command="{x:Bind Command}"
-                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem6.IsSelected), Mode=OneWay}"
-                    />
-
-                <!--Drum-->
-                <ScrollViewer 
-                    x:Name="DrumScrollViewer" 
-                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem7.IsSelected), Mode=OneWay}"
-                    >
-                    <controls:DrumPanel x:Name="DrumPanel" MinHeight="240" Command="{x:Bind Command}"/>
-                </ScrollViewer>
-
-                <!--Machine-->
-                <controls:MachinePanel 
-                    x:Name="MachinePanel" 
-                    FlowDirection="LeftToRight" 
-                    MinHeight="240"
-                    Command="{x:Bind Command}" 
-                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem8.IsSelected), Mode=OneWay}"
-                    Background="{ThemeResource AppBackground}"
-                    />
 
             </Grid>
-
         </SplitView>
 
-        <Border Grid.Row="1">
-            <!--Marble-->
-            <Canvas Grid.Row="1" MinWidth="200" MinHeight="200">
+        <!--Marble-->
+        <Canvas Grid.Row="1" MinWidth="200" MinHeight="200">
 
-                <!--Animation-->
-                <elements:AnimationRouletter 
-                    x:Name="Rouletter" 
-                    Width="200" 
-                    Height="200"
-                    Canvas.Left="{x:Bind MarbleToRouletteConverter(MarbleButton.(Canvas.Left)), Mode=OneWay}"
-                    Canvas.Top="{x:Bind MarbleToRouletteConverter(MarbleButton.(Canvas.Top)), Mode=OneWay}"
+            <!--Animation-->
+            <elements:AnimationRouletter 
+                x:Name="Rouletter" 
+                Width="200" 
+                Height="200"
+                Canvas.Left="{x:Bind MarbleToRouletteConverter(MarbleButton.(Canvas.Left)), Mode=OneWay}"
+                Canvas.Top="{x:Bind MarbleToRouletteConverter(MarbleButton.(Canvas.Top)), Mode=OneWay}"
+                >
+                <Ellipse Canvas.Left="-1" Canvas.Top="-1" Width="202" Height="202" StrokeThickness="1" Stroke="{ThemeResource ApplicationForegroundThemeBrush}" Fill="{ThemeResource AppStroke}"/>
+
+
+                <!--FullScreen-->
+                <elements:PathToggleButton 
+                    x:Name="FullScreenButton" 
+                    UncheckedCommandParameter="{strings:OptionType Type=FullScreen}" 
+                    CheckedCommandParameter="{strings:OptionType Type=UnFullScreen}" 
+                    Background="{ThemeResource AppBackground}" 
+                    Command="{x:Bind Command}"
+                    Data="{x:Bind RouletterData(0)}"
                     >
-                    <Ellipse Canvas.Left="-1" Canvas.Top="-1" Width="202" Height="202" StrokeThickness="1" Stroke="{ThemeResource ApplicationForegroundThemeBrush}" Fill="{ThemeResource AppStroke}"/>
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Bottom">
+                            <TextBlock>
+                                <Run Text="{strings:UI Type=FullScreen}">
+                                    <!--Full-screen-->
+                                </Run>
+                                /
+                                <Run Text="{strings:UI Type=UnFullScreen}">
+                                    <!--Exit Full-screen-->
+                                </Run>
+                            </TextBlock>
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                </elements:PathToggleButton>
+                <SymbolIcon IsHitTestVisible="False" Canvas.Left="119" Canvas.Top="33" Width="24" Height="24" Symbol="{x:Bind FullScreenSymbolConverter(FullScreenButton.IsChecked), Mode=OneWay}"/>
 
 
-                    <!--FullScreen-->
-                    <elements:PathToggleButton 
-                        x:Name="FullScreenButton" 
-                        UncheckedCommandParameter="{strings:OptionType Type=FullScreen}" 
-                        CheckedCommandParameter="{strings:OptionType Type=UnFullScreen}" 
-                        Background="{ThemeResource AppBackground}" 
-                        Command="{x:Bind Command}"
-                        Data="{x:Bind RouletterData(0)}"
-                        >
-                        <ToolTipService.ToolTip>
-                            <ToolTip Placement="Bottom">
-                                <TextBlock>
-                                    <Run Text="{strings:UI Type=FullScreen}">
-                                        <!--Full-screen-->
-                                    </Run>
-                                    /
-                                    <Run Text="{strings:UI Type=UnFullScreen}">
-                                        <!--Exit Full-screen-->
-                                    </Run>
+                <!--Metronome-->
+                <elements:PathToggleButton
+                    x:Name="MetronomeButton" 
+                    UncheckedCommandParameter="{strings:OptionType Type=MetronomeStart}" 
+                    CheckedCommandParameter="{strings:OptionType Type=MetronomeStop}"
+                    Background="{ThemeResource AppBackground}" 
+                    Command="{x:Bind Command}"
+                    Data="{x:Bind RouletterData(1)}"
+                    >
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=Metronome}">
+                            <!--Metronome-->
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                </elements:PathToggleButton>
+                <Border IsHitTestVisible="False" Canvas.Left="151" Canvas.Top="88" Width="24" Height="24">
+                    <PathIcon>
+                        <PathIcon.Data>
+                            M4.23,6.891L1.133,3.201L0,4.152L3.653,8.505L0.096,18.444L0.158,18.9L1.325,20.557L1.733,20.769L17.851,20.769L18.26,20.557L19.427,18.9L19.489,18.444L13.007,0.332L12.537,0L7.048,0L6.577,0.332L4.23,6.891ZM2.148,15.678L9.091,15.678L9.091,14.987L4.397,9.392L2.148,15.678ZM4.974,7.779L9.091,12.685L9.091,5.747L10.571,5.747L10.571,14.448L11.603,15.678L17.437,15.678L12.185,1L7.4,1L4.974,7.779Z
+                        </PathIcon.Data>
+                    </PathIcon>
+                </Border>
+
+
+                <!--Favorite-->
+                <elements:PathFlyoutButton 
+                    Background="{ThemeResource AppBackground}"
+                    Data="{x:Bind RouletterData(2)}"
+                    >
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=Favorite}">
+                            <!--Favorites-->
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <elements:PathFlyoutButton.Flyout>
+                        <!--Flyout-->
+                        <Flyout Placement="Full">
+                            <controls:InstrumentCollectionPanel MaxWidth="360" ObservableCollection="{x:Bind Favorites}" Command="{x:Bind Command}"/>
+                        </Flyout>
+                    </elements:PathFlyoutButton.Flyout>
+                </elements:PathFlyoutButton>
+                <SymbolIcon IsHitTestVisible="False" Canvas.Left="119" Canvas.Top="142" Width="24" Height="24" Symbol="SolidStar"/>
+
+
+                <!--Setting-->
+                <elements:PathFlyoutButton
+                    Background="{ThemeResource AppBackground}"
+                    Data="{x:Bind RouletterData(3)}"
+                    >
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=Setting}">
+                            <!--Setting-->
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <elements:PathFlyoutButton.Flyout>
+                        <!--Flyout-->
+                        <Flyout Placement="Full">
+
+                            <StackPanel MaxWidth="360">
+
+                                <Panel.ChildrenTransitions>
+                                    <TransitionCollection>
+                                        <EntranceThemeTransition IsStaggeringEnabled="True"/>
+                                    </TransitionCollection>
+                                </Panel.ChildrenTransitions>
+
+                                <!--ThemeMode-->
+                                <TextBlock Text="{strings:UI Type=Theme}" Style="{StaticResource SubtitleTextBlockStyle}">
+                                    <!--Theme-->
                                 </TextBlock>
-                            </ToolTip>
-                        </ToolTipService.ToolTip>
-                    </elements:PathToggleButton>
-                    <SymbolIcon IsHitTestVisible="False" Canvas.Left="119" Canvas.Top="33" Width="24" Height="24" Symbol="{x:Bind FullScreenSymbolConverter(FullScreenButton.IsChecked), Mode=OneWay}"/>
+                                <RadioButton x:Name="LightRadioButton" Content="{strings:UI Type=ThemeLight}">
+                                    <!--Light-->
+                                </RadioButton>
+                                <RadioButton x:Name="DarkRadioButton" Content="{strings:UI Type=ThemeDark}">
+                                    <!--Dark-->
+                                </RadioButton>
+                                <RadioButton x:Name="DefaultRadioButton" Content="{strings:UI Type=ThemeUseSystem}">
+                                    <!--Use System-->
+                                </RadioButton>
+                                <ContentControl Height="8"/>
+
+                                <!--Language-->
+                                <TextBlock Text="{strings:UI Type=Language}" Style="{StaticResource SubtitleTextBlockStyle}">
+                                    <!--Languages-->
+                                </TextBlock>
+                                <elements:CommandListView
+                                    IsItemClickEnabled="True" 
+                                    SelectionMode="Single"
+                                    Background="{ThemeResource AppForeground}"
+                                    ItemsSource="{x:Bind Languages}"
+                                    SelectedIndex="{x:Bind Cultures.Index}"
+                                    Command="{x:Bind Command}"
+                                    >
+                                    <!--ItemsSource-->
+                                </elements:CommandListView>
+                                <HyperlinkButton 
+                                    Content="{strings:UI Type=LanguageTip}"
+                                    CommandParameter="{strings:OptionType Type=LanguageTip}"
+                                    Command="{x:Bind Command}"
+                                    >
+                                    <!--Restart the app to see your changes.-->
+                                </HyperlinkButton>
+                                <ContentControl Height="8"/>
+
+                            </StackPanel>
+                        </Flyout>
+                    </elements:PathFlyoutButton.Flyout>
+                </elements:PathFlyoutButton>
+                <SymbolIcon IsHitTestVisible="False" Canvas.Left="56" Canvas.Top="142" Width="24" Height="24" Symbol="Setting"/>
 
 
-                    <!--Metronome-->
-                    <elements:PathToggleButton
-                        x:Name="MetronomeButton" 
-                        UncheckedCommandParameter="{strings:OptionType Type=MetronomeStart}" 
-                        CheckedCommandParameter="{strings:OptionType Type=MetronomeStop}"
-                        Background="{ThemeResource AppBackground}" 
-                        Command="{x:Bind Command}"
-                        Data="{x:Bind RouletterData(1)}"
-                        >
-                        <ToolTipService.ToolTip>
-                            <ToolTip Placement="Bottom" Content="{strings:UI Type=Metronome}">
-                                <!--Metronome-->
-                            </ToolTip>
-                        </ToolTipService.ToolTip>
-                    </elements:PathToggleButton>
-                    <Border IsHitTestVisible="False" Canvas.Left="151" Canvas.Top="88" Width="24" Height="24">
-                        <PathIcon>
-                            <PathIcon.Data>
-                                M4.23,6.891L1.133,3.201L0,4.152L3.653,8.505L0.096,18.444L0.158,18.9L1.325,20.557L1.733,20.769L17.851,20.769L18.26,20.557L19.427,18.9L19.489,18.444L13.007,0.332L12.537,0L7.048,0L6.577,0.332L4.23,6.891ZM2.148,15.678L9.091,15.678L9.091,14.987L4.397,9.392L2.148,15.678ZM4.974,7.779L9.091,12.685L9.091,5.747L10.571,5.747L10.571,14.448L11.603,15.678L17.437,15.678L12.185,1L7.4,1L4.974,7.779Z
-                            </PathIcon.Data>
-                        </PathIcon>
-                    </Border>
+                <!--About-->
+                <elements:PathFlyoutButton
+                    Background="{ThemeResource AppBackground}"
+                    Data="{x:Bind RouletterData(4)}"
+                    >
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=About}">
+                            <!--About-->
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <elements:PathFlyoutButton.Flyout>
+                        <!--Flyout-->
+                        <Flyout Placement="Full" >
+                            <StackPanel>
 
+                                <Panel.ChildrenTransitions>
+                                    <TransitionCollection>
+                                        <EntranceThemeTransition IsStaggeringEnabled="True"/>
+                                    </TransitionCollection>
+                                </Panel.ChildrenTransitions>
 
-                    <!--Favorite-->
-                    <elements:PathFlyoutButton 
-                        Background="{ThemeResource AppBackground}"
-                        Data="{x:Bind RouletterData(2)}"
-                        >
-                        <ToolTipService.ToolTip>
-                            <ToolTip Placement="Bottom" Content="{strings:UI Type=Favorite}">
-                                <!--Favorites-->
-                            </ToolTip>
-                        </ToolTipService.ToolTip>
-                        <elements:PathFlyoutButton.Flyout>
-                            <!--Flyout-->
-                            <Flyout Placement="Full">
-                                <controls:InstrumentCollectionPanel MaxWidth="360" ObservableCollection="{x:Bind Favorites}" Command="{x:Bind Command}"/>
-                            </Flyout>
-                        </elements:PathFlyoutButton.Flyout>
-                    </elements:PathFlyoutButton>
-                    <SymbolIcon IsHitTestVisible="False" Canvas.Left="119" Canvas.Top="142" Width="24" Height="24" Symbol="SolidStar"/>
+                                <Image Margin="10" Width="150" Height="150" Source="ms-appx:///Icons/Logo.png"/>
 
-
-                    <!--Setting-->
-                    <elements:PathFlyoutButton
-                        Background="{ThemeResource AppBackground}"
-                        Data="{x:Bind RouletterData(3)}"
-                        >
-                        <ToolTipService.ToolTip>
-                            <ToolTip Placement="Bottom" Content="{strings:UI Type=Setting}">
-                                <!--Setting-->
-                            </ToolTip>
-                        </ToolTipService.ToolTip>
-                        <elements:PathFlyoutButton.Flyout>
-                            <!--Flyout-->
-                            <Flyout Placement="Full">
-
-                                <StackPanel MaxWidth="360">
-
-                                    <Panel.ChildrenTransitions>
-                                        <TransitionCollection>
-                                            <EntranceThemeTransition IsStaggeringEnabled="True"/>
-                                        </TransitionCollection>
-                                    </Panel.ChildrenTransitions>
-
-                                    <!--ThemeMode-->
-                                    <TextBlock Text="{strings:UI Type=Theme}" Style="{StaticResource SubtitleTextBlockStyle}">
-                                        <!--Theme-->
+                                <Border Padding="12,0" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="4"/>
+                                            <Setter Property="BorderThickness" Value="1"/>
+                                            <Setter Property="BorderBrush" Value="{ThemeResource AppStroke}"/>
+                                            <Setter Property="Background" Value="{ThemeResource AppForeground}"/>
+                                        </Style>
+                                    </Border.Style>
+                                    <TextBlock Text="{strings:UI Type=Version}">
+                                        <!--Version-->
                                     </TextBlock>
-                                    <RadioButton x:Name="LightRadioButton" Content="{strings:UI Type=ThemeLight}">
-                                        <!--Light-->
-                                    </RadioButton>
-                                    <RadioButton x:Name="DarkRadioButton" Content="{strings:UI Type=ThemeDark}">
-                                        <!--Dark-->
-                                    </RadioButton>
-                                    <RadioButton x:Name="DefaultRadioButton" Content="{strings:UI Type=ThemeUseSystem}">
-                                        <!--Use System-->
-                                    </RadioButton>
-                                    <ContentControl Height="8"/>
+                                </Border>
 
-                                    <!--Language-->
-                                    <TextBlock Text="{strings:UI Type=Language}" Style="{StaticResource SubtitleTextBlockStyle}">
-                                        <!--Languages-->
-                                    </TextBlock>
-                                    <elements:CommandListView
-                                        IsItemClickEnabled="True" 
-                                        SelectionMode="Single"
-                                        Background="{ThemeResource AppForeground}"
-                                        ItemsSource="{x:Bind Languages}"
-                                        SelectedIndex="{x:Bind Cultures.Index}"
-                                        Command="{x:Bind Command}"
-                                        >
-                                        <!--ItemsSource-->
-                                    </elements:CommandListView>
-                                    <HyperlinkButton 
-                                        Content="{strings:UI Type=LanguageTip}"
-                                        CommandParameter="{strings:OptionType Type=LanguageTip}"
-                                        Command="{x:Bind Command}"
-                                        >
-                                        <!--Restart the app to see your changes.-->
-                                    </HyperlinkButton>
-                                    <ContentControl Height="8"/>
+                                <ContentControl Height="12"/>
+                                <TextBlock HorizontalAlignment="Center" Text="{strings:UI Type=Github}">
+                                    <!--Github-->
+                                </TextBlock>
+                                <HyperlinkButton HorizontalAlignment="Center" Content="{strings:UI Type=GithubLink}" NavigateUri="{x:Bind GithubLink}">
+                                    <!--GithubLink-->
+                                </HyperlinkButton>
 
-                                </StackPanel>
-                            </Flyout>
-                        </elements:PathFlyoutButton.Flyout>
-                    </elements:PathFlyoutButton>
-                    <SymbolIcon IsHitTestVisible="False" Canvas.Left="56" Canvas.Top="142" Width="24" Height="24" Symbol="Setting"/>
+                                <ContentControl Height="12"/>
+                                <TextBlock HorizontalAlignment="Center" Text="{strings:UI Type=Feedback}">
+                                    <!--Feedback-->
+                                </TextBlock>
+                                <HyperlinkButton HorizontalAlignment="Center" Content="{strings:UI Type=FeedbackLink}" NavigateUri="{x:Bind FeedbackLink}">
+                                    <!--FeedbackLink-->
+                                </HyperlinkButton>
+
+                            </StackPanel>
+                        </Flyout>
+                    </elements:PathFlyoutButton.Flyout>
+                </elements:PathFlyoutButton>
+                <SymbolIcon IsHitTestVisible="False" Canvas.Left="25" Canvas.Top="88" Width="24" Height="24" Symbol="Important"/>
 
 
-                    <!--About-->
-                    <elements:PathFlyoutButton
-                        Background="{ThemeResource AppBackground}"
-                        Data="{x:Bind RouletterData(4)}"
-                        >
-                        <ToolTipService.ToolTip>
-                            <ToolTip Placement="Bottom" Content="{strings:UI Type=About}">
-                                <!--About-->
-                            </ToolTip>
-                        </ToolTipService.ToolTip>
-                        <elements:PathFlyoutButton.Flyout>
-                            <!--Flyout-->
-                            <Flyout Placement="Full" >
-                                <StackPanel>
+                <!--Mute-->
+                <elements:PathToggleButton
+                    x:Name="MuteButton" 
+                    UncheckedCommandParameter="{strings:OptionType Type=Mute}" 
+                    CheckedCommandParameter="{strings:OptionType Type=Volume}"
+                    Background="{ThemeResource AppBackground}" 
+                    Command="{x:Bind Command}"
+                    Data="{x:Bind RouletterData(5)}"
+                    >
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=Mute}">
+                            <!--Mute-->
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                </elements:PathToggleButton>
+                <SymbolIcon IsHitTestVisible="False" Canvas.Left="56" Canvas.Top="33" Width="24" Height="24" Symbol="{x:Bind MuteSymbolConverter(MuteButton.IsChecked), Mode=OneWay}"/>
 
-                                    <Panel.ChildrenTransitions>
-                                        <TransitionCollection>
-                                            <EntranceThemeTransition IsStaggeringEnabled="True"/>
-                                        </TransitionCollection>
-                                    </Panel.ChildrenTransitions>
+                
+            </elements:AnimationRouletter>
 
-                                    <Image Margin="10" Width="150" Height="150" Source="ms-appx:///Icons/Logo.png"/>
+            <!--MarbleButton-->
+            <elements:MarbleButton x:Name="MarbleButton" CommandParameter="{strings:OptionType Type=Roulette}" Command="{x:Bind Command}"/>
 
-                                    <Border Padding="12,0" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Border.Style>
-                                            <Style TargetType="Border">
-                                                <Setter Property="CornerRadius" Value="4"/>
-                                                <Setter Property="BorderThickness" Value="1"/>
-                                                <Setter Property="BorderBrush" Value="{ThemeResource AppStroke}"/>
-                                                <Setter Property="Background" Value="{ThemeResource AppForeground}"/>
-                                            </Style>
-                                        </Border.Style>
-                                        <TextBlock Text="{strings:UI Type=Version}">
-                                            <!--Version-->
-                                        </TextBlock>
-                                    </Border>
+        </Canvas>
 
-                                    <ContentControl Height="12"/>
-                                    <TextBlock HorizontalAlignment="Center" Text="{strings:UI Type=Github}">
-                                        <!--Github-->
-                                    </TextBlock>
-                                    <HyperlinkButton HorizontalAlignment="Center" Content="{strings:UI Type=GithubLink}" NavigateUri="{x:Bind GithubLink}">
-                                        <!--GithubLink-->
-                                    </HyperlinkButton>
-
-                                    <ContentControl Height="12"/>
-                                    <TextBlock HorizontalAlignment="Center" Text="{strings:UI Type=Feedback}">
-                                        <!--Feedback-->
-                                    </TextBlock>
-                                    <HyperlinkButton HorizontalAlignment="Center" Content="{strings:UI Type=FeedbackLink}" NavigateUri="{x:Bind FeedbackLink}">
-                                        <!--FeedbackLink-->
-                                    </HyperlinkButton>
-
-                                </StackPanel>
-                            </Flyout>
-                        </elements:PathFlyoutButton.Flyout>
-                    </elements:PathFlyoutButton>
-                    <SymbolIcon IsHitTestVisible="False" Canvas.Left="25" Canvas.Top="88" Width="24" Height="24" Symbol="Important"/>
-
-
-                    <!--Mute-->
-                    <elements:PathToggleButton
-                        x:Name="MuteButton" 
-                        UncheckedCommandParameter="{strings:OptionType Type=Mute}" 
-                        CheckedCommandParameter="{strings:OptionType Type=Volume}"
-                        Background="{ThemeResource AppBackground}" 
-                        Command="{x:Bind Command}"
-                        Data="{x:Bind RouletterData(5)}"
-                        >
-                        <ToolTipService.ToolTip>
-                            <ToolTip Placement="Bottom" Content="{strings:UI Type=Mute}">
-                                <!--Mute-->
-                            </ToolTip>
-                        </ToolTipService.ToolTip>
-                    </elements:PathToggleButton>
-                    <SymbolIcon IsHitTestVisible="False" Canvas.Left="56" Canvas.Top="33" Width="24" Height="24" Symbol="{x:Bind MuteSymbolConverter(MuteButton.IsChecked), Mode=OneWay}"/>
-
-                    
-                </elements:AnimationRouletter>
-
-                <!--MarbleButton-->
-                <elements:MarbleButton x:Name="MarbleButton" CommandParameter="{strings:OptionType Type=Roulette}" Command="{x:Bind Command}"/>
-
-            </Canvas>
-        </Border>
-
-    </Grid>
-    
+    </Grid>    
 </Page>
