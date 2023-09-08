@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Virtual_Piano.Elements;
 using Virtual_Piano.Midi;
 using Virtual_Piano.Midi.Controllers;
-using Virtual_Piano.Midi.Core;
 using Windows.Devices.Midi;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -14,12 +13,13 @@ namespace Virtual_Piano.TestApp
 {
     public sealed partial class MidiPlayerPage : Page
     {
-        TrackCollection Collections;
-        MidiSynthesizer Synthesizer;
+        TrackCollection TrackCollection;
+        MidiSynthesizer MidiSynthesizer;
 
         MidiNote Note;
         readonly ITickPlayer Player = new TickPlayer();
 
+        ~MidiPlayerPage() => this.MidiSynthesizer?.Dispose();
         public MidiPlayerPage()
         {
             this.InitializeComponent();
@@ -27,9 +27,9 @@ namespace Virtual_Piano.TestApp
             this.Player.TickBeat += (s, e) => this.BeatTextBlock.Text = e;
             this.Player.TickProgress += (s, e) =>
             {
-                if (this.Collections is null) return;
+                if (this.TrackCollection is null) return;
 
-                if (this.Player.PositionMilliseconds >= this.Collections.Duration)
+                if (this.Player.PositionMilliseconds >= this.TrackCollection.Duration)
                 {
                     this.Player.Stop();
                 }
@@ -38,7 +38,7 @@ namespace Virtual_Piano.TestApp
             };
             this.PauseButton.Click += (s, e) =>
             {
-                if (this.Collections is null) return;
+                if (this.TrackCollection is null) return;
 
                 if (this.Player.IsPlaying)
                 {
@@ -47,7 +47,7 @@ namespace Virtual_Piano.TestApp
             };
             this.PlayButton.Click += (s, e) =>
             {
-                if (this.Collections is null) return;
+                if (this.TrackCollection is null) return;
 
                 if (this.Player.IsPlaying is false)
                 {
@@ -73,21 +73,21 @@ namespace Virtual_Piano.TestApp
                 if (file is null) return;
 
                 this.Run1.Text = file.Name;
-                using (var stream = await file.OpenAsync(default))
+                using (IRandomAccessStream stream = await file.OpenAsync(default))
                 {
-                    this.Collections = new TrackCollection(stream);
+                    this.TrackCollection = new TrackCollection(stream);
                 }
             };
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
-            this.Synthesizer?.Dispose();
+            this.MidiSynthesizer?.Dispose();
         }
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            this.Synthesizer?.Dispose();
-            this.Synthesizer = await MidiSynthesizer.CreateAsync();
+            this.MidiSynthesizer?.Dispose();
+            this.MidiSynthesizer = await MidiSynthesizer.CreateAsync();
         }
 
         private void Reset()
@@ -98,14 +98,14 @@ namespace Virtual_Piano.TestApp
         }
         private void Progress()
         {
-            this.ProgressBar.Value = (double)this.Player.PositionMilliseconds * 100 / this.Collections.Duration;
+            this.ProgressBar.Value = (double)this.Player.PositionMilliseconds * 100 / this.TrackCollection.Duration;
             this.Run2.Text = this.Player.Position.ToString();
             this.Rectangle.Width = (int)this.Note;
         }
 
         private void Play()
         {
-            foreach (ContentControl item in this.Collections)
+            foreach (ContentControl item in this.TrackCollection)
             {
                 if (item.Tag is TrackInfo trackInfo)
                 {
@@ -128,12 +128,12 @@ namespace Virtual_Piano.TestApp
                     if (delay > 0)
                     {
                         await Task.Delay(delay);
-                        this.Synthesizer.SendMessage(message);
+                        this.MidiSynthesizer.SendMessage(message);
                         this.Note = message.Note;
                     }
                     else if (delay == 0)
                     {
-                        this.Synthesizer.SendMessage(message);
+                        this.MidiSynthesizer.SendMessage(message);
                         this.Note = message.Note;
                     }
                 }

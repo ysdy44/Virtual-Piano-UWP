@@ -12,8 +12,9 @@ namespace Virtual_Piano.TestApp
     {
         readonly KitSet[] Drum = new KitSet[] { KitSet.Open, KitSet.Close, KitSet.Clap, KitSet.Kick, };
 
-        MidiSynthesizer Synthesizer;
-        ~DrumMachinePage() => this.Synthesizer?.Dispose();
+        MidiSynthesizer MidiSynthesizer;
+
+        ~DrumMachinePage() => this.MidiSynthesizer?.Dispose();
         public DrumMachinePage()
         {
             this.InitializeComponent();
@@ -45,8 +46,15 @@ namespace Virtual_Piano.TestApp
             this.ClearButton.Click += (s, e) => this.ItemsSource.Deselect();
         }
 
-        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e) => this.Synthesizer?.Dispose();
-        protected async override void OnNavigatedTo(NavigationEventArgs e) => this.Synthesizer = await MidiSynthesizer.CreateAsync();
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            this.MidiSynthesizer?.Dispose();
+        }
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.MidiSynthesizer?.Dispose();
+            this.MidiSynthesizer = await MidiSynthesizer.CreateAsync();
+        }
 
         //@Delegate
         public event EventHandler CanExecuteChanged;
@@ -60,11 +68,11 @@ namespace Virtual_Piano.TestApp
             {
                 this.Initialize(item);
             }
-            if (parameter is MidiPercussionNote item2)
+            else if (parameter is MidiPercussionNote item2)
             {
-                this.Synthesizer.NoteOn(item2);
+                this.MidiSynthesizer.NoteOn(item2);
                 await Task.Delay(2000);
-                this.Synthesizer.NoteOff(item2);
+                this.MidiSynthesizer.NoteOff(item2);
             }
         }
 

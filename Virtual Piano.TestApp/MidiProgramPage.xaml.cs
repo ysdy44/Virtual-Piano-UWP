@@ -42,8 +42,9 @@ namespace Virtual_Piano.TestApp
         readonly byte Channel = 0;
 
         byte Note;
-        public MidiSynthesizer Synthesizer { get; set; }
+        MidiSynthesizer MidiSynthesizer;
 
+        ~MidiProgramPage() => this.MidiSynthesizer?.Dispose();
         public MidiProgramPage()
         {
             this.InitializeComponent();
@@ -52,15 +53,15 @@ namespace Virtual_Piano.TestApp
                 if (e.ClickedItem is MidiProgram item)
                 {
                     byte n = (byte)item;
-                    this.Synthesizer?.SendMessage(new MidiProgramChangeMessage(this.Channel, n));
+                    this.MidiSynthesizer?.SendMessage(new MidiProgramChangeMessage(this.Channel, n));
                 }
             };
             this.GridView.ItemClick += (s, e) =>
             {
                 if (e.ClickedItem is int n)
                 {
-                    this.Synthesizer?.SendMessage(new MidiNoteOffMessage(this.Channel, this.Note, 127));
-                    this.Synthesizer?.SendMessage(new MidiNoteOnMessage(this.Channel, (byte)n, 127));
+                    this.MidiSynthesizer?.SendMessage(new MidiNoteOffMessage(this.Channel, this.Note, 127));
+                    this.MidiSynthesizer?.SendMessage(new MidiNoteOnMessage(this.Channel, (byte)n, 127));
                     this.Note = (byte)n;
                 }
             };
@@ -68,12 +69,12 @@ namespace Virtual_Piano.TestApp
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
-            this.Synthesizer?.Dispose();
+            this.MidiSynthesizer?.Dispose();
         }
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            this.Synthesizer?.Dispose();
-            this.Synthesizer = await MidiSynthesizer.CreateAsync();
+            this.MidiSynthesizer?.Dispose();
+            this.MidiSynthesizer = await MidiSynthesizer.CreateAsync();
         }
     }
 }

@@ -24,8 +24,9 @@ namespace Virtual_Piano.TestApp
         readonly byte Channel = 9;
 
         byte Note;
-        public MidiSynthesizer Synthesizer { get; set; }
+        MidiSynthesizer MidiSynthesizer;
 
+        ~MidiPercussionPage() => this.MidiSynthesizer?.Dispose();
         public MidiPercussionPage()
         {
             this.InitializeComponent();
@@ -34,8 +35,8 @@ namespace Virtual_Piano.TestApp
                 if (e.ClickedItem is MidiPercussionNote item)
                 {
                     byte n = (byte)item;
-                    this.Synthesizer?.SendMessage(new MidiNoteOffMessage(this.Channel, this.Note, 127));
-                    this.Synthesizer?.SendMessage(new MidiNoteOnMessage(this.Channel, n, 127));
+                    this.MidiSynthesizer?.SendMessage(new MidiNoteOffMessage(this.Channel, this.Note, 127));
+                    this.MidiSynthesizer?.SendMessage(new MidiNoteOnMessage(this.Channel, n, 127));
                     this.Note = (byte)n;
                 }
             };
@@ -43,12 +44,12 @@ namespace Virtual_Piano.TestApp
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
-            this.Synthesizer?.Dispose();
+            this.MidiSynthesizer?.Dispose();
         }
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            this.Synthesizer?.Dispose();
-            this.Synthesizer = await MidiSynthesizer.CreateAsync();
+            this.MidiSynthesizer?.Dispose();
+            this.MidiSynthesizer = await MidiSynthesizer.CreateAsync();
         }
     }
 }
