@@ -2,10 +2,12 @@
 using System.Linq;
 using Virtual_Piano.Midi;
 using Virtual_Piano.Midi.Controllers;
+using Virtual_Piano.Midi.Core;
 using Windows.Devices.Midi;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -19,10 +21,40 @@ namespace Virtual_Piano.TestApp
         int Index = -1;
         double Offset;
 
+        double X;
+        double Y;
+        UIElement Source;
+
         ~TrackNotePage() => this.MidiSynthesizer?.Dispose();
         public TrackNotePage()
         {
             this.InitializeComponent();
+
+            this.TrackNotePanel.ManipulationStarted += (s, e) =>
+            {
+                this.Source = e.OriginalSource as UIElement;
+                if (this.Source is null) return;
+
+                this.X = Canvas.GetLeft(this.Source);
+                this.Y = Canvas.GetTop(this.Source);
+            };
+            this.TrackNotePanel.ManipulationDelta += (s, e) =>
+            {
+                // X
+                this.X += e.Delta.Translation.X;
+                Canvas.SetLeft(this.Source, System.Math.Max(0, this.X));
+
+                // Y
+                this.Y += e.Delta.Translation.Y;
+                int yHalf = (int)System.Math.Max(0, this.Y) + TrackLayout.ItemSizeHalf;
+
+                int index = yHalf / TrackNoteLayout.ItemSize;
+                Canvas.SetTop(this.Source, index * TrackNoteLayout.ItemSize);
+            };
+            this.TrackNotePanel.ManipulationCompleted += (s, e) =>
+            {
+            };
+
             this.TrackNotePanel.DragStarted += (s, e) =>
             {
                 this.Offset = e.HorizontalOffset;
