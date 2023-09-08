@@ -29,13 +29,13 @@ namespace Virtual_Piano.Midi.Controllers
                 {
                     Tag = info,
                     Width = info.Duration / TrackLayout.Scaling,
-                    Height = TrackLayout.Spacing,
+                    Height = TrackLayout.ItemSize,
                     Content = new TrackItem(track)
                     {
                         Text = MidiProgram.AcousticGrand.ToString()
                     }
                 };
-                Canvas.SetTop(control, i * TrackLayout.Spacing);
+                Canvas.SetTop(control, i * TrackLayout.ItemSize);
                 Canvas.SetLeft(control, info.Time / TrackLayout.Scaling);
                 base.Add(control);
             }

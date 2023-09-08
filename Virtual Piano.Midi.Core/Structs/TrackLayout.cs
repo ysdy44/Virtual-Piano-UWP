@@ -6,12 +6,11 @@ namespace Virtual_Piano.Midi.Core
     {
         //@Const
         public const int Scaling = 4;
-        public const int Spacing = 21;
-        public const int SpacingHalf = Spacing / 2;
+        public const int ItemSize = 21;
+        public const int ItemSizeHalf = ItemSize / 2;
 
         public const int Step = 120;
         public const int StepCount = 4;
-
         public const int StepSpacing = Step / StepCount;
         public const int StepSpacing2 = StepSpacing / StepCount;
 
@@ -33,7 +32,7 @@ namespace Virtual_Piano.Midi.Core
 
             this.Margin = new Thickness(pane, head, 0, 0);
 
-            int h = NoteExtensions.NoteCount * TrackLayout.Spacing;
+            int h = NoteExtensions.NoteCount * TrackLayout.ItemSize;
             this.ExtentHeight = h;
             this.ExtentHeightHead = h + head;
             this.ExtentHeightFoot = h + foot;

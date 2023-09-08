@@ -109,11 +109,11 @@ namespace Virtual_Piano.Midi.Controllers
                     case ToneType.Black:
                         Rectangle rect = new Rectangle
                         {
-                            Height = TrackLayout.Spacing
+                            Height = TrackLayout.ItemSize
                         };
 
                         var i = item.ToInedx();
-                        var y = i * TrackLayout.Spacing;
+                        var y = i * TrackLayout.ItemSize;
 
                         Canvas.SetTop(rect, y);
                         this.BodyBackgroundCanvas.Children.Add(rect);
@@ -126,7 +126,7 @@ namespace Virtual_Piano.Midi.Controllers
             foreach (MidiOctave item in System.Enum.GetValues(typeof(MidiOctave)).Cast<MidiOctave>())
             {
                 int i = (int)item + 1;
-                var y = i * TrackLayout.Spacing * NoteExtensions.ToneCount;
+                var y = i * TrackLayout.ItemSize * NoteExtensions.ToneCount;
 
                 this.BodyBackgroundCanvas.Children.Add(new Line
                 {
