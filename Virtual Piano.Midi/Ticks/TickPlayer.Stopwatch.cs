@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Virtual_Piano.Elements
+namespace Virtual_Piano.Midi
 {
     partial class TickPlayer
     {

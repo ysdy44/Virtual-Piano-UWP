@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Virtual_Piano.Elements
+namespace Virtual_Piano.Midi
 {
     public interface ITickPlayer
     {

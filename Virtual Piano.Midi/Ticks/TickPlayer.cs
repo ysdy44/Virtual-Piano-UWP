@@ -1,7 +1,7 @@
 ﻿using System;
 using Windows.UI.Xaml;
 
-namespace Virtual_Piano.Elements
+namespace Virtual_Piano.Midi
 {
     public sealed partial class TickPlayer : ITickPlayer
     {
