@@ -868,6 +868,8 @@
                 ScrollViewer.VerticalScrollMode="Disabled"
                 ScrollViewer.VerticalScrollBarVisibility="Disabled"
                 ScrollViewer.IsVerticalScrollChainingEnabled="False"
+             
+                Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}"
                 >
 
                 <ItemsControl.ItemContainerStyle>
@@ -982,16 +984,17 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="56"/>
                     </Grid.RowDefinitions>
 
                     <!--Body-->
-                    <Grid>
+                    <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="82"/>
-                            <RowDefinition Height="6"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                       
+
+                        <!--Body-->
                         <elements:CommandListView
                             Grid.Row="1" 
                             SelectionMode="None"
@@ -1052,13 +1055,55 @@
 
                     </Grid>
 
+                    <!--Foot-->
+                    <ListView 
+                        Grid.Row="1"
+                        SelectedIndex="0"
+                             
+                        SelectionMode="Single"
+                      
+                        ScrollViewer.ZoomMode="Disabled"
+                      
+                        ScrollViewer.HorizontalScrollMode="Enabled"
+                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                        ScrollViewer.IsHorizontalScrollChainingEnabled="True"
+                      
+                        ScrollViewer.VerticalScrollMode="Disabled"
+                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                        ScrollViewer.IsVerticalScrollChainingEnabled="False"
+                        >
+
+                        <ItemsControl.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Background" Value="{ThemeResource AppForeground}" />
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="VerticalContentAlignment" Value="Center" />
+                            </Style>
+                        </ItemsControl.ItemContainerStyle>
+
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <elements:FlexPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+
+                        <ListViewItem x:Name="ListViewItemA">
+                            <StackPanel>
+                                <SymbolIcon Symbol="Keyboard"/>
+                                <TextBlock HorizontalAlignment="Center">
+                                    Instrument
+                                </TextBlock>
+                            </StackPanel>
+                        </ListViewItem>
+                    </ListView>
+                    
                 </Grid>
             </SplitView.Pane>
 
             <!--Body-->
             <Grid>
-                
-                <Grid>
+
+                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}">
             
                     <!--Piano-->
                     <Grid FlowDirection="LeftToRight" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}">
