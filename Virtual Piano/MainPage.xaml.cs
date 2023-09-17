@@ -45,6 +45,8 @@ namespace Virtual_Piano
         // Track
         int TrackIndex = -1;
         TrackCollection TrackCollection;
+        // Player
+        readonly ITickPlayer Player = new TickPlayer();
 
         // Key
         bool IsShift;
