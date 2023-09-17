@@ -4,9 +4,14 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Virtual_Piano.Elements;
 using Virtual_Piano.Midi;
+using Virtual_Piano.Midi.Controllers;
 using Virtual_Piano.Midi.Core;
 using Virtual_Piano.Views;
 using Windows.ApplicationModel.Core;
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
+using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -91,9 +96,11 @@ namespace Virtual_Piano
                 case OptionType.MetronomeStop:
                     this.ClickMetronomeStop();
                     break;
-
                 case OptionType.LanguageTip:
                     await Windows.ApplicationModel.Core.CoreApplication.RequestRestartAsync(string.Empty);
+                    break;
+                case OptionType.LocalFolder:
+                    await Launcher.LaunchFolderAsync(ApplicationData.Current.LocalFolder);
                     break;
 
                 case OptionType.Mute:
@@ -107,6 +114,17 @@ namespace Virtual_Piano
                     this.MidiSynthesizer.ControlChange(MidiControlController.MainVolume, 127, 9);
                     break;
 
+                case OptionType.Play:
+                    break;
+                case OptionType.Pause:
+                    break;
+                case OptionType.Stop:
+                    break;
+
+                case OptionType.Previous:
+                    break;
+                case OptionType.Next:
+                    break;
 
                 case OptionType.TryShowPianoView:
                     for (int i = 0; i < 3; i++)

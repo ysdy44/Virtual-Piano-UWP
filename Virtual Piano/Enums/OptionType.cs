@@ -11,9 +11,18 @@
         MetronomeStop,
 
         LanguageTip,
+        LocalFolder,
 
         Mute,
         Volume,
+
+
+        Play,
+        Pause,
+        Stop,
+
+        Previous,
+        Next,
 
 
         TryShowPianoView,

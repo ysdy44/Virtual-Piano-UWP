@@ -252,7 +252,7 @@
                     <Line Y1="10" Y2="28" StrokeThickness="1" Stroke="{ThemeResource SystemColorControlAccentBrush}"/>
 
                     <StackPanel Margin="2,0" Orientation="Horizontal">
-                        <Button>
+                        <Button CommandParameter="{strings:OptionType Type=Pause}" Command="{x:Bind Command}">
                             <ToolTipService.ToolTip>
                                 <ToolTip>
                                     Pause
@@ -260,7 +260,7 @@
                             </ToolTipService.ToolTip>
                             <SymbolIcon Symbol="Pause"/>
                         </Button>
-                        <Button>
+                        <Button CommandParameter="{strings:OptionType Type=Play}" Command="{x:Bind Command}">
                             <ToolTipService.ToolTip>
                                 <ToolTip>
                                     Play
@@ -268,7 +268,7 @@
                             </ToolTipService.ToolTip>
                             <SymbolIcon Symbol="Play"/>
                         </Button>
-                        <Button>
+                        <Button CommandParameter="{strings:OptionType Type=Stop}" Command="{x:Bind Command}">
                             <ToolTipService.ToolTip>
                                 <ToolTip>
                                     Stop
@@ -630,7 +630,8 @@
                 />
             -->
 
-            <Button Grid.Column="2" Width="Auto" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}">
+            <Button Grid.Column="2" Width="Auto" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}"
+                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}">
                 <ToolTipService.ToolTip>
                     <ToolTip Placement="Bottom" Content="{strings:UI Type=More}">
                         <!--More-->
@@ -1102,7 +1103,7 @@
 
             <!--Body-->
             <Grid>
-
+                
                 <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}">
             
                     <!--Piano-->
