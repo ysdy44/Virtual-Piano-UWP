@@ -68,7 +68,7 @@ namespace Virtual_Piano.Midi.Controllers
         private int Position;
         private int Timeline;
 
-        readonly TrackNoteLayout Layout = new TrackNoteLayout(75, 22, 22, 150);
+        readonly TrackLayout Layout = new TrackLayout(75, 22, 22, 150);
         readonly Windows.UI.Composition.CompositionPropertySet ScrollProperties;
 
         ~TrackNotePanel() => this.ScrollProperties?.Dispose();
@@ -83,8 +83,6 @@ namespace Virtual_Piano.Midi.Controllers
             var ey3 = this.ScrollProperties.SnapScrollerY(1 - this.Layout.Timerline1);
             var sx = this.ScrollProperties.SnapScrollerX(TrackLayout.Step, this.Layout.Pane);
 
-            this.FootListView.GetVisual().AnimationX(ex);
-
             this.TimelinePoint.GetVisual().AnimationY(ey);
             this.TimelineLine.GetVisual().AnimationY(ey3);
 
@@ -97,7 +95,9 @@ namespace Virtual_Piano.Midi.Controllers
             this.BodyLineCanvas.GetVisual().AnimationXY(sx, ey);
             this.TimelineTextCanvas.GetVisual().AnimationXY(sx, ey);
             this.TimelinePointCanvas.GetVisual().AnimationXY(sx, ey);
+
             this.HeadItemsControl.GetVisual().AnimationXY(this.Layout.Pane, ey);
+            this.FootListView.GetVisual().AnimationX(ex);
 
             // BodyBackgroundCanvas
             foreach (MidiNote item in System.Enum.GetValues(typeof(MidiNote)).Cast<MidiNote>())
@@ -325,6 +325,21 @@ namespace Virtual_Piano.Midi.Controllers
             {
                 this.ScrollViewer.ChangeView((this.Position + this.ViewportWidth) / 2 - this.Layout.Pane, null, null, true);
             }
+        }
+
+        public void Stop()
+        {
+            this.Timeline = this.Layout.Pane;
+            this.Position = this.Layout.Pane + this.HorizontalOffset;
+            this.Time = (this.HorizontalOffset) * TrackLayout.Scaling;
+
+            // UI
+            this.TimelineLine.X1 = this.Layout.Pane;
+            this.TimelineLine.X2 = this.Layout.Pane;
+            this.TimelinePoint.X1 = this.Layout.Pane;
+            this.TimelinePoint.X2 = this.Layout.Pane;
+
+            this.ScrollViewer.ChangeView(0, null, null, true);
         }
 
         public int UpdateTimeline(int timeline)
