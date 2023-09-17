@@ -17,6 +17,10 @@
         Volume,
 
 
+        New,
+        Open,
+        Save,
+
         Play,
         Pause,
         Stop,

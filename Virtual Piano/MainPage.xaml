@@ -1045,6 +1045,52 @@
 
                     </Grid>
 
+                    <!--Body-->
+                    <elements:CommandListView
+                        IsItemClickEnabled="True"
+                        SelectionMode="None"
+                        Command="{x:Bind Command}"
+                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemB.IsSelected), Mode=OneWay}"
+                        >
+                        <ItemsControl.ItemContainerTransitions>
+                            <!--Transitions-->
+                        </ItemsControl.ItemContainerTransitions>
+
+                        <ListViewItem Height="60" Content="{strings:OptionType Type=New}">
+                            <ContentControl.ContentTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <SymbolIcon Symbol="Add" Width="26" Height="26"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center">New</TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ContentControl.ContentTemplate>
+                        </ListViewItem>
+
+                        <ListViewItem Height="60" Content="{strings:OptionType Type=Open}">
+                            <ContentControl.ContentTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <SymbolIcon Symbol="OpenFile" Width="26" Height="26"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center">Open</TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ContentControl.ContentTemplate>
+                        </ListViewItem>
+
+                        <ListViewItem Height="60" Content="{strings:OptionType Type=Save}">
+                            <ContentControl.ContentTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <SymbolIcon Symbol="Save" Width="26" Height="26"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center">Save</TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ContentControl.ContentTemplate>
+                        </ListViewItem>
+
+                    </elements:CommandListView>
+
                     <!--Foot-->
                     <ListView 
                         Grid.Row="1"

@@ -114,6 +114,13 @@ namespace Virtual_Piano
                     this.MidiSynthesizer.ControlChange(MidiControlController.MainVolume, 127, 9);
                     break;
 
+                case OptionType.New:
+                    break;
+                case OptionType.Open:
+                    break;
+                case OptionType.Save:
+                    break;
+
                 case OptionType.Play:
                     break;
                 case OptionType.Pause:
