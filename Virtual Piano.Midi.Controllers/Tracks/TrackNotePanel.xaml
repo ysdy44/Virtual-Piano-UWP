@@ -54,8 +54,10 @@
                         <Setter Property="FontWeight" Value="Bold" />
                         <Setter Property="Foreground" Value="Black" />
                         <Setter Property="Background" Value="#B4DE4B" />
+                        <!--
                         <Setter Property="BorderBrush" Value="#708B2F" />
                         <Setter Property="BorderThickness" Value="1" />
+                        -->
                         <Setter Property="ManipulationMode">
                             <Setter.Value>
                                 TranslateX, TranslateY
@@ -119,8 +121,10 @@
                         <ItemsControl.ItemContainerStyle>
                             <Style TargetType="ContentControl">
                                 <Setter Property="Background" Value="#B4DE4B" />
+                                <!--
                                 <Setter Property="BorderBrush" Value="#708B2F" />
                                 <Setter Property="BorderThickness" Value="2" />
+                                -->
                                 <Setter Property="ManipulationMode">
                                     <Setter.Value>
                                         TranslateX, TranslateY
