@@ -16,13 +16,24 @@ namespace Virtual_Piano.Midi
         public bool IsPlaying => this.Stopwatch.IsRunning;
         private readonly Stopwatch Stopwatch = new Stopwatch();
 
-        public void Stop()
-        {
-            this.Delay = TimeSpan.Zero;
-            this.DelayMilliseconds = 0;
 
-            this.Stopwatch.Stop();
-            this.Timer.Stop();
+        public void Seek(TimeSpan timeSpan)
+        {
+            this.Delay = timeSpan;
+            this.DelayMilliseconds = (long)timeSpan.TotalMilliseconds;
+        }
+
+        public void Seek(long timeSpan)
+        {
+            this.Delay = TimeSpan.FromMilliseconds(timeSpan);
+            this.DelayMilliseconds = (long)timeSpan;
+        }
+
+
+        public void Play()
+        {
+            this.Stopwatch.Restart();
+            this.Timer.Start();
         }
 
         public void Pause()
@@ -34,10 +45,13 @@ namespace Virtual_Piano.Midi
             this.Timer.Stop();
         }
 
-        public void Play()
+        public void Stop()
         {
-            this.Stopwatch.Restart();
-            this.Timer.Start();
+            this.Delay = TimeSpan.Zero;
+            this.DelayMilliseconds = 0;
+
+            this.Stopwatch.Stop();
+            this.Timer.Stop();
         }
     }
 }
