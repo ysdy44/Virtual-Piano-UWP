@@ -150,6 +150,7 @@
       <DependentUpon>DSTimer.xaml</DependentUpon>
     </Compile>
     <Compile Include="DS\DSType.cs" />
+    <Compile Include="Panels\FlexPanel.cs" />
     <Compile Include="Paths\IPathButton.cs" />
     <Compile Include="Paths\IPathFlyoutButton.cs" />
     <Compile Include="Paths\IPathToggleButton.cs" />
