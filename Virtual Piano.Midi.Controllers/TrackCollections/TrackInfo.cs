@@ -19,9 +19,9 @@ namespace Virtual_Piano.Midi.Controllers
             this.Time = track.Time;
             this.Duration = track.Duration;
 
-            foreach (var item in track.Notes)
+            foreach (MidiMessage item in track.Notes)
             {
-                var control = new ContentControl
+                ContentControl control = new ContentControl
                 {
                     Tag = item,
                     Width = item.Duration / TrackNoteLayout.Scaling,
@@ -33,7 +33,7 @@ namespace Virtual_Piano.Midi.Controllers
                 this.Notes.Add(control);
             }
 
-            foreach (var item in track.Programs)
+            foreach (MidiMessage item in track.Programs)
             {
                 ContentControl control = new ContentControl
                 {

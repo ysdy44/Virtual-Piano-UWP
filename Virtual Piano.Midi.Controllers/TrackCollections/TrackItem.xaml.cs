@@ -15,11 +15,11 @@ namespace Virtual_Piano.Midi.Controllers
         {
             this.InitializeComponent();
 
-            foreach (var item in info.Notes)
+            foreach (MidiMessage item in info.Notes)
             {
-                var x = item.AbsoluteTime / TrackNoteLayout.Scaling;
-                var y = item.Note.ToInedx();
-                var w = System.Math.Max(4, item.Duration / TrackNoteLayout.Scaling);
+                int x = item.AbsoluteTime / TrackNoteLayout.Scaling;
+                int y = item.Note.ToInedx();
+                int w = System.Math.Max(4, item.Duration / TrackNoteLayout.Scaling);
 
                 this.Canvas.Children.Add(new Line
                 {

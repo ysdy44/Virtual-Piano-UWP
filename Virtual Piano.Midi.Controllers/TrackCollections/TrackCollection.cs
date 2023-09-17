@@ -25,7 +25,7 @@ namespace Virtual_Piano.Midi.Controllers
                 TrackInfo info = new TrackInfo(track);
                 if (this.Duration < info.Duration) this.Duration = info.Duration;
 
-                var control = new ContentControl
+                ContentControl control = new ContentControl
                 {
                     Tag = info,
                     Width = info.Duration / TrackLayout.Scaling,
