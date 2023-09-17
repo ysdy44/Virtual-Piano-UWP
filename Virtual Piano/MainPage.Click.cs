@@ -117,6 +117,33 @@ namespace Virtual_Piano
                 case OptionType.New:
                     break;
                 case OptionType.Open:
+                    // Picker
+                    FileOpenPicker openPicker = new FileOpenPicker
+                    {
+                        ViewMode = PickerViewMode.Thumbnail,
+                        SuggestedStartLocation = default,
+                        FileTypeFilter =
+                        {
+                            ".mid", ".midi"
+                        }
+                    };
+
+                    // File
+                    StorageFile file = await openPicker.PickSingleFileAsync();
+                    if (file is null) break;
+
+                    using (IRandomAccessStream stream = await file.OpenAsync(default))
+                    {
+                        // UI
+                        this.TrackIndex = -1;
+                        this.TrackNotePanel.Visibility = Visibility.Collapsed;
+                        this.TrackPanel.Visibility = Visibility.Visible;
+                    
+                        // Track
+                        this.TrackCollection = new TrackCollection(stream);
+                        this.TrackPanel.ItemsSource = this.TrackCollection;
+                        this.TrackPanel.ChangeDuration(this.TrackCollection.Duration);
+                    }
                     break;
                 case OptionType.Save:
                     break;

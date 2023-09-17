@@ -1,10 +1,10 @@
 using System;
-using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
 using Virtual_Piano.Elements;
 using Virtual_Piano.Midi;
+using Virtual_Piano.Midi.Controllers;
 using Virtual_Piano.Midi.Core;
 using Windows.Devices.Midi;
 using Windows.Foundation;
@@ -42,6 +42,9 @@ namespace Virtual_Piano
 
         // Synthesizer
         MidiSynthesizer MidiSynthesizer;
+        // Track
+        int TrackIndex = -1;
+        TrackCollection TrackCollection;
 
         // Key
         bool IsShift;
@@ -233,19 +236,37 @@ namespace Virtual_Piano
             // Track
             this.TrackNotePanel.BackClick += (s, e) =>
             {
+                // UI
+                this.TrackIndex = -1;
                 this.TrackNotePanel.Visibility = Visibility.Collapsed;
                 this.TrackPanel.Visibility = Visibility.Visible;
             };
             this.TrackPanel.ItemClick += (s, e) =>
             {
+                if (this.TrackCollection is null) return;
+
+                if (this.TrackIndex < this.TrackCollection.Count)
                 {
+                    if (this.TrackCollection[this.TrackIndex] is ContentControl contentControl)
                     {
+                        if (contentControl.Tag is TrackInfo trackInfo)
                         {
+                            // UI
+                            this.TrackIndex = e;
                             this.TrackPanel.Visibility = Visibility.Collapsed;
                             this.TrackNotePanel.Visibility = Visibility.Visible;
+
+                            // Track
+                            this.TrackNotePanel.LoadInfo(trackInfo);
+                            return;
                         }
                     }
                 }
+
+                // UI
+                this.TrackIndex = -1;
+                this.TrackNotePanel.Visibility = Visibility.Collapsed;
+                this.TrackPanel.Visibility = Visibility.Visible;
             };
         }
 
