@@ -20,10 +20,8 @@
         VerticalScrollMode="Enabled"
         VerticalScrollBarVisibility="Visible"
         IsVerticalScrollChainingEnabled="True"
-        
-         Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
          >
-        <Canvas x:Name="Canvas" Width="{x:Bind Layout.ExtentHeightHead}" Height="{x:Bind Layout.ExtentHeightHeadFoot}">
+        <Canvas x:Name="Canvas" HorizontalAlignment="Left" VerticalAlignment="Top" Width="{x:Bind Layout.ExtentHeightHead}" Height="{x:Bind Layout.ExtentHeightHeadFoot}">
 
             <!--Body-->
             <Canvas x:Name="BodyBackgroundCanvas" IsHitTestVisible="False" Height="{x:Bind Layout.ExtentHeight}">
