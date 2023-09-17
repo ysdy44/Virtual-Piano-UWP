@@ -142,8 +142,9 @@
                 <SymbolIcon Symbol="GlobalNavigationButton"/>
             </Button>
 
-            <!--
+            <!--Head-->
             <ScrollViewer 
+                Grid.Column="1"
                 ZoomMode="Disabled"
                  
                 HorizontalScrollMode="Enabled"
@@ -153,11 +154,11 @@
                 VerticalScrollMode="Disabled"
                 VerticalScrollBarVisibility="Disabled"
                 IsVerticalScrollChainingEnabled="False"
+                
+                Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemB.IsSelected), Mode=OneWay}"
                 >
                 <FrameworkElement.Resources>
-                    -->
                     <!--Style-->
-                    <!--
                     <Style TargetType="Button" BasedOn="{StaticResource TextBlockButtonStyle}">
                         <Setter Property="MinWidth" Value="44" />
                         <Setter Property="Height" Value="36" />
@@ -168,6 +169,7 @@
                 </FrameworkElement.Resources>
                 <StackPanel Padding="12,0" Orientation="Horizontal" Spacing="8" Height="36" Background="Black"  HorizontalAlignment="Center" VerticalAlignment="Center">
 
+                    <!--
                     <ListView                        
                         SelectedIndex="0"
                         SelectionMode="Single"
@@ -250,6 +252,7 @@
                     </ListView>
 
                     <Line Y1="10" Y2="28" StrokeThickness="1" Stroke="{ThemeResource SystemColorControlAccentBrush}"/>
+                    -->
 
                     <StackPanel Margin="2,0" Orientation="Horizontal">
                         <Button CommandParameter="{strings:OptionType Type=Pause}" Command="{x:Bind Command}">
@@ -314,9 +317,7 @@
                             <TextBlock>
                                 <Run></Run>
                                 <Run FontSize="14" Text="{x:Bind TempoSlider.Value,Mode=OneWay}">
-                                    -->
                                     <!--Text-->
-                                    <!--
                                 </Run><Run FontSize="14">.</Run><Run>00</Run>
                                 <LineBreak/>
                                 <Run>Tempo</Run>
@@ -336,7 +337,6 @@
 
                 </StackPanel>
             </ScrollViewer>
-            -->
 
             <!--Body-->
             <!--
@@ -617,17 +617,6 @@
 
                 </Grid>
             </SplitView>
-            -->
-
-            <!--ProgressBar-->
-            <!--
-            <ProgressBar 
-                x:Name="ProgressBar" 
-                Grid.Row="2"
-                Height="4" 
-                Value="0"
-                Background="{ThemeResource AppStroke}"
-                />
             -->
 
             <Button Grid.Column="2" Width="Auto" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}"
@@ -988,7 +977,7 @@
                         <RowDefinition Height="56"/>
                     </Grid.RowDefinitions>
 
-                    <!--Body-->
+                    <!--Body-->                    
                     <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="82"/>
@@ -1096,6 +1085,14 @@
                                 </TextBlock>
                             </StackPanel>
                         </ListViewItem>
+                        <ListViewItem x:Name="ListViewItemB">
+                            <StackPanel>
+                                <SymbolIcon Symbol="MusicInfo"/>
+                                <TextBlock HorizontalAlignment="Center">
+                                    Midi Track
+                                </TextBlock>
+                            </StackPanel>
+                        </ListViewItem>
                     </ListView>
                     
                 </Grid>
@@ -1103,6 +1100,13 @@
 
             <!--Body-->
             <Grid>
+
+                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemB.IsSelected), Mode=OneWay}">
+                    <controllers:TrackPanel x:Name="TrackPanel"/>
+                    <controllers:TrackNotePanel x:Name="TrackNotePanel" Visibility="Collapsed">
+                        <instruments:PianoLeftPanel x:Name="PianoLeftPanel" Command="{x:Bind Command}"/>
+                    </controllers:TrackNotePanel>
+                </Grid>
                 
                 <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}">
             

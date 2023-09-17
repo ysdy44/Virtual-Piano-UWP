@@ -228,6 +228,25 @@ namespace Virtual_Piano
             this.LightRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Light);
             this.DarkRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Dark);
             this.DefaultRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Default);
+
+
+            // Track
+            this.TrackNotePanel.BackClick += (s, e) =>
+            {
+                this.TrackNotePanel.Visibility = Visibility.Collapsed;
+                this.TrackPanel.Visibility = Visibility.Visible;
+            };
+            this.TrackPanel.ItemClick += (s, e) =>
+            {
+                {
+                    {
+                        {
+                            this.TrackPanel.Visibility = Visibility.Collapsed;
+                            this.TrackNotePanel.Visibility = Visibility.Visible;
+                        }
+                    }
+                }
+            };
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
