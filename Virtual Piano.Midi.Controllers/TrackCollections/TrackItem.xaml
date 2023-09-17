@@ -13,7 +13,15 @@
         <!--Style-->
         <Style TargetType="Line">
             <Setter Property="StrokeThickness" Value="4" />
-            <Setter Property="Stroke" Value="White" />
+            <Setter Property="Stroke" Value="#B4DE4B"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="6,2" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Foreground" Value="White" />
         </Style>
     </FrameworkElement.Resources>
 
@@ -21,7 +29,7 @@
         <Canvas x:Name="Canvas">
             <!--Children-->
         </Canvas>
-        <TextBlock x:Name="TextBlock" Margin="6,2" FontSize="12" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <TextBlock x:Name="TextBlock">
             <!--Text-->
         </TextBlock>
     </Grid>
