@@ -110,27 +110,20 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-            <!--
-            <Grid.RowDefinitions>
-                <RowDefinition Height="44"/>
-                <RowDefinition Height="*" MinHeight="200"/>
-                <RowDefinition Height="4"/>
-                <RowDefinition Height="44"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            -->
-
-        
         <Grid.RowDefinitions>
             <RowDefinition Height="44"/>
+            <RowDefinition Height="2"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-            <!--Title
-            <TextBlock Grid.Row="1" IsHitTestVisible="False" Margin="30,6" Foreground="White" FontSize="80" FontFamily="Kunstler Script" HorizontalAlignment="Right" VerticalAlignment="Top">
-                Virtual Piano
-            </TextBlock>
-            -->
+        <!--Title
+        <TextBlock Grid.Row="1" IsHitTestVisible="False" Margin="30,6" Foreground="White" FontSize="80" FontFamily="Kunstler Script" HorizontalAlignment="Right" VerticalAlignment="Top">
+            Virtual Piano
+        </TextBlock>
+        -->
+
+        <!--ProgressBar-->
+        <ProgressBar x:Name="ProgressBar" Grid.Row="1" Background="Transparent"/>
 
         <!--Head-->
         <Grid>
@@ -974,9 +967,10 @@
 
         </Grid>
 
+        <!--Body-->
         <SplitView
             x:Name="SplitView"
-            Grid.Row="1"
+            Grid.Row="2"
             DisplayMode="Inline"
             IsPaneOpen="False"
             OpenPaneLength="280"
@@ -987,65 +981,74 @@
             <SplitView.Pane>
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="82"/>
-                        <RowDefinition Height="6"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <elements:CommandListView
-                        Grid.Row="2"
-                        SelectionMode="None"
-                        IsItemClickEnabled="True"
-                        ItemsSource="{x:Bind MidiInstrumentCollection.View}"
-                        Command="{x:Bind Command}"
-                        >
-                        <ItemsControl.GroupStyle>
-                            <GroupStyle/>
-                        </ItemsControl.GroupStyle>
-                        <!--Items-->
-                    </elements:CommandListView>
-
-                    <Grid Background="{ThemeResource AppForeground}">
-
-                        <Button 
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            CommandParameter="{x:Bind DemoNote}"
+                    <!--Body-->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="82"/>
+                            <RowDefinition Height="6"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                       
+                        <elements:CommandListView
+                            Grid.Row="1" 
+                            SelectionMode="None"
+                            IsItemClickEnabled="True"
+                            ItemsSource="{x:Bind MidiInstrumentCollection.View}"
                             Command="{x:Bind Command}"
-                            Style="{StaticResource TextBlockButtonStyle}"
                             >
-                            <StackPanel Spacing="2">
-                                <TextBlock FontSize="32" IsColorFontEnabled="False" HorizontalAlignment="Center" Text="{x:Bind Favorites.Emoji, Mode=OneWay}"/>
-                                <TextBlock FontSize="14" HorizontalAlignment="Center" Text="{x:Bind Favorites.String, Mode=OneWay}"/>
-                            </StackPanel>
-                        </Button>
+                            <ItemsControl.GroupStyle>
+                                <GroupStyle/>
+                            </ItemsControl.GroupStyle>
+                            <!--Items-->
+                        </elements:CommandListView>
 
-                        <elements:CommandCheckedButton
-                            Width="44" 
-                            Height="44" 
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Top"
-                            IsChecked="{x:Bind Favorites.IsContains, Mode=OneWay}"
-                            UncheckedSymbol="OutlineStar"
-                            CheckedSymbol="SolidStar"
-                            CommandParameter="{x:Bind Favorites.IsContains, Mode=OneWay}"
-                            Command="{x:Bind Favorites.Command}"
-                            Style="{StaticResource TextBlockButtonStyle}"
-                            >
-                            <ToolTipService.ToolTip>
-                                <ToolTip Placement="Bottom">
-                                    <TextBlock>
-                                        <Run Text="{strings:UI Type=Favorite}">
-                                           <!--Favorites-->
-                                       </Run>
-                                       /
-                                       <Run Text="{strings:UI Type=UnFavorite}">
-                                           <!--UnFavorite-->
-                                       </Run>
-                                    </TextBlock>
-                                </ToolTip>
-                            </ToolTipService.ToolTip>
-                        </elements:CommandCheckedButton>
+                        <!--Foot-->
+                        <Grid Background="{ThemeResource AppForeground}">
+                       
+                            <Button 
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                CommandParameter="{x:Bind DemoNote}"
+                                Command="{x:Bind Command}"
+                                Style="{StaticResource TextBlockButtonStyle}"
+                                >
+                                <StackPanel Spacing="2">
+                                    <TextBlock FontSize="32" IsColorFontEnabled="False" HorizontalAlignment="Center" Text="{x:Bind Favorites.Emoji, Mode=OneWay}"/>
+                                    <TextBlock FontSize="14" HorizontalAlignment="Center" Text="{x:Bind Favorites.String, Mode=OneWay}"/>
+                                </StackPanel>
+                            </Button>
+                       
+                            <elements:CommandCheckedButton
+                                Width="44" 
+                                Height="44" 
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                IsChecked="{x:Bind Favorites.IsContains, Mode=OneWay}"
+                                UncheckedSymbol="OutlineStar"
+                                CheckedSymbol="SolidStar"
+                                CommandParameter="{x:Bind Favorites.IsContains, Mode=OneWay}"
+                                Command="{x:Bind Favorites.Command}"
+                                Style="{StaticResource TextBlockButtonStyle}"
+                                >
+                                <ToolTipService.ToolTip>
+                                    <ToolTip Placement="Bottom">
+                                        <TextBlock>
+                                            <Run Text="{strings:UI Type=Favorite}">
+                                               <!--Favorites-->
+                                           </Run>
+                                           /
+                                           <Run Text="{strings:UI Type=UnFavorite}">
+                                               <!--UnFavorite-->
+                                           </Run>
+                                        </TextBlock>
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
+                            </elements:CommandCheckedButton>
+
+                        </Grid>
 
                     </Grid>
 
@@ -1382,7 +1385,7 @@
         </SplitView>
 
         <!--Marble-->
-        <Canvas Grid.Row="1" MinWidth="200" MinHeight="200">
+        <Canvas Grid.Row="2" MinWidth="200" MinHeight="200">
 
             <!--Animation-->
             <elements:AnimationRouletter 
