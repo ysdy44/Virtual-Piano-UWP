@@ -138,7 +138,7 @@ namespace Virtual_Piano
                         this.TrackIndex = -1;
                         this.TrackNotePanel.Visibility = Visibility.Collapsed;
                         this.TrackPanel.Visibility = Visibility.Visible;
-                    
+
                         // Track
                         this.TrackCollection = new TrackCollection(stream);
                         this.TrackPanel.ItemsSource = this.TrackCollection;
@@ -149,10 +149,30 @@ namespace Virtual_Piano
                     break;
 
                 case OptionType.Play:
+                    if (this.TrackCollection is null) break;
+
+                    if (this.Player.IsPlaying is false)
+                    {
+                        this.Player.Play();
+                        this.Play();
+                    }
                     break;
                 case OptionType.Pause:
+                    if (this.TrackCollection is null) break;
+
+                    if (this.Player.IsPlaying)
+                    {
+                        this.Player.Pause();
+                    }
                     break;
                 case OptionType.Stop:
+                    if (this.TrackCollection is null) break;
+
+                    //if (this.Player.IsPlaying)
+                    {
+                        this.Player.Stop();
+                        this.Stop();
+                    }
                     break;
 
                 case OptionType.Previous:

@@ -1,4 +1,6 @@
-﻿using Windows.UI.Xaml;
+﻿using System;
+using Virtual_Piano.Midi.Core;
+using Windows.UI.Xaml;
 
 namespace Virtual_Piano
 {
@@ -80,6 +82,25 @@ namespace Virtual_Piano
         public void ClickVolume()
         {
             this.MuteButton.IsChecked = false;
+        }
+
+        private void Stop()
+        {
+            this.ProgressBar.Value = 0;
+            this.DSTimer.Time = TimeSpan.Zero;
+
+            this.TrackPanel.Stop();
+            this.TrackNotePanel.Stop();
+        }
+        private void Progress()
+        {
+            this.ProgressBar.Value = (double)this.Player.PositionMilliseconds * 100 / this.TrackCollection.Duration;
+            this.DSTimer.Time = this.Player.Position;
+
+            if (this.TrackIndex < 0)
+                this.TrackPanel.ChangePosition((int)this.Player.PositionMilliseconds / TrackNoteLayout.Scaling);
+            else
+                this.TrackNotePanel.ChangePosition((int)this.Player.PositionMilliseconds / TrackNoteLayout.Scaling);
         }
     }
 }

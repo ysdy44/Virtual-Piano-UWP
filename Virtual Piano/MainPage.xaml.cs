@@ -235,6 +235,19 @@ namespace Virtual_Piano
             this.DefaultRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Default);
 
 
+            // Player
+            this.Player.TickProgress += (s, e) =>
+            {
+                if (this.TrackCollection is null) return;
+
+                if (this.Player.PositionMilliseconds >= this.TrackCollection.Duration)
+                {
+                    this.Player.Stop();
+                }
+
+                this.Progress();
+            };
+
             // Track
             this.TrackNotePanel.BackClick += (s, e) =>
             {
@@ -247,14 +260,15 @@ namespace Virtual_Piano
             {
                 if (this.TrackCollection is null) return;
 
-                if (this.TrackIndex < this.TrackCollection.Count)
+                int index = e;
+                if (index < this.TrackCollection.Count)
                 {
-                    if (this.TrackCollection[this.TrackIndex] is ContentControl contentControl)
+                    if (this.TrackCollection[index] is ContentControl contentControl)
                     {
                         if (contentControl.Tag is TrackInfo trackInfo)
                         {
                             // UI
-                            this.TrackIndex = e;
+                            this.TrackIndex = index;
                             this.TrackPanel.Visibility = Visibility.Collapsed;
                             this.TrackNotePanel.Visibility = Visibility.Visible;
 
