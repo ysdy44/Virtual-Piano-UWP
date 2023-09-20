@@ -84,6 +84,19 @@ namespace Virtual_Piano
             this.MuteButton.IsChecked = false;
         }
 
+        public void ClickTrack()
+        {
+            this.TrackIndex = -1;
+            this.TrackNotePanel.Visibility = Visibility.Collapsed;
+            this.TrackPanel.Visibility = Visibility.Visible;
+        }
+        public void ClickTrackNote(int index)
+        {
+            this.TrackIndex = index;
+            this.TrackPanel.Visibility = Visibility.Collapsed;
+            this.TrackNotePanel.Visibility = Visibility.Visible;
+        }
+
         private void Stop()
         {
             this.ProgressBar.Value = 0;

@@ -135,9 +135,7 @@ namespace Virtual_Piano
                     using (IRandomAccessStream stream = await file.OpenAsync(default))
                     {
                         // UI
-                        this.TrackIndex = -1;
-                        this.TrackNotePanel.Visibility = Visibility.Collapsed;
-                        this.TrackPanel.Visibility = Visibility.Visible;
+                        this.ClickTrack();
 
                         // Track
                         this.TrackCollection = new TrackCollection(stream);

@@ -249,13 +249,7 @@ namespace Virtual_Piano
             };
 
             // Track
-            this.TrackNotePanel.BackClick += (s, e) =>
-            {
-                // UI
-                this.TrackIndex = -1;
-                this.TrackNotePanel.Visibility = Visibility.Collapsed;
-                this.TrackPanel.Visibility = Visibility.Visible;
-            };
+            this.TrackNotePanel.BackClick += (s, e) => this.ClickTrack(); // UI
             this.TrackPanel.ItemClick += (s, e) =>
             {
                 if (this.TrackCollection is null) return;
@@ -268,9 +262,7 @@ namespace Virtual_Piano
                         if (contentControl.Tag is TrackInfo trackInfo)
                         {
                             // UI
-                            this.TrackIndex = index;
-                            this.TrackPanel.Visibility = Visibility.Collapsed;
-                            this.TrackNotePanel.Visibility = Visibility.Visible;
+                            this.ClickTrackNote(index);
 
                             // Track
                             this.TrackNotePanel.LoadInfo(trackInfo);
@@ -280,9 +272,10 @@ namespace Virtual_Piano
                 }
 
                 // UI
-                this.TrackIndex = -1;
-                this.TrackNotePanel.Visibility = Visibility.Collapsed;
-                this.TrackPanel.Visibility = Visibility.Visible;
+                this.ClickTrack();
+
+                // Track
+                this.TrackNotePanel.LoadInfo(null);
             };
         }
 
@@ -296,10 +289,11 @@ namespace Virtual_Piano
         }
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
+            // this.MetronomeTimer.Stop();
+            this.RingTimer.Start();
+
             this.MidiSynthesizer?.Dispose();
             this.MidiSynthesizer = await MidiSynthesizer.CreateAsync();
-
-            this.RingTimer.Start();
         }
 
         // UI
