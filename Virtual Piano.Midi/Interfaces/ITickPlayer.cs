@@ -14,8 +14,11 @@ namespace Virtual_Piano.Midi
         long PositionMilliseconds { get; }
         bool IsPlaying { get; }
 
-        void Stop();
-        void Pause();
+        void Seek(TimeSpan timeSpan);
+        void Seek(long timeSpan);
+
         void Play();
+        void Pause();
+        void Stop();
     }
 }
