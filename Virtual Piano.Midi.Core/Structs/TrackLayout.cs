@@ -5,11 +5,11 @@ namespace Virtual_Piano.Midi.Core
     public readonly struct TrackLayout
     {
         //@Const
-        public const int Scaling = 4;
+        public const int Scaling = 10;
         public const int ItemSize = 66;
         public const int ItemSizeHalf = ItemSize / 2;
 
-        public const int Step = 120;
+        public const int Step = 1000 / Scaling;
         public const int StepCount = 4;
         public const int StepSpacing = Step / StepCount;
         public const int StepSpacing2 = StepSpacing / StepCount;
