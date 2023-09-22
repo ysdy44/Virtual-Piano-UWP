@@ -279,6 +279,68 @@ namespace Virtual_Piano
                 // Track
                 this.TrackNotePanel.LoadInfo(null);
             };
+
+            this.TrackPanel.DragStarted += (s, e) =>
+            {
+                this.Offset = e.HorizontalOffset;
+
+                int t = this.TrackPanel.UpdateTimeline((int)this.Offset);
+                TimeSpan timespan = TimeSpan.FromMilliseconds(System.Math.Max(0, t));
+
+                this.Click(OptionType.RePause);
+                this.DSTimer.Time = timespan;
+                this.Player.Seek(timespan);
+            };
+            this.TrackPanel.DragDelta += (s, e) =>
+            {
+                this.Offset += e.HorizontalChange;
+
+                int t = this.TrackPanel.UpdateTimeline((int)this.Offset);
+                TimeSpan timespan = TimeSpan.FromMilliseconds(System.Math.Max(0, t));
+
+                this.DSTimer.Time = timespan;
+                this.Player.Seek(timespan);
+            };
+            this.TrackPanel.DragCompleted += (s, e) =>
+            {
+                int t = this.TrackPanel.UpdateTimeline((int)this.Offset);
+                TimeSpan timespan = TimeSpan.FromMilliseconds(System.Math.Max(0, t));
+
+                this.DSTimer.Time = timespan;
+                this.Player.Seek(timespan);
+                this.Click(OptionType.RePlay);
+            };
+
+            this.TrackNotePanel.DragStarted += (s, e) =>
+            {
+                this.Offset = e.HorizontalOffset;
+
+                int t = this.TrackNotePanel.UpdateTimeline((int)this.Offset);
+                TimeSpan timespan = TimeSpan.FromMilliseconds(System.Math.Max(0, t));
+
+                this.Click(OptionType.RePause);
+                this.DSTimer.Time = timespan;
+                this.Player.Seek(timespan);
+            };
+            this.TrackNotePanel.DragDelta += (s, e) =>
+            {
+                this.Offset += e.HorizontalChange;
+
+                int t = this.TrackNotePanel.UpdateTimeline((int)this.Offset);
+                TimeSpan timespan = TimeSpan.FromMilliseconds(System.Math.Max(0, t));
+
+                this.DSTimer.Time = timespan;
+                this.Player.Seek(timespan);
+            };
+            this.TrackNotePanel.DragCompleted += (s, e) =>
+            {
+                int t = this.TrackNotePanel.UpdateTimeline((int)this.Offset);
+                TimeSpan timespan = TimeSpan.FromMilliseconds(System.Math.Max(0, t));
+
+                this.DSTimer.Time = timespan;
+                this.Player.Seek(timespan);
+                this.Click(OptionType.RePlay);
+            };
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
