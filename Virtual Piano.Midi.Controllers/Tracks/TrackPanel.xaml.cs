@@ -268,11 +268,11 @@ namespace Virtual_Piano.Midi.Controllers
             this.Canvas.Width = extentWidth + this.Layout.Pane;
         }
 
-        public void ChangePosition(int timeline)
+        public void ChangePosition(int time)
         {
-            this.Timeline = System.Math.Max(0, timeline) + this.Layout.Pane;
-            this.Position = this.Timeline + this.HorizontalOffset;
-            this.Time = (this.Position - this.Layout.Pane) * TrackLayout.Scaling;
+            this.Time = System.Math.Max(0, time);
+            this.Position = time / TrackLayout.Scaling;
+            this.Timeline = this.Position + this.Layout.Pane;
 
             // UI
             this.TimelineLine.X1 = this.Timeline;
@@ -282,15 +282,15 @@ namespace Virtual_Piano.Midi.Controllers
 
             if (this.Timeline >= this.HorizontalOffset + this.ViewportWidth)
             {
-                this.ScrollViewer.ChangeView((this.Position + this.ViewportWidth) / 2 - this.Layout.Pane, null, null, true);
+                this.ScrollViewer.ChangeView(this.Timeline - this.Layout.Pane, null, null, true);
             }
         }
 
         public void Stop()
         {
             this.Timeline = this.Layout.Pane;
-            this.Position = this.Layout.Pane + this.HorizontalOffset;
-            this.Time = (this.HorizontalOffset) * TrackLayout.Scaling;
+            this.Position = 0;
+            this.Time = 0;
 
             // UI
             this.TimelineLine.X1 = this.Layout.Pane;
@@ -306,8 +306,8 @@ namespace Virtual_Piano.Midi.Controllers
             if (timeline > this.Layout.Pane)
             {
                 this.Timeline = System.Math.Max(this.Layout.Pane, timeline);
-                this.Position = this.Timeline + this.HorizontalOffset;
-                this.Time = (this.Position - this.Layout.Pane) * TrackLayout.Scaling;
+                this.Position = this.Timeline - this.Layout.Pane;
+                this.Time = this.Position * TrackLayout.Scaling;
 
                 // UI
                 this.TimelineLine.X1 = this.Timeline;
@@ -318,8 +318,8 @@ namespace Virtual_Piano.Midi.Controllers
             else
             {
                 this.Timeline = this.Layout.Pane;
-                this.Position = this.Layout.Pane + this.HorizontalOffset;
-                this.Time = this.HorizontalOffset * TrackLayout.Scaling;
+                this.Position = 0;
+                this.Time = 0;
 
                 // UI
                 this.TimelineLine.X1 = this.Layout.Pane;
