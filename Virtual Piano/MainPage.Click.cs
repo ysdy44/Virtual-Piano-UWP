@@ -146,6 +146,13 @@ namespace Virtual_Piano
                 case OptionType.Save:
                     break;
 
+                case OptionType.RePlay:
+                    if (this.ReIsPlaying is false) break;
+                    goto case OptionType.Play;
+                case OptionType.RePause:
+                    this.ReIsPlaying = this.Player.IsPlaying;
+                    goto case OptionType.Pause;
+
                 case OptionType.Play:
                     if (this.TrackCollection is null) break;
 

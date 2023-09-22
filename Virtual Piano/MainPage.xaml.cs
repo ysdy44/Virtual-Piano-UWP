@@ -46,6 +46,8 @@ namespace Virtual_Piano
         int TrackIndex = -1;
         TrackCollection TrackCollection;
         // Player
+        bool ReIsPlaying;
+        double Offset;
         readonly ITickPlayer Player = new TickPlayer();
 
         // Key

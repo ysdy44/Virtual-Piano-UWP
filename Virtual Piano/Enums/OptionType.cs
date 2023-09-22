@@ -21,6 +21,9 @@
         Open,
         Save,
 
+        RePlay,
+        RePause,
+
         Play,
         Pause,
         Stop,
