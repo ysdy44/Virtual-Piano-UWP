@@ -159,6 +159,7 @@ namespace Virtual_Piano
                     if (this.Player.IsPlaying is false)
                     {
                         this.Player.Play();
+                        this.Start();
                         this.Play();
                     }
                     break;
