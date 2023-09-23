@@ -4,9 +4,10 @@ namespace Virtual_Piano.Midi
 {
     public interface ITickPlayer
     {
+        //@Delegate
         event EventHandler<object> TickProgress;
         event EventHandler<string> TickBeat;
-        
+
         int Beat { get; set; }
         string BeatChar { get; }
 
@@ -14,8 +15,9 @@ namespace Virtual_Piano.Midi
         long PositionMilliseconds { get; }
         bool IsPlaying { get; }
 
-        void Seek(TimeSpan timeSpan);
-        void Seek(long timeSpan);
+        void Seek(TimeSpan delay);
+        void Seek(long delayMilliseconds);
+        void Seek(TimeSpan delay, long delayMilliseconds);
 
         void Play();
         void Pause();

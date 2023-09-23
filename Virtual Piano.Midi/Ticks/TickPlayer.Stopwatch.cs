@@ -17,18 +17,23 @@ namespace Virtual_Piano.Midi
         private readonly Stopwatch Stopwatch = new Stopwatch();
 
 
-        public void Seek(TimeSpan timeSpan)
+        public void Seek(TimeSpan delay)
         {
-            this.Delay = timeSpan;
-            this.DelayMilliseconds = (long)timeSpan.TotalMilliseconds;
+            this.Delay = delay;
+            this.DelayMilliseconds = (long)delay.TotalMilliseconds;
         }
 
-        public void Seek(long timeSpan)
+        public void Seek(long delayMilliseconds)
         {
-            this.Delay = TimeSpan.FromMilliseconds(timeSpan);
-            this.DelayMilliseconds = (long)timeSpan;
+            this.Delay = TimeSpan.FromMilliseconds(delayMilliseconds);
+            this.DelayMilliseconds = delayMilliseconds;
         }
 
+        public void Seek(TimeSpan delay, long delayMilliseconds)
+        {
+            this.Delay = delay;
+            this.DelayMilliseconds = delayMilliseconds;
+        }
 
         public void Play()
         {
