@@ -346,7 +346,7 @@ namespace Virtual_Piano.Midi.Controllers
             this.ScrollViewer.ChangeView(0, null, null, true);
         }
 
-        public int UpdateTimeline(int positionUI)
+        public void ChangePositionUI(int positionUI)
         {
             if (positionUI > this.Layout.Pane)
             {
@@ -372,8 +372,6 @@ namespace Virtual_Piano.Midi.Controllers
                 this.TimelinePoint.X1 = this.Layout.Pane;
                 this.TimelinePoint.X2 = this.Layout.Pane;
             }
-
-            return this.Position;
         }
 
         public void LoadInfo(TrackInfo info)

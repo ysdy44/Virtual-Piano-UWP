@@ -29,10 +29,10 @@ namespace Virtual_Piano.Midi.Core
         // Timeline
         int Position { get; }
 
-        void ChangeDuration(int time);
+        void ChangeDuration(int duration);
         void ChangePosition(int position, bool scrollNext, bool scrollPrevious);
         void Stop();
-        int UpdateTimeline(int timeline);
+        void ChangePositionUI(int positionUI);
     }
 
     public interface ITrackPanel : ITrackPanelBase

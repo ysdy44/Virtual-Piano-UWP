@@ -284,30 +284,35 @@ namespace Virtual_Piano
             {
                 this.Offset = e.HorizontalOffset;
 
-                int t = this.TrackPanel.UpdateTimeline((int)this.Offset);
-                TimeSpan timespan = TimeSpan.FromMilliseconds(System.Math.Max(0, t));
+                this.TrackPanel.ChangePositionUI((int)this.Offset);
+                int t = System.Math.Max(0, this.TrackPanel.Position);
+                TimeSpan timespan = TimeSpan.FromMilliseconds(t);
 
                 this.Click(OptionType.RePause);
+
                 this.DSTimer.Time = timespan;
-                this.Player.Seek(timespan);
+                this.Player.Seek(timespan, t);
             };
             this.TrackPanel.DragDelta += (s, e) =>
             {
                 this.Offset += e.HorizontalChange;
 
-                int t = this.TrackPanel.UpdateTimeline((int)this.Offset);
-                TimeSpan timespan = TimeSpan.FromMilliseconds(System.Math.Max(0, t));
+                this.TrackPanel.ChangePositionUI((int)this.Offset);
+                int t = System.Math.Max(0, this.TrackPanel.Position);
+                TimeSpan timespan = TimeSpan.FromMilliseconds(t);
 
                 this.DSTimer.Time = timespan;
-                this.Player.Seek(timespan);
+                this.Player.Seek(timespan, t);
             };
             this.TrackPanel.DragCompleted += (s, e) =>
             {
-                int t = this.TrackPanel.UpdateTimeline((int)this.Offset);
-                TimeSpan timespan = TimeSpan.FromMilliseconds(System.Math.Max(0, t));
+                this.TrackPanel.ChangePositionUI((int)this.Offset);
+                int t = System.Math.Max(0, this.TrackPanel.Position);
+                TimeSpan timespan = TimeSpan.FromMilliseconds(t);
 
                 this.DSTimer.Time = timespan;
-                this.Player.Seek(timespan);
+                this.Player.Seek(timespan, t);
+
                 this.Click(OptionType.RePlay);
             };
 
@@ -315,30 +320,35 @@ namespace Virtual_Piano
             {
                 this.Offset = e.HorizontalOffset;
 
-                int t = this.TrackNotePanel.UpdateTimeline((int)this.Offset);
-                TimeSpan timespan = TimeSpan.FromMilliseconds(System.Math.Max(0, t));
+                this.TrackNotePanel.ChangePositionUI((int)this.Offset);
+                int t = System.Math.Max(0, this.TrackNotePanel.Position);
+                TimeSpan timespan = TimeSpan.FromMilliseconds(t);
 
                 this.Click(OptionType.RePause);
+
                 this.DSTimer.Time = timespan;
-                this.Player.Seek(timespan);
+                this.Player.Seek(timespan, t);
             };
             this.TrackNotePanel.DragDelta += (s, e) =>
             {
                 this.Offset += e.HorizontalChange;
 
-                int t = this.TrackNotePanel.UpdateTimeline((int)this.Offset);
-                TimeSpan timespan = TimeSpan.FromMilliseconds(System.Math.Max(0, t));
+                this.TrackNotePanel.ChangePositionUI((int)this.Offset);
+                int t = System.Math.Max(0, this.TrackNotePanel.Position);
+                TimeSpan timespan = TimeSpan.FromMilliseconds(t);
 
                 this.DSTimer.Time = timespan;
-                this.Player.Seek(timespan);
+                this.Player.Seek(timespan, t);
             };
             this.TrackNotePanel.DragCompleted += (s, e) =>
             {
-                int t = this.TrackNotePanel.UpdateTimeline((int)this.Offset);
-                TimeSpan timespan = TimeSpan.FromMilliseconds(System.Math.Max(0, t));
+                this.TrackNotePanel.ChangePositionUI((int)this.Offset);
+                int t = System.Math.Max(0, this.TrackNotePanel.Position);
+                TimeSpan timespan = TimeSpan.FromMilliseconds(t);
 
                 this.DSTimer.Time = timespan;
-                this.Player.Seek(timespan);
+                this.Player.Seek(timespan, t);
+
                 this.Click(OptionType.RePlay);
             };
         }

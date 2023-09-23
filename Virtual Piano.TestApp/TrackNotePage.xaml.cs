@@ -58,19 +58,19 @@ namespace Virtual_Piano.TestApp
             this.TrackNotePanel.DragStarted += (s, e) =>
             {
                 this.Offset = e.HorizontalOffset;
-                int t = this.TrackNotePanel.UpdateTimeline((int)this.Offset);
-                this.DSTimer.Time = (TimeSpan.FromMilliseconds(System.Math.Max(0, t)));
+                this.TrackNotePanel.ChangePositionUI((int)this.Offset);
+                this.DSTimer.Time = (TimeSpan.FromMilliseconds(System.Math.Max(0, this.TrackNotePanel.Position)));
             };
             this.TrackNotePanel.DragDelta += (s, e) =>
             {
                 this.Offset += e.HorizontalChange;
-                int t = this.TrackNotePanel.UpdateTimeline((int)this.Offset);
-                this.DSTimer.Time = (TimeSpan.FromMilliseconds(System.Math.Max(0, t)));
+                this.TrackNotePanel.ChangePositionUI((int)this.Offset);
+                this.DSTimer.Time = (TimeSpan.FromMilliseconds(System.Math.Max(0, this.TrackNotePanel.Position)));
             };
             this.TrackNotePanel.DragCompleted += (s, e) =>
             {
-                int t = this.TrackNotePanel.UpdateTimeline((int)this.Offset);
-                this.DSTimer.Time = (TimeSpan.FromMilliseconds(System.Math.Max(0, t)));
+                this.TrackNotePanel.ChangePositionUI((int)this.Offset);
+                this.DSTimer.Time = (TimeSpan.FromMilliseconds(System.Math.Max(0, this.TrackNotePanel.Position)));
             };
 
             this.TrackNotePanel.FootItemClick += (s, e) =>
