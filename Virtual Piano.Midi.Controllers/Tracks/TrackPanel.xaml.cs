@@ -268,7 +268,7 @@ namespace Virtual_Piano.Midi.Controllers
             this.Canvas.Width = extentWidth + this.Layout.Pane;
         }
 
-        public void ChangePosition(int time)
+        public void ChangePosition(int time, bool scrollNext, bool scrollPrevious)
         {
             this.Time = System.Math.Max(0, time);
             this.Position = time / TrackLayout.Scaling;
@@ -280,7 +280,11 @@ namespace Virtual_Piano.Midi.Controllers
             this.TimelinePoint.X1 = this.Timeline;
             this.TimelinePoint.X2 = this.Timeline;
 
-            if (this.Timeline >= this.HorizontalOffset + this.ViewportWidth)
+            if (scrollNext && this.Timeline >= this.HorizontalOffset + this.ViewportWidth)
+            {
+                this.ScrollViewer.ChangeView(this.Timeline - this.Layout.Pane, null, null, true);
+            }
+            else if (scrollPrevious && this.Timeline < this.HorizontalOffset)
             {
                 this.ScrollViewer.ChangeView(this.Timeline - this.Layout.Pane, null, null, true);
             }

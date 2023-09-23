@@ -36,7 +36,7 @@ namespace Virtual_Piano.Midi.Core
         int Time { get; }
 
         void ChangeDuration(int time);
-        void ChangePosition(int timeline);
+        void ChangePosition(int position, bool scrollNext, bool scrollPrevious);
 
         int UpdateTimeline(int timeline);
     }

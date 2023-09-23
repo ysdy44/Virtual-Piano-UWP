@@ -111,9 +111,9 @@ namespace Virtual_Piano
             this.DSTimer.Time = this.Player.Position;
 
             if (this.TrackIndex < 0)
-                this.TrackPanel.ChangePosition((int)this.Player.PositionMilliseconds);
+                this.TrackPanel.ChangePosition((int)this.Player.PositionMilliseconds, true, false);
             else
-                this.TrackNotePanel.ChangePosition((int)this.Player.PositionMilliseconds);
+                this.TrackNotePanel.ChangePosition((int)this.Player.PositionMilliseconds, true, false);
         }
     }
 }
