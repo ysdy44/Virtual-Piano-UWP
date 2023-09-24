@@ -17,6 +17,8 @@ namespace Virtual_Piano.TestApp
         MidiSynthesizer MidiSynthesizer;
         // Track
         TrackCollection TrackCollection;
+        Tempo TrackTempo = new Tempo(120);
+        TempoDuration TrackDuration = new TempoDuration(new Tempo(120));
         // Player
         MidiNote Note;
         readonly ITickPlayer Player = new TickPlayer();
@@ -31,7 +33,7 @@ namespace Virtual_Piano.TestApp
             {
                 if (this.TrackCollection is null) return;
 
-                if (this.Player.PositionMilliseconds >= this.TrackCollection.Duration)
+                if (this.Player.PositionMilliseconds >= this.TrackDuration.Source)
                 {
                     this.Player.Stop();
                 }
@@ -101,7 +103,7 @@ namespace Virtual_Piano.TestApp
 
         private void Progress()
         {
-            this.ProgressBar.Value = (double)this.Player.PositionMilliseconds * 100 / this.TrackCollection.Duration;
+            this.ProgressBar.Value = this.TrackDuration.GetPercent(this.Player.PositionMilliseconds);
             this.Run2.Text = this.Player.Position.ToString();
             this.Rectangle.Width = (int)this.Note;
         }
@@ -129,7 +131,7 @@ namespace Virtual_Piano.TestApp
 
                 if (item.Tag is MidiMessage message)
                 {
-                    int delay = (int)(message.AbsoluteTime - this.Player.PositionMilliseconds);
+                    int delay = this.TrackTempo.GetDuration(message.AbsoluteTime - position);
 
                     if (delay < 0)
                     {
