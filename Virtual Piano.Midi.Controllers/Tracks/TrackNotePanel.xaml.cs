@@ -388,7 +388,7 @@ namespace Virtual_Piano.Midi.Controllers
             }
             else
             {
-                this.ChangeDuration(track.Duration);
+                this.ChangeDuration(track.Source.Duration);
                 this.ItemsSource = track.Notes;
                 this.HeadItemsSource = track.Programs;
                 this.FootItemsSource = track.Controllers.Keys;

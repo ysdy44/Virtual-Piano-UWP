@@ -20,17 +20,17 @@ namespace Virtual_Piano.Midi.Controllers
                 IList<NAudio.Midi.MidiEvent> e = events[i];
                 if (e.Count == 0) continue;
 
-                Track track = new Track(new MidiTrack(e, events.StartAbsoluteTime));
-                if (this.Duration < track.Duration) this.Duration = track.Duration;
+                Track track = new Track(e, events.StartAbsoluteTime);
+                if (this.Duration < track.Source.Duration) this.Duration = track.Source.Duration;
 
                 ContentControl control = new ContentControl
                 {
-                    Width = track.Duration / TrackLayout.Scaling,
+                    Width = track.Source.Duration / TrackLayout.Scaling,
                     Height = TrackLayout.ItemSize,
                     Content = track
                 };
                 Canvas.SetTop(control, i * TrackLayout.ItemSize);
-                Canvas.SetLeft(control, track.Time / TrackLayout.Scaling);
+                Canvas.SetLeft(control, track.Source.Time / TrackLayout.Scaling);
                 base.Add(control);
             }
         }

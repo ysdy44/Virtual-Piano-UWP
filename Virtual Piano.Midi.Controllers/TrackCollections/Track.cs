@@ -11,19 +11,16 @@ namespace Virtual_Piano.Midi.Controllers
         const int Count2 = NoteExtensions.NoteCount / 2;
         const int Count4 = Count2 / 2;
 
-        public readonly long Time;
-        public readonly long Duration;
-
+        public readonly MidiTrack Source;
         public readonly ObservableCollection<ContentControl> Notes = new ObservableCollection<ContentControl>();
         public readonly ObservableCollection<ContentControl> Programs = new ObservableCollection<ContentControl>();
         public readonly Dictionary<MidiControlController, ControllerCollection> Controllers = new Dictionary<MidiControlController, ControllerCollection>();
 
-        public Track(MidiTrack track)
+        public Track(IList<NAudio.Midi.MidiEvent> events, long time)
         {
-            this.Time = track.Time;
-            this.Duration = track.Duration;
+            this.Source = new MidiTrack(events, time);
 
-            foreach (MidiMessage item in track.Notes)
+            foreach (MidiMessage item in this.Source.Notes)
             {
                 ContentControl control = new ContentControl
                 {
@@ -47,7 +44,7 @@ namespace Virtual_Piano.Midi.Controllers
                 });
             }
 
-            foreach (MidiMessage item in track.Programs)
+            foreach (MidiMessage item in this.Source.Programs)
             {
                 ContentControl control = new ContentControl
                 {
@@ -58,9 +55,9 @@ namespace Virtual_Piano.Midi.Controllers
                 this.Programs.Add(control);
             }
 
-            foreach (var item in track.Controllers)
+            foreach (var item in this.Source.Controllers)
             {
-                this.Controllers.Add(item.Key, new ControllerCollection(item.Value, this.Duration));
+                this.Controllers.Add(item.Key, new ControllerCollection(item.Value, this.Source.Duration));
             }
         }
     }
