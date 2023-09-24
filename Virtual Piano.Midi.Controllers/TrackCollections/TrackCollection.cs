@@ -10,6 +10,11 @@ namespace Virtual_Piano.Midi.Controllers
     public sealed class TrackCollection : ObservableCollection<ContentControl>
     {
         public readonly long Duration;
+        public readonly double Tempo;
+        public readonly int Numerator;
+        public readonly int Denominator;
+        public readonly int SharpsFlats;
+        public readonly int MajorMinor;
 
         public TrackCollection(IRandomAccessStream accessStream) : this(accessStream.AsStream()) { }
         public TrackCollection(Stream inputStream) : this(new NAudio.Midi.MidiFile(inputStream, false).Events) { }
@@ -22,6 +27,11 @@ namespace Virtual_Piano.Midi.Controllers
 
                 Track track = new Track(e, events.StartAbsoluteTime);
                 if (this.Duration < track.Source.Duration) this.Duration = track.Source.Duration;
+                if (this.Tempo < track.Source.Tempo) this.Tempo = track.Source.Tempo;
+                if (this.Numerator < track.Source.Numerator) this.Numerator = track.Source.Numerator;
+                if (this.Denominator < track.Source.Denominator) this.Denominator = track.Source.Denominator;
+                if (this.SharpsFlats < track.Source.SharpsFlats) this.SharpsFlats = track.Source.SharpsFlats;
+                if (this.MajorMinor < track.Source.MajorMinor) this.MajorMinor = track.Source.MajorMinor;
 
                 ContentControl control = new ContentControl
                 {

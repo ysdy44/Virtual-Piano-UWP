@@ -6,6 +6,11 @@ namespace Virtual_Piano.Midi
     {
         public readonly long Time;
         public readonly long Duration;
+        public readonly double Tempo;
+        public readonly int Numerator;
+        public readonly int Denominator;
+        public readonly int SharpsFlats;
+        public readonly int MajorMinor;
 
         public readonly List<MidiMessage> Notes = new List<MidiMessage>();
         public readonly List<MidiMessage> Programs = new List<MidiMessage>();
@@ -100,16 +105,21 @@ namespace Virtual_Piano.Midi
                                 case NAudio.Midi.MetaEventType.SetTempo:
                                     if (metaEvent is NAudio.Midi.TempoEvent tempoEvent)
                                     {
+                                        this.Tempo = (int)tempoEvent.Tempo;
                                     }
                                     break;
                                 case NAudio.Midi.MetaEventType.TimeSignature:
                                     if (metaEvent is NAudio.Midi.TimeSignatureEvent timeSignatureEvent)
                                     {
+                                        this.Numerator = timeSignatureEvent.Numerator;
+                                        this.Denominator = timeSignatureEvent.Denominator;
                                     }
                                     break;
                                 case NAudio.Midi.MetaEventType.KeySignature:
                                     if (metaEvent is NAudio.Midi.KeySignatureEvent keySignatureEvent)
                                     {
+                                        this.SharpsFlats = keySignatureEvent.SharpsFlats;
+                                        this.MajorMinor = keySignatureEvent.MajorMinor;
                                     }
                                     break;
                                 case NAudio.Midi.MetaEventType.SequencerSpecific:
