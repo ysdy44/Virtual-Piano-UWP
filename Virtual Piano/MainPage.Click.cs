@@ -134,13 +134,25 @@ namespace Virtual_Piano
 
                     using (IRandomAccessStream stream = await file.OpenAsync(default))
                     {
+                        TrackCollection tracks = new TrackCollection(stream);
+                     
                         // UI
                         this.ClickTrack();
+                        this.Stop();
 
                         // Track
-                        this.TrackCollection = new TrackCollection(stream);
-                        this.TrackPanel.ItemsSource = this.TrackCollection;
-                        this.TrackPanel.ChangeDuration(this.TrackCollection.Duration);
+                        this.TrackCollection = tracks;
+                        this.TrackPanel.ItemsSource = tracks;
+                        this.TrackPanel.ChangeDuration((int)tracks.Duration);
+
+                        this.TrackTempo = new Tempo((int)tracks.Tempo);
+                        this.TrackDuration = new TempoDuration(this.TrackTempo, (int)tracks.Duration);
+
+                        this.TrackTimeSignature = new TimeSignature(tracks.Numerator, tracks.Denominator);
+                        this.TrackKeySignature = new KeySignature(tracks.SharpsFlats, tracks.MajorMinor);
+
+                        this.UpdateTrackTempo(this.TrackTempo);
+                        this.UpdateTrackTime(this.TrackTimeSignature);
                     }
                     break;
                 case OptionType.Save:

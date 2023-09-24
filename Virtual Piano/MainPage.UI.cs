@@ -118,23 +118,23 @@ namespace Virtual_Piano
         }
         private void Start()
         {
-            this.ProgressBar.Value = (double)this.Player.PositionMilliseconds * 100 / this.TrackCollection.Duration;
+            this.ProgressBar.Value = this.TrackDuration.GetPercent(this.Player.PositionMilliseconds);
             this.DSTimer.Time = this.Player.Position;
 
             if (this.TrackIndex < 0)
-                this.TrackPanel.ChangePosition((int)this.Player.PositionMilliseconds, true, true);
+                this.TrackPanel.ChangePosition(this.TrackTempo.GetPosition(this.Player.PositionMilliseconds), true, true);
             else
-                this.TrackNotePanel.ChangePosition((int)this.Player.PositionMilliseconds, true, true);
+                this.TrackNotePanel.ChangePosition(this.TrackTempo.GetPosition(this.Player.PositionMilliseconds), true, true);
         }
         private void Progress()
         {
-            this.ProgressBar.Value = (double)this.Player.PositionMilliseconds * 100 / this.TrackCollection.Duration;
+            this.ProgressBar.Value = this.TrackDuration.GetPercent(this.Player.PositionMilliseconds);
             this.DSTimer.Time = this.Player.Position;
 
             if (this.TrackIndex < 0)
-                this.TrackPanel.ChangePosition((int)this.Player.PositionMilliseconds, true, false);
+                this.TrackPanel.ChangePosition(this.TrackTempo.GetPosition(this.Player.PositionMilliseconds), true, true);
             else
-                this.TrackNotePanel.ChangePosition((int)this.Player.PositionMilliseconds, true, false);
+                this.TrackNotePanel.ChangePosition(this.TrackTempo.GetPosition(this.Player.PositionMilliseconds), true, true);
         }
     }
 }

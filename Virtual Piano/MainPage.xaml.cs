@@ -45,6 +45,10 @@ namespace Virtual_Piano
         // Track
         int TrackIndex = -1;
         TrackCollection TrackCollection;
+        Tempo TrackTempo = new Tempo(120);
+        TempoDuration TrackDuration = new TempoDuration(new Tempo(120));
+        TimeSignature TrackTimeSignature = new TimeSignature(4, Beat.QuarterNote);
+        KeySignature TrackKeySignature = new KeySignature(4, 4);
         // Player
         bool ReIsPlaying;
         double Offset;

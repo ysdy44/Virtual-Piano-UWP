@@ -49,7 +49,7 @@ namespace Virtual_Piano
 
                 if (item.Content is MidiMessage message)
                 {
-                    int delay = (int)(message.AbsoluteTime - position);
+                    int delay = this.TrackTempo.GetDuration(message.AbsoluteTime - position);
 
                     if (delay < 0)
                     {
@@ -92,7 +92,7 @@ namespace Virtual_Piano
 
                 if (item.Content is MidiMessage message)
                 {
-                    int delay = (int)(message.AbsoluteTime - position);
+                    int delay = this.TrackTempo.GetDuration(message.AbsoluteTime - position);
 
                     if (delay < 0)
                     {
@@ -133,7 +133,7 @@ namespace Virtual_Piano
                     return;
                 }
 
-                int delay = (int)(message.AbsoluteTime - position);
+                int delay = this.TrackTempo.GetDuration(message.AbsoluteTime - position);
 
                 if (delay < 0)
                 {
