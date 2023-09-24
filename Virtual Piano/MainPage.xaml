@@ -327,7 +327,7 @@
                         <Button>
                             <TextBlock>
                                 <Run></Run>
-                                <Run FontSize="14">4</Run><Run FontSize="14">/</Run><Run FontSize="14">4</Run>
+                                <Run x:Name="NumeratorRun" FontSize="14">4</Run><Run FontSize="14">/</Run><Run x:Name="DenominatorRun" FontSize="14">4</Run>
                                 <LineBreak/>
                                 <Run>Signature</Run>
                             </TextBlock>

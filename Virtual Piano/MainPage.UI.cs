@@ -1,5 +1,5 @@
 ﻿using System;
-using Virtual_Piano.Midi.Core;
+using Virtual_Piano.Midi;
 using Windows.UI.Xaml;
 
 namespace Virtual_Piano
@@ -95,6 +95,17 @@ namespace Virtual_Piano
             this.TrackIndex = index;
             this.TrackPanel.Visibility = Visibility.Collapsed;
             this.TrackNotePanel.Visibility = Visibility.Visible;
+        }
+
+        public void UpdateTrackTempo(Tempo tempo)
+        {
+            this.TempoSlider.Value = tempo.Bpm;
+        }
+
+        public void UpdateTrackTime(TimeSignature timeSignature)
+        {
+            this.NumeratorRun.Text = $"{timeSignature.Numerator}";
+            this.DenominatorRun.Text = $"{timeSignature.Denominator}";
         }
 
         private void Stop()
