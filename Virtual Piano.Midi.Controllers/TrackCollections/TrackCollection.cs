@@ -27,13 +27,9 @@ namespace Virtual_Piano.Midi.Controllers
 
                 ContentControl control = new ContentControl
                 {
-                    Tag = info,
                     Width = info.Duration / TrackLayout.Scaling,
                     Height = TrackLayout.ItemSize,
-                    Content = new TrackItem(track)
-                    {
-                        Text = MidiProgram.AcousticGrand.ToString()
-                    }
+                    Content = info
                 };
                 Canvas.SetTop(control, i * TrackLayout.ItemSize);
                 Canvas.SetLeft(control, info.Time / TrackLayout.Scaling);

@@ -90,12 +90,13 @@ namespace Virtual_Piano.TestApp
             this.MidiSynthesizer = await MidiSynthesizer.CreateAsync();
         }
 
-        private void Reset()
+        private void Stop()
         {
             this.ProgressBar.Value = 0;
             this.Run2.Text = "00:00.00";
             this.Rectangle.Width = 0;
         }
+
         private void Progress()
         {
             this.ProgressBar.Value = (double)this.Player.PositionMilliseconds * 100 / this.TrackCollection.Duration;
@@ -107,13 +108,13 @@ namespace Virtual_Piano.TestApp
         {
             foreach (ContentControl item in this.TrackCollection)
             {
-                if (item.Tag is TrackInfo trackInfo)
+                if (item.Content is TrackInfo trackInfo)
                 {
-                    this.PlayTrack(trackInfo);
+                    this.Play(trackInfo);
                 }
             }
         }
-        private async void PlayTrack(TrackInfo trackInfo)
+        private async void Play(TrackInfo trackInfo)
         {
             foreach (ContentControl item in trackInfo.Notes)
             {
@@ -122,7 +123,7 @@ namespace Virtual_Piano.TestApp
                     return;
                 }
 
-                if (item.Tag is MidiMessage message)
+                if (item.Content is MidiMessage message)
                 {
                     int delay = (int)(message.AbsoluteTime - this.Player.PositionMilliseconds);
                     if (delay > 0)

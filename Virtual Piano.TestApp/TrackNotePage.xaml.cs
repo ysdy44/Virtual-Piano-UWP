@@ -80,7 +80,7 @@ namespace Virtual_Piano.TestApp
                 if (e.ClickedItem is MidiControlController item)
                 {
                     ContentControl item2 = this.TrackCollection[Index];
-                    TrackInfo info = item2.Tag as TrackInfo;
+                    TrackInfo info = item2.Content as TrackInfo;
                     this.TrackNotePanel.LoadCC(info.Controllers[item]);
                 }
             };
@@ -88,7 +88,7 @@ namespace Virtual_Piano.TestApp
             {
                 if (e.ClickedItem is ContentControl item)
                 {
-                    TrackInfo info = item.Tag as TrackInfo;
+                    TrackInfo info = item.Content as TrackInfo;
                     this.Index = this.TrackCollection.IndexOf(item);
                     this.TrackNotePanel.LoadInfo(info);
                 }
@@ -121,7 +121,7 @@ namespace Virtual_Piano.TestApp
                     }
                     else
                     {
-                        this.TrackNotePanel.LoadInfo(this.TrackCollection.First().Tag as TrackInfo);
+                        this.TrackNotePanel.LoadInfo(this.TrackCollection.First().Content as TrackInfo);
                     }
                 }
             };

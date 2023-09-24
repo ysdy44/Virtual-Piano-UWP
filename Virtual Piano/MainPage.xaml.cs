@@ -261,7 +261,7 @@ namespace Virtual_Piano
                 {
                     if (this.TrackCollection[index] is ContentControl contentControl)
                     {
-                        if (contentControl.Tag is TrackInfo trackInfo)
+                        if (contentControl.Content is TrackInfo trackInfo)
                         {
                             // UI
                             this.ClickTrackNote(index);

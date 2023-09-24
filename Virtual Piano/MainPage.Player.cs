@@ -26,7 +26,7 @@ namespace Virtual_Piano
 
         private void Play(ContentControl item)
         {
-            if (item.Tag is TrackInfo trackInfo)
+            if (item.Content is TrackInfo trackInfo)
             {
                 this.Programs(trackInfo);
                 this.Play(trackInfo);
@@ -47,7 +47,7 @@ namespace Virtual_Piano
                     return;
                 }
 
-                if (item.Tag is MidiMessage message)
+                if (item.Content is MidiMessage message)
                 {
                     int delay = (int)(message.AbsoluteTime - position);
 
@@ -83,14 +83,14 @@ namespace Virtual_Piano
         private async void Programs(TrackInfo trackInfo)
         {
             int position = (int)this.Player.PositionMilliseconds;
-            foreach (ContentControl item in trackInfo.Notes)
+            foreach (ContentControl item in trackInfo.Programs)
             {
                 if (this.Player.IsPlaying is false)
                 {
                     return;
                 }
 
-                if (item.Tag is MidiMessage message)
+                if (item.Content is MidiMessage message)
                 {
                     int delay = (int)(message.AbsoluteTime - position);
 

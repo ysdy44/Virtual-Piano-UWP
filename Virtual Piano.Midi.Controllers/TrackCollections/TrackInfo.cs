@@ -27,10 +27,9 @@ namespace Virtual_Piano.Midi.Controllers
             {
                 ContentControl control = new ContentControl
                 {
-                    Tag = item,
                     Width = item.Duration / TrackNoteLayout.Scaling,
                     Height = TrackNoteLayout.ItemSize,
-                    Content = $"{(MidiNote)item.Note} ({item.Velocity})",
+                    Content = item
                 };
                 Canvas.SetLeft(control, (double)(item.AbsoluteTime / TrackNoteLayout.Scaling));
                 Canvas.SetTop(control, (double)((NoteExtensions.NoteCount - (int)item.Note - 1) * TrackNoteLayout.ItemSize));
@@ -53,8 +52,7 @@ namespace Virtual_Piano.Midi.Controllers
                 ContentControl control = new ContentControl
                 {
                     Height = TrackNoteLayout.ItemSize,
-                    Content = item.Program.ToString(),
-                    Tag = item
+                    Content = item
                 };
                 Canvas.SetLeft(control, item.AbsoluteTime / TrackNoteLayout.Scaling);
                 this.Programs.Add(control);
