@@ -153,6 +153,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structs\KeySignature.cs" />
     <Compile Include="Structs\Tempo.cs" />
+    <Compile Include="Structs\TempoDuration.cs" />
     <Compile Include="Structs\TimeSignature.cs" />
     <Compile Include="Ticks\TickPlayer.cs" />
     <Compile Include="Ticks\TickPlayer.Stopwatch.cs" />
