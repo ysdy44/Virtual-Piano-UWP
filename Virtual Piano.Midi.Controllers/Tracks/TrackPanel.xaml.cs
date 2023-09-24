@@ -261,9 +261,9 @@ namespace Virtual_Piano.Midi.Controllers
             };
         }
 
-        public void ChangeDuration(int duration)
+        public void ChangeDuration(long duration)
         {
-            int extentWidth = duration / TrackLayout.Scaling;
+            double extentWidth = duration / TrackLayout.Scaling;
             this.BodyItemsControl.Width = extentWidth;
             this.Canvas.Width = extentWidth + this.Layout.Pane;
         }
