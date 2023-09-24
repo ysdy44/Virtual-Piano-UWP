@@ -37,6 +37,15 @@
             </Canvas>
 
             <ItemsControl x:Name="BodyItemsControl" Canvas.Left="{x:Bind Layout.Pane}" Canvas.Top="{x:Bind Layout.Head}" Width="{x:Bind Layout.ExtentHeight}" Height="{x:Bind Layout.ExtentHeight}">
+
+                <FrameworkElement.Resources>
+                    <!--Style-->
+                    <Style TargetType="Line">
+                        <Setter Property="StrokeThickness" Value="2" />
+                        <Setter Property="Stroke" Value="#B4DE4B"/>
+                    </Style>
+                </FrameworkElement.Resources>
+                
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Canvas/>
