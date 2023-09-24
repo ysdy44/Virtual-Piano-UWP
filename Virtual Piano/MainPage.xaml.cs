@@ -261,13 +261,13 @@ namespace Virtual_Piano
                 {
                     if (this.TrackCollection[index] is ContentControl contentControl)
                     {
-                        if (contentControl.Content is TrackInfo trackInfo)
+                        if (contentControl.Content is Track track)
                         {
                             // UI
                             this.ClickTrackNote(index);
 
                             // Track
-                            this.TrackNotePanel.LoadInfo(trackInfo);
+                            this.TrackNotePanel.Load(track);
                             return;
                         }
                     }
@@ -277,7 +277,7 @@ namespace Virtual_Piano
                 this.ClickTrack();
 
                 // Track
-                this.TrackNotePanel.LoadInfo(null);
+                this.TrackNotePanel.Load(null);
             };
 
             this.TrackPanel.DragStarted += (s, e) =>

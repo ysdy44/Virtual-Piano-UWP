@@ -376,9 +376,9 @@ namespace Virtual_Piano.Midi.Controllers
             }
         }
 
-        public void LoadInfo(TrackInfo info)
+        public void Load(Track track)
         {
-            if (info is null)
+            if (track is null)
             {
                 this.ChangeDuration(this.Layout.ExtentHeight * TrackLayout.Scaling);
                 this.ItemsSource = null;
@@ -388,14 +388,14 @@ namespace Virtual_Piano.Midi.Controllers
             }
             else
             {
-                this.ChangeDuration(info.Duration);
-                this.ItemsSource = info.Notes;
-                this.HeadItemsSource = info.Programs;
-                this.FootItemsSource = info.Controllers.Keys;
-                if (info.Controllers.Count is 0)
+                this.ChangeDuration(track.Duration);
+                this.ItemsSource = track.Notes;
+                this.HeadItemsSource = track.Programs;
+                this.FootItemsSource = track.Controllers.Keys;
+                if (track.Controllers.Count is 0)
                     this.LoadCC(null);
                 else
-                    this.LoadCC(info.Controllers.Values.First());
+                    this.LoadCC(track.Controllers.Values.First());
             }
         }
 

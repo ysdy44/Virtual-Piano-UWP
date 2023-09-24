@@ -108,15 +108,15 @@ namespace Virtual_Piano.TestApp
         {
             foreach (ContentControl item in this.TrackCollection)
             {
-                if (item.Content is TrackInfo trackInfo)
+                if (item.Content is Track track)
                 {
-                    this.Play(trackInfo);
+                    this.Play(track);
                 }
             }
         }
-        private async void Play(TrackInfo trackInfo)
+        private async void Play(Track track)
         {
-            foreach (ContentControl item in trackInfo.Notes)
+            foreach (ContentControl item in track.Notes)
             {
                 if (this.Player.IsPlaying is false)
                 {

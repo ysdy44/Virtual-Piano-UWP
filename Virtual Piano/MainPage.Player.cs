@@ -26,21 +26,21 @@ namespace Virtual_Piano
 
         private void Play(ContentControl item)
         {
-            if (item.Content is TrackInfo trackInfo)
+            if (item.Content is Track track)
             {
-                this.Programs(trackInfo);
-                this.Play(trackInfo);
-                foreach (var item2 in trackInfo.Controllers)
+                this.Programs(track);
+                this.Play(track);
+                foreach (var item2 in track.Controllers)
                 {
                     this.Controllers(item2.Value);
                 }
             }
         }
 
-        private async void Play(TrackInfo trackInfo)
+        private async void Play(Track track)
         {
             int position = (int)this.Player.PositionMilliseconds;
-            foreach (ContentControl item in trackInfo.Notes)
+            foreach (ContentControl item in track.Notes)
             {
                 if (this.Player.IsPlaying is false)
                 {
@@ -80,10 +80,10 @@ namespace Virtual_Piano
             }
         }
 
-        private async void Programs(TrackInfo trackInfo)
+        private async void Programs(Track track)
         {
             int position = (int)this.Player.PositionMilliseconds;
-            foreach (ContentControl item in trackInfo.Programs)
+            foreach (ContentControl item in track.Programs)
             {
                 if (this.Player.IsPlaying is false)
                 {

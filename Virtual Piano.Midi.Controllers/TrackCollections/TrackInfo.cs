@@ -6,7 +6,7 @@ using Windows.UI.Xaml.Shapes;
 
 namespace Virtual_Piano.Midi.Controllers
 {
-    public sealed class TrackInfo : Canvas
+    public sealed class Track : Canvas
     {
         const int Count2 = NoteExtensions.NoteCount / 2;
         const int Count4 = Count2 / 2;
@@ -18,7 +18,7 @@ namespace Virtual_Piano.Midi.Controllers
         public readonly ObservableCollection<ContentControl> Programs = new ObservableCollection<ContentControl>();
         public readonly Dictionary<MidiControlController, ControllerCollection> Controllers = new Dictionary<MidiControlController, ControllerCollection>();
 
-        public TrackInfo(MidiTrack track)
+        public Track(MidiTrack track)
         {
             this.Time = track.Time;
             this.Duration = track.Duration;

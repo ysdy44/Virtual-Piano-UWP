@@ -80,17 +80,17 @@ namespace Virtual_Piano.TestApp
                 if (e.ClickedItem is MidiControlController item)
                 {
                     ContentControl item2 = this.TrackCollection[Index];
-                    TrackInfo info = item2.Content as TrackInfo;
-                    this.TrackNotePanel.LoadCC(info.Controllers[item]);
+                    Track track = item2.Content as Track;
+                    this.TrackNotePanel.LoadCC(track.Controllers[item]);
                 }
             };
             this.TrackListView.ItemClick += (s, e) =>
             {
                 if (e.ClickedItem is ContentControl item)
                 {
-                    TrackInfo info = item.Content as TrackInfo;
+                    Track track = item.Content as Track;
                     this.Index = this.TrackCollection.IndexOf(item);
-                    this.TrackNotePanel.LoadInfo(info);
+                    this.TrackNotePanel.Load(track);
                 }
             };
             this.Button.Click += async (s, e) =>
@@ -117,11 +117,11 @@ namespace Virtual_Piano.TestApp
                     this.Index = 0;
                     if (this.TrackCollection.Count is 0)
                     {
-                        this.TrackNotePanel.LoadInfo(null);
+                        this.TrackNotePanel.Load(null);
                     }
                     else
                     {
-                        this.TrackNotePanel.LoadInfo(this.TrackCollection.First().Content as TrackInfo);
+                        this.TrackNotePanel.Load(this.TrackCollection.First().Content as Track);
                     }
                 }
             };
