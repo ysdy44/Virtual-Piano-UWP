@@ -11,8 +11,8 @@ namespace Virtual_Piano.Midi.Controllers
         const int Count2 = NoteExtensions.NoteCount / 2;
         const int Count4 = Count2 / 2;
 
-        public readonly int Time;
-        public readonly int Duration;
+        public readonly long Time;
+        public readonly long Duration;
 
         public readonly ObservableCollection<ContentControl> Notes = new ObservableCollection<ContentControl>();
         public readonly ObservableCollection<ContentControl> Programs = new ObservableCollection<ContentControl>();

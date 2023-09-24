@@ -4,8 +4,8 @@ namespace Virtual_Piano.Midi
 {
     public sealed class MidiTrack
     {
-        public readonly int Time;
-        public readonly int Duration;
+        public readonly long Time;
+        public readonly long Duration;
 
         public readonly List<MidiMessage> Notes = new List<MidiMessage>();
         public readonly List<MidiMessage> Programs = new List<MidiMessage>();
@@ -13,6 +13,8 @@ namespace Virtual_Piano.Midi
 
         public MidiTrack(IList<NAudio.Midi.MidiEvent> events, long time)
         {
+            this.Time = time;
+
             foreach (NAudio.Midi.MidiEvent item in events)
             {
                 switch (item.CommandCode)
@@ -92,7 +94,7 @@ namespace Virtual_Piano.Midi
                                 case NAudio.Midi.MetaEventType.EndTrack:
                                     if (metaEvent is NAudio.Midi.MetaEvent endEvent)
                                     {
-                                        this.Duration = (int)endEvent.AbsoluteTime;
+                                        this.Duration = endEvent.AbsoluteTime;
                                     }
                                     break;
                                 case NAudio.Midi.MetaEventType.SetTempo:

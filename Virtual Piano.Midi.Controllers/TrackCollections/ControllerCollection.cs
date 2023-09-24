@@ -24,7 +24,7 @@ namespace Virtual_Piano.Midi.Controllers
             set => this.Items[index] = value; // Pin
         }
 
-        public ControllerCollection(int duration = 2048, byte defaultValue = Radial.Velocity)
+        public ControllerCollection(long duration = 2048, byte defaultValue = Radial.Velocity)
         {
             int lastY = Radial.Velocity - defaultValue;
             this.Items = new List<MidiMessage>();
@@ -37,7 +37,7 @@ namespace Virtual_Piano.Midi.Controllers
                 new Point(duration / TrackNoteLayout.Scaling, Radial.Velocity), // EndPoint
             };
         }
-        public ControllerCollection(IEnumerable<MidiMessage> items, int duration, byte defaultValue = Radial.Velocity)
+        public ControllerCollection(IEnumerable<MidiMessage> items, long duration, byte defaultValue = Radial.Velocity)
         {
             int lastY = Radial.Velocity - defaultValue;
             this.Items = new List<MidiMessage>(items);

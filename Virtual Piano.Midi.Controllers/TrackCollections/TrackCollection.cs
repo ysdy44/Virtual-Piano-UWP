@@ -9,7 +9,7 @@ namespace Virtual_Piano.Midi.Controllers
 {
     public sealed class TrackCollection : ObservableCollection<ContentControl>
     {
-        public readonly int Duration;
+        public readonly long Duration;
 
         public TrackCollection(IRandomAccessStream accessStream) : this(accessStream.AsStream()) { }
         public TrackCollection(Stream inputStream) : this(new NAudio.Midi.MidiFile(inputStream, false).Events) { }
@@ -21,7 +21,7 @@ namespace Virtual_Piano.Midi.Controllers
                 if (e.Count == 0) continue;
 
                 MidiTrack track = new MidiTrack(e, events.StartAbsoluteTime);
-
+              
                 TrackInfo info = new TrackInfo(track);
                 if (this.Duration < info.Duration) this.Duration = info.Duration;
 
