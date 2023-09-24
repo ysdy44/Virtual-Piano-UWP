@@ -13,9 +13,11 @@ namespace Virtual_Piano.TestApp
 {
     public sealed partial class MidiPlayerPage : Page
     {
-        TrackCollection TrackCollection;
+        // Synthesizer
         MidiSynthesizer MidiSynthesizer;
-
+        // Track
+        TrackCollection TrackCollection;
+        // Player
         MidiNote Note;
         readonly ITickPlayer Player = new TickPlayer();
 
@@ -114,8 +116,10 @@ namespace Virtual_Piano.TestApp
                 }
             }
         }
+
         private async void Play(Track track)
         {
+            int position = (int)this.Player.PositionMilliseconds;
             foreach (ContentControl item in track.Notes)
             {
                 if (this.Player.IsPlaying is false)
@@ -123,17 +127,35 @@ namespace Virtual_Piano.TestApp
                     return;
                 }
 
-                if (item.Content is MidiMessage message)
+                if (item.Tag is MidiMessage message)
                 {
                     int delay = (int)(message.AbsoluteTime - this.Player.PositionMilliseconds);
-                    if (delay > 0)
+
+                    if (delay < 0)
                     {
+                        continue;
+                    }
+                    else if (delay == 0)
+                    {
+                        position = message.AbsoluteTime;
+
+                        this.MidiSynthesizer.SendMessage(message);
+                        this.Note = message.Note;
+                    }
+                    else if (delay > 0)
+                    {
+                        position = message.AbsoluteTime;
+
                         await Task.Delay(delay);
                         this.MidiSynthesizer.SendMessage(message);
                         this.Note = message.Note;
                     }
-                    else if (delay == 0)
+                    else if (delay > 20) // Async Position
                     {
+                        position = (int)this.Player.PositionMilliseconds;
+                        delay = (int)(message.AbsoluteTime - position);
+
+                        await Task.Delay(delay);
                         this.MidiSynthesizer.SendMessage(message);
                         this.Note = message.Note;
                     }
