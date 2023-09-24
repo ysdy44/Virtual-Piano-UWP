@@ -150,7 +150,7 @@ namespace Virtual_Piano.Midi
             this.Pressure = default;
         }
 
-        public override string ToString()
+        public string ToXml()
         {
             switch (this.Type)
             {
@@ -171,6 +171,30 @@ namespace Virtual_Piano.Midi
                     return $"<{this.Type} Channel=\"{this.Channel}\" AbsoluteTime=\"{this.AbsoluteTime}\"/>";
                 default:
                     return $"<{this.Type} Channel=\"{this.Channel}\" AbsoluteTime=\"{this.AbsoluteTime}\"/>";
+            }
+        }
+
+        public override string ToString()
+        {
+            switch (this.Type)
+            {
+                case MidiMessageType.NoteOff:
+                case MidiMessageType.NoteOn:
+                case MidiMessageType.PolyphonicKeyPressure:
+                    return $"{this.Note} ({this.Velocity})";
+                case MidiMessageType.ControlChange:
+                    return $"{this.Controller} ({this.ControllerValue})";
+                case MidiMessageType.ProgramChange:
+                    return $"{this.Program}";
+                case MidiMessageType.ChannelPressure:
+                    return $"{this.Pressure}";
+                case MidiMessageType.PitchBendChange:
+                    return $"{this.Bend}";
+                case MidiMessageType.SystemExclusive:
+                case MidiMessageType.SystemReset:
+                    return string.Empty;
+                default:
+                    return string.Empty;
             }
         }
     }
