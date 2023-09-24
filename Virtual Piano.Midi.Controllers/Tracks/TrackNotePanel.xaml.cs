@@ -266,6 +266,8 @@ namespace Virtual_Piano.Midi.Controllers
                 switch (e.KeyModifiers)
                 {
                     case VirtualKeyModifiers.Control:
+                        break;
+                    case VirtualKeyModifiers.Shift:
                         double offset = this.HorizontalOffset - delta;
                         this.ScrollViewer.ChangeView(offset, null, null);
                         e.Handled = true;
