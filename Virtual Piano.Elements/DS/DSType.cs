@@ -1,5 +1,12 @@
 ﻿namespace Virtual_Piano.Elements
 {
+    /// <summary>
+    /// ◯ ① ◯ <para/>
+    /// © ◯ ② <para/>
+    /// ◯ ⑥ ◯ <para/>
+    /// ⑤ ◯ ③ <para/>
+    /// ◯ ④ ◯ <para/>
+    /// </summary>
     internal enum DSType
     {
         None,
@@ -20,7 +27,7 @@
         N6 = Line0 | Line1 | Line3 | Line4 | Line5 | Line6,
         N7 = Line1 | Line2 | Line3,
         N8 = Line0 | Line1 | Line2 | Line3 | Line4 | Line5 | Line6,
-        N9 = Line0 | Line1 | Line2 | Line3 | Line4 | Line5 | Line6,
+        N9 = Line0 | Line1 | Line2 | Line3 | Line4 | Line6,
         N0 = Line0 | Line1 | Line2 | Line3 | Line4 | Line5,
     }
 }

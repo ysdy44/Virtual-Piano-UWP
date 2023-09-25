@@ -12,6 +12,9 @@
     <StackPanel Spacing="12" HorizontalAlignment="Center" VerticalAlignment="Center">
         <elements:DSTimer Time="00:00:03.14" Background="Black" />
         <elements:DSFloat Value="123.45" Background="Black" />
-        <elements:DSScorer Denominator="5" Numerator="9" Background="Black" />
+        <elements:DSScorer x:Name="DSScorer" Denominator="5" Numerator="9" Background="Black" />
+
+        <Slider x:Name="Slider1" Value="5" Minimum="0" Maximum="9"/>
+        <Slider x:Name="Slider2" Value="9" Minimum="0" Maximum="9"/>
     </StackPanel>
 </Page>
