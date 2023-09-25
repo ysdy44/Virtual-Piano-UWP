@@ -246,7 +246,7 @@ namespace Virtual_Piano
             {
                 if (this.TrackCollection is null) return;
 
-                if (this.Player.PositionMilliseconds >= this.TrackCollection.Duration)
+                if (this.Player.PositionMilliseconds >= this.TrackDuration.Source)
                 {
                     this.Player.Stop();
                 }
