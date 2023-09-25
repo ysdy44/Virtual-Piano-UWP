@@ -139,14 +139,14 @@ namespace Virtual_Piano.TestApp
                     }
                     else if (delay == 0)
                     {
-                        position = message.AbsoluteTime;
+                        position = this.TrackTempo.GetPosition(message.AbsoluteTime);
 
                         this.MidiSynthesizer.SendMessage(message);
                         this.Note = message.Note;
                     }
                     else if (delay > 0)
                     {
-                        position = message.AbsoluteTime;
+                        position = this.TrackTempo.GetPosition(message.AbsoluteTime);
 
                         await Task.Delay(delay);
                         this.MidiSynthesizer.SendMessage(message);
@@ -155,7 +155,7 @@ namespace Virtual_Piano.TestApp
                     else if (delay > 20) // Async Position
                     {
                         position = (int)this.Player.PositionMilliseconds;
-                        delay = (int)(message.AbsoluteTime - position);
+                        delay = this.TrackTempo.GetDuration(message.AbsoluteTime - position);
 
                         await Task.Delay(delay);
                         this.MidiSynthesizer.SendMessage(message);
