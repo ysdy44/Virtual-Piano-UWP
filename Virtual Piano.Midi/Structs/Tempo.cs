@@ -27,11 +27,9 @@ namespace Virtual_Piano.Midi
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int ReverseScale(long position) => (int)(1d * this.Bpm / 120d * position);
-        public int GetPosition(long position) => this.ReverseScale(position);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int Scale(int duration) => (int)(duration * 120d / this.Bpm);
-        public int GetPosition(int duration) => this.Scale(duration);
 
         public override string ToString() => $"Tempo {this.Bpm}bpm ({this.MicrosecondsPerQuarterNote})";
     }

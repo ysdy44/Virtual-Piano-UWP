@@ -7,7 +7,7 @@
 
         public TempoDuration(Tempo tempo, int duration = 1000 * 60)
         {
-            this.Source = tempo.GetDuration(duration);
+            this.Source = tempo.Scale(duration);
             this.Percent = 100d * tempo.Bpm / 120d / duration;
         }
 
