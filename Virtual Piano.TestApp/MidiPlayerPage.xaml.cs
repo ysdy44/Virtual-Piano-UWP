@@ -129,9 +129,9 @@ namespace Virtual_Piano.TestApp
                     return;
                 }
 
-                if (item.Tag is MidiMessage message)
+                if (item.Content is MidiMessage message)
                 {
-                    int delay = this.TrackTempo.GetDuration(message.AbsoluteTime - position);
+                    int delay = this.TrackTempo.Scale(message.AbsoluteTime) - position;
 
                     if (delay < 0)
                     {
@@ -139,14 +139,14 @@ namespace Virtual_Piano.TestApp
                     }
                     else if (delay == 0)
                     {
-                        position = this.TrackTempo.GetPosition(message.AbsoluteTime);
+                        position = this.TrackTempo.Scale(message.AbsoluteTime);
 
                         this.MidiSynthesizer.SendMessage(message);
                         this.Note = message.Note;
                     }
                     else if (delay > 0)
                     {
-                        position = this.TrackTempo.GetPosition(message.AbsoluteTime);
+                        position = this.TrackTempo.Scale(message.AbsoluteTime);
 
                         await Task.Delay(delay);
                         this.MidiSynthesizer.SendMessage(message);
@@ -155,7 +155,7 @@ namespace Virtual_Piano.TestApp
                     else if (delay > 20) // Async Position
                     {
                         position = (int)this.Player.PositionMilliseconds;
-                        delay = this.TrackTempo.GetDuration(message.AbsoluteTime - position);
+                        delay = this.TrackTempo.Scale(message.AbsoluteTime) - position;
 
                         await Task.Delay(delay);
                         this.MidiSynthesizer.SendMessage(message);
