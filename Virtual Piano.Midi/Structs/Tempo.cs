@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace Virtual_Piano.Midi
 {
@@ -24,9 +25,13 @@ namespace Virtual_Piano.Midi
             }
         }
 
-        public int GetPosition(long position) => (int)(1d * this.Bpm / 120d * position);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int ReverseScale(long position) => (int)(1d * this.Bpm / 120d * position);
+        public int GetPosition(long position) => this.ReverseScale(position);
 
-        public int GetDuration(int duration) => (int)(120d * duration / this.Bpm);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int Scale(int duration) => (int)(duration * 120d / this.Bpm);
+        public int GetPosition(int duration) => this.Scale(duration);
 
         public override string ToString() => $"Tempo {this.Bpm}bpm ({this.MicrosecondsPerQuarterNote})";
     }
