@@ -122,9 +122,9 @@ namespace Virtual_Piano
             this.DSTimer.Time = this.Player.Position;
 
             if (this.TrackIndex < 0)
-                this.TrackPanel.ChangePosition(this.TrackTempo.GetPosition(this.Player.PositionMilliseconds), true, true);
+                this.TrackPanel.ChangePosition(this.TrackTempo.ReverseScale(this.Player.PositionMilliseconds), true, true);
             else
-                this.TrackNotePanel.ChangePosition(this.TrackTempo.GetPosition(this.Player.PositionMilliseconds), true, true);
+                this.TrackNotePanel.ChangePosition(this.TrackTempo.ReverseScale(this.Player.PositionMilliseconds), true, true);
         }
         private void Progress()
         {
@@ -132,9 +132,9 @@ namespace Virtual_Piano
             this.DSTimer.Time = this.Player.Position;
 
             if (this.TrackIndex < 0)
-                this.TrackPanel.ChangePosition(this.TrackTempo.GetPosition(this.Player.PositionMilliseconds), true, false);
+                this.TrackPanel.ChangePosition(this.TrackTempo.ReverseScale(this.Player.PositionMilliseconds), true, false);
             else
-                this.TrackNotePanel.ChangePosition(this.TrackTempo.GetPosition(this.Player.PositionMilliseconds), true, false);
+                this.TrackNotePanel.ChangePosition(this.TrackTempo.ReverseScale(this.Player.PositionMilliseconds), true, false);
         }
     }
 }
