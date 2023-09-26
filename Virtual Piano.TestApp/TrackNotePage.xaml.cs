@@ -15,10 +15,12 @@ namespace Virtual_Piano.TestApp
 {
     public sealed partial class TrackNotePage : Page
     {
-        TrackCollection TrackCollection;
+        // Synthesizer
         MidiSynthesizer MidiSynthesizer;
-
-        int Index = -1;
+        // Track
+        int TrackIndex = -1;
+        TrackCollection TrackCollection;
+        // Player
         double Offset;
 
         double X;
@@ -58,19 +60,30 @@ namespace Virtual_Piano.TestApp
             this.TrackNotePanel.DragStarted += (s, e) =>
             {
                 this.Offset = e.HorizontalOffset;
+
                 this.TrackNotePanel.ChangePositionUI((int)this.Offset);
-                this.DSTimer.Time = (TimeSpan.FromMilliseconds(System.Math.Max(0, this.TrackNotePanel.Position)));
+                int t = System.Math.Max(0, (this.TrackNotePanel.Position));
+                TimeSpan timespan = TimeSpan.FromMilliseconds(t);
+
+                this.DSTimer.Time = timespan;
             };
             this.TrackNotePanel.DragDelta += (s, e) =>
             {
                 this.Offset += e.HorizontalChange;
+
                 this.TrackNotePanel.ChangePositionUI((int)this.Offset);
-                this.DSTimer.Time = (TimeSpan.FromMilliseconds(System.Math.Max(0, this.TrackNotePanel.Position)));
+                int t = System.Math.Max(0, (this.TrackNotePanel.Position));
+                TimeSpan timespan = TimeSpan.FromMilliseconds(t);
+
+                this.DSTimer.Time = timespan;
             };
             this.TrackNotePanel.DragCompleted += (s, e) =>
             {
                 this.TrackNotePanel.ChangePositionUI((int)this.Offset);
-                this.DSTimer.Time = (TimeSpan.FromMilliseconds(System.Math.Max(0, this.TrackNotePanel.Position)));
+                int t = System.Math.Max(0, (this.TrackNotePanel.Position));
+                TimeSpan timespan = TimeSpan.FromMilliseconds(t);
+
+                this.DSTimer.Time = timespan;
             };
 
             this.TrackNotePanel.FootItemClick += (s, e) =>
@@ -79,7 +92,7 @@ namespace Virtual_Piano.TestApp
 
                 if (e.ClickedItem is MidiControlController item)
                 {
-                    ContentControl item2 = this.TrackCollection[Index];
+                    ContentControl item2 = this.TrackCollection[TrackIndex];
                     Track track = item2.Content as Track;
                     this.TrackNotePanel.LoadCC(track.Controllers[item]);
                 }
@@ -89,7 +102,7 @@ namespace Virtual_Piano.TestApp
                 if (e.ClickedItem is ContentControl item)
                 {
                     Track track = item.Content as Track;
-                    this.Index = this.TrackCollection.IndexOf(item);
+                    this.TrackIndex = this.TrackCollection.IndexOf(item);
                     this.TrackNotePanel.Load(track);
                 }
             };
@@ -114,7 +127,7 @@ namespace Virtual_Piano.TestApp
                 {
                     this.TrackCollection = new TrackCollection(stream);
                     this.TrackListView.ItemsSource = this.TrackCollection;
-                    this.Index = 0;
+                    this.TrackIndex = 0;
                     if (this.TrackCollection.Count is 0)
                     {
                         this.TrackNotePanel.Load(null);
