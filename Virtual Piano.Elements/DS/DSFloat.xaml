@@ -4,7 +4,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="using:Virtual_Piano.Elements"
     mc:Ignorable="d"
     d:DesignWidth="200"
     d:DesignHeight="50"
@@ -17,23 +16,19 @@
 
     <FrameworkElement.Resources>
         <!--Style-->
-        <Style TargetType="Polygon">
-            <Setter Property="Fill" Value="SkyBlue"/>
-        </Style>
         <Style TargetType="TextBlock">
-            <Setter Property="Foreground" Value="SkyBlue"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
     </FrameworkElement.Resources>
 
-    <local:DSNumber x:Name="N100"/>
-    <local:DSNumber x:Name="N10"/>
-    <local:DSNumber x:Name="N1"/>
+    <PathIcon Width="{x:Bind W}" Height="{x:Bind H}" Data="{x:Bind N100}"/>
+    <PathIcon Width="{x:Bind W}" Height="{x:Bind H}" Data="{x:Bind N10}"/>
+    <PathIcon Width="{x:Bind W}" Height="{x:Bind H}" Data="{x:Bind N1}"/>
     <TextBlock>
         .
     </TextBlock>
-    <local:DSNumber x:Name="F1"/>
-    <local:DSNumber x:Name="F10"/>
+    <PathIcon Width="{x:Bind W}" Height="{x:Bind H}" Data="{x:Bind F1}"/>
+    <PathIcon Width="{x:Bind W}" Height="{x:Bind H}" Data="{x:Bind F10}"/>
     
 </StackPanel>

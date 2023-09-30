@@ -1,5 +1,6 @@
 ﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Elements
 {
@@ -43,6 +44,12 @@ namespace Virtual_Piano.Elements
         }));
 
         #endregion
+
+        readonly int W = DSExtensions.W;
+        readonly int H = DSExtensions.H;
+
+        readonly PathGeometry D = DSExtensions.Number();
+        readonly PathGeometry N = DSExtensions.Number();
 
         public DSScorer()
         {

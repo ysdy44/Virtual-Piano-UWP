@@ -1,5 +1,6 @@
 ﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Elements
 {
@@ -33,6 +34,16 @@ namespace Virtual_Piano.Elements
         }));
 
         #endregion
+
+        readonly int W = DSExtensions.W;
+        readonly int H = DSExtensions.H;
+
+        readonly PathGeometry N100 = DSExtensions.Number();
+        readonly PathGeometry N10 = DSExtensions.Number();
+        readonly PathGeometry N1 = DSExtensions.Number();
+
+        readonly PathGeometry F1 = DSExtensions.Number();
+        readonly PathGeometry F10 = DSExtensions.Number();
 
         public DSFloat()
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Elements
 {
@@ -37,6 +38,18 @@ namespace Virtual_Piano.Elements
 
         #endregion
 
+        readonly int W = DSExtensions.W;
+        readonly int H = DSExtensions.H;
+
+        readonly PathGeometry MT = DSExtensions.Number();
+        readonly PathGeometry M = DSExtensions.Number();
+
+        readonly PathGeometry ST = DSExtensions.Number();
+        readonly PathGeometry S = DSExtensions.Number();
+
+        readonly PathGeometry MST = DSExtensions.Number();
+        readonly PathGeometry MS = DSExtensions.Number();
+   
         public DSTimer()
         {
             this.InitializeComponent();

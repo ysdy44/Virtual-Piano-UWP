@@ -17,20 +17,16 @@
 
     <FrameworkElement.Resources>
         <!--Style-->
-        <Style TargetType="Polygon">
-            <Setter Property="Fill" Value="SkyBlue"/>
-        </Style>
         <Style TargetType="TextBlock">
-            <Setter Property="Foreground" Value="SkyBlue"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
     </FrameworkElement.Resources>
 
-    <local:DSNumber x:Name="D"/>
+    <PathIcon Width="{x:Bind W}" Height="{x:Bind H}" Data="{x:Bind D}"/>
     <TextBlock>
         /
     </TextBlock>
-    <local:DSNumber x:Name="N"/>
+    <PathIcon Width="{x:Bind W}" Height="{x:Bind H}" Data="{x:Bind N}"/>
     
 </StackPanel>

@@ -17,27 +17,23 @@
 
     <FrameworkElement.Resources>
         <!--Style-->
-        <Style TargetType="Polygon">
-            <Setter Property="Fill" Value="{ThemeResource SystemColorControlAccentBrush}"/>
-        </Style>
         <Style TargetType="TextBlock">
-            <Setter Property="Foreground" Value="{ThemeResource SystemColorControlAccentBrush}"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
     </FrameworkElement.Resources>
 
-    <local:DSNumber x:Name="MT"/>
-    <local:DSNumber x:Name="M"/>
+    <PathIcon Width="{x:Bind W}" Height="{x:Bind H}" Data="{x:Bind MT}"/>
+    <PathIcon Width="{x:Bind W}" Height="{x:Bind H}" Data="{x:Bind M}"/>
     <TextBlock>
         :
     </TextBlock>
-    <local:DSNumber x:Name="ST"/>
-    <local:DSNumber x:Name="S"/>
+    <PathIcon Width="{x:Bind W}" Height="{x:Bind H}" Data="{x:Bind ST}"/>
+    <PathIcon Width="{x:Bind W}" Height="{x:Bind H}" Data="{x:Bind S}"/>
     <TextBlock>
         .
     </TextBlock>
-    <local:DSNumber x:Name="MST"/>
-    <local:DSNumber x:Name="MS"/>
+    <PathIcon Width="{x:Bind W}" Height="{x:Bind H}" Data="{x:Bind MST}"/>
+    <PathIcon Width="{x:Bind W}" Height="{x:Bind H}" Data="{x:Bind MS}"/>
 
 </StackPanel>
