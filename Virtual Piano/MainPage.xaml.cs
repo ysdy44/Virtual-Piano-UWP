@@ -358,6 +358,29 @@ namespace Virtual_Piano
 
                 this.Click(OptionType.RePlay);
             };
+
+
+            // Track
+            // TimeSignature
+            this.NumeratorComboBox.ItemsSource = Enumerable.Range(NumeratorCanvas.Minimum,
+                NumeratorCanvas.Maximum - NumeratorCanvas.Minimum + 1).ToArray();
+            this.DenominatorComboBox.ItemsSource = Enumerable.Range(DenominatorCanvas.Minimum,
+                DenominatorCanvas.Maximum - DenominatorCanvas.Minimum + 1).ToArray();
+          
+            this.UpdateTrackTempo(this.TrackTempo);
+            this.UpdateTrackTimeSignature(this.TrackTimeSignature);
+
+            this.NumeratorComboBox.SelectionChanged += (s, e) =>
+            {
+                if (this.TimeSignatureFlyout.IsOpen is false) return;
+                this.NumeratorCanvas.Update((int)this.NumeratorComboBox.SelectedItem, 400);
+                this.DenominatorCanvas.Update((int)this.NumeratorComboBox.SelectedItem, (int)this.DenominatorComboBox.SelectedItem, 400);
+            };
+            this.DenominatorComboBox.SelectionChanged += (s, e) =>
+            {
+                if (this.TimeSignatureFlyout.IsOpen is false) return;
+                this.DenominatorCanvas.Update((int)this.NumeratorComboBox.SelectedItem, (int)this.DenominatorComboBox.SelectedItem, 400);
+            };
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)

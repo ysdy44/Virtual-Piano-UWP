@@ -328,16 +328,96 @@
                         <Button>
                             <Button.Flyout>
                                 <Flyout x:Name="TimeSignatureFlyout" Placement="Bottom" Windows10version1903:ShouldConstrainToRootBounds="False">
+                                    <Grid Width="400" RowSpacing="10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="1*" MinWidth="80"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition Height="30"/>
+                                        </Grid.RowDefinitions>
+
+                                        <TextBlock                    
+                                            IsTextSelectionEnabled="True"
+                                            FontWeight="Medium" 
+                                            TextTrimming="CharacterEllipsis" 
+                                            FontSize="20" 
+                                            TextWrapping="Wrap" 
+                                            VerticalAlignment="Center" 
+                                            OpticalMarginAlignment="TrimSideBearings"
+                                            >                                
+                                             Time Signature
+                                        </TextBlock>
+                                        
+                                        <TextBlock 
+                                            Grid.Column="1" 
+                                            IsTextSelectionEnabled="True"
+                                            FontWeight="Medium" 
+                                            TextTrimming="CharacterEllipsis" 
+                                            FontSize="20" 
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Center" 
+                                            >   
+                                           <Run 
+                                               Foreground="{ThemeResource SystemColorControlAccentBrush}"
+                                               Text="{x:Bind ObjectToStringConverter(NumeratorComboBox.SelectedItem), Mode=OneWay}"
+                                               /><Run>/</Run><Run 
+                                               Text="{x:Bind ObjectToStringConverter(DenominatorComboBox.SelectedItem), Mode=OneWay}"
+                                               />
+                                        </TextBlock>
+
+                                        <Canvas Grid.ColumnSpan="2" Grid.Row="1" Height="60" Background="#212121">
+
+                                            <controllers:NumeratorCanvas x:Name="NumeratorCanvas" Width="400" Height="60" >
+                                                <FrameworkElement.Resources>
+                                                    <Style TargetType="Line">
+                                                        <Setter Property="StrokeThickness" Value="2"/>
+                                                        <Setter Property="Stroke" Value="{ThemeResource SystemColorControlAccentBrush}"/>
+                                                        <Setter Property="Y2" Value="60"/>
+                                                    </Style>
+                                                </FrameworkElement.Resources>
+                                            </controllers:NumeratorCanvas>
+
+                                            <controllers:DenominatorCanvas x:Name="DenominatorCanvas" Canvas.Top="30" Width="400" Height="30">
+                                                <FrameworkElement.Resources>
+                                                    <Style TargetType="Line">
+                                                        <Setter Property="StrokeThickness" Value="2"/>
+                                                        <Setter Property="Stroke" Value="Gray"/>
+                                                        <Setter Property="Y2" Value="30"/>
+                                                    </Style>
+                                                </FrameworkElement.Resources>
+                                            </controllers:DenominatorCanvas>
+                                        </Canvas>
+
+                                        <TextBlock Grid.Row="2" FontWeight="Medium" VerticalAlignment="Center">
+                                            Numerator
+                                        </TextBlock>
+
+                                        <ComboBox x:Name="NumeratorComboBox" Grid.Column="1" Grid.Row="2" CornerRadius="4" BorderThickness="1" HorizontalAlignment="Stretch">
+                                            <!--ItemsSource-->
+                                        </ComboBox>
+
+                                        <TextBlock Grid.Row="3" FontWeight="Medium" VerticalAlignment="Center">
+                                            Denominator
+                                        </TextBlock>
+                                        <ComboBox x:Name="DenominatorComboBox" Grid.Column="1" Grid.Row="3" CornerRadius="4" BorderThickness="1" HorizontalAlignment="Stretch">
+                                            <!--ItemsSource-->
+                                        </ComboBox>
+
+                                    </Grid>
                                 </Flyout>
                             </Button.Flyout>
                             <TextBlock>
                                 <Run></Run>
                                 <Run 
                                     FontSize="14" 
-                                    Text="4"
+                                    Text="{x:Bind ObjectToStringConverter(NumeratorComboBox.SelectedItem), Mode=OneWay}"
                                     /><Run FontSize="14">/</Run><Run 
-                                    Text="4"
                                     FontSize="14" 
+                                    Text="{x:Bind ObjectToStringConverter(DenominatorComboBox.SelectedItem), Mode=OneWay}"
                                     />
                                 <LineBreak/>
                                 <Run>Signature</Run>
