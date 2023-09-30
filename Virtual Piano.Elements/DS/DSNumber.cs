@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using Windows.Foundation;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Shapes;
+using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Elements
 {
@@ -10,6 +9,25 @@ namespace Virtual_Piano.Elements
     /// DS-Digital Regular
     /// </summary>
     public sealed class DSNumber : Canvas
+    {
+        readonly PathGeometry Data = DSExtensions.Number();
+
+        public DSNumber()
+        {
+            base.Width = DSExtensions.W;
+            base.Height = DSExtensions.H;
+            base.Children.Add(new PathIcon
+            {
+                Data = this.Data
+            });
+        }
+
+        public void Update(char type) => this.Data.Update(type);
+        public void Update(int type) => this.Data.Update(type);
+        internal void Update(DSType type) => this.Data.Update(type);
+    }
+
+    public static class DSExtensions
     {
 
         const int N0 = 0;
@@ -23,7 +41,7 @@ namespace Virtual_Piano.Elements
         public const int W = 10;
         public const int H = 18;
 
-        readonly Dictionary<DSType, int> Dictionary = new Dictionary<DSType, int>
+        readonly static Dictionary<DSType, int> Dictionary = new Dictionary<DSType, int>
         {
             [DSType.Line0] = 0,
             [DSType.Line1] = 1,
@@ -34,89 +52,106 @@ namespace Virtual_Piano.Elements
             [DSType.Line6] = 6,
         };
 
-        public DSNumber()
+        public static PathGeometry Number() => new PathGeometry
         {
-            base.Width = DSNumber.W;
-            base.Height = DSNumber.H;
-
-            base.Children.Add(DSNumber.V(DSNumber.N0, DSNumber.N0, DSNumber.Padding));
-            base.Children.Add(DSNumber.U(DSNumber.N0, DSNumber.N0, DSNumber.Padding));
-            base.Children.Add(DSNumber.V(DSNumber.N8, DSNumber.N0, DSNumber.Padding));
-            base.Children.Add(DSNumber.V(DSNumber.N8, DSNumber.N8, DSNumber.Padding));
-            base.Children.Add(DSNumber.U(DSNumber.N0, DSNumber.N16, DSNumber.Padding));
-            base.Children.Add(DSNumber.V(DSNumber.N0, DSNumber.N8, DSNumber.Padding));
-            base.Children.Add(DSNumber.U(DSNumber.N0, DSNumber.N8, DSNumber.Padding));
-        }
-
-        private static Polygon V(double x, double y, double padding) => new Polygon
-        {
-            Points =
+            Figures = new PathFigureCollection
             {
-                new Point(N2+x, N2+y+padding),
-                new Point(N1+x, N1+y+padding),
-                new Point(N0+x, N2+y+padding),
-
-                new Point(N0+x, N8+y-padding),
-                new Point(N1+x, N9+y-padding),
-                new Point(N2+x, N8+y-padding),
-            }
-        };
-        private static Polygon U(double x, double y, double padding) => new Polygon
-        {
-            Points =
-            {
-                new Point(N2+x+padding, N2+y),
-                new Point(N1+x+padding, N1+y),
-                new Point(N2+x+padding, N0+y),
-
-                new Point(N8+x-padding, N0+y),
-                new Point(N9+x-padding, N1+y),
-                new Point(N8+x-padding, N2+y),
+                DSExtensions.V(DSExtensions.N0, DSExtensions.N0, DSExtensions.Padding),
+                DSExtensions.U(DSExtensions.N0, DSExtensions.N0, DSExtensions.Padding),
+                DSExtensions.V(DSExtensions.N8, DSExtensions.N0, DSExtensions.Padding),
+                DSExtensions.V(DSExtensions.N8, DSExtensions.N8, DSExtensions.Padding),
+                DSExtensions.U(DSExtensions.N0, DSExtensions.N16, DSExtensions.Padding),
+                DSExtensions.V(DSExtensions.N0, DSExtensions.N8, DSExtensions.Padding),
+                DSExtensions.U(DSExtensions.N0, DSExtensions.N8, DSExtensions.Padding),
             }
         };
 
-        internal void Update(char type)
+        private static PathFigure V(double x, double y, double padding, bool isVisble = true) => new PathFigure
         {
-            switch (type)
+            IsClosed = true,
+            IsFilled = isVisble,
+            StartPoint = new Point(N2 + x, N2 + y + padding),
+            Segments =
             {
-                case '1': this.Update(DSType.N1); break;
-                case '2': this.Update(DSType.N2); break;
-                case '3': this.Update(DSType.N3); break;
-                case '4': this.Update(DSType.N4); break;
-                case '5': this.Update(DSType.N5); break;
-                case '6': this.Update(DSType.N6); break;
-                case '7': this.Update(DSType.N7); break;
-                case '8': this.Update(DSType.N8); break;
-                case '9': this.Update(DSType.N9); break;
-                default: this.Update(DSType.N0); break;
-            }
-        }
-        internal void Update(int type)
-        {
-            switch (type)
-            {
-                case 1: this.Update(DSType.N1); break;
-                case 2: this.Update(DSType.N2); break;
-                case 3: this.Update(DSType.N3); break;
-                case 4: this.Update(DSType.N4); break;
-                case 5: this.Update(DSType.N5); break;
-                case 6: this.Update(DSType.N6); break;
-                case 7: this.Update(DSType.N7); break;
-                case 8: this.Update(DSType.N8); break;
-                case 9: this.Update(DSType.N9); break;
-                default: this.Update(DSType.N0); break;
-            }
-        }
-        internal void Update(DSType type)
-        {
-            if (this.Children.Count == 0) return;
-            foreach (var item in this.Dictionary)
-            {
-                if (this.Children[item.Value] is null) return;
+                new PolyLineSegment
+                {
+                    Points =
+                    {
+                        // new Point(N2+x, N2+y+padding),
+                        new Point(N1+x, N1+y+padding),
+                        new Point(N0+x, N2+y+padding),
 
-                this.Children[item.Value].Visibility =
-                type.HasFlag(item.Key) ?
-                 Visibility.Visible : Visibility.Collapsed;
+                        new Point(N0+x, N8+y-padding),
+                        new Point(N1+x, N9+y-padding),
+                        new Point(N2+x, N8+y-padding),
+                    }
+                }
+            }
+        };
+        private static PathFigure U(double x, double y, double padding, bool isVisble = true) => new PathFigure
+        {
+            IsClosed = true,
+            IsFilled = isVisble,
+            StartPoint = new Point(N2 + x + padding, N2 + y),
+            Segments =
+            {
+                new PolyLineSegment
+                {
+                    Points =
+                    {
+                        // new Point(DSExteions.N2+x+padding, N2+y),
+                        new Point(N1+x+padding, N1+y),
+                        new Point(N2+x+padding, N0+y),
+
+                        new Point(N8+x-padding, N0+y),
+                        new Point(N9+x-padding, N1+y),
+                        new Point(N8+x-padding, N2+y),
+                    }
+                }
+            }
+        };
+
+        public static void Update(this PathGeometry path, char type)
+        {
+            switch (type)
+            {
+                case '1': Update(path, DSType.N1); break;
+                case '2': Update(path, DSType.N2); break;
+                case '3': Update(path, DSType.N3); break;
+                case '4': Update(path, DSType.N4); break;
+                case '5': Update(path, DSType.N5); break;
+                case '6': Update(path, DSType.N6); break;
+                case '7': Update(path, DSType.N7); break;
+                case '8': Update(path, DSType.N8); break;
+                case '9': Update(path, DSType.N9); break;
+                default: Update(path, DSType.N0); break;
+            }
+        }
+        public static void Update(this PathGeometry path, int type)
+        {
+            switch (type)
+            {
+                case 1: Update(path, DSType.N1); break;
+                case 2: Update(path, DSType.N2); break;
+                case 3: Update(path, DSType.N3); break;
+                case 4: Update(path, DSType.N4); break;
+                case 5: Update(path, DSType.N5); break;
+                case 6: Update(path, DSType.N6); break;
+                case 7: Update(path, DSType.N7); break;
+                case 8: Update(path, DSType.N8); break;
+                case 9: Update(path, DSType.N9); break;
+                default: Update(path, DSType.N0); break;
+            }
+        }
+        internal static void Update(this PathGeometry path, DSType type)
+        {
+            if (path.Figures.Count == 0) return;
+            foreach (var item in Dictionary)
+            {
+                if (path.Figures[item.Value] is null) return;
+
+                path.Figures[item.Value].IsFilled =
+                    type.HasFlag(item.Key);
             }
         }
     }
