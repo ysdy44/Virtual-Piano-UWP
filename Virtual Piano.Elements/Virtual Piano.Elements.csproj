@@ -139,10 +139,10 @@
     <Compile Include="CommandListView.cs" />
     <Compile Include="CommandToggleButton.cs" />
     <Compile Include="CultureInfoCollection.cs" />
+    <Compile Include="DS\DSExtensions.cs" />
     <Compile Include="DS\DSFloat.xaml.cs">
       <DependentUpon>DSFloat.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DS\DSNumber.cs" />
     <Compile Include="DS\DSScorer.xaml.cs">
       <DependentUpon>DSScorer.xaml</DependentUpon>
     </Compile>
