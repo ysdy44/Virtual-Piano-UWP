@@ -152,7 +152,7 @@ namespace Virtual_Piano
                         this.TrackKeySignature = new KeySignature(tracks.SharpsFlats, tracks.MajorMinor);
 
                         this.UpdateTrackTempo(this.TrackTempo);
-                        this.UpdateTrackTime(this.TrackTimeSignature);
+                        this.UpdateTrackTimeSignature(this.TrackTimeSignature);
                     }
                     break;
                 case OptionType.Save:

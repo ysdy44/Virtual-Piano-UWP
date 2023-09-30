@@ -102,10 +102,8 @@ namespace Virtual_Piano
             this.TempoSlider.Value = tempo.Bpm;
         }
 
-        public void UpdateTrackTime(TimeSignature timeSignature)
+        public void UpdateTrackTimeSignature(TimeSignature timeSignature)
         {
-            this.NumeratorRun.Text = $"{timeSignature.Numerator}";
-            this.DenominatorRun.Text = $"{timeSignature.Denominator}";
         }
 
         private void Stop()
