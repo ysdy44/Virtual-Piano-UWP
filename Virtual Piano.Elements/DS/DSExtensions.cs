@@ -8,28 +8,9 @@ namespace Virtual_Piano.Elements
     /// <summary>
     /// DS-Digital Regular
     /// </summary>
-    public sealed class DSNumber : Canvas
-    {
-        readonly PathGeometry Data = DSExtensions.Number();
-
-        public DSNumber()
-        {
-            base.Width = DSExtensions.W;
-            base.Height = DSExtensions.H;
-            base.Children.Add(new PathIcon
-            {
-                Data = this.Data
-            });
-        }
-
-        public void Update(char type) => this.Data.Update(type);
-        public void Update(int type) => this.Data.Update(type);
-        internal void Update(DSType type) => this.Data.Update(type);
-    }
-
     public static class DSExtensions
     {
-
+        //@Const
         const int N0 = 0;
         const int N1 = 1;
         const int N2 = 2;
@@ -40,17 +21,6 @@ namespace Virtual_Piano.Elements
 
         public const int W = 10;
         public const int H = 18;
-
-        readonly static Dictionary<DSType, int> Dictionary = new Dictionary<DSType, int>
-        {
-            [DSType.Line0] = 0,
-            [DSType.Line1] = 1,
-            [DSType.Line2] = 2,
-            [DSType.Line3] = 3,
-            [DSType.Line4] = 4,
-            [DSType.Line5] = 5,
-            [DSType.Line6] = 6,
-        };
 
         public static PathGeometry Number() => new PathGeometry
         {
@@ -145,14 +115,13 @@ namespace Virtual_Piano.Elements
         }
         internal static void Update(this PathGeometry path, DSType type)
         {
-            if (path.Figures.Count == 0) return;
-            foreach (var item in Dictionary)
-            {
-                if (path.Figures[item.Value] is null) return;
-
-                path.Figures[item.Value].IsFilled =
-                    type.HasFlag(item.Key);
-            }
+            path.Figures[0].IsFilled = type.HasFlag(DSType.Line0);
+            path.Figures[1].IsFilled = type.HasFlag(DSType.Line1);
+            path.Figures[2].IsFilled = type.HasFlag(DSType.Line2);
+            path.Figures[3].IsFilled = type.HasFlag(DSType.Line3);
+            path.Figures[4].IsFilled = type.HasFlag(DSType.Line4);
+            path.Figures[5].IsFilled = type.HasFlag(DSType.Line5);
+            path.Figures[6].IsFilled = type.HasFlag(DSType.Line6);
         }
     }
 }
