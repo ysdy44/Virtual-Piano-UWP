@@ -137,8 +137,6 @@
     </Compile>
     <Compile Include="Others\VelocitySlider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TimeSignatures\DenominatorCanvas.cs" />
-    <Compile Include="TimeSignatures\NumeratorCanvas.cs" />
     <Compile Include="TrackCollections\ControllerCollection.cs" />
     <Compile Include="TrackCollections\Track.cs" />
     <Compile Include="TrackCollections\TrackChannel.xaml.cs">
