@@ -362,24 +362,28 @@ namespace Virtual_Piano
 
             // Track
             // TimeSignature
-            this.NumeratorComboBox.ItemsSource = Enumerable.Range(NumeratorCanvas.Minimum,
-                NumeratorCanvas.Maximum - NumeratorCanvas.Minimum + 1).ToArray();
-            this.DenominatorComboBox.ItemsSource = Enumerable.Range(DenominatorCanvas.Minimum,
-                DenominatorCanvas.Maximum - DenominatorCanvas.Minimum + 1).ToArray();
-          
-            this.UpdateTrackTempo(this.TrackTempo);
-            this.UpdateTrackTimeSignature(this.TrackTimeSignature);
-
+            this.NumeratorComboBox.ItemsSource = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+            this.DenominatorComboBox.ItemsSource = new int[] { 2, 4, 8 };
+            this.NumeratorComboBox.SelectedItem = this.TrackTimeSignature.Numerator;
+            this.DenominatorComboBox.SelectedItem = this.TrackTimeSignature.Denominator;
             this.NumeratorComboBox.SelectionChanged += (s, e) =>
             {
                 if (this.TimeSignatureFlyout.IsOpen is false) return;
-                this.NumeratorCanvas.Update((int)this.NumeratorComboBox.SelectedItem, 400);
-                this.DenominatorCanvas.Update((int)this.NumeratorComboBox.SelectedItem, (int)this.DenominatorComboBox.SelectedItem, 400);
+                this.TrackTimeSignature = new TimeSignature((int)this.NumeratorComboBox.SelectedItem, this.TrackTimeSignature.Denominator);
+                this.TimeSignaturesPanel.UpdateNumerator(this.TrackTimeSignature);
             };
             this.DenominatorComboBox.SelectionChanged += (s, e) =>
             {
                 if (this.TimeSignatureFlyout.IsOpen is false) return;
-                this.DenominatorCanvas.Update((int)this.NumeratorComboBox.SelectedItem, (int)this.DenominatorComboBox.SelectedItem, 400);
+                this.TrackTimeSignature = new TimeSignature(this.TrackTimeSignature.Numerator, (int)this.DenominatorComboBox.SelectedItem);
+                this.TimeSignaturesPanel.UpdateDenominator(this.TrackTimeSignature);
+            };
+            this.TimeSignaturesPanel.SizeChanged += (s, e) =>
+            {
+                if (e.NewSize == Size.Empty) return;
+                if (e.NewSize == e.PreviousSize) return;
+
+                this.TimeSignaturesPanel.Update(this.TrackTimeSignature, e.NewSize.Width);
             };
         }
 

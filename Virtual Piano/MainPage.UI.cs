@@ -104,8 +104,7 @@ namespace Virtual_Piano
 
         public void UpdateTrackTimeSignature(TimeSignature timeSignature)
         {
-            this.NumeratorCanvas.Update(timeSignature.Numerator);
-            this.DenominatorCanvas.Update(timeSignature.Numerator, timeSignature.Denominator);
+            this.TimeSignaturesPanel.UpdateNumerator(timeSignature);
             this.NumeratorComboBox.SelectedItem = timeSignature.Numerator;
             this.DenominatorComboBox.SelectedItem = timeSignature.Denominator;
         }
