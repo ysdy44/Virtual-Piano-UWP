@@ -16,9 +16,9 @@ namespace Virtual_Piano.Midi.Controllers
         public readonly ObservableCollection<ContentControl> Programs = new ObservableCollection<ContentControl>();
         public readonly Dictionary<MidiControlController, ControllerCollection> Controllers = new Dictionary<MidiControlController, ControllerCollection>();
 
-        public Track(IList<NAudio.Midi.MidiEvent> events, long time)
+        public Track(IList<NAudio.Midi.MidiEvent> events)
         {
-            this.Source = new MidiTrack(events, time);
+            this.Source = new MidiTrack(events);
 
             foreach (MidiMessage item in this.Source.Notes)
             {

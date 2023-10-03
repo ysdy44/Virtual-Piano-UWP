@@ -15,11 +15,11 @@ namespace Virtual_Piano.Midi
         /// <summary> <see cref="MidiNoteOnMessage.Velocity"/> </summary>
         public byte Velocity;
         /// <summary> <see cref="MidiNoteOnMessage"/> </summary>
-        public MidiMessage(NAudio.Midi.NoteOnEvent item, NAudio.Midi.NoteEvent offEvent, long time)
+        public MidiMessage(NAudio.Midi.NoteOnEvent item, NAudio.Midi.NoteEvent offEvent)
         {
             this.Type = MidiMessageType.NoteOn;
             this.Channel = (byte)item.Channel;
-            this.AbsoluteTime = (int)(item.AbsoluteTime - time);
+            this.AbsoluteTime = (int)item.AbsoluteTime;
 
             this.Duration = (int)(offEvent.AbsoluteTime - item.AbsoluteTime);
             this.Note = (MidiNote)(byte)item.NoteNumber;
@@ -40,11 +40,11 @@ namespace Virtual_Piano.Midi
         /// <summary> <see cref="MidiControlChangeMessage.ControlValue"/> </summary>
         public byte ControllerValue;
         /// <summary> <see cref="MidiControlChangeMessage"/> </summary>
-        public MidiMessage(NAudio.Midi.ControlChangeEvent item, long time)
+        public MidiMessage(NAudio.Midi.ControlChangeEvent item)
         {
             this.Type = MidiMessageType.ControlChange;
             this.Channel = (byte)item.Channel;
-            this.AbsoluteTime = (int)(item.AbsoluteTime - time);
+            this.AbsoluteTime = (int)item.AbsoluteTime;
 
             this.Duration = default;
             this.Note = default;
@@ -63,11 +63,11 @@ namespace Virtual_Piano.Midi
         /// <summary> <see cref="MidiProgramChangeMessage.Program"/> </summary>
         public MidiProgram Program;
         /// <summary> <see cref="MidiProgramChangeMessage"/> </summary>
-        public MidiMessage(NAudio.Midi.PatchChangeEvent item, long time)
+        public MidiMessage(NAudio.Midi.PatchChangeEvent item)
         {
             this.Type = MidiMessageType.ProgramChange;
             this.Channel = (byte)item.Channel;
-            this.AbsoluteTime = (int)(item.AbsoluteTime - time);
+            this.AbsoluteTime = (int)item.AbsoluteTime;
 
             this.Duration = default;
             this.Note = default;
@@ -86,11 +86,11 @@ namespace Virtual_Piano.Midi
         /// <summary> <see cref="MidiChannelPressureMessage.Pressure"/> </summary>
         public byte Pressure;
         /// <summary> <see cref="MidiChannelPressureMessage"/> </summary>
-        public MidiMessage(NAudio.Midi.ChannelAfterTouchEvent item, long time)
+        public MidiMessage(NAudio.Midi.ChannelAfterTouchEvent item)
         {
             this.Type = MidiMessageType.ChannelPressure;
             this.Channel = (byte)item.Channel;
-            this.AbsoluteTime = (int)(item.AbsoluteTime - time);
+            this.AbsoluteTime = (int)item.AbsoluteTime;
 
             this.Duration = default;
             this.Note = default;
@@ -109,11 +109,11 @@ namespace Virtual_Piano.Midi
         /// <summary> <see cref="MidiPitchBendChangeMessage.Bend"/> </summary>
         public ushort Bend;
         /// <summary> <see cref="MidiPitchBendChangeMessage"/> </summary>
-        public MidiMessage(NAudio.Midi.PitchWheelChangeEvent item, long time)
+        public MidiMessage(NAudio.Midi.PitchWheelChangeEvent item)
         {
             this.Type = MidiMessageType.PitchBendChange;
             this.Channel = (byte)item.Channel;
-            this.AbsoluteTime = (int)(item.AbsoluteTime - time);
+            this.AbsoluteTime = (int)item.AbsoluteTime;
 
             this.Duration = default;
             this.Note = default;
@@ -130,11 +130,11 @@ namespace Virtual_Piano.Midi
         }
 
         /// <summary> <see cref="MidiSystemExclusiveMessage"/> </summary>
-        public MidiMessage(NAudio.Midi.MetaEvent item, long time)
+        public MidiMessage(NAudio.Midi.MetaEvent item)
         {
             this.Type = MidiMessageType.SystemExclusive;
             this.Channel = (byte)item.Channel;
-            this.AbsoluteTime = (int)(item.AbsoluteTime - time);
+            this.AbsoluteTime = (int)item.AbsoluteTime;
 
             this.Duration = default;
             this.Note = default;

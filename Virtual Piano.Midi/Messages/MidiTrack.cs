@@ -4,7 +4,6 @@ namespace Virtual_Piano.Midi
 {
     public sealed class MidiTrack
     {
-        public readonly long Time;
         public readonly long Duration;
         public readonly double Tempo;
         public readonly int Numerator;
@@ -16,10 +15,8 @@ namespace Virtual_Piano.Midi
         public readonly List<MidiMessage> Programs = new List<MidiMessage>();
         public readonly Dictionary<MidiControlController, List<MidiMessage>> Controllers = new Dictionary<MidiControlController, List<MidiMessage>>();
 
-        public MidiTrack(IList<NAudio.Midi.MidiEvent> events, long time)
+        public MidiTrack(IList<NAudio.Midi.MidiEvent> events)
         {
-            this.Time = time;
-
             foreach (NAudio.Midi.MidiEvent item in events)
             {
                 switch (item.CommandCode)
@@ -29,7 +26,7 @@ namespace Virtual_Piano.Midi
                     case NAudio.Midi.MidiCommandCode.NoteOn:
                         if (item is NAudio.Midi.NoteOnEvent noteOnEvent)
                             if (noteOnEvent.OffEvent is NAudio.Midi.NoteEvent offEvent)
-                                this.Notes.Add(new MidiMessage(noteOnEvent, offEvent, time));
+                                this.Notes.Add(new MidiMessage(noteOnEvent, offEvent));
                         break;
                     case NAudio.Midi.MidiCommandCode.KeyAfterTouch:
                         break;
@@ -39,17 +36,17 @@ namespace Virtual_Piano.Midi
                         {
                             MidiControlController controller = (MidiControlController)controlChangeEvent.Controller;
                             if (this.Controllers.ContainsKey(controller))
-                                this.Controllers[controller].Add(new MidiMessage(controlChangeEvent, time));
+                                this.Controllers[controller].Add(new MidiMessage(controlChangeEvent));
                             else
                                 this.Controllers.Add(controller, new List<MidiMessage>
                                 {
-                                    new MidiMessage(controlChangeEvent, time)
+                                    new MidiMessage(controlChangeEvent)
                                 });
                         }
                         break;
                     case NAudio.Midi.MidiCommandCode.PatchChange:
                         if (item is NAudio.Midi.PatchChangeEvent patchChangeEvent)
-                            this.Programs.Add(new MidiMessage(patchChangeEvent, time));
+                            this.Programs.Add(new MidiMessage(patchChangeEvent));
                         break;
                     case NAudio.Midi.MidiCommandCode.ChannelAfterTouch:
                         if (item is NAudio.Midi.ChannelAfterTouchEvent channelAfterTouchEvent)
