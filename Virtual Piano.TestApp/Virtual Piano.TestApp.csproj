@@ -159,6 +159,9 @@
     <Compile Include="RadarGraphPage.xaml.cs">
       <DependentUpon>RadarGraphPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TimeSignaturePage.xaml.cs">
+      <DependentUpon>TimeSignaturePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TrackNotePage.xaml.cs">
       <DependentUpon>TrackNotePage.xaml</DependentUpon>
     </Compile>
@@ -237,6 +240,10 @@
     <Page Include="RadarGraphPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TimeSignaturePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="TrackNotePage.xaml">
       <Generator>MSBuild:Compile</Generator>

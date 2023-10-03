@@ -1,0 +1,71 @@
+﻿<Page
+    x:Class="Virtual_Piano.TestApp.TimeSignaturePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controllers="using:Virtual_Piano.Midi.Controllers"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    >
+
+    <Grid Width="400" RowSpacing="10" Padding="12" HorizontalAlignment="Center" VerticalAlignment="Center" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*" MinWidth="80"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock                    
+            IsTextSelectionEnabled="True"
+            FontWeight="Medium" 
+            TextTrimming="CharacterEllipsis" 
+            FontSize="20" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Center" 
+            OpticalMarginAlignment="TrimSideBearings"
+            >                                
+             Time Signature
+        </TextBlock>
+
+        <TextBlock 
+            Grid.Column="1" 
+            IsTextSelectionEnabled="True"
+            FontWeight="Medium" 
+            TextTrimming="CharacterEllipsis" 
+            FontSize="20" 
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center" 
+            >   
+           <Run 
+               Foreground="{ThemeResource SystemColorControlAccentBrush}"
+               Text="{x:Bind ObjectToStringConverter(NumeratorComboBox.SelectedItem), Mode=OneWay}"
+               /><Run>/</Run><Run 
+               Text="{x:Bind ObjectToStringConverter(DenominatorComboBox.SelectedItem), Mode=OneWay}"
+               />
+        </TextBlock>
+
+        <controllers:TimeSignaturesPanel x:Name="TimeSignaturesPanel" Grid.ColumnSpan="2" Grid.Row="1" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+
+        <TextBlock Grid.Row="2" FontWeight="Medium" VerticalAlignment="Center">
+            Numerator
+        </TextBlock>
+
+        <ComboBox x:Name="NumeratorComboBox" Grid.Column="1" Grid.Row="2" CornerRadius="4" BorderThickness="1" HorizontalAlignment="Stretch">
+            <!--ItemsSource-->
+        </ComboBox>
+
+        <TextBlock Grid.Row="3" FontWeight="Medium" VerticalAlignment="Center">
+            Denominator
+        </TextBlock>
+        <ComboBox x:Name="DenominatorComboBox" Grid.Column="1" Grid.Row="3" CornerRadius="4" BorderThickness="1" HorizontalAlignment="Stretch">
+            <!--ItemsSource-->
+        </ComboBox>
+
+    </Grid>
+</Page>
