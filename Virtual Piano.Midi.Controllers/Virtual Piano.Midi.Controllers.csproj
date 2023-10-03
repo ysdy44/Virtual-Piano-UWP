@@ -152,6 +152,9 @@
     <Compile Include="Tracks\SamplePanel.xaml.cs">
       <DependentUpon>SamplePanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tracks\TimeSignaturesPanel.xaml.cs">
+      <DependentUpon>TimeSignaturesPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tracks\TrackNotePanel.xaml.cs">
       <DependentUpon>TrackNotePanel.xaml</DependentUpon>
     </Compile>
@@ -201,6 +204,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Tracks\SamplePanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tracks\TimeSignaturesPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
