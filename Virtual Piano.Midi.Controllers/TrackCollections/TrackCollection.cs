@@ -9,6 +9,9 @@ namespace Virtual_Piano.Midi.Controllers
 {
     public sealed class TrackCollection : ObservableCollection<ContentControl>
     {
+        public readonly long StartAbsoluteTime;
+        public readonly int DeltaTicksPerQuarterNote;
+
         public readonly long Duration;
         public readonly double Tempo;
         public readonly int Numerator;
@@ -20,6 +23,9 @@ namespace Virtual_Piano.Midi.Controllers
         public TrackCollection(Stream inputStream) : this(new NAudio.Midi.MidiFile(inputStream, false).Events) { }
         public TrackCollection(NAudio.Midi.MidiEventCollection events)
         {
+            this.StartAbsoluteTime = events.StartAbsoluteTime;
+            this.DeltaTicksPerQuarterNote = events.DeltaTicksPerQuarterNote;
+
             for (int i = 0; i < events.Tracks; i++)
             {
                 IList<NAudio.Midi.MidiEvent> e = events[i];
