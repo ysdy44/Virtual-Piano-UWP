@@ -43,24 +43,28 @@ namespace Virtual_Piano.Midi.Core
         public static ExpressionAnimation SnapScrollerX(this CompositionPropertySet propertySet, float denominatorX, float offsetX) => propertySet.ToExpression($"{offsetX}+{TranslationX}%{denominatorX}-{TranslationX}");
         public static ExpressionAnimation SnapScrollerY(this CompositionPropertySet propertySet, float denominatorY, float offsetY) => propertySet.ToExpression($"{offsetY}+{TranslationY}%{denominatorY}-{TranslationY}");
 
-        // Offset
-        public static void AnimationX(this Visual visual, ExpressionAnimation expression) => visual.StartAnimation(OffsetX, expression);
-        public static void AnimationY(this Visual visual, ExpressionAnimation expression) => visual.StartAnimation(OffsetY, expression);
+        // Stop
+        public static void StopX(this Visual visual) => visual.StopAnimation(OffsetX);
+        public static void StopY(this Visual visual) => visual.StopAnimation(OffsetY);
 
-        public static void AnimationXY(this Visual visual, ExpressionAnimation x, ExpressionAnimation y)
+        // Offset
+        public static void StartX(this Visual visual, ExpressionAnimation expression) => visual.StartAnimation(OffsetX, expression);
+        public static void StartY(this Visual visual, ExpressionAnimation expression) => visual.StartAnimation(OffsetY, expression);
+
+        public static void StartXY(this Visual visual, ExpressionAnimation x, ExpressionAnimation y)
         {
-            visual.AnimationX(x);
-            visual.AnimationY(y);
+            visual.StartX(x);
+            visual.StartY(y);
         }
-        public static void AnimationXY(this Visual visual, float x, ExpressionAnimation y)
+        public static void StartXY(this Visual visual, float x, ExpressionAnimation y)
         {
             visual.Offset = new System.Numerics.Vector3(x, 0, 0); // 1. float
-            visual.AnimationY(y); // 2. ExpressionAnimation
+            visual.StartY(y); // 2. ExpressionAnimation
         }
-        public static void AnimationXY(this Visual visual, ExpressionAnimation x, float y)
+        public static void StartXY(this Visual visual, ExpressionAnimation x, float y)
         {
             visual.Offset = new System.Numerics.Vector3(0, y, 0); // 1. float
-            visual.AnimationX(x); // 2. ExpressionAnimation
+            visual.StartX(x); // 2. ExpressionAnimation
         }
     }
 }

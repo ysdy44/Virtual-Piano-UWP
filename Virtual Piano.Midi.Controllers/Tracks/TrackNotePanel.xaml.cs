@@ -83,21 +83,21 @@ namespace Virtual_Piano.Midi.Controllers
             var ey3 = this.ScrollProperties.SnapScrollerY(1 - this.Layout.Timerline1);
             var sx = this.ScrollProperties.SnapScrollerX(TrackLayout.Step, this.Layout.Pane);
 
-            this.TimelinePoint.GetVisual().AnimationY(ey);
-            this.TimelineLine.GetVisual().AnimationY(ey3);
+            this.TimelinePoint.GetVisual().StartY(ey);
+            this.TimelineLine.GetVisual().StartY(ey3);
 
-            this.TimelineThumb.GetVisual().AnimationXY(ex, ey);
-            this.HeadBorder.GetVisual().AnimationXY(ex, ey);
+            this.TimelineThumb.GetVisual().StartXY(ex, ey);
+            this.HeadBorder.GetVisual().StartXY(ex, ey);
 
-            this.PaneBorder.GetVisual().AnimationXY(ex, this.Layout.Head);
-            this.BodyBackgroundCanvas.GetVisual().AnimationXY(ex, this.Layout.Head);
+            this.PaneBorder.GetVisual().StartXY(ex, this.Layout.Head);
+            this.BodyBackgroundCanvas.GetVisual().StartXY(ex, this.Layout.Head);
 
-            this.BodyLineCanvas.GetVisual().AnimationXY(sx, ey);
-            this.TimelineTextCanvas.GetVisual().AnimationXY(sx, ey);
-            this.TimelinePointCanvas.GetVisual().AnimationXY(sx, ey);
+            this.BodyLineCanvas.GetVisual().StartXY(sx, ey);
+            this.TimelineTextCanvas.GetVisual().StartXY(sx, ey);
+            this.TimelinePointCanvas.GetVisual().StartXY(sx, ey);
 
-            this.HeadItemsControl.GetVisual().AnimationXY(this.Layout.Pane, ey);
-            this.FootListView.GetVisual().AnimationX(ex);
+            this.HeadItemsControl.GetVisual().StartXY(this.Layout.Pane, ey);
+            this.FootListView.GetVisual().StartX(ex);
 
             // BodyBackgroundCanvas
             foreach (MidiNote item in System.Enum.GetValues(typeof(MidiNote)).Cast<MidiNote>())
@@ -250,8 +250,8 @@ namespace Virtual_Piano.Midi.Controllers
                     }
 
                     var sy = this.ScrollProperties.SnapScrollerY(h - this.Layout.Foot);
-                    this.ControllerBorder.GetVisual().AnimationXY(this.Layout.Pane, sy);
-                    this.FootListView.GetVisual().AnimationY(sy);
+                    this.ControllerBorder.GetVisual().StartXY(this.Layout.Pane, sy);
+                    this.FootListView.GetVisual().StartY(sy);
                 }
             };
 

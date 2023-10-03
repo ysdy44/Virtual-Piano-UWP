@@ -62,8 +62,8 @@ namespace Virtual_Piano.Midi.Controllers
             this.InitializeComponent();
             this.ScrollProperties = this.ScrollViewer.GetScroller();
             var x = this.ScrollProperties.SnapScrollerX();
-            this.Pane.GetVisual().AnimationX(x);
-            this.HeadBorder.GetVisual().AnimationX(x);
+            this.Pane.GetVisual().StartX(x);
+            this.HeadBorder.GetVisual().StartX(x);
 
             for (int i = 0; i < 32 / MachinePanel.Drum.Length; i++)
             {

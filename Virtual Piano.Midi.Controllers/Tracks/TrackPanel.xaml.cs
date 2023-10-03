@@ -75,18 +75,18 @@ namespace Virtual_Piano.Midi.Controllers
             var ey3 = this.ScrollProperties.SnapScrollerY(1 - this.Layout.Timerline1);
             var sx = this.ScrollProperties.SnapScrollerX(TrackLayout.Step, this.Layout.Pane);
 
-            this.TimelinePoint.GetVisual().AnimationY(ey);
-            this.TimelineLine.GetVisual().AnimationY(ey3);
+            this.TimelinePoint.GetVisual().StartY(ey);
+            this.TimelineLine.GetVisual().StartY(ey3);
 
-            this.TimelineThumb.GetVisual().AnimationXY(ex, ey);
-            this.HeadBorder.GetVisual().AnimationXY(ex, ey);
+            this.TimelineThumb.GetVisual().StartXY(ex, ey);
+            this.HeadBorder.GetVisual().StartXY(ex, ey);
 
-            this.PaneStackPanel.GetVisual().AnimationXY(ex, this.Layout.Head);
-            this.BodyBackgroundCanvas.GetVisual().AnimationXY(ex, this.Layout.Head);
+            this.PaneStackPanel.GetVisual().StartXY(ex, this.Layout.Head);
+            this.BodyBackgroundCanvas.GetVisual().StartXY(ex, this.Layout.Head);
 
-            this.BodyLineCanvas.GetVisual().AnimationXY(sx, ey);
-            this.TimelineTextCanvas.GetVisual().AnimationXY(sx, ey);
-            this.TimelinePointCanvas.GetVisual().AnimationXY(sx, ey);
+            this.BodyLineCanvas.GetVisual().StartXY(sx, ey);
+            this.TimelineTextCanvas.GetVisual().StartXY(sx, ey);
+            this.TimelinePointCanvas.GetVisual().StartXY(sx, ey);
 
             // PaneListBox
             foreach (MidiChannel item in System.Enum.GetValues(typeof(MidiChannel)).Cast<MidiChannel>())

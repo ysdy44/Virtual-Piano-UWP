@@ -14,10 +14,10 @@ namespace Virtual_Piano.TestApp
             this.ScrollProperties = this.ScrollViewer.GetScroller();
             var x = this.ScrollProperties.SnapScrollerX();
             var y = this.ScrollProperties.SnapScrollerY();
-            this.Left.GetVisual().AnimationX(x);
-            this.Top.GetVisual().AnimationY(y);
-            this.LeftTop.GetVisual().AnimationXY(x, y);
-            this.LeftBottom.GetVisual().AnimationX(x);
+            this.Left.GetVisual().StartX(x);
+            this.Top.GetVisual().StartY(y);
+            this.LeftTop.GetVisual().StartXY(x, y);
+            this.LeftBottom.GetVisual().StartX(x);
 
             base.SizeChanged += (s, e) =>
             {
@@ -26,8 +26,8 @@ namespace Virtual_Piano.TestApp
                 if ((int)e.NewSize.Height == (int)e.PreviousSize.Height) return;
 
                 var y2 = this.ScrollProperties.SnapScrollerY((int)e.NewSize.Height - 75);
-                this.Bottom.GetVisual().AnimationY(y2);
-                this.LeftBottom.GetVisual().AnimationY(y2);
+                this.Bottom.GetVisual().StartY(y2);
+                this.LeftBottom.GetVisual().StartY(y2);
             };
         }
     }
