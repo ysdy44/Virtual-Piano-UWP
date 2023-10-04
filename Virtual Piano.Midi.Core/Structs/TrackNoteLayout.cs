@@ -17,13 +17,12 @@ namespace Virtual_Piano.Midi.Core
         public readonly int FootPlus;
 
         public readonly int ExtentHeight;
-        public readonly int ExtentHeightHead;
         public readonly int ExtentHeightFoot;
         public readonly int ExtentHeightHeadFoot;
 
         public TrackNoteLayout(int pane, int timerline1, int timerline2, int foot) // 75 22 22 150
         {
-            var head = timerline1 + timerline2;
+            int head = timerline1 + timerline2;
 
             this.Pane = pane;
             this.Head = head;
@@ -34,7 +33,6 @@ namespace Virtual_Piano.Midi.Core
 
             int h = NoteExtensions.NoteCount * TrackNoteLayout.ItemSize;
             this.ExtentHeight = h;
-            this.ExtentHeightHead = h + head;
             this.ExtentHeightFoot = h + foot;
             this.ExtentHeightHeadFoot = h + head + foot;
         }

@@ -5,9 +5,9 @@ namespace Virtual_Piano.Midi
 {
     public readonly struct Tempo
     {
-        public readonly int Bpm;
-        public readonly int MicrosecondsPerQuarterNote;
-        public readonly TimeSpan Delay;
+        public readonly int Bpm; // 120
+        public readonly int MicrosecondsPerQuarterNote; // 500000
+        public readonly TimeSpan Delay; // 125
 
         public Tempo(int bpm = 120)
         {

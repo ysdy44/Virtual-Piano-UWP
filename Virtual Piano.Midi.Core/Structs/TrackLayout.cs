@@ -14,7 +14,6 @@ namespace Virtual_Piano.Midi.Core
         public readonly int Timerline1;
 
         public readonly int ExtentHeight;
-        public readonly int ExtentHeightHead;
         public readonly int ExtentHeightFoot;
         public readonly int ExtentHeightHeadFoot;
 
@@ -26,7 +25,6 @@ namespace Virtual_Piano.Midi.Core
 
             int h = 16 * ItemSize;
             this.ExtentHeight = h;
-            this.ExtentHeightHead = h + head;
             this.ExtentHeightFoot = h + head;
             this.ExtentHeightHeadFoot = h + head;
         }

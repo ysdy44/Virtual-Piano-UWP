@@ -10,9 +10,11 @@
 
         public readonly int Length;
 
+        // 7 14 21 28 35 42 49 56...
+        // 5 10 15 20 25 30 35 40 45 50...
         public PianoSize(int value)
         {
-            if (value < 4) value = 4;
+            if (value < 7) value = 7;
 
             this.ItemSize = value;
 

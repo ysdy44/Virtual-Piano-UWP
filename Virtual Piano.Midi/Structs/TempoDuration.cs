@@ -1,4 +1,6 @@
-﻿namespace Virtual_Piano.Midi
+﻿using System.Runtime.CompilerServices;
+
+namespace Virtual_Piano.Midi
 {
     public readonly struct TempoDuration
     {
@@ -11,6 +13,7 @@
             this.Percent = 100d * tempo.Bpm / 120d / duration;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double GetPercent(long position) => this.Percent * position;
 
         public override string ToString() => $"Duration ({this.Source})Milliseconds";

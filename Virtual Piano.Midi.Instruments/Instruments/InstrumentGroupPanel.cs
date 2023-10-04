@@ -29,7 +29,7 @@ namespace Virtual_Piano.Midi.Instruments
             {
                 foreach (var item3 in item2.Value)
                 {
-                    this.Children.Add(item3);
+                    base.Children.Add(item3);
                 }
                 return;
             }
