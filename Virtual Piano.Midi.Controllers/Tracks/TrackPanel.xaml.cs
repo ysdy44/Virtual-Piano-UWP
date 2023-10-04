@@ -91,31 +91,6 @@ namespace Virtual_Piano.Midi.Controllers
             this.TimelineTextCanvas.GetVisual().StartXY(sx, ey);
             this.TimelinePointCanvas.GetVisual().StartXY(sx, ey);
 
-            // PaneListBox
-            foreach (MidiChannel item in System.Enum.GetValues(typeof(MidiChannel)).Cast<MidiChannel>())
-            {
-                int i = (int)item;
-                this.PaneStackPanel.Children.Add(new TrackChannel
-                {
-                    Height = TrackLayout.ItemSize,
-                    Label = $"{i}",
-                    Text = "Value",
-                    Command = this,
-                    CommandParameter = i,
-                });
-            }
-
-            // BodyBackgroundCanvas
-            foreach (MidiChannel item in System.Enum.GetValues(typeof(MidiChannel)).Cast<MidiChannel>())
-            {
-                int i = (int)item;
-                int y = i * TrackLayout.ItemSize;
-                this.BodyBackgroundCanvas.Children.Add(new Line
-                {
-                    Y1 = y,
-                    Y2 = y,
-                });
-            }
 
             // BodyLineCanvas
             this.BodyLineCanvas.Width = 16 * this.Ticks.TicksPerBar / TrackLayout.Scaling;
@@ -194,6 +169,33 @@ namespace Virtual_Piano.Midi.Controllers
                 };
                 Canvas.SetLeft(item, x);
                 this.TimelineTextCanvas.Children.Add(item);
+            }
+
+
+            // PaneListBox
+            foreach (MidiChannel item in System.Enum.GetValues(typeof(MidiChannel)).Cast<MidiChannel>())
+            {
+                int i = (int)item;
+                this.PaneStackPanel.Children.Add(new TrackChannel
+                {
+                    Height = TrackLayout.ItemSize,
+                    Label = $"{i}",
+                    Text = "Value",
+                    Command = this,
+                    CommandParameter = i,
+                });
+            }
+
+            // BodyBackgroundCanvas
+            foreach (MidiChannel item in System.Enum.GetValues(typeof(MidiChannel)).Cast<MidiChannel>())
+            {
+                int i = (int)item;
+                int y = i * TrackLayout.ItemSize;
+                this.BodyBackgroundCanvas.Children.Add(new Line
+                {
+                    Y1 = y,
+                    Y2 = y,
+                });
             }
 
 

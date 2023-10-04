@@ -102,40 +102,6 @@ namespace Virtual_Piano.Midi.Controllers
             this.HeadItemsControl.GetVisual().StartXY(this.Layout.Pane, ey);
             this.FootListView.GetVisual().StartX(ex);
 
-            // BodyBackgroundCanvas
-            foreach (MidiNote item in System.Enum.GetValues(typeof(MidiNote)).Cast<MidiNote>())
-            {
-                switch (item.ToType())
-                {
-                    case ToneType.White:
-                        break;
-                    case ToneType.Black:
-                        Rectangle rect = new Rectangle
-                        {
-                            Height = TrackLayout.ItemSize
-                        };
-
-                        int i = item.ToInedx();
-                        int y = i * TrackLayout.ItemSize;
-
-                        Canvas.SetTop(rect, y);
-                        this.BodyBackgroundCanvas.Children.Add(rect);
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            foreach (MidiOctave item in System.Enum.GetValues(typeof(MidiOctave)).Cast<MidiOctave>())
-            {
-                int i = (int)item + 1;
-                int y = i * TrackLayout.ItemSize * NoteExtensions.ToneCount;
-                this.BodyBackgroundCanvas.Children.Add(new Line
-                {
-                    Y1 = y,
-                    Y2 = y,
-                });
-            }
 
             // BodyLineCanvas
             this.BodyLineCanvas.Width = 16 * this.Ticks.TicksPerBar / TrackLayout.Scaling;
@@ -214,6 +180,42 @@ namespace Virtual_Piano.Midi.Controllers
                 };
                 Canvas.SetLeft(item, x);
                 this.TimelineTextCanvas.Children.Add(item);
+            }
+
+
+            // BodyBackgroundCanvas
+            foreach (MidiNote item in System.Enum.GetValues(typeof(MidiNote)).Cast<MidiNote>())
+            {
+                switch (item.ToType())
+                {
+                    case ToneType.White:
+                        break;
+                    case ToneType.Black:
+                        Rectangle rect = new Rectangle
+                        {
+                            Height = TrackLayout.ItemSize
+                        };
+
+                        int i = item.ToInedx();
+                        int y = i * TrackLayout.ItemSize;
+
+                        Canvas.SetTop(rect, y);
+                        this.BodyBackgroundCanvas.Children.Add(rect);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            foreach (MidiOctave item in System.Enum.GetValues(typeof(MidiOctave)).Cast<MidiOctave>())
+            {
+                int i = (int)item + 1;
+                int y = i * TrackLayout.ItemSize * NoteExtensions.ToneCount;
+                this.BodyBackgroundCanvas.Children.Add(new Line
+                {
+                    Y1 = y,
+                    Y2 = y,
+                });
             }
 
 
