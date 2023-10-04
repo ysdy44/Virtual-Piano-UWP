@@ -137,15 +137,17 @@
     <Compile Include="Interfaces\Buttons\IKitButton.cs" />
     <Compile Include="Interfaces\Buttons\IMachineButton.cs" />
     <Compile Include="Interfaces\Buttons\IPianoButton.cs" />
+    <Compile Include="Interfaces\ITrack.cs" />
+    <Compile Include="Interfaces\ITrackNotePanel.cs" />
+    <Compile Include="Interfaces\ITrackPanel.cs" />
     <Compile Include="Interfaces\Panels\IChordPanel.cs" />
     <Compile Include="Interfaces\Panels\IDrumPanel.cs" />
     <Compile Include="Interfaces\Panels\IGuitarPanel.cs" />
+    <Compile Include="Interfaces\Panels\IHarpPanel.cs" />
     <Compile Include="Interfaces\Panels\IInstrumentGroupPanel.cs" />
     <Compile Include="Interfaces\Panels\IInstrumentPanel.cs" />
     <Compile Include="Interfaces\Panels\IKitPanel.cs" />
-    <Compile Include="Interfaces\Panels\IHarpPanel.cs" />
     <Compile Include="Interfaces\Panels\IPianoPanel.cs" />
-    <Compile Include="Interfaces\ITrackNotePanel.cs" />
     <Compile Include="Models\AudioObservableCollection.cs" />
     <Compile Include="Models\InstrumentItem.cs" />
     <Compile Include="Models\InstrumentItemCategory.cs" />
@@ -157,9 +159,9 @@
     <Compile Include="Models\KeyQWERTDictionary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structs\Chords.cs" />
-    <Compile Include="Structs\PadLayout.cs" />
     <Compile Include="Structs\Guitar.cs" />
     <Compile Include="Structs\MachineLayout.cs" />
+    <Compile Include="Structs\PadLayout.cs" />
     <Compile Include="Structs\PianoSize.cs" />
     <Compile Include="Structs\Radial.cs" />
     <Compile Include="Structs\SampleLayout.cs" />
@@ -218,7 +220,6 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
