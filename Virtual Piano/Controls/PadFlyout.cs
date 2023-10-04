@@ -1,4 +1,5 @@
 ﻿using Virtual_Piano.Midi;
+using Virtual_Piano.Strings;
 using Windows.System;
 
 namespace Virtual_Piano.Controls
@@ -25,7 +26,7 @@ namespace Virtual_Piano.Controls
 
         public override string GetString(MidiPercussionNote note)
         {
-            return App.Resource.GetString($"{note}");
+            return note.GetString();
         }
     }
 }

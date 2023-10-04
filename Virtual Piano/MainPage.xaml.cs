@@ -6,6 +6,7 @@ using Virtual_Piano.Elements;
 using Virtual_Piano.Midi;
 using Virtual_Piano.Midi.Controllers;
 using Virtual_Piano.Midi.Core;
+using Virtual_Piano.Strings;
 using Windows.Devices.Midi;
 using Windows.Foundation;
 using Windows.Storage;
@@ -21,8 +22,8 @@ namespace Virtual_Piano
     public sealed partial class MainPage : Page, ICommand
     {
         //@String
-        readonly Uri GithubLink = new Uri(App.Resource.GetString(UIType.GithubLink.ToString()));
-        readonly Uri FeedbackLink = new Uri($"mailto:{App.Resource.GetString(UIType.FeedbackLink.ToString())}");
+        readonly Uri GithubLink = new Uri(UIType.GithubLink.GetString());
+        readonly Uri FeedbackLink = new Uri(UIType.FeedbackLink.GetString());
         FlowDirection Direction => CultureInfoCollection.FlowDirection;
 
         //@Converter

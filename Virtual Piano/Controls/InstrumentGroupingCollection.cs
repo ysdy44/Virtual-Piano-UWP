@@ -2,6 +2,7 @@
 using System.Linq;
 using Virtual_Piano.Midi;
 using Virtual_Piano.Midi.Core;
+using Virtual_Piano.Strings;
 
 namespace Virtual_Piano.Controls
 {
@@ -18,7 +19,7 @@ namespace Virtual_Piano.Controls
                     yield return new InstrumentItemGrouping(item2.Value.Select(GetItem))
                     {
                         Key = item2.Key,
-                        Text = App.Resource.GetString($"{item2.Key}")
+                        Text = item2.Key.GetString()
                     };
                 }
             }
@@ -27,7 +28,7 @@ namespace Virtual_Piano.Controls
         private static InstrumentItem GetItem(MidiProgram item) => new InstrumentItem
         {
             Key = item,
-            Text = App.Resource.GetString($"{item}")
+            Text = item.GetString()
         };
     }
 }

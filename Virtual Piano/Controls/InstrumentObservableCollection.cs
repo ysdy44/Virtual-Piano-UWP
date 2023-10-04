@@ -1,4 +1,5 @@
 ﻿using Virtual_Piano.Midi;
+using Virtual_Piano.Strings;
 
 namespace Virtual_Piano.Controls
 {
@@ -6,7 +7,7 @@ namespace Virtual_Piano.Controls
     {
         public override string GetString(MidiProgram program)
         {
-            return $"{(int)program} {App.Resource.GetString($"{program}")}";
+            return $"{(int)program} {program.GetString()}";
         }
     }
 }
