@@ -26,8 +26,8 @@ namespace Virtual_Piano
         FlowDirection Direction => CultureInfoCollection.FlowDirection;
 
         //@Converter
-        public string ObjectToStringConverter(object value) => $"{value}";
-        private string DoubleToStringConverter(double value) => $"{System.Math.Clamp((int)value, 0, 127)}";
+        private string ObjectToStringConverter(object value) => $"{value}";
+        private string DoubleToStringConverter(double value) => $"{value}";
         private string ReverseDoubleToStringConverter(double value) => $"{System.Math.Clamp(127 - (int)value, 0, 127)}";
         private Visibility BooleanToVisibilityConverter(bool value) => value ? Visibility.Visible : Visibility.Collapsed;
         private Visibility ReverseBooleanToVisibilityConverter(bool value) => value ? Visibility.Collapsed : Visibility.Visible;
@@ -48,9 +48,13 @@ namespace Virtual_Piano
         // Track
         int TrackIndex = -1;
         TrackCollection TrackCollection;
+
         Tempo TrackTempo = new Tempo(120);
         TempoDuration TrackDuration = new TempoDuration(new Tempo(120));
+
         TimeSignature TrackTimeSignature = new TimeSignature(4, Beat.QuarterNote);
+        TimeSignatureTicks TrackTicks = new TimeSignatureTicks(new TimeSignature(4, 4), 480);
+
         KeySignature TrackKeySignature = new KeySignature(4, 4);
         // Player
         bool ReIsPlaying;
