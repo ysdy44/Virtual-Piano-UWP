@@ -4,11 +4,15 @@ namespace Virtual_Piano.Midi
 {
     public readonly struct TimeSignatureTicks
     {
+        public readonly int TicksPerQuarterNote; // 480
+
         public readonly int TicksPerBar; // 480
         public readonly int TicksPerBeat; // 120
 
         public TimeSignatureTicks(TimeSignature timeSignature, int ticksPerQuarterNote = 480)
         {
+            this.TicksPerQuarterNote = ticksPerQuarterNote;
+
             this.TicksPerBar = (timeSignature.Numerator * ticksPerQuarterNote * 4) / (1 << timeSignature.Denominator);
             this.TicksPerBeat = this.TicksPerBar / timeSignature.Numerator;
         }
