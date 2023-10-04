@@ -68,6 +68,9 @@ namespace Virtual_Piano.Midi.Controllers
         private int PositionUI;
         private int TimelineUI;
 
+        readonly TimeSignature TimeSignature = new TimeSignature(4, 4);
+        readonly TimeSignatureTicks Ticks = new TimeSignatureTicks(new TimeSignature(4, 4), 480);
+
         readonly TrackLayout Layout = new TrackLayout(75, 22, 22, 150);
         readonly Windows.UI.Composition.CompositionPropertySet ScrollProperties;
 
@@ -81,7 +84,7 @@ namespace Virtual_Piano.Midi.Controllers
             var ex = this.ScrollProperties.SnapScrollerX();
             var ey = this.ScrollProperties.SnapScrollerY();
             var ey3 = this.ScrollProperties.SnapScrollerY(1 - this.Layout.Timerline1);
-            var sx = this.ScrollProperties.SnapScrollerX(TrackLayout.Step, this.Layout.Pane);
+            var sx = this.ScrollProperties.SnapScrollerX(this.Ticks.TicksPerBar / TrackLayout.Scaling, this.Layout.Pane);
 
             this.TimelinePoint.GetVisual().StartY(ey);
             this.TimelineLine.GetVisual().StartY(ey3);
@@ -135,10 +138,10 @@ namespace Virtual_Piano.Midi.Controllers
             }
 
             // BodyLineCanvas
-            this.BodyLineCanvas.Width = 16 * TrackLayout.Step;
+            this.BodyLineCanvas.Width = 16 * this.Ticks.TicksPerBar / TrackLayout.Scaling;
             for (int i = 0; i < 16; i++)
             {
-                double x = i * TrackLayout.Step;
+                double x = i * this.Ticks.TicksPerBar / TrackLayout.Scaling;
                 this.BodyLineCanvas.Children.Add(new Line
                 {
                     StrokeThickness = 2,
@@ -148,9 +151,9 @@ namespace Virtual_Piano.Midi.Controllers
                     //Y2 = ?
                 });
 
-                for (int j = 1; j < TrackLayout.StepCount; j++)
+                for (int j = 1; j < this.TimeSignature.Numerator; j++)
                 {
-                    double x2 = x + j * TrackLayout.StepSpacing;
+                    double x2 = x + j * this.Ticks.TicksPerBeat / TrackLayout.Scaling;
                     this.BodyLineCanvas.Children.Add(new Line
                     {
                         StrokeThickness = 1,
@@ -163,10 +166,10 @@ namespace Virtual_Piano.Midi.Controllers
             }
 
             // TimelinePointCanvas
-            this.TimelinePointCanvas.Width = 16 * TrackLayout.Step;
+            this.TimelinePointCanvas.Width = 16 * this.Ticks.TicksPerBar / TrackLayout.Scaling;
             for (int i = 0; i < 16; i++)
             {
-                double x = i * TrackLayout.Step;
+                double x = i * this.Ticks.TicksPerBar / TrackLayout.Scaling;
                 this.TimelinePointCanvas.Children.Add(new Line
                 {
                     Y1 = 0,
@@ -175,10 +178,10 @@ namespace Virtual_Piano.Midi.Controllers
                     Y2 = this.Layout.Head
                 });
 
-                for (int j = 0; j < TrackLayout.StepCount; j++)
+                for (int j = 0; j < this.TimeSignature.Numerator; j++)
                 {
-                    double x2 = x + j * TrackLayout.StepSpacing;
-                    this.TimelinePointCanvas.Children.Add(new Line
+                    double x2 = x + j * this.Ticks.TicksPerBeat / TrackLayout.Scaling;
+                    if (j != 0) this.TimelinePointCanvas.Children.Add(new Line
                     {
                         X1 = x2,
                         Y1 = this.Layout.Head - 9,
@@ -186,9 +189,9 @@ namespace Virtual_Piano.Midi.Controllers
                         Y2 = this.Layout.Head
                     });
 
-                    for (int k = 0; k < TrackLayout.StepCount; k++)
+                    for (int k = 1; k < this.TimeSignature.Denominator; k++)
                     {
-                        double x3 = x2 + k * TrackLayout.StepSpacing2;
+                        double x3 = x2 + k * this.Ticks.TicksPerBeat / this.TimeSignature.Denominator / TrackLayout.Scaling;
                         this.TimelinePointCanvas.Children.Add(new Line
                         {
                             X1 = x3,
@@ -201,16 +204,18 @@ namespace Virtual_Piano.Midi.Controllers
             }
 
             // TimelineTextCanvas
+            this.TimelineTextCanvas.Width = 16 * this.Ticks.TicksPerBar / TrackLayout.Scaling;
             for (int i = 0; i < 16; i++)
             {
+                double x = i * this.Ticks.TicksPerBar / TrackLayout.Scaling;
                 TextBlock item = new TextBlock
                 {
                     Text = $"{i}"
                 };
-                Canvas.SetLeft(item, i * TrackLayout.Step);
+                Canvas.SetLeft(item, x);
                 this.TimelineTextCanvas.Children.Add(item);
             }
-            this.TimelineTextCanvas.Width = 16 * TrackLayout.Step;
+
 
             base.SizeChanged += (s, e) =>
             {
@@ -297,7 +302,7 @@ namespace Virtual_Piano.Midi.Controllers
             {
                 this.HorizontalOffset = (int)e.FinalView.HorizontalOffset;
                 this.VerticalOffset = (int)e.FinalView.VerticalOffset;
-                this.Index = this.HorizontalOffset / TrackLayout.Step;
+                this.Index = this.HorizontalOffset * TrackLayout.Scaling / this.Ticks.TicksPerBar;
             };
         }
 
