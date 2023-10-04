@@ -6,7 +6,7 @@ using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Midi.Core
 {
-    public interface ITrackPanelBase
+    public interface ITrack
     {
         //@Delegate
         event DragStartedEventHandler DragStarted;
@@ -40,13 +40,13 @@ namespace Virtual_Piano.Midi.Core
         void ChangePositionUI(int positionUI);
     }
 
-    public interface ITrackPanel : ITrackPanelBase
+    public interface ITrackPanel : ITrack
     {
         //@Delegate
         event EventHandler<int> ItemClick;
     }
 
-    public interface ITrackNotePanel : ITrackPanelBase
+    public interface ITrackNotePanel : ITrack
     {
         //@Delegate
         event ItemClickEventHandler FootItemClick;

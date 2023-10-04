@@ -9,9 +9,6 @@ namespace Virtual_Piano.Midi.Controllers
 {
     public abstract partial class XYPad : Canvas, INotifyPropertyChanged
     {
-        //@Command
-        public ICommand Command { get; set; }
-
         double PositionX;
         double PositionY;
 
