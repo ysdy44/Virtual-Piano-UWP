@@ -21,7 +21,8 @@
         VerticalScrollBarVisibility="Visible"
         IsVerticalScrollChainingEnabled="True"
          >
-        <Canvas x:Name="Canvas" HorizontalAlignment="Left" VerticalAlignment="Top" Width="{x:Bind Layout.ExtentHeightHead}" Height="{x:Bind Layout.ExtentHeightHeadFoot}">
+        <!--@Debug: Set its width by Code, not by XAML-->
+        <Canvas x:Name="Canvas" HorizontalAlignment="Left" VerticalAlignment="Top" Height="{x:Bind Layout.ExtentHeightHeadFoot}">
 
             <!--Body-->
             <Canvas x:Name="BodyBackgroundCanvas" IsHitTestVisible="False" Height="{x:Bind Layout.ExtentHeight}">
@@ -40,7 +41,8 @@
                 <!--Children-->
             </Canvas>
 
-            <ItemsControl x:Name="BodyItemsControl" Canvas.Left="{x:Bind Layout.Pane}" Canvas.Top="{x:Bind Layout.Head}" Width="{x:Bind Layout.ExtentHeight}" Height="{x:Bind Layout.ExtentHeight}">
+            <!--@Debug: Set its width by Code, not by XAML-->
+            <ItemsControl x:Name="BodyItemsControl" Canvas.Left="{x:Bind Layout.Pane}" Canvas.Top="{x:Bind Layout.Head}" Height="{x:Bind Layout.ExtentHeight}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Canvas/>
@@ -78,7 +80,8 @@
             </ItemsControl>
 
             <!--Controller-->
-            <Border x:Name="ControllerBorder" Width="{x:Bind Layout.ExtentHeight}" Height="{x:Bind Layout.FootPlus}" BorderThickness="0,1,0,0" BorderBrush="Black" Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
+            <!--@Debug: Set its width by Code, not by XAML-->
+            <Border x:Name="ControllerBorder" Height="{x:Bind Layout.FootPlus}" BorderThickness="0,1,0,0" BorderBrush="Black" Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
                 <Canvas Height="127">
                     <FrameworkElement.Resources>
                         <!--Style-->
@@ -111,7 +114,8 @@
                         <!--Points-->
                     </Polyline>
 
-                    <ItemsControl x:Name="ControllerItemsControl" Width="{x:Bind Layout.ExtentHeight}" Height="127">
+                    <!--@Debug: Set its width by Code, not by XAML-->
+                    <ItemsControl x:Name="ControllerItemsControl" Height="127">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <Canvas/>
@@ -223,7 +227,8 @@
             <!--Separator-->
 
             <!--Head-->
-            <ItemsControl x:Name="HeadItemsControl" Width="{x:Bind Layout.ExtentHeight}" Height="{x:Bind Layout.Timerline2}">
+            <!--@Debug: Set its width by Code, not by XAML-->
+            <ItemsControl x:Name="HeadItemsControl" Height="{x:Bind Layout.Timerline2}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Canvas Background="Transparent"/>

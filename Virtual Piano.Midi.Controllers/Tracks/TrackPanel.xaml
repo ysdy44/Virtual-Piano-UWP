@@ -21,7 +21,8 @@
         VerticalScrollBarVisibility="Visible"
         IsVerticalScrollChainingEnabled="True"
          >
-        <Canvas x:Name="Canvas" HorizontalAlignment="Left" VerticalAlignment="Top" Width="{x:Bind Layout.ExtentHeightHead}" Height="{x:Bind Layout.ExtentHeightHeadFoot}">
+        <!--@Debug: Set its width by Code, not by XAML-->
+        <Canvas x:Name="Canvas" HorizontalAlignment="Left" VerticalAlignment="Top" Height="{x:Bind Layout.ExtentHeightHeadFoot}">
 
             <!--Body-->
             <Canvas x:Name="BodyBackgroundCanvas" IsHitTestVisible="False" Height="{x:Bind Layout.ExtentHeight}">
@@ -36,7 +37,8 @@
                 <!--Children-->
             </Canvas>
 
-            <ItemsControl x:Name="BodyItemsControl" Canvas.Left="{x:Bind Layout.Pane}" Canvas.Top="{x:Bind Layout.Head}" Width="{x:Bind Layout.ExtentHeight}" Height="{x:Bind Layout.ExtentHeight}">
+            <!--@Debug: Set its width by Code, not by XAML-->
+            <ItemsControl x:Name="BodyItemsControl" Canvas.Left="{x:Bind Layout.Pane}" Canvas.Top="{x:Bind Layout.Head}" Height="{x:Bind Layout.ExtentHeight}">
 
                 <FrameworkElement.Resources>
                     <!--Style-->
