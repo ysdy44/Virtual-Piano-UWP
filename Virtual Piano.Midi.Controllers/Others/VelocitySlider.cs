@@ -6,11 +6,12 @@ using Windows.UI.Xaml.Controls;
 
 namespace Virtual_Piano.Midi.Controllers
 {
-    public sealed class VelocitySlider : Slider, ICommand
+    public sealed class VelocitySlider : Slider, ICommand, IControlChange
     {
         //@Command
         public ICommand Command { get; set; }
         public MidiControlController Controller { get; set; }
+        public int Channel { get; set; }
 
         public VelocitySlider()
         {
@@ -20,6 +21,7 @@ namespace Virtual_Piano.Midi.Controllers
                 this.Command?.Execute(new MidiMessage
                 {
                     Type = MidiMessageType.ControlChange,
+                    Channel = (byte)this.Channel,
                     Controller = this.Controller,
                     ControllerValue = (byte)value
                 }); // Command
@@ -42,6 +44,7 @@ namespace Virtual_Piano.Midi.Controllers
                     this.Command?.Execute(new MidiMessage
                     {
                         Type = MidiMessageType.ControlChange,
+                        Channel = (byte)this.Channel,
                         Controller = this.Controller,
                         ControllerValue = 0
                     }); // Command
@@ -54,6 +57,7 @@ namespace Virtual_Piano.Midi.Controllers
                     this.Command?.Execute(new MidiMessage
                     {
                         Type = MidiMessageType.ControlChange,
+                        Channel = (byte)this.Channel,
                         Controller = this.Controller,
                         ControllerValue = (byte)value
                     }); // Command

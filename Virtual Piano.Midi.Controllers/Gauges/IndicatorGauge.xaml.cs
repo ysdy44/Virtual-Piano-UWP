@@ -7,11 +7,12 @@ using Windows.UI.Xaml.Shapes;
 
 namespace Virtual_Piano.Midi.Controllers
 {
-    public sealed partial class IndicatorGauge : UserControl
+    public sealed partial class IndicatorGauge : UserControl, IControlChange
     {
         //@Command
         public ICommand Command { get; set; }
         public MidiControlController Controller { get; set; }
+        public int Channel { get; set; }
 
         //@Const
         const int S1 = 22;
@@ -103,6 +104,7 @@ namespace Virtual_Piano.Midi.Controllers
             this.Command?.Execute(new MidiMessage
             {
                 Type = MidiMessageType.ControlChange,
+                Channel = (byte)this.Channel,
                 Controller = this.Controller,
                 ControllerValue = (byte)value
             }); // Command

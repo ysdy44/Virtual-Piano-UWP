@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Windows.Input;
+using Virtual_Piano.Midi.Core;
 using Windows.Devices.Midi;
 using Windows.UI.Xaml;
 
 namespace Virtual_Piano.Midi.Controllers
 {
-    public sealed class BendPitchWheel : BendWheel
+    public sealed class BendPitchWheel : BendWheel, IControl
     {
         //@Command
         public ICommand Command { get; set; }
+        public int Channel { get; set; }
 
         readonly DispatcherTimer Timer = new DispatcherTimer
         {
@@ -165,6 +167,7 @@ namespace Virtual_Piano.Midi.Controllers
             this.Command?.Execute(new MidiMessage
             {
                 Type = MidiMessageType.PitchBendChange,
+                Channel = (byte)this.Channel,
                 Bend = (ushort)(value * 128)
             }); // Command
         }

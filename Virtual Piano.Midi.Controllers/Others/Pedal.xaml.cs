@@ -4,11 +4,12 @@ using Windows.Devices.Midi;
 
 namespace Virtual_Piano.Midi.Controllers
 {
-    public sealed partial class Pedal : ContactButton
+    public sealed partial class Pedal : ContactButton, IControlChange
     {
         //@Command
         public ICommand Command { get; set; }
         public MidiControlController Controller { get; set; }
+        public int Channel { get; set; }
 
         public Pedal()
         {
@@ -20,6 +21,7 @@ namespace Virtual_Piano.Midi.Controllers
             this.Command?.Execute(new MidiMessage
             {
                 Type = MidiMessageType.ControlChange,
+                Channel = (byte)this.Channel,
                 Controller = this.Controller,
                 ControllerValue = Radial.Velocity
             }); // Command
@@ -30,6 +32,7 @@ namespace Virtual_Piano.Midi.Controllers
             this.Command?.Execute(new MidiMessage
             {
                 Type = MidiMessageType.ControlChange,
+                Channel = (byte)this.Channel,
                 Controller = this.Controller,
                 ControllerValue = 0
             }); // Command

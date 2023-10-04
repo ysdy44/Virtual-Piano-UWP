@@ -4,10 +4,11 @@ using Windows.Devices.Midi;
 
 namespace Virtual_Piano.Midi.Controllers
 {
-    public sealed class BendPressureWheel : BendWheel
+    public sealed class BendPressureWheel : BendWheel, IControl
     {
         //@Command
         public ICommand Command { get; set; }
+        public int Channel { get; set; }
 
         public BendPressureWheel() : base(Radial.Velocity) { }
 
@@ -19,7 +20,7 @@ namespace Virtual_Piano.Midi.Controllers
             this.Command?.Execute(new MidiMessage
             {
                 Type = MidiMessageType.ChannelPressure,
-                Channel = 0,
+                Channel = (byte)this.Channel,
                 Pressure = (byte)value
             }); // Command
         }

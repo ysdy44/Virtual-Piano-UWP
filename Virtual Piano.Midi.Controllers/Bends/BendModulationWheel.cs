@@ -1,13 +1,15 @@
 ﻿using System.Windows.Input;
+using Virtual_Piano.Midi.Core;
 using Windows.Devices.Midi;
 
 namespace Virtual_Piano.Midi.Controllers
 {
-    public sealed class BendModulationWheel : BendWheel
+    public sealed class BendModulationWheel : BendWheel, IControlChange
     {
         //@Command
         public ICommand Command { get; set; }
         public MidiControlController Controller { get; set; } = MidiControlController.Modulation;
+        public int Channel { get; set; }
 
         public BendModulationWheel() : base(0) { }
 
@@ -18,6 +20,7 @@ namespace Virtual_Piano.Midi.Controllers
             this.Command?.Execute(new MidiMessage
             {
                 Type = MidiMessageType.ControlChange,
+                Channel = (byte)this.Channel,
                 Controller = this.Controller,
                 ControllerValue = (byte)value
             }); // Command
