@@ -102,11 +102,15 @@ namespace Virtual_Piano
             this.TempoSlider.Value = tempo.Bpm;
         }
 
-        public void UpdateTrackTimeSignature(TimeSignature timeSignature)
+        public void UpdateTrackTimeSignature(TimeSignature timeSignature, TimeSignatureTicks TrackTicks)
         {
             this.TimeSignaturesPanel.Update(timeSignature);
+
             this.NumeratorComboBox.SelectedItem = timeSignature.Numerator;
             this.DenominatorComboBox.SelectedItem = timeSignature.Denominator;
+
+            this.TrackPanel.Init(this.TrackTimeSignature, this.TrackTicks);
+            this.TrackNotePanel.Init(this.TrackTimeSignature, this.TrackTicks);
         }
 
         private void Stop()

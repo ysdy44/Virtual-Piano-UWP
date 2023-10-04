@@ -373,14 +373,34 @@ namespace Virtual_Piano
             this.NumeratorComboBox.SelectionChanged += (s, e) =>
             {
                 if (this.TimeSignatureFlyout.IsOpen is false) return;
-                this.TrackTimeSignature = new TimeSignature((int)this.NumeratorComboBox.SelectedItem, this.TrackTimeSignature.Denominator);
-                this.TimeSignaturesPanel.Update(this.TrackTimeSignature);
+                TimeSignature timeSignature = new TimeSignature((int)this.NumeratorComboBox.SelectedItem, this.TrackTimeSignature.Denominator);
+                this.TimeSignaturesPanel.Update(timeSignature);
             };
             this.DenominatorComboBox.SelectionChanged += (s, e) =>
             {
                 if (this.TimeSignatureFlyout.IsOpen is false) return;
-                this.TrackTimeSignature = new TimeSignature(this.TrackTimeSignature.Numerator, (int)this.DenominatorComboBox.SelectedItem);
-                this.TimeSignaturesPanel.UpdateDenominator(this.TrackTimeSignature);
+                TimeSignature timeSignature = new TimeSignature(this.TrackTimeSignature.Numerator, (int)this.DenominatorComboBox.SelectedItem);
+                this.TimeSignaturesPanel.UpdateDenominator(timeSignature);
+            };
+            this.TimeSignatureButton.Click += (s, e) =>
+            {
+                TimeSignature timeSignature = new TimeSignature((int)this.NumeratorComboBox.SelectedItem, (int)this.DenominatorComboBox.SelectedItem);
+
+                this.TrackTicks = new TimeSignatureTicks(this.TrackTicks, this.TrackTimeSignature, timeSignature);
+                this.TrackTimeSignature = timeSignature;
+
+                this.TrackPanel.Init(this.TrackTimeSignature, this.TrackTicks);
+                this.TrackNotePanel.Init(this.TrackTimeSignature, this.TrackTicks);
+            };
+
+            this.TimeSignatureFlyout.Closed += (s, e) =>
+            {
+                this.NumeratorComboBox.SelectedItem = this.TrackTimeSignature.Numerator;
+                this.DenominatorComboBox.SelectedItem = this.TrackTimeSignature.Denominator;
+            };
+            this.TimeSignatureFlyout.Opened += (s, e) =>
+            {
+                this.TimeSignaturesPanel.Update(this.TrackTimeSignature);
             };
             this.TimeSignaturesPanel.SizeChanged += (s, e) =>
             {

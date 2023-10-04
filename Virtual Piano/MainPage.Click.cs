@@ -149,10 +149,12 @@ namespace Virtual_Piano
                         this.TrackDuration = new TempoDuration(this.TrackTempo, (int)tracks.Duration);
 
                         this.TrackTimeSignature = new TimeSignature(tracks.Numerator, tracks.Denominator);
+                        this.TrackTicks = new TimeSignatureTicks(this.TrackTimeSignature, tracks.DeltaTicksPerQuarterNote);
+
                         this.TrackKeySignature = new KeySignature(tracks.SharpsFlats, tracks.MajorMinor);
 
                         this.UpdateTrackTempo(this.TrackTempo);
-                        this.UpdateTrackTimeSignature(this.TrackTimeSignature);
+                        this.UpdateTrackTimeSignature(this.TrackTimeSignature, this.TrackTicks);
                     }
                     break;
                 case OptionType.Save:
