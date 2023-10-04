@@ -29,6 +29,11 @@ namespace Virtual_Piano.Midi.Core
         // Timeline
         int Position { get; }
 
+        TimeSignature TimeSignature { get; }
+        TimeSignatureTicks Ticks { get; }
+
+        void Init(TimeSignature timeSignature, TimeSignatureTicks ticks);
+
         void ChangeDuration(long duration);
         void ChangePosition(int position, bool scrollNext, bool scrollPrevious);
         void Stop();

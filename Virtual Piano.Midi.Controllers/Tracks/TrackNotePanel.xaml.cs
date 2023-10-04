@@ -68,8 +68,8 @@ namespace Virtual_Piano.Midi.Controllers
         private int PositionUI;
         private int TimelineUI;
 
-        readonly TimeSignature TimeSignature = new TimeSignature(4, 4);
-        readonly TimeSignatureTicks Ticks = new TimeSignatureTicks(new TimeSignature(4, 4), 480);
+        public TimeSignature TimeSignature { get; private set; } = new TimeSignature(4, 4);
+        public TimeSignatureTicks Ticks { get; private set; } = new TimeSignatureTicks(new TimeSignature(4, 4), 480);
 
         readonly TrackLayout Layout = new TrackLayout(75, 22, 22, 150);
         readonly Windows.UI.Composition.CompositionPropertySet ScrollProperties;
@@ -114,7 +114,7 @@ namespace Virtual_Piano.Midi.Controllers
                     Y1 = 0,
                     X1 = x,
                     X2 = x,
-                    //Y2 = ?
+                    //Y2 = h
                 });
 
                 for (int j = 1; j < this.TimeSignature.Numerator; j++)
@@ -126,7 +126,7 @@ namespace Virtual_Piano.Midi.Controllers
                         Y1 = 0,
                         X1 = x2,
                         X2 = x2,
-                        //Y2 = ?
+                        //Y2 = h
                     });
                 }
             }
@@ -306,6 +306,117 @@ namespace Virtual_Piano.Midi.Controllers
                 this.VerticalOffset = (int)e.FinalView.VerticalOffset;
                 this.Index = this.HorizontalOffset * TrackLayout.Scaling / this.Ticks.TicksPerBar;
             };
+        }
+
+        public void Init(TimeSignature timeSignature, TimeSignatureTicks ticks)
+        {
+            this.TimeSignature = timeSignature;
+            this.Ticks = ticks;
+            this.Index = this.HorizontalOffset * TrackLayout.Scaling / this.Ticks.TicksPerBar;
+
+
+            // Composition
+            var ey = this.ScrollProperties.SnapScrollerY();
+            var sx = this.ScrollProperties.SnapScrollerX(this.Ticks.TicksPerBar, this.Layout.Pane);
+
+            var bl = this.BodyLineCanvas.GetVisual();
+            bl.StopX();
+            bl.StopY();
+            bl.StartXY(sx, ey);
+
+            var tt = this.TimelineTextCanvas.GetVisual();
+            tt.StopX();
+            tt.StopY();
+            tt.StartXY(sx, ey);
+
+            var tp = this.TimelinePointCanvas.GetVisual();
+            tp.StopX();
+            tp.StopY();
+            tp.StartXY(sx, ey);
+
+
+            // BodyLineCanvas
+            int h = (int)base.ActualHeight;
+            this.BodyLineCanvas.Children.Clear();
+            this.BodyLineCanvas.Width = 16 * this.Ticks.TicksPerBar / TrackLayout.Scaling;
+            for (int i = 0; i < 16; i++)
+            {
+                double x = i * this.Ticks.TicksPerBar / TrackLayout.Scaling;
+                this.BodyLineCanvas.Children.Add(new Line
+                {
+                    StrokeThickness = 2,
+                    Y1 = 0,
+                    X1 = x,
+                    X2 = x,
+                    Y2 = h,
+                });
+
+                for (int j = 1; j < this.TimeSignature.Numerator; j++)
+                {
+                    double x2 = x + j * this.Ticks.TicksPerBeat / TrackLayout.Scaling;
+                    this.BodyLineCanvas.Children.Add(new Line
+                    {
+                        StrokeThickness = 1,
+                        Y1 = 0,
+                        X1 = x2,
+                        X2 = x2,
+                        Y2 = h,
+                    });
+                }
+            }
+
+            // TimelinePointCanvas
+            this.TimelinePointCanvas.Children.Clear();
+            this.TimelinePointCanvas.Width = 16 * this.Ticks.TicksPerBar / TrackLayout.Scaling;
+            for (int i = 0; i < 16; i++)
+            {
+                double x = i * this.Ticks.TicksPerBar / TrackLayout.Scaling;
+                this.TimelinePointCanvas.Children.Add(new Line
+                {
+                    Y1 = 0,
+                    X1 = x,
+                    X2 = x,
+                    Y2 = this.Layout.Head
+                });
+
+                for (int j = 0; j < this.TimeSignature.Numerator; j++)
+                {
+                    double x2 = x + j * this.Ticks.TicksPerBeat / TrackLayout.Scaling;
+                    if (j != 0) this.TimelinePointCanvas.Children.Add(new Line
+                    {
+                        X1 = x2,
+                        Y1 = this.Layout.Head - 9,
+                        X2 = x2,
+                        Y2 = this.Layout.Head
+                    });
+
+                    for (int k = 1; k < this.TimeSignature.Denominator; k++)
+                    {
+                        double x3 = x2 + k * this.Ticks.TicksPerBeat / this.TimeSignature.Denominator / TrackLayout.Scaling;
+                        this.TimelinePointCanvas.Children.Add(new Line
+                        {
+                            X1 = x3,
+                            Y1 = this.Layout.Head - 5,
+                            X2 = x3,
+                            Y2 = this.Layout.Head
+                        });
+                    }
+                }
+            }
+
+            // TimelineTextCanvas
+            this.TimelineTextCanvas.Children.Clear();
+            this.TimelineTextCanvas.Width = 16 * this.Ticks.TicksPerBar / TrackLayout.Scaling;
+            for (int i = 0; i < 16; i++)
+            {
+                double x = i * this.Ticks.TicksPerBar / TrackLayout.Scaling;
+                TextBlock item = new TextBlock
+                {
+                    Text = $"{i}"
+                };
+                Canvas.SetLeft(item, x);
+                this.TimelineTextCanvas.Children.Add(item);
+            }
         }
 
         public void ChangeDuration(long duration)
