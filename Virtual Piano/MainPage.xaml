@@ -116,7 +116,7 @@
             <RowDefinition Height="2"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <!--Title
         <TextBlock Grid.Row="1" IsHitTestVisible="False" Margin="30,6" Foreground="White" FontSize="80" FontFamily="Kunstler Script" HorizontalAlignment="Right" VerticalAlignment="Top">
             Virtual Piano
@@ -168,10 +168,10 @@
                         <Setter Property="Padding" Value="2" />
                     </Style>
                 </FrameworkElement.Resources>
-                <StackPanel Padding="12,0" Orientation="Horizontal" Spacing="8" Height="36" Background="Black"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Padding="12,0" Orientation="Horizontal" Height="36" Background="Black"  HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                    <StackPanel Margin="2,0" Orientation="Horizontal">
-                        <Button CommandParameter="{strings:OptionType Type=Pause}" Command="{x:Bind Command}">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Width="32" Padding="0" CommandParameter="{strings:OptionType Type=Pause}" Command="{x:Bind Command}">
                             <ToolTipService.ToolTip>
                                 <ToolTip>
                                     Pause
@@ -179,7 +179,7 @@
                             </ToolTipService.ToolTip>
                             <SymbolIcon Symbol="Pause"/>
                         </Button>
-                        <Button CommandParameter="{strings:OptionType Type=Play}" Command="{x:Bind Command}">
+                        <Button Width="32" Padding="0" CommandParameter="{strings:OptionType Type=Play}" Command="{x:Bind Command}">
                             <ToolTipService.ToolTip>
                                 <ToolTip>
                                     Play
@@ -187,7 +187,7 @@
                             </ToolTipService.ToolTip>
                             <SymbolIcon Symbol="Play"/>
                         </Button>
-                        <Button CommandParameter="{strings:OptionType Type=Stop}" Command="{x:Bind Command}">
+                        <Button Width="32" Padding="0" CommandParameter="{strings:OptionType Type=Stop}" Command="{x:Bind Command}">
                             <ToolTipService.ToolTip>
                                 <ToolTip>
                                     Stop
@@ -195,15 +195,14 @@
                             </ToolTipService.ToolTip>
                             <SymbolIcon Symbol="Stop"/>
                         </Button>
-                    </StackPanel>
 
-                    <Line Y1="10" Y2="28" StrokeThickness="1" Stroke="{ThemeResource SystemColorControlAccentBrush}"/>
+                        <Line Margin="8,0" Y1="10" Y2="28" StrokeThickness="1" Stroke="{ThemeResource SystemColorControlAccentBrush}"/>
 
-                    <StackPanel Margin="12,0" Orientation="Horizontal" Spacing="16">
+                        <Button Width="120">
+                            <elements:DSTimer x:Name="DSTimer" Time="00:00:00.000"/>
+                        </Button>
 
-                        <elements:DSTimer x:Name="DSTimer" Time="00:00:00.000"/>
-
-                        <Button Width="60">
+                        <Button Width="74">
                             <Button.Flyout>
                                 <Flyout x:Name="TempoFlyout" Placement="Bottom" Windows10version1903:ShouldConstrainToRootBounds="False">
                                     <Grid Width="400" RowSpacing="10">
@@ -276,7 +275,7 @@
                             </TextBlock>
                         </Button>
 
-                        <Button>
+                        <Button Width="74">
                             <Button.Flyout>
                                 <Flyout x:Name="TimeSignatureFlyout" Placement="Bottom" Windows10version1903:ShouldConstrainToRootBounds="False">
                                     <Grid Width="400" RowSpacing="10">
@@ -303,7 +302,7 @@
                                             >                                
                                              Time Signature
                                         </TextBlock>
-                                        
+
                                         <TextBlock 
                                             Grid.Column="1" 
                                             IsTextSelectionEnabled="True"
@@ -323,7 +322,7 @@
 
                                         <controllers:TimeSignaturesPanel x:Name="TimeSignaturesPanel" Grid.ColumnSpan="2" Grid.Row="1" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
 
-
+                                        
                                         <TextBlock Grid.Row="2" FontWeight="Medium" VerticalAlignment="Center">
                                             Numerator
                                         </TextBlock>
@@ -342,7 +341,7 @@
                                         <Button x:Name="TimeSignatureButton" Grid.Column="1" Grid.Row="4" CornerRadius="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource AccentButtonStyle}">
                                             OK
                                         </Button>
-
+                                        
                                     </Grid>
                                 </Flyout>
                             </Button.Flyout>
@@ -470,7 +469,7 @@
                             </MenuFlyoutItem.Icon>
                             <!--DoReMi-->
                         </ToggleMenuFlyoutItem>
-                        
+
                         <!--Chord-->
                         <MenuFlyoutItem 
                             Text="{strings:UI Type=TryShowChordView}"
@@ -723,7 +722,7 @@
                         <RowDefinition Height="56"/>
                     </Grid.RowDefinitions>
 
-                    <!--Body-->                    
+                    <!--Body-->
                     <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="82"/>
@@ -746,7 +745,7 @@
 
                         <!--Foot-->
                         <Grid Background="{ThemeResource AppForeground}">
-                       
+
                             <Button 
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
@@ -759,7 +758,7 @@
                                     <TextBlock FontSize="14" HorizontalAlignment="Center" Text="{x:Bind Favorites.String, Mode=OneWay}"/>
                                 </StackPanel>
                             </Button>
-                       
+
                             <elements:CommandCheckedButton
                                 Width="44" 
                                 Height="44" 
@@ -886,7 +885,7 @@
                             </StackPanel>
                         </ListViewItem>
                     </ListView>
-                    
+
                 </Grid>
             </SplitView.Pane>
 
@@ -899,9 +898,9 @@
                         <instruments:PianoLeftPanel x:Name="PianoLeftPanel" Command="{x:Bind Command}"/>
                     </controllers:TrackNotePanel>
                 </Grid>
-                
+
                 <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}">
-            
+
                     <!--Piano-->
                     <Grid FlowDirection="LeftToRight" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}">
                         <Grid.ColumnDefinitions>
@@ -909,7 +908,7 @@
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-            
+
                         <!--Right-->
                         <Border 
                             Grid.Column="2"
@@ -954,7 +953,7 @@
                                 </controllers:Pedal>
                             </StackPanel>
                         </Border>
-            
+
                         <!--Center-->
                         <Grid Margin="2,0" Grid.Column="1" RowSpacing="2">
                             <Grid.RowDefinitions>
@@ -987,7 +986,7 @@
                                     />
                             </ScrollViewer>
                         </Grid>
-            
+
                         <!--Left-->
                         <Border 
                             Margin="4"
@@ -1038,7 +1037,7 @@
                             </StackPanel>
                         </Border>
                     </Grid>
-            
+
                     <!--Chord-->
                     <Grid 
                         ColumnSpacing="3" 
@@ -1074,7 +1073,7 @@
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-            
+
                         <controls:CarouselCCm ChordPanel="{x:Bind ChordPanel1}" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
                         <controls:CarouselDmD ChordPanel="{x:Bind ChordPanel2}" Grid.Column="1" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
                         <controls:CarouselEmE ChordPanel="{x:Bind ChordPanel3}" Grid.Column="2" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
@@ -1082,7 +1081,7 @@
                         <controls:CarouselGGm ChordPanel="{x:Bind ChordPanel5}" Grid.Column="4" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
                         <controls:CarouselAmA ChordPanel="{x:Bind ChordPanel6}" Grid.Column="5" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
                         <controls:CarouselBdimBBm ChordPanel="{x:Bind ChordPanel7}" Grid.Column="6" Height="200" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
-            
+
                         <Border Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
                             <instruments:ChordPanel x:Name="ChordPanel1" Chord="C" Command="{x:Bind Command}"/>
                         </Border>
@@ -1105,7 +1104,7 @@
                             <instruments:ChordPanel x:Name="ChordPanel7" Chord="Bdim" Command="{x:Bind Command}"/>
                         </Border>
                     </Grid>
-            
+
                     <!--Guitar-->
                     <Grid FlowDirection="LeftToRight" MinHeight="240" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}">
                         <Grid.ColumnDefinitions>
@@ -1131,7 +1130,7 @@
                             <instruments:GuitarPanel Command="{x:Bind Command}"/>
                         </ScrollViewer>
                     </Grid>
-            
+
                     <!--Bass-->
                     <Grid FlowDirection="LeftToRight" MinHeight="240" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
                         <Grid.ColumnDefinitions>
@@ -1157,7 +1156,7 @@
                             <instruments:BaseGuitarPanel Command="{x:Bind Command}"/>
                         </ScrollViewer>
                     </Grid>
-            
+
                     <!--Harp-->
                     <ScrollViewer
                         FlowDirection="LeftToRight" 
@@ -1177,7 +1176,7 @@
                         >
                         <instruments:HarpPanel MinHeight="220" Command="{x:Bind Command}"/>
                     </ScrollViewer>
-            
+
                     <!--Kit-->
                     <Border
                         FlowDirection="LeftToRight" 
@@ -1192,7 +1191,7 @@
                             <controls:KitPanel x:Name="KitPanel" Command="{x:Bind Command}"/>
                         </Viewbox>
                     </Border>
-            
+
                     <!--Pad-->
                     <controls:PadPanel 
                         x:Name="PadPanel"
@@ -1202,7 +1201,7 @@
                         Command="{x:Bind Command}"
                         Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem6.IsSelected), Mode=OneWay}"
                         />
-            
+
                     <!--Drum-->
                     <ScrollViewer 
                         x:Name="DrumScrollViewer" 
@@ -1454,7 +1453,7 @@
                 </elements:PathToggleButton>
                 <SymbolIcon IsHitTestVisible="False" Canvas.Left="56" Canvas.Top="33" Width="24" Height="24" Symbol="{x:Bind MuteSymbolConverter(MuteButton.IsChecked), Mode=OneWay}"/>
 
-                
+
             </elements:AnimationRouletter>
 
             <!--MarbleButton-->
@@ -1462,5 +1461,5 @@
 
         </Canvas>
 
-    </Grid>    
+    </Grid>
 </Page>
