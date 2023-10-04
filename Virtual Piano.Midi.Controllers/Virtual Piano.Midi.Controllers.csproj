@@ -132,10 +132,14 @@
     <Compile Include="Gauges\TickGauge.xaml.cs">
       <DependentUpon>TickGauge.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Others\NoteXYPad.cs" />
     <Compile Include="Others\Pedal.xaml.cs">
       <DependentUpon>Pedal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Others\VelocitySlider.cs" />
+    <Compile Include="Others\XYPad.xaml.cs">
+      <DependentUpon>XYPad.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrackCollections\ControllerCollection.cs" />
     <Compile Include="TrackCollections\Track.cs" />
@@ -190,6 +194,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Others\Pedal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Others\XYPad.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

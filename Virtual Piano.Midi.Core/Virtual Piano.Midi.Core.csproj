@@ -165,6 +165,8 @@
     <Compile Include="Structs\SampleLayout.cs" />
     <Compile Include="Structs\TrackLayout.cs" />
     <Compile Include="Structs\TrackNoteLayout.cs" />
+    <Compile Include="Structs\XYPadLines.cs" />
+    <Compile Include="Structs\XYPadPoint.cs" />
     <Compile Include="Themes\AnimationRouletterDictionary.xaml.cs">
       <DependentUpon>AnimationRouletterDictionary.xaml</DependentUpon>
     </Compile>

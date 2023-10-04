@@ -1,0 +1,39 @@
+﻿<Canvas
+    x:Class="Virtual_Piano.Midi.Controllers.XYPad"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="400"
+    d:DesignHeight="400"
+    Background="Transparent"
+    MinWidth="100"
+    MinHeight="100"
+    >
+
+    <Thumb x:Name="Thumb" Canvas.Left="{x:Bind Point.Left, Mode=OneWay}" Canvas.Top="{x:Bind Point.Top, Mode=OneWay}" Width="{x:Bind Point.Size, Mode=OneWay}" Height="{x:Bind Point.Size, Mode=OneWay}" >
+        <Control.Template>
+            <ControlTemplate>
+                <Rectangle StrokeThickness="1" Stroke="Gray" Fill="#222222"/>
+            </ControlTemplate>
+        </Control.Template>
+    </Thumb>
+
+    <Line X1="{x:Bind LinesX.L1, Mode=OneWay}" Y1="{x:Bind Point.Top, Mode=OneWay}" X2="{x:Bind LinesX.L1, Mode=OneWay}" Y2="{x:Bind Point.Bottom, Mode=OneWay}" StrokeThickness="1" Stroke="Gray"/>
+    <Line X1="{x:Bind LinesX.L2, Mode=OneWay}" Y1="{x:Bind Point.Top, Mode=OneWay}" X2="{x:Bind LinesX.L2, Mode=OneWay}" Y2="{x:Bind Point.Bottom, Mode=OneWay}" StrokeThickness="1" Stroke="#525252"/>
+    <Line X1="{x:Bind LinesX.L3, Mode=OneWay}" Y1="{x:Bind Point.Top, Mode=OneWay}" X2="{x:Bind LinesX.L3, Mode=OneWay}" Y2="{x:Bind Point.Bottom, Mode=OneWay}" StrokeThickness="1" Stroke="Gray"/>
+    <Line X1="{x:Bind LinesX.L4, Mode=OneWay}" Y1="{x:Bind Point.Top, Mode=OneWay}" X2="{x:Bind LinesX.L4, Mode=OneWay}" Y2="{x:Bind Point.Bottom, Mode=OneWay}" StrokeThickness="1" Stroke="#525252"/>
+    <Line X1="{x:Bind LinesX.L5, Mode=OneWay}" Y1="{x:Bind Point.Top, Mode=OneWay}" X2="{x:Bind LinesX.L5, Mode=OneWay}" Y2="{x:Bind Point.Bottom, Mode=OneWay}" StrokeThickness="1" Stroke="Gray"/>
+
+    <Line X1="{x:Bind Point.Left, Mode=OneWay}" Y1="{x:Bind LinesY.L1, Mode=OneWay}" X2="{x:Bind Point.Right, Mode=OneWay}" Y2="{x:Bind LinesY.L1, Mode=OneWay}" StrokeThickness="1" Stroke="Gray"/>
+    <Line X1="{x:Bind Point.Left, Mode=OneWay}" Y1="{x:Bind LinesY.L2, Mode=OneWay}" X2="{x:Bind Point.Right, Mode=OneWay}" Y2="{x:Bind LinesY.L2, Mode=OneWay}" StrokeThickness="1" Stroke="#525252"/>
+    <Line X1="{x:Bind Point.Left, Mode=OneWay}" Y1="{x:Bind LinesY.L3, Mode=OneWay}" X2="{x:Bind Point.Right, Mode=OneWay}" Y2="{x:Bind LinesY.L3, Mode=OneWay}" StrokeThickness="1" Stroke="Gray"/>
+    <Line X1="{x:Bind Point.Left, Mode=OneWay}" Y1="{x:Bind LinesY.L4, Mode=OneWay}" X2="{x:Bind Point.Right, Mode=OneWay}" Y2="{x:Bind LinesY.L4, Mode=OneWay}" StrokeThickness="1" Stroke="#525252"/>
+    <Line X1="{x:Bind Point.Left, Mode=OneWay}" Y1="{x:Bind LinesY.L5, Mode=OneWay}" X2="{x:Bind Point.Right, Mode=OneWay}" Y2="{x:Bind LinesY.L5, Mode=OneWay}" StrokeThickness="1" Stroke="Gray"/>
+
+    <Line Visibility="{x:Bind Visible, Mode=OneWay}" X1="{x:Bind Point.LineX, Mode=OneWay}" Y1="{x:Bind Point.Top, Mode=OneWay}" X2="{x:Bind Point.LineX, Mode=OneWay}" Y2="{x:Bind Point.Bottom, Mode=OneWay}" StrokeThickness="1" Stroke="SkyBlue"/>
+    <Line Visibility="{x:Bind Visible, Mode=OneWay}" X1="{x:Bind Point.Left, Mode=OneWay}" Y1="{x:Bind Point.LineY, Mode=OneWay}" X2="{x:Bind Point.Right, Mode=OneWay}" Y2="{x:Bind Point.LineY, Mode=OneWay}" StrokeThickness="1" Stroke="SkyBlue"/>
+    <Ellipse Width="{x:Bind ThumbSize}" Height="{x:Bind ThumbSize}" Visibility="{x:Bind Visible, Mode=OneWay}" Canvas.Left="{x:Bind Point.EllipseX, Mode=OneWay}" Canvas.Top="{x:Bind Point.EllipseY, Mode=OneWay}" StrokeThickness="2" Stroke="SkyBlue"/>
+
+</Canvas>
