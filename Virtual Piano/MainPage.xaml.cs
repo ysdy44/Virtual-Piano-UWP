@@ -370,6 +370,9 @@ namespace Virtual_Piano
             this.TempoButton.Click += (s, e) =>
             {
                 this.TrackTempo = new Tempo((int)this.TempoSlider.Value);
+                if (this.TrackCollection != null)
+                    this.TrackDuration = new TempoDuration(this.TrackTempo, (int)this.TrackCollection.Duration);
+
                 this.Click(OptionType.Stop);
             };
 
