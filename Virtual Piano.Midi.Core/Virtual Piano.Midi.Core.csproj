@@ -137,6 +137,8 @@
     <Compile Include="Interfaces\Buttons\IKitButton.cs" />
     <Compile Include="Interfaces\Buttons\IMachineButton.cs" />
     <Compile Include="Interfaces\Buttons\IPianoButton.cs" />
+    <Compile Include="Interfaces\IControl.cs" />
+    <Compile Include="Interfaces\IControlChange.cs" />
     <Compile Include="Interfaces\ITrack.cs" />
     <Compile Include="Interfaces\ITrackNotePanel.cs" />
     <Compile Include="Interfaces\ITrackPanel.cs" />
