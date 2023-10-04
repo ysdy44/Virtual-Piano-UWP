@@ -5,14 +5,9 @@ namespace Virtual_Piano.Midi.Core
     public readonly struct TrackNoteLayout
     {
         //@Const
-        public const int Scaling = 10;
+        public const int Scaling = 5;
         public const int ItemSize = 21;
         public const int ItemSizeHalf = ItemSize / 2;
-
-        public const int Step = 1000 / Scaling;
-        public const int StepCount = 4;
-        public const int StepSpacing = Step / StepCount;
-        public const int StepSpacing2 = StepSpacing / 4;
 
         public readonly int Pane;
         public readonly int Head;
@@ -20,8 +15,6 @@ namespace Virtual_Piano.Midi.Core
         public readonly int Timerline2;
         public readonly int Foot;
         public readonly int FootPlus;
-
-        public readonly Thickness Margin;
 
         public readonly int ExtentHeight;
         public readonly int ExtentHeightHead;
@@ -38,8 +31,6 @@ namespace Virtual_Piano.Midi.Core
             this.Timerline2 = timerline2;
             this.Foot = foot;
             this.FootPlus = foot + 1;
-
-            this.Margin = new Thickness(pane, head, 0, 0);
 
             int h = NoteExtensions.NoteCount * TrackNoteLayout.ItemSize;
             this.ExtentHeight = h;
