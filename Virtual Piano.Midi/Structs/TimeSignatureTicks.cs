@@ -17,6 +17,14 @@ namespace Virtual_Piano.Midi
             this.TicksPerBeat = this.TicksPerBar / timeSignature.Numerator;
         }
 
+        public TimeSignatureTicks(TimeSignatureTicks oldTicks, TimeSignature oldTimeSignature, TimeSignature timeSignature)
+        {
+            this.TicksPerBeat = oldTicks.TicksPerBeat;
+            this.TicksPerBar = this.TicksPerBeat * timeSignature.Numerator;
+
+            this.TicksPerQuarterNote = (1 << timeSignature.Denominator) * this.TicksPerBeat / 4;
+        }
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public long ToBar(long time) => 1 + (time / this.TicksPerBar);
 
