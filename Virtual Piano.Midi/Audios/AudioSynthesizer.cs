@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Windows.Devices.Midi;
 using Windows.Media.Audio;
 using Windows.Storage;
 
@@ -51,6 +52,21 @@ namespace Virtual_Piano.Midi
             if (base.ContainsKey(note))
             {
                 base[note].Stop();
+            }
+        }
+
+        public void SendMessage(MidiMessage item)
+        {
+            switch (item.Type)
+            {
+                case MidiMessageType.NoteOff:
+                    this.NoteOff(item.Note);
+                    break;
+                case MidiMessageType.NoteOn:
+                    this.NoteOn(item.Note);
+                    break;
+                default:
+                    break;
             }
         }
     }

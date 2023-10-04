@@ -1,5 +1,6 @@
-﻿using System.Collections.ObjectModel;
-using System;
+﻿using System;
+using System.Collections.ObjectModel;
+using Windows.Devices.Midi;
 using Windows.Media.Audio;
 using Windows.UI.Xaml.Controls;
 
@@ -75,6 +76,20 @@ namespace Virtual_Piano.Midi.Core
                         node.Stop();
                     }
                 }
+            }
+        }
+        public void SendMessage(MidiMessage message)
+        {
+            switch (message.Type)
+            {
+                case MidiMessageType.NoteOff:
+                    this.NoteOff(message.Note);
+                    break;
+                case MidiMessageType.NoteOn:
+                    this.NoteOn(message.Note);
+                    break;
+                default:
+                    break;
             }
         }
 
