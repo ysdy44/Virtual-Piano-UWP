@@ -46,7 +46,7 @@ namespace Virtual_Piano.Midi.Controllers
             this.UpdateDenominator(timeSignature.Numerator, timeSignature.Denominator, w);
         }
 
-        public void UpdateNumerator(TimeSignature timeSignature)
+        public void Update(TimeSignature timeSignature)
         {
             this.UpdateNumerator(timeSignature.Numerator, this.ActualWidth);
             this.UpdateDenominator(timeSignature.Numerator, timeSignature.Denominator, base.ActualWidth);

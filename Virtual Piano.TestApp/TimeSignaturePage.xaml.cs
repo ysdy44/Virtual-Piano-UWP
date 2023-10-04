@@ -23,7 +23,7 @@ namespace Virtual_Piano.TestApp
             this.NumeratorComboBox.SelectionChanged += (s, e) =>
             {
                 this.TimeSignature = new TimeSignature((int)this.NumeratorComboBox.SelectedItem, this.TimeSignature.Denominator);
-                this.TimeSignaturesPanel.UpdateNumerator(this.TimeSignature);
+                this.TimeSignaturesPanel.Update(this.TimeSignature);
             };
             this.DenominatorComboBox.SelectionChanged += (s, e) =>
             {

@@ -370,7 +370,7 @@ namespace Virtual_Piano
             {
                 if (this.TimeSignatureFlyout.IsOpen is false) return;
                 this.TrackTimeSignature = new TimeSignature((int)this.NumeratorComboBox.SelectedItem, this.TrackTimeSignature.Denominator);
-                this.TimeSignaturesPanel.UpdateNumerator(this.TrackTimeSignature);
+                this.TimeSignaturesPanel.Update(this.TrackTimeSignature);
             };
             this.DenominatorComboBox.SelectionChanged += (s, e) =>
             {
