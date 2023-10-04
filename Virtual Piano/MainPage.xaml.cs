@@ -365,6 +365,14 @@ namespace Virtual_Piano
 
 
             // Track
+            // Tempo
+            this.TempoFlyout.Closed += (s, e) => this.TempoSlider.Value = this.TrackTempo.Bpm;
+            this.TempoButton.Click += (s, e) =>
+            {
+                this.TrackTempo = new Tempo((int)this.TempoSlider.Value);
+                this.Click(OptionType.Stop);
+            };
+
             // TimeSignature
             this.NumeratorComboBox.ItemsSource = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
             this.DenominatorComboBox.ItemsSource = new int[] { 2, 4, 8 };

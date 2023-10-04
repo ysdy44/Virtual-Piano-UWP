@@ -205,29 +205,65 @@
 
                         <Button Width="60">
                             <Button.Flyout>
-                                <Flyout>
-                                    <Border
-                                        Width="44"
-                                        CornerRadius="6"
-                                        BorderBrush="Transparent"
-                                        Background="{ThemeResource AppForeground}"
-                                        HorizontalAlignment="Center"
-                                        >
+                                <Flyout x:Name="TempoFlyout" Placement="Bottom" Windows10version1903:ShouldConstrainToRootBounds="False">
+                                    <Grid Width="400" RowSpacing="10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="1*" MinWidth="80"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="36"/>
+                                        </Grid.RowDefinitions>
+
+                                        <TextBlock                    
+                                            IsTextSelectionEnabled="True"
+                                            FontWeight="Medium" 
+                                            TextTrimming="CharacterEllipsis" 
+                                            FontSize="20" 
+                                            TextWrapping="Wrap" 
+                                            VerticalAlignment="Center" 
+                                            OpticalMarginAlignment="TrimSideBearings"
+                                            >                                
+                                             Tempo
+                                        </TextBlock>
+
+                                        <TextBlock 
+                                            Grid.Column="1" 
+                                            IsTextSelectionEnabled="True"
+                                            FontWeight="Medium" 
+                                            TextTrimming="CharacterEllipsis" 
+                                            FontSize="18" 
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Center" 
+                                            >   
+                                           <Run 
+                                               Text="{x:Bind DoubleToStringConverter(TempoSlider.Value), Mode=OneWay}"
+                                               />
+                                            <Run>bpm</Run>
+                                        </TextBlock>
+
                                         <Slider 
                                             x:Name="TempoSlider"
-                                            Margin="0,12"
+                                            Grid.Row="1"
+                                            Grid.ColumnSpan="2"
                                             IsEnabled="True"
-                                            Height="320" 
                                             Value="120"
                                             Minimum="20"
                                             Maximum="240"
-                                            StepFrequency="20"
+                                            StepFrequency="1"
                                             TickFrequency="20"
                                             TickPlacement="Outside"
-                                            Orientation="Vertical"
+                                            Orientation="Horizontal"
                                             IsThumbToolTipEnabled="False"
                                             />
-                                    </Border>
+
+                                        <Button x:Name="TempoButton" Grid.Column="1" Grid.Row="4" CornerRadius="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource AccentButtonStyle}">
+                                            OK
+                                        </Button>
+
+                                    </Grid>
                                 </Flyout>
                             </Button.Flyout>
                             <TextBlock>
