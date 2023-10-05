@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using Windows.UI.Xaml;
 
 namespace Virtual_Piano.Midi
 {
@@ -7,10 +8,10 @@ namespace Virtual_Piano.Midi
         public readonly long Source;
         private readonly double Percent;
 
-        public TempoDuration(Tempo tempo, int duration = 1000 * 60)
+        public TempoDuration(Tempo tempo, long duration = 1000 * 60)
         {
             this.Source = tempo.Scale(duration);
-            this.Percent = 100d * tempo.Bpm / 120d / duration;
+            this.Percent = tempo.ReverseScalePercent(duration);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

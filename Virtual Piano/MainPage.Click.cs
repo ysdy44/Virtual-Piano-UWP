@@ -145,8 +145,8 @@ namespace Virtual_Piano
                         this.TrackPanel.ItemsSource = tracks;
                         this.TrackPanel.ChangeDuration((int)tracks.Duration);
 
-                        this.TrackTempo = new Tempo((int)tracks.Tempo);
-                        this.TrackDuration = new TempoDuration(this.TrackTempo, (int)tracks.Duration);
+                        this.TrackTempo = new Tempo((int)tracks.Tempo, tracks.DeltaTicksPerQuarterNote);
+                        this.TrackDuration = new TempoDuration(this.TrackTempo, tracks.Duration);
 
                         this.TrackTimeSignature = new TimeSignature(tracks.Numerator, tracks.Denominator);
                         this.TrackTicks = new TimeSignatureTicks(this.TrackTimeSignature, tracks.DeltaTicksPerQuarterNote);

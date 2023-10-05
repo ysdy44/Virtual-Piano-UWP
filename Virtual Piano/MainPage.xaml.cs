@@ -370,9 +370,16 @@ namespace Virtual_Piano
             this.TempoFlyout.Closed += (s, e) => this.TempoSlider.Value = this.TrackTempo.Bpm;
             this.TempoButton.Click += (s, e) =>
             {
-                this.TrackTempo = new Tempo((int)this.TempoSlider.Value);
-                if (this.TrackCollection != null)
-                    this.TrackDuration = new TempoDuration(this.TrackTempo, (int)this.TrackCollection.Duration);
+                if (this.TrackCollection == null)
+                {
+                    this.TrackTempo = new Tempo((int)this.TempoSlider.Value);
+                    this.TrackDuration = new TempoDuration(this.TrackTempo);
+                }
+                else
+                {
+                    this.TrackTempo = new Tempo((int)this.TempoSlider.Value, this.TrackCollection.DeltaTicksPerQuarterNote);
+                    this.TrackDuration = new TempoDuration(this.TrackTempo, this.TrackCollection.Duration);
+                }
 
                 this.Click(OptionType.Stop);
             };
