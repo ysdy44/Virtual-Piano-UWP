@@ -23,7 +23,7 @@ namespace Virtual_Piano.Midi.Core
         object ItemsSource { get; set; }
 
         // Timeline
-        int Position { get; }
+        long Position { get; }
 
         TimeSignature TimeSignature { get; }
         TimeSignatureTicks Ticks { get; }
@@ -31,8 +31,8 @@ namespace Virtual_Piano.Midi.Core
         void Init(TimeSignature timeSignature, TimeSignatureTicks ticks);
 
         void ChangeDuration(long duration);
-        void ChangePosition(int position, bool scrollNext, bool scrollPrevious);
+        void ChangePosition(long position, bool scrollNext, bool scrollPrevious);
         void Stop();
-        void ChangePositionUI(int positionUI);
+        void ChangePositionUI(long positionUI);
     }
 }

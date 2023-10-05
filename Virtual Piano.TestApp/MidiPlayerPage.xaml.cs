@@ -121,7 +121,7 @@ namespace Virtual_Piano.TestApp
 
         private async void Play(Track track)
         {
-            int position = (int)this.Player.PositionMilliseconds;
+            long position = this.Player.PositionMilliseconds;
             foreach (ContentControl item in track.Notes)
             {
                 if (this.Player.IsPlaying is false)
@@ -131,7 +131,7 @@ namespace Virtual_Piano.TestApp
 
                 if (item.Content is MidiMessage message)
                 {
-                    int delay = this.TrackTempo.Scale(message.AbsoluteTime) - position;
+                    long delay = this.TrackTempo.Scale(message.AbsoluteTime) - position;
 
                     if (delay < 0)
                     {
@@ -148,16 +148,16 @@ namespace Virtual_Piano.TestApp
                     {
                         position = this.TrackTempo.Scale(message.AbsoluteTime);
 
-                        await Task.Delay(delay);
+                        await Task.Delay((int)delay);
                         this.MidiSynthesizer.SendMessage(message);
                         this.Note = message.Note;
                     }
                     else if (delay > 20) // Async Position
                     {
-                        position = (int)this.Player.PositionMilliseconds;
+                        position = this.Player.PositionMilliseconds;
                         delay = this.TrackTempo.Scale(message.AbsoluteTime) - position;
 
-                        await Task.Delay(delay);
+                        await Task.Delay((int)delay);
                         this.MidiSynthesizer.SendMessage(message);
                         this.Note = message.Note;
                     }

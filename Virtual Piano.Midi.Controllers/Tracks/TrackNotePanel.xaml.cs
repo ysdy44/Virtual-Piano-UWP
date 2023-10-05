@@ -64,9 +64,9 @@ namespace Virtual_Piano.Midi.Controllers
         public object HeadItemsSource { get => this.HeadItemsControl.ItemsSource; set => this.HeadItemsControl.ItemsSource = value; }
 
         // Timeline
-        public int Position { get; private set; }
-        private int PositionUI;
-        private int TimelineUI;
+        public long Position { get; private set; }
+        private long PositionUI;
+        private long TimelineUI;
 
         public TimeSignature TimeSignature { get; private set; } = new TimeSignature(4, 4);
         public TimeSignatureTicks Ticks { get; private set; } = new TimeSignatureTicks(new TimeSignature(4, 4), 480);
@@ -429,7 +429,7 @@ namespace Virtual_Piano.Midi.Controllers
             this.HeadItemsControl.Width = extentWidth;
         }
 
-        public void ChangePosition(int position, bool scrollNext, bool scrollPrevious)
+        public void ChangePosition(long position, bool scrollNext, bool scrollPrevious)
         {
             this.Position = System.Math.Max(0, position);
             this.PositionUI = position / TrackLayout.Scaling;
@@ -466,7 +466,7 @@ namespace Virtual_Piano.Midi.Controllers
             this.ScrollViewer.ChangeView(0, null, null, true);
         }
 
-        public void ChangePositionUI(int positionUI)
+        public void ChangePositionUI(long positionUI)
         {
             if (positionUI > this.Layout.Pane)
             {
