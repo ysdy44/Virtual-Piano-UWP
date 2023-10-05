@@ -50,11 +50,11 @@ namespace Virtual_Piano
         int TrackIndex = -1;
         TrackCollection TrackCollection;
 
-        Tempo TrackTempo = new Tempo(120);
+        Tempo TrackTempo = new Tempo(120, 480);
         TempoDuration TrackDuration = new TempoDuration(new Tempo(120));
 
-        TimeSignature TrackTimeSignature = new TimeSignature(4, Beat.QuarterNote);
-        TimeSignatureTicks TrackTicks = new TimeSignatureTicks(new TimeSignature(4, 4), 480);
+        TimeSignature TrackTimeSignature = new TimeSignature(4, 4);
+        TimeSignatureTicks TrackTicks = new TimeSignatureTicks(new TimeSignature(4, 4), new Tempo(120, 480));
 
         KeySignature TrackKeySignature = new KeySignature(4, 4);
         // Player
@@ -405,8 +405,10 @@ namespace Virtual_Piano
             {
                 TimeSignature timeSignature = new TimeSignature((int)this.NumeratorComboBox.SelectedItem, (int)this.DenominatorComboBox.SelectedItem);
 
-                this.TrackTicks = new TimeSignatureTicks(this.TrackTicks, this.TrackTimeSignature, timeSignature);
+                this.TrackTempo = new Tempo(this.TrackTempo, this.TrackTimeSignature, timeSignature);
+
                 this.TrackTimeSignature = timeSignature;
+                this.TrackTicks = new TimeSignatureTicks(this.TrackTimeSignature, this.TrackTempo);
 
                 this.TrackPanel.Init(this.TrackTimeSignature, this.TrackTicks);
                 this.TrackNotePanel.Init(this.TrackTimeSignature, this.TrackTicks);

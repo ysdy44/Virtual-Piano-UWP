@@ -5,26 +5,16 @@ namespace Virtual_Piano.Midi
     public readonly struct TimeSignatureTicks
     {
         //public readonly int BeatsPerBar; // 4
-        public readonly int TicksPerQuarterNote; // 480
-
+     
         public readonly int TicksPerBar; // 480
         public readonly int TicksPerBeat; // 120
 
-        public TimeSignatureTicks(TimeSignature timeSignature, int ticksPerQuarterNote = 480)
+        public TimeSignatureTicks(TimeSignature timeSignature, Tempo tempo)
         {
             //this.BeatsPerBar = timeSignature.Numerator;
-            this.TicksPerQuarterNote = ticksPerQuarterNote;
-
-            this.TicksPerBar = (timeSignature.Numerator * ticksPerQuarterNote * 4) / (1 << timeSignature.Denominator);
+         
+            this.TicksPerBar = (timeSignature.Numerator * tempo.TicksPerQuarterNote * 4) / (timeSignature.Denominator);
             this.TicksPerBeat = this.TicksPerBar / timeSignature.Numerator;
-        }
-
-        public TimeSignatureTicks(TimeSignatureTicks oldTicks, TimeSignature oldTimeSignature, TimeSignature timeSignature)
-        {
-            this.TicksPerBeat = oldTicks.TicksPerBeat;
-            this.TicksPerBar = this.TicksPerBeat * timeSignature.Numerator;
-
-            this.TicksPerQuarterNote = (1 << timeSignature.Denominator) * this.TicksPerBeat / 4;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
