@@ -32,9 +32,9 @@ namespace Virtual_Piano.Midi.Controllers
                 Canvas.SetTop(control, (double)((NoteExtensions.NoteCount - (int)item.Note - 1) * TrackNoteLayout.ItemSize));
                 this.Notes.Add(control);
 
-                int x = item.AbsoluteTime / TrackNoteLayout.Scaling;
+                long x = item.AbsoluteTime / TrackNoteLayout.Scaling;
                 int y = item.Note.ToInedx();
-                var w = System.Math.Max(4, item.Duration / TrackNoteLayout.Scaling);
+                long w = System.Math.Max(4, item.Duration / TrackNoteLayout.Scaling);
                 base.Children.Add(new Line
                 {
                     X1 = x,

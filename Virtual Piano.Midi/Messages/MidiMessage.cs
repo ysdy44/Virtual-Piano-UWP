@@ -7,9 +7,9 @@ namespace Virtual_Piano.Midi
     {
         public MidiMessageType Type;
         public byte Channel;
-        public int AbsoluteTime;
+        public long AbsoluteTime;
 
-        public int Duration;
+        public long Duration;
         /// <summary> <see cref="MidiNoteOnMessage.Note"/> </summary>
         public MidiNote Note;
         /// <summary> <see cref="MidiNoteOnMessage.Velocity"/> </summary>
@@ -19,9 +19,9 @@ namespace Virtual_Piano.Midi
         {
             this.Type = MidiMessageType.NoteOn;
             this.Channel = (byte)item.Channel;
-            this.AbsoluteTime = (int)item.AbsoluteTime;
+            this.AbsoluteTime = item.AbsoluteTime;
 
-            this.Duration = (int)(offEvent.AbsoluteTime - item.AbsoluteTime);
+            this.Duration = offEvent.AbsoluteTime - item.AbsoluteTime;
             this.Note = (MidiNote)(byte)item.NoteNumber;
             this.Velocity = (byte)item.Velocity;
 
@@ -44,7 +44,7 @@ namespace Virtual_Piano.Midi
         {
             this.Type = MidiMessageType.ControlChange;
             this.Channel = (byte)item.Channel;
-            this.AbsoluteTime = (int)item.AbsoluteTime;
+            this.AbsoluteTime = item.AbsoluteTime;
 
             this.Duration = default;
             this.Note = default;
@@ -67,7 +67,7 @@ namespace Virtual_Piano.Midi
         {
             this.Type = MidiMessageType.ProgramChange;
             this.Channel = (byte)item.Channel;
-            this.AbsoluteTime = (int)item.AbsoluteTime;
+            this.AbsoluteTime = item.AbsoluteTime;
 
             this.Duration = default;
             this.Note = default;
@@ -90,7 +90,7 @@ namespace Virtual_Piano.Midi
         {
             this.Type = MidiMessageType.ChannelPressure;
             this.Channel = (byte)item.Channel;
-            this.AbsoluteTime = (int)item.AbsoluteTime;
+            this.AbsoluteTime = item.AbsoluteTime;
 
             this.Duration = default;
             this.Note = default;
@@ -113,7 +113,7 @@ namespace Virtual_Piano.Midi
         {
             this.Type = MidiMessageType.PitchBendChange;
             this.Channel = (byte)item.Channel;
-            this.AbsoluteTime = (int)item.AbsoluteTime;
+            this.AbsoluteTime = item.AbsoluteTime;
 
             this.Duration = default;
             this.Note = default;
@@ -134,7 +134,7 @@ namespace Virtual_Piano.Midi
         {
             this.Type = MidiMessageType.SystemExclusive;
             this.Channel = (byte)item.Channel;
-            this.AbsoluteTime = (int)item.AbsoluteTime;
+            this.AbsoluteTime = item.AbsoluteTime;
 
             this.Duration = default;
             this.Note = default;

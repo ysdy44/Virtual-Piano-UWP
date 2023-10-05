@@ -89,7 +89,7 @@ namespace Virtual_Piano.Midi
         {
             if (synthesizer is null) return;
             synthesizer.NoteOn(item.Note, item.Channel, item.Velocity);
-            await Task.Delay(item.Duration);
+            await Task.Delay((int)item.Duration);
             synthesizer.NoteOff(item.Note, item.Channel);
         }
     }

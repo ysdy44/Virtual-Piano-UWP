@@ -50,7 +50,7 @@ namespace Virtual_Piano.Midi.Controllers
 
             foreach (MidiMessage item in items)
             {
-                int x = item.AbsoluteTime / TrackNoteLayout.Scaling;
+                long x = item.AbsoluteTime / TrackNoteLayout.Scaling;
                 int y = Radial.Velocity - item.ControllerValue;
 
                 ContentControl control = new ContentControl
@@ -90,7 +90,7 @@ namespace Virtual_Piano.Midi.Controllers
                 {
                     this.Items.Add(message);
 
-                    int x = message.AbsoluteTime / TrackNoteLayout.Scaling;
+                    long x = message.AbsoluteTime / TrackNoteLayout.Scaling;
                     int y = Radial.Velocity - message.ControllerValue;
 
                     ContentControl control = new ContentControl
