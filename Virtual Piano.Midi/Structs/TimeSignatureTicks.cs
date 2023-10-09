@@ -9,12 +9,12 @@ namespace Virtual_Piano.Midi
         public readonly int TicksPerBar; // 480
         public readonly int TicksPerBeat; // 120
 
-        public TimeSignatureTicks(TimeSignature timeSignature, Tempo tempo)
+        public TimeSignatureTicks(TimeSignature timeSignature, int ticksPerQuarterNote = 480)
         {
             this.BeatsPerBar = timeSignature.Numerator;
 
-            this.TicksPerBar = (timeSignature.Numerator * tempo.TicksPerQuarterNote * 4) / (timeSignature.Denominator);
-            this.TicksPerBeat = this.TicksPerBar / timeSignature.Numerator;
+            this.TicksPerBar = (timeSignature.Numerator * ticksPerQuarterNote * 4) / (1 << timeSignature.Denominator);
+            this.TicksPerBeat = this.TicksPerBar / this.BeatsPerBar;
         }
 
         public TimeSignatureTicks(TimeSignatureTicks oldTicks, TimeSignature oldTimeSignature, TimeSignature timeSignature)
