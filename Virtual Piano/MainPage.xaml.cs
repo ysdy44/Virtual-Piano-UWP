@@ -405,10 +405,11 @@ namespace Virtual_Piano
             {
                 TimeSignature timeSignature = new TimeSignature((int)this.NumeratorComboBox.SelectedItem, (int)this.DenominatorComboBox.SelectedItem);
 
-                this.TrackTempo = new Tempo(this.TrackTempo, this.TrackTimeSignature, timeSignature);
-
                 this.TrackTimeSignature = timeSignature;
-                this.TrackTicks = new TimeSignatureTicks(this.TrackTimeSignature, this.TrackTempo.TicksPerQuarterNote);
+                this.TrackTicks = new TimeSignatureTicks(this.TrackTicks, this.TrackTimeSignature, timeSignature);
+
+                this.TrackTempo = new Tempo(this.TrackTicks, this.TrackTempo.Bpm);
+                this.TrackDuration = new TempoDuration(this.TrackTempo, this.TrackDuration.Duration);
 
                 this.TrackPanel.Init(this.TrackTimeSignature, this.TrackTicks);
                 this.TrackNotePanel.Init(this.TrackTimeSignature, this.TrackTicks);
