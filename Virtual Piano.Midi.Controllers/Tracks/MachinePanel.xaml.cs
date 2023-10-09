@@ -50,7 +50,7 @@ namespace Virtual_Piano.Midi.Controllers
             get => this.tempo;
             set
             {
-                this.Timer.Interval = value.Delay;
+                this.Timer.Interval = value.MillisecondsPerBeat;
                 this.tempo = value;
             }
         }
@@ -156,7 +156,7 @@ namespace Virtual_Piano.Midi.Controllers
             this.StopButton.Click += (s, e) => this.Stop();
             this.PlayButton.Click += (s, e) => this.Play();
 
-            this.Timer.Interval = this.Tempo.Delay;
+            this.Timer.Interval = this.Tempo.MillisecondsPerBeat;
             this.Timer.Tick += (s, e) =>
             {
                 int i = this.Index;

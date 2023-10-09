@@ -64,8 +64,8 @@ namespace Virtual_Piano.TestApp
                 this.Offset = e.HorizontalOffset;
 
                 this.TrackNotePanel.ChangePositionUI((int)this.Offset);
-                long t = System.Math.Max(0, this.TrackTempo.Scale(this.TrackNotePanel.Position));
-                TimeSpan timespan = TimeSpan.FromMilliseconds(t);
+                long milliseconds = System.Math.Max(0, this.TrackTempo.ToMilliseconds(this.TrackNotePanel.Position));
+                TimeSpan timespan = TimeSpan.FromMilliseconds(milliseconds);
 
                 this.DSTimer.Time = timespan;
             };
@@ -74,16 +74,16 @@ namespace Virtual_Piano.TestApp
                 this.Offset += e.HorizontalChange;
 
                 this.TrackNotePanel.ChangePositionUI((int)this.Offset);
-                long t = System.Math.Max(0, this.TrackTempo.Scale(this.TrackNotePanel.Position));
-                TimeSpan timespan = TimeSpan.FromMilliseconds(t);
+                long milliseconds = System.Math.Max(0, this.TrackTempo.ToMilliseconds(this.TrackNotePanel.Position));
+                TimeSpan timespan = TimeSpan.FromMilliseconds(milliseconds);
 
                 this.DSTimer.Time = timespan;
             };
             this.TrackNotePanel.DragCompleted += (s, e) =>
             {
                 this.TrackNotePanel.ChangePositionUI((int)this.Offset);
-                long t = System.Math.Max(0, this.TrackTempo.Scale(this.TrackNotePanel.Position));
-                TimeSpan timespan = TimeSpan.FromMilliseconds(t);
+                long milliseconds = System.Math.Max(0, this.TrackTempo.ToMilliseconds(this.TrackNotePanel.Position));
+                TimeSpan timespan = TimeSpan.FromMilliseconds(milliseconds);
 
                 this.DSTimer.Time = timespan;
             };

@@ -18,15 +18,15 @@ namespace Virtual_Piano.Midi
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long ToBar(long time) => 1 + (time / this.TicksPerBar);
+        public long ToBar(long ticks) => 1 + (ticks / this.TicksPerBar);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long ToBeat(long time) => 1 + ((time % this.TicksPerBar) / this.TicksPerBeat);
+        public long ToBeat(long ticks) => 1 + ((ticks % this.TicksPerBar) / this.TicksPerBeat);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long ToTick(long time) => time % this.TicksPerBeat;
+        public long ToTick(long ticks) => ticks % this.TicksPerBeat;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public string ToMBT(long time) => $"{this.ToBar(time)}:{this.ToBeat(time)}:{this.ToTick(time)}";
+        public string ToMBT(long ticks) => $"{this.ToBar(ticks)}:{this.ToBeat(ticks)}:{this.ToTick(ticks)}";
     }
 }

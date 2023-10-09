@@ -5,18 +5,18 @@ namespace Virtual_Piano.Midi
 {
     public readonly struct TempoDuration
     {
-        public readonly long Source;
+        public readonly long DurationMilliseconds;
         private readonly double Percent;
 
         public TempoDuration(Tempo tempo, long duration = 1000 * 60)
         {
-            this.Source = tempo.Scale(duration);
-            this.Percent = tempo.ReverseScalePercent(duration);
+            this.DurationMilliseconds = tempo.ToMilliseconds(duration);
+            this.Percent = tempo.ToTicksPercent(duration);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public double GetPercent(long position) => this.Percent * position;
+        public double GetPercent(long milliseconds) => this.Percent * milliseconds;
 
-        public override string ToString() => $"Duration ({this.Source})Milliseconds";
+        public override string ToString() => $"Duration ({this.DurationMilliseconds})Milliseconds";
     }
 }

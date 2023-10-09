@@ -33,7 +33,7 @@ namespace Virtual_Piano.TestApp
             {
                 if (this.TrackCollection is null) return;
 
-                if (this.Player.PositionMilliseconds >= this.TrackDuration.Source)
+                if (this.Player.PositionMilliseconds >= this.TrackDuration.DurationMilliseconds)
                 {
                     this.Player.Stop();
                 }
@@ -121,7 +121,7 @@ namespace Virtual_Piano.TestApp
 
         private async void Play(Track track)
         {
-            long position = this.Player.PositionMilliseconds;
+            long positionMilliseconds = this.Player.PositionMilliseconds;
             foreach (ContentControl item in track.Notes)
             {
                 if (this.Player.IsPlaying is false)
@@ -131,33 +131,33 @@ namespace Virtual_Piano.TestApp
 
                 if (item.Content is MidiMessage message)
                 {
-                    long delay = this.TrackTempo.Scale(message.AbsoluteTime) - position;
+                    long delayMilliseconds = this.TrackTempo.ToMilliseconds(message.AbsoluteTime) - positionMilliseconds;
 
-                    if (delay < 0)
+                    if (delayMilliseconds < 0)
                     {
                         continue;
                     }
-                    else if (delay == 0)
+                    else if (delayMilliseconds == 0)
                     {
-                        position = this.TrackTempo.Scale(message.AbsoluteTime);
+                        positionMilliseconds = this.TrackTempo.ToMilliseconds(message.AbsoluteTime);
 
                         this.MidiSynthesizer.SendMessage(message);
                         this.Note = message.Note;
                     }
-                    else if (delay > 0)
+                    else if (delayMilliseconds > 0)
                     {
-                        position = this.TrackTempo.Scale(message.AbsoluteTime);
+                        positionMilliseconds = this.TrackTempo.ToMilliseconds(message.AbsoluteTime);
 
-                        await Task.Delay((int)delay);
+                        await Task.Delay((int)delayMilliseconds);
                         this.MidiSynthesizer.SendMessage(message);
                         this.Note = message.Note;
                     }
-                    else if (delay > 20) // Async Position
+                    else if (delayMilliseconds > 20) // Async Position
                     {
-                        position = this.Player.PositionMilliseconds;
-                        delay = this.TrackTempo.Scale(message.AbsoluteTime) - position;
+                        positionMilliseconds = this.Player.PositionMilliseconds;
+                        delayMilliseconds = this.TrackTempo.ToMilliseconds(message.AbsoluteTime) - positionMilliseconds;
 
-                        await Task.Delay((int)delay);
+                        await Task.Delay((int)delayMilliseconds);
                         this.MidiSynthesizer.SendMessage(message);
                         this.Note = message.Note;
                     }
