@@ -44,14 +44,16 @@ namespace Virtual_Piano.Midi.Controllers
 
         readonly DispatcherTimer Timer = new DispatcherTimer();
 
-        private Tempo tempo = new Tempo(100);
-        public Tempo Tempo
+        private Tempo tempo = new Tempo(new Ticks(new TimeSignature(4, 4), 480), 60);
+        public int Tempo
         {
-            get => this.tempo;
+            get => this.tempo.Bpm;
             set
             {
-                this.Timer.Interval = value.MillisecondsPerBeat;
-                this.tempo = value;
+                Tempo tempo = new Tempo(new Ticks(new TimeSignature(4, 4), 480), value);
+
+                this.Timer.Interval = tempo.MillisecondsPerBeat;
+                this.tempo = tempo;
             }
         }
 
@@ -156,7 +158,7 @@ namespace Virtual_Piano.Midi.Controllers
             this.StopButton.Click += (s, e) => this.Stop();
             this.PlayButton.Click += (s, e) => this.Play();
 
-            this.Timer.Interval = this.Tempo.MillisecondsPerBeat;
+            this.Timer.Interval = this.tempo.MillisecondsPerBeat;
             this.Timer.Tick += (s, e) =>
             {
                 int i = this.Index;

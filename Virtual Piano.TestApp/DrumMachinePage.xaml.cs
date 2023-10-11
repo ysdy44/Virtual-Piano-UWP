@@ -18,13 +18,13 @@ namespace Virtual_Piano.TestApp
         public DrumMachinePage()
         {
             this.InitializeComponent();
-            Tempo tempo = this.ItemsSource.Tempo;
-            this.Run.Text = $"{tempo.Bpm}";
-            this.Slider.Value = tempo.Bpm;
+            int tempo = this.ItemsSource.Tempo;
+            this.Run.Text = $"{tempo}";
+            this.Slider.Value = tempo;
             this.Slider.ValueChanged += (s, e) =>
             {
-                Tempo t = new Tempo((int)e.NewValue);
-                this.Run.Text = $"{t.Bpm}";
+                int t = (int)e.NewValue;
+                this.Run.Text = $"{t}";
                 this.ItemsSource.Tempo = t;
             };
 
