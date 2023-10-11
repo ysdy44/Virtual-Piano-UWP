@@ -154,8 +154,8 @@
     <Compile Include="Structs\KeySignature.cs" />
     <Compile Include="Structs\Tempo.cs" />
     <Compile Include="Structs\TempoDuration.cs" />
+    <Compile Include="Structs\Ticks.cs" />
     <Compile Include="Structs\TimeSignature.cs" />
-    <Compile Include="Structs\TimeSignatureTicks.cs" />
     <Compile Include="Ticks\TickPlayer.cs" />
     <Compile Include="Ticks\TickPlayer.Stopwatch.cs" />
     <Compile Include="Ticks\TickPlayer.Timer.cs" />
