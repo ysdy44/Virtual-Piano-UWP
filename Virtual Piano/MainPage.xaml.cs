@@ -54,7 +54,7 @@ namespace Virtual_Piano
         TempoDuration TrackDuration = new TempoDuration(new Tempo(120));
 
         TimeSignature TrackTimeSignature = new TimeSignature(4, 4);
-        TimeSignatureTicks TrackTicks = new TimeSignatureTicks(new TimeSignature(4, 4), 480);
+        Ticks TrackTicks = new Ticks(new TimeSignature(4, 4), 480);
 
         KeySignature TrackKeySignature = new KeySignature(4, 4);
         // Player
@@ -406,7 +406,7 @@ namespace Virtual_Piano
                 TimeSignature timeSignature = new TimeSignature((int)this.NumeratorComboBox.SelectedItem, (int)this.DenominatorComboBox.SelectedItem);
 
                 this.TrackTimeSignature = timeSignature;
-                this.TrackTicks = new TimeSignatureTicks(this.TrackTicks, this.TrackTimeSignature, timeSignature);
+                this.TrackTicks = new Ticks(this.TrackTicks, this.TrackTimeSignature, timeSignature);
 
                 this.TrackTempo = new Tempo(this.TrackTicks, this.TrackTempo.Bpm);
                 this.TrackDuration = new TempoDuration(this.TrackTempo, this.TrackDuration.Duration);

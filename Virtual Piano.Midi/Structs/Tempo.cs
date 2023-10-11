@@ -12,7 +12,7 @@ namespace Virtual_Piano.Midi
         public readonly int TicksPerBeat; // 480
         public readonly TimeSpan MillisecondsPerBeat; // 125
 
-        public Tempo(TimeSignatureTicks ticks, double bpm = 120)
+        public Tempo(Ticks ticks, double bpm = 120)
         {
             if (bpm == 0)
             {

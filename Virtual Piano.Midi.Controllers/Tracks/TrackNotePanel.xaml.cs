@@ -69,7 +69,7 @@ namespace Virtual_Piano.Midi.Controllers
         private long TimelineUI;
 
         public TimeSignature TimeSignature { get; private set; } = new TimeSignature(4, 4);
-        public TimeSignatureTicks Ticks { get; private set; } = new TimeSignatureTicks(new TimeSignature(4, 4), 480);
+        public Ticks Ticks { get; private set; } = new Ticks(new TimeSignature(4, 4), 480);
 
         readonly TrackLayout Layout = new TrackLayout(75, 22, 22, 150);
         readonly Windows.UI.Composition.CompositionPropertySet ScrollProperties;
@@ -308,7 +308,7 @@ namespace Virtual_Piano.Midi.Controllers
             };
         }
 
-        public void Init(TimeSignature timeSignature, TimeSignatureTicks ticks)
+        public void Init(TimeSignature timeSignature, Ticks ticks)
         {
             this.TimeSignature = timeSignature;
             this.Ticks = ticks;
