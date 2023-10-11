@@ -170,196 +170,193 @@
                 </FrameworkElement.Resources>
                 <StackPanel Padding="12,0" Orientation="Horizontal" Height="36" Background="Black"  HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                    <StackPanel Orientation="Horizontal">
-                        <Button Width="32" Padding="0" CommandParameter="{strings:OptionType Type=Pause}" Command="{x:Bind Command}">
-                            <ToolTipService.ToolTip>
-                                <ToolTip>
-                                    Pause
-                                </ToolTip>
-                            </ToolTipService.ToolTip>
-                            <SymbolIcon Symbol="Pause"/>
-                        </Button>
-                        <Button Width="32" Padding="0" CommandParameter="{strings:OptionType Type=Play}" Command="{x:Bind Command}">
-                            <ToolTipService.ToolTip>
-                                <ToolTip>
-                                    Play
-                                </ToolTip>
-                            </ToolTipService.ToolTip>
-                            <SymbolIcon Symbol="Play"/>
-                        </Button>
-                        <Button Width="32" Padding="0" CommandParameter="{strings:OptionType Type=Stop}" Command="{x:Bind Command}">
-                            <ToolTipService.ToolTip>
-                                <ToolTip>
-                                    Stop
-                                </ToolTip>
-                            </ToolTipService.ToolTip>
-                            <SymbolIcon Symbol="Stop"/>
-                        </Button>
+                    <Button Width="32" Padding="0" CommandParameter="{strings:OptionType Type=Pause}" Command="{x:Bind Command}">
+                        <ToolTipService.ToolTip>
+                            <ToolTip>
+                                Pause
+                            </ToolTip>
+                        </ToolTipService.ToolTip>
+                        <SymbolIcon Symbol="Pause"/>
+                    </Button>
+                    <Button Width="32" Padding="0" CommandParameter="{strings:OptionType Type=Play}" Command="{x:Bind Command}">
+                        <ToolTipService.ToolTip>
+                            <ToolTip>
+                                Play
+                            </ToolTip>
+                        </ToolTipService.ToolTip>
+                        <SymbolIcon Symbol="Play"/>
+                    </Button>
+                    <Button Width="32" Padding="0" CommandParameter="{strings:OptionType Type=Stop}" Command="{x:Bind Command}">
+                        <ToolTipService.ToolTip>
+                            <ToolTip>
+                                Stop
+                            </ToolTip>
+                        </ToolTipService.ToolTip>
+                        <SymbolIcon Symbol="Stop"/>
+                    </Button>
 
-                        <Line Margin="8,0" Y1="10" Y2="28" StrokeThickness="1" Stroke="{ThemeResource SystemColorControlAccentBrush}"/>
+                    <Line Margin="8,0" Y1="10" Y2="28" StrokeThickness="1" Stroke="{ThemeResource SystemColorControlAccentBrush}"/>
 
-                        <Button Width="120">
-                            <elements:DSTimer x:Name="DSTimer" Time="00:00:00.000"/>
-                        </Button>
+                    <Button Width="120">
+                        <elements:DSTimer x:Name="DSTimer" Time="00:00:00.000"/>
+                    </Button>
 
-                        <Button Width="74">
-                            <Button.Flyout>
-                                <Flyout x:Name="TempoFlyout" Placement="Bottom" Windows10version1903:ShouldConstrainToRootBounds="False">
-                                    <Grid Width="400" RowSpacing="10">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="2*"/>
-                                            <ColumnDefinition Width="1*" MinWidth="80"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="36"/>
-                                        </Grid.RowDefinitions>
+                    <Button Width="74">
+                        <Button.Flyout>
+                            <Flyout x:Name="TempoFlyout" Placement="Bottom" Windows10version1903:ShouldConstrainToRootBounds="False">
+                                <Grid Width="400" RowSpacing="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="1*" MinWidth="80"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="36"/>
+                                    </Grid.RowDefinitions>
 
-                                        <TextBlock                    
-                                            IsTextSelectionEnabled="True"
-                                            FontWeight="Medium" 
-                                            TextTrimming="CharacterEllipsis" 
-                                            FontSize="20" 
-                                            TextWrapping="Wrap" 
-                                            VerticalAlignment="Center" 
-                                            OpticalMarginAlignment="TrimSideBearings"
-                                            >                                
-                                             Tempo
-                                        </TextBlock>
+                                    <TextBlock                    
+                                        IsTextSelectionEnabled="True"
+                                        FontWeight="Medium" 
+                                        TextTrimming="CharacterEllipsis" 
+                                        FontSize="20" 
+                                        TextWrapping="Wrap" 
+                                        VerticalAlignment="Center" 
+                                        OpticalMarginAlignment="TrimSideBearings"
+                                        >                                
+                                         Tempo
+                                    </TextBlock>
 
-                                        <TextBlock 
-                                            Grid.Column="1" 
-                                            IsTextSelectionEnabled="True"
-                                            FontWeight="Medium" 
-                                            TextTrimming="CharacterEllipsis" 
-                                            FontSize="18" 
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Center" 
-                                            >   
-                                           <Run 
-                                               Text="{x:Bind DoubleToStringConverter(TempoSlider.Value), Mode=OneWay}"
-                                               />
-                                            <Run>bpm</Run>
-                                        </TextBlock>
+                                    <TextBlock 
+                                        Grid.Column="1" 
+                                        IsTextSelectionEnabled="True"
+                                        FontWeight="Medium" 
+                                        TextTrimming="CharacterEllipsis" 
+                                        FontSize="18" 
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center" 
+                                        >   
+                                       <Run 
+                                           Text="{x:Bind DoubleToStringConverter(TempoSlider.Value), Mode=OneWay}"
+                                           />
+                                        <Run>bpm</Run>
+                                    </TextBlock>
 
-                                        <Slider 
-                                            x:Name="TempoSlider"
-                                            Grid.Row="1"
-                                            Grid.ColumnSpan="2"
-                                            IsEnabled="True"
-                                            Value="120"
-                                            Minimum="20"
-                                            Maximum="240"
-                                            StepFrequency="1"
-                                            TickFrequency="20"
-                                            TickPlacement="Outside"
-                                            Orientation="Horizontal"
-                                            IsThumbToolTipEnabled="False"
-                                            />
+                                    <Slider 
+                                        x:Name="TempoSlider"
+                                        Grid.Row="1"
+                                        Grid.ColumnSpan="2"
+                                        IsEnabled="True"
+                                        Value="120"
+                                        Minimum="20"
+                                        Maximum="240"
+                                        StepFrequency="1"
+                                        TickFrequency="20"
+                                        TickPlacement="Outside"
+                                        Orientation="Horizontal"
+                                        IsThumbToolTipEnabled="False"
+                                        />
 
-                                        <Button x:Name="TempoButton" Grid.Column="1" Grid.Row="4" CornerRadius="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource AccentButtonStyle}">
-                                            OK
-                                        </Button>
+                                    <Button x:Name="TempoButton" Grid.Column="1" Grid.Row="4" CornerRadius="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource AccentButtonStyle}">
+                                        OK
+                                    </Button>
 
-                                    </Grid>
-                                </Flyout>
-                            </Button.Flyout>
-                            <TextBlock>
-                                <Run></Run>
-                                <Run FontSize="14" Text="{x:Bind TempoSlider.Value,Mode=OneWay}">
-                                    <!--Text-->
-                                </Run><Run FontSize="14">.</Run><Run>00</Run>
-                                <LineBreak/>
-                                <Run>Tempo</Run>
-                            </TextBlock>
-                        </Button>
+                                </Grid>
+                            </Flyout>
+                        </Button.Flyout>
+                        <TextBlock>
+                            <Run></Run>
+                            <Run FontSize="14" Text="{x:Bind TempoSlider.Value,Mode=OneWay}">
+                                <!--Text-->
+                            </Run><Run FontSize="14">.</Run><Run>00</Run>
+                            <LineBreak/>
+                            <Run>Tempo</Run>
+                        </TextBlock>
+                    </Button>
 
-                        <Button Width="74">
-                            <Button.Flyout>
-                                <Flyout x:Name="TimeSignatureFlyout" Placement="Bottom" Windows10version1903:ShouldConstrainToRootBounds="False">
-                                    <Grid Width="400" RowSpacing="10">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="2*"/>
-                                            <ColumnDefinition Width="1*" MinWidth="80"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="30"/>
-                                            <RowDefinition Height="30"/>
-                                            <RowDefinition Height="36"/>
-                                        </Grid.RowDefinitions>
+                    <Button Width="74">
+                        <Button.Flyout>
+                            <Flyout x:Name="TimeSignatureFlyout" Placement="Bottom" Windows10version1903:ShouldConstrainToRootBounds="False">
+                                <Grid Width="400" RowSpacing="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="1*" MinWidth="80"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="36"/>
+                                    </Grid.RowDefinitions>
 
-                                        <TextBlock                    
-                                            IsTextSelectionEnabled="True"
-                                            FontWeight="Medium" 
-                                            TextTrimming="CharacterEllipsis" 
-                                            FontSize="20" 
-                                            TextWrapping="Wrap" 
-                                            VerticalAlignment="Center" 
-                                            OpticalMarginAlignment="TrimSideBearings"
-                                            >                                
-                                             Time Signature
-                                        </TextBlock>
+                                    <TextBlock                    
+                                        IsTextSelectionEnabled="True"
+                                        FontWeight="Medium" 
+                                        TextTrimming="CharacterEllipsis" 
+                                        FontSize="20" 
+                                        TextWrapping="Wrap" 
+                                        VerticalAlignment="Center" 
+                                        OpticalMarginAlignment="TrimSideBearings"
+                                        >                                
+                                         Time Signature
+                                    </TextBlock>
 
-                                        <TextBlock 
-                                            Grid.Column="1" 
-                                            IsTextSelectionEnabled="True"
-                                            FontWeight="Medium" 
-                                            TextTrimming="CharacterEllipsis" 
-                                            FontSize="20" 
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Center" 
-                                            >   
-                                           <Run 
-                                               Foreground="{ThemeResource SystemColorControlAccentBrush}"
-                                               Text="{x:Bind ObjectToStringConverter(NumeratorComboBox.SelectedItem), Mode=OneWay}"
-                                               /><Run>/</Run><Run 
-                                               Text="{x:Bind ObjectToStringConverter(DenominatorComboBox.SelectedItem), Mode=OneWay}"
-                                               />
-                                        </TextBlock>
+                                    <TextBlock 
+                                        Grid.Column="1" 
+                                        IsTextSelectionEnabled="True"
+                                        FontWeight="Medium" 
+                                        TextTrimming="CharacterEllipsis" 
+                                        FontSize="20" 
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center" 
+                                        >   
+                                       <Run 
+                                           Foreground="{ThemeResource SystemColorControlAccentBrush}"
+                                           Text="{x:Bind ObjectToStringConverter(NumeratorComboBox.SelectedItem), Mode=OneWay}"
+                                           /><Run>/</Run><Run 
+                                           Text="{x:Bind ObjectToStringConverter(DenominatorComboBox.SelectedItem), Mode=OneWay}"
+                                           />
+                                    </TextBlock>
 
-                                        <controllers:TimeSignaturesPanel x:Name="TimeSignaturesPanel" Grid.ColumnSpan="2" Grid.Row="1" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+                                    <controllers:TimeSignaturesPanel x:Name="TimeSignaturesPanel" Grid.ColumnSpan="2" Grid.Row="1" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
 
-                                        
-                                        <TextBlock Grid.Row="2" FontWeight="Medium" VerticalAlignment="Center">
-                                            Numerator
-                                        </TextBlock>
 
-                                        <ComboBox x:Name="NumeratorComboBox" Grid.Column="1" Grid.Row="2" CornerRadius="4" BorderThickness="1" HorizontalAlignment="Stretch">
-                                            <!--ItemsSource-->
-                                        </ComboBox>
+                                    <TextBlock Grid.Row="2" FontWeight="Medium" VerticalAlignment="Center">
+                                        Numerator
+                                    </TextBlock>
 
-                                        <TextBlock Grid.Row="3" FontWeight="Medium" VerticalAlignment="Center">
-                                            Denominator
-                                        </TextBlock>
-                                        <ComboBox x:Name="DenominatorComboBox" Grid.Column="1" Grid.Row="3" CornerRadius="4" BorderThickness="1" HorizontalAlignment="Stretch">
-                                            <!--ItemsSource-->
-                                        </ComboBox>
+                                    <ComboBox x:Name="NumeratorComboBox" Grid.Column="1" Grid.Row="2" CornerRadius="4" BorderThickness="1" HorizontalAlignment="Stretch">
+                                        <!--ItemsSource-->
+                                    </ComboBox>
 
-                                        <Button x:Name="TimeSignatureButton" Grid.Column="1" Grid.Row="4" CornerRadius="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource AccentButtonStyle}">
-                                            OK
-                                        </Button>
-                                        
-                                    </Grid>
-                                </Flyout>
-                            </Button.Flyout>
-                            <TextBlock>
-                                <Run></Run>
-                                <Run 
-                                    FontSize="14" 
-                                    Text="{x:Bind ObjectToStringConverter(NumeratorComboBox.SelectedItem), Mode=OneWay}"
-                                    /><Run FontSize="14">/</Run><Run 
-                                    FontSize="14" 
-                                    Text="{x:Bind ObjectToStringConverter(DenominatorComboBox.SelectedItem), Mode=OneWay}"
-                                    />
-                                <LineBreak/>
-                                <Run>Signature</Run>
-                            </TextBlock>
-                        </Button>
+                                    <TextBlock Grid.Row="3" FontWeight="Medium" VerticalAlignment="Center">
+                                        Denominator
+                                    </TextBlock>
+                                    <ComboBox x:Name="DenominatorComboBox" Grid.Column="1" Grid.Row="3" CornerRadius="4" BorderThickness="1" HorizontalAlignment="Stretch">
+                                        <!--ItemsSource-->
+                                    </ComboBox>
 
-                    </StackPanel>
+                                    <Button x:Name="TimeSignatureButton" Grid.Column="1" Grid.Row="4" CornerRadius="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource AccentButtonStyle}">
+                                        OK
+                                    </Button>
+
+                                </Grid>
+                            </Flyout>
+                        </Button.Flyout>
+                        <TextBlock>
+                            <Run></Run>
+                            <Run 
+                                FontSize="14" 
+                                Text="{x:Bind ObjectToStringConverter(NumeratorComboBox.SelectedItem), Mode=OneWay}"
+                                /><Run FontSize="14">/</Run><Run 
+                                FontSize="14" 
+                                Text="{x:Bind ObjectToStringConverter(DenominatorComboBox.SelectedItem), Mode=OneWay}"
+                                />
+                            <LineBreak/>
+                            <Run>Signature</Run>
+                        </TextBlock>
+                    </Button>
 
                 </StackPanel>
             </ScrollViewer>
