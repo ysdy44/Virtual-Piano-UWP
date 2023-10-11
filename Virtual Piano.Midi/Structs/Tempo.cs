@@ -9,7 +9,6 @@ namespace Virtual_Piano.Midi
         private readonly int D;
 
         public readonly int Bpm; // 120
-        public readonly int TicksPerBeat; // 480
         public readonly TimeSpan MillisecondsPerBeat; // 125
 
         public Tempo(Ticks ticks, double bpm = 120)
@@ -23,7 +22,6 @@ namespace Virtual_Piano.Midi
                 this.D = 24;
 
                 this.Bpm = 120;
-                this.TicksPerBeat = 480;
                 this.MillisecondsPerBeat = TimeSpan.FromMilliseconds(125);
             }
             else
@@ -32,19 +30,8 @@ namespace Virtual_Piano.Midi
                 this.D = (int)(bpm * ticks.TicksPerBeat);
 
                 this.Bpm = (int)bpm;
-                this.TicksPerBeat = ticks.TicksPerBeat;
                 this.MillisecondsPerBeat = TimeSpan.FromMilliseconds(1000 * 60 / bpm);
             }
-        }
-
-        public Tempo(int bpm, int ticksPerBeat = 480)
-        {
-            this.N = 1000 * 60;
-            this.D = bpm * ticksPerBeat;
-
-            this.Bpm = bpm;
-            this.TicksPerBeat = 480;
-            this.MillisecondsPerBeat = TimeSpan.FromMilliseconds(60 * 1000 / bpm / 4);
         }
 
         internal double ToTicksPercent(double ticks) => 100d * D / N / ticks;
@@ -55,6 +42,6 @@ namespace Virtual_Piano.Midi
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public long ToMilliseconds(long ticks) => ticks * N / D;
 
-        public override string ToString() => $"Tempo {this.Bpm}bpm ({this.TicksPerBeat})";
+        public override string ToString() => $"Tempo {this.Bpm}bpm";
     }
 }

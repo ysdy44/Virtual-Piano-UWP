@@ -49,14 +49,11 @@ namespace Virtual_Piano
         // Track
         int TrackIndex = -1;
         TrackCollection TrackCollection;
-
-        Tempo TrackTempo = new Tempo(120, 480);
-        TempoDuration TrackDuration = new TempoDuration(new Tempo(120));
-
-        TimeSignature TrackTimeSignature = new TimeSignature(4, 4);
-        Ticks TrackTicks = new Ticks(new TimeSignature(4, 4), 480);
-
         KeySignature TrackKeySignature = new KeySignature(4, 4);
+        TimeSignature TrackTimeSignature = new TimeSignature(4, 4);
+        Ticks TrackTicks;
+        Tempo TrackTempo;
+        TempoDuration TrackDuration;
         // Player
         bool ReIsPlaying;
         double Offset;
@@ -137,7 +134,7 @@ namespace Virtual_Piano
         int MetronomeIndex;
         readonly DispatcherTimer MetronomeTimer = new DispatcherTimer
         {
-            Interval = new Tempo(60).MillisecondsPerBeat * 4
+            Interval = new Tempo(new Ticks(new TimeSignature(4, 4), 480), 60).MillisecondsPerBeat * 4
         };
 
         // Setting
@@ -165,6 +162,9 @@ namespace Virtual_Piano
         public MainPage()
         {
             this.InitializeComponent();
+            this.TrackTicks = new Ticks(this.TrackTimeSignature, 480);
+            this.TrackTempo = new Tempo(this.TrackTicks, 120);
+            this.TrackDuration = new TempoDuration(this.TrackTempo, 120);
             this.Languages = this.Cultures.Select(this.LanguageSelect).ToArray();
             base.Unloaded += (s, e) =>
             {
@@ -372,12 +372,12 @@ namespace Virtual_Piano
             {
                 if (this.TrackCollection == null)
                 {
-                    this.TrackTempo = new Tempo((int)this.TempoSlider.Value);
+                    this.TrackTempo = new Tempo(this.TrackTicks);
                     this.TrackDuration = new TempoDuration(this.TrackTempo);
                 }
                 else
                 {
-                    this.TrackTempo = new Tempo((int)this.TempoSlider.Value, this.TrackCollection.DeltaTicksPerQuarterNote);
+                    this.TrackTempo = new Tempo(this.TrackTicks, this.TempoSlider.Value);
                     this.TrackDuration = new TempoDuration(this.TrackTempo, this.TrackCollection.Duration);
                 }
 

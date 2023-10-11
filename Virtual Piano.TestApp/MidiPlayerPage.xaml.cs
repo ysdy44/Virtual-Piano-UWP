@@ -17,8 +17,11 @@ namespace Virtual_Piano.TestApp
         MidiSynthesizer MidiSynthesizer;
         // Track
         TrackCollection TrackCollection;
-        Tempo TrackTempo = new Tempo(120);
-        TempoDuration TrackDuration = new TempoDuration(new Tempo(120));
+        KeySignature TrackKeySignature = new KeySignature(4, 4);
+        TimeSignature TrackTimeSignature = new TimeSignature(4, 4);
+        Ticks TrackTicks;
+        Tempo TrackTempo;
+        TempoDuration TrackDuration;
         // Player
         MidiNote Note;
         readonly ITickPlayer Player = new TickPlayer();
@@ -26,7 +29,10 @@ namespace Virtual_Piano.TestApp
         ~MidiPlayerPage() => this.MidiSynthesizer?.Dispose();
         public MidiPlayerPage()
         {
-            this.InitializeComponent();
+            this.InitializeComponent(); 
+            this.TrackTicks = new Ticks(this.TrackTimeSignature, 480);
+            this.TrackTempo = new Tempo(this.TrackTicks, 120);
+            this.TrackDuration = new TempoDuration(this.TrackTempo, 120);
             this.BeatTextBlock.Text = this.Player.BeatChar;
             this.Player.TickBeat += (s, e) => this.BeatTextBlock.Text = e;
             this.Player.TickProgress += (s, e) =>

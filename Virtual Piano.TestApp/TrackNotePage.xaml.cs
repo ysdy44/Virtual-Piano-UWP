@@ -20,8 +20,11 @@ namespace Virtual_Piano.TestApp
         // Track
         int TrackIndex = -1;
         TrackCollection TrackCollection;
-        Tempo TrackTempo = new Tempo(120);
-        TempoDuration TrackDuration = new TempoDuration(new Tempo(120));
+        KeySignature TrackKeySignature = new KeySignature(4, 4);
+        TimeSignature TrackTimeSignature = new TimeSignature(4, 4);
+        Ticks TrackTicks;
+        Tempo TrackTempo;
+        TempoDuration TrackDuration;
         // Player
         double Offset;
 
@@ -33,7 +36,9 @@ namespace Virtual_Piano.TestApp
         public TrackNotePage()
         {
             this.InitializeComponent();
-
+            this.TrackTicks = new Ticks(this.TrackTimeSignature, 480);
+            this.TrackTempo = new Tempo(this.TrackTicks, 120);
+            this.TrackDuration = new TempoDuration(this.TrackTempo, 120);
             this.TrackNotePanel.ManipulationStarted += (s, e) =>
             {
                 this.Source = e.OriginalSource as UIElement;
