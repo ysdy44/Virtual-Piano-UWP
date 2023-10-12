@@ -212,9 +212,10 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="36"/>
                                     </Grid.RowDefinitions>
-                                    
+
                                     <TextBlock                    
                                         IsTextSelectionEnabled="True"
                                         FontWeight="Medium" 
@@ -253,7 +254,34 @@
                                             </Grid>
                                         </Slider.Header>
                                     </Slider>
-                                    
+
+                                    <Slider 
+                                        x:Name="PPQNSlider"
+                                        Grid.Row="2"
+                                        Grid.ColumnSpan="2"
+                                        IsEnabled="True"
+                                        Value="120"
+                                        Minimum="20"
+                                        Maximum="240"
+                                        StepFrequency="1"
+                                        TickFrequency="20"
+                                        TickPlacement="Outside"
+                                        Orientation="Horizontal"
+                                        IsThumbToolTipEnabled="False"
+                                        >
+                                        <Slider.Header>
+                                            <Grid>
+                                                <TextBlock VerticalAlignment="Center">
+                                                    pulses per quarter note (PPQN)
+                                                </TextBlock>
+                                                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">
+                                                    <Run Text="{x:Bind DoubleToStringConverter(PPQNSlider.Value), Mode=OneWay}"/>
+                                                    clock ticks
+                                                </TextBlock>
+                                            </Grid>
+                                        </Slider.Header>
+                                    </Slider>
+
                                     <Button x:Name="TempoButton" Grid.Column="1" Grid.Row="4" CornerRadius="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource AccentButtonStyle}">
                                         OK
                                     </Button>
