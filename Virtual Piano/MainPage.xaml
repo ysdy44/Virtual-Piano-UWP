@@ -214,7 +214,7 @@
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="36"/>
                                     </Grid.RowDefinitions>
-
+                                    
                                     <TextBlock                    
                                         IsTextSelectionEnabled="True"
                                         FontWeight="Medium" 
@@ -225,21 +225,6 @@
                                         OpticalMarginAlignment="TrimSideBearings"
                                         >                                
                                          Tempo
-                                    </TextBlock>
-
-                                    <TextBlock 
-                                        Grid.Column="1" 
-                                        IsTextSelectionEnabled="True"
-                                        FontWeight="Medium" 
-                                        TextTrimming="CharacterEllipsis" 
-                                        FontSize="18" 
-                                        HorizontalAlignment="Right"
-                                        VerticalAlignment="Center" 
-                                        >   
-                                       <Run 
-                                           Text="{x:Bind DoubleToStringConverter(TempoSlider.Value), Mode=OneWay}"
-                                           />
-                                        <Run>bpm</Run>
                                     </TextBlock>
 
                                     <Slider 
@@ -255,8 +240,20 @@
                                         TickPlacement="Outside"
                                         Orientation="Horizontal"
                                         IsThumbToolTipEnabled="False"
-                                        />
-
+                                        >
+                                        <Slider.Header>
+                                            <Grid>
+                                                <TextBlock VerticalAlignment="Center">
+                                                    bearts per minute
+                                                </TextBlock>
+                                                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">
+                                                    <Run Text="{x:Bind DoubleToStringConverter(TempoSlider.Value), Mode=OneWay}"/>
+                                                    bpm
+                                                </TextBlock>
+                                            </Grid>
+                                        </Slider.Header>
+                                    </Slider>
+                                    
                                     <Button x:Name="TempoButton" Grid.Column="1" Grid.Row="4" CornerRadius="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource AccentButtonStyle}">
                                         OK
                                     </Button>
