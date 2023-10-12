@@ -1,5 +1,6 @@
 ﻿using System;
 using Virtual_Piano.Midi;
+using Virtual_Piano.Midi.Controllers;
 using Windows.UI.Xaml;
 
 namespace Virtual_Piano
@@ -97,20 +98,27 @@ namespace Virtual_Piano
             this.TrackNotePanel.Visibility = Visibility.Visible;
         }
 
-        public void UpdateTrackTempo(Tempo tempo)
+        public void UpdateTrackPanel(TrackCollection tracks)
         {
-            this.TempoSlider.Value = tempo.Bpm;
+            this.TrackPanel.ItemsSource = tracks;
+            this.TrackPanel.ChangeDuration(tracks.Duration);
         }
-
-        public void UpdateTrackTimeSignature(TimeSignature timeSignature, Ticks TrackTicks)
+        public void UpdateTrackTimeSignature(TimeSignature timeSignature)
         {
             this.TimeSignaturesPanel.Update(timeSignature);
 
             this.NumeratorComboBox.SelectedItem = timeSignature.Numerator;
             this.DenominatorComboBox.SelectedItem = timeSignature.Denominator;
-
-            this.TrackPanel.Init(this.TrackTimeSignature, this.TrackTicks);
-            this.TrackNotePanel.Init(this.TrackTimeSignature, this.TrackTicks);
+        }
+        public void UpdateTrackTicks(TimeSignature timeSignature, Ticks ticks)
+        {
+            this.TrackPanel.Init(timeSignature, ticks);
+            this.TrackNotePanel.Init(timeSignature, ticks);
+        }
+        public void UpdateTrackTempo(Ticks ticks, Tempo tempo)
+        {
+            this.TempoSlider.Value = tempo.Bpm;
+            this.PPQNSlider.Value = ticks.TicksPerQuarterNote;
         }
 
         private void Stop()

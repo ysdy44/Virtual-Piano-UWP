@@ -142,19 +142,16 @@ namespace Virtual_Piano
 
                         // Track
                         this.TrackCollection = tracks;
-                        this.TrackPanel.ItemsSource = tracks;
-                        this.TrackPanel.ChangeDuration((int)tracks.Duration);
-
                         this.TrackKeySignature = new KeySignature(tracks.SharpsFlats, tracks.MajorMinor);
-
                         this.TrackTimeSignature = new TimeSignature(tracks.Numerator, tracks.Denominator);
                         this.TrackTicks = new Ticks(this.TrackTimeSignature, tracks.DeltaTicksPerQuarterNote);
-
                         this.TrackTempo = new Tempo(this.TrackTicks, tracks.Tempo);
                         this.TrackDuration = new TempoDuration(this.TrackTempo, tracks.Duration);
 
-                        this.UpdateTrackTempo(this.TrackTempo);
-                        this.UpdateTrackTimeSignature(this.TrackTimeSignature, this.TrackTicks);
+                        this.UpdateTrackPanel(this.TrackCollection);
+                        this.UpdateTrackTimeSignature(this.TrackTimeSignature);
+                        this.UpdateTrackTicks(this.TrackTimeSignature, this.TrackTicks);
+                        this.UpdateTrackTempo(this.TrackTicks, this.TrackTempo);
                     }
                     break;
                 case OptionType.Save:
