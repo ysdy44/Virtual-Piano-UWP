@@ -10,6 +10,7 @@ using Virtual_Piano.Strings;
 using Windows.Devices.Midi;
 using Windows.Foundation;
 using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -448,6 +449,31 @@ namespace Virtual_Piano
 
             this.MidiSynthesizer?.Dispose();
             this.MidiSynthesizer = await MidiSynthesizer.CreateAsync();
+
+            StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///FileUtils/Canon in D-Johann Pachelbel.mid"));
+
+            using (IRandomAccessStream stream = await file.OpenAsync(default))
+            {
+                TrackCollection tracks = new TrackCollection(stream);
+
+                // Track
+                this.TrackCollection = tracks;
+                this.TrackKeySignature = new KeySignature(tracks.SharpsFlats, tracks.MajorMinor);
+                this.TrackTimeSignature = new TimeSignature(tracks.Numerator, tracks.Denominator);
+                this.TrackTicks = new Ticks(this.TrackTimeSignature, tracks.DeltaTicksPerQuarterNote);
+                this.TrackTempo = new Tempo(this.TrackTicks, tracks.Tempo);
+                this.TrackDuration = new TempoDuration(this.TrackTempo, tracks.Duration);
+
+                // Timer
+                this.ClickMetronomeStop();
+                this.UpdateMetronome(this.TrackTicks, this.TrackTempo);
+
+                // UI
+                this.UpdateTrackPanel(this.TrackCollection);
+                this.UpdateTrackTimeSignature(this.TrackTimeSignature);
+                this.UpdateTrackTicks(this.TrackTimeSignature, this.TrackTicks);
+                this.UpdateTrackTempo(this.TrackTicks, this.TrackTempo);
+            }
         }
 
         // UI
