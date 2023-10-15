@@ -148,6 +148,11 @@ namespace Virtual_Piano
                         this.TrackTempo = new Tempo(this.TrackTicks, tracks.Tempo);
                         this.TrackDuration = new TempoDuration(this.TrackTempo, tracks.Duration);
 
+                        // Timer
+                        this.ClickMetronomeStop();
+                        this.UpdateMetronome(this.TrackTicks, this.TrackTempo);
+
+                        // UI
                         this.UpdateTrackPanel(this.TrackCollection);
                         this.UpdateTrackTimeSignature(this.TrackTimeSignature);
                         this.UpdateTrackTicks(this.TrackTimeSignature, this.TrackTicks);

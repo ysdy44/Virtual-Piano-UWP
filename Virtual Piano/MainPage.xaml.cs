@@ -134,7 +134,7 @@ namespace Virtual_Piano
         int MetronomeIndex;
         readonly DispatcherTimer MetronomeTimer = new DispatcherTimer
         {
-            Interval = new Tempo(new Ticks(new TimeSignature(4, 4), 480), 60).MillisecondsPerBeat * 4
+            Interval = TimeSpan.FromMilliseconds(500)
         };
 
         // Setting
@@ -221,7 +221,7 @@ namespace Virtual_Piano
             this.MetronomeTimer.Tick += async (s, e) =>
             {
                 this.MetronomeIndex++;
-                switch (this.MetronomeIndex % 4)
+                switch (this.MetronomeIndex % this.TrackTicks.BeatsPerBar)
                 {
                     case 0:
                         this.MidiSynthesizer.NoteOn(MidiPercussionNote.MetronomeBell);

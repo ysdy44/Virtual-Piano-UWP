@@ -46,13 +46,18 @@ namespace Virtual_Piano
 
         public void ClickMetronomeStart()
         {
+            this.MetronomeIndex = 0;
             this.MetronomeTimer.Start();
             this.MetronomeButton.IsChecked = true;
         }
         public void ClickMetronomeStop()
         {
+            this.MetronomeIndex = 0;
             this.MetronomeTimer.Stop();
-            this.MetronomeButton.IsChecked = false;
+        }
+        public void UpdateMetronome(Ticks ticks, Tempo tempo)
+        {
+            this.MetronomeTimer.Interval = TimeSpan.FromMilliseconds(tempo.ToMilliseconds(ticks.TicksPerBeat));
         }
 
         public void SetTheme(ElementTheme value)
