@@ -41,7 +41,7 @@
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
 
-                            <Rectangle IsHitTestVisible="False" RadiusX="4" RadiusY="4" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+                            <Rectangle IsHitTestVisible="False" RadiusX="4" RadiusY="4" Fill="{ThemeResource AppBarBackgroundThemeBrush}"/>
                             <Rectangle x:Name="Mask" Opacity="0" IsHitTestVisible="False" RadiusX="4" RadiusY="4" Fill="{TemplateBinding Foreground}"/>
 
                             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
