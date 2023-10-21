@@ -110,7 +110,6 @@ namespace Virtual_Piano.Midi.Controllers
                 double x = i * this.Ticks.TicksPerBar / TrackLayout.Scaling;
                 this.BodyLineCanvas.Children.Add(new Line
                 {
-                    StrokeThickness = 2,
                     Y1 = 0,
                     X1 = x,
                     X2 = x,
@@ -122,7 +121,6 @@ namespace Virtual_Piano.Midi.Controllers
                     double x2 = x + j * this.Ticks.TicksPerBeat / TrackLayout.Scaling;
                     this.BodyLineCanvas.Children.Add(new Line
                     {
-                        StrokeThickness = 1,
                         Y1 = 0,
                         X1 = x2,
                         X2 = x2,
@@ -286,6 +284,7 @@ namespace Virtual_Piano.Midi.Controllers
 
             this.TimelineThumb.PointerWheelChanged += (s, e) => e.Handled = true;
             this.HeadItemsControl.PointerWheelChanged += (s, e) => e.Handled = true;
+            this.FootListView.PointerWheelChanged += (s, e) => e.Handled = true;
             this.ControllerBorder.PointerWheelChanged += (s, e) =>
             {
                 PointerPoint pp = e.GetCurrentPoint(this.ControllerBorder);
@@ -344,7 +343,6 @@ namespace Virtual_Piano.Midi.Controllers
                 double x = i * this.Ticks.TicksPerBar / TrackLayout.Scaling;
                 this.BodyLineCanvas.Children.Add(new Line
                 {
-                    StrokeThickness = 2,
                     Y1 = 0,
                     X1 = x,
                     X2 = x,
@@ -356,7 +354,6 @@ namespace Virtual_Piano.Midi.Controllers
                     double x2 = x + j * this.Ticks.TicksPerBeat / TrackLayout.Scaling;
                     this.BodyLineCanvas.Children.Add(new Line
                     {
-                        StrokeThickness = 1,
                         Y1 = 0,
                         X1 = x2,
                         X2 = x2,

@@ -30,19 +30,27 @@
                     <!--Style-->
                     <Style TargetType="Rectangle">
                         <Setter Property="IsHitTestVisible" Value="False" />
+                        <Setter Property="StrokeThickness" Value="1" />
+                        <Setter Property="Stroke" Value="{ThemeResource AppBarBorderThemeBrush}" />
                         <Setter Property="Fill" Value="{ThemeResource AppBarBackgroundThemeBrush}" />
                     </Style>
                     <Style TargetType="Line">
                         <Setter Property="IsHitTestVisible" Value="False" />
                         <Setter Property="StrokeThickness" Value="1" />
-                        <Setter Property="Stroke" Value="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" />
+                        <Setter Property="Stroke" Value="{ThemeResource AppBarSeparatorForegroundThemeBrush}" />
                     </Style>
                 </FrameworkElement.Resources>
                 <!--Children-->
             </Canvas>
 
             <!--@Debug: Set its width by Code, not by XAML-->
-            <ItemsControl x:Name="BodyItemsControl" Canvas.Left="{x:Bind Layout.Pane}" Canvas.Top="{x:Bind Layout.Head}" Height="{x:Bind Layout.ExtentHeight}">
+            <ItemsControl 
+                x:Name="BodyItemsControl" 
+                Canvas.Left="{x:Bind Layout.Pane}" 
+                Canvas.Top="{x:Bind Layout.Head}" 
+                Height="{x:Bind Layout.ExtentHeight}"
+                >
+
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Canvas/>
@@ -81,14 +89,14 @@
 
             <!--Controller-->
             <!--@Debug: Set its width by Code, not by XAML-->
-            <Border x:Name="ControllerBorder" Height="{x:Bind Layout.FootPlus}" BorderThickness="0,1,0,0" BorderBrush="Black" Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
+            <Border x:Name="ControllerBorder" Height="{x:Bind Layout.FootPlus}" BorderThickness="0,1,0,0" BorderBrush="{ThemeResource AppBarBorderThemeBrush}" Background="{ThemeResource AppBarBackgroundThemeBrush}">
                 <Canvas Height="127">
                     <FrameworkElement.Resources>
                         <!--Style-->
                         <Style TargetType="Line">
                             <Setter Property="IsHitTestVisible" Value="False" />
                             <Setter Property="StrokeThickness" Value="1" />
-                            <Setter Property="Stroke" Value="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" />
+                            <Setter Property="Stroke" Value="{ThemeResource AppBarSeparatorForegroundThemeBrush}" />
                         </Style>
                     </FrameworkElement.Resources>
                     <Line IsHitTestVisible="False" X1="30" Y1="0" X2="{x:Bind Layout.ExtentHeight}" Y2="0"/>
@@ -161,7 +169,8 @@
                     <!--Style-->
                     <Style TargetType="Line">
                         <Setter Property="IsHitTestVisible" Value="False" />
-                        <Setter Property="Stroke" Value="#33888888" />
+                        <Setter Property="StrokeThickness" Value="1" />
+                        <Setter Property="Stroke" Value="{ThemeResource AppBarSeparatorForegroundThemeBrush}" />
                     </Style>
                 </FrameworkElement.Resources>
                 <!--Children-->
@@ -178,7 +187,7 @@
             </Border>
 
             <!--Foot-->
-            <ListView x:Name="FootListView" IsItemClickEnabled="True" SelectionMode="None" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.FootPlus}" BorderThickness="0,1,1,0" BorderBrush="Black" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+            <ListView x:Name="FootListView" IsItemClickEnabled="True" SelectionMode="None" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.FootPlus}" BorderThickness="0,1,1,0" BorderBrush="{ThemeResource AppBarBorderThemeBrush}" Background="{ThemeResource AppBarBackgroundThemeBrush}">
 
                 <ItemsControl.ItemContainerTransitions>
                     <TransitionCollection>
@@ -198,7 +207,7 @@
                 </UIElement.ManipulationMode>
                 <Control.Template>
                     <ControlTemplate>
-                        <Rectangle Fill="Black"/>
+                        <Rectangle Fill="{ThemeResource AppBarBorderThemeBrush}"/>
                     </ControlTemplate>
                 </Control.Template>
             </Thumb>
@@ -207,6 +216,7 @@
                 <FrameworkElement.Resources>
                     <!--Style-->
                     <Style TargetType="Line">
+                        <Setter Property="IsHitTestVisible" Value="False" />
                         <Setter Property="StrokeThickness" Value="1" />
                         <Setter Property="Stroke" Value="{ThemeResource SystemColorControlAccentBrush}" />
                     </Style>
@@ -261,7 +271,7 @@
                 <!--ItemsSource-->
             </ItemsControl>
 
-            <Border x:Name="HeadBorder" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.Head}" Background="Black">
+            <Border x:Name="HeadBorder" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.Head}" Background="{ThemeResource AppBarBackgroundThemeBrush}">
                 <Button x:Name="BackButton" RequestedTheme="Dark" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Style="{StaticResource TextBlockButtonStyle}">
                     <SymbolIcon Symbol="Back"/>
                 </Button>

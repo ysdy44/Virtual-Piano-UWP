@@ -28,6 +28,9 @@
 
                     <!--SolidColorBrush-->
                     <SolidColorBrush x:Key="ApplicationPageBackgroundThemeBrush" Color="{ThemeResource AppForegroundColor}"/>
+                    <SolidColorBrush x:Key="AppBarSeparatorForegroundThemeBrush" Color="{ThemeResource AppFillColor}"/>
+                    <SolidColorBrush x:Key="AppBarBackgroundThemeBrush" Color="{ThemeResource AppBackgroundColor}"/>
+                    <SolidColorBrush x:Key="AppBarBorderThemeBrush" Color="{ThemeResource AppStrokeColor}"/>
 
                     <!--SolidColorBrush-->
                     <SolidColorBrush x:Key="SystemColorControlAccentBrush" Color="{ThemeResource AppThemeColor}"/>
@@ -107,6 +110,9 @@
 
                     <!--SolidColorBrush-->
                     <SolidColorBrush x:Key="ApplicationPageBackgroundThemeBrush" Color="{ThemeResource AppForegroundColor}"/>
+                    <SolidColorBrush x:Key="AppBarSeparatorForegroundThemeBrush" Color="{ThemeResource AppFillColor}"/>
+                    <SolidColorBrush x:Key="AppBarBackgroundThemeBrush" Color="{ThemeResource AppBackgroundColor}"/>
+                    <SolidColorBrush x:Key="AppBarBorderThemeBrush" Color="{ThemeResource AppStrokeColor}"/>
 
                     <!--SolidColorBrush-->
                     <SolidColorBrush x:Key="SystemColorControlAccentBrush" Color="{ThemeResource AppThemeColor}"/>

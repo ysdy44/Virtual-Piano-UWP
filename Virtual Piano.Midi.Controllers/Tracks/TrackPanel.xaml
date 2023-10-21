@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignWidth="400"
-    d:DesignHeight="400"
+    d:DesignHeight="400"                
     >
 
     <ScrollViewer
@@ -38,16 +38,23 @@
             </Canvas>
 
             <!--@Debug: Set its width by Code, not by XAML-->
-            <ItemsControl x:Name="BodyItemsControl" Canvas.Left="{x:Bind Layout.Pane}" Canvas.Top="{x:Bind Layout.Head}" Height="{x:Bind Layout.ExtentHeight}">
+
+
+            <ItemsControl 
+                x:Name="BodyItemsControl"
+                Canvas.Left="{x:Bind Layout.Pane}" 
+                Canvas.Top="{x:Bind Layout.Head}"
+                Height="{x:Bind Layout.ExtentHeight}"
+                >
 
                 <FrameworkElement.Resources>
                     <!--Style-->
                     <Style TargetType="Line">
                         <Setter Property="StrokeThickness" Value="2" />
-                        <Setter Property="Stroke" Value="#B4DE4B"/>
+                        <Setter Property="Stroke" Value="#E2FF38"/>
                     </Style>
                 </FrameworkElement.Resources>
-                
+
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Canvas/>
@@ -56,13 +63,17 @@
 
                 <ItemsControl.ItemContainerStyle>
                     <Style TargetType="ContentControl">
-                        <Setter Property="Padding" Value="4,0" />
+                        <Setter Property="TabNavigation" Value="Local" />
+                        <Setter Property="UseSystemFocusVisuals" Value="{StaticResource UseSystemFocusVisuals}" />
+                        <Setter Property="Padding" Value="0" />
                         <Setter Property="FontSize" Value="10" />
                         <Setter Property="FontWeight" Value="Bold" />
                         <Setter Property="Foreground" Value="Black" />
-                        <Setter Property="Background" Value="#708B2F"/>
-                        <Setter Property="BorderBrush" Value="Black" />
-                        <Setter Property="BorderThickness" Value="1" />
+                        <Setter Property="Background" Value="#88608F21"/>
+                        <Setter Property="BorderBrush" Value="#608F21"/>
+                        <Setter Property="BorderThickness" Value="2" />
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        <Setter Property="VerticalContentAlignment" Value="Stretch" />
                         <Setter Property="ManipulationMode">
                             <Setter.Value>
                                 TranslateX, TranslateY
@@ -115,7 +126,7 @@
                 </UIElement.ManipulationMode>
                 <Control.Template>
                     <ControlTemplate>
-                        <Rectangle Fill="Black"/>
+                        <Rectangle Fill="{ThemeResource AppBarBorderThemeBrush}"/>
                     </ControlTemplate>
                 </Control.Template>
             </Thumb>
@@ -144,8 +155,8 @@
             <!--Separator-->
 
 
-            <Border x:Name="HeadBorder" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.Head}" Background="Black">
-            
+            <Border x:Name="HeadBorder" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.Head}" Background="{ThemeResource AppBarBackgroundThemeBrush}">
+
             </Border>
 
             <!--Timerline-->
