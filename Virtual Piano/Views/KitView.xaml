@@ -58,7 +58,7 @@
             Grid.Row="1"
             Margin="2"
             CornerRadius="4"
-            Background="{ThemeResource AppBackground}"
+            Background="{ThemeResource AppBackgroundDark}"
             >
             <Viewbox
                 MinHeight="236"

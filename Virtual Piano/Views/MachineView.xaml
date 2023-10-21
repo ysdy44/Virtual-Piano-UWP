@@ -20,7 +20,7 @@
         x:Name="MachinePanel" 
         MinHeight="240"
         Command="{x:Bind Command}" 
-        Background="{ThemeResource AppBackground}"
+        Background="{ThemeResource AppBackgroundDark}"
         />
                 
 </Page>

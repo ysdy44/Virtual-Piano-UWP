@@ -13,13 +13,13 @@
     xmlns:strings="using:Virtual_Piano.Strings"
     mc:Ignorable="d"
     NavigationCacheMode="Enabled"
-    Background="{ThemeResource AppBackground}"
+    Background="{ThemeResource AppBackgroundDark}"
     FlowDirection="{x:Bind Direction}"
     >
 
     <!--Extension-->
     <FrameworkElement.Tag>
-        <elements:ApplicationTitleBarExtension x:Name="ApplicationView" TitleBarColor="{ThemeResource AppBackgroundColor}"/>
+        <elements:ApplicationTitleBarExtension x:Name="ApplicationView" TitleBarColor="{ThemeResource AppBackgroundDarkColor}"/>
     </FrameworkElement.Tag>
 
     <FrameworkElement.Resources>
@@ -344,7 +344,7 @@
                                            />
                                     </TextBlock>
 
-                                    <controllers:TimeSignaturesPanel x:Name="TimeSignaturesPanel" Grid.ColumnSpan="2" Grid.Row="1" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+                                    <controllers:TimeSignaturesPanel x:Name="TimeSignaturesPanel" Grid.ColumnSpan="2" Grid.Row="1" Background="{ThemeResource AppBackground}"/>
 
 
                                     <TextBlock Grid.Row="2" FontWeight="Medium" VerticalAlignment="Center">
@@ -733,7 +733,7 @@
             DisplayMode="Inline"
             IsPaneOpen="False"
             OpenPaneLength="280"
-            PaneBackground="{ThemeResource AppBackground}"
+            PaneBackground="{ThemeResource AppBackgroundDark}"
             Background="{x:Null}"
             >
 
@@ -766,7 +766,7 @@
                         </elements:CommandListView>
 
                         <!--Foot-->
-                        <Grid Background="{ThemeResource AppForeground}">
+                        <Grid Background="{ThemeResource AppBackgroundLight}">
 
                             <Button 
                                 HorizontalAlignment="Stretch"
@@ -878,7 +878,7 @@
 
                         <ItemsControl.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
-                                <Setter Property="Background" Value="{ThemeResource AppForeground}" />
+                                <Setter Property="Background" Value="{ThemeResource AppBackgroundLight}" />
                                 <Setter Property="HorizontalContentAlignment" Value="Center" />
                                 <Setter Property="VerticalContentAlignment" Value="Center" />
                             </Style>
@@ -947,7 +947,7 @@
                                     Width="60"
                                     Controller="Sustain"
                                     BorderBrush="{ThemeResource AppFill}"
-                                    Background="{ThemeResource AppForeground}"
+                                    Background="{ThemeResource AppBackgroundLight}"
                                     Content="{strings:UI Type=PedalSustain}"
                                     Command="{x:Bind Command}"
                                     >
@@ -957,7 +957,7 @@
                                     Width="60"
                                     Controller="AllNotesOff"
                                     BorderBrush="{ThemeResource AppFill}"
-                                    Background="{ThemeResource AppForeground}"
+                                    Background="{ThemeResource AppBackgroundLight}"
                                     Content="{strings:UI Type=PedalSoftPedal}"
                                     Command="{x:Bind Command}"
                                     >
@@ -967,7 +967,7 @@
                                     Width="60"
                                     Controller="Sostenuto"
                                     BorderBrush="{ThemeResource AppFill}"
-                                    Background="{ThemeResource AppForeground}"
+                                    Background="{ThemeResource AppBackgroundLight}"
                                     Content="{strings:UI Type=PedalSostenuto}"
                                     Command="{x:Bind Command}"
                                     >
@@ -1239,7 +1239,7 @@
                         MinHeight="240"
                         Command="{x:Bind Command}" 
                         Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem8.IsSelected), Mode=OneWay}"
-                        Background="{ThemeResource AppBackground}"
+                        Background="{ThemeResource AppBackgroundDark}"
                         />
 
                 </Grid>
@@ -1266,7 +1266,7 @@
                     x:Name="FullScreenButton" 
                     UncheckedCommandParameter="{strings:OptionType Type=FullScreen}" 
                     CheckedCommandParameter="{strings:OptionType Type=UnFullScreen}" 
-                    Background="{ThemeResource AppBackground}" 
+                    Background="{ThemeResource AppBackgroundDark}" 
                     Command="{x:Bind Command}"
                     Data="{x:Bind RouletterData(0)}"
                     >
@@ -1292,7 +1292,7 @@
                     x:Name="MetronomeButton" 
                     UncheckedCommandParameter="{strings:OptionType Type=MetronomeStart}" 
                     CheckedCommandParameter="{strings:OptionType Type=MetronomeStop}"
-                    Background="{ThemeResource AppBackground}" 
+                    Background="{ThemeResource AppBackgroundDark}" 
                     Command="{x:Bind Command}"
                     Data="{x:Bind RouletterData(1)}"
                     >
@@ -1313,7 +1313,7 @@
 
                 <!--Favorite-->
                 <elements:PathFlyoutButton 
-                    Background="{ThemeResource AppBackground}"
+                    Background="{ThemeResource AppBackgroundDark}"
                     Data="{x:Bind RouletterData(2)}"
                     >
                     <ToolTipService.ToolTip>
@@ -1333,7 +1333,7 @@
 
                 <!--Setting-->
                 <elements:PathFlyoutButton
-                    Background="{ThemeResource AppBackground}"
+                    Background="{ThemeResource AppBackgroundDark}"
                     Data="{x:Bind RouletterData(3)}"
                     >
                     <ToolTipService.ToolTip>
@@ -1375,7 +1375,7 @@
                                 <elements:CommandListView
                                     IsItemClickEnabled="True" 
                                     SelectionMode="Single"
-                                    Background="{ThemeResource AppForeground}"
+                                    Background="{ThemeResource AppBackgroundLight}"
                                     ItemsSource="{x:Bind Languages}"
                                     SelectedIndex="{x:Bind Cultures.Index}"
                                     Command="{x:Bind Command}"
@@ -1400,7 +1400,7 @@
 
                 <!--About-->
                 <elements:PathFlyoutButton
-                    Background="{ThemeResource AppBackground}"
+                    Background="{ThemeResource AppBackgroundDark}"
                     Data="{x:Bind RouletterData(4)}"
                     >
                     <ToolTipService.ToolTip>
@@ -1427,7 +1427,7 @@
                                             <Setter Property="CornerRadius" Value="4"/>
                                             <Setter Property="BorderThickness" Value="1"/>
                                             <Setter Property="BorderBrush" Value="{ThemeResource AppStroke}"/>
-                                            <Setter Property="Background" Value="{ThemeResource AppForeground}"/>
+                                            <Setter Property="Background" Value="{ThemeResource AppBackgroundLight}"/>
                                         </Style>
                                     </Border.Style>
                                     <TextBlock Text="{strings:UI Type=Version}">
@@ -1463,7 +1463,7 @@
                     x:Name="MuteButton" 
                     UncheckedCommandParameter="{strings:OptionType Type=Mute}" 
                     CheckedCommandParameter="{strings:OptionType Type=Volume}"
-                    Background="{ThemeResource AppBackground}" 
+                    Background="{ThemeResource AppBackgroundDark}" 
                     Command="{x:Bind Command}"
                     Data="{x:Bind RouletterData(5)}"
                     >
