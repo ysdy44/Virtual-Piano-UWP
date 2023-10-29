@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
 using Virtual_Piano.Elements;
+using Virtual_Piano.FileUtils;
 using Virtual_Piano.Midi;
 using Virtual_Piano.Midi.Controllers;
 using Virtual_Piano.Midi.Core;
@@ -69,6 +71,9 @@ namespace Virtual_Piano
         /*
         readonly ObservableCollection<ContentControl> ItemsSource = new ObservableCollection<ContentControl>();
          */
+
+        // Songs
+        readonly IList<Uri> Songs = new List<Uri>(Enum.GetValues(typeof(SongType)).Cast<SongType>().Select(SongUri.GetUri));
 
         // Favorites
         readonly MidiNote DemoNote = MidiNote.C5;

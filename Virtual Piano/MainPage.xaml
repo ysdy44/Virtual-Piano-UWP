@@ -766,6 +766,38 @@
                         <!--Items-->
                     </elements:CommandListView>
 
+                    <!--Body-->
+                    <elements:CommandListView
+                        Padding="0,8"
+                        Grid.Row="1"
+                        ItemsSource="{x:Bind Songs}"
+                        IsItemClickEnabled="True"
+                        SelectionMode="None"
+                        Command="{x:Bind Command}"
+                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemB.IsSelected), Mode=OneWay}"
+                        >
+                        <ItemsControl.ItemContainerTransitions>
+                            <TransitionCollection>
+                                <!--Transitions-->
+                            </TransitionCollection>
+                        </ItemsControl.ItemContainerTransitions>
+
+                        <ListView.Header>
+                            <TextBlock              
+                                Margin="10,2"
+                                IsTextSelectionEnabled="True"
+                                FontWeight="Medium" 
+                                TextTrimming="CharacterEllipsis" 
+                                FontSize="20" 
+                                TextWrapping="Wrap" 
+                                VerticalAlignment="Center" 
+                                OpticalMarginAlignment="TrimSideBearings"
+                                >                                
+                                Songs
+                            </TextBlock>
+                        </ListView.Header>
+                    </elements:CommandListView>
+
                     <!--Head-->
                     <Grid Height="82" Background="{ThemeResource AppBackgroundLight}" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}">
 
@@ -816,6 +848,7 @@
                         IsItemClickEnabled="True"
                         SelectionMode="None"
                         Command="{x:Bind Command}"
+                        Background="{ThemeResource AppBackgroundLight}"
                         Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemB.IsSelected), Mode=OneWay}"
                         >
                         <ItemsControl.ItemContainerTransitions>
@@ -824,6 +857,7 @@
                             </TransitionCollection>
                         </ItemsControl.ItemContainerTransitions>
 
+                        <!--
                         <ListViewItem Height="60" Content="{strings:OptionType Type=New}">
                             <ContentControl.ContentTemplate>
                                 <DataTemplate>
@@ -834,6 +868,7 @@
                                 </DataTemplate>
                             </ContentControl.ContentTemplate>
                         </ListViewItem>
+                        -->
 
                         <ListViewItem Height="60" Content="{strings:OptionType Type=Open}">
                             <ContentControl.ContentTemplate>
@@ -846,6 +881,7 @@
                             </ContentControl.ContentTemplate>
                         </ListViewItem>
 
+                        <!--
                         <ListViewItem Height="60" Content="{strings:OptionType Type=Save}">
                             <ContentControl.ContentTemplate>
                                 <DataTemplate>
@@ -856,6 +892,7 @@
                                 </DataTemplate>
                             </ContentControl.ContentTemplate>
                         </ListViewItem>
+                        -->
 
                     </elements:CommandListView>
 

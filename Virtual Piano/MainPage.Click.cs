@@ -73,6 +73,15 @@ namespace Virtual_Piano
                 else
                     CultureInfoCollection.SetLanguage(item5.Name);
             }
+            else if (parameter is Uri item6)
+            {
+                StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(item6);
+
+                using (IRandomAccessStream stream = await file.OpenAsync(default))
+                {
+                    this.Initialize(new TrackCollection(stream));
+                }
+            }
         }
 
         public async void Click(OptionType type)
@@ -134,29 +143,7 @@ namespace Virtual_Piano
 
                     using (IRandomAccessStream stream = await file.OpenAsync(default))
                     {
-                        TrackCollection tracks = new TrackCollection(stream);
-
-                        // UI
-                        this.ClickTrack();
-                        this.Click(OptionType.Stop);
-
-                        // Track
-                        this.TrackCollection = tracks;
-                        this.TrackKeySignature = new KeySignature(tracks.SharpsFlats, tracks.MajorMinor);
-                        this.TrackTimeSignature = new TimeSignature(tracks.Numerator, tracks.Denominator);
-                        this.TrackTicks = new Ticks(this.TrackTimeSignature, tracks.DeltaTicksPerQuarterNote);
-                        this.TrackTempo = new Tempo(this.TrackTicks, tracks.Tempo);
-                        this.TrackDuration = new TempoDuration(this.TrackTempo, tracks.Duration);
-
-                        // Timer
-                        this.ClickMetronomeStop();
-                        this.UpdateMetronome(this.TrackTicks, this.TrackTempo);
-
-                        // UI
-                        this.UpdateTrackPanel(this.TrackCollection);
-                        this.UpdateTrackTimeSignature(this.TrackTimeSignature);
-                        this.UpdateTrackTicks(this.TrackTimeSignature, this.TrackTicks);
-                        this.UpdateTrackTempo(this.TrackTicks, this.TrackTempo);
+                        this.Initialize(new TrackCollection(stream));
                     }
                     break;
                 case OptionType.Save:
