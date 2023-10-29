@@ -449,12 +449,16 @@ namespace Virtual_Piano
 
             this.MidiSynthesizer?.Dispose();
             this.MidiSynthesizer = await MidiSynthesizer.CreateAsync();
+        }
 
-            StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///FileUtils/Canon in D-Johann Pachelbel.mid"));
 
-            using (IRandomAccessStream stream = await file.OpenAsync(default))
+        private void Initialize(TrackCollection tracks)
+        {
             {
-                TrackCollection tracks = new TrackCollection(stream);
+
+                // UI
+                this.ClickTrack();
+                this.Click(OptionType.Stop);
 
                 // Track
                 this.TrackCollection = tracks;

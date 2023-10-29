@@ -235,7 +235,11 @@
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="FileUtils\Can Can-Jacques Offenbach.mid" />
     <Content Include="FileUtils\Canon in D-Johann Pachelbel.mid" />
+    <Content Include="FileUtils\Croatian Rhapsody.mid" />
+    <Content Include="FileUtils\Katusha-Russian Folk Song.mid" />
+    <Content Include="FileUtils\しんかいしょうじょ.mid" />
     <Content Include="Icons\Logo.png" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
