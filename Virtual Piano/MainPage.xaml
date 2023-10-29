@@ -649,6 +649,12 @@
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
 
+                <ItemsControl.ItemContainerTransitions>
+                    <TransitionCollection>
+                        <!--Transitions-->
+                    </TransitionCollection>
+                </ItemsControl.ItemContainerTransitions>
+
                 <ListViewItem x:Name="ListViewItem0">
                     <ToolTipService.ToolTip>
                         <ToolTip Placement="Bottom" Content="{strings:UI Type=PianoView}">
@@ -740,79 +746,72 @@
             <SplitView.Pane>
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="56"/>
                     </Grid.RowDefinitions>
 
                     <!--Body-->
-                    <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="82"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
+                    <elements:CommandListView
+                        Grid.Row="1" 
+                        SelectionMode="None"
+                        IsItemClickEnabled="True"
+                        ItemsSource="{x:Bind MidiInstrumentCollection.View}"
+                        Command="{x:Bind Command}"
+                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}"
+                        >
+                        <ItemsControl.GroupStyle>
+                            <GroupStyle/>
+                        </ItemsControl.GroupStyle>
+                        <!--Items-->
+                    </elements:CommandListView>
 
-                        <!--Body-->
-                        <elements:CommandListView
-                            Grid.Row="1" 
-                            SelectionMode="None"
-                            IsItemClickEnabled="True"
-                            ItemsSource="{x:Bind MidiInstrumentCollection.View}"
+                    <!--Head-->
+                    <Grid Height="82" Background="{ThemeResource AppBackgroundLight}" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}">
+
+                        <Button 
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            CommandParameter="{x:Bind DemoNote}"
                             Command="{x:Bind Command}"
+                            Style="{StaticResource TextBlockButtonStyle}"
                             >
-                            <ItemsControl.GroupStyle>
-                                <GroupStyle/>
-                            </ItemsControl.GroupStyle>
-                            <!--Items-->
-                        </elements:CommandListView>
+                            <StackPanel Spacing="2">
+                                <TextBlock FontSize="32" IsColorFontEnabled="False" HorizontalAlignment="Center" Text="{x:Bind Favorites.Emoji, Mode=OneWay}"/>
+                                <TextBlock FontSize="14" HorizontalAlignment="Center" Text="{x:Bind Favorites.String, Mode=OneWay}"/>
+                            </StackPanel>
+                        </Button>
 
-                        <!--Foot-->
-                        <Grid Background="{ThemeResource AppBackgroundLight}">
-
-                            <Button 
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                CommandParameter="{x:Bind DemoNote}"
-                                Command="{x:Bind Command}"
-                                Style="{StaticResource TextBlockButtonStyle}"
-                                >
-                                <StackPanel Spacing="2">
-                                    <TextBlock FontSize="32" IsColorFontEnabled="False" HorizontalAlignment="Center" Text="{x:Bind Favorites.Emoji, Mode=OneWay}"/>
-                                    <TextBlock FontSize="14" HorizontalAlignment="Center" Text="{x:Bind Favorites.String, Mode=OneWay}"/>
-                                </StackPanel>
-                            </Button>
-
-                            <elements:CommandCheckedButton
-                                Width="44" 
-                                Height="44" 
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Top"
-                                IsChecked="{x:Bind Favorites.IsContains, Mode=OneWay}"
-                                UncheckedSymbol="OutlineStar"
-                                CheckedSymbol="SolidStar"
-                                CommandParameter="{x:Bind Favorites.IsContains, Mode=OneWay}"
-                                Command="{x:Bind Favorites.Command}"
-                                Style="{StaticResource TextBlockButtonStyle}"
-                                >
-                                <ToolTipService.ToolTip>
-                                    <ToolTip Placement="Bottom">
-                                        <TextBlock>
-                                            <Run Text="{strings:UI Type=Favorite}">
-                                               <!--Favorites-->
-                                           </Run>
-                                           /
-                                           <Run Text="{strings:UI Type=UnFavorite}">
-                                               <!--UnFavorite-->
-                                           </Run>
-                                        </TextBlock>
-                                    </ToolTip>
-                                </ToolTipService.ToolTip>
-                            </elements:CommandCheckedButton>
-
-                        </Grid>
+                        <elements:CommandCheckedButton
+                            Width="44" 
+                            Height="44" 
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            IsChecked="{x:Bind Favorites.IsContains, Mode=OneWay}"
+                            UncheckedSymbol="OutlineStar"
+                            CheckedSymbol="SolidStar"
+                            CommandParameter="{x:Bind Favorites.IsContains, Mode=OneWay}"
+                            Command="{x:Bind Favorites.Command}"
+                            Style="{StaticResource TextBlockButtonStyle}"
+                            >
+                            <ToolTipService.ToolTip>
+                                <ToolTip Placement="Bottom">
+                                    <TextBlock>
+                                        <Run Text="{strings:UI Type=Favorite}">
+                                           <!--Favorites-->
+                                       </Run>
+                                       /
+                                       <Run Text="{strings:UI Type=UnFavorite}">
+                                           <!--UnFavorite-->
+                                       </Run>
+                                    </TextBlock>
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
+                        </elements:CommandCheckedButton>
 
                     </Grid>
 
-                    <!--Body-->
+                    <!--Head-->
                     <elements:CommandListView
                         IsItemClickEnabled="True"
                         SelectionMode="None"
@@ -820,7 +819,9 @@
                         Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemB.IsSelected), Mode=OneWay}"
                         >
                         <ItemsControl.ItemContainerTransitions>
-                            <!--Transitions-->
+                            <TransitionCollection>
+                                <!--Transitions-->
+                            </TransitionCollection>
                         </ItemsControl.ItemContainerTransitions>
 
                         <ListViewItem Height="60" Content="{strings:OptionType Type=New}">
@@ -860,7 +861,7 @@
 
                     <!--Foot-->
                     <ListView 
-                        Grid.Row="1"
+                        Grid.Row="2"
                         SelectedIndex="0"
                              
                         SelectionMode="Single"
@@ -889,6 +890,12 @@
                                 <elements:FlexPanel/>
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
+
+                        <ItemsControl.ItemContainerTransitions>
+                            <TransitionCollection>
+                                <!--Transitions-->
+                            </TransitionCollection>
+                        </ItemsControl.ItemContainerTransitions>
 
                         <ListViewItem x:Name="ListViewItemA">
                             <StackPanel>
@@ -1380,6 +1387,11 @@
                                     SelectedIndex="{x:Bind Cultures.Index}"
                                     Command="{x:Bind Command}"
                                     >
+                                    <ItemsControl.ItemContainerTransitions>
+                                        <TransitionCollection>
+                                            <!--Transitions-->
+                                        </TransitionCollection>
+                                    </ItemsControl.ItemContainerTransitions>
                                     <!--ItemsSource-->
                                 </elements:CommandListView>
                                 <HyperlinkButton 
