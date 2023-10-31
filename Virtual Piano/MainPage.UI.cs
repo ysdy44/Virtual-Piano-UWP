@@ -48,6 +48,15 @@ namespace Virtual_Piano
             this.FullScreenButton.IsChecked = false;
         }
 
+        public void ClickPlay()
+        {
+            this.PlayOrPauseIcon.Symbol = Symbol.Play;
+        }
+        public void ClickPause()
+        {
+            this.PlayOrPauseIcon.Symbol = Symbol.Pause;
+        }
+
         public void ClickMetronomeStart()
         {
             this.MetronomeIndex = 0;

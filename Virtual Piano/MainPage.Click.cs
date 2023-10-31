@@ -260,6 +260,22 @@ namespace Virtual_Piano
                         this.Player.Pause();
                     }
                     break;
+                case OptionType.PlayOrPause:
+                    if (this.TrackCollection is null) break;
+
+                    if (this.Player.IsPlaying)
+                    {
+                        this.Player.Pause();
+                        this.ClickPlay();
+                    }
+                    else
+                    {
+                        this.Player.Play();
+                        this.Start();
+                        this.Play();
+                        this.ClickPause();
+                    }
+                    break;
 
                 case OptionType.Play:
                     if (this.TrackCollection is null) break;
@@ -269,6 +285,7 @@ namespace Virtual_Piano
                         this.Player.Play();
                         this.Start();
                         this.Play();
+                        this.ClickPause();
                     }
                     break;
                 case OptionType.Pause:
@@ -277,6 +294,7 @@ namespace Virtual_Piano
                     if (this.Player.IsPlaying)
                     {
                         this.Player.Pause();
+                        this.ClickPlay();
                     }
                     break;
                 case OptionType.Stop:
@@ -286,6 +304,7 @@ namespace Virtual_Piano
                     {
                         this.Player.Stop();
                         this.Stop();
+                        this.ClickPlay();
                     }
                     break;
 

@@ -170,23 +170,16 @@
                 </FrameworkElement.Resources>
                 <StackPanel Padding="12,0" Orientation="Horizontal" Height="36" HorizontalAlignment="Center" VerticalAlignment="Center" Background="{ThemeResource AppStroke}">
 
-                    <Button Width="32" Padding="0" CommandParameter="{strings:OptionType Type=Pause}" Command="{x:Bind Command}">
+                    <Button Width="46" Height="36" Padding="0" CommandParameter="{strings:OptionType Type=PlayOrPause}" Command="{x:Bind Command}">
                         <ToolTipService.ToolTip>
                             <ToolTip>
-                                Pause
+                                Play/Pause
                             </ToolTip>
                         </ToolTipService.ToolTip>
-                        <SymbolIcon Symbol="Pause"/>
+                        <SymbolIcon x:Name="PlayOrPauseIcon" Symbol="Play"/>
                     </Button>
-                    <Button Width="32" Padding="0" CommandParameter="{strings:OptionType Type=Play}" Command="{x:Bind Command}">
-                        <ToolTipService.ToolTip>
-                            <ToolTip>
-                                Play
-                            </ToolTip>
-                        </ToolTipService.ToolTip>
-                        <SymbolIcon Symbol="Play"/>
-                    </Button>
-                    <Button Width="32" Padding="0" CommandParameter="{strings:OptionType Type=Stop}" Command="{x:Bind Command}">
+
+                    <Button Width="46" Height="36" Padding="0" CommandParameter="{strings:OptionType Type=Stop}" Command="{x:Bind Command}">
                         <ToolTipService.ToolTip>
                             <ToolTip>
                                 Stop
@@ -195,13 +188,22 @@
                         <SymbolIcon Symbol="Stop"/>
                     </Button>
 
+                    <Button Width="46" Height="36" Padding="0" CommandParameter="{strings:OptionType Type=Stop}" Command="{x:Bind Command}">
+                        <ToolTipService.ToolTip>
+                            <ToolTip>
+                                Stop
+                            </ToolTip>
+                        </ToolTipService.ToolTip>
+                        <SymbolIcon Symbol="ReShare"/>
+                    </Button>
+
                     <Line Margin="8,0" Y1="10" Y2="28" StrokeThickness="1" Stroke="{ThemeResource SystemColorControlAccentBrush}"/>
 
-                    <Button Width="120">
+                    <Button Width="120" Height="36">
                         <elements:DSTimer x:Name="DSTimer" Time="00:00:00.000"/>
                     </Button>
 
-                    <Button Width="74">
+                    <Button Width="69" Height="36">
                         <Button.Flyout>
                             <Flyout x:Name="TempoFlyout" Placement="Bottom" Windows10version1903:ShouldConstrainToRootBounds="False">
                                 <Grid Width="400" RowSpacing="10">
@@ -299,7 +301,7 @@
                         </TextBlock>
                     </Button>
 
-                    <Button Width="74">
+                    <Button Width="69" Height="36">
                         <Button.Flyout>
                             <Flyout x:Name="TimeSignatureFlyout" Placement="Bottom" Windows10version1903:ShouldConstrainToRootBounds="False">
                                 <Grid Width="400" RowSpacing="10">
