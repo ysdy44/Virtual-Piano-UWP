@@ -2,9 +2,7 @@
 
 namespace Virtual_Piano.Midi.Core
 {
-    public interface ITrackPanel : ITrack
+    public interface ITrackPanel : ITrackPanelBase
     {
-        //@Delegate
-        event EventHandler<int> ItemClick;
     }
 }

@@ -1,8 +1,9 @@
-﻿using Windows.UI.Xaml.Controls.Primitives;
+﻿using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls.Primitives;
 
 namespace Virtual_Piano.Midi.Core
 {
-    public interface ITrack
+    public interface ITrackPanelBase
     {
         //@Delegate
         event DragStartedEventHandler DragStarted;
@@ -21,6 +22,7 @@ namespace Virtual_Piano.Midi.Core
 
         // UI
         object ItemsSource { get; set; }
+        UIElement Pane { get; set; }
 
         // Timeline
         long Position { get; }

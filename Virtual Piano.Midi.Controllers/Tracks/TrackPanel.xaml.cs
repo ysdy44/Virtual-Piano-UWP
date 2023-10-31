@@ -8,12 +8,13 @@ using Windows.UI.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Shapes;
 
 namespace Virtual_Piano.Midi.Controllers
 {
-    public sealed partial class TrackPanel : UserControl, ICommand, ITrackPanel
+    [ContentProperty(Name = nameof(Pane))]
+    public sealed partial class TrackPanel : UserControl, ITrackPanel
     {
         //@Delegate
         public event EventHandler<int> ItemClick;
@@ -54,6 +55,7 @@ namespace Virtual_Piano.Midi.Controllers
 
         // UI
         public object ItemsSource { get => this.BodyItemsControl.ItemsSource; set => this.BodyItemsControl.ItemsSource = value; }
+        public UIElement Pane { get => this.PaneBorder.Child; set => this.PaneBorder.Child = value; }
 
         // Timeline
         public long Position { get; private set; }
@@ -63,7 +65,7 @@ namespace Virtual_Piano.Midi.Controllers
         public TimeSignature TimeSignature { get; private set; } = new TimeSignature(4, 4);
         public Ticks Ticks { get; private set; } = new Ticks(new TimeSignature(4, 4), 480);
 
-        readonly TrackLayout Layout = new TrackLayout(175, 18);
+        readonly TrackLayout Layout = new TrackLayout(195, 18);
         readonly Windows.UI.Composition.CompositionPropertySet ScrollProperties;
 
         ~TrackPanel() => this.ScrollProperties?.Dispose();
@@ -84,7 +86,7 @@ namespace Virtual_Piano.Midi.Controllers
             this.TimelineThumb.GetVisual().StartXY(ex, ey);
             this.HeadBorder.GetVisual().StartXY(ex, ey);
 
-            this.PaneStackPanel.GetVisual().StartXY(ex, this.Layout.Head);
+            this.PaneBorder.GetVisual().StartXY(ex, this.Layout.Head);
             this.BodyBackgroundCanvas.GetVisual().StartXY(ex, this.Layout.Head);
 
             this.BodyLineCanvas.GetVisual().StartXY(sx, ey);
@@ -171,20 +173,6 @@ namespace Virtual_Piano.Midi.Controllers
                 this.TimelineTextCanvas.Children.Add(item);
             }
 
-
-            // PaneListBox
-            foreach (MidiChannel item in System.Enum.GetValues(typeof(MidiChannel)).Cast<MidiChannel>())
-            {
-                int i = (int)item;
-                this.PaneStackPanel.Children.Add(new TrackChannel
-                {
-                    Height = TrackLayout.ItemSize,
-                    Label = $"{i}",
-                    Text = "Value",
-                    Command = this,
-                    CommandParameter = i,
-                });
-            }
 
             // BodyBackgroundCanvas
             foreach (MidiChannel item in System.Enum.GetValues(typeof(MidiChannel)).Cast<MidiChannel>())
@@ -286,7 +274,7 @@ namespace Virtual_Piano.Midi.Controllers
             bl.StopY();
             bl.StartXY(sx, ey);
 
-            var tt = this.TimelineTextCanvas.GetVisual();
+            var tt = this.TimelinePointCanvas.GetVisual();
             tt.StopX();
             tt.StopY();
             tt.StartXY(sx, ey);
@@ -450,22 +438,6 @@ namespace Virtual_Piano.Midi.Controllers
                 this.TimelineLine.X2 = this.Layout.Pane;
                 this.TimelinePoint.X1 = this.Layout.Pane;
                 this.TimelinePoint.X2 = this.Layout.Pane;
-            }
-        }
-
-        //@Delegate
-        public event EventHandler CanExecuteChanged;
-
-        //@Command
-        public ICommand Command => this;
-        public bool CanExecute(object parameter) => true;
-        public void Execute(object parameter)
-        {
-            if (this.ItemClick is null) return;
-
-            if (parameter is int item)
-            {
-                this.ItemClick(this, item); // Delegate
             }
         }
     }

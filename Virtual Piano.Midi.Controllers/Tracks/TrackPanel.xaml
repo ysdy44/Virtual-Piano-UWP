@@ -113,9 +113,9 @@
             <!--Separator-->
 
             <!--Pane-->
-            <StackPanel x:Name="PaneStackPanel" Width="{x:Bind Layout.Pane}">
+            <Border x:Name="PaneBorder" Width="{x:Bind Layout.Pane}" Background="{ThemeResource AppBarBackgroundThemeBrush}">
                 <!--Child-->
-            </StackPanel>
+            </Border>
 
             <!--Separator-->
 
