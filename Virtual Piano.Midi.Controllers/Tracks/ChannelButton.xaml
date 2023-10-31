@@ -1,0 +1,79 @@
+﻿<UserControl
+    x:Class="Virtual_Piano.Midi.Controllers.ChannelButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    >
+
+    <Grid BorderThickness="0,0,1,1" BorderBrush="{ThemeResource AppBarBorderThemeBrush}">        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="32"/>
+            <ColumnDefinition Width="1"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+
+        <Panel.Background>
+            <SolidColorBrush Opacity="{x:Bind OpacityConverter(SoloButton.IsChecked), Mode=OneWay}" Color="{ThemeResource SystemAccentColor}"/>
+        </Panel.Background>
+        
+        <TextBlock x:Name="LabelTextBlock" Grid.RowSpan="2" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <!--Label-->
+        </TextBlock>
+
+        <Rectangle Width="1" Grid.Column="1" Grid.RowSpan="2" Fill="{ThemeResource AppBarBorderThemeBrush}"/>
+
+        <Button x:Name="Button" Grid.Column="2" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Style="{StaticResource TextBlockButtonStyle}">
+            <TextBlock x:Name="TextBlock" Grid.Column="2" FontSize="12" FontWeight="Bold" TextWrapping="WrapWholeWords">
+                <!--Text-->
+            </TextBlock>
+        </Button>
+
+        <Grid Grid.Column="2" Grid.Row="1" ColumnSpacing="4" Margin="4,0" Height="28">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <ToggleButton x:Name="MuteButton">
+                <ToolTipService.ToolTip>
+                    <TextBlock>
+                        <Run FontWeight="Bold">
+                            Mute
+                        </Run>
+                        <Run>-</Run>
+                        <Run>
+                            Mutes the Track or the Line.
+                        </Run>
+                    </TextBlock>
+                </ToolTipService.ToolTip>
+                M
+            </ToggleButton>
+            <ToggleButton x:Name="SoloButton" Grid.Column="1">
+                <ToolTipService.ToolTip>
+                    <TextBlock>
+                        <Run FontWeight="Bold">
+                            Solo the track
+                        </Run>
+                        <Run>-</Run>
+                        <Run>
+                            Solo has higher priority that mute.
+                        </Run>
+                    </TextBlock>
+                </ToolTipService.ToolTip>
+                S
+            </ToggleButton>
+            <Button x:Name="EditButton" Grid.Column="2">
+                Edit
+            </Button>
+        </Grid>
+
+    </Grid>
+</UserControl>

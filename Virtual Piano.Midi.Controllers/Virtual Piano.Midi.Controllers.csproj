@@ -147,6 +147,10 @@
       <DependentUpon>TrackChannel.xaml</DependentUpon>
     </Compile>
     <Compile Include="TrackCollections\TrackCollection.cs" />
+    <Compile Include="Tracks\ChannelButton.xaml.cs">
+      <DependentUpon>ChannelButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tracks\ChannelPanel.cs" />
     <Compile Include="Tracks\MachineButton.cs" />
     <Compile Include="Tracks\MachinePanel.xaml.cs">
       <DependentUpon>MachinePanel.xaml</DependentUpon>
@@ -202,6 +206,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="TrackCollections\TrackChannel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tracks\ChannelButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
