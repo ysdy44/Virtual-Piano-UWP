@@ -82,6 +82,95 @@ namespace Virtual_Piano
                     this.Initialize(new TrackCollection(stream));
                 }
             }
+            else if (parameter is MidiChannelMessage item0)
+            {
+                switch (item0.Type)
+                {
+                    case MidiChannelMessageType.ProgramChange:
+                        break;
+                    case MidiChannelMessageType.Edit:
+                        if (this.TrackCollection is null) break;
+                        if (item0.Channel < this.TrackCollection.Count)
+                        {
+                            if (this.TrackCollection[item0.Channel] is ContentControl contentControl)
+                            {
+                                if (contentControl.Content is Track track)
+                                {
+                                    // UI
+                                    this.ClickTrackNote(item0.Channel);
+
+                                    // Track
+                                    this.TrackNotePanel.Load(track);
+                                    break;
+                                }
+                            }
+                        }
+
+                        // UI
+                        this.ClickTrack();
+
+                        // Track
+                        this.TrackNotePanel.Load(null);
+                        break;
+                    case MidiChannelMessageType.UnMute:
+                        if (this.TrackCollection is null) break;
+                        if (this.TrackCollection.Count <= item0.Channel) break;
+
+                        if (this.TrackCollection[item0.Channel] is ContentControl item02)
+                        {
+                            if (item02.IsEnabled == true) break; // Mute
+
+                            this.Click(OptionType.RePause);
+                            item02.IsEnabled = true; // Mute
+                            await Task.Delay(500); // UI-Thread
+                            this.Click(OptionType.RePlay);
+                        }
+                        break;
+                    case MidiChannelMessageType.Mute:
+                        if (this.TrackCollection is null) break;
+                        if (this.TrackCollection.Count <= item0.Channel) break;
+
+                        if (this.TrackCollection[item0.Channel] is ContentControl item01)
+                        {
+                            if (item01.IsEnabled == false) break; // Mute
+
+                            this.Click(OptionType.RePause);
+                            item01.IsEnabled = false; // Mute
+                            await Task.Delay(500); // UI-Thread
+                            this.Click(OptionType.RePlay);
+                        }
+                        break;
+                    case MidiChannelMessageType.UnSolo:
+                        if (this.TrackCollection is null) { this.ChannelPanel.Desolo(); break; }
+                        if (this.TrackCollection.Count <= item0.Channel) { this.ChannelPanel.Desolo(); break; }
+                        if (this.TrackSoloChannel == item0.Channel)
+                        {
+                            this.Click(OptionType.RePause);
+                            this.TrackSoloChannel = -1;
+                            this.ChannelPanel.Desolo();
+                            await Task.Delay(500); // UI-Thread
+                            this.Click(OptionType.RePlay);
+                        }
+                        break;
+                    case MidiChannelMessageType.Solo:
+                        if (this.TrackCollection is null) { this.ChannelPanel.Desolo(item0.Channel); break; }
+                        if (this.TrackCollection.Count <= item0.Channel) { this.ChannelPanel.Desolo(item0.Channel); break; }
+                        if (this.TrackSoloChannel == item0.Channel) { this.ChannelPanel.Desolo(); break; }
+
+                        this.Click(OptionType.RePause);
+                        this.TrackSoloChannel = item0.Channel;
+                        this.ChannelPanel.Desolo(item0.Channel);
+                        await Task.Delay(500); // UI-Thread
+                        this.Click(OptionType.RePlay);
+                        break;
+                    case MidiChannelMessageType.UnRecord:
+                        break;
+                    case MidiChannelMessageType.Record:
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         public async void Click(OptionType type)
@@ -150,11 +239,27 @@ namespace Virtual_Piano
                     break;
 
                 case OptionType.RePlay:
+                    if (this.TrackCollection is null) break;
+
                     if (this.ReIsPlaying is false) break;
-                    goto case OptionType.Play;
+                    if (this.Player.IsPlaying is false)
+                    {
+                        this.Player.Play();
+                        this.Start();
+                        this.Play();
+                    }
+                    break;
                 case OptionType.RePause:
+                    if (this.TrackCollection is null) break;
+
                     this.ReIsPlaying = this.Player.IsPlaying;
-                    goto case OptionType.Pause;
+                    if (this.TrackCollection is null) break;
+
+                    if (this.Player.IsPlaying)
+                    {
+                        this.Player.Pause();
+                    }
+                    break;
 
                 case OptionType.Play:
                     if (this.TrackCollection is null) break;

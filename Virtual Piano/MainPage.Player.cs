@@ -15,10 +15,17 @@ namespace Virtual_Piano
 
                 this.Play(item);
             }
+            else if (this.TrackSoloChannel >= 0 && this.TrackSoloChannel < this.TrackCollection.Count)
+            {
+                ContentControl item = this.TrackCollection[this.TrackSoloChannel];
+
+                this.Play(item); // Solo
+            }
             else
             {
                 foreach (ContentControl item in this.TrackCollection)
                 {
+                    if (item.IsEnabled) // Mute
                     {
                         this.Play(item);
                     }

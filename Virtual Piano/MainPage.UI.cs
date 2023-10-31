@@ -111,6 +111,27 @@ namespace Virtual_Piano
         {
             this.TrackPanel.ItemsSource = tracks;
             this.TrackPanel.ChangeDuration(tracks.Duration);
+
+            int count = tracks.Count;
+            foreach (MidiChannel item in System.Enum.GetValues(typeof(MidiChannel)).Cast<MidiChannel>())
+            {
+                int i = (byte)item;
+                if (this.ChannelPanel.Children[i] is IChannelButton channel)
+                {
+                    channel.Text = "";
+                    if (i >= count) continue;
+
+                    if (tracks[i].Content is Track track)
+                    {
+                        if (track.Source == null) continue;
+                        if (track.Source.Programs == null) continue;
+                        if (track.Source.Programs.Count == 0) continue;
+
+                        MidiMessage message = track.Source.Programs.First();
+                        channel.Text = message.Program.GetString();
+                    }
+                }
+            }
         }
         public void UpdateTrackTimeSignature(TimeSignature timeSignature)
         {
