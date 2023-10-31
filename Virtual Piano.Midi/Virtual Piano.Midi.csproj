@@ -135,6 +135,7 @@
     <Compile Include="Enums2\MidiPercussionNote.cs" />
     <Compile Include="Enums2\MidiProgram.cs" />
     <Compile Include="Enums3\MidiChannel.cs" />
+    <Compile Include="Enums3\MidiChannelMessageType.cs" />
     <Compile Include="Enums3\MidiInstrument.cs" />
     <Compile Include="Enums3\MidiPercussionNoteCategory.cs" />
     <Compile Include="Enums3\MidiProgramCategory.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="Interfaces\IAudioSynthesizer.cs" />
     <Compile Include="Interfaces\IKeyDictionary.cs" />
     <Compile Include="Interfaces\ITickPlayer.cs" />
+    <Compile Include="Messages\MidiChannelMessage.cs" />
     <Compile Include="Messages\MidiMessage.cs" />
     <Compile Include="Messages\MidiTrack.cs" />
     <Compile Include="MidiExtensions.cs" />
