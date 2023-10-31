@@ -50,7 +50,8 @@ namespace Virtual_Piano
         // Synthesizer
         MidiSynthesizer MidiSynthesizer;
         // Track
-        int TrackIndex = -1;
+        int TrackSelectedChannel = -1;
+        int TrackSoloChannel = -1;
         TrackCollection TrackCollection;
         KeySignature TrackKeySignature = new KeySignature(4, 4);
         TimeSignature TrackTimeSignature = new TimeSignature(4, 4);
@@ -270,34 +271,7 @@ namespace Virtual_Piano
 
             // Track
             this.TrackNotePanel.BackClick += (s, e) => this.ClickTrack(); // UI
-            this.TrackPanel.ItemClick += (s, e) =>
-            {
-                if (this.TrackCollection is null) return;
-
-                int index = e;
-                if (index < this.TrackCollection.Count)
-                {
-                    if (this.TrackCollection[index] is ContentControl contentControl)
-                    {
-                        if (contentControl.Content is Track track)
-                        {
-                            // UI
-                            this.ClickTrackNote(index);
-
-                            // Track
-                            this.TrackNotePanel.Load(track);
-                            return;
-                        }
-                    }
-                }
-
-                // UI
-                this.ClickTrack();
-
-                // Track
-                this.TrackNotePanel.Load(null);
-            };
-
+        
             this.TrackPanel.DragStarted += (s, e) =>
             {
                 this.Offset = e.HorizontalOffset;

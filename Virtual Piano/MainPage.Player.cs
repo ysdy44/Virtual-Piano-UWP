@@ -9,9 +9,9 @@ namespace Virtual_Piano
     {
         private void Play()
         {
-            if (this.TrackIndex >= 0 && this.TrackIndex < this.TrackCollection.Count)
+            if (this.TrackSelectedChannel >= 0 && this.TrackSelectedChannel < this.TrackCollection.Count)
             {
-                ContentControl item = this.TrackCollection[this.TrackIndex];
+                ContentControl item = this.TrackCollection[this.TrackSelectedChannel];
 
                 this.Play(item);
             }
@@ -19,7 +19,9 @@ namespace Virtual_Piano
             {
                 foreach (ContentControl item in this.TrackCollection)
                 {
-                    this.Play(item);
+                    {
+                        this.Play(item);
+                    }
                 }
             }
         }

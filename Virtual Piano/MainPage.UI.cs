@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Linq;
 using Virtual_Piano.Midi;
 using Virtual_Piano.Midi.Controllers;
+using Virtual_Piano.Midi.Core;
+using Virtual_Piano.Strings;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace Virtual_Piano
 {
@@ -92,13 +96,13 @@ namespace Virtual_Piano
 
         public void ClickTrack()
         {
-            this.TrackIndex = -1;
+            this.TrackSelectedChannel = -1;
             this.TrackNotePanel.Visibility = Visibility.Collapsed;
             this.TrackPanel.Visibility = Visibility.Visible;
         }
-        public void ClickTrackNote(int index)
+        public void ClickTrackNote(int channel)
         {
-            this.TrackIndex = index;
+            this.TrackSelectedChannel = channel;
             this.TrackPanel.Visibility = Visibility.Collapsed;
             this.TrackNotePanel.Visibility = Visibility.Visible;
         }
@@ -139,7 +143,7 @@ namespace Virtual_Piano
             this.ProgressBar.Value = this.TrackDuration.GetPercent(this.Player.PositionMilliseconds);
             this.DSTimer.Time = this.Player.Position;
 
-            if (this.TrackIndex < 0)
+            if (this.TrackSelectedChannel < 0)
                 this.TrackPanel.ChangePosition(this.TrackTempo.ToTicks(this.Player.PositionMilliseconds), true, true);
             else
                 this.TrackNotePanel.ChangePosition(this.TrackTempo.ToTicks(this.Player.PositionMilliseconds), true, true);
@@ -149,7 +153,7 @@ namespace Virtual_Piano
             this.ProgressBar.Value = this.TrackDuration.GetPercent(this.Player.PositionMilliseconds);
             this.DSTimer.Time = this.Player.Position;
 
-            if (this.TrackIndex < 0)
+            if (this.TrackSelectedChannel < 0)
                 this.TrackPanel.ChangePosition(this.TrackTempo.ToTicks(this.Player.PositionMilliseconds), true, false);
             else
                 this.TrackNotePanel.ChangePosition(this.TrackTempo.ToTicks(this.Player.PositionMilliseconds), true, false);

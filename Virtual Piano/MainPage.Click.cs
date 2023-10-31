@@ -30,26 +30,11 @@ namespace Virtual_Piano
         public bool CanExecute(object parameter) => parameter != default;
         public async void Execute(object parameter)
         {
-            if (parameter is MidiMessage item)
+            if (parameter is MidiMessage item1)
             {
-                this.MidiSynthesizer.SendMessage(item);
+                this.MidiSynthesizer.SendMessage(item1);
             }
-            else if (parameter is MidiNote item0)
-            {
-                this.AllowRing = true;
-
-                this.MidiSynthesizer.NoteOn(item0);
-                await Task.Delay(2000);
-                this.MidiSynthesizer.NoteOff(item0);
-            }
-            else if (parameter is MidiProgram item1)
-            {
-                this.AllowRing = true;
-
-                this.Favorites.Instrument = item1;
-                this.MidiSynthesizer.ProgramChange(item1);
-            }
-            else if (parameter is MidiPercussionNote item2)
+            else if (parameter is MidiNote item2)
             {
                 this.AllowRing = true;
 
@@ -57,25 +42,40 @@ namespace Virtual_Piano
                 await Task.Delay(2000);
                 this.MidiSynthesizer.NoteOff(item2);
             }
-            else if (parameter is OptionType item3)
+            else if (parameter is MidiProgram item3)
             {
-                this.Click(item3);
+                this.AllowRing = true;
+
+                this.Favorites.Instrument = item3;
+                this.MidiSynthesizer.ProgramChange(item3);
             }
-            else if (parameter is InstrumentItem item4)
+            else if (parameter is MidiPercussionNote item4)
             {
-                this.Favorites.Instrument = item4.Key;
-                this.MidiSynthesizer.ProgramChange(item4.Key);
+                this.AllowRing = true;
+
+                this.MidiSynthesizer.NoteOn(item4);
+                await Task.Delay(2000);
+                this.MidiSynthesizer.NoteOff(item4);
             }
-            else if (parameter is CultureInfo item5)
+            else if (parameter is OptionType item5)
             {
-                if (string.IsNullOrEmpty(item5.Name))
+                this.Click(item5);
+            }
+            else if (parameter is InstrumentItem item6)
+            {
+                this.Favorites.Instrument = item6.Key;
+                this.MidiSynthesizer.ProgramChange(item6.Key);
+            }
+            else if (parameter is CultureInfo item7)
+            {
+                if (string.IsNullOrEmpty(item7.Name))
                     CultureInfoCollection.SetLanguageEmpty();
                 else
-                    CultureInfoCollection.SetLanguage(item5.Name);
+                    CultureInfoCollection.SetLanguage(item7.Name);
             }
-            else if (parameter is Uri item6)
+            else if (parameter is Uri item8)
             {
-                StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(item6);
+                StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(item8);
 
                 using (IRandomAccessStream stream = await file.OpenAsync(default))
                 {
