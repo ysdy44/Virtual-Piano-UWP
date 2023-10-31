@@ -30,6 +30,9 @@
                     <SolidColorBrush x:Key="AppBackground" Color="{ThemeResource AppBackgroundColor}"/>
                     <SolidColorBrush x:Key="AppForeground" Color="{ThemeResource AppForegroundColor}"/>
 
+                    <!--StaticResource-->
+                    <StaticResource x:Key="SystemAccentColor" ResourceKey="AppThemeColor"/>
+
                     <!--SolidColorBrush-->
                     <SolidColorBrush x:Key="AppBarSeparatorForegroundThemeBrush" Color="{ThemeResource AppFillColor}"/>
                     <SolidColorBrush x:Key="AppBarBackgroundThemeBrush" Color="{ThemeResource AppBackgroundColor}"/>
@@ -54,20 +57,13 @@
                     <SolidColorBrush x:Key="ListViewItemForegroundPointerOver" Color="{ThemeResource AppThemeColor}" />
                     <SolidColorBrush x:Key="ListViewItemForegroundSelected" Color="White" />
 
-                    <!--Button-->
-                    <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
-                    <SolidColorBrush x:Key="ButtonForeground" Color="{ThemeResource AppThemeColor}" />
-                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="{ThemeResource AppThemeColor}" />
-                    <SolidColorBrush x:Key="ButtonForegroundPressed" Color="{ThemeResource AppThemeColor}" />
-                    <SolidColorBrush x:Key="ButtonForegroundDisabled" Color="Gray" />
-                    <SolidColorBrush x:Key="ButtonBorderBrush" Color="{ThemeResource AppThemeColor}" />
-                    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="{ThemeResource AppThemeColor}" />
-                    <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="{ThemeResource AppThemeColor}" />
-                    <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="{ThemeResource AppThemeColor}" />
-
-                    <Thickness x:Key="ButtonBorderThemeThickness">1</Thickness>
+                    <!--ToggleButton-->
+                    <SolidColorBrush x:Key="ToggleButtonForegroundChecked" Color="Black" />
+                    <SolidColorBrush x:Key="ToggleButtonForegroundCheckedPointerOver" Color="Black" />
+                    <SolidColorBrush x:Key="ToggleButtonForegroundCheckedPressed" Color="Black" />
 
                     <!--Slider-->
+                    <!--
                     <SolidColorBrush x:Key="SliderThumbBackground" Color="{ThemeResource SystemChromeHighColor}" />
                     <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="{ThemeResource SystemChromeHighColor}" />
                     <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="{ThemeResource SystemChromeHighColor}" />
@@ -82,16 +78,8 @@
                     <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="{ThemeResource SystemChromeHighColor}" />
                     <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="{ThemeResource SystemChromeHighColor}" />
                     <SolidColorBrush x:Key="SliderTrackValueFillDisabled" Color="{ThemeResource SystemChromeDisabledHighColor}" />
-
+                    -->
                     <x:Double x:Key="SliderTrackThemeHeight">14</x:Double>
-
-                    <!--Style-->
-                    <Style TargetType="FlyoutPresenter">
-                        <Setter Property="BorderThickness" Value="1"/>
-                        <Setter Property="BorderBrush" Value="{ThemeResource AppBorderBrush}"/>
-                        <Setter Property="Background" Value="{ThemeResource AppBackgroundDark}"/>
-                        <Setter Property="Padding" Value="{ThemeResource FlyoutContentThemePadding}" />
-                    </Style>
 
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Dark">
@@ -114,6 +102,9 @@
                     <SolidColorBrush x:Key="AppBackgroundLight" Color="{ThemeResource AppBackgroundLightColor}"/>
                     <SolidColorBrush x:Key="AppBackground" Color="{ThemeResource AppBackgroundColor}"/>
                     <SolidColorBrush x:Key="AppForeground" Color="{ThemeResource AppForegroundColor}"/>
+
+                    <!--StaticResource-->
+                    <StaticResource x:Key="SystemAccentColor" ResourceKey="AppThemeColor"/>
 
                     <!--SolidColorBrush-->
                     <SolidColorBrush x:Key="AppBarSeparatorForegroundThemeBrush" Color="{ThemeResource AppFillColor}"/>
@@ -139,18 +130,10 @@
                     <SolidColorBrush x:Key="ListViewItemForegroundPointerOver" Color="{ThemeResource AppThemeColor}" />
                     <SolidColorBrush x:Key="ListViewItemForegroundSelected" Color="Black" />
 
-                    <!--Button-->
-                    <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
-                    <SolidColorBrush x:Key="ButtonForeground" Color="{ThemeResource AppThemeColor}" />
-                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="{ThemeResource AppThemeColor}" />
-                    <SolidColorBrush x:Key="ButtonForegroundPressed" Color="{ThemeResource AppThemeColor}" />
-                    <SolidColorBrush x:Key="ButtonForegroundDisabled" Color="Gray" />
-                    <SolidColorBrush x:Key="ButtonBorderBrush" Color="{ThemeResource AppThemeColor}" />
-                    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="{ThemeResource AppThemeColor}" />
-                    <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="{ThemeResource AppThemeColor}" />
-                    <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="{ThemeResource AppThemeColor}" />
-
-                    <Thickness x:Key="ButtonBorderThemeThickness">1</Thickness>
+                    <!--ToggleButton-->
+                    <SolidColorBrush x:Key="ToggleButtonForegroundChecked" Color="Black" />
+                    <SolidColorBrush x:Key="ToggleButtonForegroundCheckedPointerOver" Color="Black" />
+                    <SolidColorBrush x:Key="ToggleButtonForegroundCheckedPressed" Color="Black" />
 
                     <!--Slider-->
                     <SolidColorBrush x:Key="SliderThumbBackground" Color="{ThemeResource SystemChromeHighColor}" />
@@ -170,16 +153,39 @@
 
                     <x:Double x:Key="SliderTrackThemeHeight">14</x:Double>
 
-                    <!--Style-->
-                    <Style TargetType="FlyoutPresenter">
-                        <Setter Property="BorderThickness" Value="1"/>
-                        <Setter Property="BorderBrush" Value="{ThemeResource AppBorderBrush}"/>
-                        <Setter Property="Background" Value="{ThemeResource AppBackgroundDark}"/>
-                        <Setter Property="Padding" Value="{ThemeResource FlyoutContentThemePadding}" />
-                    </Style>
-
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
+
+            <!--Style-->
+            <Style TargetType="Button">
+                <Setter Property="FontWeight" Value="Medium" />
+                <Setter Property="CornerRadius" Value="4" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="BorderBrush" Value="{ThemeResource SystemColorControlAccentBrush}" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+            </Style>
+
+            <!--Style-->
+            <Style TargetType="ToggleButton">
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="CornerRadius" Value="4" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="BorderBrush" Value="{ThemeResource SystemColorControlAccentBrush}" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+            </Style>
+
+            <!--Style-->
+            <Style TargetType="FlyoutPresenter">
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="BorderBrush" Value="{ThemeResource AppBorderBrush}"/>
+                <Setter Property="Background" Value="{ThemeResource AppBackgroundDark}"/>
+                <Setter Property="Padding" Value="{ThemeResource FlyoutContentThemePadding}" />
+            </Style>
 
         </ResourceDictionary>
     </Application.Resources>
