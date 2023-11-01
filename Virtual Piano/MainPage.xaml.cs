@@ -271,7 +271,24 @@ namespace Virtual_Piano
 
             // Track
             this.TrackNotePanel.BackClick += (s, e) => this.ClickTrack(); // UI
-        
+            this.TrackNotePanel.FootItemClick += (s, e) =>
+            {
+                if (this.TrackCollection is null) return;
+
+                if (e.ClickedItem is MidiControlController item)
+                {
+                    int i = this.TrackSelectedChannel;
+                    TrackCollection tracks = this.TrackCollection;
+                    if (tracks[i].Content is Track track)
+                    {
+                        if (track.Controllers.ContainsKey(item))
+                        {
+                            this.TrackNotePanel.LoadCC(track.Controllers[item]);
+                        }
+                    }
+                }
+            };
+
             this.TrackPanel.DragStarted += (s, e) =>
             {
                 this.Offset = e.HorizontalOffset;
