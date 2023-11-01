@@ -99,9 +99,9 @@
                             <Setter Property="Stroke" Value="{ThemeResource AppBarSeparatorForegroundThemeBrush}" />
                         </Style>
                     </FrameworkElement.Resources>
-                    <Line IsHitTestVisible="False" X1="30" Y1="0" X2="{x:Bind Layout.ExtentHeight}" Y2="0"/>
-                    <Line IsHitTestVisible="False" X1="30" Y1="64" X2="{x:Bind Layout.ExtentHeight}" Y2="64"/>
-                    <Line IsHitTestVisible="False" X1="30" Y1="127" X2="{x:Bind Layout.ExtentHeight}" Y2="127"/>
+                    <Line x:Name="ControllerLine0" IsHitTestVisible="False" X1="0" Y1="0" Y2="0"/>
+                    <Line x:Name="ControllerLine1" IsHitTestVisible="False" X1="0" Y1="64" Y2="64"/>
+                    <Line x:Name="ControllerLine2" IsHitTestVisible="False" X1="0" Y1="127" Y2="127"/>
 
                     <TextBlock IsHitTestVisible="False" Height="24" Canvas.Left="4" Canvas.Top="-12">
                         127
@@ -188,7 +188,10 @@
 
             <!--Foot-->
             <ListView x:Name="FootListView" IsItemClickEnabled="True" SelectionMode="None" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.FootPlus}" BorderThickness="0,1,1,0" BorderBrush="{ThemeResource AppBarBorderThemeBrush}" Background="{ThemeResource AppBarBackgroundThemeBrush}">
-
+                <UIElement.ManipulationMode>
+                    None
+                </UIElement.ManipulationMode>
+                
                 <ItemsControl.ItemContainerTransitions>
                     <TransitionCollection>
 

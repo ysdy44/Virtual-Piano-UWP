@@ -281,7 +281,7 @@ namespace Virtual_Piano.Midi.Controllers
                         break;
                 }
             };
-
+            
             this.TimelineThumb.PointerWheelChanged += (s, e) => e.Handled = true;
             this.HeadItemsControl.PointerWheelChanged += (s, e) => e.Handled = true;
             this.FootListView.PointerWheelChanged += (s, e) => e.Handled = true;
@@ -424,6 +424,9 @@ namespace Virtual_Piano.Midi.Controllers
             this.ControllerBorder.Width = extentWidth;
             this.ControllerItemsControl.Width = extentWidth;
             this.HeadItemsControl.Width = extentWidth;
+            this.ControllerLine0.X2 = extentWidth;
+            this.ControllerLine1.X2 = extentWidth;
+            this.ControllerLine2.X2 = extentWidth;
         }
 
         public void ChangePosition(long position, bool scrollNext, bool scrollPrevious)

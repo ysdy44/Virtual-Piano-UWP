@@ -154,8 +154,8 @@
 
             <!--Separator-->
 
-
-            <Border x:Name="HeadBorder" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.Head}" Background="{ThemeResource AppBarBackgroundThemeBrush}">
+            <!--Head-->
+            <Border x:Name="HeadBorder" Width="{x:Bind Layout.Pane}" Height="{x:Bind Layout.Head}" BorderThickness="0,0,1,1" BorderBrush="{ThemeResource AppBarBorderThemeBrush}" Background="{ThemeResource AppBarBackgroundThemeBrush}">
 
             </Border>
 
