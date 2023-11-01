@@ -1,8 +1,9 @@
-﻿using Virtual_Piano.Midi.Core;
+﻿using Virtual_Piano.Midi;
+using Virtual_Piano.Midi.Core;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Markup;
 
-namespace Virtual_Piano.Midi.Controllers
+namespace Virtual_Piano.Controls
 {
     [ContentProperty(Name = nameof(Text))]
     public sealed partial class ChannelButton : UserControl, IChannelButton

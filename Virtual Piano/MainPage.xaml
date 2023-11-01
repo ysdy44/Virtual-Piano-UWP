@@ -962,7 +962,7 @@
 
                 <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemB.IsSelected), Mode=OneWay}">
                     <controllers:TrackPanel x:Name="TrackPanel">
-                        <controllers:ChannelPanel x:Name="ChannelPanel" Command="{x:Bind Command}"/>
+                        <controls:ChannelPanel x:Name="ChannelPanel" Command="{x:Bind Command}"/>
                     </controllers:TrackPanel>
                     <controllers:TrackNotePanel x:Name="TrackNotePanel" Visibility="Collapsed">
                         <instruments:PianoLeftPanel x:Name="PianoLeftPanel" Command="{x:Bind Command}"/>

@@ -1,9 +1,10 @@
 ﻿using System.Linq;
 using System.Windows.Input;
+using Virtual_Piano.Midi;
 using Virtual_Piano.Midi.Core;
 using Windows.UI.Xaml.Controls;
 
-namespace Virtual_Piano.Midi.Controllers
+namespace Virtual_Piano.Controls
 {
     public sealed class ChannelPanel : StackPanel, IChannelPanel
     {
