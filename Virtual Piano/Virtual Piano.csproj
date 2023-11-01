@@ -126,6 +126,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ChannelButton.xaml.cs">
+      <DependentUpon>ChannelButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ChannelPanel.cs" />
     <Compile Include="Controls\ChordCarousel.cs" />
     <Compile Include="Controls\DrumPanel.cs" />
     <Compile Include="Controls\InstrumentCollectionPanel.cs" />
@@ -257,6 +261,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\ChannelButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
