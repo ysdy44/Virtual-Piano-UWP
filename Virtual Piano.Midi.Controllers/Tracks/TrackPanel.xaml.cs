@@ -85,7 +85,8 @@ namespace Virtual_Piano.Midi.Controllers
             this.TimelineThumb.GetVisual().StartXY(ex, ey);
             this.HeadBorder.GetVisual().StartXY(ex, ey);
 
-            this.PaneBorder.GetVisual().StartXY(ex, this.Layout.Head);
+            this.PaneBorder.Padding = new Thickness(0, this.Layout.Head, 0, 0);
+            this.PaneBorder.GetVisual().StartX(ex);
             this.BodyBackgroundCanvas.GetVisual().StartXY(ex, this.Layout.Head);
 
             this.BodyLineCanvas.GetVisual().StartXY(sx, ey);

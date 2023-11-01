@@ -92,7 +92,8 @@ namespace Virtual_Piano.Midi.Controllers
             this.TimelineThumb.GetVisual().StartXY(ex, ey);
             this.HeadBorder.GetVisual().StartXY(ex, ey);
 
-            this.PaneBorder.GetVisual().StartXY(ex, this.Layout.Head);
+            this.PaneBorder.Padding = new Thickness(0, this.Layout.Head, 0, 0);
+            this.PaneBorder.GetVisual().StartX(ex);
             this.BodyBackgroundCanvas.GetVisual().StartXY(ex, this.Layout.Head);
 
             this.BodyLineCanvas.GetVisual().StartXY(sx, ey);
@@ -281,7 +282,7 @@ namespace Virtual_Piano.Midi.Controllers
                         break;
                 }
             };
-            
+
             this.TimelineThumb.PointerWheelChanged += (s, e) => e.Handled = true;
             this.HeadItemsControl.PointerWheelChanged += (s, e) => e.Handled = true;
             this.FootListView.PointerWheelChanged += (s, e) => e.Handled = true;
