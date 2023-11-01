@@ -264,6 +264,7 @@ namespace Virtual_Piano
                 if (this.Player.PositionMilliseconds >= this.TrackDuration.DurationMilliseconds)
                 {
                     this.Player.Stop();
+                    this.ClickPlay();
                 }
 
                 this.Progress();
