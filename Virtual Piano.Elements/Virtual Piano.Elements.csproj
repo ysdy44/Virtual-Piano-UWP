@@ -139,17 +139,17 @@
     <Compile Include="CommandListView.cs" />
     <Compile Include="CommandToggleButton.cs" />
     <Compile Include="CultureInfoCollection.cs" />
-    <Compile Include="DS\DSExtensions.cs" />
-    <Compile Include="DS\DSFloat.xaml.cs">
-      <DependentUpon>DSFloat.xaml</DependentUpon>
+    <Compile Include="Digitals\DigitalExtensions.cs" />
+    <Compile Include="Digitals\DigitalFloat.xaml.cs">
+      <DependentUpon>DigitalFloat.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DS\DSScorer.xaml.cs">
-      <DependentUpon>DSScorer.xaml</DependentUpon>
+    <Compile Include="Digitals\DigitalScorer.xaml.cs">
+      <DependentUpon>DigitalScorer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DS\DSTimer.xaml.cs">
-      <DependentUpon>DSTimer.xaml</DependentUpon>
+    <Compile Include="Digitals\DigitalTimer.xaml.cs">
+      <DependentUpon>DigitalTimer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DS\DSType.cs" />
+    <Compile Include="Digitals\DigitalType.cs" />
     <Compile Include="Panels\FlexPanel.cs" />
     <Compile Include="Paths\IPathButton.cs" />
     <Compile Include="Paths\IPathFlyoutButton.cs" />
@@ -199,15 +199,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="DS\DSFloat.xaml">
+    <Page Include="Digitals\DigitalFloat.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="DS\DSScorer.xaml">
+    <Page Include="Digitals\DigitalScorer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="DS\DSTimer.xaml">
+    <Page Include="Digitals\DigitalTimer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -128,11 +128,11 @@
     <Compile Include="CompositionPage.xaml.cs">
       <DependentUpon>CompositionPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DigitalPage.xaml.cs">
+      <DependentUpon>DigitalPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DrumMachinePage.xaml.cs">
       <DependentUpon>DrumMachinePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DSPage.xaml.cs">
-      <DependentUpon>DSPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="EmojiPage.xaml.cs">
       <DependentUpon>EmojiPage.xaml</DependentUpon>
@@ -201,13 +201,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DigitalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DrumMachinePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DSPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EmojiPage.xaml">
       <Generator>MSBuild:Compile</Generator>
