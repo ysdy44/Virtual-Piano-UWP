@@ -50,9 +50,11 @@ namespace Virtual_Piano
 
         public void ClickPlay()
         {
+            this.PlayButton.IsChecked = false;
         }
         public void ClickPause()
         {
+            this.PlayButton.IsChecked = true;
         }
 
         public void ClickMetronomeStart()
