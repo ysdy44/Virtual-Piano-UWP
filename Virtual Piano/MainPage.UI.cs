@@ -50,11 +50,9 @@ namespace Virtual_Piano
 
         public void ClickPlay()
         {
-            this.PlayOrPauseIcon.Symbol = Symbol.Play;
         }
         public void ClickPause()
         {
-            this.PlayOrPauseIcon.Symbol = Symbol.Pause;
         }
 
         public void ClickMetronomeStart()
@@ -67,6 +65,7 @@ namespace Virtual_Piano
         {
             this.MetronomeIndex = 0;
             this.MetronomeTimer.Stop();
+            this.MetronomeButton.IsChecked = false;
         }
         public void UpdateMetronome(Ticks ticks, Tempo tempo)
         {

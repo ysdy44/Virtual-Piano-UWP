@@ -24,7 +24,6 @@
 
         RePlay,
         RePause,
-        PlayOrPause,
 
         Play,
         Pause,

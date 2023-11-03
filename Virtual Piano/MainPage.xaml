@@ -167,17 +167,31 @@
                         <Setter Property="FontWeight" Value="Bold" />
                         <Setter Property="Padding" Value="2" />
                     </Style>
+                    <Style TargetType="elements:CommandToggleButton" BasedOn="{StaticResource TextBlockButtonStyle}">
+                        <Setter Property="MinWidth" Value="44" />
+                        <Setter Property="Height" Value="36" />
+                        <Setter Property="FontSize" Value="10" />
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="Padding" Value="2" />
+                    </Style>
                 </FrameworkElement.Resources>
                 <StackPanel Padding="12,0" Orientation="Horizontal" Height="36" HorizontalAlignment="Center" VerticalAlignment="Center" Background="{ThemeResource AppStroke}">
 
-                    <Button Width="46" Height="36" Padding="0" CommandParameter="{strings:OptionType Type=PlayOrPause}" Command="{x:Bind Command}">
+                    <elements:CommandToggleButton Width="46" Height="36" Padding="0"
+                           IsChecked="False"
+                           UncheckedSymbol="Play" 
+                           CheckedSymbol="Pause" 
+                           UncheckedCommandParameter="{strings:OptionType Type=Pause}" 
+                           CheckedCommandParameter="{strings:OptionType Type=Play}" 
+                           CommandParameter="Play/Pause" 
+                           Command="{x:Bind Command}"
+                           >
                         <ToolTipService.ToolTip>
                             <ToolTip>
                                 Play/Pause
                             </ToolTip>
                         </ToolTipService.ToolTip>
-                        <SymbolIcon x:Name="PlayOrPauseIcon" Symbol="Play"/>
-                    </Button>
+                    </elements:CommandToggleButton>
 
                     <Button Width="46" Height="36" Padding="0" CommandParameter="{strings:OptionType Type=Stop}" Command="{x:Bind Command}">
                         <ToolTipService.ToolTip>
