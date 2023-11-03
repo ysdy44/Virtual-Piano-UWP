@@ -163,7 +163,7 @@ namespace Virtual_Piano
         private void Stop()
         {
             this.ProgressBar.Value = 0;
-            this.DSTimer.Time = TimeSpan.Zero;
+            this.DigitalTimer.Time = TimeSpan.Zero;
 
             this.TrackPanel.Stop();
             this.TrackNotePanel.Stop();
@@ -171,7 +171,7 @@ namespace Virtual_Piano
         private void Start()
         {
             this.ProgressBar.Value = this.TrackDuration.GetPercent(this.Player.PositionMilliseconds);
-            this.DSTimer.Time = this.Player.Position;
+            this.DigitalTimer.Time = this.Player.Position;
 
             if (this.TrackSelectedChannel < 0)
                 this.TrackPanel.ChangePosition(this.TrackTempo.ToTicks(this.Player.PositionMilliseconds), true, true);
@@ -181,7 +181,7 @@ namespace Virtual_Piano
         private void Progress()
         {
             this.ProgressBar.Value = this.TrackDuration.GetPercent(this.Player.PositionMilliseconds);
-            this.DSTimer.Time = this.Player.Position;
+            this.DigitalTimer.Time = this.Player.Position;
 
             if (this.TrackSelectedChannel < 0)
                 this.TrackPanel.ChangePosition(this.TrackTempo.ToTicks(this.Player.PositionMilliseconds), true, false);

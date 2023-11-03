@@ -200,7 +200,7 @@
                     <Line Margin="8,0" Y1="10" Y2="28" StrokeThickness="1" Stroke="{ThemeResource SystemColorControlAccentBrush}"/>
 
                     <Button Width="120" Height="36">
-                        <elements:DSTimer x:Name="DSTimer" Time="00:00:00.000"/>
+                        <elements:DigitalTimer x:Name="DigitalTimer" Time="00:00:00.000"/>
                     </Button>
 
                     <Button Width="69" Height="36">

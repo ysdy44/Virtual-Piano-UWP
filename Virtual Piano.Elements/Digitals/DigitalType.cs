@@ -7,7 +7,7 @@
     /// ⑤ ◯ ③ <para/>
     /// ◯ ④ ◯ <para/>
     /// </summary>
-    internal enum DSType
+    internal enum DigitalType
     {
         None,
 

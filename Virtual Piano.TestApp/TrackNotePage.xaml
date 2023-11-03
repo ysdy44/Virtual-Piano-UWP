@@ -28,7 +28,7 @@
                     </Button>
                 </ListView.Header>
                 <ListView.Footer>
-                    <elements:DSTimer x:Name="DSTimer"/>
+                    <elements:DigitalTimer x:Name="DigitalTimer"/>
                 </ListView.Footer>
                 <ItemsControl.ItemContainerStyle>
                     <Style TargetType="ContentControl">

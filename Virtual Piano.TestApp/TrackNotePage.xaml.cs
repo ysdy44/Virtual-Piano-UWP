@@ -72,7 +72,7 @@ namespace Virtual_Piano.TestApp
                 long milliseconds = System.Math.Max(0, this.TrackTempo.ToMilliseconds(this.TrackNotePanel.Position));
                 TimeSpan timespan = TimeSpan.FromMilliseconds(milliseconds);
 
-                this.DSTimer.Time = timespan;
+                this.DigitalTimer.Time = timespan;
             };
             this.TrackNotePanel.DragDelta += (s, e) =>
             {
@@ -82,7 +82,7 @@ namespace Virtual_Piano.TestApp
                 long milliseconds = System.Math.Max(0, this.TrackTempo.ToMilliseconds(this.TrackNotePanel.Position));
                 TimeSpan timespan = TimeSpan.FromMilliseconds(milliseconds);
 
-                this.DSTimer.Time = timespan;
+                this.DigitalTimer.Time = timespan;
             };
             this.TrackNotePanel.DragCompleted += (s, e) =>
             {
@@ -90,7 +90,7 @@ namespace Virtual_Piano.TestApp
                 long milliseconds = System.Math.Max(0, this.TrackTempo.ToMilliseconds(this.TrackNotePanel.Position));
                 TimeSpan timespan = TimeSpan.FromMilliseconds(milliseconds);
 
-                this.DSTimer.Time = timespan;
+                this.DigitalTimer.Time = timespan;
             };
 
             this.TrackNotePanel.FootItemClick += (s, e) =>

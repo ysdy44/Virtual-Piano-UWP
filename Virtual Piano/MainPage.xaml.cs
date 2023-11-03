@@ -300,7 +300,7 @@ namespace Virtual_Piano
 
                 this.Click(OptionType.RePause);
 
-                this.DSTimer.Time = timespan;
+                this.DigitalTimer.Time = timespan;
                 this.Player.Seek(timespan, milliseconds);
             };
             this.TrackPanel.DragDelta += (s, e) =>
@@ -311,7 +311,7 @@ namespace Virtual_Piano
                 long milliseconds = System.Math.Max(0, this.TrackTempo.ToMilliseconds(this.TrackPanel.Position));
                 TimeSpan timespan = TimeSpan.FromMilliseconds(milliseconds);
 
-                this.DSTimer.Time = timespan;
+                this.DigitalTimer.Time = timespan;
                 this.Player.Seek(timespan, milliseconds);
             };
             this.TrackPanel.DragCompleted += (s, e) =>
@@ -320,7 +320,7 @@ namespace Virtual_Piano
                 long milliseconds = System.Math.Max(0, this.TrackTempo.ToMilliseconds(this.TrackPanel.Position));
                 TimeSpan timespan = TimeSpan.FromMilliseconds(milliseconds);
 
-                this.DSTimer.Time = timespan;
+                this.DigitalTimer.Time = timespan;
                 this.Player.Seek(timespan, milliseconds);
 
                 this.Click(OptionType.RePlay);
@@ -336,7 +336,7 @@ namespace Virtual_Piano
 
                 this.Click(OptionType.RePause);
 
-                this.DSTimer.Time = timespan;
+                this.DigitalTimer.Time = timespan;
                 this.Player.Seek(timespan, milliseconds);
             };
             this.TrackNotePanel.DragDelta += (s, e) =>
@@ -347,7 +347,7 @@ namespace Virtual_Piano
                 long milliseconds = System.Math.Max(0, this.TrackTempo.ToMilliseconds(this.TrackNotePanel.Position));
                 TimeSpan timespan = TimeSpan.FromMilliseconds(milliseconds);
 
-                this.DSTimer.Time = timespan;
+                this.DigitalTimer.Time = timespan;
                 this.Player.Seek(timespan, milliseconds);
             };
             this.TrackNotePanel.DragCompleted += (s, e) =>
@@ -356,7 +356,7 @@ namespace Virtual_Piano
                 long milliseconds = System.Math.Max(0, this.TrackTempo.ToMilliseconds(this.TrackNotePanel.Position));
                 TimeSpan timespan = TimeSpan.FromMilliseconds(milliseconds);
 
-                this.DSTimer.Time = timespan;
+                this.DigitalTimer.Time = timespan;
                 this.Player.Seek(timespan, milliseconds);
 
                 this.Click(OptionType.RePlay);

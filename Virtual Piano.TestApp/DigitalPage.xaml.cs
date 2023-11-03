@@ -2,13 +2,13 @@
 
 namespace Virtual_Piano.TestApp
 {
-    public sealed partial class DSPage : Page
+    public sealed partial class DigitalPage : Page
     {
-        public DSPage()
+        public DigitalPage()
         {
             this.InitializeComponent();
-            this.Slider1.ValueChanged += (s, e) => this.DSScorer.Denominator = (int)e.NewValue;
-            this.Slider2.ValueChanged += (s, e) => this.DSScorer.Numerator = (int)e.NewValue;
+            this.Slider1.ValueChanged += (s, e) => this.DigitalScorer.Denominator = (int)e.NewValue;
+            this.Slider2.ValueChanged += (s, e) => this.DigitalScorer.Numerator = (int)e.NewValue;
         }
     }
 }

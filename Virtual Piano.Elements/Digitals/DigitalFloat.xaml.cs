@@ -4,21 +4,21 @@ using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Elements
 {
-    public sealed partial class DSFloat : StackPanel
+    public sealed partial class DigitalFloat : StackPanel
     {
 
         #region DependencyProperty
 
-        /// <summary> Gets or set the Value for <see cref="DSFloat"/>. </summary>
+        /// <summary> Gets or set the Value for <see cref="DigitalFloat"/>. </summary>
         public double Value
         {
             get => (double)base.GetValue(ValueProperty);
             set => base.SetValue(ValueProperty, value);
         }
-        /// <summary> Identifies the <see cref = "DSFloat.Value" /> dependency property. </summary>
-        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(nameof(Value), typeof(double), typeof(DSFloat), new PropertyMetadata(0d, (sender, e) =>
+        /// <summary> Identifies the <see cref = "DigitalFloat.Value" /> dependency property. </summary>
+        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(nameof(Value), typeof(double), typeof(DigitalFloat), new PropertyMetadata(0d, (sender, e) =>
         {
-            DSFloat control = (DSFloat)sender;
+            DigitalFloat control = (DigitalFloat)sender;
 
             if (e.NewValue is double value)
             {
@@ -35,17 +35,17 @@ namespace Virtual_Piano.Elements
 
         #endregion
 
-        readonly int W = DSExtensions.W;
-        readonly int H = DSExtensions.H;
+        readonly int W = DigitalExtensions.W;
+        readonly int H = DigitalExtensions.H;
 
-        readonly PathGeometry N100 = DSExtensions.Number();
-        readonly PathGeometry N10 = DSExtensions.Number();
-        readonly PathGeometry N1 = DSExtensions.Number();
+        readonly PathGeometry N100 = DigitalExtensions.Number();
+        readonly PathGeometry N10 = DigitalExtensions.Number();
+        readonly PathGeometry N1 = DigitalExtensions.Number();
 
-        readonly PathGeometry F1 = DSExtensions.Number();
-        readonly PathGeometry F10 = DSExtensions.Number();
+        readonly PathGeometry F1 = DigitalExtensions.Number();
+        readonly PathGeometry F10 = DigitalExtensions.Number();
 
-        public DSFloat()
+        public DigitalFloat()
         {
             this.InitializeComponent();
         }

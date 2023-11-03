@@ -5,21 +5,21 @@ using Windows.UI.Xaml.Media;
 
 namespace Virtual_Piano.Elements
 {
-    public sealed partial class DSTimer : StackPanel
+    public sealed partial class DigitalTimer : StackPanel
     {
 
         #region DependencyProperty
 
-        /// <summary> Gets or set the time for <see cref="DSTimer"/>. </summary>
+        /// <summary> Gets or set the time for <see cref="DigitalTimer"/>. </summary>
         public TimeSpan Time
         {
             get => (TimeSpan)base.GetValue(TimeProperty);
             set => base.SetValue(TimeProperty, value);
         }
-        /// <summary> Identifies the <see cref = "DSTimer.Time" /> dependency property. </summary>
-        public static readonly DependencyProperty TimeProperty = DependencyProperty.Register(nameof(Time), typeof(TimeSpan), typeof(DSTimer), new PropertyMetadata(TimeSpan.Zero, (sender, e) =>
+        /// <summary> Identifies the <see cref = "DigitalTimer.Time" /> dependency property. </summary>
+        public static readonly DependencyProperty TimeProperty = DependencyProperty.Register(nameof(Time), typeof(TimeSpan), typeof(DigitalTimer), new PropertyMetadata(TimeSpan.Zero, (sender, e) =>
         {
-            DSTimer control = (DSTimer)sender;
+            DigitalTimer control = (DigitalTimer)sender;
 
             if (e.NewValue is TimeSpan value)
             {
@@ -38,29 +38,29 @@ namespace Virtual_Piano.Elements
 
         #endregion
 
-        readonly int W = DSExtensions.W;
-        readonly int H = DSExtensions.H;
+        readonly int W = DigitalExtensions.W;
+        readonly int H = DigitalExtensions.H;
 
-        readonly PathGeometry MT = DSExtensions.Number();
-        readonly PathGeometry M = DSExtensions.Number();
+        readonly PathGeometry MT = DigitalExtensions.Number();
+        readonly PathGeometry M = DigitalExtensions.Number();
 
-        readonly PathGeometry ST = DSExtensions.Number();
-        readonly PathGeometry S = DSExtensions.Number();
+        readonly PathGeometry ST = DigitalExtensions.Number();
+        readonly PathGeometry S = DigitalExtensions.Number();
 
-        readonly PathGeometry MST = DSExtensions.Number();
-        readonly PathGeometry MS = DSExtensions.Number();
+        readonly PathGeometry MST = DigitalExtensions.Number();
+        readonly PathGeometry MS = DigitalExtensions.Number();
    
-        public DSTimer()
+        public DigitalTimer()
         {
             this.InitializeComponent();
-            this.MT.Update(DSType.N0);
-            this.M.Update(DSType.N0);
+            this.MT.Update(DigitalType.N0);
+            this.M.Update(DigitalType.N0);
 
-            this.ST.Update(DSType.N0);
-            this.S.Update(DSType.N0);
+            this.ST.Update(DigitalType.N0);
+            this.S.Update(DigitalType.N0);
 
-            this.MST.Update(DSType.N0);
-            this.MS.Update(DSType.N0);
+            this.MST.Update(DigitalType.N0);
+            this.MS.Update(DigitalType.N0);
         }
     }
 }
