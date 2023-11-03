@@ -58,7 +58,9 @@ namespace Virtual_Piano
         Ticks TrackTicks;
         Tempo TrackTempo;
         TempoDuration TrackDuration;
+
         // Player
+        bool IsLoop = true;
         bool ReIsPlaying;
         double Offset;
         readonly ITickPlayer Player = new TickPlayer();
@@ -263,8 +265,19 @@ namespace Virtual_Piano
 
                 if (this.Player.PositionMilliseconds >= this.TrackDuration.DurationMilliseconds)
                 {
-                    this.Player.Stop();
-                    this.ClickPlay();
+                    if (this.IsLoop)
+                    {
+                        this.Player.Stop();
+                        this.Stop();
+
+                        this.Player.Play();
+                        this.Play();
+                    }
+                    else
+                    {
+                        this.Player.Stop();
+                        this.ClickPlay();
+                    }
                 }
 
                 this.Progress();
@@ -428,9 +441,9 @@ namespace Virtual_Piano
                 if (e.NewSize == e.PreviousSize) return;
 
                 this.TimeSignaturesPanel.Update(this.TrackTimeSignature, e.NewSize.Width);
-            };
+            }; 
         }
-
+      
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             this.MidiSynthesizer?.Dispose();

@@ -202,14 +202,21 @@
                         <SymbolIcon Symbol="Stop"/>
                     </Button>
 
-                    <Button Width="46" Height="36" Padding="0" CommandParameter="{strings:OptionType Type=Stop}" Command="{x:Bind Command}">
+                    <elements:CommandToggleButton Width="46" Height="36" Padding="0"
+                              IsChecked="False"
+                              UncheckedSymbol="RepeatAll" 
+                              CheckedSymbol="DisableUpdates" 
+                              UncheckedCommandParameter="{strings:OptionType Type=Loop}" 
+                              CheckedCommandParameter="{strings:OptionType Type=UnLoop}" 
+                              CommandParameter="Loop" 
+                              Command="{x:Bind Command}"
+                              >
                         <ToolTipService.ToolTip>
                             <ToolTip>
-                                Stop
+                                Loop
                             </ToolTip>
                         </ToolTipService.ToolTip>
-                        <SymbolIcon Symbol="ReShare"/>
-                    </Button>
+                    </elements:CommandToggleButton>
 
                     <Line Margin="8,0" Y1="10" Y2="28" StrokeThickness="1" Stroke="{ThemeResource SystemColorControlAccentBrush}"/>
 

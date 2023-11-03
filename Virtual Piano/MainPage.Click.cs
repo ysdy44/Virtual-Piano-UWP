@@ -181,6 +181,13 @@ namespace Virtual_Piano
                     this.ClickRoulette();
                     break;
 
+                case OptionType.Loop:
+                    this.IsLoop = true;
+                    break;
+                case OptionType.UnLoop:
+                    this.IsLoop = false;
+                    break;
+
                 case OptionType.FullScreen:
                     this.ClickFullScreen();
                     break;

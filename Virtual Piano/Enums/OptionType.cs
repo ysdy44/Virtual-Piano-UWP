@@ -4,6 +4,9 @@
     {
         Roulette,
 
+        Loop,
+        UnLoop,
+
         FullScreen,
         UnFullScreen,
 
