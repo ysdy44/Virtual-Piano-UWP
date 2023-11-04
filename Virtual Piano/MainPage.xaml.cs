@@ -263,24 +263,37 @@ namespace Virtual_Piano
             {
                 if (this.TrackCollection is null) return;
 
-                if (this.Player.PositionMilliseconds >= this.TrackDuration.DurationMilliseconds)
+                if (this.Player.PositionMilliseconds < this.TrackDuration.DurationMilliseconds)
                 {
-                    if (this.IsLoop)
-                    {
-                        this.Player.Reset();
-                        this.Stop();
-
-                        this.Player.Play();
-                        this.Play();
-                    }
-                    else
-                    {
-                        this.Player.Reset();
-                        this.ClickPlay();
-                    }
+                    this.Progress();
+                    return;
                 }
 
-                this.Progress();
+                if (this.IsLoop)
+                {
+                    this.Player.Reset();
+                    this.Stop();
+
+                    this.Player.Play();
+                    this.Play();
+                }
+                else
+                {
+                    this.Player.Reset();
+                    this.ClickPlay();
+                }
+            };
+            this.Player.CurrentStateChanged += (s, e) =>
+            {
+                switch (e)
+                {
+                    case Windows.Media.Playback.MediaPlaybackState.None:
+                        break;
+                    case Windows.Media.Playback.MediaPlaybackState.Playing:
+                        break;
+                    default:
+                        break;
+                }
             };
 
             // Track
@@ -441,9 +454,9 @@ namespace Virtual_Piano
                 if (e.NewSize == e.PreviousSize) return;
 
                 this.TimeSignaturesPanel.Update(this.TrackTimeSignature, e.NewSize.Width);
-            }; 
+            };
         }
-      
+
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             this.MidiSynthesizer?.Dispose();
@@ -461,33 +474,29 @@ namespace Virtual_Piano
             this.MidiSynthesizer = await MidiSynthesizer.CreateAsync();
         }
 
-
         private void Initialize(TrackCollection tracks)
         {
-            {
+            // UI
+            this.ClickTrack();
+            this.Click(OptionType.Stop);
 
-                // UI
-                this.ClickTrack();
-                this.Click(OptionType.Stop);
+            // Track
+            this.TrackCollection = tracks;
+            this.TrackKeySignature = new KeySignature(tracks.SharpsFlats, tracks.MajorMinor);
+            this.TrackTimeSignature = new TimeSignature(tracks.Numerator, tracks.Denominator);
+            this.TrackTicks = new Ticks(this.TrackTimeSignature, tracks.DeltaTicksPerQuarterNote);
+            this.TrackTempo = new Tempo(this.TrackTicks, tracks.Tempo);
+            this.TrackDuration = new TempoDuration(this.TrackTempo, tracks.Duration);
 
-                // Track
-                this.TrackCollection = tracks;
-                this.TrackKeySignature = new KeySignature(tracks.SharpsFlats, tracks.MajorMinor);
-                this.TrackTimeSignature = new TimeSignature(tracks.Numerator, tracks.Denominator);
-                this.TrackTicks = new Ticks(this.TrackTimeSignature, tracks.DeltaTicksPerQuarterNote);
-                this.TrackTempo = new Tempo(this.TrackTicks, tracks.Tempo);
-                this.TrackDuration = new TempoDuration(this.TrackTempo, tracks.Duration);
+            // Timer
+            this.ClickMetronomeStop();
+            this.UpdateMetronome(this.TrackTicks, this.TrackTempo);
 
-                // Timer
-                this.ClickMetronomeStop();
-                this.UpdateMetronome(this.TrackTicks, this.TrackTempo);
-
-                // UI
-                this.UpdateTrackPanel(this.TrackCollection);
-                this.UpdateTrackTimeSignature(this.TrackTimeSignature);
-                this.UpdateTrackTicks(this.TrackTimeSignature, this.TrackTicks);
-                this.UpdateTrackTempo(this.TrackTicks, this.TrackTempo);
-            }
+            // UI
+            this.UpdateTrackPanel(this.TrackCollection);
+            this.UpdateTrackTimeSignature(this.TrackTimeSignature);
+            this.UpdateTrackTicks(this.TrackTimeSignature, this.TrackTicks);
+            this.UpdateTrackTempo(this.TrackTicks, this.TrackTempo);
         }
 
         // UI

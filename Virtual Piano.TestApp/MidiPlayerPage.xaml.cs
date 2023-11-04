@@ -46,6 +46,19 @@ namespace Virtual_Piano.TestApp
 
                 this.Progress();
             };
+            this.Player.CurrentStateChanged += (s, e) =>
+            {
+                switch (e)
+                {
+                    case Windows.Media.Playback.MediaPlaybackState.None:
+                        break;
+                    case Windows.Media.Playback.MediaPlaybackState.Playing:
+                        break;
+                    default:
+                        break;
+                }
+            };
+
             this.PauseButton.Click += (s, e) =>
             {
                 if (this.TrackCollection is null) return;
