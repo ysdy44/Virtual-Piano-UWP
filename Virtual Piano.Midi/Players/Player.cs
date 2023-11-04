@@ -1,10 +1,22 @@
 ﻿using System;
+using System.Diagnostics;
 using Windows.UI.Xaml;
 
 namespace Virtual_Piano.Midi
 {
     public sealed partial class Player : IPlayer
     {
+        //@Delegate
+        public event EventHandler<object> Tick
+        {
+            remove => this.Timer.Tick -= value;
+            add => this.Timer.Tick += value;
+        }
+
+        public bool IsPlaying => this.Stopwatch.IsRunning;
+        private readonly Stopwatch Stopwatch = new Stopwatch();
+        private readonly DispatcherTimer Timer;
+
         public Player() : this(TimeSpan.FromMilliseconds(25)) { }
         public Player(TimeSpan interval)
         {
@@ -21,6 +33,30 @@ namespace Virtual_Piano.Midi
                     this.TickChar();
                 }
             };
+        }
+
+        public void Play()
+        {
+            this.Stopwatch.Restart();
+            this.Timer.Start();
+        }
+
+        public void Pause()
+        {
+            this.Delay += this.Elapsed;
+            this.DelayMilliseconds += this.ElapsedMilliseconds;
+
+            this.Stopwatch.Stop();
+            this.Timer.Stop();
+        }
+
+        public void Reset()
+        {
+            this.Delay = TimeSpan.Zero;
+            this.DelayMilliseconds = 0;
+
+            this.Stopwatch.Stop();
+            this.Timer.Stop();
         }
     }
 }

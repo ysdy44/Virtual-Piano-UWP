@@ -7,11 +7,6 @@ namespace Virtual_Piano.Midi
     {
         //@Delegate
         public event EventHandler<string> Beat;
-        public event EventHandler<object> Tick
-        {
-            remove => this.Timer.Tick -= value;
-            add => this.Timer.Tick += value;
-        }
 
         //@Const
         const string S0 = "/";
@@ -36,8 +31,6 @@ namespace Virtual_Piano.Midi
                 }
             }
         }
-
-        private readonly DispatcherTimer Timer;
 
         private void TickChar()
         {
