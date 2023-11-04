@@ -136,7 +136,6 @@
     <Compile Include="Controls\InstrumentGroupingCollection.cs" />
     <Compile Include="Controls\InstrumentGroupPanel.cs" />
     <Compile Include="Controls\InstrumentObservableCollection.cs" />
-    <Compile Include="Controls\InstrumentSplitView.cs" />
     <Compile Include="Controls\KitFlyout.cs" />
     <Compile Include="Controls\KitPanel.cs" />
     <Compile Include="Controls\MachinePanel.cs" />

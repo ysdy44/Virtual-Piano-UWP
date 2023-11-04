@@ -156,9 +156,6 @@
     <Compile Include="Instruments\InstrumentPanel.xaml.cs">
       <DependentUpon>InstrumentPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Instruments\InstrumentSplitView.xaml.cs">
-      <DependentUpon>InstrumentSplitView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PianoPanels\PianoBottomPanel.xaml.cs">
       <DependentUpon>PianoBottomPanel.xaml</DependentUpon>
     </Compile>
@@ -231,10 +228,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Instruments\InstrumentPanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Instruments\InstrumentSplitView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
