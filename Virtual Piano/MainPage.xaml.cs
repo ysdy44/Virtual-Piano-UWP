@@ -272,15 +272,11 @@ namespace Virtual_Piano
                 if (this.IsLoop)
                 {
                     this.Player.Reset();
-                    this.Stop();
-
                     this.Player.Play();
-                    this.Play();
                 }
                 else
                 {
-                    this.Player.Reset();
-                    this.ClickPlay();
+                    this.Player.Pause();
                 }
             };
             this.Player.CurrentStateChanged += (s, e) =>
@@ -288,10 +284,17 @@ namespace Virtual_Piano
                 switch (e)
                 {
                     case Windows.Media.Playback.MediaPlaybackState.None:
+                        this.Stop();
+                        this.ClickPlay();
                         break;
                     case Windows.Media.Playback.MediaPlaybackState.Playing:
+                        this.Start();
+                        this.Play();
+
+                        this.ClickPause();
                         break;
                     default:
+                        this.ClickPlay();
                         break;
                 }
             };

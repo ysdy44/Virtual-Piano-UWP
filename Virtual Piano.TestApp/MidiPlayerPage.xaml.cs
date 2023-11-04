@@ -51,8 +51,10 @@ namespace Virtual_Piano.TestApp
                 switch (e)
                 {
                     case Windows.Media.Playback.MediaPlaybackState.None:
+                        this.Stop();
                         break;
                     case Windows.Media.Playback.MediaPlaybackState.Playing:
+                        this.Play();
                         break;
                     default:
                         break;
@@ -75,7 +77,6 @@ namespace Virtual_Piano.TestApp
                 if (this.Player.IsPlaying is false)
                 {
                     this.Player.Play();
-                    this.Play();
                 }
             };
             this.OpenFileButton.Click += async (s, e) =>

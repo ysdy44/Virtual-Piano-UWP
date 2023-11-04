@@ -252,8 +252,6 @@ namespace Virtual_Piano
                     if (this.Player.IsPlaying is false)
                     {
                         this.Player.Play();
-                        this.Start();
-                        this.Play();
                     }
                     break;
                 case OptionType.RePause:
@@ -274,9 +272,6 @@ namespace Virtual_Piano
                     if (this.Player.IsPlaying is false)
                     {
                         this.Player.Play();
-                        this.Start();
-                        this.Play();
-                        this.ClickPause();
                     }
                     break;
                 case OptionType.Pause:
@@ -285,7 +280,6 @@ namespace Virtual_Piano
                     if (this.Player.IsPlaying)
                     {
                         this.Player.Pause();
-                        this.ClickPlay();
                     }
                     break;
                 case OptionType.Stop:
@@ -294,8 +288,6 @@ namespace Virtual_Piano
                     //if (this.Player.IsPlaying)
                     {
                         this.Player.Reset();
-                        this.Stop();
-                        this.ClickPlay();
                     }
                     break;
 
