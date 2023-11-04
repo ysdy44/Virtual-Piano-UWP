@@ -133,6 +133,7 @@
     <Compile Include="Enums2\MidiNote.cs" />
     <Compile Include="Enums2\MidiOctave.cs" />
     <Compile Include="Enums2\MidiPercussionNote.cs" />
+    <Compile Include="Enums2\MidiPercussionProgram.cs" />
     <Compile Include="Enums2\MidiProgram.cs" />
     <Compile Include="Enums3\MidiChannel.cs" />
     <Compile Include="Enums3\MidiChannelMessageType.cs" />

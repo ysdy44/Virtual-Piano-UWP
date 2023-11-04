@@ -39,6 +39,11 @@ namespace Virtual_Piano.Midi
             synthesizer?.SendMessage(new MidiProgramChangeMessage(channel, (byte)program));
         }
 
+        public static void ProgramChange(this IMidiOutPort synthesizer, MidiPercussionProgram program)
+        {
+            synthesizer?.SendMessage(new MidiProgramChangeMessage(9, (byte)program));
+        }
+
         public static void ChannelPressure(this IMidiOutPort synthesizer, byte pressure, byte channel = 0)
         {
             synthesizer?.SendMessage(new MidiChannelPressureMessage(channel, pressure));
