@@ -155,6 +155,7 @@
     <Compile Include="Players\Player.Beat.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Players\Player.Seek.cs" />
+    <Compile Include="Players\Player.State.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structs\KeySignature.cs" />
     <Compile Include="Structs\Tempo.cs" />

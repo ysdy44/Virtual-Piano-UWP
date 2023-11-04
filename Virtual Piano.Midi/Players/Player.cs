@@ -24,7 +24,7 @@ namespace Virtual_Piano.Midi
             {
                 Interval = interval
             };
-            this.Timer.Tick += (s, e) =>
+            this.Timer.Tick += delegate
             {
                 this.Step++;
 
@@ -39,6 +39,7 @@ namespace Virtual_Piano.Midi
         {
             this.Stopwatch.Restart();
             this.Timer.Start();
+            this.StatePlay();
         }
 
         public void Pause()
@@ -48,6 +49,7 @@ namespace Virtual_Piano.Midi
 
             this.Stopwatch.Stop();
             this.Timer.Stop();
+            this.StatePause();
         }
 
         public void Reset()
@@ -57,6 +59,7 @@ namespace Virtual_Piano.Midi
 
             this.Stopwatch.Stop();
             this.Timer.Stop();
+            this.StateReset();
         }
     }
 }

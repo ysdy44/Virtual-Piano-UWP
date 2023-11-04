@@ -5,7 +5,7 @@ using Windows.UI.Xaml;
 
 namespace Virtual_Piano.Midi
 {
-    public interface IPlayer : IBeatPlayer, ISeekPlayer
+    public interface IPlayer : IBeatPlayer, ISeekPlayer, IStatePlayer
     {
         //@Delegate
         event EventHandler<object> Tick;
@@ -34,5 +34,13 @@ namespace Virtual_Piano.Midi
         void Seek(TimeSpan delay);
         void Seek(long delayMilliseconds);
         void Seek(TimeSpan delay, long delayMilliseconds);
+    }
+
+    public interface IStatePlayer
+    {
+        //@Delegate
+        event EventHandler<MediaPlaybackState> CurrentStateChanged;
+
+        MediaPlaybackState CurrentState { get; }
     }
 }
