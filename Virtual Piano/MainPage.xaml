@@ -143,6 +143,125 @@
                 <SymbolIcon Symbol="GlobalNavigationButton"/>
             </Button>
 
+            <ListView
+                Grid.Column="1"
+                SelectedIndex="0"
+                SelectionMode="Single"
+         
+                ScrollViewer.ZoomMode="Disabled"
+              
+                ScrollViewer.HorizontalScrollMode="Enabled"
+                ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                ScrollViewer.IsHorizontalScrollChainingEnabled="True"
+        
+                ScrollViewer.VerticalScrollMode="Disabled"
+                ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                ScrollViewer.IsVerticalScrollChainingEnabled="False"
+             
+                Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}"
+                >
+
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="MinWidth" Value="60" />
+                        <Setter Property="MaxWidth" Value="60" />
+                        <Setter Property="Width" Value="60" />
+                        <Setter Property="MinHeight" Value="36" />
+                        <Setter Property="MaxHeight" Value="36" />
+                        <Setter Property="Height" Value="36" />
+                        <Setter Property="Background" Value="{ThemeResource AppStroke}" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="VerticalContentAlignment" Value="Center" />
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemContainerTransitions>
+                    <TransitionCollection>
+                        <!--Transitions-->
+                    </TransitionCollection>
+                </ItemsControl.ItemContainerTransitions>
+
+                <ListViewItem x:Name="ListViewItem0">
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=PianoView}">
+                            <!--Piano-->
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(0)}"/>
+                </ListViewItem>
+                <ListViewItem x:Name="ListViewItem1">
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=ChordView}">
+                            <!--Chord-->
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(1)}"/>
+                </ListViewItem>
+                <ListViewItem x:Name="ListViewItem2">
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=GuitarView}">
+                            <!--Guitar-->
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(2)}"/>
+                </ListViewItem>
+                <ListViewItem x:Name="ListViewItem3">
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=BassView}">
+                            <!--Bass Guitar-->
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(3)}"/>
+                </ListViewItem>
+                <ListViewItem x:Name="ListViewItem4">
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=HarpView}">
+                            <!--Harp-->
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(4)}"/>
+                </ListViewItem>
+                <ListViewItem x:Name="ListViewItem5">
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=KitView}">
+                            <!--Drum Kit-Set-->
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(5)}"/>
+                </ListViewItem>
+                <ListViewItem x:Name="ListViewItem6">
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=PadView}">
+                            <!--Drum Pads-->
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(6)}"/>
+                </ListViewItem>
+                <ListViewItem x:Name="ListViewItem7">
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=DrumView}">
+                            <!--Drum-->
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(7)}"/>
+                </ListViewItem>
+                <ListViewItem x:Name="ListViewItem8">
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Bottom" Content="{strings:UI Type=MachineView}">
+                            <!--Drum Machines-->
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(8)}"/>
+                </ListViewItem>
+
+            </ListView>
+
             <!--Head-->
             <ScrollViewer 
                 Grid.Column="1"
@@ -636,125 +755,6 @@
                 <SymbolIcon Symbol="More"/>
             </Button>
 
-            <ListView
-                Grid.Column="1"
-                SelectedIndex="0"
-                SelectionMode="Single"
-         
-                ScrollViewer.ZoomMode="Disabled"
-              
-                ScrollViewer.HorizontalScrollMode="Enabled"
-                ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                ScrollViewer.IsHorizontalScrollChainingEnabled="True"
-        
-                ScrollViewer.VerticalScrollMode="Disabled"
-                ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                ScrollViewer.IsVerticalScrollChainingEnabled="False"
-             
-                Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}"
-                >
-
-                <ItemsControl.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="MinWidth" Value="60" />
-                        <Setter Property="MaxWidth" Value="60" />
-                        <Setter Property="Width" Value="60" />
-                        <Setter Property="MinHeight" Value="36" />
-                        <Setter Property="MaxHeight" Value="36" />
-                        <Setter Property="Height" Value="36" />
-                        <Setter Property="Background" Value="{ThemeResource AppStroke}" />
-                        <Setter Property="HorizontalContentAlignment" Value="Center" />
-                        <Setter Property="VerticalContentAlignment" Value="Center" />
-                    </Style>
-                </ItemsControl.ItemContainerStyle>
-
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-
-                <ItemsControl.ItemContainerTransitions>
-                    <TransitionCollection>
-                        <!--Transitions-->
-                    </TransitionCollection>
-                </ItemsControl.ItemContainerTransitions>
-
-                <ListViewItem x:Name="ListViewItem0">
-                    <ToolTipService.ToolTip>
-                        <ToolTip Placement="Bottom" Content="{strings:UI Type=PianoView}">
-                            <!--Piano-->
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(0)}"/>
-                </ListViewItem>
-                <ListViewItem x:Name="ListViewItem1">
-                    <ToolTipService.ToolTip>
-                        <ToolTip Placement="Bottom" Content="{strings:UI Type=ChordView}">
-                            <!--Chord-->
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(1)}"/>
-                </ListViewItem>
-                <ListViewItem x:Name="ListViewItem2">
-                    <ToolTipService.ToolTip>
-                        <ToolTip Placement="Bottom" Content="{strings:UI Type=GuitarView}">
-                            <!--Guitar-->
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(2)}"/>
-                </ListViewItem>
-                <ListViewItem x:Name="ListViewItem3">
-                    <ToolTipService.ToolTip>
-                        <ToolTip Placement="Bottom" Content="{strings:UI Type=BassView}">
-                            <!--Bass Guitar-->
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(3)}"/>
-                </ListViewItem>
-                <ListViewItem x:Name="ListViewItem4">
-                    <ToolTipService.ToolTip>
-                        <ToolTip Placement="Bottom" Content="{strings:UI Type=HarpView}">
-                            <!--Harp-->
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(4)}"/>
-                </ListViewItem>
-                <ListViewItem x:Name="ListViewItem5">
-                    <ToolTipService.ToolTip>
-                        <ToolTip Placement="Bottom" Content="{strings:UI Type=KitView}">
-                            <!--Drum Kit-Set-->
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(5)}"/>
-                </ListViewItem>
-                <ListViewItem x:Name="ListViewItem6">
-                    <ToolTipService.ToolTip>
-                        <ToolTip Placement="Bottom" Content="{strings:UI Type=PadView}">
-                            <!--Drum Pads-->
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(6)}"/>
-                </ListViewItem>
-                <ListViewItem x:Name="ListViewItem7">
-                    <ToolTipService.ToolTip>
-                        <ToolTip Placement="Bottom" Content="{strings:UI Type=DrumView}">
-                            <!--Drum-->
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(7)}"/>
-                </ListViewItem>
-                <ListViewItem x:Name="ListViewItem8">
-                    <ToolTipService.ToolTip>
-                        <ToolTip Placement="Bottom" Content="{strings:UI Type=MachineView}">
-                            <!--Drum Machines-->
-                        </ToolTip>
-                    </ToolTipService.ToolTip>
-                    <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(8)}"/>
-                </ListViewItem>
-
-            </ListView>
-
         </Grid>
 
         <!--Body-->
@@ -775,6 +775,62 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="56"/>
                     </Grid.RowDefinitions>
+
+                    <!--Foot-->
+                    <ListView 
+                        Grid.Row="2"
+                        SelectedIndex="0"
+                             
+                        SelectionMode="Single"
+                      
+                        ScrollViewer.ZoomMode="Disabled"
+                      
+                        ScrollViewer.HorizontalScrollMode="Enabled"
+                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                        ScrollViewer.IsHorizontalScrollChainingEnabled="True"
+                      
+                        ScrollViewer.VerticalScrollMode="Disabled"
+                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                        ScrollViewer.IsVerticalScrollChainingEnabled="False"
+                        >
+
+                        <ItemsControl.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Background" Value="{ThemeResource AppBackgroundLight}" />
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="VerticalContentAlignment" Value="Center" />
+                            </Style>
+                        </ItemsControl.ItemContainerStyle>
+
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <elements:FlexPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+
+                        <ItemsControl.ItemContainerTransitions>
+                            <TransitionCollection>
+                                <!--Transitions-->
+                            </TransitionCollection>
+                        </ItemsControl.ItemContainerTransitions>
+
+                        <ListViewItem x:Name="ListViewItemA">
+                            <StackPanel>
+                                <SymbolIcon Symbol="Keyboard"/>
+                                <TextBlock HorizontalAlignment="Center">
+                                    Instrument
+                                </TextBlock>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem x:Name="ListViewItemB">
+                            <StackPanel>
+                                <SymbolIcon Symbol="MusicInfo"/>
+                                <TextBlock HorizontalAlignment="Center">
+                                    Midi Track
+                                </TextBlock>
+                            </StackPanel>
+                        </ListViewItem>
+                    </ListView>
 
                     <!--Body-->
                     <elements:CommandListView
@@ -921,76 +977,11 @@
 
                     </elements:CommandListView>
 
-                    <!--Foot-->
-                    <ListView 
-                        Grid.Row="2"
-                        SelectedIndex="0"
-                             
-                        SelectionMode="Single"
-                      
-                        ScrollViewer.ZoomMode="Disabled"
-                      
-                        ScrollViewer.HorizontalScrollMode="Enabled"
-                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                        ScrollViewer.IsHorizontalScrollChainingEnabled="True"
-                      
-                        ScrollViewer.VerticalScrollMode="Disabled"
-                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                        ScrollViewer.IsVerticalScrollChainingEnabled="False"
-                        >
-
-                        <ItemsControl.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="Background" Value="{ThemeResource AppBackgroundLight}" />
-                                <Setter Property="HorizontalContentAlignment" Value="Center" />
-                                <Setter Property="VerticalContentAlignment" Value="Center" />
-                            </Style>
-                        </ItemsControl.ItemContainerStyle>
-
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <elements:FlexPanel/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-
-                        <ItemsControl.ItemContainerTransitions>
-                            <TransitionCollection>
-                                <!--Transitions-->
-                            </TransitionCollection>
-                        </ItemsControl.ItemContainerTransitions>
-
-                        <ListViewItem x:Name="ListViewItemA">
-                            <StackPanel>
-                                <SymbolIcon Symbol="Keyboard"/>
-                                <TextBlock HorizontalAlignment="Center">
-                                    Instrument
-                                </TextBlock>
-                            </StackPanel>
-                        </ListViewItem>
-                        <ListViewItem x:Name="ListViewItemB">
-                            <StackPanel>
-                                <SymbolIcon Symbol="MusicInfo"/>
-                                <TextBlock HorizontalAlignment="Center">
-                                    Midi Track
-                                </TextBlock>
-                            </StackPanel>
-                        </ListViewItem>
-                    </ListView>
-
                 </Grid>
             </SplitView.Pane>
 
             <!--Body-->
             <Grid>
-
-                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemB.IsSelected), Mode=OneWay}">
-                    <controllers:TrackPanel x:Name="TrackPanel">
-                        <controls:ChannelPanel x:Name="ChannelPanel" Command="{x:Bind Command}"/>
-                    </controllers:TrackPanel>
-                    <controllers:TrackNotePanel x:Name="TrackNotePanel" Visibility="Collapsed">
-                        <instruments:PianoLeftPanel x:Name="PianoLeftPanel" Command="{x:Bind Command}"/>
-                    </controllers:TrackNotePanel>
-                </Grid>
 
                 <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}">
 
@@ -1315,6 +1306,15 @@
 
                 </Grid>
 
+                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemB.IsSelected), Mode=OneWay}">
+                    <controllers:TrackPanel x:Name="TrackPanel">
+                        <controls:ChannelPanel x:Name="ChannelPanel" Command="{x:Bind Command}"/>
+                    </controllers:TrackPanel>
+                    <controllers:TrackNotePanel x:Name="TrackNotePanel" Visibility="Collapsed">
+                        <instruments:PianoLeftPanel x:Name="PianoLeftPanel" Command="{x:Bind Command}"/>
+                    </controllers:TrackNotePanel>
+                </Grid>
+                
             </Grid>
         </SplitView>
 
