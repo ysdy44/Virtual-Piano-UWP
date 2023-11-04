@@ -199,12 +199,12 @@
   <data name='Bass' xml:space='preserve'> <value>Bas</value> </data>
   <data name='Strings' xml:space='preserve'> <value>Strijkers</value> </data>
   <data name='Ensemble' xml:space='preserve'> <value>Ensemble</value> </data>
-  <data name='SynthLead' xml:space='preserve'> <value>Blazers</value> </data>
-  <data name='SynthPad' xml:space='preserve'> <value>Reed</value> </data>
-  <data name='SynthEffects' xml:space='preserve'> <value>Pijp</value> </data>
-  <data name='Brass' xml:space='preserve'> <value>Synth Lead</value> </data>
-  <data name='Reed' xml:space='preserve'> <value>Synth Pad</value> </data>
-  <data name='Pipe' xml:space='preserve'> <value>Synth-effecten</value> </data>
+  <data name='Brass' xml:space='preserve'> <value>Blazers</value> </data>
+  <data name='Reed' xml:space='preserve'> <value>Reed</value> </data>
+  <data name='Pipe' xml:space='preserve'> <value>Pijp</value> </data>
+  <data name='SynthLead' xml:space='preserve'> <value>Synth Lead</value> </data>
+  <data name='SynthPad' xml:space='preserve'> <value>Synth Pad</value> </data>
+  <data name='SynthEffects' xml:space='preserve'> <value>Synth-effecten</value> </data>
   <data name='Ethnic' xml:space='preserve'> <value>Etnisch</value> </data>
   <data name='Percussive' xml:space='preserve'> <value>Percussive</value> </data>
   <data name='SoundEffects' xml:space='preserve'> <value>Geluidseffecten</value> </data>

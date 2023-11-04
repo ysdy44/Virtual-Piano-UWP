@@ -199,12 +199,12 @@
   <data name='Bass' xml:space='preserve'> <value>ベース</value> </data>
   <data name='Strings' xml:space='preserve'> <value>弦楽器</value> </data>
   <data name='Ensemble' xml:space='preserve'> <value>Ensemble</value> </data>
-  <data name='SynthLead' xml:space='preserve'> <value>金管楽器</value> </data>
-  <data name='SynthPad' xml:space='preserve'> <value>木管楽器</value> </data>
-  <data name='SynthEffects' xml:space='preserve'> <value>笛</value> </data>
-  <data name='Brass' xml:space='preserve'> <value>シンセリード</value> </data>
-  <data name='Reed' xml:space='preserve'> <value>シンセパッド</value> </data>
-  <data name='Pipe' xml:space='preserve'> <value>Synth Effects</value> </data>
+  <data name='Brass' xml:space='preserve'> <value>金管楽器</value> </data>
+  <data name='Reed' xml:space='preserve'> <value>木管楽器</value> </data>
+  <data name='Pipe' xml:space='preserve'> <value>笛</value> </data>
+  <data name='SynthLead' xml:space='preserve'> <value>シンセリード</value> </data>
+  <data name='SynthPad' xml:space='preserve'> <value>シンセパッド</value> </data>
+  <data name='SynthEffects' xml:space='preserve'> <value>Synth Effects</value> </data>
   <data name='Ethnic' xml:space='preserve'> <value>民族楽器</value> </data>
   <data name='Percussive' xml:space='preserve'> <value>打楽器</value> </data>
   <data name='SoundEffects' xml:space='preserve'> <value>効果音</value> </data>

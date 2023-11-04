@@ -199,12 +199,12 @@
   <data name='Bass' xml:space='preserve'> <value>贝司</value> </data>
   <data name='Strings' xml:space='preserve'> <value>弦乐</value> </data>
   <data name='Ensemble' xml:space='preserve'> <value>合唱或合奏</value> </data>
-  <data name='SynthLead' xml:space='preserve'> <value>铜管乐器</value> </data>
-  <data name='SynthPad' xml:space='preserve'> <value>哨片乐器</value> </data>
-  <data name='SynthEffects' xml:space='preserve'> <value>吹管乐器</value> </data>
-  <data name='Brass' xml:space='preserve'> <value>合成主音</value> </data>
-  <data name='Reed' xml:space='preserve'> <value>合成柔音</value> </data>
-  <data name='Pipe' xml:space='preserve'> <value>合成特效</value> </data>
+  <data name='Brass' xml:space='preserve'> <value>铜管乐器</value> </data>
+  <data name='Reed' xml:space='preserve'> <value>哨片乐器</value> </data>
+  <data name='Pipe' xml:space='preserve'> <value>吹管乐器</value> </data>
+  <data name='SynthLead' xml:space='preserve'> <value>合成主音</value> </data>
+  <data name='SynthPad' xml:space='preserve'> <value>合成柔音</value> </data>
+  <data name='SynthEffects' xml:space='preserve'> <value>合成特效</value> </data>
   <data name='Ethnic' xml:space='preserve'> <value>民族乐器</value> </data>
   <data name='Percussive' xml:space='preserve'> <value>打击乐</value> </data>
   <data name='SoundEffects' xml:space='preserve'> <value>声音效果</value> </data>

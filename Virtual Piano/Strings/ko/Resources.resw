@@ -199,12 +199,12 @@
   <data name='Bass' xml:space='preserve'> <value>베이스</value> </data>
   <data name='Strings' xml:space='preserve'> <value>현악기</value> </data>
   <data name='Ensemble' xml:space='preserve'> <value>합주 악기</value> </data>
-  <data name='SynthLead' xml:space='preserve'> <value>금관 악기</value> </data>
-  <data name='SynthPad' xml:space='preserve'> <value>리드 악기</value> </data>
-  <data name='SynthEffects' xml:space='preserve'> <value>단관 악기</value> </data>
-  <data name='Brass' xml:space='preserve'> <value>신스 리드</value> </data>
-  <data name='Reed' xml:space='preserve'> <value>신드 패드</value> </data>
-  <data name='Pipe' xml:space='preserve'> <value>신스 이펙트</value> </data>
+  <data name='Brass' xml:space='preserve'> <value>금관 악기</value> </data>
+  <data name='Reed' xml:space='preserve'> <value>리드 악기</value> </data>
+  <data name='Pipe' xml:space='preserve'> <value>단관 악기</value> </data>
+  <data name='SynthLead' xml:space='preserve'> <value>신스 리드</value> </data>
+  <data name='SynthPad' xml:space='preserve'> <value>신드 패드</value> </data>
+  <data name='SynthEffects' xml:space='preserve'> <value>신스 이펙트</value> </data>
   <data name='Ethnic' xml:space='preserve'> <value>Ethnic</value> </data>
   <data name='Percussive' xml:space='preserve'> <value>타악기</value> </data>
   <data name='SoundEffects' xml:space='preserve'> <value>음향 효과</value> </data>
