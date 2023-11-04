@@ -143,7 +143,6 @@
     <Compile Include="Interfaces.Panels\IDrumPanel.cs" />
     <Compile Include="Interfaces.Panels\IGuitarPanel.cs" />
     <Compile Include="Interfaces.Panels\IHarpPanel.cs" />
-    <Compile Include="Interfaces.Panels\IInstrumentGroupPanel.cs" />
     <Compile Include="Interfaces.Panels\IInstrumentPanel.cs" />
     <Compile Include="Interfaces.Panels\IKitPanel.cs" />
     <Compile Include="Interfaces.Panels\IPianoPanel.cs" />

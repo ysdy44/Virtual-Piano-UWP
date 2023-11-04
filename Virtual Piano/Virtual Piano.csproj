@@ -134,7 +134,6 @@
     <Compile Include="Controls\DrumPanel.cs" />
     <Compile Include="Controls\InstrumentCollectionPanel.cs" />
     <Compile Include="Controls\InstrumentGroupingCollection.cs" />
-    <Compile Include="Controls\InstrumentGroupPanel.cs" />
     <Compile Include="Controls\InstrumentObservableCollection.cs" />
     <Compile Include="Controls\KitFlyout.cs" />
     <Compile Include="Controls\KitPanel.cs" />
