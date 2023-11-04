@@ -138,7 +138,12 @@ namespace Virtual_Piano.TestApp
         {
             if (item.Content is Track track)
             {
+                this.Programs(track);
                 this.Play(track);
+                foreach (var item2 in track.Controllers)
+                {
+                    this.Controllers(item2.Value);
+                }
             }
         }
 
@@ -146,6 +151,49 @@ namespace Virtual_Piano.TestApp
         {
             long positionMilliseconds = this.Player.PositionMilliseconds;
             foreach (ContentControl item in track.Notes)
+            {
+                if (this.Player.IsPlaying is false)
+                {
+                    return;
+                }
+
+                if (item.Content is MidiMessage message)
+                {
+                    long delayMilliseconds = this.TrackTempo.ToMilliseconds(message.AbsoluteTime) - positionMilliseconds;
+
+                    if (delayMilliseconds < 0)
+                    {
+                        continue;
+                    }
+                    else if (delayMilliseconds == 0)
+                    {
+                        positionMilliseconds = this.TrackTempo.ToMilliseconds(message.AbsoluteTime);
+
+                        this.MidiSynthesizer.SendMessage(message);
+                    }
+                    else if (delayMilliseconds > 0)
+                    {
+                        positionMilliseconds = this.TrackTempo.ToMilliseconds(message.AbsoluteTime);
+
+                        await Task.Delay((int)delayMilliseconds);
+                        this.MidiSynthesizer.SendMessage(message);
+                    }
+                    else if (delayMilliseconds > 20) // Async Position
+                    {
+                        positionMilliseconds = this.Player.PositionMilliseconds;
+                        delayMilliseconds = this.TrackTempo.ToMilliseconds(message.AbsoluteTime) - positionMilliseconds;
+
+                        await Task.Delay((int)delayMilliseconds);
+                        this.MidiSynthesizer.SendMessage(message);
+                    }
+                }
+            }
+        }
+
+        private async void Programs(Track track)
+        {
+            long positionMilliseconds = this.Player.PositionMilliseconds;
+            foreach (ContentControl item in track.Programs)
             {
                 if (this.Player.IsPlaying is false)
                 {
@@ -184,6 +232,46 @@ namespace Virtual_Piano.TestApp
                         this.MidiSynthesizer.SendMessage(message);
                         this.Note = message.Note;
                     }
+                }
+            }
+        }
+
+        private async void Controllers(ControllerCollection messages)
+        {
+            long positionMilliseconds = this.Player.PositionMilliseconds;
+            foreach (MidiMessage message in messages)
+            {
+                if (this.Player.IsPlaying is false)
+                {
+                    return;
+                }
+
+                long delayMilliseconds = this.TrackTempo.ToMilliseconds(message.AbsoluteTime) - positionMilliseconds;
+
+                if (delayMilliseconds < 0)
+                {
+                    continue;
+                }
+                else if (delayMilliseconds == 0)
+                {
+                    positionMilliseconds = this.TrackTempo.ToMilliseconds(message.AbsoluteTime);
+
+                    this.MidiSynthesizer.SendMessage(message);
+                }
+                else if (delayMilliseconds > 0)
+                {
+                    positionMilliseconds = this.TrackTempo.ToMilliseconds(message.AbsoluteTime);
+
+                    await Task.Delay((int)delayMilliseconds);
+                    this.MidiSynthesizer.SendMessage(message);
+                }
+                else if (delayMilliseconds > 20) // Async Position
+                {
+                    positionMilliseconds = this.Player.PositionMilliseconds;
+                    delayMilliseconds = this.TrackTempo.ToMilliseconds(message.AbsoluteTime) - positionMilliseconds;
+
+                    await Task.Delay((int)delayMilliseconds);
+                    this.MidiSynthesizer.SendMessage(message);
                 }
             }
         }
