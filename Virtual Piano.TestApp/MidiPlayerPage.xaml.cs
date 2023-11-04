@@ -24,7 +24,7 @@ namespace Virtual_Piano.TestApp
         TempoDuration TrackDuration;
         // Player
         MidiNote Note;
-        readonly ITickPlayer Player = new TickPlayer();
+        readonly IPlayer Player = new Player();
 
         ~MidiPlayerPage() => this.MidiSynthesizer?.Dispose();
         public MidiPlayerPage()
@@ -34,14 +34,14 @@ namespace Virtual_Piano.TestApp
             this.TrackTempo = new Tempo(this.TrackTicks, 120);
             this.TrackDuration = new TempoDuration(this.TrackTempo, 120);
             this.BeatTextBlock.Text = this.Player.BeatChar;
-            this.Player.TickBeat += (s, e) => this.BeatTextBlock.Text = e;
-            this.Player.TickProgress += (s, e) =>
+            this.Player.Beat += (s, e) => this.BeatTextBlock.Text = e;
+            this.Player.Tick += (s, e) =>
             {
                 if (this.TrackCollection is null) return;
 
                 if (this.Player.PositionMilliseconds >= this.TrackDuration.DurationMilliseconds)
                 {
-                    this.Player.Stop();
+                    this.Player.Reset();
                 }
 
                 this.Progress();

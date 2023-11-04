@@ -2,13 +2,13 @@
 
 namespace Virtual_Piano.Midi
 {
-    public interface ITickPlayer
+    public interface IPlayer
     {
         //@Delegate
-        event EventHandler<object> TickProgress;
-        event EventHandler<string> TickBeat;
+        event EventHandler<object> Tick;
+        event EventHandler<string> Beat;
 
-        int Beat { get; set; }
+        int BeatCount { get; set; }
         string BeatChar { get; }
 
         TimeSpan Position { get; }
@@ -21,6 +21,6 @@ namespace Virtual_Piano.Midi
 
         void Play();
         void Pause();
-        void Stop();
+        void Reset();
     }
 }

@@ -63,7 +63,7 @@ namespace Virtual_Piano
         bool IsLoop = true;
         bool ReIsPlaying;
         double Offset;
-        readonly ITickPlayer Player = new TickPlayer();
+        readonly IPlayer Player = new Player();
 
         // Key
         bool IsShift;
@@ -259,7 +259,7 @@ namespace Virtual_Piano
 
 
             // Player
-            this.Player.TickProgress += (s, e) =>
+            this.Player.Tick += (s, e) =>
             {
                 if (this.TrackCollection is null) return;
 
@@ -267,7 +267,7 @@ namespace Virtual_Piano
                 {
                     if (this.IsLoop)
                     {
-                        this.Player.Stop();
+                        this.Player.Reset();
                         this.Stop();
 
                         this.Player.Play();
@@ -275,7 +275,7 @@ namespace Virtual_Piano
                     }
                     else
                     {
-                        this.Player.Stop();
+                        this.Player.Reset();
                         this.ClickPlay();
                     }
                 }

@@ -3,11 +3,11 @@ using Windows.UI.Xaml;
 
 namespace Virtual_Piano.Midi
 {
-    partial class TickPlayer
+    partial class Player
     {
         //@Delegate
-        public event EventHandler<string> TickBeat;
-        public event EventHandler<object> TickProgress
+        public event EventHandler<string> Beat;
+        public event EventHandler<object> Tick
         {
             remove => this.Timer.Tick -= value;
             add => this.Timer.Tick += value;
@@ -22,17 +22,17 @@ namespace Virtual_Piano.Midi
         int Index;
         int Step;
 
-        public int Beat { get; set; } = 4;
+        public int BeatCount { get; set; } = 4;
         public string BeatChar
         {
             get
             {
                 switch (this.Index)
                 {
-                    case 0: return TickPlayer.S0;
-                    case 1: return TickPlayer.S1;
-                    case 2: return TickPlayer.S2;
-                    default: return TickPlayer.S3;
+                    case 0: return Player.S0;
+                    case 1: return Player.S1;
+                    case 2: return Player.S2;
+                    default: return Player.S3;
                 }
             }
         }
@@ -45,19 +45,19 @@ namespace Virtual_Piano.Midi
             {
                 case 0:
                     this.Index = 1;
-                    this.TickBeat?.Invoke(this, TickPlayer.S0); // Delegate
+                    this.Beat?.Invoke(this, Player.S0); // Delegate
                     break;
                 case 1:
                     this.Index = 2;
-                    this.TickBeat?.Invoke(this, TickPlayer.S1); // Delegate
+                    this.Beat?.Invoke(this, Player.S1); // Delegate
                     break;
                 case 2:
                     this.Index = 3;
-                    this.TickBeat?.Invoke(this, TickPlayer.S2); // Delegate
+                    this.Beat?.Invoke(this, Player.S2); // Delegate
                     break;
                 default:
                     this.Index = 0;
-                    this.TickBeat?.Invoke(this, TickPlayer.S3); // Delegate
+                    this.Beat?.Invoke(this, Player.S3); // Delegate
                     break;
             }
         }

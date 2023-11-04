@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace Virtual_Piano.Midi
 {
-    partial class TickPlayer
+    partial class Player
     {
         TimeSpan Delay;
         TimeSpan Elapsed => this.Stopwatch.Elapsed;
@@ -35,6 +35,7 @@ namespace Virtual_Piano.Midi
             this.DelayMilliseconds = delayMilliseconds;
         }
 
+
         public void Play()
         {
             this.Stopwatch.Restart();
@@ -50,7 +51,7 @@ namespace Virtual_Piano.Midi
             this.Timer.Stop();
         }
 
-        public void Stop()
+        public void Reset()
         {
             this.Delay = TimeSpan.Zero;
             this.DelayMilliseconds = 0;

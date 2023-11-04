@@ -3,10 +3,10 @@ using Windows.UI.Xaml;
 
 namespace Virtual_Piano.Midi
 {
-    public sealed partial class TickPlayer : ITickPlayer
+    public sealed partial class Player : IPlayer
     {
-        public TickPlayer() : this(TimeSpan.FromMilliseconds(25)) { }
-        public TickPlayer(TimeSpan interval)
+        public Player() : this(TimeSpan.FromMilliseconds(25)) { }
+        public Player(TimeSpan interval)
         {
             this.Timer = new DispatcherTimer
             {
@@ -16,7 +16,7 @@ namespace Virtual_Piano.Midi
             {
                 this.Step++;
 
-                if (this.Step % this.Beat == 0)
+                if (this.Step % this.BeatCount == 0)
                 {
                     this.TickChar();
                 }

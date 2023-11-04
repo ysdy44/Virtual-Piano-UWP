@@ -293,7 +293,7 @@ namespace Virtual_Piano
 
                     //if (this.Player.IsPlaying)
                     {
-                        this.Player.Stop();
+                        this.Player.Reset();
                         this.Stop();
                         this.ClickPlay();
                     }
