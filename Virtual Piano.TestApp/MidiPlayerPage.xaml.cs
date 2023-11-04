@@ -29,7 +29,7 @@ namespace Virtual_Piano.TestApp
         ~MidiPlayerPage() => this.MidiSynthesizer?.Dispose();
         public MidiPlayerPage()
         {
-            this.InitializeComponent(); 
+            this.InitializeComponent();
             this.TrackTicks = new Ticks(this.TrackTimeSignature, 480);
             this.TrackTempo = new Tempo(this.TrackTicks, 120);
             this.TrackDuration = new TempoDuration(this.TrackTempo, 120);
@@ -85,7 +85,7 @@ namespace Virtual_Piano.TestApp
                 this.Run1.Text = file.Name;
                 using (IRandomAccessStream stream = await file.OpenAsync(default))
                 {
-                    this.TrackCollection = new TrackCollection(stream);
+                    this.Initialize(new TrackCollection(stream));
                 }
             };
         }
@@ -98,6 +98,18 @@ namespace Virtual_Piano.TestApp
         {
             this.MidiSynthesizer?.Dispose();
             this.MidiSynthesizer = await MidiSynthesizer.CreateAsync();
+        }
+
+
+        private void Initialize(TrackCollection tracks)
+        {
+            // Track
+            this.TrackCollection = tracks;
+            this.TrackKeySignature = new KeySignature(tracks.SharpsFlats, tracks.MajorMinor);
+            this.TrackTimeSignature = new TimeSignature(tracks.Numerator, tracks.Denominator);
+            this.TrackTicks = new Ticks(this.TrackTimeSignature, tracks.DeltaTicksPerQuarterNote);
+            this.TrackTempo = new Tempo(this.TrackTicks, tracks.Tempo);
+            this.TrackDuration = new TempoDuration(this.TrackTempo, tracks.Duration);
         }
 
         private void Stop()
@@ -118,10 +130,15 @@ namespace Virtual_Piano.TestApp
         {
             foreach (ContentControl item in this.TrackCollection)
             {
-                if (item.Content is Track track)
-                {
-                    this.Play(track);
-                }
+                this.Play(item);
+            }
+        }
+
+        private void Play(ContentControl item)
+        {
+            if (item.Content is Track track)
+            {
+                this.Play(track);
             }
         }
 
