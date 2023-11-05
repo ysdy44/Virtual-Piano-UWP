@@ -765,7 +765,7 @@
             DisplayMode="Inline"
             IsPaneOpen="False"
             OpenPaneLength="280"
-            PaneBackground="{ThemeResource AppBackgroundDark}"
+            PaneBackground="{ThemeResource AppBackgroundLight}"
             Background="{x:Null}"
             >
 
@@ -850,6 +850,7 @@
                         IsItemClickEnabled="True"
                         ItemsSource="{x:Bind MidiInstrumentCollection.View}"
                         Command="{x:Bind Command}"
+                        Background="{ThemeResource AppBackgroundDark}"
                         Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}"
                         >
                         <ItemsControl.GroupStyle>
@@ -878,6 +879,7 @@
                         IsItemClickEnabled="True"
                         SelectionMode="None"
                         Command="{x:Bind Command}"
+                        Background="{ThemeResource AppBackgroundDark}"
                         Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemC.IsSelected), Mode=OneWay}"
                         >
                         <ItemsControl.ItemContainerTransitions>
@@ -903,36 +905,37 @@
                     </elements:CommandListView>
 
                     <!--Head-->
-                    <Grid Height="82" Background="{ThemeResource AppBackgroundLight}" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}">
+                    <Button 
+                        Height="82" 
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        CommandParameter="{x:Bind DemoNote}"
+                        Command="{x:Bind Command}"
+                        Style="{StaticResource TextBlockButtonStyle}"
+                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}"
+                        >
+                        <StackPanel Spacing="2">
+                            <TextBlock FontSize="32" IsColorFontEnabled="False" HorizontalAlignment="Center" Text="{x:Bind Favorites.Emoji, Mode=OneWay}"/>
+                            <TextBlock FontSize="14" HorizontalAlignment="Center" Text="{x:Bind Favorites.String, Mode=OneWay}"/>
+                        </StackPanel>
+                    </Button>
 
-                        <Button 
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            CommandParameter="{x:Bind DemoNote}"
-                            Command="{x:Bind Command}"
-                            Style="{StaticResource TextBlockButtonStyle}"
-                            >
-                            <StackPanel Spacing="2">
-                                <TextBlock FontSize="32" IsColorFontEnabled="False" HorizontalAlignment="Center" Text="{x:Bind Favorites.Emoji, Mode=OneWay}"/>
-                                <TextBlock FontSize="14" HorizontalAlignment="Center" Text="{x:Bind Favorites.String, Mode=OneWay}"/>
-                            </StackPanel>
-                        </Button>
-
-                        <elements:CommandCheckedButton
-                            Width="44" 
-                            Height="44" 
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Top"
-                            IsChecked="{x:Bind Favorites.IsContains, Mode=OneWay}"
-                            UncheckedSymbol="OutlineStar"
-                            CheckedSymbol="SolidStar"
-                            CommandParameter="{x:Bind Favorites.IsContains, Mode=OneWay}"
-                            Command="{x:Bind Favorites.Command}"
-                            Style="{StaticResource TextBlockButtonStyle}"
-                            >
-                            <ToolTipService.ToolTip>
-                                <ToolTip Placement="Bottom">
-                                    <TextBlock>
+                    <elements:CommandCheckedButton
+                        Width="44" 
+                        Height="44" 
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        IsChecked="{x:Bind Favorites.IsContains, Mode=OneWay}"
+                        UncheckedSymbol="OutlineStar"
+                        CheckedSymbol="SolidStar"
+                        CommandParameter="{x:Bind Favorites.IsContains, Mode=OneWay}"
+                        Command="{x:Bind Favorites.Command}"
+                        Style="{StaticResource TextBlockButtonStyle}"
+                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}"
+                        >
+                        <ToolTipService.ToolTip>
+                            <ToolTip Placement="Bottom">
+                                <TextBlock>
                                         <Run Text="{strings:UI Type=Favorite}">
                                            <!--Favorites-->
                                        </Run>
@@ -940,19 +943,16 @@
                                        <Run Text="{strings:UI Type=UnFavorite}">
                                            <!--UnFavorite-->
                                        </Run>
-                                    </TextBlock>
-                                </ToolTip>
-                            </ToolTipService.ToolTip>
-                        </elements:CommandCheckedButton>
-
-                    </Grid>
+                                </TextBlock>
+                            </ToolTip>
+                        </ToolTipService.ToolTip>
+                    </elements:CommandCheckedButton>
 
                     <!--Head-->
                     <elements:CommandListView
                         IsItemClickEnabled="True"
                         SelectionMode="None"
                         Command="{x:Bind Command}"
-                        Background="{ThemeResource AppBackgroundLight}"
                         Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemC.IsSelected), Mode=OneWay}"
                         >
                         <ItemsControl.ItemContainerTransitions>
