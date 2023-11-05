@@ -19,6 +19,11 @@ namespace Virtual_Piano.Strings
             return App.Resource.GetString($"{program}");
         }
 
+        public static string GetString(this MidiPercussionProgram program)
+        {
+            return App.Resource.GetString($"{program}");
+        }
+
         public static string GetString(this MidiPercussionNote note)
         {
             return App.Resource.GetString($"{note}");

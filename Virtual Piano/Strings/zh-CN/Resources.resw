@@ -121,6 +121,17 @@
   <data name='TryShowDrumView' xml:space='preserve'> <value>显示鼓视图</value> </data>
   <data name='TryShowMachineView' xml:space='preserve'> <value>显示鼓机视图</value> </data>
   <!--Separator 3-->
+  <data name='Standard' xml:space='preserve'> <value>标准</value> </data>
+  <data name='RoomKit' xml:space='preserve'> <value>房间套件</value> </data>
+  <data name='PowerKit' xml:space='preserve'> <value>动力套件</value> </data>
+  <data name='Electronic' xml:space='preserve'> <value>电子</value> </data>
+  <data name='Analog' xml:space='preserve'> <value>模拟</value> </data>
+  <data name='Jazz' xml:space='preserve'> <value>爵士</value> </data>
+  <data name='Brush' xml:space='preserve'> <value>Brush</value> </data>
+  <data name='Orchestral' xml:space='preserve'> <value>管弦乐的</value> </data>
+  <data name='SpecialEffects' xml:space='preserve'> <value>特别效果</value> </data>
+  <data name='CM32L' xml:space='preserve'> <value>CM-32L Kit</value> </data>
+  <!--Separator 4-->
   <data name='Drum' xml:space='preserve'> <value>架子鼓</value> </data>
   <data name='Hat' xml:space='preserve'> <value>镲</value> </data>
   <data name='Cymbal' xml:space='preserve'> <value>钹</value> </data>
@@ -129,7 +140,7 @@
   <data name='Latin' xml:space='preserve'> <value>拉丁的</value> </data>
   <data name='Special' xml:space='preserve'> <value>其它</value> </data>
   <data name='Synth' xml:space='preserve'> <value>声音效果</value> </data>
-  <!--Separator 4-->
+  <!--Separator 5-->
   <data name='HighQ' xml:space='preserve'> <value>High Q</value> </data>
   <data name='Slap' xml:space='preserve'> <value>Slap</value> </data>
   <data name='ScratchPush' xml:space='preserve'> <value>Push</value> </data>
@@ -191,7 +202,7 @@
   <data name='Castanets' xml:space='preserve'> <value>响板</value> </data>
   <data name='MuteSurdo' xml:space='preserve'> <value>闷音surdo</value> </data>
   <data name='OpenSurdo' xml:space='preserve'> <value>开音surdo</value> </data>
-  <!--Separator 5-->
+  <!--Separator 6-->
   <data name='Piano' xml:space='preserve'> <value>钢琴</value> </data>
   <data name='ChromaticPercussion' xml:space='preserve'> <value>半音打击乐器</value> </data>
   <data name='Organ' xml:space='preserve'> <value>风琴</value> </data>
@@ -208,7 +219,7 @@
   <data name='Ethnic' xml:space='preserve'> <value>民族乐器</value> </data>
   <data name='Percussive' xml:space='preserve'> <value>打击乐</value> </data>
   <data name='SoundEffects' xml:space='preserve'> <value>声音效果</value> </data>
-  <!--Separator 6-->
+  <!--Separator 7-->
   <data name='AcousticGrand' xml:space='preserve'> <value>大钢琴（声学钢琴）</value> </data>
   <data name='BrightAcoustic' xml:space='preserve'> <value>明亮的钢琴</value> </data>
   <data name='ElectricGrand' xml:space='preserve'> <value>电钢琴</value> </data>
