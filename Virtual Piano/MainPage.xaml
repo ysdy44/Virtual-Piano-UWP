@@ -1,4 +1,4 @@
-<Page
+﻿<Page
     x:Class="Virtual_Piano.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -276,7 +276,7 @@
                 VerticalScrollBarVisibility="Disabled"
                 IsVerticalScrollChainingEnabled="False"
                 
-                Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemB.IsSelected), Mode=OneWay}"
+                Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemC.IsSelected), Mode=OneWay}"
                 >
                 <FrameworkElement.Resources>
                     <!--Style-->
@@ -816,20 +816,30 @@
                         </ItemsControl.ItemContainerTransitions>
 
                         <ListViewItem x:Name="ListViewItemA">
-                            <StackPanel>
-                                <SymbolIcon Symbol="Keyboard"/>
-                                <TextBlock HorizontalAlignment="Center">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock IsColorFontEnabled="False" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    🎹
+                                </TextBlock>
+                                <TextBlock Grid.Row="1" HorizontalAlignment="Center">
                                     Instrument
                                 </TextBlock>
-                            </StackPanel>
+                            </Grid>
                         </ListViewItem>
-                        <ListViewItem x:Name="ListViewItemB">
-                            <StackPanel>
+                        <ListViewItem x:Name="ListViewItemC">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
                                 <SymbolIcon Symbol="MusicInfo"/>
-                                <TextBlock HorizontalAlignment="Center">
+                                <TextBlock Grid.Row="1" HorizontalAlignment="Center">
                                     Midi Track
                                 </TextBlock>
-                            </StackPanel>
+                            </Grid>
                         </ListViewItem>
                     </ListView>
 
@@ -868,7 +878,7 @@
                         IsItemClickEnabled="True"
                         SelectionMode="None"
                         Command="{x:Bind Command}"
-                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemB.IsSelected), Mode=OneWay}"
+                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemC.IsSelected), Mode=OneWay}"
                         >
                         <ItemsControl.ItemContainerTransitions>
                             <TransitionCollection>
@@ -943,7 +953,7 @@
                         SelectionMode="None"
                         Command="{x:Bind Command}"
                         Background="{ThemeResource AppBackgroundLight}"
-                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemB.IsSelected), Mode=OneWay}"
+                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemC.IsSelected), Mode=OneWay}"
                         >
                         <ItemsControl.ItemContainerTransitions>
                             <TransitionCollection>
@@ -1319,7 +1329,7 @@
 
                 </Grid>
 
-                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemB.IsSelected), Mode=OneWay}">
+                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemC.IsSelected), Mode=OneWay}">
                     <controllers:TrackPanel x:Name="TrackPanel">
                         <controls:ChannelPanel x:Name="ChannelPanel" Command="{x:Bind Command}"/>
                     </controllers:TrackPanel>
