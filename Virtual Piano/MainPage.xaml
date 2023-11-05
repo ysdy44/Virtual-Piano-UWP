@@ -8,6 +8,7 @@
     xmlns:globalization="using:System.Globalization"
     xmlns:controls="using:Virtual_Piano.Controls"
     xmlns:elements="using:Virtual_Piano.Elements"
+    xmlns:midi="using:Virtual_Piano.Midi"
     xmlns:controllers="using:Virtual_Piano.Midi.Controllers"
     xmlns:instruments="using:Virtual_Piano.Midi.Instruments"
     xmlns:strings="using:Virtual_Piano.Strings"
@@ -844,6 +845,18 @@
                         <ItemsControl.GroupStyle>
                             <GroupStyle/>
                         </ItemsControl.GroupStyle>
+
+                        <ItemsControl.ItemContainerTransitions>
+                            <TransitionCollection>
+                                <!--Transitions-->
+                            </TransitionCollection>
+                        </ItemsControl.ItemContainerTransitions>
+
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="midi:MidiProgram">
+                                <controls:InstrumentItem Key="{x:Bind}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
                         <!--Items-->
                     </elements:CommandListView>
 

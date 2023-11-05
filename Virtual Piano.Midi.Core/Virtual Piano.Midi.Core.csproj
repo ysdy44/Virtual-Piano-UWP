@@ -152,8 +152,6 @@
     <Compile Include="Interfaces\ITrackPanel.cs" />
     <Compile Include="Interfaces\ITrackPanelBase.cs" />
     <Compile Include="Models\AudioObservableCollection.cs" />
-    <Compile Include="Models\InstrumentItem.cs" />
-    <Compile Include="Models\InstrumentItemCategory.cs" />
     <Compile Include="Models\InstrumentItemGrouping.cs" />
     <Compile Include="Models\InstrumentObservableCollection.cs" />
     <Compile Include="Models\KeyABCDictionary.cs" />
