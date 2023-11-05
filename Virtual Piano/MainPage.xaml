@@ -228,6 +228,53 @@
                     </ToolTipService.ToolTip>
                     <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData(4)}"/>
                 </ListViewItem>
+
+            </ListView>
+
+            <ListView
+                Grid.Column="1"
+                SelectedIndex="0"
+                SelectionMode="Single"
+         
+                ScrollViewer.ZoomMode="Disabled"
+              
+                ScrollViewer.HorizontalScrollMode="Enabled"
+                ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                ScrollViewer.IsHorizontalScrollChainingEnabled="True"
+        
+                ScrollViewer.VerticalScrollMode="Disabled"
+                ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                ScrollViewer.IsVerticalScrollChainingEnabled="False"
+             
+                Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemB.IsSelected), Mode=OneWay}"
+                >
+
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="MinWidth" Value="60" />
+                        <Setter Property="MaxWidth" Value="60" />
+                        <Setter Property="Width" Value="60" />
+                        <Setter Property="MinHeight" Value="36" />
+                        <Setter Property="MaxHeight" Value="36" />
+                        <Setter Property="Height" Value="36" />
+                        <Setter Property="Background" Value="{ThemeResource AppStroke}" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="VerticalContentAlignment" Value="Center" />
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemContainerTransitions>
+                    <TransitionCollection>
+                        <!--Transitions-->
+                    </TransitionCollection>
+                </ItemsControl.ItemContainerTransitions>
+
                 <ListViewItem x:Name="ListViewItem5">
                     <ToolTipService.ToolTip>
                         <ToolTip Placement="Bottom" Content="{strings:UI Type=KitView}">
@@ -435,12 +482,12 @@
                             </Flyout>
                         </Button.Flyout>
                         <TextBlock>
-                            <Run></Run>
-                            <Run FontSize="14" Text="{x:Bind TempoSlider.Value,Mode=OneWay}">
-                                <!--Text-->
-                            </Run><Run FontSize="14">.</Run><Run>00</Run>
-                            <LineBreak/>
-                            <Run>Tempo</Run>
+                        <Run></Run>
+                        <Run FontSize="14" Text="{x:Bind TempoSlider.Value,Mode=OneWay}">
+                            <!--Text-->
+                        </Run><Run FontSize="14">.</Run><Run>00</Run>
+                        <LineBreak/>
+                        <Run>Tempo</Run>
                         </TextBlock>
                     </Button>
 
@@ -531,6 +578,7 @@
                 </StackPanel>
             </ScrollViewer>
 
+            <!--Head-->
             <Button Grid.Column="2" Width="Auto" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}"
                     Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}">
                 <ToolTipService.ToolTip>
@@ -699,6 +747,21 @@
                             <!--Show Harp View-->
                         </MenuFlyoutItem>
 
+                    </MenuFlyout>
+                </Button.Flyout>
+                <SymbolIcon Symbol="More"/>
+            </Button>
+
+            <Button Grid.Column="2" Width="Auto" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource TextBlockButtonStyle}"
+                    Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemB.IsSelected), Mode=OneWay}">
+                <ToolTipService.ToolTip>
+                    <ToolTip Placement="Bottom" Content="{strings:UI Type=More}">
+                        <!--More-->
+                    </ToolTip>
+                </ToolTipService.ToolTip>
+                <Button.Flyout>
+                    <MenuFlyout Placement="Bottom">
+
                         <!--Kit-->
                         <MenuFlyoutItem 
                             Text="{strings:UI Type=TryShowKitView}"
@@ -826,6 +889,20 @@
                                 </TextBlock>
                                 <TextBlock Grid.Row="1" HorizontalAlignment="Center">
                                     Instrument
+                                </TextBlock>
+                            </Grid>
+                        </ListViewItem>
+                        <ListViewItem x:Name="ListViewItemB">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock IsColorFontEnabled="False" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    🥁
+                                </TextBlock>
+                                <TextBlock Grid.Row="1" HorizontalAlignment="Center">
+                                    Drum
                                 </TextBlock>
                             </Grid>
                         </ListViewItem>
@@ -1284,6 +1361,10 @@
                         <instruments:HarpPanel MinHeight="220" Command="{x:Bind Command}"/>
                     </ScrollViewer>
 
+                </Grid>
+
+                <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemB.IsSelected), Mode=OneWay}">
+
                     <!--Kit-->
                     <Border
                         FlowDirection="LeftToRight" 
@@ -1337,7 +1418,7 @@
                         <instruments:PianoLeftPanel x:Name="PianoLeftPanel" Command="{x:Bind Command}"/>
                     </controllers:TrackNotePanel>
                 </Grid>
-                
+
             </Grid>
         </SplitView>
 
