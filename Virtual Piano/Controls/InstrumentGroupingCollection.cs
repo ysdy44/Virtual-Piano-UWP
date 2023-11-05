@@ -16,7 +16,7 @@ namespace Virtual_Piano.Controls
             {
                 foreach (var item2 in item.Value)
                 {
-                    yield return new InstrumentItemGrouping(item2.Value.Select(GetItem))
+                    yield return new InstrumentItemGrouping(item2.Value)
                     {
                         Key = item2.Key,
                         Text = item2.Key.GetString()
@@ -24,11 +24,5 @@ namespace Virtual_Piano.Controls
                 }
             }
         }
-
-        private static InstrumentItem GetItem(MidiProgram item) => new InstrumentItem
-        {
-            Key = item,
-            Text = item.GetString()
-        };
     }
 }

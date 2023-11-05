@@ -1,9 +1,14 @@
-﻿namespace Virtual_Piano.Midi.Core
+﻿using Virtual_Piano.Midi;
+using Windows.UI.Xaml.Controls;
+
+namespace Virtual_Piano.Controls
 {
-    public sealed class InstrumentItem
+    public sealed class InstrumentItem : ContentPresenter
     {
-        public MidiProgram Key { get; set; }
-        public string Text { get; set; }
-        public override string ToString() => $"{(int)this.Key}. {this.Text}";
+        public MidiProgram Key
+        {
+            get => default;
+            set => base.Content = $"{(int)value}. {value.ToString()}";
+        }
     }
 }

@@ -61,10 +61,11 @@ namespace Virtual_Piano
             {
                 this.Click(item5);
             }
-            else if (parameter is InstrumentItem item6)
+            else if (parameter is MidiPercussionProgram item6)
             {
-                this.Favorites.Instrument = item6.Key;
-                this.MidiSynthesizer.ProgramChange(item6.Key);
+                this.AllowRing = true;
+
+                this.MidiSynthesizer.ProgramChange(item6);
             }
             else if (parameter is CultureInfo item7)
             {
