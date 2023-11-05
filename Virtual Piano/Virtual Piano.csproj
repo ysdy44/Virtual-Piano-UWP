@@ -131,6 +131,7 @@
     </Compile>
     <Compile Include="Controls\ChannelPanel.cs" />
     <Compile Include="Controls\ChordCarousel.cs" />
+    <Compile Include="Controls\DrumItem.cs" />
     <Compile Include="Controls\DrumPanel.cs" />
     <Compile Include="Controls\InstrumentCollectionPanel.cs" />
     <Compile Include="Controls\InstrumentGroupingCollection.cs" />
