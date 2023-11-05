@@ -950,6 +950,45 @@
 
                     <!--Body-->
                     <elements:CommandListView
+                        Grid.Row="1" 
+                        SelectionMode="None"
+                        ItemsSource="{x:Bind Drums}"
+                        IsItemClickEnabled="True"
+                        Command="{x:Bind Command}"
+                        Background="{ThemeResource AppBackgroundDark}"
+                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemB.IsSelected), Mode=OneWay}"
+                        >
+                        <ItemsControl.ItemContainerTransitions>
+                            <TransitionCollection>
+                                <!--Transitions-->
+                            </TransitionCollection>
+                        </ItemsControl.ItemContainerTransitions>
+
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="midi:MidiPercussionProgram">
+                                <controls:DrumItem Key="{x:Bind}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+
+                        <ListView.Header>
+                            <TextBlock              
+                                Margin="10,2"
+                                IsTextSelectionEnabled="True"
+                                FontWeight="Medium" 
+                                TextTrimming="CharacterEllipsis" 
+                                FontSize="20" 
+                                TextWrapping="Wrap" 
+                                VerticalAlignment="Center" 
+                                OpticalMarginAlignment="TrimSideBearings"
+                                >                                
+                                Drum Kit
+                            </TextBlock>
+                        </ListView.Header>
+                        <!--Items-->
+                    </elements:CommandListView>
+                    
+                    <!--Body-->
+                    <elements:CommandListView
                         Padding="0,8"
                         Grid.Row="1"
                         ItemsSource="{x:Bind Songs}"
@@ -1025,6 +1064,24 @@
                         </ToolTipService.ToolTip>
                     </elements:CommandCheckedButton>
 
+                    <!--Head-->
+                    <Button 
+                        Height="82" 
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        CommandParameter="{x:Bind DemoPercussionNote}"
+                        Command="{x:Bind Command}"
+                        Style="{StaticResource TextBlockButtonStyle}"
+                        Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemB.IsSelected), Mode=OneWay}"
+                        >
+                        <StackPanel Spacing="2">
+                            <TextBlock FontSize="32" IsColorFontEnabled="False" HorizontalAlignment="Center">
+                                🥁
+                            </TextBlock>
+                            <controls:DrumItem x:Name="DrumItem" FontSize="14" HorizontalAlignment="Center" Key="Standard"/>
+                        </StackPanel>
+                    </Button>
+                    
                     <!--Head-->
                     <elements:CommandListView
                         IsItemClickEnabled="True"

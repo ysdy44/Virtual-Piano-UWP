@@ -78,6 +78,10 @@ namespace Virtual_Piano
         // Songs
         readonly IList<Uri> Songs = new List<Uri>(Enum.GetValues(typeof(SongType)).Cast<SongType>().Select(SongUri.GetUri));
 
+        // Drum
+        readonly MidiPercussionNote DemoPercussionNote = (MidiPercussionNote)KitSet.HiTom;
+        readonly MidiPercussionProgram[] Drums = System.Enum.GetValues(typeof(MidiPercussionProgram)).Cast<MidiPercussionProgram>().ToArray();
+
         // Favorites
         readonly MidiNote DemoNote = MidiNote.C5;
         readonly Controls.InstrumentObservableCollection Favorites = new Controls.InstrumentObservableCollection

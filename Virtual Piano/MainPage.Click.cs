@@ -64,7 +64,7 @@ namespace Virtual_Piano
             else if (parameter is MidiPercussionProgram item6)
             {
                 this.AllowRing = true;
-
+                this.DrumItem.Key = item6;
                 this.MidiSynthesizer.ProgramChange(item6);
             }
             else if (parameter is CultureInfo item7)
