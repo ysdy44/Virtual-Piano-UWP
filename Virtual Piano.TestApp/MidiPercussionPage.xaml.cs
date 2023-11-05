@@ -21,6 +21,8 @@ namespace Virtual_Piano.TestApp
             MidiPercussionNoteFactory.Instance.Select(c =>
             new PercussionGrouping(c.Key, c.Value)).ToArray();
 
+        readonly MidiPercussionProgram[] ItemsSource = Enum.GetValues(typeof(MidiPercussionProgram)).Cast<MidiPercussionProgram>().ToArray();
+
         readonly byte Channel = 9;
 
         byte Note;
@@ -31,6 +33,14 @@ namespace Virtual_Piano.TestApp
         {
             this.InitializeComponent();
             this.ListView.ItemClick += (s, e) =>
+            {
+                if (e.ClickedItem is MidiPercussionProgram item)
+                {
+                    byte n = (byte)item;
+                    this.MidiSynthesizer?.SendMessage(new MidiProgramChangeMessage(9, n));
+                }
+            };
+            this.GridView.ItemClick += (s, e) =>
             {
                 if (e.ClickedItem is MidiPercussionNote item)
                 {

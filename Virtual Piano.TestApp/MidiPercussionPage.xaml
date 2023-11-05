@@ -14,16 +14,34 @@
         </CollectionViewSource>
     </FrameworkElement.Resources>
 
-    <ListView
-        x:Name="ListView"
-        Margin="4"
-        SelectionMode="None"
-        IsItemClickEnabled="True"
-        ItemsSource="{x:Bind Collection.View}"
+    <SplitView 
+        IsPaneOpen="True" 
+        OpenPaneLength="256" 
+        CompactPaneLength="48" 
+        DisplayMode="Inline"
         >
-        <ItemsControl.GroupStyle>
-            <GroupStyle/>
-        </ItemsControl.GroupStyle>
-        <!--Items-->
-    </ListView>
+        <SplitView.Pane>
+            <ListView
+                x:Name="ListView"
+                Margin="4"
+                SelectionMode="None"
+                IsItemClickEnabled="True"
+                ItemsSource="{x:Bind ItemsSource}"
+                >
+                <!--Items-->
+            </ListView>
+        </SplitView.Pane>
+        <ListView
+            x:Name="GridView"
+            Margin="4"
+            SelectionMode="None"
+            IsItemClickEnabled="True"
+            ItemsSource="{x:Bind Collection.View}"
+            >
+            <ItemsControl.GroupStyle>
+                <GroupStyle/>
+            </ItemsControl.GroupStyle>
+            <!--Items-->
+        </ListView>
+    </SplitView>
 </Page>
