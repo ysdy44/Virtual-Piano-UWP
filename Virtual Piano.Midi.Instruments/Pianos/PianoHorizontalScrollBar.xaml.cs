@@ -1,11 +1,15 @@
 ﻿using Virtual_Piano.Midi.Core;
 using Windows.Foundation;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace Virtual_Piano.Midi.Instruments
 {
     public sealed partial class PianoHorizontalScrollBar : UserControl
     {
+        //@Converter
+        private Symbol PreviousSymbolConverter(FlowDirection value) => value is FlowDirection.LeftToRight ? Symbol.Previous : Symbol.Next;
+        private Symbol NextSymbolConverter(FlowDirection value) => value is FlowDirection.LeftToRight ? Symbol.Next : Symbol.Previous;
 
         private PianoSize PianoSize = new PianoSize(20);
 

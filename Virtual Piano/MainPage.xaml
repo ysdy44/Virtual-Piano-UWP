@@ -1137,7 +1137,7 @@
                 <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItemA.IsSelected), Mode=OneWay}">
 
                     <!--Piano-->
-                    <Grid FlowDirection="LeftToRight" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}">
+                    <Grid Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="1*"/>
@@ -1213,6 +1213,7 @@
                                 >
                                 <instruments:PianoTopPanel
                                     x:Name="PianoTopPanel"
+                                    FlowDirection="LeftToRight" 
                                     Label="CDE"
                                     ItemSize="28"
                                     WhiteSize="420" 

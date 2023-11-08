@@ -150,11 +150,11 @@
         </Grid>
 
         <RepeatButton x:Name="PreviousButton" HorizontalAlignment="Right">
-            <SymbolIcon Symbol="Previous"/>
+            <SymbolIcon Symbol="{x:Bind PreviousSymbolConverter(FlowDirection), Mode=OneWay}"/>
         </RepeatButton>
 
         <RepeatButton x:Name="NextButton" Grid.Column="2" HorizontalAlignment="Left">
-            <SymbolIcon Symbol="Next"/>
+            <SymbolIcon Symbol="{x:Bind NextSymbolConverter(FlowDirection), Mode=OneWay}"/>
         </RepeatButton>
 
     </Grid>

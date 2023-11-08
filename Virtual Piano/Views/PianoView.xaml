@@ -8,7 +8,6 @@
     xmlns:instruments="using:Virtual_Piano.Midi.Instruments"
     mc:Ignorable="d"   
     Background="Black"
-    FlowDirection="LeftToRight"
     >
 
     <!--Extension-->
@@ -70,6 +69,7 @@
             >
             <instruments:PianoTopPanel
                 x:Name="PianoTopPanel"
+                FlowDirection="LeftToRight"
                 Label="CDE"
                 ItemSize="28"
                 WhiteSize="420" 
