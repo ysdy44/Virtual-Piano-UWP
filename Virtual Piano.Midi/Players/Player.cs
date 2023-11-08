@@ -47,7 +47,7 @@ namespace Virtual_Piano.Midi
             this.Delay += this.Elapsed;
             this.DelayMilliseconds += this.ElapsedMilliseconds;
 
-            this.Stopwatch.Stop();
+            this.Stopwatch.Reset();
             this.Timer.Stop();
             this.StatePause();
         }
@@ -57,7 +57,7 @@ namespace Virtual_Piano.Midi
             this.Delay = TimeSpan.Zero;
             this.DelayMilliseconds = 0;
 
-            this.Stopwatch.Stop();
+            this.Stopwatch.Reset();
             this.Timer.Stop();
             this.StateReset();
         }
