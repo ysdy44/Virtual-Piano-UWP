@@ -42,7 +42,7 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-            <ToggleButton x:Name="MuteButton">
+            <ToggleButton x:Name="MuteButton" HorizontalAlignment="Stretch">
                 <ToolTipService.ToolTip>
                     <TextBlock>
                         <Run FontWeight="Bold">
@@ -56,7 +56,7 @@
                 </ToolTipService.ToolTip>
                 M
             </ToggleButton>
-            <ToggleButton x:Name="SoloButton" Grid.Column="1">
+            <ToggleButton x:Name="SoloButton" Grid.Column="1" HorizontalAlignment="Stretch">
                 <ToolTipService.ToolTip>
                     <TextBlock>
                         <Run FontWeight="Bold">
@@ -70,7 +70,7 @@
                 </ToolTipService.ToolTip>
                 S
             </ToggleButton>
-            <Button x:Name="EditButton" Grid.Column="2">
+            <Button x:Name="EditButton" Grid.Column="2" HorizontalAlignment="Stretch">
                 Edit
             </Button>
         </Grid>
