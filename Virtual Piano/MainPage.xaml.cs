@@ -37,11 +37,12 @@ namespace Virtual_Piano
         private Visibility ReverseBooleanToVisibilityConverter(bool value) => value ? Visibility.Collapsed : Visibility.Visible;
         private Visibility BooleanNullableToVisibilityConverter(bool? value) => value is true ? Visibility.Visible : Visibility.Collapsed;
         private Visibility ReverseBooleanNullableToVisibilityConverter(bool? value) => value is true ? Visibility.Collapsed : Visibility.Visible;
+        private bool NullableBooleanToBooleanConverter(bool? value) => value is true;
         private bool ReverseBooleanToBooleanConverter(bool value) => value is false;
         private bool ReverseBooleanNullableToBooleanConverter(bool? value) => value is false;
         private SplitViewPanePlacement BooleanToPlacementConverter(bool value) => value is true ? SplitViewPanePlacement.Right : SplitViewPanePlacement.Left;
-        private Thickness BooleanToThickness163Converter(bool value) => value ? new Thickness(0, 163, 0, -163) : default;
-        private Thickness BooleanToThickness203Converter(bool value) => value ? new Thickness(0, 203, 0, -203) : default;
+        private Thickness BooleanToThickness163Converter(bool? value) => value is true ? new Thickness(0, 163, 0, -163) : default;
+        private Thickness BooleanToThickness203Converter(bool? value) => value is true ? new Thickness(0, 203, 0, -203) : default;
         private int DoubleToInt32Converter(double value) => System.Math.Clamp((int)value, 0, 127);
         private double MarbleToRouletteConverter(double value) => value - 100 + 32;
         private Symbol FullScreenSymbolConverter(bool value) => value ? Symbol.BackToWindow : Symbol.FullScreen;
@@ -197,15 +198,10 @@ namespace Virtual_Piano
                 this.SplitView.IsPaneOpen = !this.SplitView.IsPaneOpen;
             };
 
-            this.Label0Item.Click += (s, e) => this.PianoTopPanel.Label = KeyLabel.Off;
-            this.Label1Item.Click += (s, e) => this.PianoTopPanel.Label = KeyLabel.Conly;
-            this.Label2Item.Click += (s, e) => this.PianoTopPanel.Label = KeyLabel.CDE;
-            this.Label3Item.Click += (s, e) => this.PianoTopPanel.Label = KeyLabel.DoReMi;
-
-            this.Label0Item.Click += (s, e) => this.Label1Item.IsChecked = this.Label2Item.IsChecked = this.Label3Item.IsChecked = false;
-            this.Label1Item.Click += (s, e) => this.Label0Item.IsChecked = this.Label2Item.IsChecked = this.Label3Item.IsChecked = false;
-            this.Label2Item.Click += (s, e) => this.Label0Item.IsChecked = this.Label1Item.IsChecked = this.Label3Item.IsChecked = false;
-            this.Label3Item.Click += (s, e) => this.Label0Item.IsChecked = this.Label1Item.IsChecked = this.Label2Item.IsChecked = false;
+            this.TagListView.SelectionChanged += (s, e) =>
+            {
+                this.PianoTopPanel.Label = (KeyLabel)this.TagListView.SelectedIndex; ;
+            };
 
             this.NoteScrollViewer.Loaded += (s, e) =>
             {

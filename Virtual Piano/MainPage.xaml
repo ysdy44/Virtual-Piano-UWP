@@ -164,9 +164,9 @@
 
                 <ItemsControl.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
-                        <Setter Property="MinWidth" Value="60" />
-                        <Setter Property="MaxWidth" Value="60" />
-                        <Setter Property="Width" Value="60" />
+                        <Setter Property="MinWidth" Value="80" />
+                        <Setter Property="MaxWidth" Value="80" />
+                        <Setter Property="Width" Value="80" />
                         <Setter Property="MinHeight" Value="36" />
                         <Setter Property="MaxHeight" Value="36" />
                         <Setter Property="Height" Value="36" />
@@ -251,9 +251,9 @@
 
                 <ItemsControl.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
-                        <Setter Property="MinWidth" Value="60" />
-                        <Setter Property="MaxWidth" Value="60" />
-                        <Setter Property="Width" Value="60" />
+                        <Setter Property="MinWidth" Value="80" />
+                        <Setter Property="MaxWidth" Value="80" />
+                        <Setter Property="Width" Value="80" />
                         <Setter Property="MinHeight" Value="36" />
                         <Setter Property="MaxHeight" Value="36" />
                         <Setter Property="Height" Value="36" />
@@ -482,12 +482,12 @@
                             </Flyout>
                         </Button.Flyout>
                         <TextBlock>
-                        <Run></Run>
-                        <Run FontSize="14" Text="{x:Bind TempoSlider.Value,Mode=OneWay}">
-                            <!--Text-->
-                        </Run><Run FontSize="14">.</Run><Run>00</Run>
-                        <LineBreak/>
-                        <Run>Tempo</Run>
+                            <Run></Run>
+                            <Run FontSize="14" Text="{x:Bind TempoSlider.Value,Mode=OneWay}">
+                                <!--Text-->
+                            </Run><Run FontSize="14">.</Run><Run>00</Run>
+                            <LineBreak/>
+                            <Run>Tempo</Run>
                         </TextBlock>
                     </Button>
 
@@ -587,167 +587,162 @@
                     </ToolTip>
                 </ToolTipService.ToolTip>
                 <Button.Flyout>
-                    <MenuFlyout Placement="Bottom">
+                    <Flyout Placement="Bottom">
+                        <StackPanel MinWidth="288" MinHeight="144">
 
-                        <!--Piano-->
-                        <MenuFlyoutItem
-                            Text="{strings:UI Type=TryShowPianoView}"
-                            Command="{x:Bind Command}" 
-                            CommandParameter="{strings:OptionType Type=TryShowPianoView}" 
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
-                            >
-                            <MenuFlyoutItem.Icon>
-                                <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(0)}"/>
-                            </MenuFlyoutItem.Icon>
-                            <!--Show Piano View-->
-                        </MenuFlyoutItem>
-                        <MenuFlyoutSeparator Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"/>
-                        <ToggleMenuFlyoutItem
-                            x:Name="BendItem"
-                            IsChecked="False" 
-                            Text="{strings:UI Type=Bends}"
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
-                            >
-                            <MenuFlyoutItem.Icon>
-                                <SymbolIcon Symbol="Rotate"/>
-                            </MenuFlyoutItem.Icon>
-                            <!--Bend-->
-                        </ToggleMenuFlyoutItem>
-                        <ToggleMenuFlyoutItem 
-                            x:Name="PedalItem"
-                            IsChecked="False" 
-                            Text="{strings:UI Type=Pedals}"
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
-                            >
-                            <MenuFlyoutItem.Icon>
-                                <SymbolIcon Symbol="CalendarWeek"/>
-                            </MenuFlyoutItem.Icon>
-                            <!--Pedal-->
-                        </ToggleMenuFlyoutItem>
-                        <ToggleMenuFlyoutItem 
-                            x:Name="PianoHorizontalScrollBarItem"
-                            IsChecked="True" 
-                            Text="{strings:UI Type=DockBottom}"
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
-                            >
-                            <MenuFlyoutItem.Icon>
-                                <SymbolIcon Symbol="DockBottom"/>
-                            </MenuFlyoutItem.Icon>
-                            <!--Dock Bottom-->
-                        </ToggleMenuFlyoutItem>
-                        <MenuFlyoutSeparator Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"/>
-                        <ToggleMenuFlyoutItem 
-                            x:Name="Label0Item"
-                            IsChecked="False" 
-                            Text="{strings:UI Type=PianoView}"
-                            IsEnabled="{x:Bind ReverseBooleanToBooleanConverter(Label0Item.IsChecked), Mode=OneWay}"
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
-                            >
-                            <MenuFlyoutItem.Icon>
-                                <SymbolIcon Symbol="Tag"/>
-                            </MenuFlyoutItem.Icon>
-                            <!--None-->
-                        </ToggleMenuFlyoutItem>
-                        <ToggleMenuFlyoutItem 
-                            x:Name="Label1Item"
-                            IsChecked="False" 
-                            Text="C"
-                            IsEnabled="{x:Bind ReverseBooleanToBooleanConverter(Label1Item.IsChecked), Mode=OneWay}"
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
-                            >
-                            <MenuFlyoutItem.Icon>
-                                <SymbolIcon Symbol="Tag"/>
-                            </MenuFlyoutItem.Icon>
-                            <!--C-->
-                        </ToggleMenuFlyoutItem>
-                        <ToggleMenuFlyoutItem 
-                            x:Name="Label2Item"
-                            IsChecked="True" 
-                            Text="CDE"
-                            IsEnabled="{x:Bind ReverseBooleanToBooleanConverter(Label2Item.IsChecked), Mode=OneWay}"
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
-                            >
-                            <MenuFlyoutItem.Icon>
-                                <SymbolIcon Symbol="Tag"/>
-                            </MenuFlyoutItem.Icon>
-                            <!--CDE-->
-                        </ToggleMenuFlyoutItem>
-                        <ToggleMenuFlyoutItem 
-                            x:Name="Label3Item"
-                            IsChecked="False" 
-                            Text="DoReMi"
-                            IsEnabled="{x:Bind ReverseBooleanToBooleanConverter(Label3Item.IsChecked), Mode=OneWay}"
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}"
-                            >
-                            <MenuFlyoutItem.Icon>
-                                <SymbolIcon Symbol="Tag"/>
-                            </MenuFlyoutItem.Icon>
-                            <!--DoReMi-->
-                        </ToggleMenuFlyoutItem>
+                            <!--Piano-->
+                            <StackPanel Spacing="8" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem0.IsSelected), Mode=OneWay}">
+                                <TextBlock Text="{strings:UI Type=PianoView}" Style="{StaticResource SubtitleTextBlockStyle}"/>
+                                <Button CommandParameter="{strings:OptionType Type=TryShowPianoView}" Command="{x:Bind Command}" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(0)}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowPianoView}"/>
+                                    </StackPanel>
+                                    <!--Show Piano View-->
+                                </Button>
+                                <TextBlock Style="{StaticResource SubtitleTextBlockStyle}">                                
+                                    Control
+                                </TextBlock>
+                                <ToggleButton x:Name="BendItem" IsChecked="False">
+                                    <StackPanel Orientation="Horizontal">
+                                        <SymbolIcon Symbol="Rotate"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=Bends}"/>
+                                    </StackPanel>
+                                    <!--Bend-->
+                                </ToggleButton>
+                                <ToggleButton x:Name="PedalItem" IsChecked="False">
+                                    <StackPanel Orientation="Horizontal">
+                                        <SymbolIcon Symbol="CalendarWeek"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=Pedals}"/>
+                                    </StackPanel>
+                                    <!--Pedal-->
+                                </ToggleButton>
+                                <ToggleButton x:Name="PianoHorizontalScrollBarItem" IsChecked="True">
+                                    <StackPanel Orientation="Horizontal">
+                                        <SymbolIcon Symbol="DockBottom"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=DockBottom}"/>
+                                    </StackPanel>
+                                    <!--Dock Bottom-->
+                                </ToggleButton>
+                                <TextBlock Style="{StaticResource SubtitleTextBlockStyle}">                                
+                                    Key label
+                                </TextBlock>
+                                <!--Foot-->
+                                <ListView 
+                                    x:Name="TagListView"
+                                    SelectedIndex="0"
+                             
+                                    SelectionMode="Single"
+                                  
+                                    ScrollViewer.ZoomMode="Disabled"
+                                  
+                                    ScrollViewer.HorizontalScrollMode="Enabled"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                    ScrollViewer.IsHorizontalScrollChainingEnabled="True"
+                                  
+                                    ScrollViewer.VerticalScrollMode="Disabled"
+                                    ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                    ScrollViewer.IsVerticalScrollChainingEnabled="False"
+                                    >
 
-                        <!--Chord-->
-                        <MenuFlyoutItem 
-                            Text="{strings:UI Type=TryShowChordView}"
-                            Command="{x:Bind Command}" 
-                            CommandParameter="{strings:OptionType Type=TryShowChordView}" 
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
-                            >
-                            <MenuFlyoutItem.Icon>
-                                <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(1)}"/>
-                            </MenuFlyoutItem.Icon>
-                            <!--Show Piano Chord View-->
-                        </MenuFlyoutItem>
-                        <ToggleMenuFlyoutItem 
-                            x:Name="ChordItem"
-                            Text="{strings:UI Type=ChordView}"
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}"
-                            >
-                            <MenuFlyoutItem.Icon>
-                                <SymbolIcon Symbol="Edit"/>
-                            </MenuFlyoutItem.Icon>
-                            <!--Chords-->
-                        </ToggleMenuFlyoutItem>
+                                    <ItemsControl.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="MinWidth" Value="72" />
+                                            <Setter Property="MaxWidth" Value="72" />
+                                            <Setter Property="Width" Value="72" />
+                                            <Setter Property="Background" Value="{ThemeResource AppBackgroundLight}" />
+                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                            <Setter Property="VerticalContentAlignment" Value="Center" />
+                                        </Style>
+                                    </ItemsControl.ItemContainerStyle>
 
-                        <!--Guitar-->
-                        <MenuFlyoutItem 
-                            Text="{strings:UI Type=TryShowGuitarView}"
-                            Command="{x:Bind Command}" 
-                            CommandParameter="{strings:OptionType Type=TryShowGuitarView}" 
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}"
-                            >
-                            <MenuFlyoutItem.Icon>
-                                <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(2)}"/>
-                            </MenuFlyoutItem.Icon>
-                            <!--Show Guitar View-->
-                        </MenuFlyoutItem>
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <elements:FlexPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
 
-                        <!--Bass-->
-                        <MenuFlyoutItem
-                            Text="{strings:UI Type=TryShowBassView}"
-                            Command="{x:Bind Command}"
-                            CommandParameter="{strings:OptionType Type=TryShowBassView}" 
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}"
-                            >
-                            <MenuFlyoutItem.Icon>
-                                <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(3)}"/>
-                            </MenuFlyoutItem.Icon>
-                            <!--Show Bass Guitar View-->
-                        </MenuFlyoutItem>
+                                    <ItemsControl.ItemContainerTransitions>
+                                        <TransitionCollection>
+                                            <!--Transitions-->
+                                        </TransitionCollection>
+                                    </ItemsControl.ItemContainerTransitions>
 
-                        <!--Harp-->
-                        <MenuFlyoutItem 
-                            Text="{strings:UI Type=TryShowHarpView}"
-                            Command="{x:Bind Command}"
-                            CommandParameter="{strings:OptionType Type=TryShowHarpView}" 
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}"
-                            >
-                            <MenuFlyoutItem.Icon>
-                                <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(4)}"/>
-                            </MenuFlyoutItem.Icon>
-                            <!--Show Harp View-->
-                        </MenuFlyoutItem>
+                                    <ListViewItem x:Name="Label0Item">
+                                        None
+                                    </ListViewItem>
+                                    <ListViewItem x:Name="Label1Item">
+                                        C
+                                    </ListViewItem>
+                                    <ListViewItem x:Name="Label2Item">
+                                        CDE
+                                    </ListViewItem>
+                                    <ListViewItem x:Name="Label3Item">
+                                        DoReMi
+                                    </ListViewItem>
+                                </ListView>
+                            </StackPanel>
 
-                    </MenuFlyout>
+                            <!--Chord-->
+                            <StackPanel Spacing="8" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem1.IsSelected), Mode=OneWay}">
+                                <TextBlock Text="{strings:UI Type=ChordView}" Style="{StaticResource SubtitleTextBlockStyle}"/>
+                                <Button CommandParameter="{strings:OptionType Type=TryShowChordView}" Command="{x:Bind Command}" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(1)}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowChordView}"/>
+                                    </StackPanel>
+                                    <!--Show Piano Chord View-->
+                                </Button>
+                                <TextBlock Style="{StaticResource SubtitleTextBlockStyle}">                                
+                                    Edit
+                                </TextBlock>
+                                <ToggleButton x:Name="ChordItem" IsChecked="False">
+                                    <StackPanel Orientation="Horizontal">
+                                        <SymbolIcon Symbol="Edit"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center">Edit Chord</TextBlock>
+                                    </StackPanel>
+                                    <!--Edit Chords-->
+                                </ToggleButton>
+                            </StackPanel>
+
+                            <!--Guitar-->
+                            <StackPanel Spacing="8" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem2.IsSelected), Mode=OneWay}">
+                                <TextBlock Text="{strings:UI Type=GuitarView}" Style="{StaticResource SubtitleTextBlockStyle}"/>
+                                <Button CommandParameter="{strings:OptionType Type=TryShowGuitarView}" Command="{x:Bind Command}" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(2)}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowGuitarView}"/>
+                                    </StackPanel>
+                                    <!--Show Guitar View-->
+                                </Button>
+                            </StackPanel>
+
+                            <!--Bass-->
+                            <StackPanel Spacing="8" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem3.IsSelected), Mode=OneWay}">
+                                <TextBlock Text="{strings:UI Type=BassView}" Style="{StaticResource SubtitleTextBlockStyle}"/>
+                                <Button CommandParameter="{strings:OptionType Type=TryShowBassView}" Command="{x:Bind Command}" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(3)}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowBassView}"/>
+                                    </StackPanel>
+                                    <!--Show Bass View-->
+                                </Button>
+                            </StackPanel>
+
+                            <!--Harp-->
+                            <StackPanel Spacing="8" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem4.IsSelected), Mode=OneWay}">
+                                <TextBlock Text="{strings:UI Type=HarpView}" Style="{StaticResource SubtitleTextBlockStyle}"/>
+                                <Button CommandParameter="{strings:OptionType Type=TryShowHarpView}" Command="{x:Bind Command}" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(4)}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowHarpView}"/>
+                                    </StackPanel>
+                                    <!--Show Harp View-->
+                                </Button>
+                            </StackPanel>
+
+                        </StackPanel>
+                    </Flyout>
                 </Button.Flyout>
                 <SymbolIcon Symbol="More"/>
             </Button>
@@ -760,61 +755,59 @@
                     </ToolTip>
                 </ToolTipService.ToolTip>
                 <Button.Flyout>
-                    <MenuFlyout Placement="Bottom">
+                    <Flyout Placement="Bottom">
+                        <StackPanel MinWidth="288" MinHeight="144">
 
-                        <!--Kit-->
-                        <MenuFlyoutItem 
-                            Text="{strings:UI Type=TryShowKitView}"
-                            Command="{x:Bind Command}" 
-                            CommandParameter="{strings:OptionType Type=TryShowKitView}" 
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem5.IsSelected), Mode=OneWay}"
-                            >
-                            <MenuFlyoutItem.Icon>
-                                <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(5)}"/>
-                            </MenuFlyoutItem.Icon>
-                            <!--Show Drum Kit-Set View-->
-                        </MenuFlyoutItem>
+                            <!--Kit-->
+                            <StackPanel Spacing="8" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem5.IsSelected), Mode=OneWay}">
+                                <TextBlock Text="{strings:UI Type=KitView}" Style="{StaticResource SubtitleTextBlockStyle}"/>
+                                <Button CommandParameter="{strings:OptionType Type=TryShowKitView}" Command="{x:Bind Command}" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(5)}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowKitView}"/>
+                                    </StackPanel>
+                                    <!--Show Drum Kit-Set View-->
+                                </Button>
+                            </StackPanel>
 
-                        <!--Pad-->
-                        <MenuFlyoutItem 
-                            Text="{strings:UI Type=TryShowPadView}"
-                            Command="{x:Bind Command}" 
-                            CommandParameter="{strings:OptionType Type=TryShowPadView}" 
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem6.IsSelected), Mode=OneWay}"
-                            >
-                            <MenuFlyoutItem.Icon>
-                                <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(6)}"/>
-                            </MenuFlyoutItem.Icon>
-                            <!--Show Drum Pads View-->
-                        </MenuFlyoutItem>
+                            <!--Pad-->
+                            <StackPanel Spacing="8" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem6.IsSelected), Mode=OneWay}">
+                                <TextBlock Text="{strings:UI Type=PadView}" Style="{StaticResource SubtitleTextBlockStyle}"/>
+                                <Button CommandParameter="{strings:OptionType Type=TryShowPadView}" Command="{x:Bind Command}" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(6)}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowPadView}"/>
+                                    </StackPanel>
+                                    <!--Show Drum Pads View-->
+                                </Button>
+                            </StackPanel>
 
-                        <!--Drum-->
-                        <MenuFlyoutItem 
-                            Text="{strings:UI Type=TryShowDrumView}"
-                            Command="{x:Bind Command}" 
-                            CommandParameter="{strings:OptionType Type=TryShowDrumView}"
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem7.IsSelected), Mode=OneWay}"
-                            >
-                            <MenuFlyoutItem.Icon>
-                                <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(7)}"/>
-                            </MenuFlyoutItem.Icon>
-                            <!--Show Drum View-->
-                        </MenuFlyoutItem>
+                            <!--Drum-->
+                            <StackPanel Spacing="8" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem7.IsSelected), Mode=OneWay}">
+                                <TextBlock Text="{strings:UI Type=DrumView}" Style="{StaticResource SubtitleTextBlockStyle}"/>
+                                <Button CommandParameter="{strings:OptionType Type=TryShowDrumView}" Command="{x:Bind Command}" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(7)}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowDrumView}"/>
+                                    </StackPanel>
+                                    <!--Show Drum View-->
+                                </Button>
+                            </StackPanel>
+                            
+                            <!--Machine-->
+                            <StackPanel Spacing="8" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem8.IsSelected), Mode=OneWay}">
+                                <TextBlock Text="{strings:UI Type=MachineView}" Style="{StaticResource SubtitleTextBlockStyle}"/>
+                                <Button CommandParameter="{strings:OptionType Type=TryShowMachineView}" Command="{x:Bind Command}" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(8)}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowMachineView}"/>
+                                    </StackPanel>
+                                    <!--Show Drum Machines View-->
+                                </Button>
+                            </StackPanel>
 
-                        <!--Machine-->
-                        <MenuFlyoutItem 
-                            Text="{strings:UI Type=TryShowMachineView}"
-                            Command="{x:Bind Command}" 
-                            CommandParameter="{strings:OptionType Type=TryShowMachineView}" 
-                            Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem8.IsSelected), Mode=OneWay}"
-                            >
-                            <MenuFlyoutItem.Icon>
-                                <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(8)}"/>
-                            </MenuFlyoutItem.Icon>
-                            <!--Show Drum Machines View-->
-                        </MenuFlyoutItem>
-
-                    </MenuFlyout>
+                        </StackPanel>
+                    </Flyout>
                 </Button.Flyout>
                 <SymbolIcon Symbol="More"/>
             </Button>
@@ -980,13 +973,14 @@
                                 TextWrapping="Wrap" 
                                 VerticalAlignment="Center" 
                                 OpticalMarginAlignment="TrimSideBearings"
+                                Text="{strings:UI Type=KitView}"
                                 >                                
-                                Drum Kit
+                                <!--Kit-->
                             </TextBlock>
                         </ListView.Header>
                         <!--Items-->
                     </elements:CommandListView>
-                    
+
                     <!--Body-->
                     <elements:CommandListView
                         Padding="0,8"
@@ -1081,7 +1075,7 @@
                             <controls:DrumItem x:Name="DrumItem" FontSize="14" HorizontalAlignment="Center" Key="Standard"/>
                         </StackPanel>
                     </Button>
-                    
+
                     <!--Head-->
                     <elements:CommandListView
                         IsItemClickEnabled="True"
@@ -1315,13 +1309,13 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
 
-                        <controls:CarouselCCm ChordPanel="{x:Bind ChordPanel1}" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
-                        <controls:CarouselDmD ChordPanel="{x:Bind ChordPanel2}" Grid.Column="1" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
-                        <controls:CarouselEmE ChordPanel="{x:Bind ChordPanel3}" Grid.Column="2" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
-                        <controls:CarouselFFm ChordPanel="{x:Bind ChordPanel4}" Grid.Column="3" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
-                        <controls:CarouselGGm ChordPanel="{x:Bind ChordPanel5}" Grid.Column="4" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
-                        <controls:CarouselAmA ChordPanel="{x:Bind ChordPanel6}" Grid.Column="5" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
-                        <controls:CarouselBdimBBm ChordPanel="{x:Bind ChordPanel7}" Grid.Column="6" Height="200" VerticalAlignment="Top" IsVisible="{x:Bind ChordItem.IsChecked, Mode=OneWay}"/>
+                        <controls:CarouselCCm ChordPanel="{x:Bind ChordPanel1}" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind NullableBooleanToBooleanConverter(ChordItem.IsChecked), Mode=OneWay}"/>
+                        <controls:CarouselDmD ChordPanel="{x:Bind ChordPanel2}" Grid.Column="1" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind NullableBooleanToBooleanConverter(ChordItem.IsChecked), Mode=OneWay}"/>
+                        <controls:CarouselEmE ChordPanel="{x:Bind ChordPanel3}" Grid.Column="2" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind NullableBooleanToBooleanConverter(ChordItem.IsChecked), Mode=OneWay}"/>
+                        <controls:CarouselFFm ChordPanel="{x:Bind ChordPanel4}" Grid.Column="3" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind NullableBooleanToBooleanConverter(ChordItem.IsChecked), Mode=OneWay}"/>
+                        <controls:CarouselGGm ChordPanel="{x:Bind ChordPanel5}" Grid.Column="4" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind NullableBooleanToBooleanConverter(ChordItem.IsChecked), Mode=OneWay}"/>
+                        <controls:CarouselAmA ChordPanel="{x:Bind ChordPanel6}" Grid.Column="5" Height="160" VerticalAlignment="Top" IsVisible="{x:Bind NullableBooleanToBooleanConverter(ChordItem.IsChecked), Mode=OneWay}"/>
+                        <controls:CarouselBdimBBm ChordPanel="{x:Bind ChordPanel7}" Grid.Column="6" Height="200" VerticalAlignment="Top" IsVisible="{x:Bind NullableBooleanToBooleanConverter(ChordItem.IsChecked), Mode=OneWay}"/>
 
                         <Border Margin="{x:Bind BooleanToThickness163Converter(ChordItem.IsChecked), Mode=OneWay}">
                             <instruments:ChordPanel x:Name="ChordPanel1" Chord="C" Command="{x:Bind Command}"/>
