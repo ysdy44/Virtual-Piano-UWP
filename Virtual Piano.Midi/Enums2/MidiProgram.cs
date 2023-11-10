@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Midi
 {
-    public enum MidiProgram : byte
+    public enum MidiProgram
     {
         AcousticGrand = 0,
         BrightAcoustic = 1,

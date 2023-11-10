@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Midi
 {
-    public enum MidiPercussionNote : byte
+    public enum MidiPercussionNote
     {
         HighQ = 27,
         Slap = 28,

@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Midi
 {
-    public enum MidiChannel : byte
+    public enum MidiChannel
     {
         Channel0,
         Channel1,

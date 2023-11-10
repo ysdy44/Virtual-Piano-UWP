@@ -60,7 +60,7 @@
   </resheader>
   <!--Separator 0-->
   <data name='Name' xml:space='preserve'> <value>V 钢琴</value> </data>
-  <data name='Version' xml:space='preserve'> <value>1.0.0</value> </data>
+  <data name='Version' xml:space='preserve'> <value>1.1.0</value> </data>
   <data name='Github' xml:space='preserve'> <value>Virtual-Piano-UWP</value> </data>
   <data name='Feedback' xml:space='preserve'> <value>ysdy44@outlook.com</value> </data>
   <!--Separator 1-->

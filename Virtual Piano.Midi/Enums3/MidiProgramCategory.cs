@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Midi
 {
-    public enum MidiProgramCategory : byte
+    public enum MidiProgramCategory
     {
         Keyboard = 0,
         SoloStrings = 1,

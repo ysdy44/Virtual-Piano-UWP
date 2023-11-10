@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Midi
 {
-    public enum MidiChannelMessageType : byte
+    public enum MidiChannelMessageType
     {
         ProgramChange,
         Edit,

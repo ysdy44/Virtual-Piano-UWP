@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Midi
 {
-    public enum KitSet : byte
+    public enum KitSet
     {
         Crash = MidiPercussionNote.CrashCymbal1,
         Ride = MidiPercussionNote.RideCymbal1,

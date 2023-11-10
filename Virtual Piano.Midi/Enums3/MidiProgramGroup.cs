@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Midi
 {
-    public enum MidiProgramGroup : byte
+    public enum MidiProgramGroup
     {
         Piano = 0,
         ChromaticPercussion = 1,

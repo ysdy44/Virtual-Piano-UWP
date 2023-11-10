@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Midi
 {
-    public enum MidiControlController : byte
+    public enum MidiControlController
     {
         BankSelect = 0,
         Modulation = 1,

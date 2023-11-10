@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Midi
 {
-    public enum MidiPercussionProgram : byte
+    public enum MidiPercussionProgram
     {
         Standard = 0, // 0 - Drums (Standard Kit)
         RoomKit = 8, // 8 - Drums (Room Kit)

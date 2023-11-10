@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.Midi
 {
-    public enum MidiPercussionNoteCategory : byte
+    public enum MidiPercussionNoteCategory
     {
         Drum,
         Hat,
