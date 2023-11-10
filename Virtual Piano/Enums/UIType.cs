@@ -28,8 +28,6 @@
 
         Metronome,
 
-        Mute,
-
         FullScreen,
         UnFullScreen,
 
@@ -45,6 +43,41 @@
         LanguageTip,
         LanguageUseSystemSetting,
 
+
+        PlayPause,
+        Stop,
+        Loop,
+        Solo,
+        Mute,
+
+        KeyLabel,
+        KeyLabelNone,
+        KeyLabelC,
+        KeyLabelCDE,
+        KeyLabelDoReMi,
+
+        ImportMIDI,
+        Songs,
+        Instrument,
+        DrumKit,
+        MidiTrack,
+
+
+        Edit,
+        EditChord,
+
+        Tempo,
+        TempoTip1,
+        TempoTip2,
+        TempoUnit1,
+        TempoUnit2,
+
+        TimeSignature,
+        Numerator,
+        Denominator,
+
+        MuteTrackTip,
+        SoloTrackTip,
 
         DockLeft,
         DockRight,

@@ -4,6 +4,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:Virtual_Piano.Strings"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400"
@@ -45,12 +46,12 @@
             <ToggleButton x:Name="MuteButton" HorizontalAlignment="Stretch">
                 <ToolTipService.ToolTip>
                     <TextBlock>
-                        <Run FontWeight="Bold">
-                            Mute
+                        <Run FontWeight="Bold" Text="{strings:UI Type=Mute}">
+                            <!--Mute-->
                         </Run>
                         <Run>-</Run>
-                        <Run>
-                            Mutes the Track or the Line.
+                        <Run Text="{strings:UI Type=MuteTrackTip}">
+                            <!--Mutes the Track or the Line.-->
                         </Run>
                     </TextBlock>
                 </ToolTipService.ToolTip>
@@ -59,19 +60,19 @@
             <ToggleButton x:Name="SoloButton" Grid.Column="1" HorizontalAlignment="Stretch">
                 <ToolTipService.ToolTip>
                     <TextBlock>
-                        <Run FontWeight="Bold">
-                            Solo the track
+                        <Run FontWeight="Bold" Text="{strings:UI Type=Solo}">
+                            <!--Solo the track-->
                         </Run>
                         <Run>-</Run>
-                        <Run>
-                            Solo has higher priority that mute.
+                        <Run Text="{strings:UI Type=SoloTrackTip}">
+                            <!--Solo has higher priority that mute.-->
                         </Run>
                     </TextBlock>
                 </ToolTipService.ToolTip>
                 S
             </ToggleButton>
-            <Button x:Name="EditButton" Grid.Column="2" HorizontalAlignment="Stretch">
-                Edit
+            <Button x:Name="EditButton" Grid.Column="2" HorizontalAlignment="Stretch" Content="{strings:UI Type=Edit}">
+                <!--Edit-->
             </Button>
         </Grid>
 

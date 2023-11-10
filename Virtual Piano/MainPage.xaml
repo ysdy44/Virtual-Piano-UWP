@@ -355,16 +355,16 @@
                            Command="{x:Bind Command}"
                            >
                         <ToolTipService.ToolTip>
-                            <ToolTip>
-                                Play/Pause
+                            <ToolTip Content="{strings:UI Type=PlayPause}">
+                                <!--Play/Pause-->
                             </ToolTip>
                         </ToolTipService.ToolTip>
                     </elements:CommandToggleButton>
 
                     <Button Width="46" Height="36" Padding="0" CommandParameter="{strings:OptionType Type=Stop}" Command="{x:Bind Command}">
                         <ToolTipService.ToolTip>
-                            <ToolTip>
-                                Stop
+                            <ToolTip Content="{strings:UI Type=Stop}">
+                                <!--Stop-->
                             </ToolTip>
                         </ToolTipService.ToolTip>
                         <SymbolIcon Symbol="Stop"/>
@@ -381,8 +381,8 @@
                               Command="{x:Bind Command}"
                               >
                         <ToolTipService.ToolTip>
-                            <ToolTip>
-                                Loop
+                            <ToolTip Content="{strings:UI Type=Loop}">
+                                <!--Loop-->
                             </ToolTip>
                         </ToolTipService.ToolTip>
                     </elements:CommandToggleButton>
@@ -416,8 +416,9 @@
                                         TextWrapping="Wrap" 
                                         VerticalAlignment="Center" 
                                         OpticalMarginAlignment="TrimSideBearings"
+                                        Text="{strings:UI Type=Tempo}"
                                         >                                
-                                         Tempo
+                                         <!--Tempo-->
                                     </TextBlock>
 
                                     <Slider 
@@ -436,12 +437,14 @@
                                         >
                                         <Slider.Header>
                                             <Grid>
-                                                <TextBlock VerticalAlignment="Center">
-                                                    bearts per minute
+                                                <TextBlock VerticalAlignment="Center" Text="{strings:UI Type=TempoTip1}">
+                                                    <!--bearts per minute-->
                                                 </TextBlock>
                                                 <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">
                                                     <Run Text="{x:Bind DoubleToStringConverter(TempoSlider.Value), Mode=OneWay}"/>
-                                                    bpm
+                                                    <Run Text="{strings:UI Type=TempoUnit1}">
+                                                        <!--bpm-->
+                                                    </Run>
                                                 </TextBlock>
                                             </Grid>
                                         </Slider.Header>
@@ -463,19 +466,21 @@
                                         >
                                         <Slider.Header>
                                             <Grid>
-                                                <TextBlock VerticalAlignment="Center">
-                                                    pulses per quarter note (PPQN)
+                                                <TextBlock VerticalAlignment="Center" Text="{strings:UI Type=TempoTip2}">
+                                                    <!--pulses per quarter note (PPQN)-->
                                                 </TextBlock>
                                                 <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">
                                                     <Run Text="{x:Bind DoubleToStringConverter(PPQNSlider.Value), Mode=OneWay}"/>
-                                                    clock ticks
+                                                    <Run Text="{strings:UI Type=TempoUnit2}">
+                                                        <!--clock ticks-->
+                                                    </Run>
                                                 </TextBlock>
                                             </Grid>
                                         </Slider.Header>
                                     </Slider>
 
-                                    <Button x:Name="TempoButton" Grid.Column="1" Grid.Row="4" CornerRadius="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource AccentButtonStyle}">
-                                        OK
+                                    <Button x:Name="TempoButton" Grid.Column="1" Grid.Row="4" Content="{strings:UI Type=OK}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                        <!--OK-->
                                     </Button>
 
                                 </Grid>
@@ -487,7 +492,9 @@
                                 <!--Text-->
                             </Run><Run FontSize="14">.</Run><Run>00</Run>
                             <LineBreak/>
-                            <Run>Tempo</Run>
+                            <Run Text="{strings:UI Type=Tempo}">
+                                <!--Tempo-->
+                            </Run>
                         </TextBlock>
                     </Button>
 
@@ -515,8 +522,9 @@
                                         TextWrapping="Wrap" 
                                         VerticalAlignment="Center" 
                                         OpticalMarginAlignment="TrimSideBearings"
+                                        Text="{strings:UI Type=TimeSignature}"
                                         >                                
-                                         Time Signature
+                                         <!--Time Signature-->
                                     </TextBlock>
 
                                     <TextBlock 
@@ -539,23 +547,23 @@
                                     <controllers:TimeSignaturesPanel x:Name="TimeSignaturesPanel" Grid.ColumnSpan="2" Grid.Row="1" Background="{ThemeResource AppBackground}"/>
 
 
-                                    <TextBlock Grid.Row="2" FontWeight="Medium" VerticalAlignment="Center">
-                                        Numerator
+                                    <TextBlock Grid.Row="2" FontWeight="Medium" Text="{strings:UI Type=Numerator}" VerticalAlignment="Center">
+                                        <!--Numerator-->
                                     </TextBlock>
 
                                     <ComboBox x:Name="NumeratorComboBox" Grid.Column="1" Grid.Row="2" CornerRadius="4" BorderThickness="1" HorizontalAlignment="Stretch">
                                         <!--ItemsSource-->
                                     </ComboBox>
 
-                                    <TextBlock Grid.Row="3" FontWeight="Medium" VerticalAlignment="Center">
-                                        Denominator
+                                    <TextBlock Grid.Row="3" FontWeight="Medium" Text="{strings:UI Type=Denominator}" VerticalAlignment="Center">
+                                        <!--Denominator-->
                                     </TextBlock>
                                     <ComboBox x:Name="DenominatorComboBox" Grid.Column="1" Grid.Row="3" CornerRadius="4" BorderThickness="1" HorizontalAlignment="Stretch">
                                         <!--ItemsSource-->
                                     </ComboBox>
 
-                                    <Button x:Name="TimeSignatureButton" Grid.Column="1" Grid.Row="4" CornerRadius="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource AccentButtonStyle}">
-                                        OK
+                                    <Button x:Name="TimeSignatureButton" Grid.Column="1" Grid.Row="4" Content="{strings:UI Type=OK}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                        <!--OK-->
                                     </Button>
 
                                 </Grid>
@@ -571,7 +579,9 @@
                                 Text="{x:Bind ObjectToStringConverter(DenominatorComboBox.SelectedItem), Mode=OneWay}"
                                 />
                             <LineBreak/>
-                            <Run>Signature</Run>
+                            <Run Text="{strings:UI Type=TimeSignature}">
+                                <!--Signature-->
+                            </Run>
                         </TextBlock>
                     </Button>
 
@@ -596,37 +606,36 @@
                                 <Button CommandParameter="{strings:OptionType Type=TryShowPianoView}" Command="{x:Bind Command}" >
                                     <StackPanel Orientation="Horizontal">
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(0)}"/>
-                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowPianoView}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowPianoView}">
+                                            <!--Show Piano View-->
+                                        </TextBlock>
                                     </StackPanel>
-                                    <!--Show Piano View-->
                                 </Button>
-                                <TextBlock Style="{StaticResource SubtitleTextBlockStyle}">                                
-                                    Control
-                                </TextBlock>
                                 <ToggleButton x:Name="BendItem" IsChecked="False">
                                     <StackPanel Orientation="Horizontal">
                                         <SymbolIcon Symbol="Rotate"/>
-                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=Bends}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=Bends}">
+                                            <!--Bend-->
+                                        </TextBlock>
                                     </StackPanel>
-                                    <!--Bend-->
                                 </ToggleButton>
                                 <ToggleButton x:Name="PedalItem" IsChecked="False">
                                     <StackPanel Orientation="Horizontal">
                                         <SymbolIcon Symbol="CalendarWeek"/>
-                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=Pedals}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=Pedals}">
+                                            <!--Pedal-->
+                                        </TextBlock>
                                     </StackPanel>
-                                    <!--Pedal-->
                                 </ToggleButton>
                                 <ToggleButton x:Name="PianoHorizontalScrollBarItem" IsChecked="True">
                                     <StackPanel Orientation="Horizontal">
                                         <SymbolIcon Symbol="DockBottom"/>
-                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=DockBottom}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=DockBottom}">
+                                            <!--Dock Bottom-->
+                                        </TextBlock>
                                     </StackPanel>
-                                    <!--Dock Bottom-->
                                 </ToggleButton>
-                                <TextBlock Style="{StaticResource SubtitleTextBlockStyle}">                                
-                                    Key label
-                                </TextBlock>
+                                <TextBlock Text="{strings:UI Type=KeyLabel}" Style="{StaticResource SubtitleTextBlockStyle}"/>
                                 <!--Foot-->
                                 <ListView 
                                     x:Name="TagListView"
@@ -668,17 +677,17 @@
                                         </TransitionCollection>
                                     </ItemsControl.ItemContainerTransitions>
 
-                                    <ListViewItem x:Name="Label0Item">
-                                        None
+                                    <ListViewItem x:Name="Label0Item" Content="{strings:UI Type=KeyLabelNone}">
+                                        <!--None-->
                                     </ListViewItem>
-                                    <ListViewItem x:Name="Label1Item">
-                                        C
+                                    <ListViewItem x:Name="Label1Item" Content="{strings:UI Type=KeyLabelC}">
+                                        <!--C-->
                                     </ListViewItem>
-                                    <ListViewItem x:Name="Label2Item">
-                                        CDE
+                                    <ListViewItem x:Name="Label2Item" Content="{strings:UI Type=KeyLabelCDE}">
+                                        <!--CDE-->
                                     </ListViewItem>
-                                    <ListViewItem x:Name="Label3Item">
-                                        DoReMi
+                                    <ListViewItem x:Name="Label3Item" Content="{strings:UI Type=KeyLabelDoReMi}">
+                                        <!--DoReMi-->
                                     </ListViewItem>
                                 </ListView>
                             </StackPanel>
@@ -689,19 +698,19 @@
                                 <Button CommandParameter="{strings:OptionType Type=TryShowChordView}" Command="{x:Bind Command}" >
                                     <StackPanel Orientation="Horizontal">
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(1)}"/>
-                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowChordView}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowChordView}">
+                                            <!--Show Piano Chord View-->
+                                        </TextBlock>
                                     </StackPanel>
-                                    <!--Show Piano Chord View-->
                                 </Button>
-                                <TextBlock Style="{StaticResource SubtitleTextBlockStyle}">                                
-                                    Edit
-                                </TextBlock>
+                                <TextBlock Text="{strings:UI Type=Edit}" Style="{StaticResource SubtitleTextBlockStyle}"/>
                                 <ToggleButton x:Name="ChordItem" IsChecked="False">
                                     <StackPanel Orientation="Horizontal">
                                         <SymbolIcon Symbol="Edit"/>
-                                        <TextBlock Margin="12,2" VerticalAlignment="Center">Edit Chord</TextBlock>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=EditChord}">
+                                            <!--Edit Chords-->
+                                        </TextBlock>
                                     </StackPanel>
-                                    <!--Edit Chords-->
                                 </ToggleButton>
                             </StackPanel>
 
@@ -711,9 +720,10 @@
                                 <Button CommandParameter="{strings:OptionType Type=TryShowGuitarView}" Command="{x:Bind Command}" >
                                     <StackPanel Orientation="Horizontal">
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(2)}"/>
-                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowGuitarView}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowGuitarView}">
+                                            <!--Show Guitar View-->
+                                        </TextBlock>
                                     </StackPanel>
-                                    <!--Show Guitar View-->
                                 </Button>
                             </StackPanel>
 
@@ -723,9 +733,10 @@
                                 <Button CommandParameter="{strings:OptionType Type=TryShowBassView}" Command="{x:Bind Command}" >
                                     <StackPanel Orientation="Horizontal">
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(3)}"/>
-                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowBassView}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowBassView}">
+                                            <!--Show Bass View-->
+                                        </TextBlock>
                                     </StackPanel>
-                                    <!--Show Bass View-->
                                 </Button>
                             </StackPanel>
 
@@ -735,9 +746,10 @@
                                 <Button CommandParameter="{strings:OptionType Type=TryShowHarpView}" Command="{x:Bind Command}" >
                                     <StackPanel Orientation="Horizontal">
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(4)}"/>
-                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowHarpView}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowHarpView}">
+                                            <!--Show Harp View-->
+                                        </TextBlock>
                                     </StackPanel>
-                                    <!--Show Harp View-->
                                 </Button>
                             </StackPanel>
 
@@ -764,9 +776,10 @@
                                 <Button CommandParameter="{strings:OptionType Type=TryShowKitView}" Command="{x:Bind Command}" >
                                     <StackPanel Orientation="Horizontal">
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(5)}"/>
-                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowKitView}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowKitView}">
+                                            <!--Show Drum Kit-Set View-->
+                                        </TextBlock>
                                     </StackPanel>
-                                    <!--Show Drum Kit-Set View-->
                                 </Button>
                             </StackPanel>
 
@@ -776,9 +789,10 @@
                                 <Button CommandParameter="{strings:OptionType Type=TryShowPadView}" Command="{x:Bind Command}" >
                                     <StackPanel Orientation="Horizontal">
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(6)}"/>
-                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowPadView}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowPadView}">
+                                            <!--Show Drum Pads View-->
+                                        </TextBlock>
                                     </StackPanel>
-                                    <!--Show Drum Pads View-->
                                 </Button>
                             </StackPanel>
 
@@ -788,21 +802,23 @@
                                 <Button CommandParameter="{strings:OptionType Type=TryShowDrumView}" Command="{x:Bind Command}" >
                                     <StackPanel Orientation="Horizontal">
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(7)}"/>
-                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowDrumView}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowDrumView}">
+                                            <!--Show Drum View-->
+                                        </TextBlock>
                                     </StackPanel>
-                                    <!--Show Drum View-->
                                 </Button>
                             </StackPanel>
-                            
+
                             <!--Machine-->
                             <StackPanel Spacing="8" Visibility="{x:Bind BooleanToVisibilityConverter(ListViewItem8.IsSelected), Mode=OneWay}">
                                 <TextBlock Text="{strings:UI Type=MachineView}" Style="{StaticResource SubtitleTextBlockStyle}"/>
                                 <Button CommandParameter="{strings:OptionType Type=TryShowMachineView}" Command="{x:Bind Command}" >
                                     <StackPanel Orientation="Horizontal">
                                         <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="{x:Bind InstrumentData2(8)}"/>
-                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowMachineView}"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=TryShowMachineView}">
+                                            <!--Show Drum Machines View-->
+                                        </TextBlock>
                                     </StackPanel>
-                                    <!--Show Drum Machines View-->
                                 </Button>
                             </StackPanel>
 
@@ -880,8 +896,8 @@
                                 <TextBlock IsColorFontEnabled="False" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">
                                     🎹
                                 </TextBlock>
-                                <TextBlock Grid.Row="1" HorizontalAlignment="Center">
-                                    Instrument
+                                <TextBlock Grid.Row="1" HorizontalAlignment="Center" Text="{strings:UI Type=Instrument}">
+                                    <!--Instrument-->
                                 </TextBlock>
                             </Grid>
                         </ListViewItem>
@@ -894,8 +910,8 @@
                                 <TextBlock IsColorFontEnabled="False" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center">
                                     🥁
                                 </TextBlock>
-                                <TextBlock Grid.Row="1" HorizontalAlignment="Center">
-                                    Drum
+                                <TextBlock Grid.Row="1" HorizontalAlignment="Center" Text="{strings:UI Type=DrumKit}">
+                                    <!--Drum Kit-->
                                 </TextBlock>
                             </Grid>
                         </ListViewItem>
@@ -906,8 +922,8 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
                                 <SymbolIcon Symbol="MusicInfo"/>
-                                <TextBlock Grid.Row="1" HorizontalAlignment="Center">
-                                    Midi Track
+                                <TextBlock Grid.Row="1" HorizontalAlignment="Center" Text="{strings:UI Type=MidiTrack}">
+                                    <!--Midi Track-->
                                 </TextBlock>
                             </Grid>
                         </ListViewItem>
@@ -1008,8 +1024,9 @@
                                 TextWrapping="Wrap" 
                                 VerticalAlignment="Center" 
                                 OpticalMarginAlignment="TrimSideBearings"
+                                Text="{strings:UI Type=Songs}"
                                 >                                
-                                Songs
+                                <!--Songs-->
                             </TextBlock>
                         </ListView.Header>
                     </elements:CommandListView>
@@ -1107,7 +1124,9 @@
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
                                         <SymbolIcon Symbol="OpenFile" Width="26" Height="26"/>
-                                        <TextBlock Margin="12,2" VerticalAlignment="Center">Open</TextBlock>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=ImportMIDI}">
+                                            <!--Import Midi File...-->
+                                        </TextBlock>
                                     </StackPanel>
                                 </DataTemplate>
                             </ContentControl.ContentTemplate>
