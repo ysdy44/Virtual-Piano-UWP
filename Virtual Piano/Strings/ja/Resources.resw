@@ -78,7 +78,6 @@
   <data name='More' xml:space='preserve'> <value>もっと</value> </data>
   <data name='Tutorial' xml:space='preserve'> <value>チュートリアル</value> </data>
   <data name='Metronome' xml:space='preserve'> <value>メトロノーム</value> </data>
-  <data name='Mute' xml:space='preserve'> <value>唖</value> </data>
   <data name='FullScreen' xml:space='preserve'> <value>全画面表示</value> </data>
   <data name='UnFullScreen' xml:space='preserve'> <value>全画面表示を終了</value> </data>
   <data name='Favorite' xml:space='preserve'> <value>お気に入り</value> </data>
@@ -90,6 +89,33 @@
   <data name='Language' xml:space='preserve'> <value>言語</value> </data>
   <data name='LanguageTip' xml:space='preserve'> <value>アプリを再起動して変更内容を表示します。</value> </data>
   <data name='LanguageUseSystemSetting' xml:space='preserve'> <value>システム設定を使用する</value> </data>
+  <data name='PlayPause' xml:space='preserve'> <value>再生/一時停止</value> </data>
+  <data name='Stop' xml:space='preserve'> <value>停止</value> </data>
+  <data name='Loop' xml:space='preserve'> <value>繰り返し</value> </data>
+  <data name='Solo' xml:space='preserve'> <value>ソロレパートリー</value> </data>
+  <data name='Mute' xml:space='preserve'> <value>唖</value> </data>
+  <data name='KeyLabel' xml:space='preserve'> <value>キー・ラベル</value> </data>
+  <data name='KeyLabelNone' xml:space='preserve'> <value>ラベルなし</value> </data>
+  <data name='KeyLabelC' xml:space='preserve'> <value>C</value> </data>
+  <data name='KeyLabelCDE' xml:space='preserve'> <value>CDE</value> </data>
+  <data name='KeyLabelDoReMi' xml:space='preserve'> <value>DoReMi</value> </data>
+  <data name='ImportMIDI' xml:space='preserve'> <value>MIDIファイルをインポート...</value> </data>
+  <data name='Songs' xml:space='preserve'> <value>歌</value> </data>
+  <data name='Instrument' xml:space='preserve'> <value>楽器</value> </data>
+  <data name='DrumKit' xml:space='preserve'> <value>太鼓</value> </data>
+  <data name='MidiTrack' xml:space='preserve'> <value>MIDI トラック</value> </data>
+  <data name='Edit' xml:space='preserve'> <value>編集</value> </data>
+  <data name='EditChord' xml:space='preserve'> <value>コードの編集</value> </data>
+  <data name='Tempo' xml:space='preserve'> <value>テンポ</value> </data>
+  <data name='TempoTip1' xml:space='preserve'> <value>ビート/分</value> </data>
+  <data name='TempoTip2' xml:space='preserve'> <value>4分音符あたりのパルス数(PPQN)</value> </data>
+  <data name='TempoUnit1' xml:space='preserve'> <value>BPMの</value> </data>
+  <data name='TempoUnit2' xml:space='preserve'> <value>クロックスケール</value> </data>
+  <data name='TimeSignature' xml:space='preserve'> <value>拍子記号</value> </data>
+  <data name='Numerator' xml:space='preserve'> <value>分子</value> </data>
+  <data name='Denominator' xml:space='preserve'> <value>分母</value> </data>
+  <data name='MuteTrackTip' xml:space='preserve'> <value>トラックまたはラインをミュートします。</value> </data>
+  <data name='SoloTrackTip' xml:space='preserve'> <value>ソロはミュートの優先度が高くなります。</value> </data>
   <data name='DockLeft' xml:space='preserve'> <value>左ドック</value> </data>
   <data name='DockRight' xml:space='preserve'> <value>ドック右</value> </data>
   <data name='DockBottom' xml:space='preserve'> <value>ドック・ボトム</value> </data>

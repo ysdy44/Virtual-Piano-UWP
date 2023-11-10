@@ -78,7 +78,6 @@
   <data name='More' xml:space='preserve'> <value>أكثر</value> </data>
   <data name='Tutorial' xml:space='preserve'> <value>دروس</value> </data>
   <data name='Metronome' xml:space='preserve'> <value>المسرع</value> </data>
-  <data name='Mute' xml:space='preserve'> <value>أخرس</value> </data>
   <data name='FullScreen' xml:space='preserve'> <value>تكبير الشاشة</value> </data>
   <data name='UnFullScreen' xml:space='preserve'> <value>الخروج من وضع ملئ للشاشة</value> </data>
   <data name='Favorite' xml:space='preserve'> <value>مفضل</value> </data>
@@ -90,6 +89,33 @@
   <data name='Language' xml:space='preserve'> <value>لغة</value> </data>
   <data name='LanguageTip' xml:space='preserve'> <value>أعد تشغيل التطبيق لمشاهدة التغييرات.</value> </data>
   <data name='LanguageUseSystemSetting' xml:space='preserve'> <value>استخدم إعدادات النظام</value> </data>
+  <data name='PlayPause' xml:space='preserve'> <value>تشغيل/إيقاف مؤقت</value> </data>
+  <data name='Stop' xml:space='preserve'> <value>Stop</value> </data>
+  <data name='Loop' xml:space='preserve'> <value>Loop</value> </data>
+  <data name='Solo' xml:space='preserve'> <value>ذخيرة منفردة</value> </data>
+  <data name='Mute' xml:space='preserve'> <value>أخرس</value> </data>
+  <data name='KeyLabel' xml:space='preserve'> <value>التسميات الرئيسية</value> </data>
+  <data name='KeyLabelNone' xml:space='preserve'> <value>لا توجد تسميات</value> </data>
+  <data name='KeyLabelC' xml:space='preserve'> <value>C</value> </data>
+  <data name='KeyLabelCDE' xml:space='preserve'> <value>CDE</value> </data>
+  <data name='KeyLabelDoReMi' xml:space='preserve'> <value>DoReMi</value> </data>
+  <data name='ImportMIDI' xml:space='preserve'> <value>استيراد ملفات MIDI...</value> </data>
+  <data name='Songs' xml:space='preserve'> <value>نشيد</value> </data>
+  <data name='Instrument' xml:space='preserve'> <value>آلة موسيقية</value> </data>
+  <data name='DrumKit' xml:space='preserve'> <value>طبل</value> </data>
+  <data name='MidiTrack' xml:space='preserve'> <value>مسارات ميدي</value> </data>
+  <data name='Edit' xml:space='preserve'> <value>Edit</value> </data>
+  <data name='EditChord' xml:space='preserve'> <value>تحرير الحبال</value> </data>
+  <data name='Tempo' xml:space='preserve'> <value>Tempo</value> </data>
+  <data name='TempoTip1' xml:space='preserve'> <value>نبضة في الدقيقة</value> </data>
+  <data name='TempoTip2' xml:space='preserve'> <value>النبضات لكل ورقة ربع سنوية (PPQN)</value> </data>
+  <data name='TempoUnit1' xml:space='preserve'> <value>BPM</value> </data>
+  <data name='TempoUnit2' xml:space='preserve'> <value>مقياس الساعة</value> </data>
+  <data name='TimeSignature' xml:space='preserve'> <value>توقيع الوقت</value> </data>
+  <data name='Numerator' xml:space='preserve'> <value>جزيء</value> </data>
+  <data name='Denominator' xml:space='preserve'> <value>المقام</value> </data>
+  <data name='MuteTrackTip' xml:space='preserve'> <value>كتم صوت مسار أو خط.</value> </data>
+  <data name='SoloTrackTip' xml:space='preserve'> <value>المعزوفات المنفردة لها أولوية كتم صوت أعلى.</value> </data>
   <data name='DockLeft' xml:space='preserve'> <value>قفص الاتهام اليسار</value> </data>
   <data name='DockRight' xml:space='preserve'> <value>قفص الاتهام الحق</value> </data>
   <data name='DockBottom' xml:space='preserve'> <value>قفص الاتهام القاع</value> </data>

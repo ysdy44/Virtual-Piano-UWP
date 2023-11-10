@@ -78,7 +78,6 @@
   <data name='More' xml:space='preserve'> <value>Meer</value> </data>
   <data name='Tutorial' xml:space='preserve'> <value>Tutorials</value> </data>
   <data name='Metronome' xml:space='preserve'> <value>Metronoom</value> </data>
-  <data name='Mute' xml:space='preserve'> <value>Stom</value> </data>
   <data name='FullScreen' xml:space='preserve'> <value>Volledig scherm</value> </data>
   <data name='UnFullScreen' xml:space='preserve'> <value>Verlaat volledig scherm</value> </data>
   <data name='Favorite' xml:space='preserve'> <value>Favoriet</value> </data>
@@ -90,6 +89,33 @@
   <data name='Language' xml:space='preserve'> <value>Taal</value> </data>
   <data name='LanguageTip' xml:space='preserve'> <value>Start de app om uw wijzigingen te zien.</value> </data>
   <data name='LanguageUseSystemSetting' xml:space='preserve'> <value>Gebruik de systeeminstelling</value> </data>
+  <data name='PlayPause' xml:space='preserve'> <value>Afspelen/Pauzeren</value> </data>
+  <data name='Stop' xml:space='preserve'> <value>Stop</value> </data>
+  <data name='Loop' xml:space='preserve'> <value>Lus</value> </data>
+  <data name='Solo' xml:space='preserve'> <value>Solo repertoire</value> </data>
+  <data name='Mute' xml:space='preserve'> <value>Stom</value> </data>
+  <data name='KeyLabel' xml:space='preserve'> <value>Sleutel etiketten</value> </data>
+  <data name='KeyLabelNone' xml:space='preserve'> <value>Geen labels</value> </data>
+  <data name='KeyLabelC' xml:space='preserve'> <value>C</value> </data>
+  <data name='KeyLabelCDE' xml:space='preserve'> <value>CDE</value> </data>
+  <data name='KeyLabelDoReMi' xml:space='preserve'> <value>DoReMi</value> </data>
+  <data name='ImportMIDI' xml:space='preserve'> <value>MIDI-bestanden importeren...</value> </data>
+  <data name='Songs' xml:space='preserve'> <value>lied</value> </data>
+  <data name='Instrument' xml:space='preserve'> <value>muziekinstrument</value> </data>
+  <data name='DrumKit' xml:space='preserve'> <value>trom</value> </data>
+  <data name='MidiTrack' xml:space='preserve'> <value>MIDI-sporen</value> </data>
+  <data name='Edit' xml:space='preserve'> <value>Bewerken</value> </data>
+  <data name='EditChord' xml:space='preserve'> <value>Akkoorden bewerken</value> </data>
+  <data name='Tempo' xml:space='preserve'> <value>Tempo</value> </data>
+  <data name='TempoTip1' xml:space='preserve'> <value>Slagen per minuut</value> </data>
+  <data name='TempoTip2' xml:space='preserve'> <value>Pulsen per kwartnoot (PPQN)</value> </data>
+  <data name='TempoUnit1' xml:space='preserve'> <value>BPM</value> </data>
+  <data name='TempoUnit2' xml:space='preserve'> <value>Klok schaal</value> </data>
+  <data name='TimeSignature' xml:space='preserve'> <value>Maatsoort</value> </data>
+  <data name='Numerator' xml:space='preserve'> <value>molecuul</value> </data>
+  <data name='Denominator' xml:space='preserve'> <value>noemer</value> </data>
+  <data name='MuteTrackTip' xml:space='preserve'> <value>Een track of lijn dempen.</value> </data>
+  <data name='SoloTrackTip' xml:space='preserve'> <value>Solo's hebben een hogere mute-prioriteit.</value> </data>
   <data name='DockLeft' xml:space='preserve'> <value>Dock links</value> </data>
   <data name='DockRight' xml:space='preserve'> <value>Dock rechts</value> </data>
   <data name='DockBottom' xml:space='preserve'> <value>Dock onder</value> </data>

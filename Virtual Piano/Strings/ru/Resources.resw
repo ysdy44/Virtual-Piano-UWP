@@ -78,7 +78,6 @@
   <data name='More' xml:space='preserve'> <value>Более</value> </data>
   <data name='Tutorial' xml:space='preserve'> <value>Учебники</value> </data>
   <data name='Metronome' xml:space='preserve'> <value>Метроном</value> </data>
-  <data name='Mute' xml:space='preserve'> <value>Немой</value> </data>
   <data name='FullScreen' xml:space='preserve'> <value>Полноэкранный</value> </data>
   <data name='UnFullScreen' xml:space='preserve'> <value>Выйти из полноэкранного режима</value> </data>
   <data name='Favorite' xml:space='preserve'> <value>Любимый</value> </data>
@@ -90,6 +89,33 @@
   <data name='Language' xml:space='preserve'> <value>Язык</value> </data>
   <data name='LanguageTip' xml:space='preserve'> <value>Перезапустите приложение, чтобы увидеть изменения.</value> </data>
   <data name='LanguageUseSystemSetting' xml:space='preserve'> <value>Использовать системные настройки</value> </data>
+  <data name='PlayPause' xml:space='preserve'> <value>Воспроизведение/пауза</value> </data>
+  <data name='Stop' xml:space='preserve'> <value>Стоп</value> </data>
+  <data name='Loop' xml:space='preserve'> <value>Loop</value> </data>
+  <data name='Solo' xml:space='preserve'> <value>Сольный репертуар</value> </data>
+  <data name='Mute' xml:space='preserve'> <value>Немой</value> </data>
+  <data name='KeyLabel' xml:space='preserve'> <value>Метки клавиш</value> </data>
+  <data name='KeyLabelNone' xml:space='preserve'> <value>Без этикеток</value> </data>
+  <data name='KeyLabelC' xml:space='preserve'> <value>C</value> </data>
+  <data name='KeyLabelCDE' xml:space='preserve'> <value>CDE</value> </data>
+  <data name='KeyLabelDoReMi' xml:space='preserve'> <value>DoReMi</value> </data>
+  <data name='ImportMIDI' xml:space='preserve'> <value>Импорт MIDI-файлов...</value> </data>
+  <data name='Songs' xml:space='preserve'> <value>песня</value> </data>
+  <data name='Instrument' xml:space='preserve'> <value>музыкальный инструмент</value> </data>
+  <data name='DrumKit' xml:space='preserve'> <value>барабан</value> </data>
+  <data name='MidiTrack' xml:space='preserve'> <value>MIDI-треки</value> </data>
+  <data name='Edit' xml:space='preserve'> <value>Редактировать</value> </data>
+  <data name='EditChord' xml:space='preserve'> <value>Редактирование аккордов</value> </data>
+  <data name='Tempo' xml:space='preserve'> <value>Темп</value> </data>
+  <data name='TempoTip1' xml:space='preserve'> <value>Ударов в минуту</value> </data>
+  <data name='TempoTip2' xml:space='preserve'> <value>Количество импульсов на четверть ноты (PPQN)</value> </data>
+  <data name='TempoUnit1' xml:space='preserve'> <value>БПМ</value> </data>
+  <data name='TempoUnit2' xml:space='preserve'> <value>Шкала часов</value> </data>
+  <data name='TimeSignature' xml:space='preserve'> <value>Размер</value> </data>
+  <data name='Numerator' xml:space='preserve'> <value>молекула</value> </data>
+  <data name='Denominator' xml:space='preserve'> <value>знаменатель</value> </data>
+  <data name='MuteTrackTip' xml:space='preserve'> <value>Отключение звука дорожки или линии.</value> </data>
+  <data name='SoloTrackTip' xml:space='preserve'> <value>Соло имеют более высокий приоритет отключения звука.</value> </data>
   <data name='DockLeft' xml:space='preserve'> <value>Док слева</value> </data>
   <data name='DockRight' xml:space='preserve'> <value>Док справа</value> </data>
   <data name='DockBottom' xml:space='preserve'> <value>Dock Bottom</value> </data>

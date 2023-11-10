@@ -78,7 +78,6 @@
   <data name='More' xml:space='preserve'> <value>더</value> </data>
   <data name='Tutorial' xml:space='preserve'> <value>튜토리얼</value> </data>
   <data name='Metronome' xml:space='preserve'> <value>메트로놈</value> </data>
-  <data name='Mute' xml:space='preserve'> <value>음소거</value> </data>
   <data name='FullScreen' xml:space='preserve'> <value>전체 화면</value> </data>
   <data name='UnFullScreen' xml:space='preserve'> <value>전체 화면 종료</value> </data>
   <data name='Favorite' xml:space='preserve'> <value>가장 좋아하는</value> </data>
@@ -90,6 +89,33 @@
   <data name='Language' xml:space='preserve'> <value>언어</value> </data>
   <data name='LanguageTip' xml:space='preserve'> <value>앱을 다시 시작하여 변경 내용을 확인하세요.</value> </data>
   <data name='LanguageUseSystemSetting' xml:space='preserve'> <value>시스템 설정 사용</value> </data>
+  <data name='PlayPause' xml:space='preserve'> <value>재생/일시정지</value> </data>
+  <data name='Stop' xml:space='preserve'> <value>중지(S)</value> </data>
+  <data name='Loop' xml:space='preserve'> <value>반복</value> </data>
+  <data name='Solo' xml:space='preserve'> <value>솔로 레퍼토리</value> </data>
+  <data name='Mute' xml:space='preserve'> <value>음소거</value> </data>
+  <data name='KeyLabel' xml:space='preserve'> <value>키 레이블</value> </data>
+  <data name='KeyLabelNone' xml:space='preserve'> <value>라벨 없음</value> </data>
+  <data name='KeyLabelC' xml:space='preserve'> <value>C</value> </data>
+  <data name='KeyLabelCDE' xml:space='preserve'> <value>CDE</value> </data>
+  <data name='KeyLabelDoReMi' xml:space='preserve'> <value>DoReMi</value> </data>
+  <data name='ImportMIDI' xml:space='preserve'> <value>MIDI 파일 가져오기...</value> </data>
+  <data name='Songs' xml:space='preserve'> <value>노래</value> </data>
+  <data name='Instrument' xml:space='preserve'> <value>악기</value> </data>
+  <data name='DrumKit' xml:space='preserve'> <value>북</value> </data>
+  <data name='MidiTrack' xml:space='preserve'> <value>MIDI 트랙</value> </data>
+  <data name='Edit' xml:space='preserve'> <value>편집(E)</value> </data>
+  <data name='EditChord' xml:space='preserve'> <value>코드 편집하기</value> </data>
+  <data name='Tempo' xml:space='preserve'> <value>템포</value> </data>
+  <data name='TempoTip1' xml:space='preserve'> <value>분당 비트 수</value> </data>
+  <data name='TempoTip2' xml:space='preserve'> <value>4분음표당 펄스(PPQN)</value> </data>
+  <data name='TempoUnit1' xml:space='preserve'> <value>증권 시세 표시기</value> </data>
+  <data name='TempoUnit2' xml:space='preserve'> <value>클럭 스케일</value> </data>
+  <data name='TimeSignature' xml:space='preserve'> <value>박자표</value> </data>
+  <data name='Numerator' xml:space='preserve'> <value>분자</value> </data>
+  <data name='Denominator' xml:space='preserve'> <value>분모</value> </data>
+  <data name='MuteTrackTip' xml:space='preserve'> <value>트랙 또는 라인을 음소거합니다.</value> </data>
+  <data name='SoloTrackTip' xml:space='preserve'> <value>솔로는 음소거 우선 순위가 더 높습니다.</value> </data>
   <data name='DockLeft' xml:space='preserve'> <value>왼쪽 도크</value> </data>
   <data name='DockRight' xml:space='preserve'> <value>도크 오른쪽</value> </data>
   <data name='DockBottom' xml:space='preserve'> <value>도크 하단</value> </data>
@@ -317,7 +343,7 @@
   <data name='Pad7Halo' xml:space='preserve'> <value>후광</value> </data>
   <data name='Pad8Sweep' xml:space='preserve'> <value>쓸어내림</value> </data>
   <data name='FX1Rain' xml:space='preserve'> <value>비</value> </data>
-  <data name='FX2Soundtrack' xml:space='preserve'> <value>트랙(&amp;T)</value> </data>
+  <data name='FX2Soundtrack' xml:space='preserve'> <value>트랙(amp;T)</value> </data>
   <data name='FX3Crystal' xml:space='preserve'> <value>크리스탈</value> </data>
   <data name='FX4Atmosphere' xml:space='preserve'> <value>분위기</value> </data>
   <data name='FX5Brightness' xml:space='preserve'> <value>밝음</value> </data>

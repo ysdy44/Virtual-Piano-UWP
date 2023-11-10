@@ -78,7 +78,6 @@
   <data name='More' xml:space='preserve'> <value>更多</value> </data>
   <data name='Tutorial' xml:space='preserve'> <value>教程</value> </data>
   <data name='Metronome' xml:space='preserve'> <value>节拍器</value> </data>
-  <data name='Mute' xml:space='preserve'> <value>静音</value> </data>
   <data name='FullScreen' xml:space='preserve'> <value>全屏</value> </data>
   <data name='UnFullScreen' xml:space='preserve'> <value>退出全屏</value> </data>
   <data name='Favorite' xml:space='preserve'> <value>收藏</value> </data>
@@ -90,6 +89,33 @@
   <data name='Language' xml:space='preserve'> <value>语言</value> </data>
   <data name='LanguageTip' xml:space='preserve'> <value>重启应用以查看更改。</value> </data>
   <data name='LanguageUseSystemSetting' xml:space='preserve'> <value>使用系统设置</value> </data>
+  <data name='PlayPause' xml:space='preserve'> <value>播放/暂停</value> </data>
+  <data name='Stop' xml:space='preserve'> <value>停止</value> </data>
+  <data name='Loop' xml:space='preserve'> <value>循环</value> </data>
+  <data name='Solo' xml:space='preserve'> <value>独奏曲目</value> </data>
+  <data name='Mute' xml:space='preserve'> <value>静音</value> </data>
+  <data name='KeyLabel' xml:space='preserve'> <value>键标签</value> </data>
+  <data name='KeyLabelNone' xml:space='preserve'> <value>无标签</value> </data>
+  <data name='KeyLabelC' xml:space='preserve'> <value>C</value> </data>
+  <data name='KeyLabelCDE' xml:space='preserve'> <value>CDE</value> </data>
+  <data name='KeyLabelDoReMi' xml:space='preserve'> <value>DoReMi</value> </data>
+  <data name='ImportMIDI' xml:space='preserve'> <value>导入 MIDI 文件...</value> </data>
+  <data name='Songs' xml:space='preserve'> <value>歌曲</value> </data>
+  <data name='Instrument' xml:space='preserve'> <value>乐器</value> </data>
+  <data name='DrumKit' xml:space='preserve'> <value>鼓</value> </data>
+  <data name='MidiTrack' xml:space='preserve'> <value>MIDI轨道</value> </data>
+  <data name='Edit' xml:space='preserve'> <value>编辑</value> </data>
+  <data name='EditChord' xml:space='preserve'> <value>编辑和弦</value> </data>
+  <data name='Tempo' xml:space='preserve'> <value>速度</value> </data>
+  <data name='TempoTip1' xml:space='preserve'> <value>每分钟节拍数</value> </data>
+  <data name='TempoTip2' xml:space='preserve'> <value>每四分音符的脉冲数 （PPQN）</value> </data>
+  <data name='TempoUnit1' xml:space='preserve'> <value>BPM</value> </data>
+  <data name='TempoUnit2' xml:space='preserve'> <value>时钟刻度</value> </data>
+  <data name='TimeSignature' xml:space='preserve'> <value>拍号</value> </data>
+  <data name='Numerator' xml:space='preserve'> <value>分子</value> </data>
+  <data name='Denominator' xml:space='preserve'> <value>分母</value> </data>
+  <data name='MuteTrackTip' xml:space='preserve'> <value>使轨道或线路静音。</value> </data>
+  <data name='SoloTrackTip' xml:space='preserve'> <value>独奏具有更高的静音优先级。</value> </data>
   <data name='DockLeft' xml:space='preserve'> <value>停靠左侧</value> </data>
   <data name='DockRight' xml:space='preserve'> <value>停靠右侧</value> </data>
   <data name='DockBottom' xml:space='preserve'> <value>停靠底部</value> </data>
