@@ -1687,18 +1687,18 @@
                                 </Border>
 
                                 <ContentControl Height="12"/>
-                                <TextBlock HorizontalAlignment="Center" Text="{strings:UI Type=Github}">
+                                <TextBlock HorizontalAlignment="Center" Text="{strings:UI Type=GithubTitle}">
                                     <!--Github-->
                                 </TextBlock>
-                                <HyperlinkButton HorizontalAlignment="Center" Content="{strings:UI Type=GithubLink}" NavigateUri="{x:Bind GithubLink}">
+                                <HyperlinkButton HorizontalAlignment="Center" Content="{strings:UI Type=Github}" NavigateUri="{x:Bind GithubLink}">
                                     <!--GithubLink-->
                                 </HyperlinkButton>
 
                                 <ContentControl Height="12"/>
-                                <TextBlock HorizontalAlignment="Center" Text="{strings:UI Type=Feedback}">
+                                <TextBlock HorizontalAlignment="Center" Text="{strings:UI Type=FeedbackTitle}">
                                     <!--Feedback-->
                                 </TextBlock>
-                                <HyperlinkButton HorizontalAlignment="Center" Content="{strings:UI Type=FeedbackLink}" NavigateUri="{x:Bind FeedbackLink}">
+                                <HyperlinkButton HorizontalAlignment="Center" Content="{strings:UI Type=Feedback}" NavigateUri="{x:Bind FeedbackLink}">
                                     <!--FeedbackLink-->
                                 </HyperlinkButton>
 
