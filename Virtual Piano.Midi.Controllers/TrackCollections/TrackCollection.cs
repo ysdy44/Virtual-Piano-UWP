@@ -12,7 +12,7 @@ namespace Virtual_Piano.Midi.Controllers
     public sealed class TrackCollection : ObservableCollection<ContentControl>
     {
         public readonly long StartAbsoluteTime;
-        public readonly int DeltaTicksPerQuarterNote;
+        public readonly int DeltaTicksPerQuarterNote; // PPQN
 
         public readonly long Duration;
         public readonly double Tempo;

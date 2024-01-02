@@ -1,6 +1,6 @@
 ﻿namespace Virtual_Piano.FileUtils
 {
-    public enum SongType : byte
+    public enum SongType
     {
         CanCanJacquesOffenbach,
         CanoninDJohannPachelbel,

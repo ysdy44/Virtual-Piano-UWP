@@ -7,7 +7,7 @@ namespace Virtual_Piano.Controls
     {
         public override string GetString(MidiProgram program)
         {
-            return $"{(int)program} {program.GetString()}";
+            return $"{(int)program}. {program.GetString()}";
         }
     }
 }

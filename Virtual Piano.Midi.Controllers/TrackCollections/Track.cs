@@ -8,6 +8,7 @@ namespace Virtual_Piano.Midi.Controllers
 {
     public sealed class Track : Canvas
     {
+        //@Const
         const int Count2 = NoteExtensions.NoteCount / 2;
         const int Count4 = Count2 / 2;
 
