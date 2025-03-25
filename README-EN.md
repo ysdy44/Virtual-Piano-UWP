@@ -4,7 +4,7 @@
 
  
  Windows 10 app store address: 
-[Buy V Piano - Microsoft Store](https://www.microsoft.com/store/productid/9N2RJ51HNTSX)   
+[Buy V Piano - Microsoft Store](https://apps.microsoft.com/detail/9n2rj51hntsx)   
 
 
 <br/>

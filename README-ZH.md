@@ -4,7 +4,7 @@
 
  
  Windows 10 app 应用商店地址: 
-[购置 V 钢琴 - 微软商店](https://www.microsoft.com/store/productid/9N2RJ51HNTSX)   
+[购置 V 钢琴 - 微软商店](https://apps.microsoft.com/detail/9n2rj51hntsx)   
 
 
 <br/>
