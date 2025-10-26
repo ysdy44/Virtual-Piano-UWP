@@ -47,6 +47,13 @@ namespace Virtual_Piano
         private double MarbleToRouletteConverter(double value) => value - 100 + 32;
         private Symbol FullScreenSymbolConverter(bool value) => value ? Symbol.BackToWindow : Symbol.FullScreen;
         private Symbol MuteSymbolConverter(bool value) => value ? Symbol.Mute : Symbol.Volume;
+        private string NullableBooleanToHorizontalScrollBarConverter(bool? value)
+        {
+            if (value.HasValue && value.Value)
+                return UIType.ScrollModeEnabled.GetString();
+            else
+                return UIType.ScrollModeDisabled.GetString();
+        }
 
         // Synthesizer
         MidiSynthesizer MidiSynthesizer;

@@ -629,8 +629,8 @@
                                 </ToggleButton>
                                 <ToggleButton x:Name="PianoHorizontalScrollBarItem" IsChecked="True">
                                     <StackPanel Orientation="Horizontal">
-                                        <SymbolIcon Symbol="DockBottom"/>
-                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{strings:UI Type=DockBottom}">
+                                        <SymbolIcon Symbol="Switch"/>
+                                        <TextBlock Margin="12,2" VerticalAlignment="Center" Text="{x:Bind NullableBooleanToHorizontalScrollBarConverter(PianoHorizontalScrollBarItem.IsChecked), Mode=OneWay}">
                                             <!--Dock Bottom-->
                                         </TextBlock>
                                     </StackPanel>
