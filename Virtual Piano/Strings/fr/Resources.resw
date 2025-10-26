@@ -116,8 +116,8 @@
   <data name='Denominator' xml:space='preserve'> <value>dénominateur</value> </data>
   <data name='MuteTrackTip' xml:space='preserve'> <value>Couper le son d’une piste ou d’une ligne.</value> </data>
   <data name='SoloTrackTip' xml:space='preserve'> <value>Les solos ont une priorité de sourdine plus élevée.</value> </data>
-  <data name='DockLeft' xml:space='preserve'> <value>Dock Left</value> </data>
-  <data name='DockRight' xml:space='preserve'> <value>Dock Right</value> </data>
+  <data name='ScrollModeDisabled' xml:space='preserve'> <value>Le défilement est désactivé.</value> </data>
+  <data name='ScrollModeEnabled' xml:space='preserve'> <value>Le défilement est activé.</value> </data>
   <data name='DockBottom' xml:space='preserve'> <value>Bas de la station d'accueil</value> </data>
   <data name='Bends' xml:space='preserve'> <value>Courbes</value> </data>
   <data name='BendPitch' xml:space='preserve'> <value>Hauteur</value> </data>

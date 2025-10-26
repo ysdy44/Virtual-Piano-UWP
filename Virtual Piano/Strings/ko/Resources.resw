@@ -116,8 +116,8 @@
   <data name='Denominator' xml:space='preserve'> <value>분모</value> </data>
   <data name='MuteTrackTip' xml:space='preserve'> <value>트랙 또는 라인을 음소거합니다.</value> </data>
   <data name='SoloTrackTip' xml:space='preserve'> <value>솔로는 음소거 우선 순위가 더 높습니다.</value> </data>
-  <data name='DockLeft' xml:space='preserve'> <value>왼쪽 도크</value> </data>
-  <data name='DockRight' xml:space='preserve'> <value>도크 오른쪽</value> </data>
+  <data name='ScrollModeDisabled' xml:space='preserve'> <value>스크롤을 사용할 수 없게 됩니다.</value> </data>
+  <data name='ScrollModeEnabled' xml:space='preserve'> <value>스크롤을 사용할 수 있습니다.</value> </data>
   <data name='DockBottom' xml:space='preserve'> <value>도크 하단</value> </data>
   <data name='Bends' xml:space='preserve'> <value>Bends</value> </data>
   <data name='BendPitch' xml:space='preserve'> <value>Pitch</value> </data>
@@ -343,7 +343,7 @@
   <data name='Pad7Halo' xml:space='preserve'> <value>후광</value> </data>
   <data name='Pad8Sweep' xml:space='preserve'> <value>쓸어내림</value> </data>
   <data name='FX1Rain' xml:space='preserve'> <value>비</value> </data>
-  <data name='FX2Soundtrack' xml:space='preserve'> <value>트랙(amp;T)</value> </data>
+  <data name='FX2Soundtrack' xml:space='preserve'> <value>트랙(&amp;T)</value> </data>
   <data name='FX3Crystal' xml:space='preserve'> <value>크리스탈</value> </data>
   <data name='FX4Atmosphere' xml:space='preserve'> <value>분위기</value> </data>
   <data name='FX5Brightness' xml:space='preserve'> <value>밝음</value> </data>

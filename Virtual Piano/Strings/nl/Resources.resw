@@ -116,8 +116,8 @@
   <data name='Denominator' xml:space='preserve'> <value>noemer</value> </data>
   <data name='MuteTrackTip' xml:space='preserve'> <value>Een track of lijn dempen.</value> </data>
   <data name='SoloTrackTip' xml:space='preserve'> <value>Solo's hebben een hogere mute-prioriteit.</value> </data>
-  <data name='DockLeft' xml:space='preserve'> <value>Dock links</value> </data>
-  <data name='DockRight' xml:space='preserve'> <value>Dock rechts</value> </data>
+  <data name='ScrollModeDisabled' xml:space='preserve'> <value>Scrollen is uitgeschakeld.</value> </data>
+  <data name='ScrollModeEnabled' xml:space='preserve'> <value>Scrollen is ingeschakeld.</value> </data>
   <data name='DockBottom' xml:space='preserve'> <value>Dock onder</value> </data>
   <data name='Bends' xml:space='preserve'> <value>Buigingen</value> </data>
   <data name='BendPitch' xml:space='preserve'> <value>Pitch</value> </data>

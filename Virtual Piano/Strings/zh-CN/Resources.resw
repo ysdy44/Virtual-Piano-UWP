@@ -116,8 +116,8 @@
   <data name='Denominator' xml:space='preserve'> <value>分母</value> </data>
   <data name='MuteTrackTip' xml:space='preserve'> <value>使轨道或线路静音。</value> </data>
   <data name='SoloTrackTip' xml:space='preserve'> <value>独奏具有更高的静音优先级。</value> </data>
-  <data name='DockLeft' xml:space='preserve'> <value>停靠左侧</value> </data>
-  <data name='DockRight' xml:space='preserve'> <value>停靠右侧</value> </data>
+  <data name='ScrollModeDisabled' xml:space='preserve'> <value>滚动已禁用。</value> </data>
+  <data name='ScrollModeEnabled' xml:space='preserve'> <value>滚动已启用。</value> </data>
   <data name='DockBottom' xml:space='preserve'> <value>停靠底部</value> </data>
   <data name='Bends' xml:space='preserve'> <value>弯曲</value> </data>
   <data name='BendPitch' xml:space='preserve'> <value>音高</value> </data>

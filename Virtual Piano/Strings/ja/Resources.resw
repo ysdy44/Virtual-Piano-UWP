@@ -116,8 +116,8 @@
   <data name='Denominator' xml:space='preserve'> <value>分母</value> </data>
   <data name='MuteTrackTip' xml:space='preserve'> <value>トラックまたはラインをミュートします。</value> </data>
   <data name='SoloTrackTip' xml:space='preserve'> <value>ソロはミュートの優先度が高くなります。</value> </data>
-  <data name='DockLeft' xml:space='preserve'> <value>左ドック</value> </data>
-  <data name='DockRight' xml:space='preserve'> <value>ドック右</value> </data>
+  <data name='ScrollModeDisabled' xml:space='preserve'> <value>スクロールは無効です。</value> </data>
+  <data name='ScrollModeEnabled' xml:space='preserve'> <value>スクロールは有効です。</value> </data>
   <data name='DockBottom' xml:space='preserve'> <value>ドック・ボトム</value> </data>
   <data name='Bends' xml:space='preserve'> <value>ベンド</value> </data>
   <data name='BendPitch' xml:space='preserve'> <value>ピッチ</value> </data>

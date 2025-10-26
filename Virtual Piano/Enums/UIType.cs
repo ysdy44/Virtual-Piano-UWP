@@ -79,8 +79,8 @@
         MuteTrackTip,
         SoloTrackTip,
 
-        DockLeft,
-        DockRight,
+        ScrollModeDisabled,
+        ScrollModeEnabled,
         DockBottom,
 
         Bends,

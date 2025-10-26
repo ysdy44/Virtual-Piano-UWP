@@ -116,8 +116,8 @@
   <data name='Denominator' xml:space='preserve'> <value>المقام</value> </data>
   <data name='MuteTrackTip' xml:space='preserve'> <value>كتم صوت مسار أو خط.</value> </data>
   <data name='SoloTrackTip' xml:space='preserve'> <value>المعزوفات المنفردة لها أولوية كتم صوت أعلى.</value> </data>
-  <data name='DockLeft' xml:space='preserve'> <value>قفص الاتهام اليسار</value> </data>
-  <data name='DockRight' xml:space='preserve'> <value>قفص الاتهام الحق</value> </data>
+  <data name='ScrollModeDisabled' xml:space='preserve'> <value>تم تعطيل التمرير.</value> </data>
+  <data name='ScrollModeEnabled' xml:space='preserve'> <value>تم تفعيل التمرير.</value> </data>
   <data name='DockBottom' xml:space='preserve'> <value>قفص الاتهام القاع</value> </data>
   <data name='Bends' xml:space='preserve'> <value>الانحناءات</value> </data>
   <data name='BendPitch' xml:space='preserve'> <value>زفت</value> </data>

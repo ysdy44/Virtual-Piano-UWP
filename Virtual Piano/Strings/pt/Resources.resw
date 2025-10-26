@@ -116,8 +116,8 @@
   <data name='Denominator' xml:space='preserve'> <value>denominador</value> </data>
   <data name='MuteTrackTip' xml:space='preserve'> <value>Silenciar uma faixa ou linha.</value> </data>
   <data name='SoloTrackTip' xml:space='preserve'> <value>Solos têm uma prioridade de mudo mais alta.</value> </data>
-  <data name='DockLeft' xml:space='preserve'> <value>Dock esquerdo</value> </data>
-  <data name='DockRight' xml:space='preserve'> <value>Dock Right (Dock Right)</value> </data>
+  <data name='ScrollModeDisabled' xml:space='preserve'> <value>A rolagem está desativada.</value> </data>
+  <data name='ScrollModeEnabled' xml:space='preserve'> <value>A rolagem está habilitada.</value> </data>
   <data name='DockBottom' xml:space='preserve'> <value>Dock Bottom</value> </data>
   <data name='Bends' xml:space='preserve'> <value>Curvas</value> </data>
   <data name='BendPitch' xml:space='preserve'> <value>Pitch</value> </data>

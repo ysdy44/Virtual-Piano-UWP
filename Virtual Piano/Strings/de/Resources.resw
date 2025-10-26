@@ -116,8 +116,8 @@
   <data name='Denominator' xml:space='preserve'> <value>Nenner</value> </data>
   <data name='MuteTrackTip' xml:space='preserve'> <value>Schalten Sie eine Spur oder Zeile stumm.</value> </data>
   <data name='SoloTrackTip' xml:space='preserve'> <value>Soli haben eine höhere Stummschaltungspriorität.</value> </data>
-  <data name='DockLeft' xml:space='preserve'> <value>Dock Links</value> </data>
-  <data name='DockRight' xml:space='preserve'> <value>Dock Rechts</value> </data>
+  <data name='ScrollModeDisabled' xml:space='preserve'> <value>Bildlauf wird deaktiviert.</value> </data>
+  <data name='ScrollModeEnabled' xml:space='preserve'> <value>Bildlauf ist aktiviert.</value> </data>
   <data name='DockBottom' xml:space='preserve'> <value>Dock Unten</value> </data>
   <data name='Bends' xml:space='preserve'> <value>Biegungen</value> </data>
   <data name='BendPitch' xml:space='preserve'> <value>Tonhöhe</value> </data>
