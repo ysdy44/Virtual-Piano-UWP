@@ -205,9 +205,10 @@ namespace Virtual_Piano
                 this.SplitView.IsPaneOpen = !this.SplitView.IsPaneOpen;
             };
 
+            this.TagListView.SelectedIndex = (int)this.PianoTopPanel.Label;
             this.TagListView.SelectionChanged += (s, e) =>
             {
-                this.PianoTopPanel.Label = (KeyLabel)this.TagListView.SelectedIndex; ;
+                this.PianoTopPanel.Label = (KeyLabel)this.TagListView.SelectedIndex;
             };
 
             this.NoteScrollViewer.Loaded += (s, e) =>
