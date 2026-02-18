@@ -6,7 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:elements="using:Virtual_Piano.Elements"
     xmlns:instruments="using:Virtual_Piano.Midi.Instruments"
-    mc:Ignorable="d"   
+    mc:Ignorable="d"
+    RequestedTheme="Dark"
     Background="Black"
     >
 
